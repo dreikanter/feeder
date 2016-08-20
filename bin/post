@@ -7,18 +7,21 @@ Dotenv.load
 $LOAD_PATH.unshift "#{File.dirname(__FILE__)}/../lib"
 
 require 'freefeed/api'
+require 'xkcd_feed'
 
-api = Freefeed::API.new(ENV['FREEFEED_TOKEN'])
+ap XkcdFeed.recent
 
-puts '---> create new attachment'
-re = api.create_attachment('tmp/test.png')
-attach_id = re['attachments']['id']
-puts "attachment id: #{attach_id}"
+# api = Freefeed::API.new(ENV['FREEFEED_TOKEN'])
 
-puts '---> create new post'
-re = api.create_post('Hello World!', feeds: ['xkcd'], attachments: [attach_id])
-post_id = re['posts']['id']
-puts "post id: #{post_id}"
+# puts '---> create new attachment'
+# re = api.create_attachment('tmp/test.png')
+# attach_id = re['attachments']['id']
+# puts "attachment id: #{attach_id}"
 
-puts '---> get post info'
-ap api.post(post_id)
+# puts '---> create new post'
+# re = api.create_post('Hello World!', feeds: ['xkcd'], attachments: [attach_id])
+# post_id = re['posts']['id']
+# puts "post id: #{post_id}"
+
+# puts '---> get post info'
+# ap api.post(post_id)
