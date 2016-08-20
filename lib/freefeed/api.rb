@@ -6,10 +6,10 @@ module Freefeed
       @token = token
     end
 
-    def create_attachment(file_name)
+    def create_attachment(readable)
       execute(:post, 'attachments',
         'miltipart' => true,
-        'file' => File.new(file_name, 'rb')
+        'file' => readable
       )
     end
 
@@ -27,6 +27,15 @@ module Freefeed
 
     def post(id)
       execute(:get, "posts/#{id}", 'maxComments' => 0)
+    end
+
+    def create_comment(post_id, body)
+      execute(:post, 'comments',
+        'comment' => {
+          'body' => body,
+          'postId' => post_id
+        }
+      )
     end
 
     private
