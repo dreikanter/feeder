@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+
+require 'bundler'
+Bundler.require
+Dotenv.load
+
+response = RestClient::Request.execute(
+  method: :post,
+  url: 'https://freefeed.net/v1/posts',
+  payload: {
+    'post' => {
+      'body' => 'Hello World!',
+      'attachments' => []
+    },
+    'meta' => {
+      'feeds' => ['xkcd']
+    }
+  },
+  headers: {
+    'x-authentication-token' => ENV['FREEFEED_TOKEN'],
+    'Content-Type': 'application/json'
+  }
+)
+
+puts JSON.pretty_generate(JSON.parse(response.body))
