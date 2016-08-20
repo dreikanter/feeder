@@ -4,20 +4,68 @@ require 'bundler'
 Bundler.require
 Dotenv.load
 
+puts '---> create new attachment'
+
+response = RestClient::Request.execute(
+  method: :post,
+  url: 'https://freefeed.net/v1/attachments',
+  payload: {
+    'miltipart' => true,
+    'file' => File.new('tmp/test.png', 'rb')
+  },
+  headers: {
+    'X-Authentication-Token' => ENV['FREEFEED_TOKEN'],
+    'Content-Type': 'image/png'
+  }
+)
+
+puts "response code: #{response.code}"
+
+attachment_id = JSON.parse(response.body)['attachments']['id']
+
+puts "attachemnt id: #{attachment_id}"
+
+
+
+puts '---> create new post'
+
 response = RestClient::Request.execute(
   method: :post,
   url: 'https://freefeed.net/v1/posts',
   payload: {
     'post' => {
       'body' => 'Hello World!',
-      'attachments' => []
+      'attachments' => [attachment_id]
     },
     'meta' => {
       'feeds' => ['xkcd']
     }
   },
   headers: {
-    'x-authentication-token' => ENV['FREEFEED_TOKEN'],
+    'X-Authentication-Token' => ENV['FREEFEED_TOKEN'],
+    'Content-Type': 'application/json'
+  }
+)
+
+puts "response code: #{response.code}"
+
+post_id = JSON.parse(response.body)['posts']['id']
+
+puts "new post id: #{post_id}"
+
+
+
+puts '---> get post info'
+
+
+response = RestClient::Request.execute(
+  method: :get,
+  url: "https://freefeed.net/v1/posts/#{post_id}",
+  payload: {
+    'maxComments' => 0
+  },
+  headers: {
+    'X-Authentication-Token' => ENV['FREEFEED_TOKEN'],
     'Content-Type': 'application/json'
   }
 )
