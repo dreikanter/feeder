@@ -15,19 +15,23 @@ class XkcdFeed
   private
 
   def attrs(item)
-    item_attrs(item).merge(image_attrs(first_img_tag(item.description)))
+    item_attrs(item).merge(extra:
+      image_attrs(first_img_tag(item.description)).to_json)
   end
 
   def item_attrs(item)
     {
       title: item.title,
-      link: item.link
+      link: item.link,
+      description: item.description,
+      pub_date: item.pubDate,
+      guid: item.guid ? item.guid.content : nil
     }
   end
 
   def image_attrs(image)
     {
-      content: image['alt'] || '',
+      image_description: image['alt'] || '',
       image_url: image['src']
     }
   end

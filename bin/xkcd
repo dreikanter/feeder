@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+FEED = 'xkcd'
+# FEED = 'testtesttest'
+
 require 'bundler'
 Bundler.require
 Dotenv.load
@@ -9,6 +12,7 @@ $LOAD_PATH.unshift "#{File.dirname(__FILE__)}/../lib"
 require 'freefeed/api'
 require 'xkcd_feed'
 require 'logger'
+require 'tempfile'
 
 logger = Logger.new($stdout)
 db = Sequel.connect('sqlite://feeds.sqlite', loggers: [logger])
@@ -20,10 +24,13 @@ db.table_exists?(:posts) || db.create_table(:posts) do
 
   String :title
   String :link, unique: true
-  String :content
-  String :image_url
+  String :description
+  DateTime :pub_date
+  String :guid
+  String :extra
+
+  DateTime :created_at, default: Time.now.utc
   String :freefeed_post_id
-  DateTime :created_at
 
   index :link
 end
@@ -33,26 +40,27 @@ class Post < Sequel::Model(:posts)
 end
 
 XkcdFeed.recent.each do |item|
-  next unless Post.where(link: item[:link]).count.zero?
-  ap Post.create(item.merge(created_at: Time.now.utc))
+  ap Post.create(item) if Post.where(link: item[:link]).count.zero?
 end
 
 api = Freefeed::API.new(ENV['FREEFEED_TOKEN'])
 
-Post.where(freefeed_post_id: nil).each do |post|
-  logger.info '---> create new attachment'
-  re = api.create_attachment(open(post.image_url))
+Post.where(freefeed_post_id: nil).order(:pub_date).each do |post|
+  logger.info "---> Post GUID: #{post.guid}"
+
+  image = JSON.parse(post.extra)
+  logger.info "---> create new attachment for #{image['image_url']}"
+  re = api.create_attachment_from_url(image['image_url'])
   attach_id = re['attachments']['id']
   logger.info "attachment id: #{attach_id}"
 
   logger.info '---> create new post'
   re = api.create_post("#{post.title} - #{post.link}",
-    feeds: ['xkcd'], attachments: [attach_id])
-
+    feeds: [FEED], attachments: [attach_id])
   post_id = re['posts']['id']
   logger.info "post id: #{post_id}"
   post.update(freefeed_post_id: post_id)
 
   logger.info '---> create comment'
-  api.create_comment(post_id, post.content)
+  api.create_comment(post_id, image['image_description'])
 end
