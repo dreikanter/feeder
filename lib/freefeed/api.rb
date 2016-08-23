@@ -7,7 +7,7 @@ module Freefeed
     end
 
     def create_attachment_from_url(url)
-      Tempfile.open([FEED, path_from_url(url)]) do |file|
+      Tempfile.open(['feeder', path_from_url(url)]) do |file|
         file.binmode
         re = RestClient.get(url)
         file.write(re.body)

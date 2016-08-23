@@ -1,8 +1,5 @@
 #!/usr/bin/env ruby
 
-FEED = 'xkcd'
-# FEED = 'testtesttest'
-
 require 'bundler'
 Bundler.require
 Dotenv.load
@@ -56,7 +53,7 @@ Post.where(freefeed_post_id: nil).order(:pub_date).each do |post|
 
   logger.info '---> create new post'
   re = api.create_post("#{post.title} - #{post.link}",
-    feeds: [FEED], attachments: [attach_id])
+    feeds: [ENV['XKCD_GROUP']], attachments: [attach_id])
   post_id = re['posts']['id']
   logger.info "post id: #{post_id}"
   post.update(freefeed_post_id: post_id)
