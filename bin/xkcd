@@ -14,24 +14,6 @@ require 'tempfile'
 logger = Logger.new($stdout)
 db = Sequel.connect('sqlite://feeds.sqlite', loggers: [logger])
 
-# db.drop_table(:posts) if db.table_exists?(:posts)
-
-db.table_exists?(:posts) || db.create_table(:posts) do
-  primary_key :id
-
-  String :title
-  String :link, unique: true
-  String :description
-  DateTime :pub_date
-  String :guid
-  String :extra
-
-  DateTime :created_at, default: Time.now.utc
-  String :freefeed_post_id
-
-  index :link
-end
-
 class Post < Sequel::Model(:posts)
   set_primary_key :id
 end
