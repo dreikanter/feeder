@@ -7,6 +7,7 @@ class PullJob < ApplicationJob
     end
 
     feed_url = Const::Feeds::URLS[feed_name]
+    Rails.logger.info "processing #{feed_name}"
     re = RestClient.get(feed_url)
     unless re.code == 200
       fail "error loading feed: #{feed_url}"

@@ -3,7 +3,11 @@ require 'rss'
 module Processors
   class RssProcessor < Processors::Base
     def process
-      RSS::Parser.parse(source).items.map { |item| attrs(preprocess(item)) }
+      items.map { |item| attrs(preprocess(item)) }
+    end
+
+    def items
+      RSS::Parser.parse(source).items
     end
 
     ATTRS = %i(title link description published_at guid extra).freeze

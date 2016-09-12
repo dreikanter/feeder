@@ -1,6 +1,6 @@
 module Processors
   class OglafProcessor < Processors::RssProcessor
-    def process
+    def items
       super.slice(0, 10)
     end
 
