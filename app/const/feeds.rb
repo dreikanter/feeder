@@ -1,6 +1,6 @@
 module Const
-  class Feed
-    SOURCES = {
+  class Feeds
+    URLS = {
       xkcd: 'http://xkcd.com/rss.xml',
       oglaf: 'http://oglaf.com/feeds/rss/',
       phdcomics: 'http://phdcomics.com/gradfeed.php',
