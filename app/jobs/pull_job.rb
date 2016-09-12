@@ -15,10 +15,15 @@ class PullJob < ApplicationJob
     feed = Feed.find_or_create_by(name: feed_name)
     feed.touch(:refreshed_at)
 
-    Service::Processor.for(feed_name).parse(re.body).each do |entity|
+    Service::Processor.for(feed_name).process(re.body).each do |entity|
       next if Post.where(feed: feed, link: entity[:link]).exists?
-      Rails.logger.info 'creating new post'
-      Post.create_with(feed: feed).create!(entity)
+      begin
+        entity = Service::Postprocessor.for(feed_name).process(entity)
+        Rails.logger.info 'creating new post'
+        Post.create!(entity.merge(feed: feed))
+      rescue => e
+        Rails.logger.error e.message
+      end
     end
   end
 end

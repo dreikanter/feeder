@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>CommitStrip</title>
+	<atom:link href="https://www.commitstrip.com/feed/?" rel="self" type="application/rss+xml" />
+	<link>https://www.commitstrip.com</link>
+	<description>The blog relating the daily life of web agency developers</description>
+	<lastBuildDate>Fri, 09 Sep 2016 21:31:17 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.6.1</generator>
+	<item>
+		<title>The mistakes of youth</title>
+		<link>https://www.commitstrip.com/2016/09/09/the-mistakes-of-youth/</link>
+		<pubDate>Fri, 09 Sep 2016 21:31:17 +0000</pubDate>
+		<dc:creator><![CDATA[CommitStrip]]></dc:creator>
+				<category><![CDATA[Coder]]></category>
+		<category><![CDATA[coder]]></category>
+		<category><![CDATA[Job]]></category>
+		<category><![CDATA[Mistake]]></category>
+		<category><![CDATA[PHP]]></category>
+		<category><![CDATA[Youth]]></category>
+
+		<guid isPermaLink="false">http://www.commitstrip.com/?p=16417</guid>
+		<description><![CDATA[]]></description>
+				<content:encoded><![CDATA[<p><img src="http://www.commitstrip.com/wp-content/uploads/2016/09/Strip-Apprendre-a-etre-dev-650-finalenglish.jpg" alt="" width="650" height="922" class="alignnone size-full wp-image-16421" /></p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Do we have a back-up in the audience?</title>
+		<link>https://www.commitstrip.com/2016/09/05/do-we-have-a-back-up-in-the-audience/</link>
+		<pubDate>Mon, 05 Sep 2016 18:01:51 +0000</pubDate>
+		<dc:creator><![CDATA[CommitStrip]]></dc:creator>
+				<category><![CDATA[Coder]]></category>
+		<category><![CDATA[back up]]></category>
+
+		<guid isPermaLink="false">http://www.commitstrip.com/?p=16401</guid>
+		<description><![CDATA[]]></description>
+				<content:encoded><![CDATA[<p><img src="http://www.commitstrip.com/wp-content/uploads/2016/09/Strip-Strip-Parachute-de-secours-inexistant-650-finalenglish.jpg" alt="" width="650" height="601" class="alignnone size-full wp-image-16405" /></p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Keep it simple, stupid</title>
+		<link>https://www.commitstrip.com/2016/09/01/keep-it-simple-stupid/</link>
+		<pubDate>Thu, 01 Sep 2016 17:31:02 +0000</pubDate>
+		<dc:creator><![CDATA[CommitStrip]]></dc:creator>
+				<category><![CDATA[Coder]]></category>
+
+		<guid isPermaLink="false">http://www.commitstrip.com/?p=16389</guid>
+		<description><![CDATA[]]></description>
+				<content:encoded><![CDATA[<p><img src="http://www.commitstrip.com/wp-content/uploads/2016/09/Strip-Le-stagiaire-et-la-variable-english650-final.jpg" alt="Strip-Le-stagiaire-et-la-variable-(english)(650-final)" width="650" height="604" class="alignnone size-full wp-image-16393" /></p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Childhood of a coder: Safe Mode</title>
+		<link>https://www.commitstrip.com/2016/08/29/childhood-of-a-coder-safe-mode/</link>
+		<pubDate>Mon, 29 Aug 2016 19:54:40 +0000</pubDate>
+		<dc:creator><![CDATA[CommitStrip]]></dc:creator>
+				<category><![CDATA[Coder]]></category>
+		<category><![CDATA[childhood]]></category>
+		<category><![CDATA[Safe mode]]></category>
+		<category><![CDATA[Windows]]></category>
+
+		<guid isPermaLink="false">http://www.commitstrip.com/?p=16377</guid>
+		<description><![CDATA[]]></description>
+				<content:encoded><![CDATA[<p><img src="http://www.commitstrip.com/wp-content/uploads/2016/08/Strip-Lenfance-du-codeur-Le-mode-sans-echec-english650-final.jpg" alt="Strip-L&#039;enfance-du-codeur---Le-mode-sans-echec-(english)(650-final)" width="650" height="614" class="alignnone size-full wp-image-16383" /></p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>A very comprehensive and precise spec</title>
+		<link>https://www.commitstrip.com/2016/08/25/a-very-comprehensive-and-precise-spec/</link>
+		<pubDate>Thu, 25 Aug 2016 16:05:47 +0000</pubDate>
+		<dc:creator><![CDATA[CommitStrip]]></dc:creator>
+				<category><![CDATA[Coder]]></category>
+		<category><![CDATA[abstraction]]></category>
+
+		<guid isPermaLink="false">http://www.commitstrip.com/?p=16367</guid>
+		<description><![CDATA[]]></description>
+				<content:encoded><![CDATA[<p><img src="http://www.commitstrip.com/wp-content/uploads/2016/08/Strip-Les-specs-cest-du-code-650-finalenglish.jpg" alt="Strip-Les-specs-c&#039;est-du-code-(650-final)(english)" width="650" height="613" class="alignnone size-full wp-image-16373" /></p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>When you can’t not listen.</title>
+		<link>https://www.commitstrip.com/2016/08/23/when-you-cant-not-listen/</link>
+		<pubDate>Tue, 23 Aug 2016 19:41:58 +0000</pubDate>
+		<dc:creator><![CDATA[CommitStrip]]></dc:creator>
+				<category><![CDATA[Coder]]></category>
+		<category><![CDATA[Discussion]]></category>
+		<category><![CDATA[Heard]]></category>
+		<category><![CDATA[Open Space]]></category>
+
+		<guid isPermaLink="false">http://www.commitstrip.com/?p=16355</guid>
+		<description><![CDATA[]]></description>
+				<content:encoded><![CDATA[<p><img src="http://www.commitstrip.com/wp-content/uploads/2016/08/Strip-Les-discussions-genantes-650-finalenglish.jpg" alt="Strip-Les-discussions-genantes-(650-final)(english)" width="650" height="911" class="alignnone size-full wp-image-16359" /></p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Open, Closed, Reopen. Repeat.</title>
+		<link>https://www.commitstrip.com/2016/08/18/open-closed-reopen-repeat/</link>
+		<pubDate>Thu, 18 Aug 2016 16:30:49 +0000</pubDate>
+		<dc:creator><![CDATA[CommitStrip]]></dc:creator>
+				<category><![CDATA[Coder]]></category>
+		<category><![CDATA[moutains]]></category>
+		<category><![CDATA[Regression]]></category>
+		<category><![CDATA[snow]]></category>
+		<category><![CDATA[tests]]></category>
+		<category><![CDATA[wind]]></category>
+
+		<guid isPermaLink="false">http://www.commitstrip.com/?p=16345</guid>
+		<description><![CDATA[]]></description>
+				<content:encoded><![CDATA[<p><img src="http://www.commitstrip.com/wp-content/uploads/2016/08/Strip-La-regression-interdite-english6502-final.jpg" alt="Strip-La-regression-interdite-(english)(6502-final)" width="650" height="915" class="alignnone size-full wp-image-16349" /></p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>When you need something during the summer lull</title>
+		<link>https://www.commitstrip.com/2016/08/17/when-you-need-something-during-the-summer-lull/</link>
+		<pubDate>Wed, 17 Aug 2016 07:02:16 +0000</pubDate>
+		<dc:creator><![CDATA[CommitStrip]]></dc:creator>
+				<category><![CDATA[Coder]]></category>
+		<category><![CDATA[Holiday]]></category>
+		<category><![CDATA[Summer]]></category>
+
+		<guid isPermaLink="false">http://www.commitstrip.com/?p=16333</guid>
+		<description><![CDATA[]]></description>
+				<content:encoded><![CDATA[<p><img src="http://www.commitstrip.com/wp-content/uploads/2016/08/Strip-Messages-dabsence-650-finalenglish.jpg" alt="" width="650" height="683" class="alignnone size-full wp-image-16337" /></p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Documentation just before vacation</title>
+		<link>https://www.commitstrip.com/2016/07/27/documentation-just-before-vacation/</link>
+		<pubDate>Wed, 27 Jul 2016 17:32:32 +0000</pubDate>
+		<dc:creator><![CDATA[CommitStrip]]></dc:creator>
+				<category><![CDATA[Coder]]></category>
+		<category><![CDATA[Code]]></category>
+		<category><![CDATA[documentation]]></category>
+		<category><![CDATA[Vacation]]></category>
+
+		<guid isPermaLink="false">http://www.commitstrip.com/?p=16301</guid>
+		<description><![CDATA[]]></description>
+				<content:encoded><![CDATA[<p><img src="http://www.commitstrip.com/wp-content/uploads/2016/07/Strip-Commentaires-davant-vacances-english650-final-2.jpg" alt="Strip-Commentaires-d&#039;avant-vacances-(english)(650-final)" width="650" height="608" class="alignnone size-full wp-image-16325" /></p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Coders and  the Big Four (Google, Amazon, Facebook, Apple)</title>
+		<link>https://www.commitstrip.com/2016/07/26/coders-and-the-big-four/</link>
+		<pubDate>Tue, 26 Jul 2016 19:03:14 +0000</pubDate>
+		<dc:creator><![CDATA[CommitStrip]]></dc:creator>
+				<category><![CDATA[Coder]]></category>
+		<category><![CDATA[Amazon]]></category>
+		<category><![CDATA[Apple]]></category>
+		<category><![CDATA[Big four]]></category>
+		<category><![CDATA[coder]]></category>
+		<category><![CDATA[Facebook]]></category>
+		<category><![CDATA[GAFA]]></category>
+		<category><![CDATA[Google]]></category>
+
+		<guid isPermaLink="false">http://www.commitstrip.com/?p=16275</guid>
+		<description><![CDATA[]]></description>
+				<content:encoded><![CDATA[<p><img src="http://www.commitstrip.com/wp-content/uploads/2016/07/Strip-GAFA-too-big-english650-final-2.jpg" alt="Strip-GAFA-too-big-(english)(650-final)" width="650" height="613" class="alignnone size-full wp-image-16293" /></p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>
+
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Page Caching using disk: enhanced
+Object Caching 859/875 objects using disk
+
+ Served from: commitstrip.com @ 2016-09-12 16:26:45 by W3 Total Cache -->

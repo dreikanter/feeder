@@ -15,5 +15,5 @@
 #
 
 class Feed < ApplicationRecord
-  has_many :posts, counter_cache: true
+  has_many :posts
 end
