@@ -1,0 +1,17 @@
+//= require jquery-ui/core
+//= require font-awesome
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+$span-medium: 20px;
+
+html,
+body,
+.container {
+  height: 95%;
+}
+
+body {
+  padding: $span-medium;
+}
