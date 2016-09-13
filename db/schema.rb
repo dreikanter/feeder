@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160912110133) do
+ActiveRecord::Schema.define(version: 20160913121434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer  "priority",   default: 0, null: false
+    t.integer  "attempts",   default: 0, null: false
+    t.text     "handler",                null: false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+  end
 
   create_table "feeds", force: :cascade do |t|
     t.string   "name",                     null: false
@@ -26,16 +41,16 @@ ActiveRecord::Schema.define(version: 20160912110133) do
 
   create_table "posts", force: :cascade do |t|
     t.integer  "feed_id",                       null: false
-    t.string   "title"
     t.string   "link",                          null: false
-    t.string   "description"
-    t.datetime "published_at"
-    t.string   "guid"
-    t.json     "extra",            default: {}, null: false
+    t.datetime "published_at",                  null: false
+    t.string   "text",             default: "", null: false
+    t.string   "attachments",      default: [], null: false, array: true
+    t.string   "comments",         default: [], null: false, array: true
     t.string   "freefeed_post_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.index ["feed_id"], name: "index_posts_on_feed_id", using: :btree
+    t.index ["link"], name: "index_posts_on_link", using: :btree
   end
 
 end

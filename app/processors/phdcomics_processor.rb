@@ -1,11 +1,11 @@
 module Processors
   class PhdcomicsProcessor < Processors::RssProcessor
-    def description(item)
-      ''
+    def text(item)
+      "#{item.title} - #{item.link}"
     end
 
-    def extra(item)
-      { image_url: Nokogiri::HTML(item.description).css('img').first['src'] }
+    def attachments(item)
+      [ Nokogiri::HTML(item.description).css('img').first['src'] ]
     end
   end
 end

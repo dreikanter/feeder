@@ -1,17 +1,20 @@
 module Processors
   class XkcdProcessor < Processors::RssProcessor
-    def preprocess(item)
-      image = Nokogiri::HTML(item.description).css('img').first
-      @extra = { image_url: image['src'] }
-      @description = image['alt'] || ''
+    def process_item(item)
+      @image = Nokogiri::HTML(item.description).css('img').first
+      super
     end
 
-    def description(item)
-      @description
+    def text(item)
+      "#{item.title} - #{item.link}"
     end
 
-    def extra(item)
-      @extra
+    def attachments(item)
+      [@image['src']]
+    end
+
+    def comments(item)
+      @image['alt'].to_s.empty? ? [] : [@image['alt']]
     end
   end
 end

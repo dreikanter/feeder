@@ -4,8 +4,8 @@ module Processors
       super.slice(0, 10)
     end
 
-    def description(item)
-      ''
+    def text(item)
+      "#{item.title} - #{item.link}"
     end
   end
 end
