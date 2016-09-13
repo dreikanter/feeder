@@ -15,5 +15,4 @@
 //= require bootstrap.min
 //= require jquery-ui/core
 //= require jquery-ui/effect-highlight
-//= require clipboard
 //= require_tree .

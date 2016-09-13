@@ -1,0 +1,18 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Feed</th>
+      <th class="text-right">Posts</th>
+      <th class="text-right">Last update</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @feeds.each do |feed| %>
+      <tr>
+        <td><a href="https://freefeed.net/<%= feed.name %>"><%= feed.name %></a></td>
+        <td class="text-right"><%= feed.posts_count %></td>
+        <td class="text-right"><%= feed.refreshed_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
