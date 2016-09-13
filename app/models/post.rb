@@ -28,7 +28,6 @@ class Post < ApplicationRecord
   delegate :name, to: :feed, prefix: :feed
 
   def feeds
-    return ['testtesttest'] if feed_name == 'xkcd'
     [feed_name]
   end
 end

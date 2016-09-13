@@ -1,10 +1,19 @@
 # Freefeed Feeder
 
-Copy `.env.example` to `.env` with a real Freefeed auth token, and run it like so:
+Copy `.env.example` to `.env` with a real Freefeed auth token.
 
-    bundle
-    bundle exec ruby bin/xkcd
+Background jobs:
 
-Or using crontab:
+    rails jobs:work
 
-    0 0,12 * * * cd ~/freefeed-feeder && ~/.rbenv/shims/bundle exec ruby bin/xkcd > ~/freefeed-feeder/log/cron.log 2>&1
+Refresh all feeds:
+
+    rails pull:all
+
+Crontab:
+
+    0 * * * * cd ~/freefeed-feeder && ~/.rbenv/shims/bundle exec rails pull:all > ~/freefeed-feeder/log/cron.log 2>&1
+
+DB migration during Heroku deployment:
+
+    heroku run --app freefeed-feeder rails db:migrate
