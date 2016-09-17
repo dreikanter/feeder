@@ -1,6 +1,6 @@
 module Freefeed
   class Client
-    BASE_URL = 'https://freefeed.net/v1/'
+    BASE_URL = ENV['FREEFEED_API_BASE_URL'] || 'https://freefeed.net/v1/'
     USER_AGENT = 'Mozilla'
 
     def initialize(token)

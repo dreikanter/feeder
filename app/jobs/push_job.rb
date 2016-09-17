@@ -22,7 +22,7 @@ class PushJob < ApplicationJob
 
     post.comments.each do |comment|
       logger.info 'creating new comment'
-      ap ff.create_comment(post_id, comment)
+      ap ff.create_comment(post_id, comment) if Rails.env.development?
     end
   end
 end

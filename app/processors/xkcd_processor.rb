@@ -1,7 +1,7 @@
 module Processors
   class XkcdProcessor < Processors::RssProcessor
     def process_item(item)
-      @image = Nokogiri::HTML(item.description).css('img').first
+      @image = Nokogiri::HTML(item.description).css('img:first').first
       super
     end
 
