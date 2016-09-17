@@ -70,17 +70,12 @@ module Freefeed
     end
 
     def execute(method, path, options = {})
-      process_response RestClient::Request.execute(
+      JSON.parse(RestClient::Request.execute(
         method: method,
         url: url(path),
         payload: options[:payload],
         headers: (options[:headers] || {}).merge(auth_header)
-      )
-    end
-
-    def process_response(response)
-      return JSON.parse(response.body) if response.code == 200
-      raise "response code: #{response.code}"
+      ).body)
     end
 
     def path_from_url(url)

@@ -5,7 +5,11 @@ module Service
     FEEDS_PATH = Rails.root.join('config', 'feeds.yml').freeze
 
     def self.index
-      send(:new)
+      @index ||= send(:new)
+    end
+
+    def self.find(name)
+      index.find { |f| f.name == name.to_s }
     end
 
     def each

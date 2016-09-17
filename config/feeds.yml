@@ -1,24 +1,24 @@
 ---
-# - name: "xkcd"
-#   url: "http://xkcd.com/rss.xml"
-  # processor: "rss"
+- name: "xkcd"
+  url: "http://xkcd.com/rss.xml"
+  processor: "rss"
 
-# - name: "oglaf"
-#   url: "http://oglaf.com/feeds/rss/"
-  # processor: "rss"
+- name: "oglaf"
+  url: "http://oglaf.com/feeds/rss/"
+  processor: "rss"
 
-# - name: "phdcomics"
-#   url: "http://feeds.feedburner.com/PhdComics"
-  # processor: "rss"
+- name: "phdcomics"
+  url: "http://feeds.feedburner.com/PhdComics"
+  processor: "rss"
 
-# - name: "commitstrip"
-#   url: "https://www.commitstrip.com/en/feed/"
-  # processor: "rss"
+- name: "commitstrip"
+  url: "https://www.commitstrip.com/en/feed/"
+  processor: "rss"
 
 - name: "dilbert"
   url: "http://dilbert.com/feed"
   processor: "atom"
 
-- name: "rl-rss"
+- name: "rllivejournal"
   url: "http://r-l.livejournal.com/data/rss"
   processor: "livejournal"
