@@ -1,6 +1,7 @@
 module EntityNormalizers
   class LivejournalNormalizer < EntityNormalizers::RssNormalizer
-    MAX_COMMENT_LENGTH = 500
+    # https://freefeed-product.hackpad.com/LtsQ2rM1RGD
+    MAX_COMMENT_LENGTH = 1500
     OMISSION = '... (continued)'
 
     def text
@@ -23,8 +24,8 @@ module EntityNormalizers
     def excerpt
       result = description
       result.css('br').each { |br| br.replace "\n" }
-      result.text.squeeze(" ").gsub(/\n{2,}/, "\n")
-      # .truncate(MAX_COMMENT_LENGTH, separator: ' ', omission: OMISSION)
+      result.text.squeeze(" ").gsub(/\n{2,}/, "\n").
+        truncate(MAX_COMMENT_LENGTH, separator: ' ', omission: OMISSION)
     end
 
     def description

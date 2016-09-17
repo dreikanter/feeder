@@ -9,7 +9,7 @@ module EntityNormalizers
     end
 
     def comments
-      [(image['alt'].to_s.empty? ? [] : [image['alt']])]
+      (image['alt'].to_s.empty? ? [] : [image['alt']])
     end
 
     def image

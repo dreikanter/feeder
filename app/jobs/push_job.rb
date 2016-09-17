@@ -20,9 +20,9 @@ class PushJob < ApplicationJob
 
     post.update(freefeed_post_id: post_id)
 
-    post.comments.each do |comment|
+    post.comments.reject(&:blank?).each do |comment|
       logger.info 'creating new comment'
-      ap ff.create_comment(post_id, comment) if Rails.env.development?
+      ff.create_comment(post_id, comment)
     end
   end
 end
