@@ -5,7 +5,7 @@ module EntityNormalizers
     OMISSION = '... (continued)'
 
     def text
-      [entity.title, entity.link].reject(&:blank?).join(' - ')
+      [entity.title, "!#{entity.link}"].reject(&:blank?).join(' - ')
     end
 
     def comments
