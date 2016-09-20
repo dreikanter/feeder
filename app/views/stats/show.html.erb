@@ -4,16 +4,22 @@
   <thead>
     <tr>
       <th>Feed</th>
-      <th class="text-right min-width">Posts</th>
+      <th class="text-right col-lg-1">Posts</th>
       <th class="text-right min-width">Last update</th>
     </tr>
   </thead>
   <tbody>
     <% @feeds.each do |feed| %>
       <tr>
-        <td><a href="https://freefeed.net/<%= feed.name %>"><%= feed.name %></a></td>
-        <td class="text-right nowrap"><%= feed.posts_count %></td>
-        <td class="text-right nowrap"><%= feed.refreshed_at %></td>
+        <td>
+          <a href="https://freefeed.net/<%= feed.name %>"><%= feed.name %></a>
+        </td>
+        <td class="text-right nowrap">
+          <%= feed.posts_count %>
+        </td>
+        <td class="text-right nowrap">
+          <%= feed.refreshed_at %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -25,18 +31,26 @@
   <thead>
     <tr>
       <th>Feed name</th>
-      <th class="text-right min-width nowrap">New posts</th>
-      <th class="text-right min-width nowrap">Duration (seconds)</th>
+      <th class="text-right col-lg-1 nowrap">New posts</th>
+      <th class="text-right col-lg-1 nowrap">Duration (s)</th>
       <th class="text-right min-width nowrap">Executed at</th>
     </tr>
   </thead>
   <tbody>
-    <% DataPoint.ordered.for('pull').each do |d| %>
+    <% DataPoint.recent.for('pull').each do |d| %>
       <tr>
-        <td><a href="https://freefeed.net/<%= d.details['feed_name'] %>"><%= d.details['feed_name'] %></a></td>
-        <td class="text-right"><%= d.details['posts_count'] %></td>
-        <td class="text-right"><%= d.details['duration'].round(2) %></td>
-        <td class="text-right nowrap"><%= d.created_at %></td>
+        <td>
+          <a href="https://freefeed.net/<%= d.details['feed_name'] %>"><%= d.details['feed_name'] %></a>
+        </td>
+        <td class="text-right">
+          <%= d.details['posts_count'] %>
+        </td>
+        <td class="text-right">
+          <%= d.details['duration'].round(2) %>
+        </td>
+        <td class="text-right nowrap">
+          <%= d.created_at %>
+        </td>
       </tr>
     <% end %>
   </tbody>

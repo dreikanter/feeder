@@ -15,7 +15,10 @@
 class DataPoint < ApplicationRecord
   belongs_to :series, class_name: 'DataPointSeries'
 
+  RECENT_LIMIT = 50
+
   scope :ordered, -> { order(created_at: :desc) }
+  scope :recent, -> { ordered.limit(RECENT_LIMIT) }
 
   def self.method_missing(method_name, *args)
     return super unless method_name.to_s.starts_with?('create_')
