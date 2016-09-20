@@ -4,7 +4,7 @@ class PushJob < ApplicationJob
   def perform(post)
     ff = Freefeed::Client.new(ENV['FREEFEED_TOKEN'])
 
-    attachment_ids = post.attachments.map do |url|
+    attachment_ids = post.attachments.reject(&:blank?).map do |url|
       logger.info "create new attachment for #{url}"
       re = ff.create_attachment_from_url(url)
       attach_id = re['attachments']['id']

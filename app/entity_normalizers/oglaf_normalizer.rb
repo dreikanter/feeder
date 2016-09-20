@@ -20,6 +20,8 @@ module EntityNormalizers
 
     def image_url
       Nokogiri::HTML(response.body).css('img#strip:first').first[:src]
+    rescue
+      nil
     end
 
     def response

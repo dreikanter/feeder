@@ -3,7 +3,9 @@ module Service
     def self.for(feed_name)
       feed = Service::Feeds.find(feed_name.to_s)
       [feed.name, feed.processor, :null].
-        map { |n| processor_class(n) }.reject(&:nil?).first
+        map { |n| n.to_s.gsub(/-/, '_') }.
+        map { |n| processor_class(n) }.
+        reject(&:nil?).first
     end
 
     def self.processor_class(name)

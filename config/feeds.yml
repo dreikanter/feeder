@@ -22,3 +22,11 @@
 - name: "rllivejournal"
   url: "http://r-l.livejournal.com/data/rss"
   processor: "livejournal"
+
+- name: "nichtlustig-de"
+  url: "http://static.nichtlustig.de/rss/nichtrss.rss"
+  processor: "rss"
+
+- name: "oatmeal"
+  url: "http://feeds.feedburner.com/oatmealfeed"
+  processor: "rss"

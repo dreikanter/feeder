@@ -5,7 +5,7 @@ module EntityNormalizers
     end
 
     def published_at
-      entity.pubDate
+      entity.respond_to?(:pubDate) ? entity.pubDate : entity.dc_date
     end
 
     def text
