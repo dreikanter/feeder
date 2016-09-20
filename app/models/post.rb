@@ -22,8 +22,8 @@
 class Post < ApplicationRecord
   belongs_to :feed, counter_cache: true
 
-  scope :ordered, -> { order(published_at: :asc) }
-  scope :unpublished, -> { ordered.where(freefeed_post_id: nil) }
+  scope :published, -> { where.not(freefeed_post_id: nil) }
+  scope :published_after, -> (time) { published.where('created_at > ?', time) }
 
   delegate :name, to: :feed, prefix: :feed
 

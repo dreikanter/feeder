@@ -1,0 +1,54 @@
+.data-table {
+  $question-icon: "\f128";
+  $data-table-cell-padding: 6px;
+
+  thead,
+  tbody,
+  tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: $data-table-cell-padding;
+        border-bottom-width: 1px;
+      }
+
+      > th.hint:after {
+        content: $question-icon;
+        font-family: "FontAwesome";
+        padding-left: 3px;
+        color: silver;
+      }
+    }
+  }
+
+  tbody {
+    > tr {
+      > td {
+        cursor: pointer;
+      }
+
+      > td.data-table-row-menu {
+        padding: 0;
+
+        > .dropdown > a {
+          display: inline-block;
+          padding: $data-table-cell-padding;
+        }
+      }
+
+      &.selected > td {
+        // Bootstrap variable
+        background-color: $state-info-bg;
+      }
+    }
+  }
+
+  .min-width {
+    width: 1%;
+  }
+}
+
+.data-table-popover {
+  position: absolute;
+  display: none;
+}

@@ -3,9 +3,14 @@
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'components/data-table';
 
 html,
 body,
 .container {
   height: 95%;
+}
+
+.nowrap {
+  white-space: nowrap;
 }

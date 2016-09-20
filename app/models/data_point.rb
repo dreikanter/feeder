@@ -1,0 +1,34 @@
+# == Schema Information
+#
+# Table name: data_points
+#
+#  id         :integer          not null, primary key
+#  series_id  :integer
+#  details    :json             not null
+#  created_at :datetime         not null
+#
+# Indexes
+#
+#  index_data_points_on_series_id  (series_id)
+#
+
+class DataPoint < ApplicationRecord
+  belongs_to :series, class_name: 'DataPointSeries'
+
+  scope :ordered, -> { order(created_at: :desc) }
+
+  def self.method_missing(method_name, *args)
+    return super unless method_name.to_s.starts_with?('create_')
+    series = method_name.to_s.sub(/^create_/, '')
+    DataPoint.create(
+      series: DataPointSeries.find_or_create_by(name: series),
+      details: args.first
+    )
+  end
+
+  def self.for(series_name)
+    DataPoint.where(series: DataPointSeries.find_by_name(series_name))
+  rescue
+    DataPoint.none
+  end
+end
