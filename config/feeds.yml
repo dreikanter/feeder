@@ -34,3 +34,7 @@
 - name: "wumo"
   url: "http://wumo.com/wumo?view=rss"
   processor: "rss"
+
+- name: "kamillalinder-medium"
+  url: "https://medium.com/feed/@kamillalinder"
+  processor: "medium"
