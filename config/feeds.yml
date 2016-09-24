@@ -5,7 +5,8 @@
 
 - name: "oglaf"
   url: "http://oglaf.com/feeds/rss/"
-  processor: "rss"
+  processor: "oglaf"
+  normalizer: "oglaf"
 
 - name: "phdcomics"
   url: "http://feeds.feedburner.com/PhdComics"
@@ -21,7 +22,8 @@
 
 - name: "rllivejournal"
   url: "http://r-l.livejournal.com/data/rss"
-  processor: "livejournal"
+  processor: "rss"
+  normalizer: "livejournal"
 
 - name: "nichtlustig-de"
   url: "http://static.nichtlustig.de/rss/nichtrss.rss"
@@ -37,4 +39,10 @@
 
 - name: "kamillalinder-medium"
   url: "https://medium.com/feed/@kamillalinder"
-  processor: "medium"
+  processor: "rss"
+  normalizer: "medium"
+
+- name: "signalvnoise-feed"
+  url: "https://m.signalvnoise.com/feed"
+  processor: "rss"
+  normalizer: "medium"

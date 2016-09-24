@@ -76,6 +76,11 @@ module Freefeed
         payload: options[:payload],
         headers: (options[:headers] || {}).merge(auth_header)
       ).body)
+    rescue RestClient::Exception => e
+      Rails.logger.error '---> HTTP call error'
+      Rails.logger.error JSON.pretty_generate(e.response.headers)
+      Rails.logger.error e.response.body
+      raise
     end
 
     def path_from_url(url)

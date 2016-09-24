@@ -27,6 +27,8 @@ class Post < ApplicationRecord
 
   delegate :name, to: :feed, prefix: :feed
 
+  validate :link, :presence
+
   def feeds
     [feed_name]
   end

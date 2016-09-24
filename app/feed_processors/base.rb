@@ -1,7 +1,7 @@
 module FeedProcessors
   class Base
-    def self.process(source, normalizer = nil)
-      send(:new, source, normalizer).send(:process)
+    def self.process(source)
+      send(:new, source).send(:entities)
     end
 
     attr_reader :source
@@ -9,29 +9,12 @@ module FeedProcessors
 
     private
 
-    def initialize(source, normalizer)
-      @normalizer = normalizer
+    def initialize(source)
       @source = source
-    end
-
-    def process
-      entities.map { |e| normalize e }
     end
 
     def entities
       fail NotImplementedError, "#{self.class.name}##{__method__} is not implemented"
-    end
-
-    def normalize(entity)
-      normalizer.process(entity)
-    end
-
-    def normalizer
-      @normalizer || default_normalizer
-    end
-
-    def default_normalizer
-      EntityNormalizers::Base
     end
   end
 end

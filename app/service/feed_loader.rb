@@ -15,7 +15,7 @@ module Service
 
     def load
       refreshed_at = Time.zone.now
-      processed_entities
+      return processed_entities
     rescue
       refreshed_at = nil
       raise
@@ -28,8 +28,17 @@ module Service
     end
 
     def processed_entities
-      processor.process(feed_content, normalizer).map { |e| create_post(e) }.
-        reject(&:nil?).sort { |a, b| a.published_at <=> b.published_at }
+      new_entities.
+        map { |e| normalizer.process(e) }.
+        map { |e| create_post(e) }.
+        reject(&:nil?).
+        sort { |a, b| a.published_at <=> b.published_at }
+    end
+
+    def new_entities
+      processor.process(feed_content).
+        reject { |e| post_exists?(e[0]) }.
+        map { |e| e[1] }
     end
 
     def feed_content
@@ -44,8 +53,11 @@ module Service
       Service::EntityNormalizer.for(feed_info.name)
     end
 
+    def post_exists?(link)
+      Post.where(feed: feed, link: link).exists?
+    end
+
     def create_post(entity)
-      return if Post.where(feed: feed, link: entity['link']).exists?
       Rails.logger.info 'creating new post'
       Post.create!(entity.merge(feed: feed))
     rescue => e
