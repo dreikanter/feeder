@@ -48,7 +48,7 @@
       <% DataPoint.recent.for('pull').each do |dp| %>
         <tr>
           <td>
-            <a href="<%=  %>/<%= dp.details['feed_name'] %>"><%= dp.details['feed_name'] %></a>
+            <a href="<%= "#{ENV['FREEFEED_BASE_URL']}/#{dp.details['feed_name']}" %>"><%= dp.details['feed_name'] %></a>
           </td>
           <td>
             <%= dp.details['status'] %>
