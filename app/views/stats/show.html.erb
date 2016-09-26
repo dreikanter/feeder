@@ -15,7 +15,7 @@
       <% @feeds.each do |feed| %>
         <tr>
           <td>
-            <a href="https://freefeed.net/<%= feed.name %>"><%= feed.name %></a>
+            <a href="<%= "#{ENV['FREEFEED_BASE_URL']}/#{feed.name}" %>"><%= feed.name %></a>
           </td>
           <td class="text-right nowrap">
             <%= feed.posts_count %>
@@ -48,7 +48,7 @@
       <% DataPoint.recent.for('pull').each do |dp| %>
         <tr>
           <td>
-            <a href="https://freefeed.net/<%= dp.details['feed_name'] %>"><%= dp.details['feed_name'] %></a>
+            <a href="<%=  %>/<%= dp.details['feed_name'] %>"><%= dp.details['feed_name'] %></a>
           </td>
           <td>
             <%= dp.details['status'] %>
@@ -93,7 +93,7 @@
           </td>
           <td>
             <% if post.freefeed_post_id %>
-              <%= link_to "#{post.feed_name}/#{post.freefeed_post_id}", "https://candy.freefeed.net/#{post.feed_name}/#{post.freefeed_post_id}" %>
+              <%= link_to "#{post.feed_name}/#{post.freefeed_post_id}", "#{ENV['FREEFEED_BASE_URL']}/#{post.feed_name}/#{post.freefeed_post_id}" %>
             <% end %>
           </td>
           <td>
