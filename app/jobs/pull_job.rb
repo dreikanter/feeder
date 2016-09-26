@@ -4,13 +4,16 @@ class PullJob < ApplicationJob
   def perform(feed_name)
     started_at = Time.zone.now
 
-    posts = Service::FeedLoader.load(feed_name)
-    posts.each { |p| PushJob.perform_later p }
+    Service::FeedLoader.load(feed_name)
+
+    posts = Post.where(feed: Feed.find_by_name(feed_name), status: :ready)
 
     DataPoint.create_pull(
       posts_count: posts.count,
       feed_name: feed_name,
       duration: Time.zone.now - started_at
     )
+
+    posts.each { |p| PushJob.perform_later p }
   end
 end

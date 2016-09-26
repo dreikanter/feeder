@@ -24,15 +24,18 @@
 class Post < ApplicationRecord
   belongs_to :feed, counter_cache: true
 
-  scope :published, -> { where.not(freefeed_post_id: nil) }
-  scope :published_after, -> (time) { published.where('created_at > ?', time) }
-
-  delegate :name, to: :feed, prefix: :feed
   enum status: Enums::PostStatus.hash
 
   validate :link, :presence
 
+  RECENT_LIMIT = 50
+
+  scope :publishing_queue, -> { ready.order(published_at: :asc) }
+  scope :recent, -> { order(created_at: :desc).limit(RECENT_LIMIT) }
+
+  delegate :name, to: :feed, prefix: :feed
+
   def feeds
-    [feed_name]
+    feed ? [feed.name] : []
   end
 end

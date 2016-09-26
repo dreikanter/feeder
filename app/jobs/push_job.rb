@@ -1,10 +1,22 @@
 class PushJob < ApplicationJob
   queue_as :default
 
+  rescue_from StandardError do |e|
+    logger.error 'error publishing new post'
+    logger.error e.message
+    post = self.arguments.first
+    post.update(status: :error)
+  end
+
   def perform(post)
+    unless post.ready?
+      Rails.logger.warn "post status is not ready; skipping"
+      return
+    end
+
     ff = Freefeed::Client.new(ENV['FREEFEED_TOKEN'])
 
-    attachment_ids = post.attachments.reject(&:blank?).map do |url|
+    attach_ids = post.attachments.reject(&:blank?).map do |url|
       logger.info "create new attachment for #{url}"
       re = ff.create_attachment_from_url(url)
       attach_id = re['attachments']['id']
@@ -13,8 +25,7 @@ class PushJob < ApplicationJob
     end
 
     logger.info 'create new post'
-    re = ff.create_post(post.text,
-      feeds: post.feeds, attachments: attachment_ids)
+    re = ff.create_post(post.text, feeds: post.feeds, attachments: attach_ids)
     post_id = re['posts']['id']
     logger.info "post id: #{post_id}"
 
@@ -24,5 +35,7 @@ class PushJob < ApplicationJob
       logger.info 'creating new comment'
       ff.create_comment(post_id, comment)
     end
+
+    post.update(status: :published)
   end
 end
