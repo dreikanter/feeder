@@ -1,57 +1,114 @@
-<p>Feeds:</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Feeds</h3>
+  </div>
 
-<table class="table table-bordered data-table">
-  <thead>
-    <tr>
-      <th>Feed</th>
-      <th class="text-right col-lg-1">Posts</th>
-      <th class="text-right min-width">Last update</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @feeds.each do |feed| %>
+  <table class="table table-bordered data-table">
+    <thead>
       <tr>
-        <td>
-          <a href="https://freefeed.net/<%= feed.name %>"><%= feed.name %></a>
-        </td>
-        <td class="text-right nowrap">
-          <%= feed.posts_count %>
-        </td>
-        <td class="text-right nowrap">
-          <%= feed.refreshed_at %>
-        </td>
+        <th>Feed</th>
+        <th class="text-right col-lg-1">Posts</th>
+        <th class="min-width">Last update</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @feeds.each do |feed| %>
+        <tr>
+          <td>
+            <a href="https://freefeed.net/<%= feed.name %>"><%= feed.name %></a>
+          </td>
+          <td class="text-right nowrap">
+            <%= feed.posts_count %>
+          </td>
+          <td class="nowrap">
+            <%= feed.refreshed_at.strftime("%Y-%m-%d %H:%M") %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-<p>Updates:</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Recent updates</h3>
+  </div>
 
-<table class="table table-bordered data-table">
-  <thead>
-    <tr>
-      <th>Feed name</th>
-      <th class="text-right col-lg-1 nowrap">New posts</th>
-      <th class="text-right col-lg-1 nowrap">Duration (s)</th>
-      <th class="text-right min-width nowrap">Executed at</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% DataPoint.recent.for('pull').each do |d| %>
+  <table class="table table-bordered data-table">
+    <thead>
       <tr>
-        <td>
-          <a href="https://freefeed.net/<%= d.details['feed_name'] %>"><%= d.details['feed_name'] %></a>
-        </td>
-        <td class="text-right">
-          <%= d.details['posts_count'] %>
-        </td>
-        <td class="text-right">
-          <%= d.details['duration'].round(2) %>
-        </td>
-        <td class="text-right nowrap">
-          <%= d.created_at %>
-        </td>
+        <th>Feed name</th>
+        <th class="text-right col-lg-1 nowrap">New posts</th>
+        <th class="text-right col-lg-1 nowrap">Duration (s)</th>
+        <th class="min-width nowrap">Executed at</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% DataPoint.recent.for('pull').each do |dp| %>
+        <tr>
+          <td>
+            <a href="https://freefeed.net/<%= dp.details['feed_name'] %>"><%= dp.details['feed_name'] %></a>
+          </td>
+          <td class="text-right<%= ' zero' if dp.details['posts_count'].zero? %>">
+            <%= dp.details['posts_count'] %>
+          </td>
+          <td class="text-right">
+            <%= dp.details['duration'].round(2) %>
+          </td>
+          <td class="nowrap">
+            <%= dp.created_at.strftime("%Y-%m-%d %H:%M") %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Recent posts</h3>
+  </div>
+
+  <table class="table table-bordered data-table">
+    <thead>
+      <tr>
+        <th class="min-width">ID</th>
+        <th class="nowrap">Link</th>
+        <th class="col-lg-1 nowrap">Status</th>
+        <th class="text-right col-lg-1">Attachments</th>
+        <th class="text-right col-lg-1">Comments</th>
+        <th class="min-width nowrap">Created at</th>
+        <th class="min-width nowrap">Published at</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Post.includes(:feed).recent.each do |post| %>
+        <tr>
+          <td>
+            <%= post.id %>
+          </td>
+          <td>
+            <% if post.freefeed_post_id %>
+              <%= link_to "#{post.feed_name}/#{post.freefeed_post_id}", "https://candy.freefeed.net/#{post.feed_name}/#{post.freefeed_post_id}" %>
+            <% end %>
+          </td>
+          <td>
+            <%= post.status %>
+          </td>
+          <td class="text-right<%= ' zero' if post.attachments.empty? %>">
+            <%= post.attachments.count %>
+          </td>
+          <td class="text-right<%= ' zero' if post.comments.empty? %>">
+            <%= post.comments.count %>
+          </td>
+          <td class="nowrap">
+            <%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
+          </td>
+          <td class="nowrap">
+            <%= post.published_at.strftime("%Y-%m-%d %H:%M") %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
