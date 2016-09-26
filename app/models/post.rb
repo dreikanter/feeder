@@ -12,11 +12,13 @@
 #  freefeed_post_id :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  status           :integer          default("idle"), not null
 #
 # Indexes
 #
 #  index_posts_on_feed_id  (feed_id)
 #  index_posts_on_link     (link)
+#  index_posts_on_status   (status)
 #
 
 class Post < ApplicationRecord
@@ -26,6 +28,7 @@ class Post < ApplicationRecord
   scope :published_after, -> (time) { published.where('created_at > ?', time) }
 
   delegate :name, to: :feed, prefix: :feed
+  enum status: Enums::PostStatus.hash
 
   validate :link, :presence
 

@@ -12,11 +12,13 @@
 #  freefeed_post_id :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  status           :integer          default("idle"), not null
 #
 # Indexes
 #
 #  index_posts_on_feed_id  (feed_id)
 #  index_posts_on_link     (link)
+#  index_posts_on_status   (status)
 #
 
 require "test_helper"
