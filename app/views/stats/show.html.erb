@@ -8,7 +8,7 @@
       <tr>
         <th>Feed</th>
         <th class="text-right col-lg-1">Posts</th>
-        <th class="min-width">Last update</th>
+        <th class="col-lg-2">Last update</th>
       </tr>
     </thead>
     <tbody>
@@ -38,9 +38,10 @@
     <thead>
       <tr>
         <th>Feed name</th>
+        <th class="col-lg-1">Status</th>
         <th class="text-right col-lg-1 nowrap">New posts</th>
         <th class="text-right col-lg-1 nowrap">Duration (s)</th>
-        <th class="min-width nowrap">Executed at</th>
+        <th class="col-lg-2 nowrap">Executed at</th>
       </tr>
     </thead>
     <tbody>
@@ -49,11 +50,14 @@
           <td>
             <a href="https://freefeed.net/<%= dp.details['feed_name'] %>"><%= dp.details['feed_name'] %></a>
           </td>
-          <td class="text-right<%= ' zero' if dp.details['posts_count'].zero? %>">
+          <td>
+            <%= dp.details['status'] %>
+          </td>
+          <td class="text-right<%= ' zero' if dp.details['posts_count'].try(:zero?) %>">
             <%= dp.details['posts_count'] %>
           </td>
           <td class="text-right">
-            <%= dp.details['duration'].round(2) %>
+            <%= dp.details['duration'].try(:round, 2) %>
           </td>
           <td class="nowrap">
             <%= dp.created_at.strftime("%Y-%m-%d %H:%M") %>
@@ -77,8 +81,8 @@
         <th class="col-lg-1 nowrap">Status</th>
         <th class="text-right col-lg-1">Attachments</th>
         <th class="text-right col-lg-1">Comments</th>
-        <th class="min-width nowrap">Created at</th>
-        <th class="min-width nowrap">Published at</th>
+        <th class="col-lg-2 nowrap">Created at</th>
+        <th class="col-lg-2 nowrap">Published at</th>
       </tr>
     </thead>
     <tbody>
