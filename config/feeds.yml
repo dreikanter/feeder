@@ -42,7 +42,7 @@
   processor: "rss"
   normalizer: "medium"
 
-- name: "signalvnoise-feed"
+- name: "signalvnoise-medium"
   url: "https://m.signalvnoise.com/feed"
   processor: "rss"
   normalizer: "medium"
