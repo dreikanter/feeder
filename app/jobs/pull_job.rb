@@ -14,7 +14,7 @@ class PullJob < ApplicationJob
 
   def perform(feed_name)
     started_at = Time.zone.now
-    feed = Feed.find_by_name(feed_name)
+    feed = Feed.find_or_create_by(name: feed_name)
 
     Service::FeedLoader.load(feed_name).each do |entity|
       begin
