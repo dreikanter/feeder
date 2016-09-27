@@ -4,6 +4,10 @@ module Service
       send(:new, feed_name).send(:load)
     end
 
+    def self.load_entities(feed_name)
+      send(:new, feed_name).send(:new_entities)
+    end
+
     private
 
     attr_reader :feed_info
@@ -15,7 +19,7 @@ module Service
 
     def load
       refreshed_at = Time.zone.now
-      processed_entities
+      return new_entities.lazy.map { |e| normalizer.process(e) }
     rescue
       refreshed_at = nil
       raise
@@ -25,12 +29,6 @@ module Service
 
     def feed
       @feed ||= Feed.find_or_create_by(name: feed_info.name)
-    end
-
-    def processed_entities
-      new_entities.
-        lazy.map { |e| normalizer.process(e) }.
-        each { |e| create_post(e) }
     end
 
     def new_entities
@@ -53,14 +51,6 @@ module Service
 
     def post_exists?(link)
       Post.where(feed: feed, link: link).exists?
-    end
-
-    def create_post(entity)
-      Rails.logger.info 'creating new post'
-      Post.create!(entity.merge(feed: feed, status: Enums::PostStatus.ready))
-    rescue => e
-      Rails.logger.error "error processing feed entity: #{e.message}"
-      nil
     end
   end
 end
