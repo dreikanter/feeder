@@ -4,9 +4,9 @@ module EntityNormalizers
       send(:new, entity).send(:process)
     end
 
-    attr_reader :entity
+    protected
 
-    private
+    attr_reader :entity
 
     def initialize(entity)
       @entity = entity

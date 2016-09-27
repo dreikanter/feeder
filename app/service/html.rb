@@ -16,7 +16,7 @@ module Service
     end
 
     def self.first_image_url(html, selector = nil)
-      image_urls(html, selector = nil).first
+      image_urls(html, selector).first
     end
   end
 end
