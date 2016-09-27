@@ -11,7 +11,7 @@ module EntityNormalizers
     private
 
     def image_url
-      @image_url ||= load_image_url
+      @image_url ||= normalized_image_uri
     end
 
     def normalized_image_uri
