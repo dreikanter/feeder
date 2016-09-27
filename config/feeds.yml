@@ -46,3 +46,37 @@
   url: "https://m.signalvnoise.com/feed"
   processor: "rss"
   normalizer: "medium"
+
+- name: "github-blog"
+  url: "https://github.com/blog/all.atom"
+  processor: "atom"
+
+- name: "coding-horror-blog"
+  url: "http://feeds.feedburner.com/codinghorror"
+  processor: "rss"
+
+- name: "a-list-apart-blog"
+  url: "http://alistapart.com/main/feed"
+  processor: "rss"
+
+- name: "little-big-details-blog"
+  url: "http://littlebigdetails.com/rss"
+  processor: "rss"
+
+- name: "esquire-photos"
+  url: "http://feeds.feedburner.com/esquire-ru"
+  processor: "rss"
+
+- name: "the-atlantic-photos"
+  url: "http://atlanticinfocus.tumblr.com/rss"
+  processor: "rss"
+  normalizer: "tumblr"
+
+- name: "best-of-hacker-news"
+  url: "https://news.ycombinator.com/best"
+  processor: "hacker_news"
+  processor: "hacker_news"
+
+- name: "explosm-comics"
+  url: "http://feeds.feedburner.com/Explosm"
+  processor: "rss"
