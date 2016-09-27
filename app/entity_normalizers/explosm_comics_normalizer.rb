@@ -14,11 +14,14 @@ module EntityNormalizers
       @image_url ||= load_image_url
     end
 
-    def load_image_url
-      uri = Service::Html.first_image_url(page_content, '#main-comic')
-      uri = Addressable::URI.parse(uri)
+    def normalized_image_uri
+      uri = Addressable::URI.parse(load_image_url)
       uri.scheme ||= 'https'
       uri.to_s
+    end
+
+    def load_image_url
+      Service::Html.first_image_url(page_content, '#main-comic')
     end
 
     def page_content
