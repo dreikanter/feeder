@@ -11,25 +11,17 @@ module EntityNormalizers
     end
 
     def attachments
-      [image]
+      [first_image_url]
     rescue
       []
     end
 
-    def image
-      @image ||= description.css('img:first').first['src']
+    def first_image_url
+      @first_image_url ||= Service::Html.first_image_url(entity.description)
     end
 
     def excerpt
-      result = description
-      result.css('br').each { |br| br.replace "\n" }
-      result.text.squeeze(" ").gsub(/\n{2,}/, "\n").
-        truncate(Const::Content::MAX_COMMENT_LENGTH, separator: ' ',
-          omission: Const::Content::OMISSION)
-    end
-
-    def description
-      Nokogiri::HTML(entity.description)
+      @excerpt ||= Service::Html.excerpt(entity.description)
     end
   end
 end
