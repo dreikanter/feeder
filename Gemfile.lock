@@ -106,6 +106,9 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    marginalia (1.4.0)
+      actionpack (>= 2.3)
+      activerecord (>= 2.3)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -236,6 +239,7 @@ DEPENDENCIES
   jquery-ui-rails (~> 5.0, >= 5.0.5)
   listen (~> 3.0.5)
   lograge (~> 0.3.6)
+  marginalia (~> 1.4)
   minitest-rails
   minitest-reporters
   nokogiri (~> 1.6, >= 1.6.8)
