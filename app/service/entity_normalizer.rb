@@ -1,39 +1,32 @@
 module Service
   class EntityNormalizer
-    def self.for(feed_name, feeds = nil)
-      send(:new, feed_name, feeds).send(:normalizer_class)
+    def self.for(feed)
+      send(:new, feed).send(:normalizer_class)
     end
 
     private
 
-    attr_reader :feed_name
-    attr_reader :feeds
+    attr_reader :feed
 
-    def initialize(feed_name, feeds)
-      @feed_name = feed_name
-      @feeds = feeds
+    def initialize(feed)
+      @feed = feed
     end
 
     def normalizer_class
-      best_match_for(Service::Feeds.find(feed_name, feeds)) ||
-        raise("no matching normalizer for [#{feed.name}]")
+      matching_normalizer || raise("no matching normalizer for [#{feed.name}]")
     end
 
-    def best_match_for(feed)
-      available_names_for(feed).
-        map { |n| normalizer_for(n) }.
-        reject(&:nil?).first
+    def matching_normalizer
+      available_names.each { |n| return normalizer_for(n) rescue next }
     end
 
-    def available_names_for(feed)
+    def available_names
       [feed.name, feed.normalizer, feed.processor].
-        map { |n| n.to_s.gsub(/-/, '_') }
+        map { |n| n.to_s.gsub(/-/, '_') }.lazy
     end
 
     def normalizer_for(name)
       "entity_normalizers/#{name}_normalizer".classify.constantize
-    rescue
-      nil
     end
   end
 end

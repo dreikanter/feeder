@@ -1,7 +1,7 @@
 module EntityNormalizers
   class CommitstripNormalizer < EntityNormalizers::RssNormalizer
     def text
-      "#{entity.title} - #{entity.link}"
+      "#{super} - #{link}"
     end
 
     def attachments

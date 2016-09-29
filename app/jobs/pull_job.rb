@@ -2,38 +2,48 @@ class PullJob < ApplicationJob
   queue_as :default
 
   rescue_from StandardError do |e|
-    logger.error '---> error loading the feed'
+    logger.error '---> error loading feed'
     logger.error e.message
 
     DataPoint.create_pull(
       feed_name: self.arguments.first,
+      message: e.message,
       status: 'error'
     )
   end
 
-
   def perform(feed_name)
     started_at = Time.zone.now
-    feed = Feed.find_or_create_by(name: feed_name)
+    feed = Feed.find_by_name!(feed_name)
+    logger.info "---> loading feed: #{feed.name}"
 
-    Service::FeedLoader.load(feed_name).each do |entity|
+    posts_count = 0
+    errors_count = 0
+
+    normalizer = Service::FeedNormalizer.for(feed)
+    logger.info "---> normalizer: #{normalizer.entity_normalizer}"
+
+    Service::FeedLoader.load(feed_name).each do |link, entity|
       begin
+        logger.info "---> processing next entity #{'-' * 50}"
+        next if Post.exists?(feed: feed, link: link)
         logger.info '---> creating new post'
-        Post.create!(entity.merge(
-          feed: feed,
-          status: Enums::PostStatus.ready)
-        )
+        Post.create!(normalizer.process(entity))
+        posts_count += 1
       rescue => e
-        logger.error "---> error processing feed entity: #{e.message}"
+        logger.error "---> error processing entity: #{e.message}"
+        errors_count += 1
       end
     end
 
-    posts = Post.publishing_queue.where(feed: feed)
-    posts_count = posts.each { |post| PushJob.perform_later(post) }.count
+    binding.pry
+
+    Post.publishing_queue_for(feed).each { |p| PushJob.perform_later(p) }
 
     DataPoint.create_pull(
-      posts_count: posts_count,
       feed_name: feed_name,
+      posts_count: posts_count,
+      errors_count: errors_count,
       duration: Time.zone.now - started_at,
       status: 'success'
     )

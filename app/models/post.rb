@@ -31,6 +31,7 @@ class Post < ApplicationRecord
   RECENT_LIMIT = 50
 
   scope :publishing_queue, -> { ready.order(published_at: :asc) }
+  scope :publishing_queue_for, -> (feed) { publishing_queue.where(feed: feed) }
   scope :recent, -> { order(created_at: :desc).limit(RECENT_LIMIT) }
 
   delegate :name, to: :feed, prefix: :feed

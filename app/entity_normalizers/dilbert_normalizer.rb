@@ -12,14 +12,10 @@ module EntityNormalizers
     end
 
     def attachments
-      [image_url]
+      @attachments ||= [image_url]
     end
 
     def image_url
-      @image_url ||= load_image_url
-    end
-
-    def load_image_url
       Nokogiri::HTML(page_content).css('img.img-comic:first').first[:src]
     end
 

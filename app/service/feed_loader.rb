@@ -1,56 +1,34 @@
 module Service
   class FeedLoader
     def self.load(feed_name)
-      send(:new, feed_name).send(:load)
-    end
-
-    def self.load_entities(feed_name)
-      send(:new, feed_name).send(:new_entities)
+      send(:new, feed_name).send(:load_entities)
     end
 
     private
 
-    attr_reader :feed_info
+    attr_reader :feed
 
     def initialize(feed_name)
-      @feed_info = Service::Feeds.find(feed_name.to_s)
-      fail ArgumentError, "unknown feed name: #{feed_name}" unless @feed_info
+      @feed = Feed.find_by_name(feed_name.to_s)
+      raise "feed not found: #{feed_name}" unless @feed
     end
 
-    def load
+    def load_entities
       refreshed_at = Time.zone.now
-      return new_entities.lazy.map { |e| normalizer.process(e) }
+      return processor.process(feed_content).lazy
     rescue
       refreshed_at = nil
       raise
     ensure
-      feed.update(refreshed_at: refreshed_at) if refreshed_at
-    end
-
-    def feed
-      @feed ||= Feed.find_or_create_by(name: feed_info.name)
-    end
-
-    def new_entities
-      processor.process(feed_content).
-        lazy.reject { |e| post_exists?(e[0]) }.
-        lazy.map { |e| e[1] }
-    end
-
-    def feed_content
-      RestClient.get(feed_info.url).body
+      feed.update(refreshed_at: refreshed_at)
     end
 
     def processor
-      Service::FeedProcessor.for(feed_info.name)
+      Service::FeedProcessor.for(feed.name)
     end
 
-    def normalizer
-      Service::EntityNormalizer.for(feed_info.name)
-    end
-
-    def post_exists?(link)
-      Post.where(feed: feed, link: link).exists?
+    def feed_content
+      RestClient.get(feed.url).body
     end
   end
 end

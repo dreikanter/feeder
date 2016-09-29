@@ -7,14 +7,14 @@ module FeedProcessors
     attr_reader :source
     attr_reader :feed_name
 
-    private
+    protected
 
     def initialize(source)
       @source = source
     end
 
     def recent_entities
-      (limit > 0) ? entities.take(max_entities) : entities
+      (limit > 0) ? entities.take(limit) : entities
     end
 
     def limit
