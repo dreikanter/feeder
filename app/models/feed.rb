@@ -21,6 +21,10 @@ class Feed < ApplicationRecord
   has_many :posts
 
   def self.find_or_import(name)
-    Feed.find_by_name(name) || Feed.create(Service::Feeds.find(name).to_h)
+    feed_info = Service::Feeds.find(name)
+    raise 'unknown feed' unless feed_info
+    feed = Feed.find_by_name(name) || Feed.create(name: name)
+    feed.update(Service::Feeds.find(name).to_h)
+    feed
   end
 end
