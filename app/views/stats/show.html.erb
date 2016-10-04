@@ -21,7 +21,7 @@
             <%= feed.posts_count %>
           </td>
           <td class="nowrap">
-            <%= feed.refreshed_at.strftime("%Y-%m-%d %H:%M") %>
+            <%= feed.refreshed_at.strftime("%Y-%m-%d %H:%M") if feed.refreshed_at %>
           </td>
         </tr>
       <% end %>
