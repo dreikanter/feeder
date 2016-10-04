@@ -1,5 +1,17 @@
 module EntityNormalizers
   class TumblrNormalizer < EntityNormalizers::RssNormalizer
+    def text
+      "#{super} - #{link}"
+    end
 
+    def attachments
+      [image_url]
+    end
+
+    private
+
+    def image_url
+      Service::Html.first_image_url(entity.description)
+    end
   end
 end

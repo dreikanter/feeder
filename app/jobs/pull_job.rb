@@ -14,6 +14,7 @@ class PullJob < ApplicationJob
 
   def perform(feed_name)
     started_at = Time.zone.now
+
     feed = Feed.find_by_name!(feed_name)
     logger.info "---> loading feed: #{feed.name}"
 
@@ -35,8 +36,6 @@ class PullJob < ApplicationJob
         errors_count += 1
       end
     end
-
-    binding.pry
 
     Post.publishing_queue_for(feed).each { |p| PushJob.perform_later(p) }
 
