@@ -32,6 +32,10 @@ module EntityNormalizers
       []
     end
 
+    def separator
+      ' - '
+    end
+
     private
 
     def attribute_names

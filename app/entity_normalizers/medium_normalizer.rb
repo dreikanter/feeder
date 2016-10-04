@@ -1,7 +1,7 @@
 module EntityNormalizers
   class MediumNormalizer < EntityNormalizers::RssNormalizer
     def text
-      [super, "!#{link}"].reject(&:blank?).join(' - ')
+      [super, "!#{link}"].reject(&:blank?).join(separator)
     end
 
     def attachments

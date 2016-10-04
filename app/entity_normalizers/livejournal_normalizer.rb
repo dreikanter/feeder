@@ -3,7 +3,7 @@ module EntityNormalizers
     # https://freefeed-product.hackpad.com/LtsQ2rM1RGD
 
     def text
-      [entity.title, "!#{entity.link}"].reject(&:blank?).join(' - ')
+      [entity.title, "!#{entity.link}"].reject(&:blank?).join(separator)
     end
 
     def comments
@@ -21,7 +21,7 @@ module EntityNormalizers
     end
 
     def excerpt
-      @excerpt ||= Service::Html.excerpt(entity.description)
+      @excerpt ||= Service::Html.comment_excerpt(entity.description)
     end
   end
 end

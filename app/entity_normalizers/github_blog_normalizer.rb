@@ -15,7 +15,7 @@ module EntityNormalizers
     private
 
     def content_excerpt
-      Service::Html.excerpt(entity.content.content)
+      Service::Html.comment_excerpt(entity.content.content)
     end
 
     def first_image_url
