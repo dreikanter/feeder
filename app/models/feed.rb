@@ -19,4 +19,8 @@
 
 class Feed < ApplicationRecord
   has_many :posts
+
+  def self.find_or_import(name)
+    Feed.find_by_name(name) || Feed.create(Service::Feeds.find(name))
+  end
 end

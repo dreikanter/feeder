@@ -9,7 +9,8 @@ module Service
     attr_reader :feed
 
     def initialize(feed_name)
-      @feed = Feed.find_by_name!(feed_name.to_s)
+      @feed = Feed.find_or_import(feed_name.to_s)
+      raise "feed not found: #{feed_name}" unless @feed
     end
 
     def processor_class
