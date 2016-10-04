@@ -59,6 +59,10 @@
   url: "http://atlanticinfocus.tumblr.com/rss"
   processor: "rss"
 
+- name: "esquire-photos"
+  url: "http://feeds.feedburner.com/esquire-ru"
+  processor: "rss"
+
 # - name: "coding-horror-blog"
 #   url: "http://feeds.feedburner.com/codinghorror"
 #   processor: "rss"
@@ -69,10 +73,6 @@
 
 # - name: "little-big-details-blog"
 #   url: "http://littlebigdetails.com/rss"
-#   processor: "rss"
-
-# - name: "esquire-photos"
-#   url: "http://feeds.feedburner.com/esquire-ru"
 #   processor: "rss"
 
 # - name: "best-of-hacker-news"

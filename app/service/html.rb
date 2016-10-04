@@ -3,7 +3,7 @@ module Service
     def self.text(html)
       result = Nokogiri::HTML(html)
       result.css('br').each { |br| br.replace "\n" }
-      result.text.squeeze(" ").gsub(/\n{2,}/, "\n").strip
+      result.text.squeeze(" ").gsub(/[ \n]{2,}/, "\n").strip
     end
 
     def self.excerpt(html, max_length)
