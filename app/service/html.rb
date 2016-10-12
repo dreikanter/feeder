@@ -16,7 +16,7 @@ module Service
     end
 
     def self.comment_excerpt(html)
-      excerpt(Const::Content::MAX_COMMENT_LENGTH)
+      excerpt(html, Const::Content::MAX_COMMENT_LENGTH)
     end
 
     def self.image_urls(html, selector = nil)
