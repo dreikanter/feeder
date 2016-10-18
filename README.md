@@ -50,8 +50,8 @@ Watch the log:
 Testing new feed:
 
 ``` ruby
-feed_name = 'esquire-photos'
-feed = Feed.find_by_name!(feed_name)
+feed_name = 'the-atlantic-photos'
+feed = Feed.find_or_import(feed_name)
 entity = Service::FeedLoader.load(feed_name).first[1]
 Service::FeedNormalizer.for(feed).process(entity)
 ```

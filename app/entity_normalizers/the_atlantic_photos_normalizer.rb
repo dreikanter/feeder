@@ -1,22 +1,49 @@
 module EntityNormalizers
   class TheAtlanticPhotosNormalizer < EntityNormalizers::TumblrNormalizer
     def text
-      [description, link].reject(&:blank?).join(separator)
+      [description, direct_link].reject(&:blank?).join(separator)
     end
 
-    def link
-      @link ||= Service::Html.first_link_url(entity.description)
+    def direct_link
+      RestClient.get(entity.link) do |response, request, result, &block|
+        redirecting = [301, 302, 307].include?(response.code)
+        redirecting ? response.headers[:location] : entity.link
+      end
+    end
+
+    def attachments
+      [ image_url ]
+    end
+
+    def comments
+      [ photo_description_excerpt ]
     end
 
     private
 
     def description
-      Service::Html.excerpt(entity.description, max_length)
+      kill_newlines(Service::Html.excerpt(entity.description, max_length))
     end
 
     def max_length
       Const::Content::MAX_UNCOLLAPSED_POST_LENGTH -
         separator.length - link.length
+    end
+
+    def image_url
+      Service::Html.first_image_url(entity.description)
+    end
+
+    def photo_description_excerpt
+      kill_newlines(Service::Html.comment_excerpt(photo_description.text))
+    end
+
+    def photo_description
+      Nokogiri::HTML(entity.description).css('figure > figcaption').first
+    end
+
+    def kill_newlines(text)
+      text.to_s.gsub(/\s+/, ' ')
     end
   end
 end

@@ -55,9 +55,9 @@
   url: "http://feeds.feedburner.com/Explosm"
   processor: "rss"
 
-# - name: "the-atlantic-photos"
-#   url: "http://atlanticinfocus.tumblr.com/rss"
-#   processor: "rss"
+- name: "the-atlantic-photos"
+  url: "http://feeds.feedburner.com/theatlantic/infocus"
+  processor: "rss"
 
 - name: "esquire-photos"
   url: "http://feeds.feedburner.com/esquire-ru"
