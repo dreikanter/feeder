@@ -1,4 +1,29 @@
 <div class="panel panel-default">
+  <table class="table table-bordered table-stats text-center">
+    <tbody>
+      <tr>
+        <td class="col-lg-3">
+          <h4><%= Feed.count %></h4>
+          <p>Feeds</p>
+        </td>
+        <td class="col-lg-3">
+          <h4><%= Post.count %></h4>
+          <p>Posts</p>
+        </td>
+        <td class="col-lg-3">
+          <h4><%= time_ago_tag(DataPoint.recent.for('pull').last.created_at) %></h4>
+          <p>Last update</p>
+        </td>
+        <td class="col-lg-3">
+          <h4><%= time_ago_tag(Post.last.created_at) %></h4>
+          <p>Last post</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Feeds</h3>
   </div>
@@ -21,7 +46,7 @@
             <%= feed.posts_count %>
           </td>
           <td class="nowrap">
-            <%= feed.refreshed_at.strftime("%Y-%m-%d %H:%M") if feed.refreshed_at %>
+            <%= readable_time_tag feed.refreshed_at if feed.refreshed_at %>
           </td>
         </tr>
       <% end %>
@@ -60,7 +85,7 @@
             <%= dp.details['duration'].try(:round, 2) %>
           </td>
           <td class="nowrap">
-            <%= dp.created_at.strftime("%Y-%m-%d %H:%M") %>
+            <%= readable_time_tag dp.created_at %>
           </td>
         </tr>
       <% end %>
@@ -106,10 +131,10 @@
             <%= post.comments.count %>
           </td>
           <td class="nowrap">
-            <%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
+            <%= readable_time_tag post.created_at %>
           </td>
           <td class="nowrap">
-            <%= post.published_at.strftime("%Y-%m-%d %H:%M") %>
+            <%= readable_time_tag post.published_at %>
           </td>
         </tr>
       <% end %>

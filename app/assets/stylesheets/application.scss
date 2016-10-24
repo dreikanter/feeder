@@ -18,3 +18,9 @@ body,
 .zero {
   color: silver;
 }
+
+.table-stats {
+  h4::first-letter {
+    text-transform: capitalize;
+  }
+}
