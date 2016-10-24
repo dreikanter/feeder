@@ -66,6 +66,7 @@
 - name: "best-of-hacker-news"
   url: "https://news.ycombinator.com/rss"
   processor: "rss"
+  normalizer: "hacker_news"
 
 # - name: "coding-horror-blog"
 #   url: "http://feeds.feedburner.com/codinghorror"
