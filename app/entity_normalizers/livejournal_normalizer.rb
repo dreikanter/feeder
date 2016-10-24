@@ -3,7 +3,7 @@ module EntityNormalizers
     # https://freefeed-product.hackpad.com/LtsQ2rM1RGD
 
     def text
-      [entity.title, "!#{entity.link}"].reject(&:blank?).join(separator)
+      [super, "!#{link}"].reject(&:blank?).join(separator)
     end
 
     def comments

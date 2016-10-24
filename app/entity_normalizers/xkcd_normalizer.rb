@@ -1,7 +1,7 @@
 module EntityNormalizers
   class XkcdNormalizer < EntityNormalizers::RssNormalizer
     def text
-      "#{entity.title} - #{entity.link}"
+      [super, link].join(separator)
     end
 
     def attachments

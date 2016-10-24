@@ -1,7 +1,7 @@
 module EntityNormalizers
   class TumblrNormalizer < EntityNormalizers::RssNormalizer
     def text
-      "#{super} - #{link}"
+      [super, link].join(separator)
     end
 
     def attachments

@@ -1,7 +1,7 @@
 module EntityNormalizers
   class OglafNormalizer < EntityNormalizers::RssNormalizer
     def text
-      "#{super} - #{link}"
+      [super, link].join(separator)
     end
 
     def published_at

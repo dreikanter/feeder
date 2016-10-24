@@ -1,7 +1,7 @@
 module EntityNormalizers
   class GithubBlogNormalizer < EntityNormalizers::AtomNormalizer
     def text
-      "#{super} - !#{link}"
+      [super, "!#{link}"].join(separator)
     end
 
     def comments
