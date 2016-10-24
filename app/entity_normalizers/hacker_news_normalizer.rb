@@ -1,11 +1,19 @@
 module EntityNormalizers
-  class HackerNewsNormalizer < EntityNormalizers::RssNormalizer
+  class HackerNewsNormalizer < EntityNormalizers::Base
     def text
-      [super, link].join(separator)
+      [entity[:text], link].join(separator)
+    end
+
+    def link
+      entity[:url]
     end
 
     def comments
-      [ "Comments: #{entity.comments}" ]
+      [[entity[:score], entity[:thread_url]].reject(&:blank?).join(' / ')]
+    end
+
+    def published_at
+      Time.zone.now
     end
   end
 end
