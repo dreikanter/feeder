@@ -16,6 +16,7 @@ class DataPoint < ApplicationRecord
   belongs_to :series, class_name: 'DataPointSeries'
 
   RECENT_LIMIT = 50
+  KEEP_RECORDS_FOR = 3.weeks
 
   scope :ordered, -> { order(created_at: :desc) }
   scope :recent, -> { ordered.limit(RECENT_LIMIT) }
@@ -33,5 +34,9 @@ class DataPoint < ApplicationRecord
     DataPoint.where(series: DataPointSeries.find_by_name(series_name))
   rescue
     DataPoint.none
+  end
+
+  def self.purge_old_records!
+    DataPoint.where('created_at < ?', KEEP_RECORDS_FOR.ago).delete_all
   end
 end

@@ -48,5 +48,7 @@ class PullJob < ApplicationJob
       duration: Time.zone.now - started_at,
       status: 'success'
     )
+
+    DataPoint.purge_old_records!
   end
 end
