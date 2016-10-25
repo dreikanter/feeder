@@ -1,28 +1,35 @@
 module Service
   class Feeds
-    include Enumerable
-
     FEEDS_PATH = Rails.root.join('config', 'feeds.yml').freeze
+    FEED_FIELDS = %w(name url processor normalizer).freeze
+    DEFAULTS = FEED_FIELDS.map { |f| [f, nil] }.to_h.freeze
 
-    def self.index(feeds = nil)
-      @index ||= send(:new, feeds)
+    def self.load(feeds)
+      @feeds = sanitize_feeds(feeds)
     end
 
-    def self.find(name, feeds = nil)
-      index(feeds).find { |f| f.name == name.to_s }
+    def self.feeds
+      @feeds ||= sanitize_feeds(YAML.load_file(FEEDS_PATH))
     end
 
-    def each
-      return enum_for(:each) unless :block_given?
-      @feeds.map { |f| OpenStruct.new f }.each { |f| yield f }
+    def self.count
+      @feeds.count
     end
 
-    private
+    def self.sanitize_feeds(feeds)
+      feeds.map { |f| OpenStruct.new(DEFAULTS.merge(f)) }
+    end
 
-    def initialize(feeds = nil)
-      @feeds = feeds || YAML.load_file(FEEDS_PATH)
-      return @feeds if @feeds.kind_of? Enumerable
-      raise "#{FEEDS_PATH} does not contain a list"
+    def self.find(name)
+      feeds.find { |f| f.name == name.to_s }
+    end
+
+    def self.each
+      feeds.each { |f| yield f }
+    end
+
+    def self.each_name(&block)
+      feeds.each { |f| yield f.name }
     end
   end
 end

@@ -24,33 +24,14 @@ class FeedsTest < ActiveSupport::TestCase
     }
   ].freeze
 
-  def sample_index
-    @sample_index ||= Service::Feeds.index(SAMPLE_FEEDS)
-  end
-
-  def sample_feed
-    @sample_feed ||= SAMPLE_FEEDS.first
-  end
-
-  def sample_feed_name
-    @sample_feed_name ||= sample_feed['name']
-  end
-
-
-  def test_index_is_enumerable
-    assert sample_index.kind_of?(Enumerable)
-  end
-
   def test_index_count
-    assert_equal sample_index.count, SAMPLE_FEEDS.count
+    assert_equal Service::Feeds.count, SAMPLE_FEEDS.count
   end
 
   def test_find_present
-    assert Service::Feeds.find(sample_feed_name, SAMPLE_FEEDS).present?
-  end
-
-  def test_find_match
-    result = Service::Feeds.find(sample_feed_name, SAMPLE_FEEDS)
-    assert_equal result, OpenStruct.new(sample_feed)
+    Service::Feeds.load(SAMPLE_FEEDS)
+    SAMPLE_FEEDS.map { |f| f['name'] }.each do |name|
+      assert Service::Feeds.find(name).present?
+    end
   end
 end

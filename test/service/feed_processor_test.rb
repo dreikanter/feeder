@@ -31,8 +31,9 @@ class FeedProcessorTest < ActiveSupport::TestCase
   }.freeze
 
   def test_for
+    Service::Feeds.load(SAMPLE_FEEDS)
     EXPECTED_PROCESSORS.each do |feed_name, processor_class|
-      result = Service::FeedProcessor.for(feed_name, SAMPLE_FEEDS)
+      result = Service::FeedProcessor.for(feed_name)
       assert_equal result, processor_class
     end
   end

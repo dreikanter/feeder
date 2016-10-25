@@ -64,7 +64,6 @@
   processor: "rss"
 
 - name: "best-of-hacker-news"
-  url: "https://news.ycombinator.com/best"
   processor: "hacker_news"
   normalizer: "hacker_news"
 

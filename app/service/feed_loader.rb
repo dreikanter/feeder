@@ -28,7 +28,7 @@ module Service
     end
 
     def feed_content
-      RestClient.get(feed.url).body
+      RestClient.get(feed.url).body if feed.url
     end
   end
 end
