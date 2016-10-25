@@ -1,5 +1,11 @@
 module EntityNormalizers
   class HackerNewsNormalizer < EntityNormalizers::Base
+    MIN_SCORE = 300
+
+    def valid?
+      data['score'].to_i > MIN_SCORE
+    end
+
     def text
       [data['title'], data['url']].join(separator)
     end

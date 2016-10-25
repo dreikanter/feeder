@@ -30,8 +30,12 @@ class PullJob < ApplicationJob
       begin
         logger.info "---> processing next entity #{'-' * 50}"
         next if Post.exists?(feed: feed, link: link)
+
+        post_attributes = normalizer.process(entity)
+        next unless post_attributes
+
         logger.info '---> creating new post'
-        Post.create!(normalizer.process(entity))
+        Post.create!(post_attributes)
         posts_count += 1
       rescue => e
         logger.error "---> error processing entity: #{e.message}"

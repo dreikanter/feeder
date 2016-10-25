@@ -10,6 +10,10 @@ module FeedProcessors
       end
     end
 
+    def limit
+      20
+    end
+
     def thread_url(id)
       "#{BASE_URL}/item?id=#{id}"
     end

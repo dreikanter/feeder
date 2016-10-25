@@ -5,7 +5,8 @@ module Service
     end
 
     def process(entity)
-      entity_attributes(entity).merge(common_attributes)
+      attributes = entity_attributes(entity)
+      attributes.merge(common_attributes) if attributes
     end
 
     attr_reader :feed

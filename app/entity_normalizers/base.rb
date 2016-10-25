@@ -36,6 +36,10 @@ module EntityNormalizers
       ' - '
     end
 
+    def valid?
+      true
+    end
+
     private
 
     def attribute_names
@@ -43,7 +47,7 @@ module EntityNormalizers
     end
 
     def attributes
-      attribute_names.map { |a| [a, send(a)] }.to_h
+      attribute_names.map { |a| [a, send(a)] }.to_h if valid?
     end
   end
 end
