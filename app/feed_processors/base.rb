@@ -1,6 +1,6 @@
 module FeedProcessors
   class Base
-    def self.process(source)
+    def self.process(source = nil)
       send(:new, source).send(:recent_entities)
     end
 
@@ -9,7 +9,7 @@ module FeedProcessors
 
     protected
 
-    def initialize(source)
+    def initialize(source = nil)
       @source = source
     end
 

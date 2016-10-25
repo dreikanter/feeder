@@ -1,36 +1,25 @@
 module FeedProcessors
   class HackerNewsProcessor < FeedProcessors::Base
     BASE_URL = 'https://news.ycombinator.com'.freeze
+    BASE_API_URL = 'https://hacker-news.firebaseio.com/v0'.freeze
 
     def entities
-      [links, scores, threads].transpose.map do |link, score, thread|
-        [link['href'], entity(link, score, thread)]
+      JSON.parse(RestClient.get(best_stories_url).body).map do |id|
+        link = thread_url(id)
+        [link, { id: id, link: link, data_url: item_url(id) }]
       end
     end
 
-    def links
-      html.css('.athing > .title > .storylink')
+    def thread_url(id)
+      "#{BASE_URL}/item?id=#{id}"
     end
 
-    def scores
-      html.css('.athing + tr .score')
+    def best_stories_url
+      "#{BASE_API_URL}/beststories.json"
     end
 
-    def threads
-      html.css('.athing + tr .age > a')
-    end
-
-    def html
-      @html ||= Nokogiri::HTML(source)
-    end
-
-    def entity(link, score, thread)
-      {
-        text: link.text,
-        url: link['href'],
-        score: score.text,
-        thread_url: "#{BASE_URL}/#{thread['href']}"
-      }
+    def item_url(id)
+      "#{BASE_API_URL}/item/#{id}.json"
     end
   end
 end

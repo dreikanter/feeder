@@ -1,19 +1,28 @@
 module EntityNormalizers
   class HackerNewsNormalizer < EntityNormalizers::Base
     def text
-      [entity[:text], link].join(separator)
+      [data['title'], data['url']].join(separator)
     end
 
     def link
-      entity[:url]
+      entity[:link]
     end
 
     def comments
-      [[entity[:score], entity[:thread_url]].reject(&:blank?).join(' / ')]
+      [[score, link].reject(&:blank?).join(' / ')]
+    end
+
+    def score
+      value = data['score'].to_i
+      "#{value} #{'point'.pluralize(value)}"
     end
 
     def published_at
-      Time.zone.now
+      Time.zone.at(data['time'])
+    end
+
+    def data
+      @data ||= JSON.parse(RestClient.get(entity[:data_url]).body)
     end
   end
 end
