@@ -11,11 +11,11 @@
           <p>Posts</p>
         </td>
         <td class="col-lg-3">
-          <h4><%= time_ago_tag(DataPoint.recent.for('pull').last.created_at) %></h4>
+          <h4><%= time_ago_tag(DataPoint.ordered.for('pull').first.created_at) %></h4>
           <p>Last update</p>
         </td>
         <td class="col-lg-3">
-          <h4><%= time_ago_tag(Post.last.created_at) %></h4>
+          <h4><%= time_ago_tag(Post.order(created_at: :desc).first.created_at) %></h4>
           <p>Last post</p>
         </td>
       </tr>
