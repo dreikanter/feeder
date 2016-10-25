@@ -2,6 +2,6 @@
 
 $(document).on("turbolinks:load", function() {
   $("time.ago").each(function(_, element) {
-    $(element).text(moment($(element).attr("datetime")).fromNow());
+    $(element).text(moment.utc($(element).attr("datetime")).fromNow());
   });
 });
