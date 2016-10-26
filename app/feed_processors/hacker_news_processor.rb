@@ -11,7 +11,7 @@ module FeedProcessors
     end
 
     def limit
-      20
+      100
     end
 
     def thread_url(id)
