@@ -1,9 +1,9 @@
 module EntityNormalizers
   class HackerNewsNormalizer < EntityNormalizers::Base
-    MIN_SCORE = 200
+    MIN_SCORE = 300
 
     def valid?
-      data['score'].to_i > MIN_SCORE
+      data['score'].to_i >= MIN_SCORE
     end
 
     def text
