@@ -7,7 +7,7 @@ module EntityNormalizers
     end
 
     def text
-      [data['title'], data['url']].join(separator)
+      [data['title'], data['url']].reject(&:blank?).join(separator)
     end
 
     def link
