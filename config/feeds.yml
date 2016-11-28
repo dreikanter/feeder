@@ -67,6 +67,11 @@
   processor: "hacker_news"
   normalizer: "hacker_news"
 
+- name: "reddit-worldnews"
+  url: "https://www.reddit.com/r/worldnews/.rss"
+  processor: "atom"
+  normalizer: "reddit"
+
 # - name: "coding-horror-blog"
 #   url: "http://feeds.feedburner.com/codinghorror"
 #   processor: "rss"
