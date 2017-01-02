@@ -10,7 +10,8 @@ module EntityNormalizers
 
     def comments
       return [] if source_url == discussion_url
-      [ "Discussion: #{discussion_url}" ]
+      parts = [ reddit_info, discussion_url ]
+      [ parts.reject(&:blank?).join(' - ') ]
     end
 
     private
@@ -27,6 +28,14 @@ module EntityNormalizers
 
     def content
       entity.content.content
+    end
+
+    def reddit_info
+      cached_data_point(entity.link.href).details.try(:[], 'description')
+    end
+
+    def cached_data_point(link)
+      DataPoint.for(:reddit).where("details->>'link' = ?", link).ordered.first
     end
   end
 end
