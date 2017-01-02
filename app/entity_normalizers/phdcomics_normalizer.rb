@@ -1,7 +1,7 @@
 module EntityNormalizers
   class PhdcomicsNormalizer < EntityNormalizers::RssNormalizer
     def text
-      [super, link].join(separator)
+      [ super, link ].join(separator)
     end
 
     def attachments

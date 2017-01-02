@@ -5,7 +5,7 @@ module EntityNormalizers
     end
 
     def text
-      [super.sub(/\.$/, ''), source_url].join(separator)
+      [ super.sub(/\.$/, ''), source_url ].join(separator)
     end
 
     def comments
