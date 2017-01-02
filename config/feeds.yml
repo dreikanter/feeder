@@ -69,17 +69,5 @@
 
 - name: "reddit-worldnews"
   url: "https://www.reddit.com/r/worldnews/.rss"
-  processor: "atom"
+  processor: "reddit"
   normalizer: "reddit"
-
-# - name: "coding-horror-blog"
-#   url: "http://feeds.feedburner.com/codinghorror"
-#   processor: "rss"
-
-# - name: "a-list-apart-blog"
-#   url: "http://alistapart.com/main/feed"
-#   processor: "rss"
-
-# - name: "little-big-details-blog"
-#   url: "http://littlebigdetails.com/rss"
-#   processor: "rss"
