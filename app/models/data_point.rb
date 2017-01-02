@@ -21,12 +21,12 @@ class DataPoint < ApplicationRecord
   scope :ordered, -> { order(created_at: :desc) }
   scope :recent, -> { ordered.limit(RECENT_LIMIT) }
 
-  def self.method_missing(method_name, *args)
+  def self.method_missing(method_name, details = {})
     return super unless method_name.to_s.starts_with?('create_')
     series = method_name.to_s.sub(/^create_/, '')
     DataPoint.create(
       series: DataPointSeries.find_or_create_by(name: series),
-      details: args.first
+      details: details
     )
   end
 
