@@ -21,7 +21,7 @@ module Service
     end
 
     def available_names
-      [feed.name, feed.normalizer, feed.processor].
+      [ feed.name, feed.normalizer, feed.processor ].
         map { |n| n.to_s.gsub(/-/, '_') }.lazy
     end
 

@@ -9,7 +9,11 @@ module EntityNormalizers
     end
 
     def attachments
-      @attachments ||= [image_url]
+      [ image_url ]
+    end
+
+    def comments
+      [ image_title ]
     end
 
     def last_modified
@@ -19,9 +23,17 @@ module EntityNormalizers
     end
 
     def image_url
-      Nokogiri::HTML(response.body).css('img#strip:first').first[:src]
+      image_element[:src]
     rescue
       nil
+    end
+
+    def image_title
+      image_element[:title]
+    end
+
+    def image_element
+      @image_element ||= Nokogiri::HTML(response.body).css('img#strip:first').first
     end
 
     def response
