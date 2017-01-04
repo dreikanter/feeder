@@ -1,6 +1,6 @@
 module FeedProcessors
   class RedditProcessor < FeedProcessors::AtomProcessor
-    POINTS_THRESHOLD = 1000
+    POINTS_THRESHOLD = 2000
 
     def entities
       super.lazy.select { |entity| enough_points?(entity.first) }
