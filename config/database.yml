@@ -1,20 +1,8 @@
 development:
-  adapter: postgresql
-  encoding: unicode
-  database: feeder_development
-  pool: 5
-  username:
-  password:
-  host: localhost
+  url: <%= ENV['DATABASE_URL'] %>
 
 test:
-  adapter: postgresql
-  encoding: unicode
-  database: feeder_test
-  pool: 5
-  username:
-  password:
-  host: localhost
+  url: <%= ENV['DATABASE_URL'] %>
 
 production:
   url: <%= ENV['DATABASE_URL'] %>
