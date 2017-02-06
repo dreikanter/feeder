@@ -1,12 +1,12 @@
 ENV['APP_NAME']               ||= 'feeder'
 ENV['HOST_NAME']              ||= "#{ENV['APP_NAME']}.dev"
 
-ENV['VM_IP']                  ||= '192.168.99.99'
+ENV['VM_IP']                  ||= '192.168.99.100'
 ENV['VM_MEMORY_MB']           ||= '2024'
 ENV['VM_CPUS']                ||= '1'
 
-ENV['LOCAL_ANSIBLE_PATH']     ||= '../rails-ansible'
-ENV['LOCAL_SECRETS_PATH']     ||= '../rails-ansible-secrets'
+ENV['LOCAL_ANSIBLE_PATH']     ||= '../feeder-ansible'
+ENV['LOCAL_SECRETS_PATH']     ||= '../feeder-ansible-secrets'
 
 ENV['APP_MOUNT_PATH']         ||= "/app"
 ENV['ANSIBLE_MOUNT_PATH']     ||= "/ansible"
