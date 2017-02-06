@@ -30,3 +30,9 @@
 # Dotenv
 .env
 
+# Figaro
+/config/application.yml
+/config/application.yml.backup
+
+# Misc
+.DS_Store
