@@ -4,12 +4,11 @@ require 'logger'
 require 'digest/md5'
 
 class SecretsVault
-  PUBLIC_KEY = ENV['SECRETS_VAULT_PUBLIC_KEY'] || '/secrets/secret_vault_key.pub'
-  PRIVATE_KEY = ENV['SECRETS_VAULT_PRIVATE_KEY'] || '/secrets/secret_vault_key'
+  PUBLIC_KEY = ENV['SECRETS_VAULT_PUBLIC_KEY'] || '/secrets/secrets_vault_key.pub'
+  PRIVATE_KEY = ENV['SECRETS_VAULT_PRIVATE_KEY'] || '/secrets/secrets_vault_key'
   APPLICATION_CONFIG = 'application.yml'
   APPLICATION_CONFIG_ENCRYPTED = "#{APPLICATION_CONFIG}.enc"
 
-  CONFIG_DIR = '../../../config'
   SEP = "###"
 
   def self.encrypt(options = {})
@@ -72,23 +71,23 @@ class SecretsVault
   end
 
   def expand_path(path)
-    File.expand_path(File.join(CONFIG_DIR, path), __FILE__)
+    File.expand_path(path, __FILE__)
   end
 
   def config_path
-    expand_path APPLICATION_CONFIG
+    expand_path("../../../config/#{APPLICATION_CONFIG}")
   end
 
   def encrypted_config_path
-    expand_path APPLICATION_CONFIG_ENCRYPTED
+    expand_path("../../../config/#{APPLICATION_CONFIG_ENCRYPTED}")
   end
 
   def public_key_path
-    expand_path PUBLIC_KEY
+    expand_path(PUBLIC_KEY)
   end
 
   def private_key_path
-    expand_path PRIVATE_KEY
+    expand_path(PRIVATE_KEY)
   end
 
   def public_key
