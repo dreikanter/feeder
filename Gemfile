@@ -32,7 +32,7 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'pg', '~> 0.18.4'
+gem 'pg', '~> 0.19.0'
 gem 'delayed_job_active_record', '~> 4.1', '>= 4.1.1'
 gem 'lograge', '~> 0.3.6'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
