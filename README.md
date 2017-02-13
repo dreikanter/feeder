@@ -25,7 +25,7 @@ Schedule background jobs to refresh all feeds:
 
 Refresh all feeds every hour:
 
-    0 * * * * cd /var/www/feeder && RAIL_ENV=production /home/deploy/.rbenv/shims/bundle exec rails pull:all > /var/www/feeder/log/cron.log 2>&1
+    0 * * * * cd /var/www/feeder && RAILS_ENV=production /home/deploy/.rbenv/shims/bundle exec rails pull:all > /var/www/feeder/log/cron.log 2>&1
 
 Run Rake task on Heroku instance:
 
