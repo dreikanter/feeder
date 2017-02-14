@@ -1,9 +1,7 @@
+$data-table-cell-padding-vertical: 5px;
+$data-table-cell-padding-horizontal: 10px;
+
 .data-table {
-  $question-icon: "\f128";
-  $data-table-cell-padding: 6px;
-
-  // table-layout: fixed;
-
   thead,
   tbody,
   tfoot {
@@ -12,11 +10,11 @@
       > td {
         border-bottom-width: 1px;
         overflow: auto;
-        padding: $data-table-cell-padding;
+        padding: $data-table-cell-padding-vertical $data-table-cell-padding-horizontal;
       }
 
       > th.hint:after {
-        content: $question-icon;
+        content: $fa-question;
         font-family: "FontAwesome";
         padding-left: 3px;
         color: silver;
@@ -35,7 +33,7 @@
 
         > .dropdown > a {
           display: inline-block;
-          padding: $data-table-cell-padding;
+          padding: $data-table-cell-padding-vertical $data-table-cell-padding-horizontal;
         }
       }
 
