@@ -25,6 +25,15 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
+    <h3 class="panel-title">Imported posts</h3>
+  </div>
+  <div class="panel-body">
+    <canvas id="history-chart" height="100"></canvas>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
     <h3 class="panel-title">Feeds</h3>
   </div>
 
@@ -162,5 +171,26 @@
 <script>
   $(function () {
     $('[data-toggle="tooltip"]').tooltip();
+
+    var chart = new Chart(document.getElementById("history-chart"), {
+      type: "line",
+      data: {
+        labels: <%= raw @history.keys.to_json %>,
+        datasets: [{
+          label: "Imported posts",
+          fill: false,
+          lineTension: 0.1,
+          borderCapStyle: 'butt',
+          borderColor: "#337ab7",
+          borderWidth: 2,
+          data: <%= raw @history.values.to_json %>,
+        }]
+      },
+      options: {
+        legend: {
+          display: false
+        }
+      }
+    });
   });
 </script>

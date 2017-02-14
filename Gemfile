@@ -45,3 +45,7 @@ gem 'addressable', '~> 2.4'
 gem 'marginalia', '~> 1.4'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-chartjs', '~> 2.5.0'
+end
