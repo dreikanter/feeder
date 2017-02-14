@@ -1,5 +1,5 @@
 <div class="panel panel-default">
-  <table class="table table-bordered table-stats text-center">
+  <table class="table table-bordered table-hover table-stats text-center">
     <tbody>
       <tr>
         <td class="col-lg-3">
@@ -28,12 +28,12 @@
     <h3 class="panel-title">Feeds</h3>
   </div>
 
-  <table class="table table-bordered data-table">
+  <table class="table table-bordered table-hover data-table">
     <thead>
       <tr>
         <th>Feed</th>
-        <th class="text-right col-lg-1">Posts</th>
-        <th class="col-lg-2">Last update</th>
+        <th class="min-width text-right">Posts</th>
+        <th class="min-width ">Last update</th>
       </tr>
     </thead>
     <tbody>
@@ -56,58 +56,20 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">Recent updates</h3>
-  </div>
-
-  <table class="table table-bordered data-table">
-    <thead>
-      <tr>
-        <th>Feed name</th>
-        <th class="col-lg-1">Status</th>
-        <th class="text-right col-lg-1 nowrap">New posts</th>
-        <th class="text-right col-lg-1 nowrap">Duration (s)</th>
-        <th class="col-lg-2 nowrap">Executed at</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% DataPoint.recent.for('pull').each do |dp| %>
-        <tr>
-          <td>
-            <a href="<%= "#{ENV['FREEFEED_BASE_URL']}/#{dp.details['feed_name']}" %>"><%= dp.details['feed_name'] %></a>
-          </td>
-          <td>
-            <%= dp.details['status'] %>
-          </td>
-          <td class="text-right<%= ' zero' if dp.details['posts_count'].try(:zero?) %>">
-            <%= dp.details['posts_count'] %>
-          </td>
-          <td class="text-right">
-            <%= dp.details['duration'].try(:round, 2) %>
-          </td>
-          <td class="nowrap">
-            <%= readable_time_tag dp.created_at %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
-
-<div class="panel panel-default">
-  <div class="panel-heading">
     <h3 class="panel-title">Recent posts</h3>
   </div>
 
-  <table class="table table-bordered data-table">
+  <table class="table table-bordered table-hover data-table">
     <thead>
       <tr>
         <th class="min-width">ID</th>
-        <th class="nowrap">Link</th>
-        <th class="col-lg-1 nowrap">Status</th>
-        <th class="text-right col-lg-1">Attachments</th>
-        <th class="text-right col-lg-1">Comments</th>
-        <th class="col-lg-2 nowrap">Created at</th>
-        <th class="col-lg-2 nowrap">Published at</th>
+        <th class="min-width nowrap">Group</th>
+        <th class="nowrap">Excerpt</th>
+        <th class="min-width text-center"><i class="fa fa-question-circle padding-lm padding-rm"></i></th>
+        <th class="min-width text-center"><i class="fa fa-paperclip padding-lm padding-rm"></i></th>
+        <th class="min-width text-center"><i class="fa fa-comment-o padding-lm padding-rm"></i></th>
+        <th class="min-width nowrap">Created at</th>
+        <th class="min-width nowrap">Published at</th>
       </tr>
     </thead>
     <tbody>
@@ -116,18 +78,21 @@
           <td>
             <%= post.id %>
           </td>
-          <td>
+          <td class="nowrap">
+            <a href="<%= "#{ENV['FREEFEED_BASE_URL']}/#{post.feed_name}" %>"><%= post.feed_name %></a>
+          </td>
+          <td class="excerpt truncated-line text-muted">
             <% if post.freefeed_post_id %>
-              <%= link_to "#{post.feed_name}/#{post.freefeed_post_id}", "#{ENV['FREEFEED_BASE_URL']}/#{post.feed_name}/#{post.freefeed_post_id}" %>
+              <%= link_to truncate(post.text, length: 100), "#{ENV['FREEFEED_BASE_URL']}/#{post.feed_name}/#{post.freefeed_post_id}" %>
             <% end %>
           </td>
-          <td>
-            <%= post.status %>
+          <td class="text-center">
+            <i class="fa post-status post-status--<%= post.status %>"></i>
           </td>
-          <td class="text-right<%= ' zero' if post.attachments.empty? %>">
+          <td class="text-center<%= ' zero' if post.attachments.empty? %>">
             <%= post.attachments.count %>
           </td>
-          <td class="text-right<%= ' zero' if post.comments.empty? %>">
+          <td class="text-center<%= ' zero' if post.comments.empty? %>">
             <%= post.comments.count %>
           </td>
           <td class="nowrap">
@@ -141,3 +106,52 @@
     </tbody>
   </table>
 </div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Recent updates</h3>
+  </div>
+
+  <table class="table table-bordered table-hover data-table">
+    <thead>
+      <tr>
+        <th>Feed name</th>
+        <th class="min-width"><i class="fa fa-question-circle padding-lm padding-rm"></i></th>
+        <th class="min-width text-right nowrap">New posts</th>
+        <th class="min-width text-right nowrap">Duration</th>
+        <th class="min-width nowrap">Executed at</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% DataPoint.recent.for('pull').each do |dp| %>
+        <tr>
+          <td>
+            <a href="<%= "#{ENV['FREEFEED_BASE_URL']}/#{dp.details['feed_name']}" %>"><%= dp.details['feed_name'] %></a>
+          </td>
+          <td class="text-center">
+            <i class="fa post-status post-status--<%= dp.details['status'] %>"></i>
+          </td>
+          <td class="text-right<%= ' zero' if dp.details['posts_count'].try(:zero?) %>">
+            <%= dp.details['posts_count'] %>
+          </td>
+          <td class="text-right nowrap">
+            <%= dp.details['duration'].try(:round, 2) %> s
+          </td>
+          <td class="nowrap">
+            <%= readable_time_tag dp.created_at %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<p class="text-center text-muted margin-tl margin-bxl">
+  <a href="https://github.com/dreikanter/feeder" class="">Source code</a>
+  <span class="padding-ls padding-rs">-</span>
+
+  <a href="https://github.com/dreikanter/feeder/issues" class="">Bug reports</a>
+  <span class="padding-ls padding-rs">-</span>
+
+  Maintained by: <a href="https://freefeed.net/dreikanter">dreikanter</a>
+</p>

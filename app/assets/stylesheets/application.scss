@@ -1,9 +1,9 @@
-//= require jquery-ui/core
 //= require font-awesome
 
-@import 'bootstrap-sprockets';
-@import 'bootstrap';
-@import 'components/data-table';
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "globals";
+@import "components/*";
 
 html,
 body,
@@ -22,5 +22,46 @@ body,
 .table-stats {
   h4::first-letter {
     text-transform: capitalize;
+  }
+}
+
+//
+// Enums::PostStatus icons
+//
+
+$fa-check-circle: "\f058";
+$fa-warning: "\f071";
+
+.post-status {
+  &.post-status--published:before {
+    color: $brand-success;
+    content: $fa-check-circle;
+  }
+
+  &.post-status--error:before {
+    color: $brand-warning;
+    content: $fa-warning;
+  }
+
+
+  &.post-status--success:before {
+    color: $brand-success;
+    content: $fa-check-circle;
+  }
+}
+
+.truncated-line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.excerpt {
+  max-width: 300px;
+}
+
+.text-muted {
+  a {
+    color: $text-muted;
   }
 }
