@@ -55,3 +55,5 @@ feed = Feed.find_or_import(feed_name)
 entity = Service::FeedLoader.load(feed_name).first[1]
 Service::FeedNormalizer.for(feed).process(entity)
 ```
+
+![](https://codeship.com/projects/YOUR_PROJECT_UUID/status?branch=master)
