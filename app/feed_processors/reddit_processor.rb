@@ -9,10 +9,7 @@ module FeedProcessors
     protected
 
     def enough_points?(link)
-      points = reddit_points(link)
-      result = points >= POINTS_THRESHOLD
-      Rails.logger.debug 'entity will be skipped' unless result
-      result
+      reddit_points(link) >= POINTS_THRESHOLD
     end
 
     def reddit_points(link)

@@ -11,7 +11,7 @@ namespace :pull do
   desc 'Pull all feeds'
   task all: :environment do
     Service::Feeds.each_name do |name|
-      PullJob.perform_later name.to_s
+      PullJob.perform_later(name.to_s)
     end
   end
 end
