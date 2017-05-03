@@ -1,22 +1,22 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 5.0.1'
-gem 'puma', '~> 3.0'
-gem 'sass-rails', '~> 5.0'
+gem 'puma', '~> 3.7'
+gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 gem 'uglifier', '~> 3.0', '>= 3.0.4'
 gem 'therubyracer', '~> 0.12.3', platforms: :ruby
 gem 'jquery-rails'
-gem 'turbolinks', '~> 5'
-gem 'jbuilder', '~> 2.5'
+gem 'jbuilder', '~> 2.6'
 gem 'redis', '~> 3.0'
+gem 'autoprefixer-rails', '~> 6.5', '>= 6.5.3.1'
 
 group :development, :test do
   gem 'pry-rails', '~> 0.3.4'
 end
 
 group :development do
-  gem 'web-console'
-  gem 'listen', '~> 3.0.5'
+  gem 'web-console', '>= 3.3.0'
+  gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'awesome_print', '~> 1.7'
