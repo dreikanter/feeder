@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160929123932) do
+ActiveRecord::Schema.define(version: 20170308200158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,25 @@ ActiveRecord::Schema.define(version: 20160929123932) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+  end
+
+  create_table "errors", force: :cascade do |t|
+    t.integer  "status",             default: 0,  null: false
+    t.string   "error_class_name",   default: "", null: false
+    t.string   "file_name"
+    t.integer  "line_number"
+    t.string   "label",              default: "", null: false
+    t.string   "message",            default: "", null: false
+    t.string   "backtrace",          default: [], null: false, array: true
+    t.string   "filtered_backtrace", default: [], null: false, array: true
+    t.json     "context",            default: {}, null: false
+    t.datetime "occured_at",                      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.index ["error_class_name"], name: "index_errors_on_error_class_name", using: :btree
+    t.index ["file_name"], name: "index_errors_on_file_name", using: :btree
+    t.index ["occured_at"], name: "index_errors_on_occured_at", using: :btree
+    t.index ["status"], name: "index_errors_on_status", using: :btree
   end
 
   create_table "feeds", force: :cascade do |t|
