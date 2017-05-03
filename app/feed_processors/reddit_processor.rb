@@ -36,7 +36,8 @@ module FeedProcessors
     end
 
     def page_content(link)
-      RestClient.get(link).body
+      safe_link = URI::encode(URI::decode(link))
+      RestClient.get(safe_link).body
     end
 
     def limit
