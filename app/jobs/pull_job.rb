@@ -1,17 +1,6 @@
 class PullJob < ApplicationJob
   queue_as :default
 
-  rescue_from StandardError do |e|
-    logger.error '---> error loading feed'
-    logger.error e.message
-
-    DataPoint.create_pull(
-      feed_name: self.arguments.first,
-      message: e.message,
-      status: 'error'
-    )
-  end
-
   def perform(feed_name)
     started_at = Time.zone.now
 
@@ -37,9 +26,14 @@ class PullJob < ApplicationJob
         logger.info '---> creating new post'
         Post.create!(post_attributes)
         posts_count += 1
-      rescue => e
-        logger.error "---> error processing entity: #{e.message}"
+      rescue => exception
+        logger.error "---> error processing entity: #{exception.message}"
         errors_count += 1
+        Error.dump(exception, context: {
+          class_name: self.class.name,
+          feed_name: feed_name,
+          hint: 'error processing entity'
+        })
       end
     end
 

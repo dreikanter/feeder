@@ -1,9 +1,9 @@
 class PushJob < ApplicationJob
   queue_as :default
 
-  rescue_from StandardError do |e|
-    logger.error 'error publishing new post'
-    logger.error e.message
+  rescue_from StandardError do |exception|
+    Rails.logger.error exception
+    Error.dump(exception, context: { class_name: self.class.name })
     post = self.arguments.first
     post.update(status: :error)
   end
