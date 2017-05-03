@@ -24,12 +24,14 @@ module FeedProcessors
     end
 
     def cached_data_point(link)
+      Rails.logger.debug 'loading reddit points from cache'
       DataPoint.for(:reddit).
         where('created_at > ?', 6.hours.ago).
         where("details->>'link' = ?", link).ordered.first
     end
 
     def create_data_point(link)
+      Rails.logger.debug 'loading reddit points from reddit'
       html = Nokogiri::HTML(page_content(link))
       points = html.at('.sitetable .score.unvoted')[:title].to_i
       desc = html.at('meta[property="og:description"]')[:content]
