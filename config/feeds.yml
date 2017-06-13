@@ -71,3 +71,8 @@
   url: "https://www.reddit.com/r/worldnews/.rss"
   processor: "reddit"
   normalizer: "reddit"
+
+- name: "avokado-fm"
+  url: "http://tele.ga/avokado_fm/rss/"
+  processor: "rss"
+  normalizer: "telega"
