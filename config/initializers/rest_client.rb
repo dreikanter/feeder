@@ -1,1 +1,1 @@
-RestClient.log = Rails.logger
+RestClient.log = Rails.logger unless Rails.env.production?
