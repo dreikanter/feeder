@@ -24,7 +24,7 @@ module EntityNormalizers
     READ_MORE_LINK = /\s*Читать дальше\s*/.freeze
 
     def description
-      Service::Html.excerpt(entity.description, max_length).
+      Service::Html.excerpt(entity.description, length: max_length).
         gsub(READ_MORE_LINK, '')
     end
 

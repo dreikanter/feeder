@@ -22,10 +22,10 @@ module EntityNormalizers
     private
 
     def description
-      kill_newlines(Service::Html.excerpt(entity.description, max_length))
+      kill_newlines(Service::Html.excerpt(entity.description, length: limit))
     end
 
-    def max_length
+    def limit
       Const::Content::MAX_UNCOLLAPSED_POST_LENGTH -
         separator.length - link.length
     end
