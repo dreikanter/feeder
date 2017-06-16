@@ -76,3 +76,8 @@
   url: "http://tele.ga/avokado_fm/rss/"
   processor: "rss"
   normalizer: "telega"
+
+- name: "ecologica"
+  url: "https://vkrss.com/ecologicaspb"
+  processor: "rss"
+  normalizer: "vk_rss"

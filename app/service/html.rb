@@ -13,9 +13,9 @@ module Service
     }
 
     def self.excerpt(html, options = {})
-      otps = EXCERPT_DEFAULTS.merge(options)
-      text(html).truncate(otps[:length], separator: otps[:separator],
-        omission: otps[:omission])
+      opts = EXCERPT_DEFAULTS.merge(options)
+      text(html).truncate(opts[:length], separator: opts[:separator],
+        omission: opts[:omission])
     end
 
     POST_EXCERPT_DEFAULTS = {
@@ -52,11 +52,43 @@ module Service
       link_urls(html, selector).first
     end
 
+    HASHTAG_PATTERN = /(?:\s*|^)#[[:graph:]]+/
+
     def self.paragraphs(html)
       result = Nokogiri::HTML(html)
+
+      # Replace paragraphs with line breaks
       result.css('br,p').each { |e| e.after "\n" }
-      result.css('a').each {|e| e.after(" (#{e['href']})") }
+
+      result.css('a').each do |e|
+        href = e['href']
+
+        # Replace linked URLs with plain text URLs
+        e.replace(href) if href.start_with?(e.content.sub(/…$/, ''))
+
+        # Unlink hashtags
+        e.replace(e.content) if e.content =~ HASHTAG_PATTERN
+      end
+
+      # Replace links with plain text URLs
+      result.css('a').each { |e| e.after(" (#{e['href']})") }
+
       result.text.split(/\n/).reject(&:blank?)
+    end
+
+    EMOJI_CHARS = [
+      ['\u{1f600}', '\u{1f64f}'],
+      ['\u{2702}',  '\u{27b0}'],
+      ['\u{1f680}', '\u{1f6ff}'],
+      ['\u{24C2}',  '\u{1F251}'],
+      ['\u{1f300}', '\u{1f5ff}']
+    ]
+
+    EMOJI_PATTERN =
+      Regexp.new(EMOJI_CHARS.map { |chars| chars.join('-') }.join)
+
+    def self.strip_emoji(text)
+      text.force_encoding('utf-8').encode.gsub(EMOJI_PATTERN, '')
     end
   end
 end
