@@ -1,27 +1,25 @@
-ENV['APP_NAME']               ||= 'feeder'
-ENV['HOST_NAME']              ||= "#{ENV['APP_NAME']}.dev"
+VAGRANT_APP_NAME   = 'feeder'
+HOSTNAME           = 'feeder.dev'
+HOSTNAME_ALIASES   = []
+VAGRANT_IP         = '192.168.99.101'
+VAGRANT_MEMORY_MB  = 2048
+VAGRANT_CPUS       = 2
+VAGRANT_BOX        = 'bento/ubuntu-16.04'
 
-ENV['VM_IP']                  ||= '192.168.99.100'
-ENV['VM_MEMORY_MB']           ||= '2024'
-ENV['VM_CPUS']                ||= '1'
+VAGRANT_PORTS = {
+  puma: { guest: 3000, host: 3000 },
+  mailhog: { guest: 1080, host: 1080 },
+  monit: { guest: 2812, host: 2812 },
+  elasticsearch: { guest: 9200, host: 9200 },
+  webpack_dev_server: { guest: 8080, host: 8080 },
+  postgres: { guest: 5432, host: 5433 }
+}
 
-ENV['LOCAL_ANSIBLE_PATH']     ||= '../feeder-ansible'
-ENV['LOCAL_SECRETS_PATH']     ||= '../feeder-ansible-secrets'
-
-ENV['APP_MOUNT_PATH']         ||= "/app"
-ENV['ANSIBLE_MOUNT_PATH']     ||= "/ansible"
-ENV['APP_SECRETS_MOUNT_PATH'] ||= "/secrets"
-
-Vagrant.require_version '>= 1.5'
-
-#
-# Vagrant plugins setup
-#
+Vagrant.require_version '>= 1.9'
 
 REQUIRED_PLUGINS = [
-  ['vagrant-bindfs', '1.0.1'],
-  ['vagrant-vbguest', '0.13.0'],
-  ['vagrant-hostmanager', '1.8.5']
+  ['vagrant-vbguest', '0.14.2'],
+  ['vagrant-hostmanager', '1.8.6']
 ].freeze
 
 def require_plugins!(plugins)
@@ -43,17 +41,17 @@ end
 
 require_plugins!(REQUIRED_PLUGINS)
 
-#
-# VM setup
-#
-
 Vagrant.configure('2') do |config|
   config.vm.provider :virtualbox do |vb, _override|
-    vb.memory = Integer(ENV['VM_MEMORY_MB'])
-    vb.cpus = Integer(ENV['VM_CPUS'])
+    vb.memory = Integer(VAGRANT_MEMORY_MB)
+    vb.cpus = Integer(VAGRANT_CPUS)
     vb.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
     vb.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
+    vb.customize [ 'guestproperty', 'set', :id, '--timesync-threshold', 10000 ]
+    vb.gui = false
   end
+
+  config.vbguest.auto_update = false
 
   config.hostmanager.enabled = true
   config.hostmanager.manage_host = true
@@ -61,44 +59,23 @@ Vagrant.configure('2') do |config|
   config.hostmanager.ignore_private_ip = false
   config.hostmanager.include_offline = true
 
-  # Mount application directory
-  config.vm.synced_folder '.', '/var/app'
-  config.bindfs.bind_folder '/var/app', ENV['APP_MOUNT_PATH']
+  config.vm.synced_folder '.', '/app'
 
-  # Mount Ansible playbooks directory
-  config.vm.synced_folder ENV['LOCAL_ANSIBLE_PATH'], '/var/ansible'
-  config.bindfs.bind_folder '/var/ansible', ENV['ANSIBLE_MOUNT_PATH']
+  config.vm.define VAGRANT_APP_NAME do |machine|
+    config.vm.box = VAGRANT_BOX
+    machine.vm.hostname = HOSTNAME
 
-  # Mount application secrets directory
-  config.vm.synced_folder ENV['LOCAL_SECRETS_PATH'], '/var/secrets'
-  config.bindfs.bind_folder '/var/secrets', ENV['APP_SECRETS_MOUNT_PATH'], perms: '0700'
-  # NOTE: Reduced permissions required for SSH keys to work properly
-
-  config.vm.define ENV['APP_NAME'] do |machine|
-    config.vm.box = 'bento/ubuntu-16.04'
-    machine.vm.hostname = ENV['HOST_NAME']
-
-    machine.vm.network 'forwarded_port', guest: 3000, host: 3002, auto_correct: true
-    machine.vm.network 'forwarded_port', guest: 1080, host: 1081, auto_correct: true
-    machine.vm.network 'forwarded_port', guest: 2812, host: 2813, auto_correct: true
-    machine.vm.network 'private_network', ip: ENV['VM_IP']
-
-    # Auxiliary domain names to create
-    # machine.hostmanager.aliases = %W(
-    #   admin.#{ENV['HOST_NAME']}
-    # )
-
-    # Ansible will run [provisioning_path] playbook on the guest system
-    machine.vm.provision :ansible_local do |ansible|
-      ansible.verbose = true
-      ansible.install = true
-      ansible.version = '2.2'
-      ansible.provisioning_path = ENV['ANSIBLE_MOUNT_PATH']
-      ansible.limit = 'all'
-      ansible.playbook = 'provision_vagrant.yml'
-      ansible.inventory_path = 'inventory/vagrant'
+    VAGRANT_PORTS.values.each do |ports|
+      machine.vm.network('forwarded_port', auto_correct: true, **ports)
     end
+
+    machine.vm.network 'private_network', ip: VAGRANT_IP
+    machine.hostmanager.aliases = HOSTNAME_ALIASES
+    config.vm.provision :shell, path: 'provision.sh', privileged: false
   end
 
   config.ssh.forward_agent = true
+
+  # Prevent tty errors
+  config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
 end
