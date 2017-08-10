@@ -8,11 +8,8 @@ VAGRANT_BOX        = 'bento/ubuntu-16.04'
 
 VAGRANT_PORTS = {
   puma: { guest: 3000, host: 3000 },
-  mailhog: { guest: 1080, host: 1080 },
-  monit: { guest: 2812, host: 2812 },
-  elasticsearch: { guest: 9200, host: 9200 },
   webpack_dev_server: { guest: 8080, host: 8080 },
-  postgres: { guest: 5432, host: 5433 }
+  postgres: { guest: 5432, host: 5432 }
 }
 
 Vagrant.require_version '>= 1.9'
@@ -60,6 +57,8 @@ Vagrant.configure('2') do |config|
   config.hostmanager.include_offline = true
 
   config.vm.synced_folder '.', '/app'
+  config.vm.synced_folder '../feeder-ansible', '/ansible'
+  config.vm.synced_folder '../feeder-ansible-secrets', '/secrets'
 
   config.vm.define VAGRANT_APP_NAME do |machine|
     config.vm.box = VAGRANT_BOX
