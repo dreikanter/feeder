@@ -78,6 +78,6 @@
   normalizer: "telega"
 
 - name: "ecologica"
-  url: "https://vkrss.com/ecologicaspb"
+  url: "https://vkrss.com/ecologicaspb?key=EW9tJd7ZI8iGBQyg"
   processor: "rss"
   normalizer: "vk_rss"
