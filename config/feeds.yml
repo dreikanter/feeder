@@ -81,3 +81,8 @@
   url: "https://vkrss.com/ecologicaspb?key=EW9tJd7ZI8iGBQyg"
   processor: "rss"
   normalizer: "vk_rss"
+
+- name: "f28a"
+  url: "http://floccinaucinihilipilificationa.tumblr.com/rss"
+  processor: "rss"
+  normalizer: "f28a"
