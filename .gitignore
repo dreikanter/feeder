@@ -37,3 +37,6 @@
 # Misc
 .DS_Store
 public/assets/
+
+# Rails secrets
+secrets.yml.key
