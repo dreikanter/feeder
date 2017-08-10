@@ -1,8 +1,11 @@
 development:
+  adapter: postgresql
   url: <%= ENV['DATABASE_URL'] %>
 
 test:
+  adapter: postgresql
   url: <%= ENV['DATABASE_URL'] %>
 
 production:
+  adapter: postgresql
   url: <%= ENV['DATABASE_URL'] %>
