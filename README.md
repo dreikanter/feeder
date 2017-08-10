@@ -25,21 +25,27 @@ Schedule background jobs to refresh all feeds:
 
 Refresh all feeds every 5 minutes:
 
-    */5 * * * * cd /var/www/feeder/current && RAILS_ENV=staging /home/deploy/.rbenv/shims/bundle exec rails pull:all jobs:workoff > /var/www/feeder/current/log/cron.log 2>&1
+```
+*/5 * * * * cd /var/www/feeder/current && RAILS_ENV=staging /home/deploy/.rbenv/shims/bundle exec rails pull:all jobs:workoff > /var/www/feeder/current/log/cron.log 2>&1
+```
 
 Run Rake task on Heroku instance:
 
-    heroku run --app freefeed-feeder rails pull:all
+```
+heroku run --app freefeed-feeder rails pull:all
+```
 
 Watch the log:
 
-    heroku logs --app freefeed-feeder --tail
+```
+heroku logs --app freefeed-feeder --tail
+```
 
 ## How to add new feed
 
-- Add new feed to config/feeds.yml
-- Create private group on candy.freefeed.net
-- Create private group on freefeed.net
+- Add new feed to `config/feeds.yml`
+- Create private group on https://candy.freefeed.net
+- Create private group on https://freefeed.net
 - Update group description and avatar
 - Create or reuse processor class
 - Create or reuse normalizer class
