@@ -38,16 +38,4 @@ class GithubBlogNormalizerTest < ActiveSupport::TestCase
     assert normalized.present?
     assert processed.length == normalized.length
   end
-
-  FIRST_SAMPLE = {
-    "link" => "https://www.commitstrip.com/2017/09/19/the-whole-teams-working-on-it/",
-    "published_at" => DateTime.parse('2017-09-19 16:42:52 +0000'),
-    "text" => "The whole team’s working on it - https://www.commitstrip.com/2017/09/19/the-whole-teams-working-on-it/",
-    "attachments" => ["https://www.commitstrip.com/wp-content/uploads/2017/09/Strip-La-super-équipe-de-maintenance-650-finalenglish.jpg"],
-    "comments" => []
-  }
-
-  # def test_normalized_sample
-  #   assert normalized.first == FIRST_SAMPLE
-  # end
 end
