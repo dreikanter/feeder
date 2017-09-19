@@ -29,9 +29,7 @@ module EntityNormalizers
       result = page_body
       result.css('br').each { |br| br.replace "\n" }
       result.css('h1').each { |h1| h1.replace '' }
-      result.text.squeeze(' ').gsub(/\n{2,}/, "\n").
-        truncate(Const::Content::MAX_COMMENT_LENGTH, separator: ' ',
-          omission: Const::Content::OMISSION)
+      Service::Html.comment_excerpt(Service::Html.squeeze(result.text))
     end
 
     def page_body

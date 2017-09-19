@@ -3,7 +3,7 @@ module Service
     def self.text(html)
       result = Nokogiri::HTML(html)
       result.css('br').each { |br| br.replace "\n" }
-      result.text.squeeze(" ").gsub(/[ \n]{2,}/, "\n").strip
+      squeeze(result.text)
     end
 
     EXCERPT_DEFAULTS = {
@@ -32,8 +32,12 @@ module Service
       [excerpt, opts[:link]].reject(&:blank?).join(opts[:separator])
     end
 
+    def self.squeeze(text)
+      text.squeeze(" ").gsub(/[ \n]{2,}/, "\n\n").strip
+    end
+
     def self.comment_excerpt(html)
-      excerpt(html, Const::Content::MAX_COMMENT_LENGTH)
+      excerpt(html, length: Const::Content::MAX_COMMENT_LENGTH)
     end
 
     def self.image_urls(html, selector = nil)
