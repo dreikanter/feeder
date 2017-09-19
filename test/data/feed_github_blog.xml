@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <id>tag:github.com,2008:/blog/all</id>
+  <link rel="alternate" type="text/html" href="https://github.com/blog"/>
+  <link rel="self" type="application/atom+xml" href="https://github.com/blog/all.atom"/>
+  <title>The GitHub Blog</title>
+  <updated>2017-09-19T17:03:54Z</updated>
+  <entry>
+    <id>tag:github.com,2008:Post/2440</id>
+    <published>2017-09-19T17:03:54Z</published>
+    <link rel="alternate" type="text/html" href="https://github.com/blog/2440-new-in-the-github-shop-octocat-laptop-decals"/>
+    <title>New in the GitHub Shop: Octocat laptop decals</title>
+    <category term="general"/>
+    <summary></summary>
+    <content type="html" xml:base="https://github.com/blog">&lt;p&gt;&lt;a href="https://shop.github.com/products/octocat-laptop-decals"&gt;&lt;img src="https://user-images.githubusercontent.com/24463350/30554918-e1d80312-9c5a-11e7-835e-c7f032a10d7f.png" alt="decals" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Looking for a new way to protect your laptop and stand out from the crowd? We've got two new game-inspired decals that are ready to shield your laptop against unforeseen scratches. No need to thank Mona—she's just doing what she can to help you keep your laptop looking its best.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.myshopify.com/"&gt;Shop the decals&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://shop.github.com/products/octocat-laptop-decals"&gt;&lt;img src="https://user-images.githubusercontent.com/15114852/30398806-8e6e54a6-9886-11e7-94fb-a1f4692c8dfb.jpg" alt="decals2" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Through thick and thin, you can count on this Vinyl Disorder decal to have your back—or at least the back of your laptop.&lt;/p&gt;
+&lt;p&gt;Choose from "Boxing Mona", ready to knock out tasks with a one-two punch, or "Adventure Mona", fearlessly leading the way to her next ship. Decals work for all laptop brands and come in small for 11"-13" laptops or large for 15"-17" laptops.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://shop.github.com/products/octocat-laptop-decals"&gt;Learn more&lt;/a&gt;&lt;/p&gt;</content>
+    <media:thumbnail url="https://avatars2.githubusercontent.com/u/15114852?v=4"/>
+    <author>
+      <name>Natalie Grace </name>
+      <uri>https://github.com/ZeroCool</uri>
+      <email></email>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/2437</id>
+    <published>2017-09-19T16:34:12Z</published>
+    <link rel="alternate" type="text/html" href="https://github.com/blog/2437-announcing-github-desktop-1-0"/>
+    <title>Announcing GitHub Desktop 1.0</title>
+    <category term="ship"/>
+    <summary></summary>
+    <content type="html" xml:base="https://github.com/blog">&lt;p&gt;Collaborating on GitHub with the power of a GUI application just got easier! &lt;a href="https://desktop.github.com/"&gt;GitHub Desktop 1.0&lt;/a&gt; is now available.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://user-images.githubusercontent.com/1174461/30502222-25f85210-9a1a-11e7-9562-bc0421c0d1c2.jpg" target="_blank"&gt;&lt;img src="https://user-images.githubusercontent.com/1174461/30502222-25f85210-9a1a-11e7-9562-bc0421c0d1c2.jpg" alt="1.0!" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;A few months ago, we completely redesigned and reimplemented GitHub Desktop on &lt;a href="https://electron.atom.io"&gt;Electron&lt;/a&gt; to provide a simpler, more unified experience. The public beta launched &lt;a href="https://github.com/blog/2362-announcing-git-integration-for-atom-and-github-desktop-beta"&gt;in May&lt;/a&gt;. Since then we've been hard at work fixing bugs, adding features, and responding to feedback—but now we're ready for prime time. Here's an overview of what you'll see in 1.0.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://desktop.github.com/"&gt;Download now&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a id="user-content-image-diffs" class="anchor" href="#image-diffs" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Image diffs&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://user-images.githubusercontent.com/1174461/30502218-25f62bd4-9a1a-11e7-9fb3-bed6d717e70a.jpg" target="_blank"&gt;&lt;img src="https://user-images.githubusercontent.com/1174461/30502218-25f62bd4-9a1a-11e7-9fb3-bed6d717e70a.jpg" alt="Image diff example" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Easily compare changed images. See the before and after, swipe or fade between the two, or look at just the changed parts.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/mathieudutour" class="user-mention"&gt;@mathieudutour&lt;/a&gt; implemented image diffs for &lt;a href="https://kactus.io"&gt;Kactus&lt;/a&gt;, a design review tool forked off GitHub Desktop. Then he was kind enough to submit the work back upstream to us!&lt;/p&gt;
+&lt;h2&gt;&lt;a id="user-content-faster-cloning" class="anchor" href="#faster-cloning" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Faster cloning&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://user-images.githubusercontent.com/1174461/30502221-25f7e5e6-9a1a-11e7-9382-cc283ed41a1c.jpg" target="_blank"&gt;&lt;img src="https://user-images.githubusercontent.com/1174461/30502221-25f7e5e6-9a1a-11e7-9382-cc283ed41a1c.jpg" alt="Clone dialog" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;See all your repositories and clone them with the click of a button. &lt;a href="http://git-lfs.github.com"&gt;Git LFS&lt;/a&gt; assets download in parallel for even faster cloning.&lt;/p&gt;
+&lt;h2&gt;&lt;a id="user-content-integrated" class="anchor" href="#integrated" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Integrated&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://user-images.githubusercontent.com/1174461/30502219-25f712e2-9a1a-11e7-8e37-2e3e12d24866.jpg" target="_blank"&gt;&lt;img src="https://user-images.githubusercontent.com/1174461/30502219-25f712e2-9a1a-11e7-8e37-2e3e12d24866.jpg" alt="Editors and terminals" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Open your favorite editor or shell from the app, or jump back to GitHub Desktop from your shell. GitHub Desktop is your springboard for work.&lt;/p&gt;
+&lt;h2&gt;&lt;a id="user-content-everywhere" class="anchor" href="#everywhere" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Everywhere&lt;/h2&gt;
+&lt;p&gt;GitHub Desktop works with GitHub Enterprise. Log in to your GitHub Enterprise server, clone, commit, push, and pull. Whether you're working on a personal or company project, GitHub Desktop is here to help.&lt;/p&gt;
+&lt;h2&gt;&lt;a id="user-content-open-source" class="anchor" href="#open-source" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Open source&lt;/h2&gt;
+&lt;p&gt;GitHub Desktop is &lt;a href="https://github.com/desktop/desktop"&gt;open source&lt;/a&gt; and we've already received some fantastic contributions from the community. Go check out our &lt;a href="https://github.com/desktop/desktop/blob/master/docs/process/roadmap.md"&gt;roadmap&lt;/a&gt;, contribute, and help us make collaboration even easier.&lt;/p&gt;
+&lt;h2&gt;&lt;a id="user-content-classic-apps" class="anchor" href="#classic-apps" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Classic apps&lt;/h2&gt;
+&lt;p&gt;We think GitHub Desktop is a big step forward—but don't worry, we won't force you to update! If you have a good thing going with the classic Mac or Windows app, you can continue to use them and move over to the new app when you're ready.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://desktop.github.com/"&gt;Download now&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;</content>
+    <media:thumbnail url="https://avatars2.githubusercontent.com/u/359239?v=4"/>
+    <author>
+      <name>Brendan Forster</name>
+      <uri>https://github.com/shiftkey</uri>
+      <email></email>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/2434</id>
+    <published>2017-09-18T18:28:09Z</published>
+    <link rel="alternate" type="text/html" href="https://github.com/blog/2434-project-navigation-for-the-way-you-work"/>
+    <title>Project navigation for the way you work</title>
+    <category term="ship"/>
+    <summary></summary>
+    <content type="html" xml:base="https://github.com/blog">&lt;p&gt;Today we shipped accessibility enhancements to GitHub Projects that make it easier for everyone to navigate and update their project boards. If you rely on assistive technology or prefer using the keyboard to get work done, you can now use these tools more effectively to manage your projects on GitHub.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://user-images.githubusercontent.com/3477155/30507009-901999c2-9a4e-11e7-89c6-041c68b85d8c.gif" target="_blank"&gt;&lt;img src="https://user-images.githubusercontent.com/3477155/30507009-901999c2-9a4e-11e7-89c6-041c68b85d8c.gif" alt="animation" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;With new &lt;a href="https://help.github.com/articles/using-keyboard-shortcuts/#project-boards"&gt;keyboard shortcuts&lt;/a&gt;, you can efficiently move and navigate between cards and columns. Select a card or column using the &lt;kbd&gt;enter&lt;/kbd&gt; key and move it anywhere&lt;br&gt;
+on the board. Commit the change with &lt;kbd&gt;enter&lt;/kbd&gt; again, or cancel it with &lt;kbd&gt;escape&lt;/kbd&gt;. Press the &lt;kbd&gt;?&lt;/kbd&gt; key on any project board to review the new keyboard shortcuts in more detail.&lt;/p&gt;
+&lt;p&gt;We're committed to building tools that empower everyone to work better together. The changes we're announcing today are a first step toward more accessible project management on GitHub. &lt;a href="https://github.com/contact"&gt;We'd love to hear from you&lt;/a&gt; about other ways we can help you do your best work.&lt;/p&gt;</content>
+    <media:thumbnail url="https://avatars3.githubusercontent.com/u/731773?v=4"/>
+    <author>
+      <name>Jamie Kite</name>
+      <uri>https://github.com/jgkite</uri>
+      <email></email>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/2435</id>
+    <published>2017-09-18T06:05:42Z</published>
+    <link rel="alternate" type="text/html" href="https://github.com/blog/2435-github-constellation-is-coming-to-a-city-near-you"/>
+    <title>GitHub Constellation is coming to a city near you</title>
+    <category term="conferences"/>
+    <summary></summary>
+    <content type="html" xml:base="https://github.com/blog">&lt;p&gt;&lt;a href="https://user-images.githubusercontent.com/24463350/30349089-7e531e6e-97c6-11e7-93c4-592f7d144cd3.png" target="_blank"&gt;&lt;img src="https://user-images.githubusercontent.com/24463350/30349089-7e531e6e-97c6-11e7-93c4-592f7d144cd3.png" alt="blog-email" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In June, we hosted Constellation Tokyo, our first-ever conference in Japan. Now, we’re bringing this two-day event for software builders and entrepreneurs to cities around the world.&lt;/p&gt;
+&lt;p&gt;Every Constellation is customized to fit the city it’s hosted in. Most will have two events: one dedicated to the local GitHub community and another dedicated to how people use GitHub at work. Take a look at the host cities, and sign up for the event that fits your interests.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="http://githubconstellation.com"&gt;Find a Constellation near you&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;We’ve planned Constellation events in these cities, but we’ll keep adding stops.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://githubconstellation.com/munich/"&gt;Constellation Munich&lt;/a&gt;: October 19-20&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://githubconstellation.com/brisbane/"&gt;Constellation Brisbane&lt;/a&gt;: October 23-24&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://githubconstellation.com/sydney/"&gt;Constellation Sydney&lt;/a&gt;: October 25-26&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://githubconstellation.com/melbourne/"&gt;Constellation Melbourne&lt;/a&gt;: November 1-2&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://githubconstellation.com/madrid/"&gt;Constellation Madrid&lt;/a&gt;: November 6-7&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://githubconstellation.com/milan/"&gt;Constellation Milan&lt;/a&gt;: November 16&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://githubconstellation.com/amsterdam/"&gt;Constellation Amsterdam&lt;/a&gt;: November 20-21&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://githubconstellation.com/paris/"&gt;Constellation Paris&lt;/a&gt;: November 22-23&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://githubconstellation.com/stockholm/"&gt;Constellation Stockholm&lt;/a&gt;: November 28-29&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://githubconstellation.com/berlin/"&gt;Constellation Berlin&lt;/a&gt;: November 29-30&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sign up to receive updates on the &lt;a href="http://githubconstellation.com/"&gt;Constellation site&lt;/a&gt; if you don’t see a convenient location to meet us.&lt;/p&gt;</content>
+    <media:thumbnail url="https://avatars0.githubusercontent.com/u/24463350?v=4"/>
+    <author>
+      <name>Mandy</name>
+      <uri>https://github.com/mandyzc</uri>
+      <email></email>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/2432</id>
+    <published>2017-09-14T19:01:12Z</published>
+    <link rel="alternate" type="text/html" href="https://github.com/blog/2432-git-lfs-2-3-0-released"/>
+    <title>Git LFS 2.3.0 released </title>
+    <category term="engineering"/>
+    <summary></summary>
+    <content type="html" xml:base="https://github.com/blog">&lt;p&gt;&lt;a href="https://user-images.githubusercontent.com/443245/30403810-63935e90-98b1-11e7-821a-7f42c2311b78.png" target="_blank"&gt;&lt;img src="https://user-images.githubusercontent.com/443245/30403810-63935e90-98b1-11e7-821a-7f42c2311b78.png" alt="LFS" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Git LFS v2.3.0 is now available with performance improvements to &lt;code&gt;git lfs migrate&lt;/code&gt; and &lt;code&gt;git clone&lt;/code&gt;, new features, bug fixes, and more.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://git-lfs.github.com"&gt;Download Git LFS v2.3.0&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a id="user-content-git-lfs-migrate" class="anchor" href="#git-lfs-migrate" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;&lt;code&gt;git lfs migrate&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;With our latest release, &lt;code&gt;git lfs migrate&lt;/code&gt; ships with a native implementation for reading packed objects: an important next step to making Git LFS's migrator performance significantly faster. Git LFS also learned how to avoid saving unchanged objects, making it 52% faster&lt;sup&gt;[&lt;a href="https://github.com/git-lfs/git-lfs/pull/2541"&gt;1&lt;/a&gt;]&lt;/sup&gt; to examine your repository for large objects than in previous releases.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;~/g/git-lfs (master) $ git lfs version
+git-lfs/2.2.1 (GitHub; darwin amd64; go 1.8.3; git 621d1f82)
+
+/g/git-lfs (master) $ time git lfs migrate info
+migrate: Sorting commits: ..., done
+migrate: Rewriting commits: 100% (5840/5840), done
+# ...
+git lfs migrate info  36.30s user 19.80s system 147% cpu 38.127 total
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;~/g/git-lfs (master) $ git lfs version
+git-lfs/2.3.0 (GitHub; darwin amd64; go 1.8.3; git 70995b39)
+
+~/g/git-lfs (master) $ time git lfs migrate info
+migrate: Sorting commits: ..., done
+migrate: Examining commits: 100% (5840/5840), done
+# ...
+git lfs migrate info  23.74s user 5.71s system 162% cpu 18.144 total
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;&lt;a id="user-content-git-clone" class="anchor" href="#git-clone" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;&lt;code&gt;git clone&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;git clone&lt;/code&gt; command is now 170% faster on repositories using Git LFS than in previous releases.&lt;sup&gt;[&lt;a href="https://github.com/git-lfs/git-lfs/pull/2511"&gt;2&lt;/a&gt;]&lt;/sup&gt; That means the native &lt;code&gt;git clone&lt;/code&gt; command is as fast as the (now deprecated) &lt;code&gt;git lfs clone&lt;/code&gt; wrapper. With simultaneous object batching and transferring, you can expect dramatic performance improvements for tools that shell out to &lt;code&gt;git clone&lt;/code&gt; or &lt;code&gt;git checkout&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;You'll also find support for new transfer agents, release targets, documentation, and more—all of which are thanks to gracious contributions from the Git LFS open source community.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;For more information about the Git LFS v2.3.0 release, check out the &lt;a href="https://github.com/git-lfs/git-lfs/releases/tag/v2.3.0"&gt;release notes&lt;/a&gt;.&lt;/p&gt;</content>
+    <media:thumbnail url="https://avatars1.githubusercontent.com/u/443245?v=4"/>
+    <author>
+      <name>Taylor Blau</name>
+      <uri>https://github.com/ttaylorr</uri>
+      <email></email>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/2422</id>
+    <published>2017-09-14T17:40:11Z</published>
+    <link rel="alternate" type="text/html" href="https://github.com/blog/2422-introducing-our-universe-community-partners"/>
+    <title>Introducing our Universe Community Partners</title>
+    <category term="conferences"/>
+    <summary></summary>
+    <content type="html" xml:base="https://github.com/blog">&lt;p&gt;&lt;a href="https://githubuniverse.com/program/"&gt;&lt;img src="https://user-images.githubusercontent.com/6165035/29682337-83f3017e-88bf-11e7-846c-138e9639b87f.png" alt="universe_blog_header" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;With GitHub Universe one month away we are excited to announce our 2017 Community Partners!&lt;/p&gt;
+&lt;p&gt;We choose Community Partners based on several criteria but the three main questions we ask ourselves when reaching out to potential organizations are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Does their work assist in lowering barriers for people from underrepresented backgrounds to enter and succeed in the tech industry?&lt;/li&gt;
+&lt;li&gt;Do they have an audience that can benefit from complimentary tickets to the conference?&lt;/li&gt;
+&lt;li&gt;Are they making a positive social impact, namely in the geographic region where the conference will take place?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;GitHub’s push towards a more diverse, inclusive and accessible Universe is rooted in the fact that bringing together people from disparate backgrounds fosters innovation within our industry. If we're not working to actively engage people from all walks of life, we're doing our community a disservice. The more we can bring diverse communities together, the more enriching, educational and valuable an experience we can provide for everyone.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://githubuniverse.com"&gt;Meet our 2017 community partners at GitHub Universe&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://user-images.githubusercontent.com/12091428/29845474-ce4ad038-8cc7-11e7-9605-d6a17880a04b.png" target="_blank"&gt;&lt;img src="https://user-images.githubusercontent.com/12091428/29845474-ce4ad038-8cc7-11e7-9605-d6a17880a04b.png" alt="Our 2017 community partners" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;With that, we are happy to introduce you to this year’s Universe Community Partners. We encourage you to read ahead in order to learn more about them and the valuable work they do.&lt;/p&gt;
+&lt;h2&gt;&lt;a id="user-content-who-they-are-and-what-they-do" class="anchor" href="#who-they-are-and-what-they-do" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Who they are and what they do&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.codetenderloin.com/"&gt;Code Tenderloin’s&lt;/a&gt; mission is to remove barriers that keep people from securing long-term employment. They believe that homelessness, prior substance abuse, prior incarceration, or other barriers should not define a person’s future nor disqualify them from securing jobs.&lt;/li&gt;
+&lt;li&gt;Economic power is key to breaking the cycle of exploitation among vulnerable communities. &lt;a href="https://www.anniecannons.com/"&gt;AnnieCannons&lt;/a&gt; trains survivors of human trafficking to become software professionals. Their holistic program trains and equips survivors to independently support themselves and their families.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://techqueria.org/"&gt;Techqueria&lt;/a&gt; is a professional community for Latinxs in tech where Latinx folks can network and advance their careers, offer low-income communities access to tech, and assist in increasing the opportunities for other Latinxs in tech.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.devcolor.org/"&gt;/dev/color&lt;/a&gt; helps Black software engineers grow into industry leaders. They ensure Black engineers fulfill the promise of their talents, transform the industry, and use their resulting skills and position to give back to their communities.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.meetup.com/OWC-SFBayArea/"&gt;Older Women Coders&lt;/a&gt; joined together to empower older coders, especially those who have “aged-out” of STEM. They seek to establish a channel of visibility for older women STEM workers, provide continuing education, and eliminate the stigma of age in tech.&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.code2040.org/"&gt;Code2040&lt;/a&gt; creates pathways to educational, professional, and entrepreneurial success in technology for underrepresented minorities with a specific focus on Black and Latinx people. The Code2040 Fellows Program builds bridges between top, college-level Black and Latinx computer science students and companies who are in need of their talent.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.operationcode.org/"&gt;Operation Code&lt;/a&gt; is veteran-founded and led. Their mission is to help the military community (transitioning service members, veterans, and military spouses) learn software development, enter the tech industry, and code the future through mentorship, scholarship programs, and community outreach near military bases.&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.hackreactor.com/telegraph-track/"&gt;Telegraph Track&lt;/a&gt; is a Hack Reactor community that supports underrepresented students as they go through Hack Reactor’s bootcamp. They offer a safe space, leadership development, mentorship, and networking opportunities to members. Then Telegraph Track connects members with companies that have diversity and inclusion top of mind.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Please follow GitHub's &lt;a href="https://twitter.com/GitHubCommunity"&gt;Community Twitter account&lt;/a&gt; for announcements from our Community Partners in the coming weeks.&lt;/p&gt;</content>
+    <media:thumbnail url="https://avatars2.githubusercontent.com/u/12091428?v=4"/>
+    <author>
+      <name>Bianca Escalante</name>
+      <uri>https://github.com/bescalante</uri>
+      <email></email>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/2431</id>
+    <published>2017-09-14T16:15:27Z</published>
+    <link rel="alternate" type="text/html" href="https://github.com/blog/2431-the-data-science-behind-topic-suggestions"/>
+    <title>The data science behind topic suggestions</title>
+    <category term="engineering"/>
+    <summary></summary>
+    <content type="html" xml:base="https://github.com/blog">&lt;p&gt;&lt;a href="https://cloud.githubusercontent.com/assets/5679180/22481508/65079376-e7aa-11e6-9026-5b903fbb083f.png" target="_blank"&gt;&lt;img src="https://cloud.githubusercontent.com/assets/5679180/22481508/65079376-e7aa-11e6-9026-5b903fbb083f.png" alt="Add topics to repositories" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Earlier this year, we launched &lt;a href="https://github.com/blog/2309-introducing-topics"&gt;topics&lt;/a&gt;, a new feature that lets you tag repositories with descriptive words or phrases. Topics help you create connections between similar GitHub projects and explore them by type, technology, and other characteristics they have in common.&lt;/p&gt;
+&lt;p&gt;All public repositories show topic suggestions, so you can quickly tag repositories with relevant words and phrases. These suggestions are the result of some exciting data science work—in particular, a topic extraction framework based on text mining, natural language processing, and machine learning called repo-topix.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://githubengineering.com/topics"&gt;Learn more about repo-topix from the Engineering Blog&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://user-images.githubusercontent.com/7321362/30234657-3f8acc00-94b4-11e7-86df-dcd0cf316e5e.png" target="_blank"&gt;&lt;img src="https://user-images.githubusercontent.com/7321362/30234657-3f8acc00-94b4-11e7-86df-dcd0cf316e5e.png" alt="Topic suggestions close up" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Now when you add or reject topics, you're doing more than keeping projects organized. Every topic will contribute to surfacing connections and inspiring discovery across GitHub. Repository names, descriptions, and READMEs from millions of public projects serve as the very start of an ever-evolving knowledge graph of concepts. Eventually, the graph will map how these concepts relate to each other and to the code, people, and projects on GitHub.&lt;/p&gt;
+&lt;p&gt;Topics is part of a greater effort to use our public data to make meaningful improvements to how people discover, interact, and build on GitHub. We'll be sharing more ways that data can improve the way you work at Universe—our flagship product and community conference.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://githubuniverse.com"&gt;Get tickets to GitHub Universe&lt;/a&gt;&lt;/p&gt;</content>
+    <media:thumbnail url="https://avatars1.githubusercontent.com/u/7935808?v=4"/>
+    <author>
+      <name>Kavita Ganesan</name>
+      <uri>https://github.com/kavgan</uri>
+      <email></email>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/2429</id>
+    <published>2017-09-13T17:51:44Z</published>
+    <link rel="alternate" type="text/html" href="https://github.com/blog/2429-introducing-github-enterprise-2-11"/>
+    <title>Introducing GitHub Enterprise 2.11</title>
+    <category term="enterprise"/>
+    <summary></summary>
+    <content type="html" xml:base="https://github.com/blog">&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/a7ZhgsuVlVA" frameborder="0" allowfullscreen=""&gt;&lt;/iframe&gt;
+&lt;p&gt;Enhance performance in high availability environments, define more granular permissions, and seamlessly review code with GitHub Enterprise 2.11. Our latest release brings together some of the most-requested features to make your team's development process smoother and more efficient.&lt;/p&gt;
+&lt;p&gt;Ready to upgrade?&lt;br&gt;
+&lt;strong&gt;&lt;a href="https://enterprise.github.com/releases/2.11.0/download"&gt;Download GitHub Enterprise 2.11&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a id="user-content-enhance-performance-with-geo-replication" class="anchor" href="#enhance-performance-with-geo-replication" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Enhance performance with geo-replication&lt;/h2&gt;
+&lt;p&gt;Geo-replication is now out of early access and available in Enterprise 2.11. Geographically distributed data centers use multiple replicas, so requests are always sent to the closest server and fulfilled faster than ever before.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://help.github.com/enterprise/2.11/admin/guides/installation/about-geo-replication/"&gt;Learn more about geo-replication&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a id="user-content-reduce-downtime-during-patch-upgrades-with-hotpatching" class="anchor" href="#reduce-downtime-during-patch-upgrades-with-hotpatching" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Reduce downtime during patch upgrades with hotpatching&lt;/h2&gt;
+&lt;p&gt;Hotpatching is also out of early access and available in GitHub Enterprise 2.11. Now, you'll almost always be able to upgrade to a newer patch release with zero downtime—no need to sweat about last minute security fixes.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://help.github.com/enterprise/2.11/admin/guides/installation/about-upgrade-requirements/"&gt;Learn more about hotpatching&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a id="user-content-define-permissions-with-nested-teams" class="anchor" href="#define-permissions-with-nested-teams" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Define permissions with nested teams&lt;/h2&gt;
+&lt;p&gt;Whether you're working on a project within your team or across departments, nested teams keep information clearly organized. With Enterprise 2.11, you can make sure the right people have access to the right code and reduce noise as contributors grow. Child teams inherit their parent’s access permissions, so repository permissions and mentioning among nested teams work from top to bottom, improving the flow of communication. For example: If your team structure is &lt;strong&gt;Employees &amp;gt; Engineering &amp;gt; Application Engineering &amp;gt; Identity&lt;/strong&gt;, granting &lt;strong&gt;Engineering&lt;/strong&gt; write access to a repository means &lt;strong&gt;Application Engineering&lt;/strong&gt; and &lt;strong&gt;Identity&lt;/strong&gt; also get that access.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://user-images.githubusercontent.com/11401067/30288586-288f2a88-96de-11e7-8602-f92b05958b35.png" target="_blank"&gt;&lt;img src="https://user-images.githubusercontent.com/11401067/30288586-288f2a88-96de-11e7-8602-f92b05958b35.png" alt="how to use nested teams" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/blog/2378-nested-teams-add-depth-to-your-team-structure"&gt;Learn more about nested teams&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a id="user-content-save-time-with-code-review-improvements" class="anchor" href="#save-time-with-code-review-improvements" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Save time with code review improvements&lt;/h2&gt;
+&lt;p&gt;Great reviews can take a village. With team reviews, you can ask an entire team to look at your pull request with one mention. Just tag the team in the "Reviewers" section of your pull request for better reviews from more teammates in less time.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/blog/2389-requesting-reviews-from-repository-teams"&gt;Learn more about team reviews&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can now define exactly which people and teams always need to review projects with code owners. Select code owners, and they’ll automatically be requested for review when a pull request touches the files they own. There’s also a protected branch option, which requires code owners to leave a review before anyone can merge a pull request to the branch. Never worry about mistaken merges going unnoticed again.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/blog/2392-introducing-code-owners"&gt;Learn more about code owners&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;With Enterprise 2.11, you can also navigate to changed methods and functions right from your pull request file finder in Go, Javascript, Ruby, Python, or TypeScript files. Your team will have a better understanding of changes in code review and a faster path to shipping the best possible version of your code.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://user-images.githubusercontent.com/11401067/30288662-6f295586-96de-11e7-83d9-6bf59bb1fe44.png" target="_blank"&gt;&lt;img src="https://user-images.githubusercontent.com/11401067/30288662-6f295586-96de-11e7-83d9-6bf59bb1fe44.png" alt="python-changed-functions" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/blog/2407-quickly-review-changed-methods-and-functions-in-your-pull-requests"&gt;Learn more about changed method and function review&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a id="user-content-additional-updates" class="anchor" href="#additional-updates" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Additional updates&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Welcome new contributors and easily identify them with &lt;a href="https://github.com/blog/2397-making-it-easier-to-grow-communities-on-github"&gt;first-time contributor badges&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Mark an issue as a duplicate and instantly get more information on a keyword with &lt;a href="https://github.com/blog/2398-manage-issues-and-pull-requests-with-keyword-updates"&gt;keyword updates&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Find project cards at lightning speed with &lt;a href="https://github.com/blog/2365-keep-track-of-every-project-card-with-filtering"&gt;filtering&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Direct users to dedicated support resources, such as community forums and FAQ documents, with &lt;a href="https://github.com/blog/2400-support-file-support"&gt;SUPPORT file support&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;&lt;a id="user-content-upgrade-today" class="anchor" href="#upgrade-today" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Upgrade today&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://enterprise.github.com/releases/2.11.0/download"&gt;Download GitHub Enterprise 2.11&lt;/a&gt; to start using these features today. You can also &lt;a href="https://enterprise.github.com/releases/2.11.0/notes"&gt;check out our release notes&lt;/a&gt; to learn more, and &lt;a href="https://help.github.com/enterprise/2.11/admin/guides/installation/enabling-automatic-update-checks/"&gt;enable update checks&lt;/a&gt; to automatically check when the next GitHub Enterprise release is available.&lt;/p&gt;
+&lt;p&gt;Want to try GitHub Enterprise?&lt;br&gt;
+&lt;a href="https://enterprise.github.com/sn-trial"&gt;Request a free 45-day trial&lt;/a&gt;&lt;/p&gt;</content>
+    <media:thumbnail url="https://avatars0.githubusercontent.com/u/7851?v=4"/>
+    <author>
+      <name>Dirkjan Bussink</name>
+      <uri>https://github.com/dbussink</uri>
+      <email></email>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/2430</id>
+    <published>2017-09-12T18:25:56Z</published>
+    <link rel="alternate" type="text/html" href="https://github.com/blog/2430-introducing-atom-ide"/>
+    <title>Introducing Atom-IDE</title>
+    <category term="ship"/>
+    <summary></summary>
+    <content type="html" xml:base="https://github.com/blog">&lt;p&gt;&lt;a href="https://user-images.githubusercontent.com/378023/29239014-9366bfa6-7f7d-11e7-9e04-e5cd535c3a5f.png" target="_blank"&gt;&lt;img src="https://user-images.githubusercontent.com/378023/29239014-9366bfa6-7f7d-11e7-9e04-e5cd535c3a5f.png" alt="Atom IDE" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In collaboration with Facebook, we're excited to announce &lt;a href="https://ide.atom.io"&gt;Atom-IDE&lt;/a&gt;—a set of optional packages that bring IDE-like functionality to Atom. The initial release includes smarter, context-aware auto-completion, navigation features, like outline view and goto-definition, and other useful functions, errors, warnings, and document formatting.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://blog.atom.io/2017/09/12/announcing-atom-ide.html"&gt;Learn more from the Atom Blog&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://ide.atom.io/"&gt;&lt;img src="https://user-images.githubusercontent.com/378023/29859731-741403be-8d9e-11e7-99c5-6b914e3fff9c.png" alt="A look at Atom-IDE" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Atom-IDE includes packages for C#, Flow, Java, JavaScript, PHP, and TypeScript that use the power of language servers to provide deep syntactical analysis of your code and projects—but this is just the start of our journey. With the help of our community, we plan to expand the number of languages that Atom-IDE can support and make it possible for you to run and edit applications, making Atom-IDE a true IDE.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://blog.atom.io/2017/09/12/announcing-atom-ide.html"&gt;Check out our post on the Atom Blog&lt;/a&gt; to get started—or to learn how to create an Atom-IDE package for your favorite language.&lt;/p&gt;</content>
+    <media:thumbnail url="https://avatars3.githubusercontent.com/u/553742?v=4"/>
+    <author>
+      <name>Ian Olsen</name>
+      <uri>https://github.com/iolsen</uri>
+      <email></email>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/2428</id>
+    <published>2017-09-07T20:34:48Z</published>
+    <link rel="alternate" type="text/html" href="https://github.com/blog/2428-summer-internships-at-github-in-san-francisco"/>
+    <title>Summer internships at GitHub in San Francisco</title>
+    <category term="education"/>
+    <summary></summary>
+    <content type="html" xml:base="https://github.com/blog">&lt;p&gt;Applications are open for &lt;a href="https://internships.github.com"&gt;summer internships at GitHub&lt;/a&gt;. As an intern at GitHub's San Francisco headquarters you'll spend ten weeks from June to August working with a team in engineering, product, security, sales, marketing, or design.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://internships.github.com"&gt;&lt;img src="https://user-images.githubusercontent.com/123345/30163835-bddbd07a-93da-11e7-968d-7a00f26633b8.png" alt="Intern at GitHub" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Every GitHub intern has the opportunity to make an impact by working on real projects with mentorship from experienced GitHub employees. Interns have worked on projects ranging from adding &lt;a href="https://github.com/blog/2415-introducing-embedded-code-snippets"&gt;embedded code snippits&lt;/a&gt; to &lt;a href="https://github.com/blog/2418-github-classroom-now-supports-deadlines-and-class-rosters"&gt;deadlines and rosters for GitHub Classroom&lt;/a&gt; and &lt;a href="https://octoverse.github.com"&gt;The state of the Octoverse&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can read more about the &lt;a href="https://internships.github.com/interns/2016/"&gt;2016&lt;/a&gt; and &lt;a href="https://internships.github.com/interns/2017/"&gt;2017&lt;/a&gt; classes of GitHub interns on the &lt;a href="https://internships.github.com/interns/"&gt;GitHub Internships&lt;/a&gt; website.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://internships.github.com"&gt;&lt;img src="https://user-images.githubusercontent.com/123345/29916874-696538dc-8e40-11e7-91e4-fe875a99541f.png" alt="2017 GitHub Intern Group Photo" style="max-width:100%;"&gt;&lt;/a&gt;&lt;br&gt;
+&lt;em&gt;GitHub interns visit Alcatraz - Summer 2017&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;To help give you a better idea of what to expect from interning at GitHub, the class of 2017 has written a letter to future GitHub interns:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If you’re reading this letter, you’ve made the first step towards gaining the professional experience of a lifetime—at a place that values you—your ideas, creativity, life experiences, and individuality.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href="https://internships.github.com/class-profile/"&gt;Read the full letter&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://internships.github.com"&gt;&lt;img src="https://user-images.githubusercontent.com/123345/30164123-c56fd772-93db-11e7-97f7-70ded91885c7.png" alt="Intern presentations" style="max-width:100%;"&gt;&lt;/a&gt;&lt;br&gt;
+&lt;em&gt;GitHub interns give final presentations - Summer 2017&lt;/em&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a id="user-content-2018-summer-internship-opportunities" class="anchor" href="#2018-summer-internship-opportunities" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;2018 Summer internship opportunities&lt;/h2&gt;
+&lt;p&gt;The GitHub internship program is open to all students enrolled in a university, community college, associate, or graduate school program. You can apply directly on our website for any of the following 2018 summer internship positions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://boards.greenhouse.io/github/jobs/829112"&gt;Application Engineering Intern&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://boards.greenhouse.io/github/jobs/833585"&gt;Application Security Intern&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://boards.greenhouse.io/github/jobs/838586"&gt;Business Development Intern&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://boards.greenhouse.io/github/jobs/839478"&gt;Corporate Sales (Account Management) Intern&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://boards.greenhouse.io/github/jobs/831423"&gt;Developer Advocate Intern&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://boards.greenhouse.io/github/jobs/840149"&gt;Machine Learning Intern&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://boards.greenhouse.io/github/jobs/839376"&gt;Platform Engineer Intern&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://boards.greenhouse.io/github/jobs/838772"&gt;Product Design Intern&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://boards.greenhouse.io/github/jobs/838652"&gt;Product Management Intern&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://boards.greenhouse.io/github/jobs/827524"&gt;Product Security Intern&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://boards.greenhouse.io/github/jobs/835404"&gt;Quantitative User Research Intern&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://boards.greenhouse.io/github/jobs/831271"&gt;Rails Developer Intern&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Read more and apply to &lt;a href="https://internships.github.com"&gt;intern at GitHub&lt;/a&gt;. If you'd like to stay up to date on new internship openings, sign up for &lt;a href="http://eepurl.com/cc_zuj"&gt;email updates&lt;/a&gt;.&lt;/p&gt;</content>
+    <media:thumbnail url="https://avatars3.githubusercontent.com/u/123345?v=4"/>
+    <author>
+      <name>John Britton</name>
+      <uri>https://github.com/johndbritton</uri>
+      <email></email>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/2426</id>
+    <published>2017-09-06T20:15:33Z</published>
+    <link rel="alternate" type="text/html" href="https://github.com/blog/2426-github-for-unity-0-19-alpha-released"/>
+    <title>GitHub for Unity 0.19-alpha released</title>
+    <category term="engineering"/>
+    <summary></summary>
+    <content type="html" xml:base="https://github.com/blog">&lt;p&gt;&lt;a href="https://unity.github.com/"&gt;&lt;img src="https://user-images.githubusercontent.com/121322/29847699-e930aa3a-8cd1-11e7-94c2-26bef189196b.png" alt="GitHub for Unity 0.19-alpha" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Our GitHub for Unity 0.19-alpha "Swashbuckler" release is &lt;a href="https://unity.github.com"&gt;now available&lt;/a&gt; with much improved Mac support, bug fixes, and performance improvements—many added by the community.&lt;/p&gt;
+&lt;p&gt;Here are a few highlights since &lt;a href="https://github.com/blog/2414-github-for-unity-0-16-alpha-released"&gt;our last Unity update&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;&lt;a id="user-content-improved-macos-support" class="anchor" href="#improved-macos-support" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Improved macOS support&lt;/h3&gt;
+&lt;p&gt;GitHub for Unity for Mac should now have the same features and functionality (and bugs!) as the Windows version. Thanks to a custom fork of Axosoft's &lt;a href="https://github.com/Axosoft/nsfw"&gt;NSFW library&lt;/a&gt;, our &lt;a href="https://github.com/github-for-unity/sfw"&gt;SFW Library&lt;/a&gt; provides us with a file watcher to refresh the UI consistently across platforms.&lt;/p&gt;
+&lt;h3&gt;&lt;a id="user-content-no-more-garbled-commit-messages" class="anchor" href="#no-more-garbled-commit-messages" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;No more garbled commit messages!�&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://unity.github.com"&gt;&lt;img src="https://user-images.githubusercontent.com/121322/30075767-aae10a0e-922b-11e7-8d7a-7a8c923b8740.jpg" alt="Goodbye U+FFFD � replacement character" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Say goodbye to all those �s that you may have seen in your commit history. Thanks to &lt;a href="https://github.com/shiena" class="user-mention"&gt;@shiena&lt;/a&gt;, commit messages will start looking less like:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;I � UNICODE!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And more like:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;I ♥ UNICODE!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Thanks also to &lt;a href="http://tech.dzl.co.jp/entry/2017/08/30/150000"&gt;Dazzle for your commitment to open source&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;&lt;a id="user-content-commit-with-style" class="anchor" href="#commit-with-style" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Commit with style&lt;/h3&gt;
+&lt;p&gt;Thanks again to &lt;a href="https://github.com/shiena" class="user-mention"&gt;@shiena&lt;/a&gt;, commit logs will now follow the &lt;a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html"&gt;recommended style&lt;/a&gt;, meaning they'll look a lot less like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Increase the health of baddies by 1.75
+Beta testers reported that defeating the baddies felt too easy.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And a lot more like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Increase the health of baddies by 1.75
+
+Beta testers reported that defeating the baddies felt too easy.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is beneficial for a variety of reasons, but consider the one person on your team who's still using the command line. Commands like &lt;code&gt;git log&lt;/code&gt; and &lt;code&gt;git shortlog&lt;/code&gt; will be a lot more useful when the commit subject and body are clearly separated:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git log
+commit 651733e0206a4a0c1b0e24d4a5b9e7c5973d47bf
+Author: Lee Reilly &amp;lt;lee@github.com&amp;gt;
+Date:   Thu Aug 24 13:37:00 2017 -0200
+
+ Add Discord library
+
+ Our players want to talk to one another, so this adds some basic
+ integration to provide (1) basic text chat and (2) experimental
+ voice chat.
+
+commit fcf7d51d8d6d172e3d241cdbe7180f0a303e9292
+Author: Don Okuda &amp;lt;don@github.com&amp;gt;
+Date:   Wed Aug 23 21:18:28 2017 -0700
+
+ Added some baddies
+
+ Beta testers reported that defeating the baddies felt too easy.
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;&lt;a id="user-content-refactoring" class="anchor" href="#refactoring" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Refactoring&lt;/h3&gt;
+&lt;p&gt;Finally, &lt;a href="https://github.com/munchyydl" class="user-mention"&gt;@MunchyYDL&lt;/a&gt; applied best practices to our views and picked up the first of our &lt;a href="https://github.com/github-for-unity/Unity/issues/107"&gt;&lt;kbd&gt;up-for-grabs&lt;/kbd&gt;&lt;/a&gt; issues—specifically, using &lt;a href="https://docs.unity3d.com/ScriptReference/EditorGUI.BeginDisabledGroup.html"&gt;&lt;code&gt;EditorGUI.BeginDisabledGroup()&lt;/code&gt;&lt;/a&gt; and &lt;a href="https://docs.unity3d.com/ScriptReference/EditorGUI.EndDisabledGroup.html"&gt;&lt;code&gt;EditorGUI.EndDisabledGroup()&lt;/code&gt;&lt;/a&gt; rather than setting &lt;a href="https://docs.unity3d.com/ScriptReference/GUI-enabled.html"&gt;&lt;code&gt;GUI.enabled()&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Oh, and congratulations on your &lt;a href="https://github.com/github-for-unity/Unity/pull/207"&gt;first pull request&lt;/a&gt;, &lt;a href="https://github.com/munchyydl" class="user-mention"&gt;@MunchyYDL&lt;/a&gt;!&lt;/p&gt;
+&lt;p align="center"&gt;
+  &lt;a href="https://github.com/github-for-unity/Unity/pull/207"&gt;
+    &lt;img src="https://user-images.githubusercontent.com/121322/29982934-81b97934-8f08-11e7-82b8-896207046567.png" style="border:0;" alt="Marcus Christensen's first pull request" width="50%"&gt;
+  &lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;You'll find the complete list of new features, improvements, and bug fixes in the &lt;a href="https://github.com/github-for-unity/Unity/releases/tag/v0.19-alpha"&gt;release notes&lt;/a&gt;. Many thanks to our community for your contributions during the alpha.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Please note:&lt;/strong&gt; If you're upgrading to the latest version, the plugin location has moved to &lt;code&gt;Assets/Plugins/GitHub&lt;/code&gt;. You'll need to exit Unity completely and delete the &lt;code&gt;Assets/Editor/GitHub&lt;/code&gt; folder before installing the latest version. Hey, we told you it was an alpha.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;&lt;a id="user-content-be-part-of-the-unity-for-github-alpha" class="anchor" href="#be-part-of-the-unity-for-github-alpha" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Be part of the Unity for GitHub Alpha&lt;/h3&gt;
+&lt;p&gt;The alpha release is available for free to all GitHub and Unity users.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://unity.github.com"&gt;Download the latest release now&lt;/a&gt;&lt;/p&gt;</content>
+    <media:thumbnail url="https://avatars3.githubusercontent.com/u/121322?v=4"/>
+    <author>
+      <name>Lee Reilly</name>
+      <uri>https://github.com/leereilly</uri>
+      <email></email>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/2427</id>
+    <published>2017-09-05T20:52:00Z</published>
+    <link rel="alternate" type="text/html" href="https://github.com/blog/2427-extend-your-workflow-with-these-new-marketplace-apps"/>
+    <title>Extend your workflow with these new Marketplace apps</title>
+    <category term="ship"/>
+    <summary></summary>
+    <content type="html" xml:base="https://github.com/blog">&lt;p&gt;Whatever you use to build software, chances are there are ways to simplify. &lt;a href="https://github.com/marketplace?utm_source=announcement&amp;amp;utm_medium=blog&amp;amp;utm_campaign=marketplace-app-blog-20170905"&gt;GitHub Marketplace&lt;/a&gt; brings together your favorite tools to provide the functionality and expertise you need to work better, right where you code.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://user-images.githubusercontent.com/29592817/30072086-136baf42-921e-11e7-8bca-ae287f796f5e.gif" target="_blank"&gt;&lt;img src="https://user-images.githubusercontent.com/29592817/30072086-136baf42-921e-11e7-8bca-ae287f796f5e.gif" alt="New apps in GitHub Marketplace" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Today, we’re introducing five apps and a new "Deployment" category in GitHub Marketplace. Reduce the complexity of releasing software, minimize the risk of errors, and get features and fixes out to your users.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/marketplace?utm_source=announcement&amp;amp;utm_medium=blog&amp;amp;utm_campaign=marketplace-app-blog-20170905"&gt;Meet our new apps&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;&lt;a id="user-content-deployment-continuous-integration" class="anchor" href="#deployment-continuous-integration" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Deployment, Continuous Integration&lt;/h3&gt;
+&lt;p&gt;Easily create delivery automation pipelines with over 50 build, test, and deployment actions using &lt;a href="https://github.com/marketplace/buddy?utm_source=announcement&amp;amp;utm_medium=blog&amp;amp;utm_campaign=marketplace-app-blog-20170905"&gt;Buddy&lt;/a&gt;. It handles both legacy FTP/SFTP uploads and dedicated IaaS/PaaS deployments with all the latest technology: Docker images, containers, microservices, Slack notifications, and Kubernetes clusters.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/marketplace/semaphore?utm_source=announcement&amp;amp;utm_medium=blog&amp;amp;utm_campaign=marketplace-app-blog-20170905"&gt;Semaphore&lt;/a&gt; helps teams move faster with hosted continuous integration and delivery. After you push code to GitHub, it quickly runs your tests on a platform with first-class Docker support and more than 100 pre-installed tools. Semaphore lets you parallelize your builds, get feedback right in pull requests, and deploy more often in a unified workflow.&lt;/p&gt;
+&lt;h3&gt;&lt;a id="user-content-localization" class="anchor" href="#localization" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Localization&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://github.com/marketplace/crowdin?utm_source=announcement&amp;amp;utm_medium=blog&amp;amp;utm_campaign=marketplace-app-blog-20170905"&gt;Crowdin&lt;/a&gt; is a web-based localization management platform for developers that integrates with GitHub to provide a seamless file sync with your repositories. Crowdin is designed to ensure timely and quality translations with pre-translation support, advanced reporting, workflow management, and more.&lt;/p&gt;
+&lt;h3&gt;&lt;a id="user-content-monitoring" class="anchor" href="#monitoring" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Monitoring&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://github.com/marketplace/airbrake?utm_source=announcement&amp;amp;utm_medium=blog&amp;amp;utm_campaign=marketplace-app-blog-20170905"&gt;Airbrake&lt;/a&gt; silently monitors your apps and instantly alerts you to any new problems affecting your users. You’ll know what’s affected and get all the information you need to quickly fix the problem.&lt;/p&gt;
+&lt;h3&gt;&lt;a id="user-content-security" class="anchor" href="#security" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Security&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://github.com/marketplace/snyk?utm_source=announcement&amp;amp;utm_medium=blog&amp;amp;utm_campaign=marketplace-app-blog-20170905"&gt;Snyk&lt;/a&gt; makes sure you’re immediately aware of any security vulnerabilities in your open source libraries and helps you find, fix, and prevent them as they happen. Snyk includes single-click fix for pull requests and the ability to patch vulnerabilities, no matter your package manager with support for npm, Maven, PyPi, Ruby Gems, and more.&lt;/p&gt;
+&lt;p&gt;Discover new ways to streamline your development, work better together, and deploy stress-free, so you can focus on your product.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/marketplace?utm_source=announcement&amp;amp;utm_medium=blog&amp;amp;utm_campaign=marketplace-app-blog-20170905"&gt;Browse all GitHub.com apps in Marketplace&lt;/a&gt;&lt;/p&gt;</content>
+    <media:thumbnail url="https://avatars0.githubusercontent.com/u/28809441?v=4"/>
+    <author>
+      <name>Jessie</name>
+      <uri>https://github.com/jessieabby</uri>
+      <email></email>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/2425</id>
+    <published>2017-09-01T21:06:40Z</published>
+    <link rel="alternate" type="text/html" href="https://github.com/blog/2425-release-radar-september-2017"/>
+    <title>Release Radar · September 2017</title>
+    <category term="ship"/>
+    <summary></summary>
+    <content type="html" xml:base="https://github.com/blog">&lt;p&gt;&lt;a href="https://user-images.githubusercontent.com/121322/29849695-4e9415a0-8cdd-11e7-9230-2a4db7f5fdfe.png" target="_blank"&gt;&lt;img src="https://user-images.githubusercontent.com/121322/29849695-4e9415a0-8cdd-11e7-9230-2a4db7f5fdfe.png" alt="Release Radar September 2017" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Welcome to the first edition of the Release Radar, where we share the projects popping up on our radar—from world-changing technologies to weekend side projects. Most importantly, they're all projects shipped by &lt;em&gt;you&lt;/em&gt;. Hopefully, we'll find little something for everybody: a new app for your tool belt, a fresh experiment for your free time, or a game to play with on your next coffee break.&lt;/p&gt;
+&lt;p&gt;This month we’re sharing projects to make your data sizzle &lt;g-emoji alias="fire" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f525.png" ios-version="6.0"&gt;🔥&lt;/g-emoji&gt; and add animations to your native apps with ease. Enjoy!&lt;/p&gt;
+&lt;h2&gt;&lt;a id="user-content-lottie-for-ios-200" class="anchor" href="#lottie-for-ios-200" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Lottie for iOS 2.0.0&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://airbnb.design/lottie/"&gt;Lottie&lt;/a&gt; is an &lt;a href="https://github.com/airbnb/lottie-android"&gt;Android&lt;/a&gt;, &lt;a href="https://github.com/airbnb/lottie-ios"&gt;iOS&lt;/a&gt;, and &lt;a href="https://github.com/airbnb/lottie-react-native"&gt;React Native&lt;/a&gt; library that renders After Effects animations in real time, allowing developers to add animations to native apps just as easily as static assets.&lt;/p&gt;
+&lt;p&gt;Lottie started as a hackathon project at Airbnb, but &lt;a href="https://github.com/buba447" class="user-mention"&gt;@buba447&lt;/a&gt;, &lt;a href="https://github.com/therealsalih" class="user-mention"&gt;@therealsalih&lt;/a&gt; and &lt;a href="https://github.com/gpeal" class="user-mention"&gt;@gpeal&lt;/a&gt; from the Airbnb Design Team have continued to iterate on it. &lt;a href="https://github.com/airbnb/lottie-ios/releases/tag/2.0.0"&gt;View the Lottie for iOS 2.0.0 release notes&lt;/a&gt;.&lt;/p&gt;
+&lt;a href="https://airbnb.design/lottie/"&gt;
+  &lt;img style="border:0;" src="https://user-images.githubusercontent.com/121322/29946116-ea87c3cc-8e58-11e7-9d6b-5750c33fd769.gif" alt="Animations created with Lottie"&gt;
+&lt;/a&gt;
+&lt;p&gt;&lt;strong&gt;Did you know:&lt;/strong&gt;  Lottie was originally named Lotte after &lt;a href="https://en.wikipedia.org/wiki/Lotte_Reiniger"&gt;Charlotte Reiniger&lt;/a&gt;—an original trailblazer of animation. She made one of the first feature-length animated films, and &lt;a href="https://www.youtube.com/watch?v=Kku75vGDD_0"&gt;her work still holds up today&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;&lt;a id="user-content-flamegraph-10" class="anchor" href="#flamegraph-10" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;FlameGraph 1.0&lt;/h2&gt;
+&lt;p&gt;Visualize profiled software with &lt;a href="https://github.com/brendangregg/FlameGraph"&gt;FlameGraph&lt;/a&gt; to identify your most frequent code-paths quickly and accurately. The team tagged the &lt;a href="https://github.com/brendangregg/FlameGraph/releases/tag/v1.0"&gt;1.0 release&lt;/a&gt; to allow package maintainers to grab static versions, but don't let that fool you. FlameGraph has been around for &lt;em&gt;years&lt;/em&gt;—and has likely improved performance for products and services you use every day.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;"It confuses people at first since the x-axis is not the passage of time; it's an alphabetical sort. People move from '&lt;em&gt;I don't like it, it's not intuitive&lt;/em&gt;' to '&lt;em&gt;This is amazing, how did I ever live without it?&lt;/em&gt;' quickly". - &lt;a href="https://github.com/brendangregg" class="user-mention"&gt;@brendangregg&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href="https://user-images.githubusercontent.com/121322/29944001-876e4818-8e50-11e7-93e1-16fdddee3a7c.png" target="_blank"&gt;&lt;img alt="Mixed-mode FlameGraph spanning kernel and user code" src="https://user-images.githubusercontent.com/121322/29944001-876e4818-8e50-11e7-93e1-16fdddee3a7c.png" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Did you know:&lt;/strong&gt; Brendan coded the first version of FlameGraph in a single night; he didn't think he could play around with new visualizations at his day job when there were more pressing deliverables. The next day, he used it for work to understand the difference between two massive MySQL profiles that were thousands of pages of text each.&lt;/p&gt;
+&lt;h2&gt;&lt;a id="user-content-drupal-console-100" class="anchor" href="#drupal-console-100" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Drupal Console 1.0.0&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://drupalconsole.com/"&gt;Drupal Console&lt;/a&gt; is a command line interface for Drupal. Add users, debug issues, generate boilerplate code, and more. Version 1.0.0 was just &lt;a href="https://youtu.be/1WgUrm_DlBI?t=1m8s"&gt;released at Drupal Camp Costa Rica&lt;/a&gt;—the largest web development event in the country.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“It’s amazing how a project we started a few years ago as a Drupal 8 learning exercise is now considered for the Drupal community a must-have tool to accelerate Drupal 8 development.” - &lt;a href="https://github.com/jmolivas" class="user-mention"&gt;@jmolivas&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a href="https://drupalconsole.com/"&gt;
+  &lt;img style="border:0;" src="https://user-images.githubusercontent.com/121322/29950992-70b6b5be-8e74-11e7-9909-8e18b655cbfc.png" alt="Drupal Console terminal output"&gt;
+&lt;/a&gt;
+&lt;p&gt;&lt;strong&gt;Did you know:&lt;/strong&gt; Drupal Console is hitting all the right milestones lately. Last month, they celebrated &lt;a href="https://drupalconsole.com/articles/drupal-console-hits-1-million-downloads"&gt;one million downloads&lt;/a&gt;. Congratulations, all around!&lt;/p&gt;
+&lt;h2&gt;&lt;a id="user-content-redash-20" class="anchor" href="#redash-20" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Redash 2.0&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://redash.io/"&gt;Redash&lt;/a&gt; is an open source tool for teams to query, visualize, and collaborate on data from MySQL, Graphite, Presto, BigQuery, Redshift, and &lt;a href="https://redash.io/integrations/"&gt;many other data sources&lt;/a&gt;. No more exporting data into Excel or spending weeks building dashboards.&lt;/p&gt;
+&lt;p&gt;Refer to the &lt;a href="https://github.com/getredash/redash/releases/tag/v2.0.0"&gt;release notes&lt;/a&gt; for some highlights and contributions from the community.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://user-images.githubusercontent.com/121322/29944453-7010cdf6-8e52-11e7-92dc-283d5e4ac1e9.png" target="_blank"&gt;&lt;img alt="Example Redash data visualizations on" src="https://user-images.githubusercontent.com/121322/29944453-7010cdf6-8e52-11e7-92dc-283d5e4ac1e9.png" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a id="user-content-stf-30" class="anchor" href="#stf-30" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;STF 3.0&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://openstf.io/"&gt;Smartphone Test Farm&lt;/a&gt; (STF) is an open source web application for controlling and debugging smartphones and other devices—right from the comfort of your browser. Testing your latest app or game on all devices has never been easier.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/openstf/stf/releases/tag/v3.0.0"&gt;View the 3.0.0 release notes&lt;/a&gt;&lt;/p&gt;
+&lt;a href="https://openstf.io/"&gt;
+  &lt;img style="border:0;" src="https://raw.githubusercontent.com/openstf/stf/master/doc/7s_usage.gif" alt="Animation showing STF's capabilities"&gt;
+&lt;/a&gt;
+&lt;p&gt;&lt;strong&gt;Did you know:&lt;/strong&gt; STF's origins lie at &lt;a href="https://enterprise.github.com/case-studies/cyberagent"&gt;CyberAgent&lt;/a&gt; in Tokyo, where it was used to control over 150 devices.&lt;/p&gt;
+&lt;h2&gt;&lt;a id="user-content-react-map-gl-30" class="anchor" href="#react-map-gl-30" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;react-map-gl 3.0&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://uber.github.io/react-map-gl/#/"&gt;react-map-gl&lt;/a&gt; is a suite of React components for &lt;a href="https://www.mapbox.com/mapbox-gl-js/api/"&gt;Mapbox GL JS&lt;/a&gt;, a JavaScript library that uses WebGL to render interactive maps. You don't need to have as much &lt;a href="https://eng.uber.com/category/uberdata/"&gt;data as Uber&lt;/a&gt; to create beautiful data visualizations.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/uber/react-map-gl/releases/tag/v3.0.0"&gt;View the v3.0.0 release notes&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://user-images.githubusercontent.com/121322/29957221-209fa91e-8ea1-11e7-925a-8efbf527102a.png" target="_blank"&gt;&lt;img alt="Example showing react-map-gl's dynamic styling" src="https://user-images.githubusercontent.com/121322/29957221-209fa91e-8ea1-11e7-925a-8efbf527102a.png" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Did you know:&lt;/strong&gt; This is just one of many frameworks created and maintained by the Visualization Team at Uber. &lt;a href="http://uber.github.io/deck.gl/blog/2017/visualization-framework-suite"&gt;Read more about the entire framework&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a id="user-content-starcraft-ii-api-v1" class="anchor" href="#starcraft-ii-api-v1" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Starcraft II API v1&lt;/h2&gt;
+&lt;p&gt;The Starcraft II Development Team just &lt;a href="http://us.battle.net/sc2/en/blog/20944009"&gt;announced the release of the Starcraft II API&lt;/a&gt; for gamers and researchers advancing the field of Artificial Intelligence (AI). In addition to sample code and bots, they've also included a dataset of replay data from some of the world’s best Starcraft players.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://camo.githubusercontent.com/49c3c966dbf0a491ec4a5936066245ba1fa7ad58/68747470733a2f2f626c697a7a6172642e67616d657370726573732e636f6d2f63646e2f70726f7072657373726f6f6d2f436f6e74656e742f417274776f726b2f4576612f426c697a7a6172644c6976652f617274776f726b2f323031362f31312f30323230313934392d37396438623262392d653266642d343839342d626434652d6261396164613733336662372f4e6f76614949495f4e6f766130385f54465f30302e706e673f773d31303234266d61786865696768743d34303936266d6f64653d70616426666f726d61743d6a7067" target="_blank"&gt;&lt;img src="https://camo.githubusercontent.com/49c3c966dbf0a491ec4a5936066245ba1fa7ad58/68747470733a2f2f626c697a7a6172642e67616d657370726573732e636f6d2f63646e2f70726f7072657373726f6f6d2f436f6e74656e742f417274776f726b2f4576612f426c697a7a6172644c6976652f617274776f726b2f323031362f31312f30323230313934392d37396438623262392d653266642d343839342d626434652d6261396164613733336662372f4e6f76614949495f4e6f766130385f54465f30302e706e673f773d31303234266d61786865696768743d34303936266d6f64653d70616426666f726d61743d6a7067" alt="Screenshot of Starcraft II gameplay" data-canonical-src="https://blizzard.gamespress.com/cdn/propressroom/Content/Artwork/Eva/BlizzardLive/artwork/2016/11/02201949-79d8b2b9-e2fd-4894-bd4e-ba9ada733fb7/NovaIII_Nova08_TF_00.png?w=1024&amp;amp;maxheight=4096&amp;amp;mode=pad&amp;amp;format=jpg" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Did you know:&lt;/strong&gt; There's an &lt;a href="http://www.cs.mun.ca/%7Edchurchill/starcraftaicomp/"&gt;Annual Starcraft AI Competition&lt;/a&gt;, where researchers compete annually with bots, using the the open source &lt;a href="http://bwapi.github.io/"&gt;Brood War Application Programming Interface (BWAPI)&lt;/a&gt; C++ framework. Interested? You can fork a sample bot called &lt;a href="https://github.com/davechurchill/ualbertabot/wiki"&gt;UAlbertaBot&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;&lt;a id="user-content-pysc2-10" class="anchor" href="#pysc2-10" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;PySC2 1.0&lt;/h2&gt;
+&lt;p&gt;In partnership with Blizzard, Deepmind also released &lt;a href="https://github.com/deepmind/pysc2"&gt;PySC2&lt;/a&gt;—a Python wrapper for the new API for reinforcement learning agents to interact with the game. They also share some mini games (which they think of as more of unit tests). In these, agents achieve a level of play comparable to a human player—moving to beacons, building marines, and more.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://camo.githubusercontent.com/9e755084d87f4c3ff3b3acecd95ef93af4a3143a/68747470733a2f2f73746f726167652e676f6f676c65617069732e636f6d2f646565706d696e642d6c6976652d636d732d616c742f646f63756d656e74732f6d696e692d67616d65732e676966" target="_blank"&gt;&lt;img src="https://camo.githubusercontent.com/9e755084d87f4c3ff3b3acecd95ef93af4a3143a/68747470733a2f2f73746f726167652e676f6f676c65617069732e636f6d2f646565706d696e642d6c6976652d636d732d616c742f646f63756d656e74732f6d696e692d67616d65732e676966" alt="Simple RL mini-games allowing AI researchers to test the performance of RL agents on key tasks" data-canonical-src="https://storage.googleapis.com/deepmind-live-cms-alt/documents/mini-games.gif" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Did you know:&lt;/strong&gt; Although bots are currently no match for a human, we might see a bot defeat the world's best human players in the next few years. &lt;a href="https://deepmind.com/documents/110/sc2le.pdf"&gt;Learn more&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a id="user-content-lumberyard-110" class="anchor" href="#lumberyard-110" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Lumberyard 1.10&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://aws.amazon.com/lumberyard/"&gt;Lumberyard&lt;/a&gt;, Amazon's AAA game engine integrated with &lt;a href="https://aws.amazon.com/gamelift/"&gt;GameLift&lt;/a&gt; and &lt;a href="https://aws.amazon.com/gamelift/"&gt;Twitch&lt;/a&gt; just released &lt;a href="https://aws.amazon.com/blogs/gamedev/now-available-lumberyard-beta-1-10/"&gt;1.10&lt;/a&gt; with over 500 new features, bug fixes, and performance improvements. They also made the &lt;a href="https://aws.amazon.com/blogs/gamedev/now-available-lumberyard-on-github/"&gt;source code available&lt;/a&gt;, so game developers can customize and optimize the code to suit their needs.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://camo.githubusercontent.com/c6447bf98db1dfccac0d17dfd5396241f132dc11/68747470733a2f2f6432393038713031766f6d7162322e636c6f756466726f6e742e6e65742f393130333261643762626362366366373238373565386538323037646366626138303137336637632f323031372f30372f32352f646f636b696e67322e706e67" target="_blank"&gt;&lt;img src="https://camo.githubusercontent.com/c6447bf98db1dfccac0d17dfd5396241f132dc11/68747470733a2f2f6432393038713031766f6d7162322e636c6f756466726f6e742e6e65742f393130333261643762626362366366373238373565386538323037646366626138303137336637632f323031372f30372f32352f646f636b696e67322e706e67" alt="Screenshot showing the new docking system in Lumberyard" data-canonical-src="https://d2908q01vomqb2.cloudfront.net/91032ad7bbcb6cf72875e8e8207dcfba80173f7c/2017/07/25/docking2.png" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a id="user-content-net-core-20" class="anchor" href="#net-core-20" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;.NET Core 2.0&lt;/h2&gt;
+&lt;p&gt;Finally, our friends at the &lt;a href="https://dotnetfoundation.org/"&gt;.NET Foundation&lt;/a&gt; released &lt;a href="https://www.microsoft.com/net/core/platform"&gt;.NET Core 2.0&lt;/a&gt;—a lightweight, modular platform for creating web applications and services that run on Windows, Linux, and Mac. Learn more from Scott Hunter and members of the .NET Team on Microsoft's &lt;a href="https://channel9.msdn.com/Blogs/dotnet/NET-Core-20-Released/"&gt;Channel 9&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://channel9.msdn.com/Blogs/dotnet/NET-Core-20-Released/"&gt;&lt;img src="https://user-images.githubusercontent.com/121322/29945846-b5a5a4f4-8e57-11e7-9a78-3e2f8ba8f2e0.png" alt=".NET Core 2.0 discussions on Microsoft's Channel 9" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Did you know:&lt;/strong&gt; Microsoft also released &lt;a href="https://blogs.msdn.microsoft.com/webdev/2017/08/14/announcing-asp-net-core-2-0/"&gt;ASP.NET Core 2.0&lt;/a&gt;, &lt;a href="https://blogs.msdn.microsoft.com/dotnet/2017/08/14/announcing-entity-framework-core-2-0/"&gt;Entity Framework Core 2.0&lt;/a&gt;, and the complete &lt;a href="https://blogs.msdn.microsoft.com/dotnet/2017/08/14/announcing-net-standard-2-0/"&gt;.NET Standard 2.0&lt;/a&gt; specification—not a surprise considering Microsoft had &lt;a href="https://octoverse.github.com/"&gt;the most open source contributors&lt;/a&gt; of any organization last year.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;This is just a sample of all the awesome things you shipped last month. Are you releasing something exciting soon? We'd love to help you celebrate! Send a note to &lt;a href="mailto:releaseradar@github.com"&gt;&lt;/a&gt;&lt;a href="mailto:releaseradar@github.com"&gt;releaseradar@github.com&lt;/a&gt;&lt;/p&gt;</content>
+    <media:thumbnail url="https://avatars3.githubusercontent.com/u/121322?v=4"/>
+    <author>
+      <name>Lee Reilly</name>
+      <uri>https://github.com/leereilly</uri>
+      <email></email>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/2423</id>
+    <published>2017-08-31T20:15:57Z</published>
+    <link rel="alternate" type="text/html" href="https://github.com/blog/2423-webcast-recap-organizing-work-with-github"/>
+    <title>Webcast recap: Organizing work with GitHub</title>
+    <category term="general"/>
+    <summary></summary>
+    <content type="html" xml:base="https://github.com/blog">&lt;p&gt;&lt;a href="https://user-images.githubusercontent.com/16549281/29843049-92540778-8cbf-11e7-8b59-9768acd07a80.png" target="_blank"&gt;&lt;img width="761" alt="webcast banner card" src="https://user-images.githubusercontent.com/16549281/29843049-92540778-8cbf-11e7-8b59-9768acd07a80.png" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Organizing your projects and teams efficiently on GitHub can provide clear direction for your teammates—and transparent documentation for everyone else following along.&lt;/p&gt;
+&lt;p&gt;In our latest webcast, GitHub Solutions Engineer Phil Holleran shares a few strategies to help you stay organized. If you weren’t able to join us live, you can find the full recording, along with a few highlights, below.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://resources.github.com/webcasts/Organizing-Work-with-GitHub/"&gt;Watch the recording&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Organizing people&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;There are plenty of ways to organize teams within your company and on GitHub. Choosing the right organizational structure is key to communicating across teams and keeping projects on track. When you're structure isn't working, developers might find it difficult to access the people and information they need to be successful. Our advice? Start with just one organization on GitHub populated with a hierarchy of teams, them grow from there if necessary.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Organizing repositories&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;When organizing repositories, there are three main elements you'll have to manage consistently: documentation, contributions, and releases. By maintaining control of these communication outlets—and discouraging sprawl—you’ll be able to keep all team members updated on your projects' progress. Greater visibility also helps new developers get up to speed and start contributing faster.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Organizing tasks&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Task lists, labels, milestones, and project boards can help you organize any GitHub project. Each of these represent different strategies you can use to start new tasks, assign work, or gently remind teams about outstanding issues. For example, task lists are easy to add to comments within issues, and your team can sort issues by project keywords and status with labels. Project boards act as high-level guides to an entire project, linking people to various tasks and issues from one central location.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://resources.github.com/webcasts/"&gt;Register for upcoming webcasts or watch previous ones&lt;/a&gt;&lt;/p&gt;</content>
+    <media:thumbnail url="https://avatars3.githubusercontent.com/u/16549281?v=4"/>
+    <author>
+      <name>Kara</name>
+      <uri>https://github.com/kdraps</uri>
+      <email></email>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/2424</id>
+    <published>2017-08-31T20:06:40Z</published>
+    <link rel="alternate" type="text/html" href="https://github.com/blog/2424-quickly-review-changed-functions-in-your-python-pull-requests"/>
+    <title>Quickly review changed functions in your Python pull requests</title>
+    <category term="ship"/>
+    <summary></summary>
+    <content type="html" xml:base="https://github.com/blog">&lt;p&gt;Last month, we released &lt;a href="https://github.com/blog/2407-quickly-review-changed-methods-and-functions-in-your-pull-requests"&gt;a new way to quickly review pull requests&lt;/a&gt; by listing the changed functions or methods in the pull request file finder. Now Python enthusiasts can quickly identify changed functions in their pull requests, too.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://user-images.githubusercontent.com/3477155/29894394-2811e06c-8da3-11e7-851b-1641d7be399c.gif" target="_blank"&gt;&lt;img src="https://user-images.githubusercontent.com/3477155/29894394-2811e06c-8da3-11e7-851b-1641d7be399c.gif" alt="python-changed-functions" style="max-width:100%;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Searching the file finder for the term &lt;code&gt;function&lt;/code&gt; or the name of a changed function in a Python file will provide you with a timeline-style view of the results, so you can easily identify and view the most impactful parts of a pull request. &lt;a href="https://help.github.com/articles/finding-changed-methods-and-functions-in-a-pull-request"&gt;Check out the documentation to learn more&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We hope this helps make more of the review process for the Python community more efficient. Let us know if you have any feedback—or if there are other search functions you'd find useful using our &lt;a href="https://github.com/contact"&gt;help form&lt;/a&gt;.&lt;/p&gt;</content>
+    <media:thumbnail url="https://avatars1.githubusercontent.com/u/941226?v=4"/>
+    <author>
+      <name>Rick Winfrey</name>
+      <uri>https://github.com/rewinfrey</uri>
+      <email></email>
+    </author>
+  </entry>
+</feed>

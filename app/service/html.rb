@@ -28,8 +28,8 @@ module Service
     def self.post_excerpt(html, options = {})
       opts = POST_EXCERPT_DEFAULTS.merge(options)
       limit = opts[:length] - opts[:link].length - opts[:separator].length
-      excerpt = excerpt(html, length: limit, omission: opts[:omission])
-      [excerpt, opts[:link]].reject(&:blank?).join(opts[:separator])
+      result = excerpt(html, length: limit, omission: opts[:omission])
+      [result, opts[:link]].reject(&:blank?).join(opts[:separator])
     end
 
     def self.squeeze(text)
