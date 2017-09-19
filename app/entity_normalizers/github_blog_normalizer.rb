@@ -15,11 +15,15 @@ module EntityNormalizers
     private
 
     def content_excerpt
-      Service::Html.comment_excerpt(entity.content.content)
+      Service::Html.comment_excerpt(safe_content)
     end
 
     def first_image_url
-      Service::Html.first_image_url(entity.content.content)
+      Service::Html.first_image_url(safe_content)
+    end
+
+    def safe_content
+      entity.content.try(:content) || ''
     end
   end
 end

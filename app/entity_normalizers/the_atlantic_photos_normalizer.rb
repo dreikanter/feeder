@@ -35,11 +35,12 @@ module EntityNormalizers
     end
 
     def photo_description_excerpt
-      kill_newlines(Service::Html.comment_excerpt(photo_description.text))
+      kill_newlines(Service::Html.comment_excerpt(photo_description))
     end
 
     def photo_description
-      Nokogiri::HTML(entity.description).css('figure > figcaption').first
+      caption = Nokogiri::HTML(entity.description).css('figure > figcaption')
+      caption.try(:first).try(:text) || ''
     end
 
     def kill_newlines(text)
