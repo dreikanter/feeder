@@ -62,7 +62,7 @@ module Service
       result = Nokogiri::HTML(html)
 
       # Replace paragraphs with line breaks
-      result.css('br,p').each { |e| e.after "\n" }
+      result.css('br,p,header').each { |e| e.after "\n" }
 
       result.css('a').each do |e|
         href = e['href']
