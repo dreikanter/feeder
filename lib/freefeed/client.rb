@@ -84,7 +84,7 @@ module Freefeed
     end
 
     def path_from_url(url)
-      File.basename(URI.parse(url).path)
+      File.basename(Addressable::URI.parse(url).path)
     end
   end
 end
