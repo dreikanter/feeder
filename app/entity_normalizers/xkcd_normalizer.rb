@@ -9,7 +9,9 @@ module EntityNormalizers
     end
 
     def comments
-      (image['alt'].to_s.empty? ? [] : [image['alt']])
+      alt = image['alt'].to_s
+      return [] if alt.empty?
+      [Service::Html.comment_excerpt(Service::Html.squeeze(alt))]
     end
 
     def image

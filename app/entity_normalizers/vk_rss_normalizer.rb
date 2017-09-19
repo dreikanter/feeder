@@ -10,7 +10,7 @@ module EntityNormalizers
     end
 
     def comments
-      paragraphs[1..-1].map { |p| p.gsub(/^\s*🔗\s*/, '') } || []
+      processed_comments || []
     end
 
     def attachments
@@ -18,6 +18,13 @@ module EntityNormalizers
     end
 
     private
+
+    def processed_comments
+      paragraphs[1..-1].map do |paragraph|
+        result = Service::Html.squeeze(paragraph.gsub(/^\s*🔗\s*/, ''))
+        Service::Html.comment_excerpt(result)
+      end
+    end
 
     def paragraphs
       @paragraphs ||= Service::Html.paragraphs(entity.description)

@@ -29,7 +29,7 @@ module EntityNormalizers
     end
 
     def image_title
-      image_element[:title]
+      Service::Html.comment_excerpt(image_element[:title])
     end
 
     def image_element

@@ -28,13 +28,8 @@ module EntityNormalizers
     READ_MORE_LINK = /\s*Читать дальше\s*/.freeze
 
     def description
-      Service::Html.excerpt(entity.description, length: max_length).
+      Service::Html.comment_excerpt(Service::Html.squeeze(entity.description)).
         gsub(READ_MORE_LINK, '')
-    end
-
-    def max_length
-      Const::Content::MAX_UNCOLLAPSED_POST_LENGTH -
-        separator.length - link.length
     end
   end
 end
