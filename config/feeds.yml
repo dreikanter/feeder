@@ -86,3 +86,8 @@
   url: "http://floccinaucinihilipilificationa.tumblr.com/rss"
   processor: "rss"
   normalizer: "f28a"
+
+- name: "agavr-today"
+  url: "http://tele.ga/agavr_today/rss/"
+  processor: "rss"
+  normalizer: "telega"
