@@ -1,18 +1,22 @@
 module EntityNormalizers
   class EsquirePhotosNormalizer < EntityNormalizers::RssNormalizer
     def text
-      [description, link].reject(&:blank?).join(separator)
+      [entity.title, link].reject(&:blank?).join(separator)
     end
 
     def published_at
       parts = /(\d\d)(\d\d)(\d\d\d\d)/.match(link)
       DateTime.new(Integer(parts[3]), Integer(parts[2]), Integer(parts[1]))
     rescue
-      DateTime.now
+      super
     end
 
     def attachments
       [image_url]
+    end
+
+    def comments
+      [description]
     end
 
     private
