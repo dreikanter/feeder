@@ -36,7 +36,15 @@ class Post < ApplicationRecord
 
   delegate :name, to: :feed, prefix: :feed
 
+  before_save :sanitize_published_at
+
   def feeds
     feed ? [feed.name] : []
+  end
+
+  private
+
+  def sanitize_published_at
+    self.published_at ||= DateTime.now
   end
 end
