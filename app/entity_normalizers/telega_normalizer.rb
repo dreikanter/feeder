@@ -12,7 +12,7 @@ module EntityNormalizers
     private
 
     def excerpt
-      Service::Html.comment_excerpt(paragraphs[1..-1].join("\n\n"))
+      Service::Html.comment_excerpt((paragraphs[1..-1] || []).join("\n\n"))
     end
 
     def paragraphs
