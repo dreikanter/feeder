@@ -12,7 +12,8 @@ $data-table-cell-padding-horizontal: 10px;
         overflow: auto;
         padding: $data-table-cell-padding-vertical $data-table-cell-padding-horizontal;
 
-        &.truncated-line {
+        &.truncated-line,
+        &.nowrap {
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
