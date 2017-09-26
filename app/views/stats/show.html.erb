@@ -193,7 +193,7 @@
               callback: function(dataLabel, index) {
                 var date = moment(dataLabel)
                 var monday = date.weekday() === 0
-                return monday ? date.format("MM/DD") : "";
+                return monday ? date.format("D") : "";
               }
             }
           }],
