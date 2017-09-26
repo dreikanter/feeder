@@ -1,6 +1,6 @@
 class StatsController < ApplicationController
   def show
-    @feeds = Feed.all
+    @feeds = Feed.order(:updated_at)
     @history = recent_posts.group('DATE(created_at)').count.sort.to_h
   end
 
