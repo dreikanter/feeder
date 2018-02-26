@@ -39,4 +39,4 @@
 public/assets/
 
 # Rails secrets
-secrets.yml.key
+/config/secrets.yml.key
