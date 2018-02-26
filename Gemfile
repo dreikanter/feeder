@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.1', '>= 5.1.0'
+gem 'rails', '~> 5.1', '>= 5.1.2'
 gem 'puma', '~> 3.8', '>= 3.8.2'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.6', '>= 2.6.4'
