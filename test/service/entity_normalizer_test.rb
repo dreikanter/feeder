@@ -37,11 +37,11 @@ class EntityNormalizerTest < ActiveSupport::TestCase
   }.freeze
 
   EXPECTED_NORMALIZERS = {
-    'xkcd' => EntityNormalizers::XkcdNormalizer,
-    'dilbert' => EntityNormalizers::DilbertNormalizer,
-    'processor-name-example' => EntityNormalizers::RssNormalizer,
-    'livejournal-example' => EntityNormalizers::LivejournalNormalizer,
-    'medium-example' => EntityNormalizers::MediumNormalizer
+    'xkcd' => Normalizers::XkcdNormalizer,
+    'dilbert' => Normalizers::DilbertNormalizer,
+    'processor-name-example' => Normalizers::RssNormalizer,
+    'livejournal-example' => Normalizers::LivejournalNormalizer,
+    'medium-example' => Normalizers::MediumNormalizer
   }.freeze
 
   def test_for

@@ -24,10 +24,10 @@ class FeedProcessorTest < ActiveSupport::TestCase
   ].freeze
 
   EXPECTED_PROCESSORS = {
-    'xkcd' => FeedProcessors::RssProcessor,
-    'dilbert' => FeedProcessors::AtomProcessor,
-    'oglaf' => FeedProcessors::OglafProcessor,
-    'null-sample' => FeedProcessors::NullProcessor
+    'xkcd' => Processors::RssProcessor,
+    'dilbert' => Processors::AtomProcessor,
+    'oglaf' => Processors::OglafProcessor,
+    'null-sample' => Processors::NullProcessor
   }.freeze
 
   def test_for

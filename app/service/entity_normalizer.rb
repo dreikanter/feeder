@@ -26,7 +26,7 @@ module Service
     end
 
     def normalizer_for(name)
-      "entity_normalizers/#{name}_normalizer".classify.constantize
+      "normalizers/#{name}_normalizer".classify.constantize
     end
   end
 end

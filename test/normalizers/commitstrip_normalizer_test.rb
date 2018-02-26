@@ -12,7 +12,7 @@ class CommitstripNormalizerTest < ActiveSupport::TestCase
 
   def process_sample_data
     source = open(SAMPLE_DATA_PATH).read
-    FeedProcessors::RssProcessor.process(source)
+    Processors::RssProcessor.process(source)
   end
 
   def processed
@@ -26,7 +26,7 @@ class CommitstripNormalizerTest < ActiveSupport::TestCase
 
   def normalize_sample_data
     processed.map do |entity|
-      EntityNormalizers::CommitstripNormalizer.process(entity[1])
+      Normalizers::CommitstripNormalizer.process(entity[1])
     end
   end
 

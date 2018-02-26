@@ -26,7 +26,7 @@ module Service
     end
 
     def processor_for(name)
-      "feed_processors/#{name}_processor".classify.constantize
+      "processors/#{name}_processor".classify.constantize
     end
   end
 end

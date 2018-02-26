@@ -12,7 +12,7 @@ class GithubBlogNormalizerTest < ActiveSupport::TestCase
 
   def process_sample_data
     source = open(SAMPLE_DATA_PATH).read
-    FeedProcessors::AtomProcessor.process(source)
+    Processors::AtomProcessor.process(source)
   end
 
   def processed
@@ -26,7 +26,7 @@ class GithubBlogNormalizerTest < ActiveSupport::TestCase
 
   def normalize_sample_data
     processed.map do |entity|
-      EntityNormalizers::GithubBlogNormalizer.process(entity[1])
+      Normalizers::GithubBlogNormalizer.process(entity[1])
     end
   end
 
