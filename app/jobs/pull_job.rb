@@ -4,7 +4,7 @@ class PullJob < ApplicationJob
   def perform(feed_name)
     started_at = Time.zone.now
 
-    feed = Feed.find_or_import(feed_name)
+    feed = Feed.for(feed_name)
     raise 'feed not found' unless feed
 
     logger.info "---> loading feed: #{feed.name}"

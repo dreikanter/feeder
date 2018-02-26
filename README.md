@@ -57,7 +57,7 @@ Testing new feed:
 
 ``` ruby
 name = 'the-atlantic-photos'
-feed = Feed.find_or_import(name)
+feed = Feed.for(name)
 entities = Service::FeedLoader.load(name)
 entities.map { |e| Service::FeedNormalizer.for(feed).process(e[1]) }
 ```
