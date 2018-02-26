@@ -95,7 +95,7 @@
 - name: "vdud"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCMCgOm8GZkHp8zJ6l7_hIuA"
   processor: "youtube"
-  normalizer: "youtube"
+  normalizer: "vdud"
 
 - name: "parfenon"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCbhMGG0ZievPtK8mzLH5jhQ"
