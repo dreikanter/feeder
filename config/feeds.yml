@@ -91,3 +91,13 @@
   url: "http://tele.ga/agavr_today/rss/"
   processor: "rss"
   normalizer: "telega"
+
+- name: "vdud"
+  url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCLXo7UDZvByw2ixzpQCufnA"
+  processor: "rss"
+  normalizer: "youtube"
+
+- name: "parfenon"
+  url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCbhMGG0ZievPtK8mzLH5jhQ"
+  processor: "rss"
+  normalizer: "youtube"
