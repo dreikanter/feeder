@@ -13,7 +13,7 @@ module Service
     end
 
     def self.count
-      @feeds.count
+      feeds.count
     end
 
     def self.sanitize_feeds(feeds)
