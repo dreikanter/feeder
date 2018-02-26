@@ -3,7 +3,7 @@ require 'rss'
 module Processors
   class AtomProcessor < Processors::Base
     def entities
-      items.map { |i| [i.link.href, i] }
+      parse_source.map { |i| [i.link.href, i] }
     end
 
     private
