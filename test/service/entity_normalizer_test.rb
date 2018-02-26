@@ -45,9 +45,11 @@ class EntityNormalizerTest < ActiveSupport::TestCase
   }.freeze
 
   def test_for
-    EXPECTED_NORMALIZERS.each do |feed_name, normalizer_class|
-      result = Service::EntityNormalizer.for(feed_name, SAMPLE_FEEDS)
-      assert_equal result, normalizer_class
+    SAMPLE_FEEDS.each do |attrs|
+      name = attrs['name']
+      feed = Feed.create_with(attrs).find_or_create_by(name: name)
+      result = Service::EntityNormalizer.for(feed)
+      assert_equal(result, EXPECTED_NORMALIZERS[name])
     end
   end
 
