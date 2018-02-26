@@ -93,11 +93,11 @@
   normalizer: "telega"
 
 - name: "vdud"
-  url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCLXo7UDZvByw2ixzpQCufnA"
-  processor: "rss"
+  url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCMCgOm8GZkHp8zJ6l7_hIuA"
+  processor: "youtube"
   normalizer: "youtube"
 
 - name: "parfenon"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCbhMGG0ZievPtK8mzLH5jhQ"
-  processor: "rss"
+  processor: "youtube"
   normalizer: "youtube"
