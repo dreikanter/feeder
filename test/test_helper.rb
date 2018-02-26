@@ -17,7 +17,7 @@ end
 DatabaseCleaner.strategy = :transaction
 
 class Minitest::Spec
-  include FactoryGirl::Syntax::Methods
+  include FactoryBot::Syntax::Methods
 
   before :each do
     DatabaseCleaner.start
@@ -29,7 +29,7 @@ class Minitest::Spec
 end
 
 class Minitest::Test
-  include FactoryGirl::Syntax::Methods
+  include FactoryBot::Syntax::Methods
 
   def setup
     DatabaseCleaner.start
