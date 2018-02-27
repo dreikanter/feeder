@@ -112,7 +112,7 @@
   processor: "rss"
   normalizer: "coding_horror"
 
-- name: "littlebigdetails"
+- name: "little-big-details"
   url: "http://littlebigdetails.com/rss"
   processor: "rss"
   normalizer: "little_big_details"
