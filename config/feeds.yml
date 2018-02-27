@@ -106,3 +106,13 @@
   url: "http://myjetpack.tumblr.com/rss"
   processor: "rss"
   normalizer: "my_jetpack"
+
+- name: "codinghorror"
+  url: "http://feeds.feedburner.com/codinghorror"
+  processor: "rss"
+  normalizer: "coding_horror"
+
+- name: "littlebigdetails"
+  url: "http://littlebigdetails.com/rss"
+  processor: "rss"
+  normalizer: "little_big_details"
