@@ -105,4 +105,4 @@
 - name: "myjetpack"
   url: "http://myjetpack.tumblr.com/rss"
   processor: "rss"
-  normalizer: "myjetpack"
+  normalizer: "my_jetpack"
