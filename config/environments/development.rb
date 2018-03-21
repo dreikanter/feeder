@@ -1,7 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.autoload_paths << Rails.root.join('app')
+  # config.autoload_paths << Rails.root.join('app')
 
   config.read_encrypted_secrets = true
 
