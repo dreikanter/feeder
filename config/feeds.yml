@@ -116,3 +116,23 @@
   url: "http://littlebigdetails.com/rss"
   processor: "rss"
   normalizer: "little_big_details"
+
+- name: "blitz-and-chips"
+  url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCRQEBFeG3lTMDEIUtQulzLg"
+  processor: "youtube"
+  normalizer: "youtube"
+
+- name: "jimmydiresta"
+  url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCiEk4xHBbz0hZNIBBpowdYQ"
+  processor: "youtube"
+  normalizer: "youtube"
+
+- name: "confreaks"
+  url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCWnPjmqvljcafA0z2U1fwKQ"
+  processor: "youtube"
+  normalizer: "youtube"
+
+- name: "theycantalk"
+  url: "http://theycantalk.com/rss"
+  processor: "rss"
+  normalizer: "theycantalk"
