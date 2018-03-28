@@ -136,3 +136,8 @@
   url: "http://theycantalk.com/rss"
   processor: "rss"
   normalizer: "theycantalk"
+
+- name: "maremir"
+  url: "http://maremir.org/feed/"
+  processor: "rss"
+  normalizer: "maremir"
