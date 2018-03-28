@@ -1,5 +1,7 @@
 module Normalizers
   class MaremirNormalizer < Normalizers::RssNormalizer
+    WORDPRESS_THUMBNAIL_SUFFIX = '-150x150.'
+
     def text
       [super, description, link].join(separator)
     end
@@ -11,7 +13,8 @@ module Normalizers
     private
 
     def first_image_url
-      Service::Html.first_image_url(safe_content)
+      url = Service::Html.first_image_url(safe_content)
+      url.to_s.gsub(WORDPRESS_THUMBNAIL_SUFFIX, '.')
     end
 
     def safe_content
