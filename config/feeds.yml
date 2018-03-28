@@ -141,3 +141,8 @@
   url: "http://maremir.org/feed/"
   processor: "rss"
   normalizer: "maremir"
+
+- name: "sarahcandersen"
+  url: "http://sarahcandersen.com/rss"
+  processor: "rss"
+  normalizer: "sarah_candersen"
