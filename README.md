@@ -59,5 +59,6 @@ Testing new feed:
 name = 'the-atlantic-photos'
 feed = Feed.for(name)
 entities = Service::FeedLoader.load(name)
-entities.map { |e| Service::FeedNormalizer.for(feed).process(e[1]) }
+normalizer = Service::FeedNormalizer.for(feed)
+entities.map { |e| normalizer.process(e[1]) }
 ```
