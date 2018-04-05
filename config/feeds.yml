@@ -146,3 +146,8 @@
   url: "http://sarahcandersen.com/rss"
   processor: "rss"
   normalizer: "sarah_andersen"
+
+- name: "newflux"
+  url: "https://newflux.fr/feed/"
+  processor: "feedjira"
+  normalizer: "newflux"

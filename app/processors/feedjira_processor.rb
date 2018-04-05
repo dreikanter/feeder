@@ -1,7 +1,5 @@
-# TODO: Use Feedjira processor instead
-
 module Processors
-  class YoutubeProcessor < Processors::Base
+  class FeedjiraProcessor < Processors::Base
     def entities
       parse_source.map { |entity| [entity.url, entity] }
     end

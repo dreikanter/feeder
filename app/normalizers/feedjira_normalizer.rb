@@ -1,7 +1,5 @@
-# TODO: Prefer Feedjira noramlizer
-
 module Normalizers
-  class YoutubeNormalizer < Normalizers::Base
+  class FeedjiraNormalizer < Normalizers::Base
     def link
       entity.url
     end
