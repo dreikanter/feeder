@@ -145,4 +145,4 @@
 - name: "sarahcandersen"
   url: "http://sarahcandersen.com/rss"
   processor: "rss"
-  normalizer: "sarah_candersen"
+  normalizer: "sarah_andersen"

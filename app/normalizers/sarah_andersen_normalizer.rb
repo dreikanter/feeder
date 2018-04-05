@@ -1,5 +1,5 @@
 module Normalizers
-  class SarahCandersenNormalizer < Normalizers::TumblrNormalizer
+  class SarahAndersenNormalizer < Normalizers::TumblrNormalizer
     def text
       [post_excerpt, link].reject(&:blank?).join(separator)
     end
