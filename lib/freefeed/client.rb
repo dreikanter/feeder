@@ -71,12 +71,22 @@ module Freefeed
     end
 
     def execute(method, path, options = {})
-      JSON.parse(RestClient::Request.execute(
+      request_params = {
         method: method,
         url: url(path),
         payload: options[:payload],
         headers: (options[:headers] || {}).merge(auth_header)
-      ).body)
+      }
+
+      Rails.logger.debug('---> HTTP request')
+      Rails.logger.debug(JSON.pretty_generate(request_params))
+
+      result = JSON.parse(RestClient::Request.execute(**request_params).body)
+
+      Rails.logger.debug('---> HTTP response')
+      Rails.logger.debug(JSON.pretty_generate(result))
+
+      result
     rescue RestClient::Exception => e
       Rails.logger.error '---> HTTP call error'
       Rails.logger.error JSON.pretty_generate(e.response.headers)
