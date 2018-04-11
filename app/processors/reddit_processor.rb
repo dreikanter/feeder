@@ -30,8 +30,8 @@ module Processors
     def create_data_point(link)
       Rails.logger.debug 'loading reddit points from reddit'
       html = Nokogiri::HTML(page_content(link))
-      points = html.at('.sitetable .score.unvoted')[:title].to_i
-      desc = html.at('meta[property="og:description"]')[:content]
+      points = html.at('.sitetable .score.unvoted').try(:[], :title).to_i
+      desc = html.at('meta[property="og:description"]').try(:[], :content)
       DataPoint.create_reddit(link: link, points: points, description: desc)
     end
 
