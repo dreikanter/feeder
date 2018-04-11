@@ -1,5 +1,3 @@
-# TODO: Prefer Feedjira noramlizer
-
 module Normalizers
   class YoutubeNormalizer < Normalizers::Base
     def link
@@ -15,7 +13,7 @@ module Normalizers
     end
 
     def comments
-      [entity.content]
+      [Service::Html.comment_excerpt(entity.content)]
     end
   end
 end
