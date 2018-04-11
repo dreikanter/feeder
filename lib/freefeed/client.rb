@@ -33,10 +33,7 @@ module Freefeed
 
     def create_post(body, options = {})
       execute(:post, :posts, payload: {
-        'post' => {
-          'body' => body,
-          'attachments' => options[:attachments] || []
-        },
+        'post' => post_payload(body, options),
         'meta' => {
           'feeds' => options[:feeds]
         }
@@ -96,6 +93,12 @@ module Freefeed
 
     def path_from_url(url)
       File.basename(Addressable::URI.parse(url).path)
+    end
+
+    def post_payload(body, options)
+      attachments = options[:attachments]
+      return { 'body' => body } if attachments.blank?
+      { 'body' => body, 'attachments' => attachments }
     end
   end
 end
