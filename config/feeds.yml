@@ -83,7 +83,8 @@
   normalizer: "vk_rss"
 
 - name: "f28a"
-  url: "http://floccinaucinihilipilificationa.tumblr.com/rss"
+  # url: "http://floccinaucinihilipilificationa.tumblr.com/rss"
+  url: "http://feeds.feedburner.com/theycantalk/xFcE"
   processor: "rss"
   normalizer: "f28a"
   after: "2018-05-19T00:00:00+00:00"
@@ -104,7 +105,8 @@
   normalizer: "youtube"
 
 - name: "myjetpack"
-  url: "http://myjetpack.tumblr.com/rss"
+  # url: "http://myjetpack.tumblr.com/rss"
+  url: "http://feeds.feedburner.com/tumblr/uOke"
   processor: "rss"
   normalizer: "my_jetpack"
   after: "2018-05-19T00:00:00+00:00"
@@ -115,7 +117,8 @@
   normalizer: "coding_horror"
 
 - name: "little-big-details"
-  url: "http://littlebigdetails.com/rss"
+  # url: "http://littlebigdetails.com/rss"
+  url: "http://feeds.feedburner.com/littlebigdetails/wJCD"
   processor: "rss"
   normalizer: "little_big_details"
   after: "2018-05-19T00:00:00+00:00"
@@ -136,7 +139,8 @@
   normalizer: "youtube"
 
 - name: "theycantalk"
-  url: "http://theycantalk.com/rss"
+  # url: "http://theycantalk.com/rss"
+  url: "http://feeds.feedburner.com/theycantalk/xFcE"
   processor: "rss"
   normalizer: "theycantalk"
   after: "2018-05-19T00:00:00+00:00"
@@ -147,7 +151,7 @@
   normalizer: "maremir"
 
 - name: "sarahcandersen"
-  url: "http://sarahcandersen.com/rss"
+  url: "http://feeds.feedburner.com/sarahcandersen/koPM"
   processor: "rss"
   normalizer: "sarah_andersen"
   after: "2018-05-19T00:00:00+00:00"
