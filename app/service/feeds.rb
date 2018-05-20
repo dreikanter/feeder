@@ -1,7 +1,15 @@
 module Service
   class Feeds
     FEEDS_PATH = Rails.root.join('config', 'feeds.yml').freeze
-    FEED_FIELDS = %w(name url processor normalizer).freeze
+
+    FEED_FIELDS = %w[
+      name
+      url
+      processor
+      normalizer
+      after
+    ].freeze
+
     DEFAULTS = FEED_FIELDS.map { |f| [f, nil] }.to_h.freeze
 
     def self.load(feeds)

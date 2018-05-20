@@ -22,6 +22,7 @@ class PullJob < ApplicationJob
 
         post_attributes = normalizer.process(entity)
         next unless post_attributes
+        next unless post_attributes.published_at < feed.after
 
         logger.info '---> creating new post'
         Post.create!(post_attributes)

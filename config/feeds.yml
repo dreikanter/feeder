@@ -86,6 +86,7 @@
   url: "http://floccinaucinihilipilificationa.tumblr.com/rss"
   processor: "rss"
   normalizer: "f28a"
+  after: "2018-05-19T00:00:00+00:00"
 
 - name: "agavr-today"
   url: "http://tele.ga/agavr_today/rss/"
@@ -106,6 +107,7 @@
   url: "http://myjetpack.tumblr.com/rss"
   processor: "rss"
   normalizer: "my_jetpack"
+  after: "2018-05-19T00:00:00+00:00"
 
 - name: "codinghorror"
   url: "http://feeds.feedburner.com/codinghorror"
@@ -116,6 +118,7 @@
   url: "http://littlebigdetails.com/rss"
   processor: "rss"
   normalizer: "little_big_details"
+  after: "2018-05-19T00:00:00+00:00"
 
 - name: "blitz-and-chips"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCRQEBFeG3lTMDEIUtQulzLg"
@@ -136,6 +139,7 @@
   url: "http://theycantalk.com/rss"
   processor: "rss"
   normalizer: "theycantalk"
+  after: "2018-05-19T00:00:00+00:00"
 
 - name: "maremir"
   url: "http://maremir.org/feed/"
@@ -146,6 +150,7 @@
   url: "http://sarahcandersen.com/rss"
   processor: "rss"
   normalizer: "sarah_andersen"
+  after: "2018-05-19T00:00:00+00:00"
 
 - name: "newflux"
   url: "https://newflux.fr/feed/"
