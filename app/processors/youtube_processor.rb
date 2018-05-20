@@ -11,7 +11,7 @@ module Processors
     def parse_source
       Feedjira::Feed.parse(source).entries
     rescue => e
-      Rails.logger.error "error parsing youtube feed: #{e}"
+      Rails.logger.error "error parsing feed: #{e}"
       []
     end
   end
