@@ -11,6 +11,7 @@
 #  url          :string
 #  processor    :string
 #  normalizer   :string
+#  after        :datetime
 #
 # Indexes
 #
