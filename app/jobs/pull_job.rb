@@ -23,8 +23,9 @@ class PullJob < ApplicationJob
         post_attributes = normalizer.process(entity)
         next unless post_attributes
 
-        time_defined = feed.after && post_attributes['published_at']
-        next unless time_defined && post_attributes['published_at'] > feed.after
+        published_at = post_attributes['published_at']
+        time_constraint = !!(feed.after && published_at)
+        next unless !time_constraint || (published_at > feed.after)
 
         logger.info '---> creating new post'
         Post.create!(post_attributes)
