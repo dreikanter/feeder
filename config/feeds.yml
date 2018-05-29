@@ -160,3 +160,18 @@
   url: "https://newflux.fr/feed/"
   processor: "feedjira"
   normalizer: "newflux"
+
+- name: "blogdummi"
+  url: "https://blogdummi.fr/feed/"
+  processor: "wordpress"
+  normalizer: "blogdummi"
+
+- name: "waitbutwhy"
+  url: "https://waitbutwhy.com/feed"
+  processor: "wordpress"
+  normalizer: "waitbutwhy"
+
+- name: "savagechickens"
+  url: "http://www.savagechickens.com/feed"
+  processor: "wordpress"
+  normalizer: "savagechickens"
