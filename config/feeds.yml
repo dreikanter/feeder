@@ -83,7 +83,8 @@
   normalizer: "vk_rss"
 
 - name: "f28a"
-  url: "http://floccinaucinihilipilificationa.tumblr.com/rss"
+  # url: "http://floccinaucinihilipilificationa.tumblr.com/rss"
+  url: http://feeds.feedburner.com/tumblr/bAzd
   processor: "rss"
   normalizer: "f28a"
   after: "2018-05-19T00:00:00+00:00"
