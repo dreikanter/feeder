@@ -18,14 +18,24 @@ class PullJob < ApplicationJob
     load_entities(feed_name).each do |link, entity|
       begin
         logger.info "---> processing next entity #{'-' * 50}"
-        next if Post.exists?(feed: feed, link: link)
+        if Post.exists?(feed: feed, link: link)
+          logger.debug "---> already exists; skipping"
+          next
+        end
 
         post_attributes = normalizer.process(entity)
-        next unless post_attributes
+        unless post_attributes
+          logger.debug "---> bad data (normalization error); skipping"
+          next
+        end
 
         published_at = post_attributes['published_at']
         time_constraint = !!(feed.after && published_at)
-        next unless !time_constraint || (published_at > feed.after)
+        unless !time_constraint || (published_at > feed.after)
+          logger.debug "---> stale post; skipping"
+          next
+        end
+
 
         logger.info '---> creating new post'
         Post.create!(post_attributes)
