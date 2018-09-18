@@ -9,8 +9,13 @@ class PushJob < ApplicationJob
   end
 
   def perform(post)
+    if Post.stale?
+      Rails.logger.warn "post is stale; skipping"
+      return
+    end
+
     unless post.ready?
-      Rails.logger.warn "post status is not ready; skipping"
+      Rails.logger.warn "post is not ready; skipping"
       return
     end
 

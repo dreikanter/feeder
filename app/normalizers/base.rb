@@ -40,11 +40,15 @@ module Normalizers
       true
     end
 
-    private
+    ATTRIBUTE_NAMES = %w[
+      link
+      published_at
+      text
+      attachments
+      comments
+    ].freeze
 
-    def attribute_names
-      %w(link published_at text attachments comments)
-    end
+    private
 
     def attributes
       attribute_names.map { |a| [a, send(a)] }.to_h if valid?

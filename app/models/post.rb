@@ -34,12 +34,16 @@ class Post < ApplicationRecord
   scope :publishing_queue_for, -> (feed) { publishing_queue.where(feed: feed) }
   scope :recent, -> { order(created_at: :desc).limit(RECENT_LIMIT) }
 
-  delegate :name, to: :feed, prefix: :feed
+  delegate :name, :after, to: :feed, prefix: :feed
 
   before_save :sanitize_published_at
 
   def feeds
     feed ? [feed.name] : []
+  end
+
+  def stale?
+    feed_after.present? && (published_at < feed_after)
   end
 
   private
