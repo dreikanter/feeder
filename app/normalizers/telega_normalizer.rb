@@ -3,12 +3,12 @@ module Normalizers
     def text
       Service::Html.post_excerpt(
         paragraphs.first,
-        link: link,
+        link: sanitized_link,
         separator: separator
       )
     end
 
-    def link
+    def sanitized_link
       entity.link.to_s.gsub(/^\/\//, 'https://')
     end
 
