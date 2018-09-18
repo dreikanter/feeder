@@ -49,7 +49,9 @@ sudo service postgresql restart
 
 echo "-----> create postgres database"
 
-createdb $POSTGRES_DB_NAME --username=postgres
+createdb "$POSTGRES_DB_NAME"_development --username=postgres
+createdb "$POSTGRES_DB_NAME"_test --username=postgres
+createdb "$POSTGRES_DB_NAME"_production --username=postgres
 
 
 
