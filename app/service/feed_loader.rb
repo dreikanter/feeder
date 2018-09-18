@@ -14,7 +14,7 @@ module Service
     end
 
     def load_entities
-      refreshed_at = Time.zone.now
+      refreshed_at = Time.new.utc
       return processor.process(feed_content).lazy
     rescue
       refreshed_at = nil

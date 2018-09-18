@@ -2,7 +2,7 @@ class PullJob < ApplicationJob
   queue_as :default
 
   def perform(feed_name)
-    started_at = Time.zone.now
+    started_at = Time.now.utc
 
     feed = Feed.for(feed_name)
     raise 'feed not found' unless feed
@@ -47,7 +47,7 @@ class PullJob < ApplicationJob
       feed_name: feed_name,
       posts_count: posts_count,
       errors_count: errors_count,
-      duration: Time.zone.now - started_at,
+      duration: Time.new.utc - started_at,
       status: 'success'
     )
 
