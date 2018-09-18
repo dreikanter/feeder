@@ -90,7 +90,7 @@
   after: "2018-09-18T00:00:00+00:00"
 
 - name: "avokado-fm"
-  url: "http://tele.ga/avokado_fm/rss/"
+  url: "https://tele.ga/avokado_fm/rss/"
   processor: "rss"
   normalizer: "telega"
   after: "2018-09-18T00:00:00+00:00"
@@ -109,7 +109,7 @@
   after: "2018-09-18T00:00:00+00:00"
 
 - name: "agavr-today"
-  url: "http://tele.ga/agavr_today/rss/"
+  url: "https://tele.ga/agavr_today/rss/"
   processor: "rss"
   normalizer: "telega"
   after: "2018-09-18T00:00:00+00:00"

@@ -1,8 +1,15 @@
 module Normalizers
   class TelegaNormalizer < Normalizers::RssNormalizer
     def text
-      Service::Html.post_excerpt(paragraphs.first,
-        link: entity.link, separator: separator)
+      Service::Html.post_excerpt(
+        paragraphs.first,
+        link: link,
+        separator: separator
+      )
+    end
+
+    def link
+      entity.link.to_s.gsub(/^\/\//, 'https://')
     end
 
     def comments
