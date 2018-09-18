@@ -51,7 +51,7 @@ module Normalizers
     private
 
     def attributes
-      attribute_names.map { |a| [a, send(a)] }.to_h if valid?
+      ATTRIBUTE_NAMES.map { |a| [a, send(a)] }.to_h if valid?
     end
   end
 end

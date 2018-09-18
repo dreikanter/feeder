@@ -9,7 +9,7 @@ class PushJob < ApplicationJob
   end
 
   def perform(post)
-    if Post.stale?
+    if post.stale?
       Rails.logger.warn "post is stale; skipping"
       return
     end
