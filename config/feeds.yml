@@ -73,21 +73,21 @@
   processor: "rss"
   after: "2018-09-18T00:00:00+00:00"
 
-- name: "esquire-photos"
-  url: "http://feeds.feedburner.com/esquire-ru"
-  processor: "rss"
-  after: "2018-09-18T00:00:00+00:00"
+# - name: "esquire-photos"
+#   url: "http://feeds.feedburner.com/esquire-ru"
+#   processor: "rss"
+#   after: "2018-09-18T00:00:00+00:00"
 
 - name: "best-of-hacker-news"
   processor: "hacker_news"
   normalizer: "hacker_news"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2018-09-18T20:00:00+00:00"
 
 - name: "reddit-worldnews"
   url: "https://www.reddit.com/r/worldnews/.rss"
   processor: "reddit"
   normalizer: "reddit"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2018-09-18T20:00:00+00:00"
 
 - name: "avokado-fm"
   url: "https://tele.ga/avokado_fm/rss/"
