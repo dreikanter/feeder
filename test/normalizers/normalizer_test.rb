@@ -10,4 +10,20 @@ class NormalizerTest < Minitest::Test
   def sample_data_file
     throw NotImplementedError
   end
+
+  def process_sample_data
+    processor.process(open(sample_data_path).read)
+  end
+
+  def processed
+    @processed ||= process_sample_data
+  end
+
+  def normalize_sample_data
+    processed.map { |entity| normalizer.process(entity[1]) }
+  end
+
+  def normalized
+    @normalized ||= normalize_sample_data
+  end
 end

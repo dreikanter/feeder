@@ -13,22 +13,6 @@ class PoorlydrawnlinesNormalizerTest < NormalizerTest
     Normalizers::PoorlydrawnlinesNormalizer
   end
 
-  def process_sample_data
-    processor.process(open(sample_data_path).read)
-  end
-
-  def processed
-    @processed ||= process_sample_data
-  end
-
-  def normalize_sample_data
-    processed.map { |entity| normalizer.process(entity[1]) }
-  end
-
-  def normalized
-    @normalized ||= normalize_sample_data
-  end
-
   def test_sample_data_file_exists
     assert File.exist?(sample_data_path)
   end
