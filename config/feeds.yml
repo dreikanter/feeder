@@ -213,11 +213,11 @@
   normalizer: "poorlydrawnlines"
   after: "2018-09-18T00:00:00+00:00"
 
-# - name: "kimchicuddles"
-#   url: "http://kimchicuddles.com/rss"
-#   processor: "kimchicuddles"
-#   normalizer: "kimchicuddles"
-#   after: "2018-09-18T00:00:00+00:00"
+- name: "kimchicuddles"
+  url: "http://kimchicuddles.com/rss"
+  processor: "feedjira"
+  normalizer: "tumblr_normalizer"
+  after: "2018-09-18T00:00:00+00:00"
 
 # - name: "kimchicuddlesrus"
 #   url: "http://kimchicuddlesrus.com"
