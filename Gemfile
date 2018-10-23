@@ -51,4 +51,4 @@ end
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 gem 'momentjs-rails', '~> 2.20', '>= 2.20.1'
-gem 'feedjira', '~> 2.1', '>= 2.1.4'
+gem 'feedjira', '~> 2.2'
