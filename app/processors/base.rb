@@ -1,3 +1,7 @@
+# TODO: Drop Processors namespace
+# TODO: Rename to BaseProcessor
+# TODO: Use objects instead of arrays to represent entities
+
 module Processors
   class Base
     def self.process(source = nil)
