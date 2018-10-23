@@ -1,6 +1,6 @@
-require 'test_helper'
+require_relative 'normalizer_test'
 
-class EsquirePhotosNormalizerTest < Minitest::Test
+class EsquirePhotosNormalizerTest < NormalizerTest
   SAMPLE_DATA_FILE = 'feed_esquire-photos.xml'
 
   SAMPLE_DATA_PATH =

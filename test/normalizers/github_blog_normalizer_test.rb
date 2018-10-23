@@ -1,6 +1,6 @@
-require 'test_helper'
+require_relative 'normalizer_test'
 
-class GithubBlogNormalizerTest < Minitest::Test
+class GithubBlogNormalizerTest < NormalizerTest
   SAMPLE_DATA_FILE = 'feed_github_blog.xml'
 
   SAMPLE_DATA_PATH =

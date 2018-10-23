@@ -1,6 +1,6 @@
-require 'test_helper'
+require_relative 'normalizer_test'
 
-class CommitstripNormalizerTest < Minitest::Test
+class CommitstripNormalizerTest < NormalizerTest
   SAMPLE_DATA_FILE = 'feed_commitstrip.xml'
 
   SAMPLE_DATA_PATH =

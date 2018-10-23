@@ -1,6 +1,6 @@
-require 'test_helper'
+require_relative 'normalizer_test'
 
-class TelegaNormalizerTest < Minitest::Test
+class TelegaNormalizerTest < NormalizerTest
   SAMPLE_DATA_FILE = 'feed_agavr_today.xml'
 
   SAMPLE_DATA_PATH =
