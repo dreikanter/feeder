@@ -24,14 +24,10 @@ class FeedsTest < Minitest::Test
     }
   ].freeze
 
-  def test_index_count
-    assert_equal Service::Feeds.count, SAMPLE_FEEDS.count
-  end
-
   def test_find_present
     Service::Feeds.load(SAMPLE_FEEDS)
     SAMPLE_FEEDS.map { |f| f['name'] }.each do |name|
-      assert Service::Feeds.find(name).present?
+      assert(Service::Feeds.find(name).present?)
     end
   end
 end
