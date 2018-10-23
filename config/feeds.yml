@@ -207,11 +207,11 @@
   normalizer: "savagechickens"
   after: "2018-09-18T00:00:00+00:00"
 
-# - name: "poorlydrawnlines"
-#   url: "http://feeds.feedburner.com/PoorlyDrawnLines"
-#   processor: "poorlydrawnlines"
-#   normalizer: "poorlydrawnlines"
-#   after: "2018-09-18T00:00:00+00:00"
+- name: "poorlydrawnlines"
+  url: "http://feeds.feedburner.com/PoorlyDrawnLines"
+  processor: "feedjira"
+  normalizer: "poorlydrawnlines"
+  after: "2018-09-18T00:00:00+00:00"
 
 # - name: "kimchicuddles"
 #   url: "http://kimchicuddles.com/rss"
