@@ -24,7 +24,7 @@ class PoorlydrawnlinesNormalizerTest < NormalizerTest
 
   def test_normalization
     assert(normalized.present?)
-    assert(processed.length == normalized.length)
+    assert_equal(processed.length, normalized.length)
   end
 
   FIRST_SAMPLE = {
