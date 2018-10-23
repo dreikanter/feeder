@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class FeedsTest < ActiveSupport::TestCase
+class FeedsTest < Minitest::Test
   SAMPLE_FEEDS = [
     {
       'name' => 'xkcd',

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class EntityNormalizerTest < ActiveSupport::TestCase
+class EntityNormalizerTest < Minitest::Test
   SAMPLE_FEEDS = [
     {
       'name' => 'xkcd',

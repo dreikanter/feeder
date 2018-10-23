@@ -20,7 +20,7 @@
 
 require "test_helper"
 
-class FeedTest < ActiveSupport::TestCase
+class FeedTest < Minitest::Test
   def feed
     @feed ||= Feed.new
   end

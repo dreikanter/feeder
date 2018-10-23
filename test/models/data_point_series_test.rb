@@ -13,7 +13,7 @@
 
 require "test_helper"
 
-class DataPointSeriesTest < ActiveSupport::TestCase
+class DataPointSeriesTest < Minitest::Test
   def data_point_series
     @data_point_series ||= DataPointSeries.new
   end

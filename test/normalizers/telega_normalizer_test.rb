@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TelegaNormalizerTest < ActiveSupport::TestCase
+class TelegaNormalizerTest < Minitest::Test
   SAMPLE_DATA_FILE = 'feed_agavr_today.xml'
 
   SAMPLE_DATA_PATH =

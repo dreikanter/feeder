@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class GithubBlogNormalizerTest < ActiveSupport::TestCase
+class GithubBlogNormalizerTest < Minitest::Test
   SAMPLE_DATA_FILE = 'feed_github_blog.xml'
 
   SAMPLE_DATA_PATH =

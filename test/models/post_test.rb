@@ -23,7 +23,7 @@
 
 require "test_helper"
 
-class PostTest < ActiveSupport::TestCase
+class PostTest < Minitest::Test
   def post
     @post ||= Post.new
   end

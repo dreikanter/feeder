@@ -14,7 +14,7 @@
 
 require "test_helper"
 
-class DataPointTest < ActiveSupport::TestCase
+class DataPointTest < Minitest::Test
   def data_point
     @data_point ||= DataPoint.new
   end

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TheAtlanticPhotosNormalizer < ActiveSupport::TestCase
+class TheAtlanticPhotosNormalizer < Minitest::Test
   SAMPLE_DATA_FILE = 'feed_the_atlantic_photos.xml'
 
   SAMPLE_DATA_PATH =
