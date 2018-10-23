@@ -10,23 +10,7 @@ require 'minitest/spec'
 require 'minitest/autorun'
 require 'minitest/mock'
 
-class ActiveSupport::TestCase
-  fixtures :all
-end
-
 DatabaseCleaner.strategy = :transaction
-
-class Minitest::Spec
-  include FactoryBot::Syntax::Methods
-
-  before :each do
-    DatabaseCleaner.start
-  end
-
-  after :each do
-    DatabaseCleaner.clean
-  end
-end
 
 class Minitest::Test
   include FactoryBot::Syntax::Methods
