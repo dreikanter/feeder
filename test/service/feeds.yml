@@ -1,4 +1,9 @@
 ---
+
+#
+# Test configuration
+#
+
 - name: "xkcd"
   url: "http://xkcd.com/rss.xml"
   processor: "rss"

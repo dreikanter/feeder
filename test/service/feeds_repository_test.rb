@@ -5,10 +5,8 @@ class FeedRepositoryTest < Minitest::Test
     Service::FeedsRepository
   end
 
-  SAMPLE_CONFIG_PATH = File.expand_path(File.join(
-    File.dirname(__FILE__),
-    './feeds_repository_test.yml'
-  )).freeze
+  SAMPLE_CONFIG_PATH =
+    File.expand_path(File.join(File.dirname(__FILE__), './feeds.yml')).freeze
 
   def test_sample_config_exists
     message = "#{SAMPLE_CONFIG_PATH} should exist"

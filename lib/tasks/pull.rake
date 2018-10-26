@@ -1,7 +1,7 @@
-require_relative '../../app/service/feeds.rb'
+require_relative '../../app/service/feeds_list.rb'
 
 namespace :pull do
-  Service::Feeds.each_name do |name|
+  Service::FeedsList.call.each do |name|
     desc "Pull #{name} feed"
     task name => :environment do
       PullJob.perform_later(name)
@@ -10,8 +10,8 @@ namespace :pull do
 
   desc 'Pull all feeds'
   task all: :environment do
-    Service::Feeds.each_name do |name|
-      PullJob.perform_later(name.to_s)
+    Service::FeedsList.call.each do |name|
+      PullJob.perform_later(name)
     end
   end
 end
