@@ -24,7 +24,7 @@ module Service
     end
 
     def processor
-      Service::FeedProcessor.for(feed.name)
+      Service::ProcessorResolver.call(feed.name)
     end
 
     def feed_content
