@@ -4,7 +4,7 @@ class PullJob < ApplicationJob
   rescue_from StandardError do |exception|
     Rails.logger.error("---> error processing feed: #{exception.message}")
     feed_name = arguments[0]
-    Feed.for(feed_name).update(refreshed_at: nil)
+    Service::FeedsRepository.call(feed_name).update(refreshed_at: nil)
     Error.dump(exception, context: {
       class_name: self.class.name,
       feed_name: feed_name,
@@ -16,7 +16,7 @@ class PullJob < ApplicationJob
     started_at = Time.now.utc
 
     logger.info "---> loading feed: #{feed_name}"
-    feed = Feed.for(feed_name)
+    feed = Service::FeedsRepository.call(feed_name)
 
     posts_count = 0
     errors_count = 0

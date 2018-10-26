@@ -21,11 +21,5 @@
 class Feed < ApplicationRecord
   has_many :posts
 
-  def self.for(name)
-    feed_info = Service::Feeds.find(name)
-    raise 'unknown feed' unless feed_info
-    feed = Feed.find_by_name(name) || Feed.create(name: name)
-    feed.update(Service::Feeds.find(name).to_h)
-    feed
-  end
+  validates :name, presence: true
 end
