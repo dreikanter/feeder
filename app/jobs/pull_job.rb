@@ -1,13 +1,22 @@
 class PullJob < ApplicationJob
   queue_as :default
 
+  rescue_from StandardError do |exception|
+    Rails.logger.error("---> error processing feed: #{exception.message}")
+    feed_name = arguments[0]
+    Feed.for(feed_name).update(refreshed_at: nil)
+    Error.dump(exception, context: {
+      class_name: self.class.name,
+      feed_name: feed_name,
+      hint: 'error processing feed'
+    })
+  end
+
   def perform(feed_name)
     started_at = Time.now.utc
 
+    logger.info "---> loading feed: #{feed_name}"
     feed = Feed.for(feed_name)
-    raise 'feed not found' unless feed
-
-    logger.info "---> loading feed: #{feed.name}"
 
     posts_count = 0
     errors_count = 0
@@ -15,7 +24,8 @@ class PullJob < ApplicationJob
     normalizer = Service::NormalizerResolver.for(feed_name)
     logger.info "---> normalizer: #{normalizer}"
 
-    load_entities(feed).each do |link, entity|
+    entities = Service::FeedLoader.call(feed)
+    entities(feed).each do |link, entity|
       begin
         logger.info "---> processing next entity #{'-' * 50}"
         if Post.exists?(feed: feed, link: link)
@@ -64,19 +74,5 @@ class PullJob < ApplicationJob
     )
 
     DataPoint.purge_old_records!
-  end
-
-  private
-
-  def load_entities(feed)
-    Service::FeedLoader.call(feed)
-  rescue => exception
-    logger.error "---> error loading feed: #{exception.message}"
-    Error.dump(exception, context: {
-      class_name: self.class.name,
-      feed_name: feed.name,
-      hint: 'error loading feed'
-    })
-    []
   end
 end

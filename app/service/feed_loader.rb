@@ -4,7 +4,7 @@ module Service
 
     param :feed
 
-    def self.load(feed)
+    def self.call(feed)
       new(feed).call
     end
 
