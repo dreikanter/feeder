@@ -18,14 +18,18 @@ class PullJob < ApplicationJob
     logger.info "---> loading feed: #{feed_name}"
     feed = Service::FeedsRepository.call(feed_name)
 
+    normalizer = Service::NormalizerResolver.call(feed_name)
+    logger.info "---> normalizer: #{normalizer}"
+
+    feed.update(refreshed_at: started_at)
+    processor = Service::ProcessorResolver.call(feed)
+    content = Service::FeedLoader.call(feed)
+    entities = processor.call(content)
+
     posts_count = 0
     errors_count = 0
 
-    normalizer = Service::NormalizerResolver.for(feed_name)
-    logger.info "---> normalizer: #{normalizer}"
-
-    entities = Service::FeedLoader.call(feed)
-    entities(feed).each do |link, entity|
+    entities.each do |link, entity|
       begin
         logger.info "---> processing next entity #{'-' * 50}"
         if Post.exists?(feed: feed, link: link)
