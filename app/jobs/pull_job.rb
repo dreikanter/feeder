@@ -12,8 +12,8 @@ class PullJob < ApplicationJob
     posts_count = 0
     errors_count = 0
 
-    normalizer = Service::FeedNormalizer.for(feed)
-    logger.info "---> normalizer: #{normalizer.entity_normalizer}"
+    normalizer = Service::NormalizerResolver.for(feed_name)
+    logger.info "---> normalizer: #{normalizer}"
 
     load_entities(feed_name).each do |link, entity|
       begin
@@ -23,12 +23,14 @@ class PullJob < ApplicationJob
           next
         end
 
+        # Skip unprocessable entities
         post_attributes = normalizer.process(entity)
         unless post_attributes
-          logger.debug "---> bad data (normalization error); skipping"
+          logger.debug "---> normalization error; skipping"
           next
         end
 
+        # Skip stale entities
         published_at = post_attributes['published_at']
         time_constraint = !!(feed.after && published_at)
         unless !time_constraint || (published_at > feed.after)
@@ -36,9 +38,9 @@ class PullJob < ApplicationJob
           next
         end
 
-
         logger.info '---> creating new post'
-        Post.create!(post_attributes)
+        commons = { feed_id: feed.id, status: Enums::PostStatus.ready }
+        Post.create!(**post_attributes.merge(commons))
         posts_count += 1
       rescue => exception
         logger.error "---> error processing entity: #{exception.message}"
