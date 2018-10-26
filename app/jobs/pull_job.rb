@@ -38,7 +38,7 @@ class PullJob < ApplicationJob
         end
 
         # Skip unprocessable entities
-        post_attributes = normalizer.process(entity)
+        post_attributes = normalizer.call(entity)
         unless post_attributes
           logger.debug "---> normalization error; skipping"
           next

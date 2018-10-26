@@ -26,7 +26,7 @@ class EsquirePhotosNormalizerTest < NormalizerTest
 
   def normalize_sample_data
     processed.map do |entity|
-      Normalizers::EsquirePhotosNormalizer.process(entity[1])
+      Normalizers::EsquirePhotosNormalizer.call(entity[1])
     end
   end
 

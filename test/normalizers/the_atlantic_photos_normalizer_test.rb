@@ -26,7 +26,7 @@ class TheAtlanticPhotosNormalizer < NormalizerTest
 
   def normalize_sample_data
     processed.map do |entity|
-      Normalizers::TheAtlanticPhotosNormalizer.process(entity[1])
+      Normalizers::TheAtlanticPhotosNormalizer.call(entity[1])
     end
   end
 

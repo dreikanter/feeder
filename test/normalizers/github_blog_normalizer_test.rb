@@ -26,7 +26,7 @@ class GithubBlogNormalizerTest < NormalizerTest
 
   def normalize_sample_data
     processed.map do |entity|
-      Normalizers::GithubBlogNormalizer.process(entity[1])
+      Normalizers::GithubBlogNormalizer.call(entity[1])
     end
   end
 

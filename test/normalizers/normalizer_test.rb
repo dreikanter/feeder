@@ -20,7 +20,7 @@ class NormalizerTest < Minitest::Test
   end
 
   def normalize_sample_data
-    processed.map { |entity| normalizer.process(entity[1]) }
+    processed.map { |entity| normalizer.call(entity[1]) }
   end
 
   def normalized
