@@ -1,19 +1,14 @@
 module Service
   class FeedLoader
-    def self.load(feed_name)
-      send(:new, feed_name).send(:load_entities)
+    extend Dry::Initializer
+
+    param :feed
+
+    def self.load(feed)
+      new(feed).call
     end
 
-    private
-
-    attr_reader :feed
-
-    def initialize(feed_name)
-      @feed = Feed.for(feed_name.to_s)
-      raise "feed not found: #{feed_name}" unless @feed
-    end
-
-    def load_entities
+    def call
       refreshed_at = Time.new.utc
       return processor.process(feed_content).lazy
     rescue
@@ -22,6 +17,8 @@ module Service
     ensure
       feed.update(refreshed_at: refreshed_at)
     end
+
+    private
 
     def processor
       Service::ProcessorResolver.call(feed)

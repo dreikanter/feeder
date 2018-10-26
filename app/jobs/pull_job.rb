@@ -15,7 +15,7 @@ class PullJob < ApplicationJob
     normalizer = Service::NormalizerResolver.for(feed_name)
     logger.info "---> normalizer: #{normalizer}"
 
-    load_entities(feed_name).each do |link, entity|
+    load_entities(feed).each do |link, entity|
       begin
         logger.info "---> processing next entity #{'-' * 50}"
         if Post.exists?(feed: feed, link: link)
@@ -68,13 +68,13 @@ class PullJob < ApplicationJob
 
   private
 
-  def load_entities(feed_name)
-    Service::FeedLoader.load(feed_name)
+  def load_entities(feed)
+    Service::FeedLoader.call(feed)
   rescue => exception
     logger.error "---> error loading feed: #{exception.message}"
     Error.dump(exception, context: {
       class_name: self.class.name,
-      feed_name: feed_name,
+      feed_name: feed.name,
       hint: 'error loading feed'
     })
     []
