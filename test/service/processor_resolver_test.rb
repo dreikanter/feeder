@@ -1,36 +1,31 @@
 require 'test_helper'
 
 class ProcessorResolverTest < Minitest::Test
-  SAMPLE_FEEDS = [
-    {
-      'name' => 'xkcd',
-      'processor' => 'rss'
-    },
-    {
-      'name' => 'dilbert',
-      'processor' => 'atom'
-    },
-    {
-      'name' => 'oglaf',
-      'processor' => 'rss'
-    },
-    {
-      'name' => 'null-sample'
-    }
-  ].freeze
+  UNRESOLVABLE = 'unresolvable'.freeze
 
-  EXPECTED_PROCESSORS = {
-    'xkcd' => Processors::RssProcessor,
-    'dilbert' => Processors::AtomProcessor,
-    'oglaf' => Processors::OglafProcessor,
-    'null-sample' => Processors::NullProcessor
-  }.freeze
+  def assert_resolve(expected, attributes)
+    feed = Feed.new(attributes)
+    result = Service::ProcessorResolver.call(feed)
+    assert_equal(expected, result)
+  end
 
-  def test_happy_path
-    Service::Feeds.load(SAMPLE_FEEDS)
-    EXPECTED_PROCESSORS.each do |feed_name, expected|
-      result = Service::ProcessorResolver.call(feed_name)
-      assert_equal(result, expected)
-    end
+  def test_explicit_resolution_for_rss
+    attributes = { name: 'xkcd', processor: 'rss' }
+    assert_resolve(Processors::RssProcessor, attributes)
+  end
+
+  def test_explicit_resolution_for_atom
+    attributes = { name: 'dilbert', processor: 'atom' }
+    assert_resolve(Processors::AtomProcessor, attributes)
+  end
+
+  def test_resolution_by_name
+    attributes = { name: 'atom', processor: 'unresolvable' }
+    assert_resolve(Processors::AtomProcessor, attributes)
+  end
+
+  def test_fallback
+    attributes = { name: 'unresolvable', processor: 'unresolvable' }
+    assert_resolve(Processors::NullProcessor, attributes)
   end
 end
