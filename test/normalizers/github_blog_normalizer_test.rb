@@ -12,7 +12,7 @@ class GithubBlogNormalizerTest < NormalizerTest
 
   def process_sample_data
     source = open(SAMPLE_DATA_PATH).read
-    Processors::AtomProcessor.process(source)
+    Processors::AtomProcessor.call(source)
   end
 
   def processed

@@ -12,7 +12,7 @@ class NormalizerTest < Minitest::Test
   end
 
   def process_sample_data
-    processor.process(open(sample_data_path).read)
+    processor.call(open(sample_data_path).read)
   end
 
   def processed

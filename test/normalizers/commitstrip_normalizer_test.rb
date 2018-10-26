@@ -12,7 +12,7 @@ class CommitstripNormalizerTest < NormalizerTest
 
   def process_sample_data
     source = open(SAMPLE_DATA_PATH).read
-    Processors::RssProcessor.process(source)
+    Processors::RssProcessor.call(source)
   end
 
   def processed

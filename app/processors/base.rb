@@ -4,20 +4,17 @@
 
 module Processors
   class Base
-    def self.process(source = nil)
-      send(:new, source).send(:recent_entities)
-    end
+    extend Dry::initializer
 
-    attr_reader :source
-    attr_reader :feed_name
+    param :source
+
+    def self.call(source)
+      new(source).call
+    end
 
     protected
 
-    def initialize(source = nil)
-      @source = source
-    end
-
-    def recent_entities
+    def call
       (limit > 0) ? entities.take(limit) : entities
     end
 
