@@ -19,13 +19,6 @@ module Service
 
     private
 
-    attr_reader :feed
-
-    def initialize(feed_name)
-      @feed = Feed.for(feed_name.to_s)
-      raise "feed not found: #{feed_name}" unless @feed
-    end
-
     FALLBACK_PROCESSOR = 'null'.freeze
 
     def available_names_for
