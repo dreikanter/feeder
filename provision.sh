@@ -55,36 +55,6 @@ createdb "$POSTGRES_DB_NAME"_production --username=postgres
 
 
 
-# echo "-----> install elasticsearch"
-
-# sudo apt-get install --yes default-jre
-# cd
-# sudo curl --silent --show-error -O https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/deb/elasticsearch/2.3.1/elasticsearch-2.3.1.deb
-# sudo dpkg -i elasticsearch-2.3.1.deb
-# sudo systemctl enable elasticsearch.service
-
-# cd
-# sudo rm -rf ./elasticsearch*
-
-# echo "rewrite config"
-# sudo bash -c "cat > /etc/elasticsearch/elasticsearch.yml" <<EOL
-# index.number_of_shards: 1
-# index.number_of_replicas: 0
-# network.bind_host: 0
-# network.host: 0.0.0.0
-# script.inline: on
-# script.indexed: on
-# http.cors.enabled: true
-# http.cors.allow-origin: /https?:\/\/.*/
-# EOL
-
-# # TODO: Don't add the line if it's already there
-# sudo bash -c 'echo "ES_HEAP_SIZE=64m" >> /etc/default/elasticsearch'
-
-# sudo service elasticsearch start
-
-
-
 echo "-----> install nodejs"
 
 cd
@@ -163,10 +133,6 @@ echo "-----> cleanup"
 sudo apt autoremove --yes
 sudo apt-get clean
 
-
-
-echo "-----> copy secrets key to well known location for ansible playbooks"
-cp -f /app/config/secrets.yml.key ~/.passiondig.secrets.yml.key
 
 
 echo "-----> report"
