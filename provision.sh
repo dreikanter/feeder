@@ -95,7 +95,7 @@ rbenv rehash
 
 sudo gem update --system
 gem update
-gem install bundler
+gem install bundler --no-rdoc --no-ri --force
 
 
 
