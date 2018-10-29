@@ -4,7 +4,7 @@
 
 module Processors
   class Base
-    extend Dry::initializer
+    extend Dry::Initializer
 
     param :source
 
