@@ -97,7 +97,10 @@ sudo gem update --system
 gem update
 gem install bundler --no-rdoc --no-ri --force
 
-
+# Fix FileUtils warnings
+# SEE: https://github.com/ruby/fileutils/issues/22
+gem uninstall fileutils
+gem update fileutils --default
 
 echo "-----> update .gemrc"
 
