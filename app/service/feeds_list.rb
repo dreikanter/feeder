@@ -1,14 +1,17 @@
 module Service
   class FeedsList
     def self.call
-      @names ||= load_config(Rails.root.join('config', 'feeds.yml'))
+      @feeds ||= load_config(Rails.root.join('config', 'feeds.yml'))
+    end
+
+    def self.names
+      call.map { |feed| feed['name'] }
     end
 
     def self.load_config(path)
-      @names = YAML.load_file(path).map do |options|
-        feed_name = options['name']
-        raise 'each feeds should have a name' if feed_name.empty?
-        feed_name
+      @feeds = YAML.load_file(path).map do |options|
+        raise 'each feeds should have a name' if options['name'].empty?
+        options
       end
     end
   end
