@@ -1,14 +1,8 @@
---
--- PostgreSQL database dump
---
-
--- Dumped from database version 9.5.4
--- Dumped by pg_dump version 9.5.4
-
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 SET row_security = off;
@@ -27,8 +21,6 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
-SET search_path = public, pg_catalog;
-
 SET default_tablespace = '';
 
 SET default_with_oids = false;
@@ -37,7 +29,7 @@ SET default_with_oids = false;
 -- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE ar_internal_metadata (
+CREATE TABLE public.ar_internal_metadata (
     key character varying NOT NULL,
     value character varying,
     created_at timestamp without time zone NOT NULL,
@@ -49,7 +41,7 @@ CREATE TABLE ar_internal_metadata (
 -- Name: data_point_series; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE data_point_series (
+CREATE TABLE public.data_point_series (
     id integer NOT NULL,
     name character varying NOT NULL,
     created_at timestamp without time zone NOT NULL
@@ -60,7 +52,7 @@ CREATE TABLE data_point_series (
 -- Name: data_point_series_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE data_point_series_id_seq
+CREATE SEQUENCE public.data_point_series_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -72,14 +64,14 @@ CREATE SEQUENCE data_point_series_id_seq
 -- Name: data_point_series_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE data_point_series_id_seq OWNED BY data_point_series.id;
+ALTER SEQUENCE public.data_point_series_id_seq OWNED BY public.data_point_series.id;
 
 
 --
 -- Name: data_points; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE data_points (
+CREATE TABLE public.data_points (
     id integer NOT NULL,
     series_id integer,
     details json DEFAULT '{}'::json NOT NULL,
@@ -91,7 +83,7 @@ CREATE TABLE data_points (
 -- Name: data_points_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE data_points_id_seq
+CREATE SEQUENCE public.data_points_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -103,14 +95,14 @@ CREATE SEQUENCE data_points_id_seq
 -- Name: data_points_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE data_points_id_seq OWNED BY data_points.id;
+ALTER SEQUENCE public.data_points_id_seq OWNED BY public.data_points.id;
 
 
 --
 -- Name: delayed_jobs; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE delayed_jobs (
+CREATE TABLE public.delayed_jobs (
     id integer NOT NULL,
     priority integer DEFAULT 0 NOT NULL,
     attempts integer DEFAULT 0 NOT NULL,
@@ -130,7 +122,7 @@ CREATE TABLE delayed_jobs (
 -- Name: delayed_jobs_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE delayed_jobs_id_seq
+CREATE SEQUENCE public.delayed_jobs_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -142,20 +134,65 @@ CREATE SEQUENCE delayed_jobs_id_seq
 -- Name: delayed_jobs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE delayed_jobs_id_seq OWNED BY delayed_jobs.id;
+ALTER SEQUENCE public.delayed_jobs_id_seq OWNED BY public.delayed_jobs.id;
+
+
+--
+-- Name: errors; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.errors (
+    id integer NOT NULL,
+    status integer DEFAULT 0 NOT NULL,
+    error_class_name character varying DEFAULT ''::character varying NOT NULL,
+    file_name character varying,
+    line_number integer,
+    label character varying DEFAULT ''::character varying NOT NULL,
+    message character varying DEFAULT ''::character varying NOT NULL,
+    backtrace character varying[] DEFAULT '{}'::character varying[] NOT NULL,
+    filtered_backtrace character varying[] DEFAULT '{}'::character varying[] NOT NULL,
+    context json DEFAULT '{}'::json NOT NULL,
+    occured_at timestamp without time zone NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: errors_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.errors_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: errors_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.errors_id_seq OWNED BY public.errors.id;
 
 
 --
 -- Name: feeds; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE feeds (
+CREATE TABLE public.feeds (
     id integer NOT NULL,
     name character varying NOT NULL,
     posts_count integer DEFAULT 0 NOT NULL,
     refreshed_at timestamp without time zone,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    url character varying,
+    processor character varying,
+    normalizer character varying,
+    after timestamp without time zone,
+    refresh_interval integer DEFAULT 0 NOT NULL
 );
 
 
@@ -163,7 +200,7 @@ CREATE TABLE feeds (
 -- Name: feeds_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE feeds_id_seq
+CREATE SEQUENCE public.feeds_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -175,14 +212,14 @@ CREATE SEQUENCE feeds_id_seq
 -- Name: feeds_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE feeds_id_seq OWNED BY feeds.id;
+ALTER SEQUENCE public.feeds_id_seq OWNED BY public.feeds.id;
 
 
 --
 -- Name: posts; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE posts (
+CREATE TABLE public.posts (
     id integer NOT NULL,
     feed_id integer NOT NULL,
     link character varying NOT NULL,
@@ -192,7 +229,8 @@ CREATE TABLE posts (
     comments character varying[] DEFAULT '{}'::character varying[] NOT NULL,
     freefeed_post_id character varying,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    status integer DEFAULT 0 NOT NULL
 );
 
 
@@ -200,7 +238,7 @@ CREATE TABLE posts (
 -- Name: posts_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE posts_id_seq
+CREATE SEQUENCE public.posts_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -212,14 +250,14 @@ CREATE SEQUENCE posts_id_seq
 -- Name: posts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE posts_id_seq OWNED BY posts.id;
+ALTER SEQUENCE public.posts_id_seq OWNED BY public.posts.id;
 
 
 --
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE schema_migrations (
+CREATE TABLE public.schema_migrations (
     version character varying NOT NULL
 );
 
@@ -228,42 +266,49 @@ CREATE TABLE schema_migrations (
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY data_point_series ALTER COLUMN id SET DEFAULT nextval('data_point_series_id_seq'::regclass);
+ALTER TABLE ONLY public.data_point_series ALTER COLUMN id SET DEFAULT nextval('public.data_point_series_id_seq'::regclass);
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY data_points ALTER COLUMN id SET DEFAULT nextval('data_points_id_seq'::regclass);
+ALTER TABLE ONLY public.data_points ALTER COLUMN id SET DEFAULT nextval('public.data_points_id_seq'::regclass);
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY delayed_jobs ALTER COLUMN id SET DEFAULT nextval('delayed_jobs_id_seq'::regclass);
+ALTER TABLE ONLY public.delayed_jobs ALTER COLUMN id SET DEFAULT nextval('public.delayed_jobs_id_seq'::regclass);
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY feeds ALTER COLUMN id SET DEFAULT nextval('feeds_id_seq'::regclass);
+ALTER TABLE ONLY public.errors ALTER COLUMN id SET DEFAULT nextval('public.errors_id_seq'::regclass);
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY posts ALTER COLUMN id SET DEFAULT nextval('posts_id_seq'::regclass);
+ALTER TABLE ONLY public.feeds ALTER COLUMN id SET DEFAULT nextval('public.feeds_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.posts ALTER COLUMN id SET DEFAULT nextval('public.posts_id_seq'::regclass);
 
 
 --
 -- Name: ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY ar_internal_metadata
+ALTER TABLE ONLY public.ar_internal_metadata
     ADD CONSTRAINT ar_internal_metadata_pkey PRIMARY KEY (key);
 
 
@@ -271,7 +316,7 @@ ALTER TABLE ONLY ar_internal_metadata
 -- Name: data_point_series_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY data_point_series
+ALTER TABLE ONLY public.data_point_series
     ADD CONSTRAINT data_point_series_pkey PRIMARY KEY (id);
 
 
@@ -279,7 +324,7 @@ ALTER TABLE ONLY data_point_series
 -- Name: data_points_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY data_points
+ALTER TABLE ONLY public.data_points
     ADD CONSTRAINT data_points_pkey PRIMARY KEY (id);
 
 
@@ -287,15 +332,23 @@ ALTER TABLE ONLY data_points
 -- Name: delayed_jobs_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY delayed_jobs
+ALTER TABLE ONLY public.delayed_jobs
     ADD CONSTRAINT delayed_jobs_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: errors_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.errors
+    ADD CONSTRAINT errors_pkey PRIMARY KEY (id);
 
 
 --
 -- Name: feeds_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY feeds
+ALTER TABLE ONLY public.feeds
     ADD CONSTRAINT feeds_pkey PRIMARY KEY (id);
 
 
@@ -303,7 +356,7 @@ ALTER TABLE ONLY feeds
 -- Name: posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY posts
+ALTER TABLE ONLY public.posts
     ADD CONSTRAINT posts_pkey PRIMARY KEY (id);
 
 
@@ -311,7 +364,7 @@ ALTER TABLE ONLY posts
 -- Name: schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY schema_migrations
+ALTER TABLE ONLY public.schema_migrations
     ADD CONSTRAINT schema_migrations_pkey PRIMARY KEY (version);
 
 
@@ -319,42 +372,77 @@ ALTER TABLE ONLY schema_migrations
 -- Name: delayed_jobs_priority; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX delayed_jobs_priority ON delayed_jobs USING btree (priority, run_at);
+CREATE INDEX delayed_jobs_priority ON public.delayed_jobs USING btree (priority, run_at);
 
 
 --
 -- Name: index_data_point_series_on_name; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX index_data_point_series_on_name ON data_point_series USING btree (name);
+CREATE UNIQUE INDEX index_data_point_series_on_name ON public.data_point_series USING btree (name);
 
 
 --
 -- Name: index_data_points_on_series_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_data_points_on_series_id ON data_points USING btree (series_id);
+CREATE INDEX index_data_points_on_series_id ON public.data_points USING btree (series_id);
+
+
+--
+-- Name: index_errors_on_error_class_name; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_errors_on_error_class_name ON public.errors USING btree (error_class_name);
+
+
+--
+-- Name: index_errors_on_file_name; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_errors_on_file_name ON public.errors USING btree (file_name);
+
+
+--
+-- Name: index_errors_on_occured_at; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_errors_on_occured_at ON public.errors USING btree (occured_at);
+
+
+--
+-- Name: index_errors_on_status; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_errors_on_status ON public.errors USING btree (status);
 
 
 --
 -- Name: index_feeds_on_name; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX index_feeds_on_name ON feeds USING btree (name);
+CREATE UNIQUE INDEX index_feeds_on_name ON public.feeds USING btree (name);
 
 
 --
 -- Name: index_posts_on_feed_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_posts_on_feed_id ON posts USING btree (feed_id);
+CREATE INDEX index_posts_on_feed_id ON public.posts USING btree (feed_id);
 
 
 --
 -- Name: index_posts_on_link; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_posts_on_link ON posts USING btree (link);
+CREATE INDEX index_posts_on_link ON public.posts USING btree (link);
+
+
+--
+-- Name: index_posts_on_status; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_posts_on_status ON public.posts USING btree (status);
 
 
 --
@@ -363,6 +451,17 @@ CREATE INDEX index_posts_on_link ON posts USING btree (link);
 
 SET search_path TO "$user", public;
 
-INSERT INTO schema_migrations (version) VALUES ('20160912105557'), ('20160912110133'), ('20160913121434'), ('20160920171420'), ('20160920171429');
+INSERT INTO "schema_migrations" (version) VALUES
+('20160912105557'),
+('20160912110133'),
+('20160913121434'),
+('20160920171420'),
+('20160920171429'),
+('20160926170407'),
+('20160926234238'),
+('20160929123932'),
+('20170308200158'),
+('20180520150306'),
+('20181029160355');
 
 
