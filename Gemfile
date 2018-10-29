@@ -30,7 +30,7 @@ group :development, :test do
   gem 'pry-rails', '~> 0.3.4'
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'pg', '~> 0.19.0'
 gem 'delayed_job_active_record', '~> 4.1', '>= 4.1.1'
 gem 'lograge', '~> 0.3.6'
