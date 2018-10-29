@@ -1,12 +1,12 @@
 require_relative '../services/secrets_vault'
 
 namespace :secrets do
-  desc "Encrypt allication.yml"
+  desc "Encrypt application.yml"
   task :encrypt do
     SecretsVault.encrypt
   end
 
-  desc "Decrypt allication.yml"
+  desc "Decrypt application.yml"
   task :decrypt do
     SecretsVault.decrypt
   end
