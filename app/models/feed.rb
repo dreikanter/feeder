@@ -23,4 +23,9 @@ class Feed < ApplicationRecord
   has_many :posts
 
   validates :name, presence: true
+
+  def refresh?
+    return true if refresh_interval.zero? || !refreshed_at
+    (Time.now.utc.to_i - refreshed_at.to_i).abs > refresh_interval
+  end
 end

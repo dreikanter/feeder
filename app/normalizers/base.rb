@@ -1,16 +1,26 @@
 module Normalizers
   class Base
-    def self.process(entity)
-      send(:new, entity).send(:attributes)
+    extend Dry::Initializer
+
+    param :entity
+
+    def self.call(entity)
+      new(entity).call
+    end
+
+    ATTRIBUTE_NAMES = %w[
+      link
+      published_at
+      text
+      attachments
+      comments
+    ].freeze
+
+    def call
+      ATTRIBUTE_NAMES.map { |a| [a, send(a)] }.to_h if valid?
     end
 
     protected
-
-    def initialize(entity)
-      @entity = entity
-    end
-
-    attr_reader :entity
 
     def link
       nil
@@ -38,20 +48,6 @@ module Normalizers
 
     def valid?
       true
-    end
-
-    ATTRIBUTE_NAMES = %w[
-      link
-      published_at
-      text
-      attachments
-      comments
-    ].freeze
-
-    private
-
-    def attributes
-      ATTRIBUTE_NAMES.map { |a| [a, send(a)] }.to_h if valid?
     end
   end
 end

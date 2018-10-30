@@ -14,11 +14,16 @@ class PullJob < ApplicationJob
 
   def perform(feed_name)
     started_at = Time.now.utc
-
-    logger.info "---> loading feed: #{feed_name}"
     feed = Service::FeedFinder.call(feed_name)
 
-    normalizer = Service::NormalizerResolver.call(feed_name)
+    unless feed.refresh?
+      logger.info "---> skipping feed: #{feed_name}"
+      return
+    end
+
+    logger.info "---> loading feed: #{feed_name}"
+
+    normalizer = Service::NormalizerResolver.call(feed)
     logger.info "---> normalizer: #{normalizer}"
 
     feed.update(refreshed_at: started_at)

@@ -12,11 +12,11 @@ module Processors
       new(source).call
     end
 
-    protected
-
     def call
       (limit > 0) ? entities.take(limit) : entities
     end
+
+    protected
 
     def limit
       ENV['MAX_ENTITIES_PER_FEED'].to_i
