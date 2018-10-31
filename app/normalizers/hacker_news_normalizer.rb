@@ -6,6 +6,10 @@ module Normalizers
       data['score'].to_i >= MIN_SCORE
     end
 
+    def validation_errors
+      'insufficient score' unless valid?
+    end
+
     def text
       [data['title'], data['url']].reject(&:blank?).join(separator)
     end
