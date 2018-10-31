@@ -97,12 +97,12 @@
   normalizer: "telega"
   after: "2018-09-18T00:00:00+00:00"
 
-- name: "ecologica"
-  url: "https://vkrss.com/ecologicaspb?key=EW9tJd7ZI8iGBQyg"
-  processor: "rss"
-  normalizer: "vk_rss"
-  after: "2018-09-18T00:00:00+00:00"
-  refresh_interval: 1200
+# - name: "ecologica"
+#   url: "https://vkrss.com/ecologicaspb?key=EW9tJd7ZI8iGBQyg"
+#   processor: "rss"
+#   normalizer: "vk_rss"
+#   after: "2018-09-18T00:00:00+00:00"
+#   refresh_interval: 1200
 
 - name: "f28a"
   # url: "http://floccinaucinihilipilificationa.tumblr.com/rss"
