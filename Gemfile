@@ -40,7 +40,7 @@ gem 'annotate', '~> 2.7', '>= 2.7.4'
 gem 'addressable', '~> 2.5', '>= 2.5.2'
 gem 'marginalia', '~> 1.5'
 
-# TODO: replace with Rails Secrets
+# TODO: replace with Rails Credentials
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 # TODO: Replace with NPM packages
