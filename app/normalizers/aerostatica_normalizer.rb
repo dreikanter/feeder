@@ -9,7 +9,7 @@ module Normalizers
     end
 
     def text
-      result = [entity.title, link].join(separator) +
+      result = [entity.title, link].join(separator)
       record = record_url
       return result unless record.present?
       "#{result}\n\nЗапись эфира: #{record_url}"
