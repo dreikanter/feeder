@@ -47,14 +47,16 @@ class PullJob < ApplicationJob
         end
 
         # Skip unprocessable entities
-        post_attributes = normalizer.call(entity)
-        unless post_attributes
-          logger.debug "---> normalization error; skipping"
+        normalized = normalizer.call(entity)
+        payload = normalized.payload
+
+        if normalized.failure?
+          logger.debug "---> entity rejected: #{payload}"
           next
         end
 
         # Skip stale entities
-        published_at = post_attributes['published_at']
+        published_at = payload['published_at']
         after = feed.after
 
         unless !after || !published_at || (published_at > after)
@@ -63,7 +65,7 @@ class PullJob < ApplicationJob
         end
 
         logger.info '---> creating new post'
-        Post.create!(post_attributes.merge(
+        Post.create!(payload.merge(
           'feed_id' => feed.id,
           'status' => Enums::PostStatus.ready
         ))

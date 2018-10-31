@@ -17,7 +17,8 @@ module Normalizers
     ].freeze
 
     def call
-      ATTRIBUTE_NAMES.map { |a| [a, send(a)] }.to_h if valid?
+      return Failure.new(validation_errors) unless valid?
+      Success.new(ATTRIBUTE_NAMES.map { |attr| [attr, send(attr)] }.to_h)
     end
 
     protected
@@ -48,6 +49,10 @@ module Normalizers
 
     def valid?
       true
+    end
+
+    def validation_errors
+      nil
     end
   end
 end
