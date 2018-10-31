@@ -75,13 +75,13 @@ module Freefeed
         headers: (options[:headers] || {}).merge(auth_header)
       }
 
-      Rails.logger.debug('---> HTTP request')
-      Rails.logger.debug(JSON.pretty_generate(request_params))
+      # Rails.logger.debug('---> HTTP request')
+      # Rails.logger.debug(JSON.pretty_generate(request_params))
 
       result = JSON.parse(RestClient::Request.execute(**request_params).body)
 
-      Rails.logger.debug('---> HTTP response')
-      Rails.logger.debug(JSON.pretty_generate(result))
+      # Rails.logger.debug('---> HTTP response')
+      # Rails.logger.debug(JSON.pretty_generate(result))
 
       result
     rescue RestClient::Exception => e
