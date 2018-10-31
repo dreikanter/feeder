@@ -29,6 +29,7 @@ sudo apt-get install --yes \
   software-properties-common \
   sqlite3 \
   libsqlite3-dev \
+  ne \
   2> /dev/null
 
 
