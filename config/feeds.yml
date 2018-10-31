@@ -227,3 +227,9 @@
 #   processor: "kimchicuddlesrus"
 #   normalizer: "kimchicuddlesrus"
 #   after: "2018-09-18T00:00:00+00:00"
+
+- name: "aerostatica"
+  url: "feeds.feedburner.com/aerostatica"
+  processor: "feedjira"
+  normalizer: "aerostatica_normalizer"
+  refresh_interval: 1200
