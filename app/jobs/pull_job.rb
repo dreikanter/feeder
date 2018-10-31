@@ -18,18 +18,22 @@ class PullJob < ApplicationJob
 
     unless feed.refresh?
       logger.info "---> skipping feed: #{feed_name}"
+      logger.debug "---> refresh interval: #{feed.refresh_interval}"
+      logger.debug "---> refreshed at: #{feed.refreshed_at}"
       return
     end
 
     logger.info "---> loading feed: #{feed_name}"
+    feed.update(refreshed_at: started_at)
+
+    processor = Service::ProcessorResolver.call(feed)
+    logger.info "---> processor: #{processor}"
+
+    content = Service::FeedLoader.call(feed)
+    entities = processor.call(content)
 
     normalizer = Service::NormalizerResolver.call(feed)
     logger.info "---> normalizer: #{normalizer}"
-
-    feed.update(refreshed_at: started_at)
-    processor = Service::ProcessorResolver.call(feed)
-    content = Service::FeedLoader.call(feed)
-    entities = processor.call(content)
 
     posts_count = 0
     errors_count = 0
@@ -51,15 +55,19 @@ class PullJob < ApplicationJob
 
         # Skip stale entities
         published_at = post_attributes['published_at']
-        time_constraint = !!(feed.after && published_at)
-        unless !time_constraint || (published_at > feed.after)
+        after = feed.after
+
+        unless !after || !published_at || (published_at > after)
           logger.debug "---> stale post; skipping"
           next
         end
 
         logger.info '---> creating new post'
-        commons = { feed_id: feed.id, status: Enums::PostStatus.ready }
-        Post.create!(**post_attributes.merge(commons))
+        Post.create!(post_attributes.merge(
+          'feed_id' => feed.id,
+          'status' => Enums::PostStatus.ready
+        ))
+
         posts_count += 1
       rescue => exception
         logger.error "---> error processing entity: #{exception.message}"
