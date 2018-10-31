@@ -26,8 +26,8 @@ module Service
     def available_names
       [
         feed.normalizer,
-        feed.processor,
-        feed.name
+        feed.name,
+        feed.processor
       ]
     end
   end
