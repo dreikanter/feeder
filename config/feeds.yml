@@ -114,7 +114,7 @@
 - name: "agavr-today"
   url: "https://tele.ga/agavr_today/rss/"
   processor: "rss"
-  normalizer: "telega"
+  normalizer: "agavr_today"
   after: "2018-09-18T00:00:00+00:00"
 
 - name: "vdud"
