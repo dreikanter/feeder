@@ -82,12 +82,14 @@
   processor: "hacker_news"
   normalizer: "hacker_news"
   after: "2018-09-18T20:00:00+00:00"
+  refresh_interval: 600
 
 - name: "reddit-worldnews"
   url: "https://www.reddit.com/r/worldnews/.rss"
   processor: "reddit"
   normalizer: "reddit"
   after: "2018-09-18T20:00:00+00:00"
+  refresh_interval: 600
 
 - name: "avokado-fm"
   url: "https://tele.ga/avokado_fm/rss/"
