@@ -1,14 +1,9 @@
 module Service
   class FreefeedIpsFetcher
-    DOMAINS = ['freefeed.net', 'media.freefeed.net']
+    DOMAIN = 'freefeed.net'.freeze
 
-    def self.call
-      records = []
-
-      DOMAINS.each do |domain|
-        records += Service::DnsRecordsFetcher.call(domain)
-      end
-
+    def self.call(fetcher: Service::DnsRecordsFetcher, domain: DOMAIN)
+      records = fetcher.call(domain)
       records.map { |record| record['value'] }.uniq
     end
   end
