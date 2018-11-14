@@ -11,11 +11,41 @@ module Normalizers
 
     def text
       result = []
-      blocked = entity[:blocked]
-      result << "Recently blocked IPs: #{blocked.join(', ')}" if blocked.any?
-      unblocked = entity[:unblocked]
-      result << "Recently unblocked IPs: #{unblocked.join(', ')}" if unblocked.any?
+      result << "#{blocked_amount} of #{total_amount} are currently blocked."
+      result << blocked_ips if blocked.any?
+      result << unblocked_ips if unblocked.any?
       result.join("\n")
+    end
+
+    private
+
+    def blocked
+      entity[:blocked]
+    end
+
+    def unblocked
+      entity[:unblocked]
+    end
+
+    def total
+      entity[:total_count]
+    end
+
+    def blocked_amount
+      blocked.empty? ? 'None' : blocked.count
+    end
+
+    def total_amount
+      raise 'total amount of servers should be positive' unless total.positive?
+      ActionController::Base.helpers.pluralize(total, 'freefeed.net servers')
+    end
+
+    def blocked_ips
+      "Recently blocked IPs: #{blocked.join(', ')}"
+    end
+
+    def unblocked_ips
+      "Recently unblocked IPs: #{unblocked.join(', ')}"
     end
   end
 end
