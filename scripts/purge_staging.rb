@@ -5,11 +5,11 @@
 posts_count = 0
 
 loop do
-  puts "---> loading posts"
+  puts "loading posts"
 
   result = RestClient::Request.execute(
     method: :get,
-    url: 'https://candy.freefeed.net/v2/timelines/feeder?offset=0',
+    url: 'https://candy.freefeed.net/v2/timelines/feeder',
     headers: {
       'X-Authentication-Token' => ENV.fetch('FREEFEED_TOKEN')
     }
@@ -22,7 +22,7 @@ loop do
     exit
   end
 
-  puts "---> #{posts.length} posts loaded"
+  puts "#{posts.length} posts loaded"
 
   posts.each do |post|
     post_id = post['id']
