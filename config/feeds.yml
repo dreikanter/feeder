@@ -9,6 +9,7 @@
   processor: "oglaf"
   normalizer: "oglaf"
   after: "2018-09-18T00:00:00+00:00"
+  refresh_interval: 1800
 
 - name: "phdcomics"
   url: "http://feeds.feedburner.com/PhdComics"
