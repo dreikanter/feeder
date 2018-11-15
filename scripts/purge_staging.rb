@@ -2,6 +2,8 @@
 #
 #   rails r scripts/purge_staging.rb
 
+USER = 'feeder'.freeze
+
 posts_count = 0
 
 loop do
@@ -9,22 +11,26 @@ loop do
 
   result = RestClient::Request.execute(
     method: :get,
-    url: 'https://candy.freefeed.net/v2/timelines/feeder',
+    url: 'https://candy.freefeed.net/v2/timelines/home?offset=0',
     headers: {
       'X-Authentication-Token' => ENV.fetch('FREEFEED_TOKEN')
     }
   )
 
   posts = JSON.parse(result.body)['posts']
+  users = JSON.parse(result.body)['users']
+  user_id = users.find { |user| user['username'] == USER }['id']
+  own_posts = posts.select { |post| post['createdBy'] == user_id }
 
-  unless posts.present? && posts.any?
+  unless own_posts.any?
     puts "#{posts_count} deleted"
     exit
   end
 
-  puts "#{posts.length} posts loaded"
+  puts "#{own_posts.length} posts loaded"
 
-  posts.each do |post|
+
+  own_posts.each do |post|
     post_id = post['id']
     puts "deleting #{post_id}"
 
