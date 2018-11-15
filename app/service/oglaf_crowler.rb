@@ -3,11 +3,14 @@ module Service
     HOST = 'www.oglaf.com'.freeze
     SCHEME = 'https'.freeze
 
+    # Hard limit by Freefeed API
+    MAX_ATTACHMENTS_COUNT = 20
+
     def self.call(url)
       next_url = url
       pages = []
 
-      while next_url
+      while next_url && pages.count < MAX_ATTACHMENTS_COUNT
         response = RestClient.get(next_url)
         html = Nokogiri::HTML(response.body)
         pages << html
