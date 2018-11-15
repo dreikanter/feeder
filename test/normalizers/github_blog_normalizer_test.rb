@@ -7,7 +7,7 @@ class GithubBlogNormalizerTest < NormalizerTest
     File.join(File.expand_path('../../data', __FILE__), SAMPLE_DATA_FILE)
 
   def test_sample_data_file_exists
-    assert File.exist?(open(SAMPLE_DATA_PATH))
+    assert(File.exist?(open(SAMPLE_DATA_PATH)))
   end
 
   def process_sample_data
@@ -20,8 +20,8 @@ class GithubBlogNormalizerTest < NormalizerTest
   end
 
   def test_have_sample_data
-    assert processed.present?
-    assert processed.length > 0
+    assert(processed.present?)
+    assert(processed.length.positive?)
   end
 
   def normalize_sample_data
@@ -31,11 +31,18 @@ class GithubBlogNormalizerTest < NormalizerTest
   end
 
   def normalized
-    @normalized ||= normalize_sample_data
+    @normalized ||= normalize_sample_data.compact
   end
 
   def test_normalization
-    assert normalized.present?
-    assert processed.length == normalized.length
+    assert(normalized.present?)
+    assert_equal(processed.length, normalized.length)
+  end
+
+  def test_all_attachment_urls_should_be_absolute
+    attachments = normalized.map { |entity| entity.payload['attachments'] }
+    attachments.flatten.compact.each do |uri|
+      assert(Addressable::URI.parse(uri).absolute?)
+    end
   end
 end
