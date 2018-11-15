@@ -9,35 +9,35 @@ module Normalizers
     end
 
     def attachments
-      [ image_url ]
+      images.map { |image| image[:src] }.compact
     end
 
     def comments
-      [ image_title ]
+      titles.compact
+    end
+
+    private
+
+    def images
+      @images ||= load_images
+    end
+
+    def load_images
+      Service::OglafCrowler.call(link).map do |page|
+        page.css('img#strip:first').first
+      end
     end
 
     def last_modified
-      DateTime.parse(response.headers[:last_modified])
+      Time.parse(response.headers[:last_modified])
     rescue
-      DateTime.now
+      Time.now.utc
     end
 
-    def image_url
-      image_element[:src]
-    rescue
-      nil
-    end
-
-    def image_title
-      Service::Html.comment_excerpt(image_element[:title])
-    end
-
-    def image_element
-      @image_element ||= Nokogiri::HTML(response.body).css('img#strip:first').first
-    end
-
-    def response
-      @response ||= RestClient.get(link)
+    def titles
+      images.map do |image|
+        Service::Html.comment_excerpt(image[:title])
+      end
     end
   end
 end
