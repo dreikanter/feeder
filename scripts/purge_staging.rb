@@ -17,8 +17,9 @@ loop do
     }
   )
 
-  posts = JSON.parse(result.body)['posts']
-  users = JSON.parse(result.body)['users']
+  data = JSON.parse(result.body)
+  posts = data['posts']
+  users = data['users']
   user_id = users.find { |user| user['username'] == USER }['id']
   own_posts = posts.select { |post| post['createdBy'] == user_id }
 
