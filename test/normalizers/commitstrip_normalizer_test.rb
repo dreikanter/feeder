@@ -7,7 +7,7 @@ class CommitstripNormalizerTest < NormalizerTest
     File.join(File.expand_path('../../data', __FILE__), SAMPLE_DATA_FILE)
 
   def test_sample_data_file_exists
-    assert File.exist?(open(SAMPLE_DATA_PATH))
+    assert(File.exist?(open(SAMPLE_DATA_PATH)))
   end
 
   def process_sample_data
@@ -20,8 +20,8 @@ class CommitstripNormalizerTest < NormalizerTest
   end
 
   def test_have_sample_data
-    assert processed.present?
-    assert processed.length > 0
+    assert(processed.present?)
+    assert(processed.any?)
   end
 
   def normalize_sample_data
@@ -35,8 +35,8 @@ class CommitstripNormalizerTest < NormalizerTest
   end
 
   def test_normalization
-    assert normalized.present?
-    assert processed.length == normalized.length
+    assert(normalized.present?)
+    assert_equal(processed.length, normalized.length)
   end
 
   FIRST_SAMPLE = {
@@ -48,6 +48,6 @@ class CommitstripNormalizerTest < NormalizerTest
   }
 
   def test_normalized_sample
-    assert normalized.first == FIRST_SAMPLE
+    assert_equal(FIRST_SAMPLE, normalized.first)
   end
 end

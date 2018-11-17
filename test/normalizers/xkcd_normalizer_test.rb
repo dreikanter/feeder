@@ -41,6 +41,6 @@ class XkcdNormalizerTest < NormalizerTest
   }
 
   def test_normalized_sample
-    assert_equal(FIRST_SAMPLE, normalized.first)
+    assert_equal(FIRST_SAMPLE, normalized.first.payload)
   end
 end
