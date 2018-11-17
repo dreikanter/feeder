@@ -21,7 +21,12 @@ module Service
     end
 
     def self.next_page_url(html)
-      result = html.css('link[rel=next]').first.attributes['href'].value
+      result = html.css('link[rel=next]')
+        .try(:first)
+        .try(:attributes)
+        .try(:[], 'href')
+        .try(:value)
+
       return nil if result.blank? || !result.match(/\/\d+\/$/)
       uri = Addressable::URI.parse(result)
       uri.host ||= HOST
