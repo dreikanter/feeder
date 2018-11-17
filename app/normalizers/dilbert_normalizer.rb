@@ -1,7 +1,7 @@
 module Normalizers
   class DilbertNormalizer < Normalizers::AtomNormalizer
     def text
-      [ super, link ].join(separator)
+      [super, link].join(separator)
     end
 
     def published_at

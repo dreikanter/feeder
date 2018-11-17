@@ -12,11 +12,11 @@ module Normalizers
     end
 
     def attachments
-      [ image_url ]
+      [image_url]
     end
 
     def comments
-      [ photo_description_excerpt ]
+      [photo_description_excerpt]
     end
 
     private

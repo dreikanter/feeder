@@ -5,7 +5,7 @@ module Normalizers
     end
 
     def attachments
-      [ image_url ]
+      [image_url]
     end
 
     private

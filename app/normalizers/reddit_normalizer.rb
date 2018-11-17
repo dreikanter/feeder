@@ -5,13 +5,13 @@ module Normalizers
     end
 
     def text
-      [ super.sub(/\.$/, ''), source_url ].join(separator)
+      [super.sub(/\.$/, ''), source_url].join(separator)
     end
 
     def comments
       return [] if source_url == discussion_url
-      parts = [ reddit_info, discussion_url ]
-      [ parts.reject(&:blank?).join(' - ') ]
+      parts = [reddit_info, discussion_url]
+      [parts.reject(&:blank?).join(' - ')]
     end
 
     private

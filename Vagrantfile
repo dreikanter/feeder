@@ -44,7 +44,7 @@ Vagrant.configure('2') do |config|
     vb.cpus = Integer(VAGRANT_CPUS)
     vb.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
     vb.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
-    vb.customize [ 'guestproperty', 'set', :id, '--timesync-threshold', 10000 ]
+    vb.customize ['guestproperty', 'set', :id, '--timesync-threshold', 10000]
     vb.gui = false
   end
 

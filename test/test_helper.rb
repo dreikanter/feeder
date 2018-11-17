@@ -24,4 +24,4 @@ class Minitest::Test
   end
 end
 
-Minitest::Reporters.use! [ Minitest::Reporters::SpecReporter.new ]
+Minitest::Reporters.use!([Minitest::Reporters::SpecReporter.new])

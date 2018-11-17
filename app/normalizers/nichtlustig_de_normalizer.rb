@@ -1,11 +1,11 @@
 module Normalizers
   class NichtlustigDeNormalizer < Normalizers::RssNormalizer
     def text
-      [ super, "!#{link}" ].join(separator)
+      [super, "!#{link}"].join(separator)
     end
 
     def attachments
-      [ image_url ]
+      [image_url]
     rescue
       []
     end
