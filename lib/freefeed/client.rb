@@ -7,12 +7,15 @@ module Freefeed
       @token = token
     end
 
+    DEFAULT_SCHEME = 'http'.freeze
+
     def create_attachment_from_url(url)
       Tempfile.open(['feeder', path_from_url(url)]) do |file|
         file.binmode
+        safe_url = Addressable::URI.parse(Addressable::URI.encode(url))
+        safe_url.scheme ||= DEFAULT_SCHEME
         # NOTE: User agent here is a workaround for PhD Comics "protection"
-        safe_url = Addressable::URI.encode(url)
-        re = RestClient.get(safe_url, user_agent: USER_AGENT)
+        re = RestClient.get(safe_url.to_s, user_agent: USER_AGENT)
         file.write(re.body)
         file.rewind
         execute(:post, :attachments, payload: {
