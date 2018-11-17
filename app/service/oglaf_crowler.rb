@@ -21,8 +21,8 @@ module Service
     end
 
     def self.next_page_url(html)
-      return nil unless html.css('#nx').any?
       result = html.css('link[rel=next]').first.attributes['href'].value
+      return nil if result.blank? || !result.match(/\/\d+\/$/)
       uri = Addressable::URI.parse(result)
       uri.host ||= HOST
       uri.scheme ||= SCHEME
