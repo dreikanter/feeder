@@ -17,8 +17,8 @@ module Normalizers
     ].freeze
 
     def call
-      return Failure.new(validation_errors) unless valid?
-      Success.new(ATTRIBUTE_NAMES.map { |attr| [attr, send(attr)] }.to_h)
+      return ::Failure.new(validation_errors) unless valid?
+      ::Success.new(ATTRIBUTE_NAMES.map { |attr| [attr, send(attr)] }.to_h)
     end
 
     protected
