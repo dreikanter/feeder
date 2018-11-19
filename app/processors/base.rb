@@ -23,7 +23,7 @@ module Processors
     end
 
     def entities
-      fail NotImplementedError, "#{self.class.name}##{__method__} is not implemented"
+      raise NotImplementedError
     end
   end
 end

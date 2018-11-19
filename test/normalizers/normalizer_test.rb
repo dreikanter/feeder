@@ -8,7 +8,7 @@ class NormalizerTest < Minitest::Test
   end
 
   def sample_data_file
-    throw NotImplementedError
+    raise NotImplementedError
   end
 
   def process_sample_data
