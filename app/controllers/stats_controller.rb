@@ -1,6 +1,7 @@
 class StatsController < ApplicationController
   def show
-    @feeds = Feed.order(:updated_at)
+    names = Service::FeedsList.call.map { |feed| feed['name'] }
+    @feeds = Feed.where(name: names).order(:updated_at)
     @history = recent_posts.group('DATE(created_at)').count.sort.to_h
   end
 
