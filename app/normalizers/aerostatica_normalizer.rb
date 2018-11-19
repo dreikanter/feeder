@@ -10,8 +10,8 @@ module Normalizers
 
     def text
       result = [entity.title, link].join(separator)
-      record = record_url
-      return result unless record.present?
+      record_url = get_record_url
+      return result unless record_url.present?
       "#{result}\n\nЗапись эфира: #{record_url}"
     end
 
@@ -32,7 +32,7 @@ module Normalizers
       Service::Html.comment_excerpt(excerpt.to_s.gsub(LINE_BREAK, "\n\n"))
     end
 
-    def record_url
+    def get_record_url
       content = RestClient.get(link).body
       Service::AerostaticaRecordLinkExtractor.call(content)
     rescue => exception
