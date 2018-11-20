@@ -36,6 +36,7 @@
   url: "http://static.nichtlustig.de/rss/nichtrss.rss"
   processor: "rss"
   after: "2018-09-18T00:00:00+00:00"
+  refresh_interval: 86400
 
 - name: "oatmeal"
   url: "http://feeds.feedburner.com/oatmealfeed"
