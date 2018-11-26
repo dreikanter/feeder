@@ -14,6 +14,7 @@
 #  after            :datetime
 #  refresh_interval :integer          default(0), not null
 #  options          :json             not null
+#  loader           :string
 #
 # Indexes
 #

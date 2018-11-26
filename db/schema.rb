@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_26_110206) do
+ActiveRecord::Schema.define(version: 2018_11_26_152746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2018_11_26_110206) do
     t.datetime "after"
     t.integer "refresh_interval", default: 0, null: false
     t.json "options", default: {}, null: false
+    t.string "loader"
     t.index ["name"], name: "index_feeds_on_name", unique: true
   end
 
