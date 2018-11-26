@@ -192,7 +192,8 @@ CREATE TABLE public.feeds (
     processor character varying,
     normalizer character varying,
     after timestamp without time zone,
-    refresh_interval integer DEFAULT 0 NOT NULL
+    refresh_interval integer DEFAULT 0 NOT NULL,
+    options json DEFAULT '{}'::json NOT NULL
 );
 
 
@@ -462,6 +463,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20160929123932'),
 ('20170308200158'),
 ('20180520150306'),
-('20181029160355');
+('20181029160355'),
+('20181126110206');
 
 
