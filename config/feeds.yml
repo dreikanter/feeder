@@ -246,29 +246,29 @@
   normalizer: "rkn_alerts"
   refresh_interval: 600
 
-# - name: "algtestament"
-#   loader: "twitter"
-#   processor: "twitter"
-#   normalizer: "twitter"
-#   refresh_interval: 1200
-#   import_limit: 20
-#   options:
-#     twitter_user: "alg_testament"
+- name: "algtestament"
+  loader: "twitter"
+  processor: "twitter"
+  normalizer: "twitter"
+  refresh_interval: 1200
+  import_limit: 5
+  options:
+    twitter_user: "alg_testament"
 
-# - name: "extrafabulous"
-#   loader: "twitter"
-#   processor: "twitter"
-#   normalizer: "twitter"
-#   refresh_interval: 1200
-#   import_limit: 20
-#   options:
-#     twitter_user: "extrafabulous"
+- name: "extrafabulous"
+  loader: "twitter"
+  processor: "twitter"
+  normalizer: "twitter"
+  refresh_interval: 1200
+  import_limit: 5
+  options:
+    twitter_user: "extrafabulous"
 
-# - name: "bojackhorseman"
-#   loader: "twitter"
-#   processor: "twitter"
-#   normalizer: "twitter"
-#   refresh_interval: 1200
-#   import_limit: 20
-#   options:
-#     twitter_user: "bojackhorseman"
+- name: "bojackhorseman"
+  loader: "twitter"
+  processor: "twitter"
+  normalizer: "twitter"
+  refresh_interval: 1200
+  import_limit: 5
+  options:
+    twitter_user: "bojackhorseman"
