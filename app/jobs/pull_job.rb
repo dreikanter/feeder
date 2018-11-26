@@ -39,13 +39,13 @@ class PullJob < ApplicationJob
     posts_count = 0
     errors_count = 0
 
-    entities.each do |link, entity|
+    entities.each do |uid, entity|
       begin
         logger.info "---> processing next entity #{'-' * 50}"
 
         # Skip existing entities
-        if Post.exists?(feed: feed, link: link)
-          logger.debug "---> already exists; skipping"
+        if Post.exists?(feed: feed, uid: uid)
+          logger.debug "---> skipping existing post"
           next
         end
 
@@ -68,11 +68,8 @@ class PullJob < ApplicationJob
         end
 
         logger.info '---> creating new post'
-        Post.create!(payload.merge(
-          'feed_id' => feed.id,
-          'status' => Enums::PostStatus.ready
-        ))
-
+        attrs = { uid: uid, feed_id: feed.id, status: Enums::PostStatus.ready }
+        Post.create_with(payload).create!(attrs)
         posts_count += 1
       rescue => exception
         logger.error "---> error processing entity: #{exception.message}"

@@ -4,10 +4,16 @@ module Processors
     BASE_API_URL = 'https://hacker-news.firebaseio.com/v0'.freeze
 
     def entities
-      JSON.parse(RestClient.get(best_stories_url).body).map do |id|
-        link = thread_url(id)
-        [link, { id: id, link: link, data_url: item_url(id) }]
-      end
+      load_data.map { |id| entity(id) }.to_h
+    end
+
+    def entity(id)
+      link = thread_url(id)
+      [link, { id: id, link: link, data_url: item_url(id) }]
+    end
+
+    def load_data
+      JSON.parse(RestClient.get(best_stories_url).body)
     end
 
     def thread_url(id)

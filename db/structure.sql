@@ -233,7 +233,8 @@ CREATE TABLE public.posts (
     freefeed_post_id character varying,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    status integer DEFAULT 0 NOT NULL
+    status integer DEFAULT 0 NOT NULL,
+    uid character varying NOT NULL
 );
 
 
@@ -468,6 +469,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20181029160355'),
 ('20181126110206'),
 ('20181126152746'),
-('20181126170638');
+('20181126170638'),
+('20181126194822');
 
 

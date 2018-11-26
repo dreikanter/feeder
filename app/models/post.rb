@@ -13,6 +13,7 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  status           :integer          default("idle"), not null
+#  uid              :string           not null
 #
 # Indexes
 #

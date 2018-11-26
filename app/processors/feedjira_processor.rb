@@ -1,7 +1,7 @@
 module Processors
   class FeedjiraProcessor < Processors::Base
     def entities
-      parse_source.map { |entity| [entity.url, entity] }
+      parse_source.map { |entity| [entity.url, entity] }.to_h
     end
 
     private

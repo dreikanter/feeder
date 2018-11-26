@@ -3,7 +3,7 @@ module Processors
     POINTS_THRESHOLD = 2000
 
     def entities
-      super.lazy.select { |entity| enough_points?(entity.first) }
+      super.lazy.select { |uid, _| enough_points?(uid) }
     end
 
     protected
