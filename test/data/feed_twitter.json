@@ -1,9 +1,9 @@
 [
   {
-    "created_at": "Wed Nov 08 23:29:28 +0000 2017",
-    "id": 928404132498612225,
-    "id_str": "928404132498612225",
-    "text": "https://t.co/boYhvxkd4F",
+    "created_at": "Mon Nov 26 16:43:28 +0000 2018",
+    "id": 1067096510721085440,
+    "id_str": "1067096510721085440",
+    "text": "https://t.co/XFSmuVRJDg",
     "truncated": false,
     "entities": {
       "hashtags": [
@@ -16,32 +16,115 @@
 
       ],
       "urls": [
+
+      ],
+      "media": [
         {
-          "url": "https://t.co/boYhvxkd4F",
-          "expanded_url": "https://github.com/sferik/twitter/commit/2912a67c7ec5b733ddd01531b91a9ff5fd3b3012",
-          "display_url": "github.com/sferik/twitter…",
+          "id": 1067096503469129731,
+          "id_str": "1067096503469129731",
           "indices": [
             0,
             23
-          ]
+          ],
+          "media_url": "http://pbs.twimg.com/media/Ds8Wnb5WwAMs0zV.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/Ds8Wnb5WwAMs0zV.jpg",
+          "url": "https://t.co/XFSmuVRJDg",
+          "display_url": "pic.twitter.com/XFSmuVRJDg",
+          "expanded_url": "https://twitter.com/extrafabulous/status/1067096510721085440/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "large": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            },
+            "medium": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 680,
+              "resize": "fit"
+            }
+          }
         }
       ]
     },
-    "source": "<a href=\"http://itunes.apple.com/us/app/twitter/id409789998?mt=12\" rel=\"nofollow\">Twitter for Mac</a>",
+    "extended_entities": {
+      "media": [
+        {
+          "id": 1067096503469129731,
+          "id_str": "1067096503469129731",
+          "indices": [
+            0,
+            23
+          ],
+          "media_url": "http://pbs.twimg.com/media/Ds8Wnb5WwAMs0zV.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/Ds8Wnb5WwAMs0zV.jpg",
+          "url": "https://t.co/XFSmuVRJDg",
+          "display_url": "pic.twitter.com/XFSmuVRJDg",
+          "expanded_url": "https://twitter.com/extrafabulous/status/1067096510721085440/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "large": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            },
+            "medium": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 680,
+              "resize": "fit"
+            }
+          }
+        }
+      ]
+    },
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
     "in_reply_to_status_id": null,
     "in_reply_to_status_id_str": null,
     "in_reply_to_user_id": null,
     "in_reply_to_user_id_str": null,
     "in_reply_to_screen_name": null,
     "user": {
-      "id": 213747670,
-      "id_str": "213747670",
-      "name": "The Ruby Gem",
-      "screen_name": "gem",
+      "id": 810164143,
+      "id_str": "810164143",
+      "name": "extra fabulous comics",
+      "screen_name": "extrafabulous",
       "location": "",
-      "description": "",
-      "url": null,
+      "description": "please help",
+      "url": "https://t.co/jYxpSpqxFG",
       "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/jYxpSpqxFG",
+              "expanded_url": "https://www.patreon.com/ExtraFabulousComics",
+              "display_url": "patreon.com/ExtraFabulousC…",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
         "description": {
           "urls": [
 
@@ -49,35 +132,36 @@
         }
       },
       "protected": false,
-      "followers_count": 1745,
-      "friends_count": 10,
-      "listed_count": 123,
-      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
-      "favourites_count": 325,
+      "followers_count": 46569,
+      "friends_count": 9874,
+      "listed_count": 312,
+      "created_at": "Sat Sep 08 04:17:30 +0000 2012",
+      "favourites_count": 12651,
       "utc_offset": null,
       "time_zone": null,
-      "geo_enabled": true,
+      "geo_enabled": false,
       "verified": false,
-      "statuses_count": 120,
+      "statuses_count": 2983,
       "lang": "en",
       "contributors_enabled": false,
       "is_translator": false,
       "is_translation_enabled": false,
-      "profile_background_color": "C0DEED",
+      "profile_background_color": "FF6699",
       "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
       "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
       "profile_background_tile": false,
-      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_link_color": "1DA1F2",
-      "profile_sidebar_border_color": "C0DEED",
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/810164143/1537921549",
+      "profile_link_color": "ABB8C2",
+      "profile_sidebar_border_color": "000000",
       "profile_sidebar_fill_color": "DDEEF6",
       "profile_text_color": "333333",
       "profile_use_background_image": true,
       "has_extended_profile": false,
-      "default_profile": true,
+      "default_profile": false,
       "default_profile_image": false,
-      "following": false,
+      "following": true,
       "follow_request_sent": false,
       "notifications": false,
       "translator_type": "none"
@@ -87,18 +171,18 @@
     "place": null,
     "contributors": null,
     "is_quote_status": false,
-    "retweet_count": 0,
-    "favorite_count": 2,
+    "retweet_count": 102,
+    "favorite_count": 427,
     "favorited": false,
     "retweeted": false,
     "possibly_sensitive": false,
     "lang": "und"
   },
   {
-    "created_at": "Thu Apr 06 15:29:23 +0000 2017",
-    "id": 850007536166096897,
-    "id_str": "850007536166096897",
-    "text": "RT @TwitterDev: 1/ Today we’re sharing our vision for the future of the Twitter API platform!\nhttps://t.co/XweGngmxlP",
+    "created_at": "Mon Nov 26 13:09:44 +0000 2018",
+    "id": 1067042724501704704,
+    "id_str": "1067042724501704704",
+    "text": "https://t.co/FYdNg4EDye https://t.co/DER6uClF0R",
     "truncated": false,
     "entities": {
       "hashtags": [
@@ -108,44 +192,126 @@
 
       ],
       "user_mentions": [
-        {
-          "screen_name": "TwitterDev",
-          "name": "Twitter Dev",
-          "id": 2244994945,
-          "id_str": "2244994945",
-          "indices": [
-            3,
-            14
-          ]
-        }
+
       ],
       "urls": [
         {
-          "url": "https://t.co/XweGngmxlP",
-          "expanded_url": "https://cards.twitter.com/cards/18ce53wgo4h/3xo1c",
-          "display_url": "cards.twitter.com/cards/18ce53wg…",
+          "url": "https://t.co/FYdNg4EDye",
+          "expanded_url": "http://patreon.com/extrafabulouscomics",
+          "display_url": "patreon.com/extrafabulousc…",
           "indices": [
-            94,
-            117
+            0,
+            23
           ]
+        }
+      ],
+      "media": [
+        {
+          "id": 1067042717258141697,
+          "id_str": "1067042717258141697",
+          "indices": [
+            24,
+            47
+          ],
+          "media_url": "http://pbs.twimg.com/media/Ds7lsqpW0AEdxOZ.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/Ds7lsqpW0AEdxOZ.jpg",
+          "url": "https://t.co/DER6uClF0R",
+          "display_url": "pic.twitter.com/DER6uClF0R",
+          "expanded_url": "https://twitter.com/extrafabulous/status/1067042724501704704/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "large": {
+              "w": 2048,
+              "h": 1186,
+              "resize": "fit"
+            },
+            "medium": {
+              "w": 1200,
+              "h": 695,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 394,
+              "resize": "fit"
+            }
+          }
         }
       ]
     },
-    "source": "<a href=\"http://itunes.apple.com/us/app/twitter/id409789998?mt=12\" rel=\"nofollow\">Twitter for Mac</a>",
+    "extended_entities": {
+      "media": [
+        {
+          "id": 1067042717258141697,
+          "id_str": "1067042717258141697",
+          "indices": [
+            24,
+            47
+          ],
+          "media_url": "http://pbs.twimg.com/media/Ds7lsqpW0AEdxOZ.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/Ds7lsqpW0AEdxOZ.jpg",
+          "url": "https://t.co/DER6uClF0R",
+          "display_url": "pic.twitter.com/DER6uClF0R",
+          "expanded_url": "https://twitter.com/extrafabulous/status/1067042724501704704/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "large": {
+              "w": 2048,
+              "h": 1186,
+              "resize": "fit"
+            },
+            "medium": {
+              "w": 1200,
+              "h": 695,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 394,
+              "resize": "fit"
+            }
+          }
+        }
+      ]
+    },
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
     "in_reply_to_status_id": null,
     "in_reply_to_status_id_str": null,
     "in_reply_to_user_id": null,
     "in_reply_to_user_id_str": null,
     "in_reply_to_screen_name": null,
     "user": {
-      "id": 213747670,
-      "id_str": "213747670",
-      "name": "The Ruby Gem",
-      "screen_name": "gem",
+      "id": 810164143,
+      "id_str": "810164143",
+      "name": "extra fabulous comics",
+      "screen_name": "extrafabulous",
       "location": "",
-      "description": "",
-      "url": null,
+      "description": "please help",
+      "url": "https://t.co/jYxpSpqxFG",
       "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/jYxpSpqxFG",
+              "expanded_url": "https://www.patreon.com/ExtraFabulousComics",
+              "display_url": "patreon.com/ExtraFabulousC…",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
         "description": {
           "urls": [
 
@@ -153,35 +319,36 @@
         }
       },
       "protected": false,
-      "followers_count": 1745,
-      "friends_count": 10,
-      "listed_count": 123,
-      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
-      "favourites_count": 325,
+      "followers_count": 46569,
+      "friends_count": 9874,
+      "listed_count": 312,
+      "created_at": "Sat Sep 08 04:17:30 +0000 2012",
+      "favourites_count": 12651,
       "utc_offset": null,
       "time_zone": null,
-      "geo_enabled": true,
+      "geo_enabled": false,
       "verified": false,
-      "statuses_count": 120,
+      "statuses_count": 2983,
       "lang": "en",
       "contributors_enabled": false,
       "is_translator": false,
       "is_translation_enabled": false,
-      "profile_background_color": "C0DEED",
+      "profile_background_color": "FF6699",
       "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
       "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
       "profile_background_tile": false,
-      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_link_color": "1DA1F2",
-      "profile_sidebar_border_color": "C0DEED",
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/810164143/1537921549",
+      "profile_link_color": "ABB8C2",
+      "profile_sidebar_border_color": "000000",
       "profile_sidebar_fill_color": "DDEEF6",
       "profile_text_color": "333333",
       "profile_use_background_image": true,
       "has_extended_profile": false,
-      "default_profile": true,
+      "default_profile": false,
       "default_profile_image": false,
-      "following": false,
+      "following": true,
       "follow_request_sent": false,
       "notifications": false,
       "translator_type": "none"
@@ -190,136 +357,19 @@
     "coordinates": null,
     "place": null,
     "contributors": null,
-    "retweeted_status": {
-      "created_at": "Thu Apr 06 15:24:15 +0000 2017",
-      "id": 850006245121695744,
-      "id_str": "850006245121695744",
-      "text": "1/ Today we’re sharing our vision for the future of the Twitter API platform!\nhttps://t.co/XweGngmxlP",
-      "truncated": false,
-      "entities": {
-        "hashtags": [
-
-        ],
-        "symbols": [
-
-        ],
-        "user_mentions": [
-
-        ],
-        "urls": [
-          {
-            "url": "https://t.co/XweGngmxlP",
-            "expanded_url": "https://cards.twitter.com/cards/18ce53wgo4h/3xo1c",
-            "display_url": "cards.twitter.com/cards/18ce53wg…",
-            "indices": [
-              78,
-              101
-            ]
-          }
-        ]
-      },
-      "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
-      "in_reply_to_status_id": null,
-      "in_reply_to_status_id_str": null,
-      "in_reply_to_user_id": null,
-      "in_reply_to_user_id_str": null,
-      "in_reply_to_screen_name": null,
-      "user": {
-        "id": 2244994945,
-        "id_str": "2244994945",
-        "name": "Twitter Dev",
-        "screen_name": "TwitterDev",
-        "location": "Internet",
-        "description": "Your official source for Twitter Platform news, updates & events. Need technical help? Visit https://t.co/mGHnxZU8c1 ⌨️ #TapIntoTwitter",
-        "url": "https://t.co/FGl7VOULyL",
-        "entities": {
-          "url": {
-            "urls": [
-              {
-                "url": "https://t.co/FGl7VOULyL",
-                "expanded_url": "https://developer.twitter.com/",
-                "display_url": "developer.twitter.com",
-                "indices": [
-                  0,
-                  23
-                ]
-              }
-            ]
-          },
-          "description": {
-            "urls": [
-              {
-                "url": "https://t.co/mGHnxZU8c1",
-                "expanded_url": "https://twittercommunity.com/",
-                "display_url": "twittercommunity.com",
-                "indices": [
-                  93,
-                  116
-                ]
-              }
-            ]
-          }
-        },
-        "protected": false,
-        "followers_count": 503126,
-        "friends_count": 1477,
-        "listed_count": 1446,
-        "created_at": "Sat Dec 14 04:35:55 +0000 2013",
-        "favourites_count": 2199,
-        "utc_offset": null,
-        "time_zone": null,
-        "geo_enabled": true,
-        "verified": true,
-        "statuses_count": 3380,
-        "lang": "en",
-        "contributors_enabled": false,
-        "is_translator": false,
-        "is_translation_enabled": false,
-        "profile_background_color": "FFFFFF",
-        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
-        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
-        "profile_background_tile": false,
-        "profile_image_url": "http://pbs.twimg.com/profile_images/880136122604507136/xHrnqf1T_normal.jpg",
-        "profile_image_url_https": "https://pbs.twimg.com/profile_images/880136122604507136/xHrnqf1T_normal.jpg",
-        "profile_banner_url": "https://pbs.twimg.com/profile_banners/2244994945/1498675817",
-        "profile_link_color": "0084B4",
-        "profile_sidebar_border_color": "FFFFFF",
-        "profile_sidebar_fill_color": "DDEEF6",
-        "profile_text_color": "333333",
-        "profile_use_background_image": false,
-        "has_extended_profile": true,
-        "default_profile": false,
-        "default_profile_image": false,
-        "following": false,
-        "follow_request_sent": false,
-        "notifications": false,
-        "translator_type": "regular"
-      },
-      "geo": null,
-      "coordinates": null,
-      "place": null,
-      "contributors": null,
-      "is_quote_status": false,
-      "retweet_count": 334,
-      "favorite_count": 498,
-      "favorited": false,
-      "retweeted": false,
-      "possibly_sensitive": false,
-      "lang": "en"
-    },
     "is_quote_status": false,
-    "retweet_count": 334,
-    "favorite_count": 0,
+    "retweet_count": 52,
+    "favorite_count": 396,
     "favorited": false,
     "retweeted": false,
     "possibly_sensitive": false,
-    "lang": "en"
+    "lang": "und"
   },
   {
-    "created_at": "Wed Nov 04 18:24:33 +0000 2015",
-    "id": 661972313877934080,
-    "id_str": "661972313877934080",
-    "text": "RT @sferik: It looks like Twitter won’t be renaming their API resources from “favorites” to “likes”: https://t.co/m2LXXT3W0P. https://t.co/…",
+    "created_at": "Mon Nov 26 06:47:36 +0000 2018",
+    "id": 1066946556786606080,
+    "id_str": "1066946556786606080",
+    "text": "@Blain_Cooper don't comics",
     "truncated": false,
     "entities": {
       "hashtags": [
@@ -330,334 +380,48 @@
       ],
       "user_mentions": [
         {
-          "screen_name": "sferik",
-          "name": "Erik Berlin",
-          "id": 7505382,
-          "id_str": "7505382",
+          "screen_name": "Blain_Cooper",
+          "name": "Blain Cooper",
+          "id": 2686064329,
+          "id_str": "2686064329",
           "indices": [
-            3,
-            10
+            0,
+            13
           ]
         }
       ],
       "urls": [
-        {
-          "url": "https://t.co/m2LXXT3W0P",
-          "expanded_url": "https://dev.twitter.com/rest/reference/get/favorites/list",
-          "display_url": "dev.twitter.com/rest/reference…",
-          "indices": [
-            101,
-            124
-          ]
-        }
+
       ]
     },
-    "source": "<a href=\"http://itunes.apple.com/us/app/twitter/id409789998?mt=12\" rel=\"nofollow\">Twitter for Mac</a>",
-    "in_reply_to_status_id": null,
-    "in_reply_to_status_id_str": null,
-    "in_reply_to_user_id": null,
-    "in_reply_to_user_id_str": null,
-    "in_reply_to_screen_name": null,
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+    "in_reply_to_status_id": 1066936858700144640,
+    "in_reply_to_status_id_str": "1066936858700144640",
+    "in_reply_to_user_id": 2686064329,
+    "in_reply_to_user_id_str": "2686064329",
+    "in_reply_to_screen_name": "Blain_Cooper",
     "user": {
-      "id": 213747670,
-      "id_str": "213747670",
-      "name": "The Ruby Gem",
-      "screen_name": "gem",
+      "id": 810164143,
+      "id_str": "810164143",
+      "name": "extra fabulous comics",
+      "screen_name": "extrafabulous",
       "location": "",
-      "description": "",
-      "url": null,
+      "description": "please help",
+      "url": "https://t.co/jYxpSpqxFG",
       "entities": {
-        "description": {
+        "url": {
           "urls": [
-
+            {
+              "url": "https://t.co/jYxpSpqxFG",
+              "expanded_url": "https://www.patreon.com/ExtraFabulousComics",
+              "display_url": "patreon.com/ExtraFabulousC…",
+              "indices": [
+                0,
+                23
+              ]
+            }
           ]
-        }
-      },
-      "protected": false,
-      "followers_count": 1745,
-      "friends_count": 10,
-      "listed_count": 123,
-      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
-      "favourites_count": 325,
-      "utc_offset": null,
-      "time_zone": null,
-      "geo_enabled": true,
-      "verified": false,
-      "statuses_count": 120,
-      "lang": "en",
-      "contributors_enabled": false,
-      "is_translator": false,
-      "is_translation_enabled": false,
-      "profile_background_color": "C0DEED",
-      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
-      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
-      "profile_background_tile": false,
-      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_link_color": "1DA1F2",
-      "profile_sidebar_border_color": "C0DEED",
-      "profile_sidebar_fill_color": "DDEEF6",
-      "profile_text_color": "333333",
-      "profile_use_background_image": true,
-      "has_extended_profile": false,
-      "default_profile": true,
-      "default_profile_image": false,
-      "following": false,
-      "follow_request_sent": false,
-      "notifications": false,
-      "translator_type": "none"
-    },
-    "geo": null,
-    "coordinates": null,
-    "place": null,
-    "contributors": null,
-    "retweeted_status": {
-      "created_at": "Wed Nov 04 18:21:23 +0000 2015",
-      "id": 661971519749402626,
-      "id_str": "661971519749402626",
-      "text": "It looks like Twitter won’t be renaming their API resources from “favorites” to “likes”: https://t.co/m2LXXT3W0P. https://t.co/kBos9paI4C",
-      "truncated": false,
-      "entities": {
-        "hashtags": [
-
-        ],
-        "symbols": [
-
-        ],
-        "user_mentions": [
-
-        ],
-        "urls": [
-          {
-            "url": "https://t.co/m2LXXT3W0P",
-            "expanded_url": "https://dev.twitter.com/rest/reference/get/favorites/list",
-            "display_url": "dev.twitter.com/rest/reference…",
-            "indices": [
-              89,
-              112
-            ]
-          }
-        ],
-        "media": [
-          {
-            "id": 661971519048949760,
-            "id_str": "661971519048949760",
-            "indices": [
-              114,
-              137
-            ],
-            "media_url": "http://pbs.twimg.com/media/CS_LltxWoAAJWdn.png",
-            "media_url_https": "https://pbs.twimg.com/media/CS_LltxWoAAJWdn.png",
-            "url": "https://t.co/kBos9paI4C",
-            "display_url": "pic.twitter.com/kBos9paI4C",
-            "expanded_url": "https://twitter.com/sferik/status/661971519749402626/photo/1",
-            "type": "photo",
-            "sizes": {
-              "small": {
-                "w": 680,
-                "h": 335,
-                "resize": "fit"
-              },
-              "medium": {
-                "w": 879,
-                "h": 433,
-                "resize": "fit"
-              },
-              "large": {
-                "w": 879,
-                "h": 433,
-                "resize": "fit"
-              },
-              "thumb": {
-                "w": 150,
-                "h": 150,
-                "resize": "crop"
-              }
-            }
-          }
-        ]
-      },
-      "extended_entities": {
-        "media": [
-          {
-            "id": 661971519048949760,
-            "id_str": "661971519048949760",
-            "indices": [
-              114,
-              137
-            ],
-            "media_url": "http://pbs.twimg.com/media/CS_LltxWoAAJWdn.png",
-            "media_url_https": "https://pbs.twimg.com/media/CS_LltxWoAAJWdn.png",
-            "url": "https://t.co/kBos9paI4C",
-            "display_url": "pic.twitter.com/kBos9paI4C",
-            "expanded_url": "https://twitter.com/sferik/status/661971519749402626/photo/1",
-            "type": "photo",
-            "sizes": {
-              "small": {
-                "w": 680,
-                "h": 335,
-                "resize": "fit"
-              },
-              "medium": {
-                "w": 879,
-                "h": 433,
-                "resize": "fit"
-              },
-              "large": {
-                "w": 879,
-                "h": 433,
-                "resize": "fit"
-              },
-              "thumb": {
-                "w": 150,
-                "h": 150,
-                "resize": "crop"
-              }
-            }
-          }
-        ]
-      },
-      "source": "<a href=\"http://itunes.apple.com/us/app/twitter/id409789998?mt=12\" rel=\"nofollow\">Twitter for Mac</a>",
-      "in_reply_to_status_id": null,
-      "in_reply_to_status_id_str": null,
-      "in_reply_to_user_id": null,
-      "in_reply_to_user_id_str": null,
-      "in_reply_to_screen_name": null,
-      "user": {
-        "id": 7505382,
-        "id_str": "7505382",
-        "name": "Erik Berlin",
-        "screen_name": "sferik",
-        "location": "🇺🇸",
-        "description": "Maker, Breaker",
-        "url": "https://t.co/q0xzfUWYzJ",
-        "entities": {
-          "url": {
-            "urls": [
-              {
-                "url": "https://t.co/q0xzfUWYzJ",
-                "expanded_url": "https://breaker.audio",
-                "display_url": "breaker.audio",
-                "indices": [
-                  0,
-                  23
-                ]
-              }
-            ]
-          },
-          "description": {
-            "urls": [
-
-            ]
-          }
         },
-        "protected": false,
-        "followers_count": 6922,
-        "friends_count": 1625,
-        "listed_count": 386,
-        "created_at": "Mon Jul 16 12:59:01 +0000 2007",
-        "favourites_count": 21220,
-        "utc_offset": null,
-        "time_zone": null,
-        "geo_enabled": true,
-        "verified": true,
-        "statuses_count": 20491,
-        "lang": "en",
-        "contributors_enabled": false,
-        "is_translator": false,
-        "is_translation_enabled": false,
-        "profile_background_color": "000000",
-        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme20/bg.png",
-        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme20/bg.png",
-        "profile_background_tile": false,
-        "profile_image_url": "http://pbs.twimg.com/profile_images/908590867220389888/1Nz-g3QQ_normal.jpg",
-        "profile_image_url_https": "https://pbs.twimg.com/profile_images/908590867220389888/1Nz-g3QQ_normal.jpg",
-        "profile_banner_url": "https://pbs.twimg.com/profile_banners/7505382/1507095907",
-        "profile_link_color": "393740",
-        "profile_sidebar_border_color": "000000",
-        "profile_sidebar_fill_color": "DDEEF6",
-        "profile_text_color": "333333",
-        "profile_use_background_image": true,
-        "has_extended_profile": true,
-        "default_profile": false,
-        "default_profile_image": false,
-        "following": false,
-        "follow_request_sent": false,
-        "notifications": false,
-        "translator_type": "regular"
-      },
-      "geo": null,
-      "coordinates": null,
-      "place": null,
-      "contributors": null,
-      "is_quote_status": false,
-      "retweet_count": 9,
-      "favorite_count": 12,
-      "favorited": false,
-      "retweeted": false,
-      "possibly_sensitive": false,
-      "lang": "en"
-    },
-    "is_quote_status": false,
-    "retweet_count": 9,
-    "favorite_count": 0,
-    "favorited": false,
-    "retweeted": false,
-    "possibly_sensitive": false,
-    "lang": "en"
-  },
-  {
-    "created_at": "Tue Sep 15 20:08:51 +0000 2015",
-    "id": 643879168086700032,
-    "id_str": "643879168086700032",
-    "text": "Need a gem to access the Twitter Ads API? Be sure to check out https://t.co/M3b4sJ9jMI and follow @AdsAPI for updates.",
-    "truncated": false,
-    "entities": {
-      "hashtags": [
-
-      ],
-      "symbols": [
-
-      ],
-      "user_mentions": [
-        {
-          "screen_name": "AdsAPI",
-          "name": "Twitter Ads API",
-          "id": 1225933934,
-          "id_str": "1225933934",
-          "indices": [
-            98,
-            105
-          ]
-        }
-      ],
-      "urls": [
-        {
-          "url": "https://t.co/M3b4sJ9jMI",
-          "expanded_url": "https://github.com/twitterdev/twitter-ruby-ads-sdk",
-          "display_url": "github.com/twitterdev/twi…",
-          "indices": [
-            63,
-            86
-          ]
-        }
-      ]
-    },
-    "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
-    "in_reply_to_status_id": null,
-    "in_reply_to_status_id_str": null,
-    "in_reply_to_user_id": null,
-    "in_reply_to_user_id_str": null,
-    "in_reply_to_screen_name": null,
-    "user": {
-      "id": 213747670,
-      "id_str": "213747670",
-      "name": "The Ruby Gem",
-      "screen_name": "gem",
-      "location": "",
-      "description": "",
-      "url": null,
-      "entities": {
         "description": {
           "urls": [
 
@@ -665,35 +429,36 @@
         }
       },
       "protected": false,
-      "followers_count": 1745,
-      "friends_count": 10,
-      "listed_count": 123,
-      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
-      "favourites_count": 325,
+      "followers_count": 46569,
+      "friends_count": 9874,
+      "listed_count": 312,
+      "created_at": "Sat Sep 08 04:17:30 +0000 2012",
+      "favourites_count": 12651,
       "utc_offset": null,
       "time_zone": null,
-      "geo_enabled": true,
+      "geo_enabled": false,
       "verified": false,
-      "statuses_count": 120,
+      "statuses_count": 2983,
       "lang": "en",
       "contributors_enabled": false,
       "is_translator": false,
       "is_translation_enabled": false,
-      "profile_background_color": "C0DEED",
+      "profile_background_color": "FF6699",
       "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
       "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
       "profile_background_tile": false,
-      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_link_color": "1DA1F2",
-      "profile_sidebar_border_color": "C0DEED",
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/810164143/1537921549",
+      "profile_link_color": "ABB8C2",
+      "profile_sidebar_border_color": "000000",
       "profile_sidebar_fill_color": "DDEEF6",
       "profile_text_color": "333333",
       "profile_use_background_image": true,
       "has_extended_profile": false,
-      "default_profile": true,
+      "default_profile": false,
       "default_profile_image": false,
-      "following": false,
+      "following": true,
       "follow_request_sent": false,
       "notifications": false,
       "translator_type": "none"
@@ -704,17 +469,16 @@
     "contributors": null,
     "is_quote_status": false,
     "retweet_count": 5,
-    "favorite_count": 13,
+    "favorite_count": 111,
     "favorited": false,
     "retweeted": false,
-    "possibly_sensitive": false,
     "lang": "en"
   },
   {
-    "created_at": "Wed Sep 09 08:54:55 +0000 2015",
-    "id": 641535240012435456,
-    "id_str": "641535240012435456",
-    "text": "Version 5.15.0 will be the last release in the 5.x series. The next planned release will be version 6, which will drop Ruby 1.8.7 support.",
+    "created_at": "Mon Nov 26 05:51:38 +0000 2018",
+    "id": 1066932472531820544,
+    "id_str": "1066932472531820544",
+    "text": "what should i rename the comics to",
     "truncated": false,
     "entities": {
       "hashtags": [
@@ -730,21 +494,34 @@
 
       ]
     },
-    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
     "in_reply_to_status_id": null,
     "in_reply_to_status_id_str": null,
     "in_reply_to_user_id": null,
     "in_reply_to_user_id_str": null,
     "in_reply_to_screen_name": null,
     "user": {
-      "id": 213747670,
-      "id_str": "213747670",
-      "name": "The Ruby Gem",
-      "screen_name": "gem",
+      "id": 810164143,
+      "id_str": "810164143",
+      "name": "extra fabulous comics",
+      "screen_name": "extrafabulous",
       "location": "",
-      "description": "",
-      "url": null,
+      "description": "please help",
+      "url": "https://t.co/jYxpSpqxFG",
       "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/jYxpSpqxFG",
+              "expanded_url": "https://www.patreon.com/ExtraFabulousComics",
+              "display_url": "patreon.com/ExtraFabulousC…",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
         "description": {
           "urls": [
 
@@ -752,319 +529,36 @@
         }
       },
       "protected": false,
-      "followers_count": 1745,
-      "friends_count": 10,
-      "listed_count": 123,
-      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
-      "favourites_count": 325,
+      "followers_count": 46569,
+      "friends_count": 9874,
+      "listed_count": 312,
+      "created_at": "Sat Sep 08 04:17:30 +0000 2012",
+      "favourites_count": 12651,
       "utc_offset": null,
       "time_zone": null,
-      "geo_enabled": true,
+      "geo_enabled": false,
       "verified": false,
-      "statuses_count": 120,
+      "statuses_count": 2983,
       "lang": "en",
       "contributors_enabled": false,
       "is_translator": false,
       "is_translation_enabled": false,
-      "profile_background_color": "C0DEED",
+      "profile_background_color": "FF6699",
       "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
       "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
       "profile_background_tile": false,
-      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_link_color": "1DA1F2",
-      "profile_sidebar_border_color": "C0DEED",
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/810164143/1537921549",
+      "profile_link_color": "ABB8C2",
+      "profile_sidebar_border_color": "000000",
       "profile_sidebar_fill_color": "DDEEF6",
       "profile_text_color": "333333",
       "profile_use_background_image": true,
       "has_extended_profile": false,
-      "default_profile": true,
+      "default_profile": false,
       "default_profile_image": false,
-      "following": false,
-      "follow_request_sent": false,
-      "notifications": false,
-      "translator_type": "none"
-    },
-    "geo": null,
-    "coordinates": null,
-    "place": null,
-    "contributors": null,
-    "is_quote_status": false,
-    "retweet_count": 2,
-    "favorite_count": 2,
-    "favorited": false,
-    "retweeted": false,
-    "lang": "en"
-  },
-  {
-    "created_at": "Wed Sep 09 08:54:54 +0000 2015",
-    "id": 641535238334771200,
-    "id_str": "641535238334771200",
-    "text": "Released version 5.15.0, which adds methods to access quoted tweets and new mime_types for multi-part uploads. https://t.co/TSOb5WLKzW",
-    "truncated": false,
-    "entities": {
-      "hashtags": [
-
-      ],
-      "symbols": [
-
-      ],
-      "user_mentions": [
-
-      ],
-      "urls": [
-        {
-          "url": "https://t.co/TSOb5WLKzW",
-          "expanded_url": "https://github.com/sferik/twitter/blob/master/CHANGELOG.md#5150",
-          "display_url": "github.com/sferik/twitter…",
-          "indices": [
-            111,
-            134
-          ]
-        }
-      ]
-    },
-    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
-    "in_reply_to_status_id": null,
-    "in_reply_to_status_id_str": null,
-    "in_reply_to_user_id": null,
-    "in_reply_to_user_id_str": null,
-    "in_reply_to_screen_name": null,
-    "user": {
-      "id": 213747670,
-      "id_str": "213747670",
-      "name": "The Ruby Gem",
-      "screen_name": "gem",
-      "location": "",
-      "description": "",
-      "url": null,
-      "entities": {
-        "description": {
-          "urls": [
-
-          ]
-        }
-      },
-      "protected": false,
-      "followers_count": 1745,
-      "friends_count": 10,
-      "listed_count": 123,
-      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
-      "favourites_count": 325,
-      "utc_offset": null,
-      "time_zone": null,
-      "geo_enabled": true,
-      "verified": false,
-      "statuses_count": 120,
-      "lang": "en",
-      "contributors_enabled": false,
-      "is_translator": false,
-      "is_translation_enabled": false,
-      "profile_background_color": "C0DEED",
-      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
-      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
-      "profile_background_tile": false,
-      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_link_color": "1DA1F2",
-      "profile_sidebar_border_color": "C0DEED",
-      "profile_sidebar_fill_color": "DDEEF6",
-      "profile_text_color": "333333",
-      "profile_use_background_image": true,
-      "has_extended_profile": false,
-      "default_profile": true,
-      "default_profile_image": false,
-      "following": false,
-      "follow_request_sent": false,
-      "notifications": false,
-      "translator_type": "none"
-    },
-    "geo": null,
-    "coordinates": null,
-    "place": null,
-    "contributors": null,
-    "is_quote_status": false,
-    "retweet_count": 1,
-    "favorite_count": 2,
-    "favorited": false,
-    "retweeted": false,
-    "possibly_sensitive": false,
-    "lang": "en"
-  },
-  {
-    "created_at": "Sat Feb 14 07:44:53 +0000 2015",
-    "id": 566503331183341569,
-    "id_str": "566503331183341569",
-    "text": "Just passed 2 million downloads on http://t.co/sz5uWe0cI1! Thanks for installing!",
-    "truncated": false,
-    "entities": {
-      "hashtags": [
-
-      ],
-      "symbols": [
-
-      ],
-      "user_mentions": [
-
-      ],
-      "urls": [
-        {
-          "url": "http://t.co/sz5uWe0cI1",
-          "expanded_url": "http://RubyGems.org",
-          "display_url": "RubyGems.org",
-          "indices": [
-            35,
-            57
-          ]
-        }
-      ]
-    },
-    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
-    "in_reply_to_status_id": null,
-    "in_reply_to_status_id_str": null,
-    "in_reply_to_user_id": null,
-    "in_reply_to_user_id_str": null,
-    "in_reply_to_screen_name": null,
-    "user": {
-      "id": 213747670,
-      "id_str": "213747670",
-      "name": "The Ruby Gem",
-      "screen_name": "gem",
-      "location": "",
-      "description": "",
-      "url": null,
-      "entities": {
-        "description": {
-          "urls": [
-
-          ]
-        }
-      },
-      "protected": false,
-      "followers_count": 1745,
-      "friends_count": 10,
-      "listed_count": 123,
-      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
-      "favourites_count": 325,
-      "utc_offset": null,
-      "time_zone": null,
-      "geo_enabled": true,
-      "verified": false,
-      "statuses_count": 120,
-      "lang": "en",
-      "contributors_enabled": false,
-      "is_translator": false,
-      "is_translation_enabled": false,
-      "profile_background_color": "C0DEED",
-      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
-      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
-      "profile_background_tile": false,
-      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_link_color": "1DA1F2",
-      "profile_sidebar_border_color": "C0DEED",
-      "profile_sidebar_fill_color": "DDEEF6",
-      "profile_text_color": "333333",
-      "profile_use_background_image": true,
-      "has_extended_profile": false,
-      "default_profile": true,
-      "default_profile_image": false,
-      "following": false,
-      "follow_request_sent": false,
-      "notifications": false,
-      "translator_type": "none"
-    },
-    "geo": null,
-    "coordinates": null,
-    "place": null,
-    "contributors": null,
-    "is_quote_status": false,
-    "retweet_count": 3,
-    "favorite_count": 7,
-    "favorited": false,
-    "retweeted": false,
-    "possibly_sensitive": false,
-    "lang": "en"
-  },
-  {
-    "created_at": "Sat Feb 14 07:37:16 +0000 2015",
-    "id": 566501411983089664,
-    "id_str": "566501411983089664",
-    "text": "Released version 5.14.0, which properly handles videos and animated GIFs. Details at: https://t.co/xPV7HdW38W",
-    "truncated": false,
-    "entities": {
-      "hashtags": [
-
-      ],
-      "symbols": [
-
-      ],
-      "user_mentions": [
-
-      ],
-      "urls": [
-        {
-          "url": "https://t.co/xPV7HdW38W",
-          "expanded_url": "https://github.com/sferik/twitter/blob/master/CHANGELOG.md#5140",
-          "display_url": "github.com/sferik/twitter…",
-          "indices": [
-            86,
-            109
-          ]
-        }
-      ]
-    },
-    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
-    "in_reply_to_status_id": null,
-    "in_reply_to_status_id_str": null,
-    "in_reply_to_user_id": null,
-    "in_reply_to_user_id_str": null,
-    "in_reply_to_screen_name": null,
-    "user": {
-      "id": 213747670,
-      "id_str": "213747670",
-      "name": "The Ruby Gem",
-      "screen_name": "gem",
-      "location": "",
-      "description": "",
-      "url": null,
-      "entities": {
-        "description": {
-          "urls": [
-
-          ]
-        }
-      },
-      "protected": false,
-      "followers_count": 1745,
-      "friends_count": 10,
-      "listed_count": 123,
-      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
-      "favourites_count": 325,
-      "utc_offset": null,
-      "time_zone": null,
-      "geo_enabled": true,
-      "verified": false,
-      "statuses_count": 120,
-      "lang": "en",
-      "contributors_enabled": false,
-      "is_translator": false,
-      "is_translation_enabled": false,
-      "profile_background_color": "C0DEED",
-      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
-      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
-      "profile_background_tile": false,
-      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_link_color": "1DA1F2",
-      "profile_sidebar_border_color": "C0DEED",
-      "profile_sidebar_fill_color": "DDEEF6",
-      "profile_text_color": "333333",
-      "profile_use_background_image": true,
-      "has_extended_profile": false,
-      "default_profile": true,
-      "default_profile_image": false,
-      "following": false,
+      "following": true,
       "follow_request_sent": false,
       "notifications": false,
       "translator_type": "none"
@@ -1075,17 +569,16 @@
     "contributors": null,
     "is_quote_status": false,
     "retweet_count": 0,
-    "favorite_count": 1,
+    "favorite_count": 35,
     "favorited": false,
     "retweeted": false,
-    "possibly_sensitive": false,
     "lang": "en"
   },
   {
-    "created_at": "Thu Nov 13 01:39:33 +0000 2014",
-    "id": 532709319960449025,
-    "id_str": "532709319960449025",
-    "text": "This tweet should be threaded to the previous one. If so, it closes https://t.co/HA7uNG0yk8.",
+    "created_at": "Mon Nov 26 00:00:59 +0000 2018",
+    "id": 1066844228301594624,
+    "id_str": "1066844228301594624",
+    "text": "prints available https://t.co/kD8XOqR5tZ https://t.co/YU5TUpdHcI",
     "truncated": false,
     "entities": {
       "hashtags": [
@@ -1099,409 +592,28 @@
       ],
       "urls": [
         {
-          "url": "https://t.co/HA7uNG0yk8",
-          "expanded_url": "https://github.com/sferik/twitter/issues/566",
-          "display_url": "github.com/sferik/twitter…",
+          "url": "https://t.co/kD8XOqR5tZ",
+          "expanded_url": "https://extrafabulous.shop/products/print-hop",
+          "display_url": "extrafabulous.shop/products/print…",
           "indices": [
-            68,
-            91
+            17,
+            40
           ]
         }
-      ]
-    },
-    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
-    "in_reply_to_status_id": 532709315371872257,
-    "in_reply_to_status_id_str": "532709315371872257",
-    "in_reply_to_user_id": 213747670,
-    "in_reply_to_user_id_str": "213747670",
-    "in_reply_to_screen_name": "gem",
-    "user": {
-      "id": 213747670,
-      "id_str": "213747670",
-      "name": "The Ruby Gem",
-      "screen_name": "gem",
-      "location": "",
-      "description": "",
-      "url": null,
-      "entities": {
-        "description": {
-          "urls": [
-
-          ]
-        }
-      },
-      "protected": false,
-      "followers_count": 1745,
-      "friends_count": 10,
-      "listed_count": 123,
-      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
-      "favourites_count": 325,
-      "utc_offset": null,
-      "time_zone": null,
-      "geo_enabled": true,
-      "verified": false,
-      "statuses_count": 120,
-      "lang": "en",
-      "contributors_enabled": false,
-      "is_translator": false,
-      "is_translation_enabled": false,
-      "profile_background_color": "C0DEED",
-      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
-      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
-      "profile_background_tile": false,
-      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_link_color": "1DA1F2",
-      "profile_sidebar_border_color": "C0DEED",
-      "profile_sidebar_fill_color": "DDEEF6",
-      "profile_text_color": "333333",
-      "profile_use_background_image": true,
-      "has_extended_profile": false,
-      "default_profile": true,
-      "default_profile_image": false,
-      "following": false,
-      "follow_request_sent": false,
-      "notifications": false,
-      "translator_type": "none"
-    },
-    "geo": null,
-    "coordinates": null,
-    "place": null,
-    "contributors": null,
-    "is_quote_status": false,
-    "retweet_count": 0,
-    "favorite_count": 5,
-    "favorited": false,
-    "retweeted": false,
-    "possibly_sensitive": false,
-    "lang": "en"
-  },
-  {
-    "created_at": "Thu Nov 13 01:39:32 +0000 2014",
-    "id": 532709315371872257,
-    "id_str": "532709315371872257",
-    "text": "Testing threaded replies. /cc @fields",
-    "truncated": false,
-    "entities": {
-      "hashtags": [
-
-      ],
-      "symbols": [
-
-      ],
-      "user_mentions": [
-        {
-          "screen_name": "fields",
-          "name": "Adam Fields",
-          "id": 1158731,
-          "id_str": "1158731",
-          "indices": [
-            30,
-            37
-          ]
-        }
-      ],
-      "urls": [
-
-      ]
-    },
-    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
-    "in_reply_to_status_id": null,
-    "in_reply_to_status_id_str": null,
-    "in_reply_to_user_id": null,
-    "in_reply_to_user_id_str": null,
-    "in_reply_to_screen_name": null,
-    "user": {
-      "id": 213747670,
-      "id_str": "213747670",
-      "name": "The Ruby Gem",
-      "screen_name": "gem",
-      "location": "",
-      "description": "",
-      "url": null,
-      "entities": {
-        "description": {
-          "urls": [
-
-          ]
-        }
-      },
-      "protected": false,
-      "followers_count": 1745,
-      "friends_count": 10,
-      "listed_count": 123,
-      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
-      "favourites_count": 325,
-      "utc_offset": null,
-      "time_zone": null,
-      "geo_enabled": true,
-      "verified": false,
-      "statuses_count": 120,
-      "lang": "en",
-      "contributors_enabled": false,
-      "is_translator": false,
-      "is_translation_enabled": false,
-      "profile_background_color": "C0DEED",
-      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
-      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
-      "profile_background_tile": false,
-      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_link_color": "1DA1F2",
-      "profile_sidebar_border_color": "C0DEED",
-      "profile_sidebar_fill_color": "DDEEF6",
-      "profile_text_color": "333333",
-      "profile_use_background_image": true,
-      "has_extended_profile": false,
-      "default_profile": true,
-      "default_profile_image": false,
-      "following": false,
-      "follow_request_sent": false,
-      "notifications": false,
-      "translator_type": "none"
-    },
-    "geo": null,
-    "coordinates": null,
-    "place": null,
-    "contributors": null,
-    "is_quote_status": false,
-    "retweet_count": 0,
-    "favorite_count": 1,
-    "favorited": false,
-    "retweeted": false,
-    "lang": "en"
-  },
-  {
-    "created_at": "Sat Nov 08 11:42:41 +0000 2014",
-    "id": 531049164403384320,
-    "id_str": "531049164403384320",
-    "text": "Released version 5.13.0, which deprecates Twitter::REST::Client#get and Twitter::REST::Client#post. See https://t.co/Q80lfcJvmF for details.",
-    "truncated": false,
-    "entities": {
-      "hashtags": [
-
-      ],
-      "symbols": [
-
-      ],
-      "user_mentions": [
-
-      ],
-      "urls": [
-        {
-          "url": "https://t.co/Q80lfcJvmF",
-          "expanded_url": "https://github.com/sferik/twitter/blob/master/CHANGELOG.md#5130",
-          "display_url": "github.com/sferik/twitter…",
-          "indices": [
-            104,
-            127
-          ]
-        }
-      ]
-    },
-    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
-    "in_reply_to_status_id": null,
-    "in_reply_to_status_id_str": null,
-    "in_reply_to_user_id": null,
-    "in_reply_to_user_id_str": null,
-    "in_reply_to_screen_name": null,
-    "user": {
-      "id": 213747670,
-      "id_str": "213747670",
-      "name": "The Ruby Gem",
-      "screen_name": "gem",
-      "location": "",
-      "description": "",
-      "url": null,
-      "entities": {
-        "description": {
-          "urls": [
-
-          ]
-        }
-      },
-      "protected": false,
-      "followers_count": 1745,
-      "friends_count": 10,
-      "listed_count": 123,
-      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
-      "favourites_count": 325,
-      "utc_offset": null,
-      "time_zone": null,
-      "geo_enabled": true,
-      "verified": false,
-      "statuses_count": 120,
-      "lang": "en",
-      "contributors_enabled": false,
-      "is_translator": false,
-      "is_translation_enabled": false,
-      "profile_background_color": "C0DEED",
-      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
-      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
-      "profile_background_tile": false,
-      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_link_color": "1DA1F2",
-      "profile_sidebar_border_color": "C0DEED",
-      "profile_sidebar_fill_color": "DDEEF6",
-      "profile_text_color": "333333",
-      "profile_use_background_image": true,
-      "has_extended_profile": false,
-      "default_profile": true,
-      "default_profile_image": false,
-      "following": false,
-      "follow_request_sent": false,
-      "notifications": false,
-      "translator_type": "none"
-    },
-    "geo": null,
-    "coordinates": null,
-    "place": null,
-    "contributors": null,
-    "is_quote_status": false,
-    "retweet_count": 0,
-    "favorite_count": 0,
-    "favorited": false,
-    "retweeted": false,
-    "possibly_sensitive": false,
-    "lang": "en"
-  },
-  {
-    "created_at": "Thu Oct 30 04:17:18 +0000 2014",
-    "id": 527675589361418240,
-    "id_str": "527675589361418240",
-    "text": "Released version 5.12.0, adding Comparable methods to Twitter::NullObject. Details at: https://t.co/xig57boHJa",
-    "truncated": false,
-    "entities": {
-      "hashtags": [
-
-      ],
-      "symbols": [
-
-      ],
-      "user_mentions": [
-
-      ],
-      "urls": [
-        {
-          "url": "https://t.co/xig57boHJa",
-          "expanded_url": "https://github.com/sferik/twitter/blob/master/CHANGELOG.md#5120",
-          "display_url": "github.com/sferik/twitter…",
-          "indices": [
-            87,
-            110
-          ]
-        }
-      ]
-    },
-    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
-    "in_reply_to_status_id": null,
-    "in_reply_to_status_id_str": null,
-    "in_reply_to_user_id": null,
-    "in_reply_to_user_id_str": null,
-    "in_reply_to_screen_name": null,
-    "user": {
-      "id": 213747670,
-      "id_str": "213747670",
-      "name": "The Ruby Gem",
-      "screen_name": "gem",
-      "location": "",
-      "description": "",
-      "url": null,
-      "entities": {
-        "description": {
-          "urls": [
-
-          ]
-        }
-      },
-      "protected": false,
-      "followers_count": 1745,
-      "friends_count": 10,
-      "listed_count": 123,
-      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
-      "favourites_count": 325,
-      "utc_offset": null,
-      "time_zone": null,
-      "geo_enabled": true,
-      "verified": false,
-      "statuses_count": 120,
-      "lang": "en",
-      "contributors_enabled": false,
-      "is_translator": false,
-      "is_translation_enabled": false,
-      "profile_background_color": "C0DEED",
-      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
-      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
-      "profile_background_tile": false,
-      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_link_color": "1DA1F2",
-      "profile_sidebar_border_color": "C0DEED",
-      "profile_sidebar_fill_color": "DDEEF6",
-      "profile_text_color": "333333",
-      "profile_use_background_image": true,
-      "has_extended_profile": false,
-      "default_profile": true,
-      "default_profile_image": false,
-      "following": false,
-      "follow_request_sent": false,
-      "notifications": false,
-      "translator_type": "none"
-    },
-    "geo": null,
-    "coordinates": null,
-    "place": null,
-    "contributors": null,
-    "is_quote_status": false,
-    "retweet_count": 0,
-    "favorite_count": 0,
-    "favorited": false,
-    "retweeted": false,
-    "possibly_sensitive": false,
-    "lang": "en"
-  },
-  {
-    "created_at": "Wed Jun 25 10:18:00 +0000 2014",
-    "id": 481743100927574016,
-    "id_str": "481743100927574016",
-    "text": "Just received a large box from the good people at @TwitterDev. Dankeschön! 🎁🐦🔵🍼☕️😻💎 http://t.co/KKJVDa4y24",
-    "truncated": false,
-    "entities": {
-      "hashtags": [
-
-      ],
-      "symbols": [
-
-      ],
-      "user_mentions": [
-        {
-          "screen_name": "TwitterDev",
-          "name": "Twitter Dev",
-          "id": 2244994945,
-          "id_str": "2244994945",
-          "indices": [
-            50,
-            61
-          ]
-        }
-      ],
-      "urls": [
-
       ],
       "media": [
         {
-          "id": 481743099949895681,
-          "id_str": "481743099949895681",
+          "id": 1066844123540410369,
+          "id_str": "1066844123540410369",
           "indices": [
-            84,
-            106
+            41,
+            64
           ],
-          "media_url": "http://pbs.twimg.com/media/Bq9-zAmCUAEoFFz.jpg",
-          "media_url_https": "https://pbs.twimg.com/media/Bq9-zAmCUAEoFFz.jpg",
-          "url": "http://t.co/KKJVDa4y24",
-          "display_url": "pic.twitter.com/KKJVDa4y24",
-          "expanded_url": "https://twitter.com/gem/status/481743100927574016/photo/1",
+          "media_url": "http://pbs.twimg.com/media/Ds4xE_ZW0AEBBK7.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/Ds4xE_ZW0AEBBK7.jpg",
+          "url": "https://t.co/YU5TUpdHcI",
+          "display_url": "pic.twitter.com/YU5TUpdHcI",
+          "expanded_url": "https://twitter.com/extrafabulous/status/1066844228301594624/photo/1",
           "type": "photo",
           "sizes": {
             "thumb": {
@@ -1509,19 +621,19 @@
               "h": 150,
               "resize": "crop"
             },
-            "small": {
-              "w": 510,
-              "h": 680,
+            "medium": {
+              "w": 821,
+              "h": 1200,
               "resize": "fit"
             },
             "large": {
-              "w": 768,
-              "h": 1024,
+              "w": 1400,
+              "h": 2048,
               "resize": "fit"
             },
-            "medium": {
-              "w": 768,
-              "h": 1024,
+            "small": {
+              "w": 465,
+              "h": 680,
               "resize": "fit"
             }
           }
@@ -1531,17 +643,17 @@
     "extended_entities": {
       "media": [
         {
-          "id": 481743099949895681,
-          "id_str": "481743099949895681",
+          "id": 1066844123540410369,
+          "id_str": "1066844123540410369",
           "indices": [
-            84,
-            106
+            41,
+            64
           ],
-          "media_url": "http://pbs.twimg.com/media/Bq9-zAmCUAEoFFz.jpg",
-          "media_url_https": "https://pbs.twimg.com/media/Bq9-zAmCUAEoFFz.jpg",
-          "url": "http://t.co/KKJVDa4y24",
-          "display_url": "pic.twitter.com/KKJVDa4y24",
-          "expanded_url": "https://twitter.com/gem/status/481743100927574016/photo/1",
+          "media_url": "http://pbs.twimg.com/media/Ds4xE_ZW0AEBBK7.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/Ds4xE_ZW0AEBBK7.jpg",
+          "url": "https://t.co/YU5TUpdHcI",
+          "display_url": "pic.twitter.com/YU5TUpdHcI",
+          "expanded_url": "https://twitter.com/extrafabulous/status/1066844228301594624/photo/1",
           "type": "photo",
           "sizes": {
             "thumb": {
@@ -1549,40 +661,53 @@
               "h": 150,
               "resize": "crop"
             },
-            "small": {
-              "w": 510,
-              "h": 680,
+            "medium": {
+              "w": 821,
+              "h": 1200,
               "resize": "fit"
             },
             "large": {
-              "w": 768,
-              "h": 1024,
+              "w": 1400,
+              "h": 2048,
               "resize": "fit"
             },
-            "medium": {
-              "w": 768,
-              "h": 1024,
+            "small": {
+              "w": 465,
+              "h": 680,
               "resize": "fit"
             }
           }
         }
       ]
     },
-    "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
     "in_reply_to_status_id": null,
     "in_reply_to_status_id_str": null,
     "in_reply_to_user_id": null,
     "in_reply_to_user_id_str": null,
     "in_reply_to_screen_name": null,
     "user": {
-      "id": 213747670,
-      "id_str": "213747670",
-      "name": "The Ruby Gem",
-      "screen_name": "gem",
+      "id": 810164143,
+      "id_str": "810164143",
+      "name": "extra fabulous comics",
+      "screen_name": "extrafabulous",
       "location": "",
-      "description": "",
-      "url": null,
+      "description": "please help",
+      "url": "https://t.co/jYxpSpqxFG",
       "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/jYxpSpqxFG",
+              "expanded_url": "https://www.patreon.com/ExtraFabulousComics",
+              "display_url": "patreon.com/ExtraFabulousC…",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
         "description": {
           "urls": [
 
@@ -1590,283 +715,852 @@
         }
       },
       "protected": false,
-      "followers_count": 1745,
-      "friends_count": 10,
-      "listed_count": 123,
-      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
-      "favourites_count": 325,
+      "followers_count": 46569,
+      "friends_count": 9874,
+      "listed_count": 312,
+      "created_at": "Sat Sep 08 04:17:30 +0000 2012",
+      "favourites_count": 12651,
       "utc_offset": null,
       "time_zone": null,
-      "geo_enabled": true,
+      "geo_enabled": false,
       "verified": false,
-      "statuses_count": 120,
+      "statuses_count": 2983,
       "lang": "en",
       "contributors_enabled": false,
       "is_translator": false,
       "is_translation_enabled": false,
-      "profile_background_color": "C0DEED",
+      "profile_background_color": "FF6699",
       "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
       "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
       "profile_background_tile": false,
-      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_link_color": "1DA1F2",
-      "profile_sidebar_border_color": "C0DEED",
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/810164143/1537921549",
+      "profile_link_color": "ABB8C2",
+      "profile_sidebar_border_color": "000000",
       "profile_sidebar_fill_color": "DDEEF6",
       "profile_text_color": "333333",
       "profile_use_background_image": true,
       "has_extended_profile": false,
-      "default_profile": true,
+      "default_profile": false,
       "default_profile_image": false,
-      "following": false,
+      "following": true,
       "follow_request_sent": false,
       "notifications": false,
       "translator_type": "none"
     },
-    "geo": {
-      "type": "Point",
-      "coordinates": [
-        52.53784195,
-        13.39719833
-      ]
-    },
-    "coordinates": {
-      "type": "Point",
-      "coordinates": [
-        13.39719833,
-        52.53784195
-      ]
-    },
-    "place": {
-      "id": "31518521a29847bc",
-      "url": "https://api.twitter.com/1.1/geo/id/31518521a29847bc.json",
-      "place_type": "city",
-      "name": "Berlin",
-      "full_name": "Berlin, Deutschland",
-      "country_code": "DE",
-      "country": "Germany",
-      "contained_within": [
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 357,
+    "favorite_count": 1600,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Sun Nov 25 03:45:40 +0000 2018",
+    "id": 1066538383990800384,
+    "id_str": "1066538383990800384",
+    "text": "look at this fuckin dope game @Mult_Labyrinth and @AndreSargeant are making\nhttps://t.co/JqVx35aj9f",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
 
       ],
-      "bounding_box": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              13.088304,
-              52.338079
-            ],
-            [
-              13.760909,
-              52.338079
-            ],
-            [
-              13.760909,
-              52.675323
-            ],
-            [
-              13.088304,
-              52.675323
-            ]
+      "symbols": [
+
+      ],
+      "user_mentions": [
+        {
+          "screen_name": "Mult_Labyrinth",
+          "name": "Labyrinth",
+          "id": 117543126,
+          "id_str": "117543126",
+          "indices": [
+            30,
+            45
           ]
+        },
+        {
+          "screen_name": "AndreSargeant",
+          "name": "Asarge",
+          "id": 4375290914,
+          "id_str": "4375290914",
+          "indices": [
+            50,
+            64
+          ]
+        }
+      ],
+      "urls": [
+        {
+          "url": "https://t.co/JqVx35aj9f",
+          "expanded_url": "https://www.kickstarter.com/projects/1199039590/aethyr#",
+          "display_url": "kickstarter.com/projects/11990…",
+          "indices": [
+            76,
+            99
+          ]
+        }
+      ]
+    },
+    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 810164143,
+      "id_str": "810164143",
+      "name": "extra fabulous comics",
+      "screen_name": "extrafabulous",
+      "location": "",
+      "description": "please help",
+      "url": "https://t.co/jYxpSpqxFG",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/jYxpSpqxFG",
+              "expanded_url": "https://www.patreon.com/ExtraFabulousComics",
+              "display_url": "patreon.com/ExtraFabulousC…",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 46569,
+      "friends_count": 9874,
+      "listed_count": 312,
+      "created_at": "Sat Sep 08 04:17:30 +0000 2012",
+      "favourites_count": 12651,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 2983,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "FF6699",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/810164143/1537921549",
+      "profile_link_color": "ABB8C2",
+      "profile_sidebar_border_color": "000000",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 6,
+    "favorite_count": 59,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Sat Nov 24 15:38:26 +0000 2018",
+    "id": 1066355370543714305,
+    "id_str": "1066355370543714305",
+    "text": "@CliffordSosis @aditya1776 @GuyLongworth ❤️",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+        {
+          "screen_name": "CliffordSosis",
+          "name": "What Is It Like to Be a Philosopher?",
+          "id": 380394354,
+          "id_str": "380394354",
+          "indices": [
+            0,
+            14
+          ]
+        },
+        {
+          "screen_name": "aditya1776",
+          "name": "Aditya",
+          "id": 962926221741916160,
+          "id_str": "962926221741916160",
+          "indices": [
+            15,
+            26
+          ]
+        },
+        {
+          "screen_name": "GuyLongworth",
+          "name": "Guy Longworth",
+          "id": 142716265,
+          "id_str": "142716265",
+          "indices": [
+            27,
+            40
+          ]
+        }
+      ],
+      "urls": [
+
+      ]
+    },
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+    "in_reply_to_status_id": 1066250974283669504,
+    "in_reply_to_status_id_str": "1066250974283669504",
+    "in_reply_to_user_id": 380394354,
+    "in_reply_to_user_id_str": "380394354",
+    "in_reply_to_screen_name": "CliffordSosis",
+    "user": {
+      "id": 810164143,
+      "id_str": "810164143",
+      "name": "extra fabulous comics",
+      "screen_name": "extrafabulous",
+      "location": "",
+      "description": "please help",
+      "url": "https://t.co/jYxpSpqxFG",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/jYxpSpqxFG",
+              "expanded_url": "https://www.patreon.com/ExtraFabulousComics",
+              "display_url": "patreon.com/ExtraFabulousC…",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 46569,
+      "friends_count": 9874,
+      "listed_count": 312,
+      "created_at": "Sat Sep 08 04:17:30 +0000 2012",
+      "favourites_count": 12651,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 2983,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "FF6699",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/810164143/1537921549",
+      "profile_link_color": "ABB8C2",
+      "profile_sidebar_border_color": "000000",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 2,
+    "favorited": false,
+    "retweeted": false,
+    "lang": "und"
+  },
+  {
+    "created_at": "Sat Nov 24 14:46:54 +0000 2018",
+    "id": 1066342401990643712,
+    "id_str": "1066342401990643712",
+    "text": "https://t.co/qRMgkJCWbd",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+
+      ],
+      "urls": [
+
+      ],
+      "media": [
+        {
+          "id": 1066342397318184960,
+          "id_str": "1066342397318184960",
+          "indices": [
+            0,
+            23
+          ],
+          "media_url": "http://pbs.twimg.com/media/DsxowrkWwAAw2Bh.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/DsxowrkWwAAw2Bh.jpg",
+          "url": "https://t.co/qRMgkJCWbd",
+          "display_url": "pic.twitter.com/qRMgkJCWbd",
+          "expanded_url": "https://twitter.com/extrafabulous/status/1066342401990643712/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "large": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 680,
+              "resize": "fit"
+            },
+            "medium": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            }
+          }
+        }
+      ]
+    },
+    "extended_entities": {
+      "media": [
+        {
+          "id": 1066342397318184960,
+          "id_str": "1066342397318184960",
+          "indices": [
+            0,
+            23
+          ],
+          "media_url": "http://pbs.twimg.com/media/DsxowrkWwAAw2Bh.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/DsxowrkWwAAw2Bh.jpg",
+          "url": "https://t.co/qRMgkJCWbd",
+          "display_url": "pic.twitter.com/qRMgkJCWbd",
+          "expanded_url": "https://twitter.com/extrafabulous/status/1066342401990643712/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "large": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 680,
+              "resize": "fit"
+            },
+            "medium": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            }
+          }
+        }
+      ]
+    },
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 810164143,
+      "id_str": "810164143",
+      "name": "extra fabulous comics",
+      "screen_name": "extrafabulous",
+      "location": "",
+      "description": "please help",
+      "url": "https://t.co/jYxpSpqxFG",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/jYxpSpqxFG",
+              "expanded_url": "https://www.patreon.com/ExtraFabulousComics",
+              "display_url": "patreon.com/ExtraFabulousC…",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 46569,
+      "friends_count": 9874,
+      "listed_count": 312,
+      "created_at": "Sat Sep 08 04:17:30 +0000 2012",
+      "favourites_count": 12651,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 2983,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "FF6699",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/810164143/1537921549",
+      "profile_link_color": "ABB8C2",
+      "profile_sidebar_border_color": "000000",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 205,
+    "favorite_count": 1291,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "und"
+  },
+  {
+    "created_at": "Fri Nov 23 14:10:54 +0000 2018",
+    "id": 1065970952868163584,
+    "id_str": "1065970952868163584",
+    "text": "RT @HotPaperComics: Amazing chest ahead https://t.co/6GBSTGAnxt",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+        {
+          "screen_name": "HotPaperComics",
+          "name": "Martin Rosner",
+          "id": 873422783119806464,
+          "id_str": "873422783119806464",
+          "indices": [
+            3,
+            18
+          ]
+        }
+      ],
+      "urls": [
+
+      ],
+      "media": [
+        {
+          "id": 1065947114927206400,
+          "id_str": "1065947114927206400",
+          "indices": [
+            40,
+            63
+          ],
+          "media_url": "http://pbs.twimg.com/media/DssBQN6WsAAc7HC.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/DssBQN6WsAAc7HC.jpg",
+          "url": "https://t.co/6GBSTGAnxt",
+          "display_url": "pic.twitter.com/6GBSTGAnxt",
+          "expanded_url": "https://twitter.com/HotPaperComics/status/1065947147030401024/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "large": {
+              "w": 2048,
+              "h": 996,
+              "resize": "fit"
+            },
+            "medium": {
+              "w": 1200,
+              "h": 584,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 331,
+              "resize": "fit"
+            }
+          },
+          "source_status_id": 1065947147030401024,
+          "source_status_id_str": "1065947147030401024",
+          "source_user_id": 873422783119806464,
+          "source_user_id_str": "873422783119806464"
+        }
+      ]
+    },
+    "extended_entities": {
+      "media": [
+        {
+          "id": 1065947114927206400,
+          "id_str": "1065947114927206400",
+          "indices": [
+            40,
+            63
+          ],
+          "media_url": "http://pbs.twimg.com/media/DssBQN6WsAAc7HC.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/DssBQN6WsAAc7HC.jpg",
+          "url": "https://t.co/6GBSTGAnxt",
+          "display_url": "pic.twitter.com/6GBSTGAnxt",
+          "expanded_url": "https://twitter.com/HotPaperComics/status/1065947147030401024/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "large": {
+              "w": 2048,
+              "h": 996,
+              "resize": "fit"
+            },
+            "medium": {
+              "w": 1200,
+              "h": 584,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 331,
+              "resize": "fit"
+            }
+          },
+          "source_status_id": 1065947147030401024,
+          "source_status_id_str": "1065947147030401024",
+          "source_user_id": 873422783119806464,
+          "source_user_id_str": "873422783119806464"
+        }
+      ]
+    },
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 810164143,
+      "id_str": "810164143",
+      "name": "extra fabulous comics",
+      "screen_name": "extrafabulous",
+      "location": "",
+      "description": "please help",
+      "url": "https://t.co/jYxpSpqxFG",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/jYxpSpqxFG",
+              "expanded_url": "https://www.patreon.com/ExtraFabulousComics",
+              "display_url": "patreon.com/ExtraFabulousC…",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 46569,
+      "friends_count": 9874,
+      "listed_count": 312,
+      "created_at": "Sat Sep 08 04:17:30 +0000 2012",
+      "favourites_count": 12651,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 2983,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "FF6699",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/810164143/1537921549",
+      "profile_link_color": "ABB8C2",
+      "profile_sidebar_border_color": "000000",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "retweeted_status": {
+      "created_at": "Fri Nov 23 12:36:18 +0000 2018",
+      "id": 1065947147030401024,
+      "id_str": "1065947147030401024",
+      "text": "Amazing chest ahead https://t.co/6GBSTGAnxt",
+      "truncated": false,
+      "entities": {
+        "hashtags": [
+
+        ],
+        "symbols": [
+
+        ],
+        "user_mentions": [
+
+        ],
+        "urls": [
+
+        ],
+        "media": [
+          {
+            "id": 1065947114927206400,
+            "id_str": "1065947114927206400",
+            "indices": [
+              20,
+              43
+            ],
+            "media_url": "http://pbs.twimg.com/media/DssBQN6WsAAc7HC.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/DssBQN6WsAAc7HC.jpg",
+            "url": "https://t.co/6GBSTGAnxt",
+            "display_url": "pic.twitter.com/6GBSTGAnxt",
+            "expanded_url": "https://twitter.com/HotPaperComics/status/1065947147030401024/photo/1",
+            "type": "photo",
+            "sizes": {
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "large": {
+                "w": 2048,
+                "h": 996,
+                "resize": "fit"
+              },
+              "medium": {
+                "w": 1200,
+                "h": 584,
+                "resize": "fit"
+              },
+              "small": {
+                "w": 680,
+                "h": 331,
+                "resize": "fit"
+              }
+            }
+          }
         ]
       },
-      "attributes": {
-      }
-    },
-    "contributors": null,
-    "is_quote_status": false,
-    "retweet_count": 1,
-    "favorite_count": 8,
-    "favorited": false,
-    "retweeted": false,
-    "possibly_sensitive": false,
-    "lang": "en"
-  },
-  {
-    "created_at": "Fri Jun 20 11:47:37 +0000 2014",
-    "id": 479953716209283072,
-    "id_str": "479953716209283072",
-    "text": "Released version 5.11.0, which now returns a Twitter::NullObject for empty attributes. Details at: https://t.co/NHyg3K9xAJ",
-    "truncated": false,
-    "entities": {
-      "hashtags": [
-
-      ],
-      "symbols": [
-
-      ],
-      "user_mentions": [
-
-      ],
-      "urls": [
-        {
-          "url": "https://t.co/NHyg3K9xAJ",
-          "expanded_url": "https://github.com/sferik/twitter/blob/master/CHANGELOG.md#5110",
-          "display_url": "github.com/sferik/twitter…",
-          "indices": [
-            99,
-            122
-          ]
-        }
-      ]
-    },
-    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
-    "in_reply_to_status_id": null,
-    "in_reply_to_status_id_str": null,
-    "in_reply_to_user_id": null,
-    "in_reply_to_user_id_str": null,
-    "in_reply_to_screen_name": null,
-    "user": {
-      "id": 213747670,
-      "id_str": "213747670",
-      "name": "The Ruby Gem",
-      "screen_name": "gem",
-      "location": "",
-      "description": "",
-      "url": null,
-      "entities": {
-        "description": {
-          "urls": [
-
-          ]
-        }
+      "extended_entities": {
+        "media": [
+          {
+            "id": 1065947114927206400,
+            "id_str": "1065947114927206400",
+            "indices": [
+              20,
+              43
+            ],
+            "media_url": "http://pbs.twimg.com/media/DssBQN6WsAAc7HC.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/DssBQN6WsAAc7HC.jpg",
+            "url": "https://t.co/6GBSTGAnxt",
+            "display_url": "pic.twitter.com/6GBSTGAnxt",
+            "expanded_url": "https://twitter.com/HotPaperComics/status/1065947147030401024/photo/1",
+            "type": "photo",
+            "sizes": {
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "large": {
+                "w": 2048,
+                "h": 996,
+                "resize": "fit"
+              },
+              "medium": {
+                "w": 1200,
+                "h": 584,
+                "resize": "fit"
+              },
+              "small": {
+                "w": 680,
+                "h": 331,
+                "resize": "fit"
+              }
+            }
+          }
+        ]
       },
-      "protected": false,
-      "followers_count": 1745,
-      "friends_count": 10,
-      "listed_count": 123,
-      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
-      "favourites_count": 325,
-      "utc_offset": null,
-      "time_zone": null,
-      "geo_enabled": true,
-      "verified": false,
-      "statuses_count": 120,
-      "lang": "en",
-      "contributors_enabled": false,
-      "is_translator": false,
-      "is_translation_enabled": false,
-      "profile_background_color": "C0DEED",
-      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
-      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
-      "profile_background_tile": false,
-      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_link_color": "1DA1F2",
-      "profile_sidebar_border_color": "C0DEED",
-      "profile_sidebar_fill_color": "DDEEF6",
-      "profile_text_color": "333333",
-      "profile_use_background_image": true,
-      "has_extended_profile": false,
-      "default_profile": true,
-      "default_profile_image": false,
-      "following": false,
-      "follow_request_sent": false,
-      "notifications": false,
-      "translator_type": "none"
-    },
-    "geo": null,
-    "coordinates": null,
-    "place": null,
-    "contributors": null,
-    "is_quote_status": false,
-    "retweet_count": 1,
-    "favorite_count": 3,
-    "favorited": false,
-    "retweeted": false,
-    "possibly_sensitive": false,
-    "lang": "en"
-  },
-  {
-    "created_at": "Tue Jun 10 08:37:01 +0000 2014",
-    "id": 476281868607045632,
-    "id_str": "476281868607045632",
-    "text": "Released version 5.10.0, with support for extended entities and bulk media uploading. Details at: https://t.co/i5e74A3hws",
-    "truncated": false,
-    "entities": {
-      "hashtags": [
-
-      ],
-      "symbols": [
-
-      ],
-      "user_mentions": [
-
-      ],
-      "urls": [
-        {
-          "url": "https://t.co/i5e74A3hws",
-          "expanded_url": "https://github.com/sferik/twitter/blob/master/CHANGELOG.md#5100",
-          "display_url": "github.com/sferik/twitter…",
-          "indices": [
-            98,
-            121
-          ]
-        }
-      ]
-    },
-    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
-    "in_reply_to_status_id": null,
-    "in_reply_to_status_id_str": null,
-    "in_reply_to_user_id": null,
-    "in_reply_to_user_id_str": null,
-    "in_reply_to_screen_name": null,
-    "user": {
-      "id": 213747670,
-      "id_str": "213747670",
-      "name": "The Ruby Gem",
-      "screen_name": "gem",
-      "location": "",
-      "description": "",
-      "url": null,
-      "entities": {
-        "description": {
-          "urls": [
-
-          ]
-        }
+      "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 873422783119806464,
+        "id_str": "873422783119806464",
+        "name": "Martin Rosner",
+        "screen_name": "HotPaperComics",
+        "location": "",
+        "description": "I do Hot Paper Comics. You can read them. There's nothing smart to add to this description.\nInstagram: https://t.co/9xVZnD0FBL",
+        "url": null,
+        "entities": {
+          "description": {
+            "urls": [
+              {
+                "url": "https://t.co/9xVZnD0FBL",
+                "expanded_url": "https://www.instagram.com/martin_rosner/",
+                "display_url": "instagram.com/martin_rosner/",
+                "indices": [
+                  103,
+                  126
+                ]
+              }
+            ]
+          }
+        },
+        "protected": false,
+        "followers_count": 6521,
+        "friends_count": 176,
+        "listed_count": 46,
+        "created_at": "Sat Jun 10 06:13:13 +0000 2017",
+        "favourites_count": 8160,
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 2042,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "F5F8FA",
+        "profile_background_image_url": null,
+        "profile_background_image_url_https": null,
+        "profile_background_tile": false,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/1010215493163212800/MqBloSMG_normal.jpg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1010215493163212800/MqBloSMG_normal.jpg",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/873422783119806464/1529689098",
+        "profile_link_color": "1DA1F2",
+        "profile_sidebar_border_color": "C0DEED",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": true,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false,
+        "translator_type": "none"
       },
-      "protected": false,
-      "followers_count": 1745,
-      "friends_count": 10,
-      "listed_count": 123,
-      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
-      "favourites_count": 325,
-      "utc_offset": null,
-      "time_zone": null,
-      "geo_enabled": true,
-      "verified": false,
-      "statuses_count": 120,
-      "lang": "en",
-      "contributors_enabled": false,
-      "is_translator": false,
-      "is_translation_enabled": false,
-      "profile_background_color": "C0DEED",
-      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
-      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
-      "profile_background_tile": false,
-      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_link_color": "1DA1F2",
-      "profile_sidebar_border_color": "C0DEED",
-      "profile_sidebar_fill_color": "DDEEF6",
-      "profile_text_color": "333333",
-      "profile_use_background_image": true,
-      "has_extended_profile": false,
-      "default_profile": true,
-      "default_profile_image": false,
-      "following": false,
-      "follow_request_sent": false,
-      "notifications": false,
-      "translator_type": "none"
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "is_quote_status": false,
+      "retweet_count": 234,
+      "favorite_count": 1073,
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "en"
     },
-    "geo": null,
-    "coordinates": null,
-    "place": null,
-    "contributors": null,
     "is_quote_status": false,
-    "retweet_count": 1,
+    "retweet_count": 234,
     "favorite_count": 0,
     "favorited": false,
     "retweeted": false,
@@ -1874,10 +1568,10 @@
     "lang": "en"
   },
   {
-    "created_at": "Wed May 14 13:28:26 +0000 2014",
-    "id": 466570736807579648,
-    "id_str": "466570736807579648",
-    "text": "The Twitter CLI just reached 2,000 Stargazers! https://t.co/CfdwFxXlea",
+    "created_at": "Fri Nov 23 00:47:23 +0000 2018",
+    "id": 1065768739122151424,
+    "id_str": "1065768739122151424",
+    "text": "RT @extrafabulous: https://t.co/XFALUGTMGJ",
     "truncated": false,
     "entities": {
       "hashtags": [
@@ -1887,35 +1581,135 @@
 
       ],
       "user_mentions": [
-
+        {
+          "screen_name": "extrafabulous",
+          "name": "extra fabulous comics",
+          "id": 810164143,
+          "id_str": "810164143",
+          "indices": [
+            3,
+            17
+          ]
+        }
       ],
       "urls": [
+
+      ],
+      "media": [
         {
-          "url": "https://t.co/CfdwFxXlea",
-          "expanded_url": "https://github.com/sferik/t/stargazers",
-          "display_url": "github.com/sferik/t/starg…",
+          "id": 1065621809301729280,
+          "id_str": "1065621809301729280",
           "indices": [
-            47,
-            70
-          ]
+            19,
+            42
+          ],
+          "media_url": "http://pbs.twimg.com/media/DsnZY8BWsAA4NkP.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/DsnZY8BWsAA4NkP.jpg",
+          "url": "https://t.co/XFALUGTMGJ",
+          "display_url": "pic.twitter.com/XFALUGTMGJ",
+          "expanded_url": "https://twitter.com/extrafabulous/status/1065621811033985024/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "large": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 680,
+              "resize": "fit"
+            },
+            "medium": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            }
+          },
+          "source_status_id": 1065621811033985024,
+          "source_status_id_str": "1065621811033985024",
+          "source_user_id": 810164143,
+          "source_user_id_str": "810164143"
         }
       ]
     },
-    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
+    "extended_entities": {
+      "media": [
+        {
+          "id": 1065621809301729280,
+          "id_str": "1065621809301729280",
+          "indices": [
+            19,
+            42
+          ],
+          "media_url": "http://pbs.twimg.com/media/DsnZY8BWsAA4NkP.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/DsnZY8BWsAA4NkP.jpg",
+          "url": "https://t.co/XFALUGTMGJ",
+          "display_url": "pic.twitter.com/XFALUGTMGJ",
+          "expanded_url": "https://twitter.com/extrafabulous/status/1065621811033985024/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "large": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 680,
+              "resize": "fit"
+            },
+            "medium": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            }
+          },
+          "source_status_id": 1065621811033985024,
+          "source_status_id_str": "1065621811033985024",
+          "source_user_id": 810164143,
+          "source_user_id_str": "810164143"
+        }
+      ]
+    },
+    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
     "in_reply_to_status_id": null,
     "in_reply_to_status_id_str": null,
     "in_reply_to_user_id": null,
     "in_reply_to_user_id_str": null,
     "in_reply_to_screen_name": null,
     "user": {
-      "id": 213747670,
-      "id_str": "213747670",
-      "name": "The Ruby Gem",
-      "screen_name": "gem",
+      "id": 810164143,
+      "id_str": "810164143",
+      "name": "extra fabulous comics",
+      "screen_name": "extrafabulous",
       "location": "",
-      "description": "",
-      "url": null,
+      "description": "please help",
+      "url": "https://t.co/jYxpSpqxFG",
       "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/jYxpSpqxFG",
+              "expanded_url": "https://www.patreon.com/ExtraFabulousComics",
+              "display_url": "patreon.com/ExtraFabulousC…",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
         "description": {
           "urls": [
 
@@ -1923,35 +1717,36 @@
         }
       },
       "protected": false,
-      "followers_count": 1745,
-      "friends_count": 10,
-      "listed_count": 123,
-      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
-      "favourites_count": 325,
+      "followers_count": 46569,
+      "friends_count": 9874,
+      "listed_count": 312,
+      "created_at": "Sat Sep 08 04:17:30 +0000 2012",
+      "favourites_count": 12651,
       "utc_offset": null,
       "time_zone": null,
-      "geo_enabled": true,
+      "geo_enabled": false,
       "verified": false,
-      "statuses_count": 120,
+      "statuses_count": 2983,
       "lang": "en",
       "contributors_enabled": false,
       "is_translator": false,
       "is_translation_enabled": false,
-      "profile_background_color": "C0DEED",
+      "profile_background_color": "FF6699",
       "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
       "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
       "profile_background_tile": false,
-      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_link_color": "1DA1F2",
-      "profile_sidebar_border_color": "C0DEED",
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/810164143/1537921549",
+      "profile_link_color": "ABB8C2",
+      "profile_sidebar_border_color": "000000",
       "profile_sidebar_fill_color": "DDEEF6",
       "profile_text_color": "333333",
       "profile_use_background_image": true,
       "has_extended_profile": false,
-      "default_profile": true,
+      "default_profile": false,
       "default_profile_image": false,
-      "following": false,
+      "following": true,
       "follow_request_sent": false,
       "notifications": false,
       "translator_type": "none"
@@ -1960,19 +1755,198 @@
     "coordinates": null,
     "place": null,
     "contributors": null,
+    "retweeted_status": {
+      "created_at": "Thu Nov 22 15:03:32 +0000 2018",
+      "id": 1065621811033985024,
+      "id_str": "1065621811033985024",
+      "text": "https://t.co/XFALUGTMGJ",
+      "truncated": false,
+      "entities": {
+        "hashtags": [
+
+        ],
+        "symbols": [
+
+        ],
+        "user_mentions": [
+
+        ],
+        "urls": [
+
+        ],
+        "media": [
+          {
+            "id": 1065621809301729280,
+            "id_str": "1065621809301729280",
+            "indices": [
+              0,
+              23
+            ],
+            "media_url": "http://pbs.twimg.com/media/DsnZY8BWsAA4NkP.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/DsnZY8BWsAA4NkP.jpg",
+            "url": "https://t.co/XFALUGTMGJ",
+            "display_url": "pic.twitter.com/XFALUGTMGJ",
+            "expanded_url": "https://twitter.com/extrafabulous/status/1065621811033985024/photo/1",
+            "type": "photo",
+            "sizes": {
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "large": {
+                "w": 1000,
+                "h": 1000,
+                "resize": "fit"
+              },
+              "small": {
+                "w": 680,
+                "h": 680,
+                "resize": "fit"
+              },
+              "medium": {
+                "w": 1000,
+                "h": 1000,
+                "resize": "fit"
+              }
+            }
+          }
+        ]
+      },
+      "extended_entities": {
+        "media": [
+          {
+            "id": 1065621809301729280,
+            "id_str": "1065621809301729280",
+            "indices": [
+              0,
+              23
+            ],
+            "media_url": "http://pbs.twimg.com/media/DsnZY8BWsAA4NkP.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/DsnZY8BWsAA4NkP.jpg",
+            "url": "https://t.co/XFALUGTMGJ",
+            "display_url": "pic.twitter.com/XFALUGTMGJ",
+            "expanded_url": "https://twitter.com/extrafabulous/status/1065621811033985024/photo/1",
+            "type": "photo",
+            "sizes": {
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "large": {
+                "w": 1000,
+                "h": 1000,
+                "resize": "fit"
+              },
+              "small": {
+                "w": 680,
+                "h": 680,
+                "resize": "fit"
+              },
+              "medium": {
+                "w": 1000,
+                "h": 1000,
+                "resize": "fit"
+              }
+            }
+          }
+        ]
+      },
+      "source": "<a href=\"https://www.hootsuite.com\" rel=\"nofollow\">Hootsuite Inc.</a>",
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 810164143,
+        "id_str": "810164143",
+        "name": "extra fabulous comics",
+        "screen_name": "extrafabulous",
+        "location": "",
+        "description": "please help",
+        "url": "https://t.co/jYxpSpqxFG",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "https://t.co/jYxpSpqxFG",
+                "expanded_url": "https://www.patreon.com/ExtraFabulousComics",
+                "display_url": "patreon.com/ExtraFabulousC…",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": [
+
+            ]
+          }
+        },
+        "protected": false,
+        "followers_count": 46569,
+        "friends_count": 9874,
+        "listed_count": 312,
+        "created_at": "Sat Sep 08 04:17:30 +0000 2012",
+        "favourites_count": 12651,
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 2983,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "FF6699",
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/810164143/1537921549",
+        "profile_link_color": "ABB8C2",
+        "profile_sidebar_border_color": "000000",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": true,
+        "follow_request_sent": false,
+        "notifications": false,
+        "translator_type": "none"
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "is_quote_status": false,
+      "retweet_count": 243,
+      "favorite_count": 1429,
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "und"
+    },
     "is_quote_status": false,
-    "retweet_count": 1,
-    "favorite_count": 1,
+    "retweet_count": 243,
+    "favorite_count": 0,
     "favorited": false,
     "retweeted": false,
     "possibly_sensitive": false,
-    "lang": "en"
+    "lang": "und"
   },
   {
-    "created_at": "Wed May 14 13:03:15 +0000 2014",
-    "id": 466564399655055360,
-    "id_str": "466564399655055360",
-    "text": "Released version 5.9.0, with mute functionality and bulk lookup of Tweets by ID. Details at: https://t.co/G8tyZ6dFeM",
+    "created_at": "Thu Nov 22 19:03:33 +0000 2018",
+    "id": 1065682213784743936,
+    "id_str": "1065682213784743936",
+    "text": "@dhennny @OzyWaffles thank u sweet Denny",
     "truncated": false,
     "entities": {
       "hashtags": [
@@ -1982,35 +1956,59 @@
 
       ],
       "user_mentions": [
-
-      ],
-      "urls": [
         {
-          "url": "https://t.co/G8tyZ6dFeM",
-          "expanded_url": "https://github.com/sferik/twitter/blob/master/CHANGELOG.md#590",
-          "display_url": "github.com/sferik/twitter…",
+          "screen_name": "dhennny",
+          "name": "Denny",
+          "id": 155480123,
+          "id_str": "155480123",
           "indices": [
-            93,
-            116
+            0,
+            8
+          ]
+        },
+        {
+          "screen_name": "OzyWaffles",
+          "name": "Buffalou",
+          "id": 188149995,
+          "id_str": "188149995",
+          "indices": [
+            9,
+            20
           ]
         }
+      ],
+      "urls": [
+
       ]
     },
-    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
-    "in_reply_to_status_id": null,
-    "in_reply_to_status_id_str": null,
-    "in_reply_to_user_id": null,
-    "in_reply_to_user_id_str": null,
-    "in_reply_to_screen_name": null,
+    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+    "in_reply_to_status_id": 1065676912817623040,
+    "in_reply_to_status_id_str": "1065676912817623040",
+    "in_reply_to_user_id": 155480123,
+    "in_reply_to_user_id_str": "155480123",
+    "in_reply_to_screen_name": "dhennny",
     "user": {
-      "id": 213747670,
-      "id_str": "213747670",
-      "name": "The Ruby Gem",
-      "screen_name": "gem",
+      "id": 810164143,
+      "id_str": "810164143",
+      "name": "extra fabulous comics",
+      "screen_name": "extrafabulous",
       "location": "",
-      "description": "",
-      "url": null,
+      "description": "please help",
+      "url": "https://t.co/jYxpSpqxFG",
       "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/jYxpSpqxFG",
+              "expanded_url": "https://www.patreon.com/ExtraFabulousComics",
+              "display_url": "patreon.com/ExtraFabulousC…",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
         "description": {
           "urls": [
 
@@ -2018,35 +2016,36 @@
         }
       },
       "protected": false,
-      "followers_count": 1745,
-      "friends_count": 10,
-      "listed_count": 123,
-      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
-      "favourites_count": 325,
+      "followers_count": 46569,
+      "friends_count": 9874,
+      "listed_count": 312,
+      "created_at": "Sat Sep 08 04:17:30 +0000 2012",
+      "favourites_count": 12651,
       "utc_offset": null,
       "time_zone": null,
-      "geo_enabled": true,
+      "geo_enabled": false,
       "verified": false,
-      "statuses_count": 120,
+      "statuses_count": 2983,
       "lang": "en",
       "contributors_enabled": false,
       "is_translator": false,
       "is_translation_enabled": false,
-      "profile_background_color": "C0DEED",
+      "profile_background_color": "FF6699",
       "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
       "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
       "profile_background_tile": false,
-      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_link_color": "1DA1F2",
-      "profile_sidebar_border_color": "C0DEED",
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/810164143/1537921549",
+      "profile_link_color": "ABB8C2",
+      "profile_sidebar_border_color": "000000",
       "profile_sidebar_fill_color": "DDEEF6",
       "profile_text_color": "333333",
       "profile_use_background_image": true,
       "has_extended_profile": false,
-      "default_profile": true,
+      "default_profile": false,
       "default_profile_image": false,
-      "following": false,
+      "following": true,
       "follow_request_sent": false,
       "notifications": false,
       "translator_type": "none"
@@ -2060,14 +2059,13 @@
     "favorite_count": 0,
     "favorited": false,
     "retweeted": false,
-    "possibly_sensitive": false,
     "lang": "en"
   },
   {
-    "created_at": "Mon Mar 10 15:58:25 +0000 2014",
-    "id": 443053269242621952,
-    "id_str": "443053269242621952",
-    "text": "Released version 5.8.0. Details at: https://t.co/MYyJ7wmdn1",
+    "created_at": "Thu Nov 22 18:24:39 +0000 2018",
+    "id": 1065672423599742976,
+    "id_str": "1065672423599742976",
+    "text": "@OzyWaffles im thankful for u",
     "truncated": false,
     "entities": {
       "hashtags": [
@@ -2077,149 +2075,49 @@
 
       ],
       "user_mentions": [
-
+        {
+          "screen_name": "OzyWaffles",
+          "name": "Buffalou",
+          "id": 188149995,
+          "id_str": "188149995",
+          "indices": [
+            0,
+            11
+          ]
+        }
       ],
       "urls": [
-        {
-          "url": "https://t.co/MYyJ7wmdn1",
-          "expanded_url": "https://github.com/sferik/twitter/blob/master/CHANGELOG.md#580",
-          "display_url": "github.com/sferik/twitter…",
-          "indices": [
-            36,
-            59
-          ]
-        }
+
       ]
     },
-    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
-    "in_reply_to_status_id": null,
-    "in_reply_to_status_id_str": null,
-    "in_reply_to_user_id": null,
-    "in_reply_to_user_id_str": null,
-    "in_reply_to_screen_name": null,
+    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+    "in_reply_to_status_id": 1065640963031351297,
+    "in_reply_to_status_id_str": "1065640963031351297",
+    "in_reply_to_user_id": 188149995,
+    "in_reply_to_user_id_str": "188149995",
+    "in_reply_to_screen_name": "OzyWaffles",
     "user": {
-      "id": 213747670,
-      "id_str": "213747670",
-      "name": "The Ruby Gem",
-      "screen_name": "gem",
+      "id": 810164143,
+      "id_str": "810164143",
+      "name": "extra fabulous comics",
+      "screen_name": "extrafabulous",
       "location": "",
-      "description": "",
-      "url": null,
+      "description": "please help",
+      "url": "https://t.co/jYxpSpqxFG",
       "entities": {
-        "description": {
+        "url": {
           "urls": [
-
-          ]
-        }
-      },
-      "protected": false,
-      "followers_count": 1745,
-      "friends_count": 10,
-      "listed_count": 123,
-      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
-      "favourites_count": 325,
-      "utc_offset": null,
-      "time_zone": null,
-      "geo_enabled": true,
-      "verified": false,
-      "statuses_count": 120,
-      "lang": "en",
-      "contributors_enabled": false,
-      "is_translator": false,
-      "is_translation_enabled": false,
-      "profile_background_color": "C0DEED",
-      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
-      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
-      "profile_background_tile": false,
-      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_link_color": "1DA1F2",
-      "profile_sidebar_border_color": "C0DEED",
-      "profile_sidebar_fill_color": "DDEEF6",
-      "profile_text_color": "333333",
-      "profile_use_background_image": true,
-      "has_extended_profile": false,
-      "default_profile": true,
-      "default_profile_image": false,
-      "following": false,
-      "follow_request_sent": false,
-      "notifications": false,
-      "translator_type": "none"
-    },
-    "geo": null,
-    "coordinates": null,
-    "place": null,
-    "contributors": null,
-    "is_quote_status": false,
-    "retweet_count": 2,
-    "favorite_count": 1,
-    "favorited": false,
-    "retweeted": false,
-    "possibly_sensitive": false,
-    "lang": "en"
-  },
-  {
-    "created_at": "Wed Feb 12 13:11:36 +0000 2014",
-    "id": 433589203210088449,
-    "id_str": "433589203210088449",
-    "text": "Released version 5.7.1, with a bug fix by @matthewrudy and documentation fix by @attilaolah. Details at: https://t.co/zHyJzFaVUE",
-    "truncated": false,
-    "entities": {
-      "hashtags": [
-
-      ],
-      "symbols": [
-
-      ],
-      "user_mentions": [
-        {
-          "screen_name": "matthewrudy",
-          "name": "Matthew Rudy Jacobs",
-          "id": 7291692,
-          "id_str": "7291692",
-          "indices": [
-            42,
-            54
+            {
+              "url": "https://t.co/jYxpSpqxFG",
+              "expanded_url": "https://www.patreon.com/ExtraFabulousComics",
+              "display_url": "patreon.com/ExtraFabulousC…",
+              "indices": [
+                0,
+                23
+              ]
+            }
           ]
         },
-        {
-          "screen_name": "attilaolah",
-          "name": "Attila Oláh",
-          "id": 53150422,
-          "id_str": "53150422",
-          "indices": [
-            80,
-            91
-          ]
-        }
-      ],
-      "urls": [
-        {
-          "url": "https://t.co/zHyJzFaVUE",
-          "expanded_url": "https://github.com/sferik/twitter/blob/master/CHANGELOG.md#571",
-          "display_url": "github.com/sferik/twitter…",
-          "indices": [
-            105,
-            128
-          ]
-        }
-      ]
-    },
-    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
-    "in_reply_to_status_id": null,
-    "in_reply_to_status_id_str": null,
-    "in_reply_to_user_id": null,
-    "in_reply_to_user_id_str": null,
-    "in_reply_to_screen_name": null,
-    "user": {
-      "id": 213747670,
-      "id_str": "213747670",
-      "name": "The Ruby Gem",
-      "screen_name": "gem",
-      "location": "",
-      "description": "",
-      "url": null,
-      "entities": {
         "description": {
           "urls": [
 
@@ -2227,122 +2125,36 @@
         }
       },
       "protected": false,
-      "followers_count": 1745,
-      "friends_count": 10,
-      "listed_count": 123,
-      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
-      "favourites_count": 325,
+      "followers_count": 46569,
+      "friends_count": 9874,
+      "listed_count": 312,
+      "created_at": "Sat Sep 08 04:17:30 +0000 2012",
+      "favourites_count": 12651,
       "utc_offset": null,
       "time_zone": null,
-      "geo_enabled": true,
+      "geo_enabled": false,
       "verified": false,
-      "statuses_count": 120,
+      "statuses_count": 2983,
       "lang": "en",
       "contributors_enabled": false,
       "is_translator": false,
       "is_translation_enabled": false,
-      "profile_background_color": "C0DEED",
+      "profile_background_color": "FF6699",
       "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
       "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
       "profile_background_tile": false,
-      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_link_color": "1DA1F2",
-      "profile_sidebar_border_color": "C0DEED",
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/810164143/1537921549",
+      "profile_link_color": "ABB8C2",
+      "profile_sidebar_border_color": "000000",
       "profile_sidebar_fill_color": "DDEEF6",
       "profile_text_color": "333333",
       "profile_use_background_image": true,
       "has_extended_profile": false,
-      "default_profile": true,
+      "default_profile": false,
       "default_profile_image": false,
-      "following": false,
-      "follow_request_sent": false,
-      "notifications": false,
-      "translator_type": "none"
-    },
-    "geo": null,
-    "coordinates": null,
-    "place": null,
-    "contributors": null,
-    "is_quote_status": false,
-    "retweet_count": 3,
-    "favorite_count": 3,
-    "favorited": false,
-    "retweeted": false,
-    "possibly_sensitive": false,
-    "lang": "en"
-  },
-  {
-    "created_at": "Mon Feb 10 15:36:40 +0000 2014",
-    "id": 432900936504446976,
-    "id_str": "432900936504446976",
-    "text": "Poll: If version 6.0.0 removed the ability to set custom Faraday middleware, would you care?",
-    "truncated": false,
-    "entities": {
-      "hashtags": [
-
-      ],
-      "symbols": [
-
-      ],
-      "user_mentions": [
-
-      ],
-      "urls": [
-
-      ]
-    },
-    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
-    "in_reply_to_status_id": null,
-    "in_reply_to_status_id_str": null,
-    "in_reply_to_user_id": null,
-    "in_reply_to_user_id_str": null,
-    "in_reply_to_screen_name": null,
-    "user": {
-      "id": 213747670,
-      "id_str": "213747670",
-      "name": "The Ruby Gem",
-      "screen_name": "gem",
-      "location": "",
-      "description": "",
-      "url": null,
-      "entities": {
-        "description": {
-          "urls": [
-
-          ]
-        }
-      },
-      "protected": false,
-      "followers_count": 1745,
-      "friends_count": 10,
-      "listed_count": 123,
-      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
-      "favourites_count": 325,
-      "utc_offset": null,
-      "time_zone": null,
-      "geo_enabled": true,
-      "verified": false,
-      "statuses_count": 120,
-      "lang": "en",
-      "contributors_enabled": false,
-      "is_translator": false,
-      "is_translation_enabled": false,
-      "profile_background_color": "C0DEED",
-      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
-      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
-      "profile_background_tile": false,
-      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
-      "profile_link_color": "1DA1F2",
-      "profile_sidebar_border_color": "C0DEED",
-      "profile_sidebar_fill_color": "DDEEF6",
-      "profile_text_color": "333333",
-      "profile_use_background_image": true,
-      "has_extended_profile": false,
-      "default_profile": true,
-      "default_profile_image": false,
-      "following": false,
+      "following": true,
       "follow_request_sent": false,
       "notifications": false,
       "translator_type": "none"
@@ -2353,9 +2165,1585 @@
     "contributors": null,
     "is_quote_status": false,
     "retweet_count": 1,
-    "favorite_count": 1,
+    "favorite_count": 6,
     "favorited": false,
     "retweeted": false,
     "lang": "en"
+  },
+  {
+    "created_at": "Thu Nov 22 15:03:32 +0000 2018",
+    "id": 1065621811033985024,
+    "id_str": "1065621811033985024",
+    "text": "https://t.co/XFALUGTMGJ",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+
+      ],
+      "urls": [
+
+      ],
+      "media": [
+        {
+          "id": 1065621809301729280,
+          "id_str": "1065621809301729280",
+          "indices": [
+            0,
+            23
+          ],
+          "media_url": "http://pbs.twimg.com/media/DsnZY8BWsAA4NkP.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/DsnZY8BWsAA4NkP.jpg",
+          "url": "https://t.co/XFALUGTMGJ",
+          "display_url": "pic.twitter.com/XFALUGTMGJ",
+          "expanded_url": "https://twitter.com/extrafabulous/status/1065621811033985024/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "large": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 680,
+              "resize": "fit"
+            },
+            "medium": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            }
+          }
+        }
+      ]
+    },
+    "extended_entities": {
+      "media": [
+        {
+          "id": 1065621809301729280,
+          "id_str": "1065621809301729280",
+          "indices": [
+            0,
+            23
+          ],
+          "media_url": "http://pbs.twimg.com/media/DsnZY8BWsAA4NkP.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/DsnZY8BWsAA4NkP.jpg",
+          "url": "https://t.co/XFALUGTMGJ",
+          "display_url": "pic.twitter.com/XFALUGTMGJ",
+          "expanded_url": "https://twitter.com/extrafabulous/status/1065621811033985024/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "large": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 680,
+              "resize": "fit"
+            },
+            "medium": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            }
+          }
+        }
+      ]
+    },
+    "source": "<a href=\"https://www.hootsuite.com\" rel=\"nofollow\">Hootsuite Inc.</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 810164143,
+      "id_str": "810164143",
+      "name": "extra fabulous comics",
+      "screen_name": "extrafabulous",
+      "location": "",
+      "description": "please help",
+      "url": "https://t.co/jYxpSpqxFG",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/jYxpSpqxFG",
+              "expanded_url": "https://www.patreon.com/ExtraFabulousComics",
+              "display_url": "patreon.com/ExtraFabulousC…",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 46569,
+      "friends_count": 9874,
+      "listed_count": 312,
+      "created_at": "Sat Sep 08 04:17:30 +0000 2012",
+      "favourites_count": 12651,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 2983,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "FF6699",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/810164143/1537921549",
+      "profile_link_color": "ABB8C2",
+      "profile_sidebar_border_color": "000000",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 243,
+    "favorite_count": 1429,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "und"
+  },
+  {
+    "created_at": "Wed Nov 21 15:21:02 +0000 2018",
+    "id": 1065263826713616384,
+    "id_str": "1065263826713616384",
+    "text": "https://t.co/EBUWVQ5HzT",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+
+      ],
+      "urls": [
+
+      ],
+      "media": [
+        {
+          "id": 1065263814273363969,
+          "id_str": "1065263814273363969",
+          "indices": [
+            0,
+            23
+          ],
+          "media_url": "http://pbs.twimg.com/media/DsiTy4nXcAEenjV.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/DsiTy4nXcAEenjV.jpg",
+          "url": "https://t.co/EBUWVQ5HzT",
+          "display_url": "pic.twitter.com/EBUWVQ5HzT",
+          "expanded_url": "https://twitter.com/extrafabulous/status/1065263826713616384/photo/1",
+          "type": "photo",
+          "sizes": {
+            "large": {
+              "w": 1024,
+              "h": 1024,
+              "resize": "fit"
+            },
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "medium": {
+              "w": 1024,
+              "h": 1024,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 680,
+              "resize": "fit"
+            }
+          }
+        }
+      ]
+    },
+    "extended_entities": {
+      "media": [
+        {
+          "id": 1065263814273363969,
+          "id_str": "1065263814273363969",
+          "indices": [
+            0,
+            23
+          ],
+          "media_url": "http://pbs.twimg.com/media/DsiTy4nXcAEenjV.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/DsiTy4nXcAEenjV.jpg",
+          "url": "https://t.co/EBUWVQ5HzT",
+          "display_url": "pic.twitter.com/EBUWVQ5HzT",
+          "expanded_url": "https://twitter.com/extrafabulous/status/1065263826713616384/photo/1",
+          "type": "photo",
+          "sizes": {
+            "large": {
+              "w": 1024,
+              "h": 1024,
+              "resize": "fit"
+            },
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "medium": {
+              "w": 1024,
+              "h": 1024,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 680,
+              "resize": "fit"
+            }
+          }
+        },
+        {
+          "id": 1065263818723479555,
+          "id_str": "1065263818723479555",
+          "indices": [
+            0,
+            23
+          ],
+          "media_url": "http://pbs.twimg.com/media/DsiTzJMW0AMwbEL.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/DsiTzJMW0AMwbEL.jpg",
+          "url": "https://t.co/EBUWVQ5HzT",
+          "display_url": "pic.twitter.com/EBUWVQ5HzT",
+          "expanded_url": "https://twitter.com/extrafabulous/status/1065263826713616384/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "medium": {
+              "w": 1024,
+              "h": 1024,
+              "resize": "fit"
+            },
+            "large": {
+              "w": 1024,
+              "h": 1024,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 680,
+              "resize": "fit"
+            }
+          }
+        },
+        {
+          "id": 1065263822460674053,
+          "id_str": "1065263822460674053",
+          "indices": [
+            0,
+            23
+          ],
+          "media_url": "http://pbs.twimg.com/media/DsiTzXHX4AUD1Sn.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/DsiTzXHX4AUD1Sn.jpg",
+          "url": "https://t.co/EBUWVQ5HzT",
+          "display_url": "pic.twitter.com/EBUWVQ5HzT",
+          "expanded_url": "https://twitter.com/extrafabulous/status/1065263826713616384/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "small": {
+              "w": 680,
+              "h": 680,
+              "resize": "fit"
+            },
+            "medium": {
+              "w": 1024,
+              "h": 1024,
+              "resize": "fit"
+            },
+            "large": {
+              "w": 1024,
+              "h": 1024,
+              "resize": "fit"
+            }
+          }
+        }
+      ]
+    },
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 810164143,
+      "id_str": "810164143",
+      "name": "extra fabulous comics",
+      "screen_name": "extrafabulous",
+      "location": "",
+      "description": "please help",
+      "url": "https://t.co/jYxpSpqxFG",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/jYxpSpqxFG",
+              "expanded_url": "https://www.patreon.com/ExtraFabulousComics",
+              "display_url": "patreon.com/ExtraFabulousC…",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 46569,
+      "friends_count": 9874,
+      "listed_count": 312,
+      "created_at": "Sat Sep 08 04:17:30 +0000 2012",
+      "favourites_count": 12651,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 2983,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "FF6699",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/810164143/1537921549",
+      "profile_link_color": "ABB8C2",
+      "profile_sidebar_border_color": "000000",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 854,
+    "favorite_count": 3461,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "und"
+  },
+  {
+    "created_at": "Wed Nov 21 12:39:19 +0000 2018",
+    "id": 1065223129918775296,
+    "id_str": "1065223129918775296",
+    "text": "@B1tchcakes ❤️u2",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+        {
+          "screen_name": "B1tchcakes",
+          "name": "OverpoweredNoob",
+          "id": 99232486,
+          "id_str": "99232486",
+          "indices": [
+            0,
+            11
+          ]
+        }
+      ],
+      "urls": [
+
+      ]
+    },
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+    "in_reply_to_status_id": 1065162215232282624,
+    "in_reply_to_status_id_str": "1065162215232282624",
+    "in_reply_to_user_id": 99232486,
+    "in_reply_to_user_id_str": "99232486",
+    "in_reply_to_screen_name": "B1tchcakes",
+    "user": {
+      "id": 810164143,
+      "id_str": "810164143",
+      "name": "extra fabulous comics",
+      "screen_name": "extrafabulous",
+      "location": "",
+      "description": "please help",
+      "url": "https://t.co/jYxpSpqxFG",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/jYxpSpqxFG",
+              "expanded_url": "https://www.patreon.com/ExtraFabulousComics",
+              "display_url": "patreon.com/ExtraFabulousC…",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 46569,
+      "friends_count": 9874,
+      "listed_count": 312,
+      "created_at": "Sat Sep 08 04:17:30 +0000 2012",
+      "favourites_count": 12651,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 2983,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "FF6699",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/810164143/1537921549",
+      "profile_link_color": "ABB8C2",
+      "profile_sidebar_border_color": "000000",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 1,
+    "favorited": false,
+    "retweeted": false,
+    "lang": "und"
+  },
+  {
+    "created_at": "Tue Nov 20 18:10:43 +0000 2018",
+    "id": 1064944139069005824,
+    "id_str": "1064944139069005824",
+    "text": "https://t.co/0K0la68Inq",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+
+      ],
+      "urls": [
+
+      ],
+      "media": [
+        {
+          "id": 1064944134224523265,
+          "id_str": "1064944134224523265",
+          "indices": [
+            0,
+            23
+          ],
+          "media_url": "http://pbs.twimg.com/media/DsdxDDoWsAE2Xio.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/DsdxDDoWsAE2Xio.jpg",
+          "url": "https://t.co/0K0la68Inq",
+          "display_url": "pic.twitter.com/0K0la68Inq",
+          "expanded_url": "https://twitter.com/extrafabulous/status/1064944139069005824/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "medium": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 680,
+              "resize": "fit"
+            },
+            "large": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            }
+          }
+        }
+      ]
+    },
+    "extended_entities": {
+      "media": [
+        {
+          "id": 1064944134224523265,
+          "id_str": "1064944134224523265",
+          "indices": [
+            0,
+            23
+          ],
+          "media_url": "http://pbs.twimg.com/media/DsdxDDoWsAE2Xio.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/DsdxDDoWsAE2Xio.jpg",
+          "url": "https://t.co/0K0la68Inq",
+          "display_url": "pic.twitter.com/0K0la68Inq",
+          "expanded_url": "https://twitter.com/extrafabulous/status/1064944139069005824/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "medium": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 680,
+              "resize": "fit"
+            },
+            "large": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            }
+          }
+        }
+      ]
+    },
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 810164143,
+      "id_str": "810164143",
+      "name": "extra fabulous comics",
+      "screen_name": "extrafabulous",
+      "location": "",
+      "description": "please help",
+      "url": "https://t.co/jYxpSpqxFG",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/jYxpSpqxFG",
+              "expanded_url": "https://www.patreon.com/ExtraFabulousComics",
+              "display_url": "patreon.com/ExtraFabulousC…",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 46569,
+      "friends_count": 9874,
+      "listed_count": 312,
+      "created_at": "Sat Sep 08 04:17:30 +0000 2012",
+      "favourites_count": 12651,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 2983,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "FF6699",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/810164143/1537921549",
+      "profile_link_color": "ABB8C2",
+      "profile_sidebar_border_color": "000000",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 216,
+    "favorite_count": 1322,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "und"
+  },
+  {
+    "created_at": "Tue Nov 20 13:31:15 +0000 2018",
+    "id": 1064873810053292032,
+    "id_str": "1064873810053292032",
+    "text": "https://t.co/bhGa3zeRgO",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+
+      ],
+      "urls": [
+
+      ],
+      "media": [
+        {
+          "id": 1064873804290240517,
+          "id_str": "1064873804290240517",
+          "indices": [
+            0,
+            23
+          ],
+          "media_url": "http://pbs.twimg.com/media/DscxFUNWsAUrIHU.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/DscxFUNWsAUrIHU.jpg",
+          "url": "https://t.co/bhGa3zeRgO",
+          "display_url": "pic.twitter.com/bhGa3zeRgO",
+          "expanded_url": "https://twitter.com/extrafabulous/status/1064873810053292032/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "large": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 680,
+              "resize": "fit"
+            },
+            "medium": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            }
+          }
+        }
+      ]
+    },
+    "extended_entities": {
+      "media": [
+        {
+          "id": 1064873804290240517,
+          "id_str": "1064873804290240517",
+          "indices": [
+            0,
+            23
+          ],
+          "media_url": "http://pbs.twimg.com/media/DscxFUNWsAUrIHU.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/DscxFUNWsAUrIHU.jpg",
+          "url": "https://t.co/bhGa3zeRgO",
+          "display_url": "pic.twitter.com/bhGa3zeRgO",
+          "expanded_url": "https://twitter.com/extrafabulous/status/1064873810053292032/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "large": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 680,
+              "resize": "fit"
+            },
+            "medium": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            }
+          }
+        }
+      ]
+    },
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 810164143,
+      "id_str": "810164143",
+      "name": "extra fabulous comics",
+      "screen_name": "extrafabulous",
+      "location": "",
+      "description": "please help",
+      "url": "https://t.co/jYxpSpqxFG",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/jYxpSpqxFG",
+              "expanded_url": "https://www.patreon.com/ExtraFabulousComics",
+              "display_url": "patreon.com/ExtraFabulousC…",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 46569,
+      "friends_count": 9874,
+      "listed_count": 312,
+      "created_at": "Sat Sep 08 04:17:30 +0000 2012",
+      "favourites_count": 12651,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 2983,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "FF6699",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/810164143/1537921549",
+      "profile_link_color": "ABB8C2",
+      "profile_sidebar_border_color": "000000",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 332,
+    "favorite_count": 1872,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "und"
+  },
+  {
+    "created_at": "Tue Nov 20 02:14:50 +0000 2018",
+    "id": 1064703583239749633,
+    "id_str": "1064703583239749633",
+    "text": "RT @extrafabulous: pls support https://t.co/FYdNg4EDye https://t.co/ggsGwTwMCE",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+        {
+          "screen_name": "extrafabulous",
+          "name": "extra fabulous comics",
+          "id": 810164143,
+          "id_str": "810164143",
+          "indices": [
+            3,
+            17
+          ]
+        }
+      ],
+      "urls": [
+        {
+          "url": "https://t.co/FYdNg4EDye",
+          "expanded_url": "http://patreon.com/extrafabulouscomics",
+          "display_url": "patreon.com/extrafabulousc…",
+          "indices": [
+            31,
+            54
+          ]
+        }
+      ],
+      "media": [
+        {
+          "id": 1064489434832388096,
+          "id_str": "1064489434832388096",
+          "indices": [
+            55,
+            78
+          ],
+          "media_url": "http://pbs.twimg.com/media/DsXTgEZXQAAYU8b.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/DsXTgEZXQAAYU8b.jpg",
+          "url": "https://t.co/ggsGwTwMCE",
+          "display_url": "pic.twitter.com/ggsGwTwMCE",
+          "expanded_url": "https://twitter.com/extrafabulous/status/1064489442566647809/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "medium": {
+              "w": 840,
+              "h": 1200,
+              "resize": "fit"
+            },
+            "large": {
+              "w": 1400,
+              "h": 2000,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 476,
+              "h": 680,
+              "resize": "fit"
+            }
+          },
+          "source_status_id": 1064489442566647809,
+          "source_status_id_str": "1064489442566647809",
+          "source_user_id": 810164143,
+          "source_user_id_str": "810164143"
+        }
+      ]
+    },
+    "extended_entities": {
+      "media": [
+        {
+          "id": 1064489434832388096,
+          "id_str": "1064489434832388096",
+          "indices": [
+            55,
+            78
+          ],
+          "media_url": "http://pbs.twimg.com/media/DsXTgEZXQAAYU8b.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/DsXTgEZXQAAYU8b.jpg",
+          "url": "https://t.co/ggsGwTwMCE",
+          "display_url": "pic.twitter.com/ggsGwTwMCE",
+          "expanded_url": "https://twitter.com/extrafabulous/status/1064489442566647809/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "medium": {
+              "w": 840,
+              "h": 1200,
+              "resize": "fit"
+            },
+            "large": {
+              "w": 1400,
+              "h": 2000,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 476,
+              "h": 680,
+              "resize": "fit"
+            }
+          },
+          "source_status_id": 1064489442566647809,
+          "source_status_id_str": "1064489442566647809",
+          "source_user_id": 810164143,
+          "source_user_id_str": "810164143"
+        }
+      ]
+    },
+    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 810164143,
+      "id_str": "810164143",
+      "name": "extra fabulous comics",
+      "screen_name": "extrafabulous",
+      "location": "",
+      "description": "please help",
+      "url": "https://t.co/jYxpSpqxFG",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/jYxpSpqxFG",
+              "expanded_url": "https://www.patreon.com/ExtraFabulousComics",
+              "display_url": "patreon.com/ExtraFabulousC…",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 46569,
+      "friends_count": 9874,
+      "listed_count": 312,
+      "created_at": "Sat Sep 08 04:17:30 +0000 2012",
+      "favourites_count": 12651,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 2983,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "FF6699",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/810164143/1537921549",
+      "profile_link_color": "ABB8C2",
+      "profile_sidebar_border_color": "000000",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "retweeted_status": {
+      "created_at": "Mon Nov 19 12:03:55 +0000 2018",
+      "id": 1064489442566647809,
+      "id_str": "1064489442566647809",
+      "text": "pls support https://t.co/FYdNg4EDye https://t.co/ggsGwTwMCE",
+      "truncated": false,
+      "entities": {
+        "hashtags": [
+
+        ],
+        "symbols": [
+
+        ],
+        "user_mentions": [
+
+        ],
+        "urls": [
+          {
+            "url": "https://t.co/FYdNg4EDye",
+            "expanded_url": "http://patreon.com/extrafabulouscomics",
+            "display_url": "patreon.com/extrafabulousc…",
+            "indices": [
+              12,
+              35
+            ]
+          }
+        ],
+        "media": [
+          {
+            "id": 1064489434832388096,
+            "id_str": "1064489434832388096",
+            "indices": [
+              36,
+              59
+            ],
+            "media_url": "http://pbs.twimg.com/media/DsXTgEZXQAAYU8b.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/DsXTgEZXQAAYU8b.jpg",
+            "url": "https://t.co/ggsGwTwMCE",
+            "display_url": "pic.twitter.com/ggsGwTwMCE",
+            "expanded_url": "https://twitter.com/extrafabulous/status/1064489442566647809/photo/1",
+            "type": "photo",
+            "sizes": {
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "medium": {
+                "w": 840,
+                "h": 1200,
+                "resize": "fit"
+              },
+              "large": {
+                "w": 1400,
+                "h": 2000,
+                "resize": "fit"
+              },
+              "small": {
+                "w": 476,
+                "h": 680,
+                "resize": "fit"
+              }
+            }
+          }
+        ]
+      },
+      "extended_entities": {
+        "media": [
+          {
+            "id": 1064489434832388096,
+            "id_str": "1064489434832388096",
+            "indices": [
+              36,
+              59
+            ],
+            "media_url": "http://pbs.twimg.com/media/DsXTgEZXQAAYU8b.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/DsXTgEZXQAAYU8b.jpg",
+            "url": "https://t.co/ggsGwTwMCE",
+            "display_url": "pic.twitter.com/ggsGwTwMCE",
+            "expanded_url": "https://twitter.com/extrafabulous/status/1064489442566647809/photo/1",
+            "type": "photo",
+            "sizes": {
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "medium": {
+                "w": 840,
+                "h": 1200,
+                "resize": "fit"
+              },
+              "large": {
+                "w": 1400,
+                "h": 2000,
+                "resize": "fit"
+              },
+              "small": {
+                "w": 476,
+                "h": 680,
+                "resize": "fit"
+              }
+            }
+          }
+        ]
+      },
+      "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 810164143,
+        "id_str": "810164143",
+        "name": "extra fabulous comics",
+        "screen_name": "extrafabulous",
+        "location": "",
+        "description": "please help",
+        "url": "https://t.co/jYxpSpqxFG",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "https://t.co/jYxpSpqxFG",
+                "expanded_url": "https://www.patreon.com/ExtraFabulousComics",
+                "display_url": "patreon.com/ExtraFabulousC…",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": [
+
+            ]
+          }
+        },
+        "protected": false,
+        "followers_count": 46569,
+        "friends_count": 9874,
+        "listed_count": 312,
+        "created_at": "Sat Sep 08 04:17:30 +0000 2012",
+        "favourites_count": 12651,
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 2983,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "FF6699",
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/810164143/1537921549",
+        "profile_link_color": "ABB8C2",
+        "profile_sidebar_border_color": "000000",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": true,
+        "follow_request_sent": false,
+        "notifications": false,
+        "translator_type": "none"
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "is_quote_status": false,
+      "retweet_count": 341,
+      "favorite_count": 1710,
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+    "is_quote_status": false,
+    "retweet_count": 341,
+    "favorite_count": 0,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Mon Nov 19 21:30:40 +0000 2018",
+    "id": 1064632071317069825,
+    "id_str": "1064632071317069825",
+    "text": "@rennier_n that was supposed 2 be the podium with the ring on it",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+        {
+          "screen_name": "rennier_n",
+          "name": "Nonlinear Riches",
+          "id": 1321606196,
+          "id_str": "1321606196",
+          "indices": [
+            0,
+            10
+          ]
+        }
+      ],
+      "urls": [
+
+      ]
+    },
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+    "in_reply_to_status_id": 1064630936225095680,
+    "in_reply_to_status_id_str": "1064630936225095680",
+    "in_reply_to_user_id": 1321606196,
+    "in_reply_to_user_id_str": "1321606196",
+    "in_reply_to_screen_name": "rennier_n",
+    "user": {
+      "id": 810164143,
+      "id_str": "810164143",
+      "name": "extra fabulous comics",
+      "screen_name": "extrafabulous",
+      "location": "",
+      "description": "please help",
+      "url": "https://t.co/jYxpSpqxFG",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/jYxpSpqxFG",
+              "expanded_url": "https://www.patreon.com/ExtraFabulousComics",
+              "display_url": "patreon.com/ExtraFabulousC…",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 46569,
+      "friends_count": 9874,
+      "listed_count": 312,
+      "created_at": "Sat Sep 08 04:17:30 +0000 2012",
+      "favourites_count": 12651,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 2983,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "FF6699",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/810164143/1537921549",
+      "profile_link_color": "ABB8C2",
+      "profile_sidebar_border_color": "000000",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 13,
+    "favorited": false,
+    "retweeted": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Mon Nov 19 20:36:14 +0000 2018",
+    "id": 1064618371742924800,
+    "id_str": "1064618371742924800",
+    "text": "https://t.co/XsByDCbNY6",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+
+      ],
+      "urls": [
+
+      ],
+      "media": [
+        {
+          "id": 1064618366067986432,
+          "id_str": "1064618366067986432",
+          "indices": [
+            0,
+            23
+          ],
+          "media_url": "http://pbs.twimg.com/media/DsZIw2rW0AA5n1U.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/DsZIw2rW0AA5n1U.jpg",
+          "url": "https://t.co/XsByDCbNY6",
+          "display_url": "pic.twitter.com/XsByDCbNY6",
+          "expanded_url": "https://twitter.com/extrafabulous/status/1064618371742924800/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "medium": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            },
+            "large": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 680,
+              "resize": "fit"
+            }
+          }
+        }
+      ]
+    },
+    "extended_entities": {
+      "media": [
+        {
+          "id": 1064618366067986432,
+          "id_str": "1064618366067986432",
+          "indices": [
+            0,
+            23
+          ],
+          "media_url": "http://pbs.twimg.com/media/DsZIw2rW0AA5n1U.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/DsZIw2rW0AA5n1U.jpg",
+          "url": "https://t.co/XsByDCbNY6",
+          "display_url": "pic.twitter.com/XsByDCbNY6",
+          "expanded_url": "https://twitter.com/extrafabulous/status/1064618371742924800/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "medium": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            },
+            "large": {
+              "w": 1000,
+              "h": 1000,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 680,
+              "resize": "fit"
+            }
+          }
+        }
+      ]
+    },
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 810164143,
+      "id_str": "810164143",
+      "name": "extra fabulous comics",
+      "screen_name": "extrafabulous",
+      "location": "",
+      "description": "please help",
+      "url": "https://t.co/jYxpSpqxFG",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/jYxpSpqxFG",
+              "expanded_url": "https://www.patreon.com/ExtraFabulousComics",
+              "display_url": "patreon.com/ExtraFabulousC…",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 46569,
+      "friends_count": 9874,
+      "listed_count": 312,
+      "created_at": "Sat Sep 08 04:17:30 +0000 2012",
+      "favourites_count": 12651,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 2983,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "FF6699",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1042480610814550016/JjD-1l0S_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/810164143/1537921549",
+      "profile_link_color": "ABB8C2",
+      "profile_sidebar_border_color": "000000",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 400,
+    "favorite_count": 1853,
+    "favorited": true,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "und"
   }
 ]
