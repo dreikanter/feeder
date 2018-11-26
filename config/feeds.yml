@@ -250,7 +250,7 @@
   loader: "twitter"
   processor: "twitter"
   normalizer: "twitter"
-  refresh_interval: 0
+  refresh_interval: 1200
   import_limit: 20
   options:
     twitter_user: "alg_testament"
@@ -259,7 +259,7 @@
   loader: "twitter"
   processor: "twitter"
   normalizer: "twitter"
-  refresh_interval: 0
+  refresh_interval: 1200
   import_limit: 20
   options:
     twitter_user: "extrafabulous"
@@ -268,7 +268,7 @@
   loader: "twitter"
   processor: "twitter"
   normalizer: "twitter"
-  refresh_interval: 0
+  refresh_interval: 1200
   import_limit: 20
   options:
     twitter_user: "bojackhorseman"
