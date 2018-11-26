@@ -3,13 +3,6 @@ require 'test_helper'
 class LoaderResolverTest < Minitest::Test
   UNRESOLVABLE = 'unresolvable'.freeze
 
-  def test_involved_classes_are_defined
-    %w[Loaders::HttpLoader Loaders::TwitterLoader].each do |class_name|
-      message = "#{class_name} class should be defined"
-      assert(Object.const_defined?(class_name), message)
-    end
-  end
-
   def assert_resolve(expected, attributes)
     feed = Feed.new(attributes)
     result = Service::LoaderResolver.call(feed)
