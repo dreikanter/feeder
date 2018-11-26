@@ -1,0 +1,2361 @@
+[
+  {
+    "created_at": "Wed Nov 08 23:29:28 +0000 2017",
+    "id": 928404132498612225,
+    "id_str": "928404132498612225",
+    "text": "https://t.co/boYhvxkd4F",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+
+      ],
+      "urls": [
+        {
+          "url": "https://t.co/boYhvxkd4F",
+          "expanded_url": "https://github.com/sferik/twitter/commit/2912a67c7ec5b733ddd01531b91a9ff5fd3b3012",
+          "display_url": "github.com/sferik/twitter…",
+          "indices": [
+            0,
+            23
+          ]
+        }
+      ]
+    },
+    "source": "<a href=\"http://itunes.apple.com/us/app/twitter/id409789998?mt=12\" rel=\"nofollow\">Twitter for Mac</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 213747670,
+      "id_str": "213747670",
+      "name": "The Ruby Gem",
+      "screen_name": "gem",
+      "location": "",
+      "description": "",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 1745,
+      "friends_count": 10,
+      "listed_count": 123,
+      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
+      "favourites_count": 325,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 120,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_link_color": "1DA1F2",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 2,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "und"
+  },
+  {
+    "created_at": "Thu Apr 06 15:29:23 +0000 2017",
+    "id": 850007536166096897,
+    "id_str": "850007536166096897",
+    "text": "RT @TwitterDev: 1/ Today we’re sharing our vision for the future of the Twitter API platform!\nhttps://t.co/XweGngmxlP",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+        {
+          "screen_name": "TwitterDev",
+          "name": "Twitter Dev",
+          "id": 2244994945,
+          "id_str": "2244994945",
+          "indices": [
+            3,
+            14
+          ]
+        }
+      ],
+      "urls": [
+        {
+          "url": "https://t.co/XweGngmxlP",
+          "expanded_url": "https://cards.twitter.com/cards/18ce53wgo4h/3xo1c",
+          "display_url": "cards.twitter.com/cards/18ce53wg…",
+          "indices": [
+            94,
+            117
+          ]
+        }
+      ]
+    },
+    "source": "<a href=\"http://itunes.apple.com/us/app/twitter/id409789998?mt=12\" rel=\"nofollow\">Twitter for Mac</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 213747670,
+      "id_str": "213747670",
+      "name": "The Ruby Gem",
+      "screen_name": "gem",
+      "location": "",
+      "description": "",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 1745,
+      "friends_count": 10,
+      "listed_count": 123,
+      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
+      "favourites_count": 325,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 120,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_link_color": "1DA1F2",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "retweeted_status": {
+      "created_at": "Thu Apr 06 15:24:15 +0000 2017",
+      "id": 850006245121695744,
+      "id_str": "850006245121695744",
+      "text": "1/ Today we’re sharing our vision for the future of the Twitter API platform!\nhttps://t.co/XweGngmxlP",
+      "truncated": false,
+      "entities": {
+        "hashtags": [
+
+        ],
+        "symbols": [
+
+        ],
+        "user_mentions": [
+
+        ],
+        "urls": [
+          {
+            "url": "https://t.co/XweGngmxlP",
+            "expanded_url": "https://cards.twitter.com/cards/18ce53wgo4h/3xo1c",
+            "display_url": "cards.twitter.com/cards/18ce53wg…",
+            "indices": [
+              78,
+              101
+            ]
+          }
+        ]
+      },
+      "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 2244994945,
+        "id_str": "2244994945",
+        "name": "Twitter Dev",
+        "screen_name": "TwitterDev",
+        "location": "Internet",
+        "description": "Your official source for Twitter Platform news, updates & events. Need technical help? Visit https://t.co/mGHnxZU8c1 ⌨️ #TapIntoTwitter",
+        "url": "https://t.co/FGl7VOULyL",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "https://t.co/FGl7VOULyL",
+                "expanded_url": "https://developer.twitter.com/",
+                "display_url": "developer.twitter.com",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": [
+              {
+                "url": "https://t.co/mGHnxZU8c1",
+                "expanded_url": "https://twittercommunity.com/",
+                "display_url": "twittercommunity.com",
+                "indices": [
+                  93,
+                  116
+                ]
+              }
+            ]
+          }
+        },
+        "protected": false,
+        "followers_count": 503126,
+        "friends_count": 1477,
+        "listed_count": 1446,
+        "created_at": "Sat Dec 14 04:35:55 +0000 2013",
+        "favourites_count": 2199,
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": true,
+        "verified": true,
+        "statuses_count": 3380,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "FFFFFF",
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/880136122604507136/xHrnqf1T_normal.jpg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/880136122604507136/xHrnqf1T_normal.jpg",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/2244994945/1498675817",
+        "profile_link_color": "0084B4",
+        "profile_sidebar_border_color": "FFFFFF",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": false,
+        "has_extended_profile": true,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false,
+        "translator_type": "regular"
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "is_quote_status": false,
+      "retweet_count": 334,
+      "favorite_count": 498,
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+    "is_quote_status": false,
+    "retweet_count": 334,
+    "favorite_count": 0,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Wed Nov 04 18:24:33 +0000 2015",
+    "id": 661972313877934080,
+    "id_str": "661972313877934080",
+    "text": "RT @sferik: It looks like Twitter won’t be renaming their API resources from “favorites” to “likes”: https://t.co/m2LXXT3W0P. https://t.co/…",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+        {
+          "screen_name": "sferik",
+          "name": "Erik Berlin",
+          "id": 7505382,
+          "id_str": "7505382",
+          "indices": [
+            3,
+            10
+          ]
+        }
+      ],
+      "urls": [
+        {
+          "url": "https://t.co/m2LXXT3W0P",
+          "expanded_url": "https://dev.twitter.com/rest/reference/get/favorites/list",
+          "display_url": "dev.twitter.com/rest/reference…",
+          "indices": [
+            101,
+            124
+          ]
+        }
+      ]
+    },
+    "source": "<a href=\"http://itunes.apple.com/us/app/twitter/id409789998?mt=12\" rel=\"nofollow\">Twitter for Mac</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 213747670,
+      "id_str": "213747670",
+      "name": "The Ruby Gem",
+      "screen_name": "gem",
+      "location": "",
+      "description": "",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 1745,
+      "friends_count": 10,
+      "listed_count": 123,
+      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
+      "favourites_count": 325,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 120,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_link_color": "1DA1F2",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "retweeted_status": {
+      "created_at": "Wed Nov 04 18:21:23 +0000 2015",
+      "id": 661971519749402626,
+      "id_str": "661971519749402626",
+      "text": "It looks like Twitter won’t be renaming their API resources from “favorites” to “likes”: https://t.co/m2LXXT3W0P. https://t.co/kBos9paI4C",
+      "truncated": false,
+      "entities": {
+        "hashtags": [
+
+        ],
+        "symbols": [
+
+        ],
+        "user_mentions": [
+
+        ],
+        "urls": [
+          {
+            "url": "https://t.co/m2LXXT3W0P",
+            "expanded_url": "https://dev.twitter.com/rest/reference/get/favorites/list",
+            "display_url": "dev.twitter.com/rest/reference…",
+            "indices": [
+              89,
+              112
+            ]
+          }
+        ],
+        "media": [
+          {
+            "id": 661971519048949760,
+            "id_str": "661971519048949760",
+            "indices": [
+              114,
+              137
+            ],
+            "media_url": "http://pbs.twimg.com/media/CS_LltxWoAAJWdn.png",
+            "media_url_https": "https://pbs.twimg.com/media/CS_LltxWoAAJWdn.png",
+            "url": "https://t.co/kBos9paI4C",
+            "display_url": "pic.twitter.com/kBos9paI4C",
+            "expanded_url": "https://twitter.com/sferik/status/661971519749402626/photo/1",
+            "type": "photo",
+            "sizes": {
+              "small": {
+                "w": 680,
+                "h": 335,
+                "resize": "fit"
+              },
+              "medium": {
+                "w": 879,
+                "h": 433,
+                "resize": "fit"
+              },
+              "large": {
+                "w": 879,
+                "h": 433,
+                "resize": "fit"
+              },
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              }
+            }
+          }
+        ]
+      },
+      "extended_entities": {
+        "media": [
+          {
+            "id": 661971519048949760,
+            "id_str": "661971519048949760",
+            "indices": [
+              114,
+              137
+            ],
+            "media_url": "http://pbs.twimg.com/media/CS_LltxWoAAJWdn.png",
+            "media_url_https": "https://pbs.twimg.com/media/CS_LltxWoAAJWdn.png",
+            "url": "https://t.co/kBos9paI4C",
+            "display_url": "pic.twitter.com/kBos9paI4C",
+            "expanded_url": "https://twitter.com/sferik/status/661971519749402626/photo/1",
+            "type": "photo",
+            "sizes": {
+              "small": {
+                "w": 680,
+                "h": 335,
+                "resize": "fit"
+              },
+              "medium": {
+                "w": 879,
+                "h": 433,
+                "resize": "fit"
+              },
+              "large": {
+                "w": 879,
+                "h": 433,
+                "resize": "fit"
+              },
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              }
+            }
+          }
+        ]
+      },
+      "source": "<a href=\"http://itunes.apple.com/us/app/twitter/id409789998?mt=12\" rel=\"nofollow\">Twitter for Mac</a>",
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 7505382,
+        "id_str": "7505382",
+        "name": "Erik Berlin",
+        "screen_name": "sferik",
+        "location": "🇺🇸",
+        "description": "Maker, Breaker",
+        "url": "https://t.co/q0xzfUWYzJ",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "https://t.co/q0xzfUWYzJ",
+                "expanded_url": "https://breaker.audio",
+                "display_url": "breaker.audio",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": [
+
+            ]
+          }
+        },
+        "protected": false,
+        "followers_count": 6922,
+        "friends_count": 1625,
+        "listed_count": 386,
+        "created_at": "Mon Jul 16 12:59:01 +0000 2007",
+        "favourites_count": 21220,
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": true,
+        "verified": true,
+        "statuses_count": 20491,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "000000",
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme20/bg.png",
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme20/bg.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/908590867220389888/1Nz-g3QQ_normal.jpg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/908590867220389888/1Nz-g3QQ_normal.jpg",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/7505382/1507095907",
+        "profile_link_color": "393740",
+        "profile_sidebar_border_color": "000000",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": true,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false,
+        "translator_type": "regular"
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "is_quote_status": false,
+      "retweet_count": 9,
+      "favorite_count": 12,
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+    "is_quote_status": false,
+    "retweet_count": 9,
+    "favorite_count": 0,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Tue Sep 15 20:08:51 +0000 2015",
+    "id": 643879168086700032,
+    "id_str": "643879168086700032",
+    "text": "Need a gem to access the Twitter Ads API? Be sure to check out https://t.co/M3b4sJ9jMI and follow @AdsAPI for updates.",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+        {
+          "screen_name": "AdsAPI",
+          "name": "Twitter Ads API",
+          "id": 1225933934,
+          "id_str": "1225933934",
+          "indices": [
+            98,
+            105
+          ]
+        }
+      ],
+      "urls": [
+        {
+          "url": "https://t.co/M3b4sJ9jMI",
+          "expanded_url": "https://github.com/twitterdev/twitter-ruby-ads-sdk",
+          "display_url": "github.com/twitterdev/twi…",
+          "indices": [
+            63,
+            86
+          ]
+        }
+      ]
+    },
+    "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 213747670,
+      "id_str": "213747670",
+      "name": "The Ruby Gem",
+      "screen_name": "gem",
+      "location": "",
+      "description": "",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 1745,
+      "friends_count": 10,
+      "listed_count": 123,
+      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
+      "favourites_count": 325,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 120,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_link_color": "1DA1F2",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 5,
+    "favorite_count": 13,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Wed Sep 09 08:54:55 +0000 2015",
+    "id": 641535240012435456,
+    "id_str": "641535240012435456",
+    "text": "Version 5.15.0 will be the last release in the 5.x series. The next planned release will be version 6, which will drop Ruby 1.8.7 support.",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+
+      ],
+      "urls": [
+
+      ]
+    },
+    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 213747670,
+      "id_str": "213747670",
+      "name": "The Ruby Gem",
+      "screen_name": "gem",
+      "location": "",
+      "description": "",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 1745,
+      "friends_count": 10,
+      "listed_count": 123,
+      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
+      "favourites_count": 325,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 120,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_link_color": "1DA1F2",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 2,
+    "favorite_count": 2,
+    "favorited": false,
+    "retweeted": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Wed Sep 09 08:54:54 +0000 2015",
+    "id": 641535238334771200,
+    "id_str": "641535238334771200",
+    "text": "Released version 5.15.0, which adds methods to access quoted tweets and new mime_types for multi-part uploads. https://t.co/TSOb5WLKzW",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+
+      ],
+      "urls": [
+        {
+          "url": "https://t.co/TSOb5WLKzW",
+          "expanded_url": "https://github.com/sferik/twitter/blob/master/CHANGELOG.md#5150",
+          "display_url": "github.com/sferik/twitter…",
+          "indices": [
+            111,
+            134
+          ]
+        }
+      ]
+    },
+    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 213747670,
+      "id_str": "213747670",
+      "name": "The Ruby Gem",
+      "screen_name": "gem",
+      "location": "",
+      "description": "",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 1745,
+      "friends_count": 10,
+      "listed_count": 123,
+      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
+      "favourites_count": 325,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 120,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_link_color": "1DA1F2",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 1,
+    "favorite_count": 2,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Sat Feb 14 07:44:53 +0000 2015",
+    "id": 566503331183341569,
+    "id_str": "566503331183341569",
+    "text": "Just passed 2 million downloads on http://t.co/sz5uWe0cI1! Thanks for installing!",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+
+      ],
+      "urls": [
+        {
+          "url": "http://t.co/sz5uWe0cI1",
+          "expanded_url": "http://RubyGems.org",
+          "display_url": "RubyGems.org",
+          "indices": [
+            35,
+            57
+          ]
+        }
+      ]
+    },
+    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 213747670,
+      "id_str": "213747670",
+      "name": "The Ruby Gem",
+      "screen_name": "gem",
+      "location": "",
+      "description": "",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 1745,
+      "friends_count": 10,
+      "listed_count": 123,
+      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
+      "favourites_count": 325,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 120,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_link_color": "1DA1F2",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 3,
+    "favorite_count": 7,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Sat Feb 14 07:37:16 +0000 2015",
+    "id": 566501411983089664,
+    "id_str": "566501411983089664",
+    "text": "Released version 5.14.0, which properly handles videos and animated GIFs. Details at: https://t.co/xPV7HdW38W",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+
+      ],
+      "urls": [
+        {
+          "url": "https://t.co/xPV7HdW38W",
+          "expanded_url": "https://github.com/sferik/twitter/blob/master/CHANGELOG.md#5140",
+          "display_url": "github.com/sferik/twitter…",
+          "indices": [
+            86,
+            109
+          ]
+        }
+      ]
+    },
+    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 213747670,
+      "id_str": "213747670",
+      "name": "The Ruby Gem",
+      "screen_name": "gem",
+      "location": "",
+      "description": "",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 1745,
+      "friends_count": 10,
+      "listed_count": 123,
+      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
+      "favourites_count": 325,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 120,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_link_color": "1DA1F2",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 1,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Thu Nov 13 01:39:33 +0000 2014",
+    "id": 532709319960449025,
+    "id_str": "532709319960449025",
+    "text": "This tweet should be threaded to the previous one. If so, it closes https://t.co/HA7uNG0yk8.",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+
+      ],
+      "urls": [
+        {
+          "url": "https://t.co/HA7uNG0yk8",
+          "expanded_url": "https://github.com/sferik/twitter/issues/566",
+          "display_url": "github.com/sferik/twitter…",
+          "indices": [
+            68,
+            91
+          ]
+        }
+      ]
+    },
+    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
+    "in_reply_to_status_id": 532709315371872257,
+    "in_reply_to_status_id_str": "532709315371872257",
+    "in_reply_to_user_id": 213747670,
+    "in_reply_to_user_id_str": "213747670",
+    "in_reply_to_screen_name": "gem",
+    "user": {
+      "id": 213747670,
+      "id_str": "213747670",
+      "name": "The Ruby Gem",
+      "screen_name": "gem",
+      "location": "",
+      "description": "",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 1745,
+      "friends_count": 10,
+      "listed_count": 123,
+      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
+      "favourites_count": 325,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 120,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_link_color": "1DA1F2",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 5,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Thu Nov 13 01:39:32 +0000 2014",
+    "id": 532709315371872257,
+    "id_str": "532709315371872257",
+    "text": "Testing threaded replies. /cc @fields",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+        {
+          "screen_name": "fields",
+          "name": "Adam Fields",
+          "id": 1158731,
+          "id_str": "1158731",
+          "indices": [
+            30,
+            37
+          ]
+        }
+      ],
+      "urls": [
+
+      ]
+    },
+    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 213747670,
+      "id_str": "213747670",
+      "name": "The Ruby Gem",
+      "screen_name": "gem",
+      "location": "",
+      "description": "",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 1745,
+      "friends_count": 10,
+      "listed_count": 123,
+      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
+      "favourites_count": 325,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 120,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_link_color": "1DA1F2",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 1,
+    "favorited": false,
+    "retweeted": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Sat Nov 08 11:42:41 +0000 2014",
+    "id": 531049164403384320,
+    "id_str": "531049164403384320",
+    "text": "Released version 5.13.0, which deprecates Twitter::REST::Client#get and Twitter::REST::Client#post. See https://t.co/Q80lfcJvmF for details.",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+
+      ],
+      "urls": [
+        {
+          "url": "https://t.co/Q80lfcJvmF",
+          "expanded_url": "https://github.com/sferik/twitter/blob/master/CHANGELOG.md#5130",
+          "display_url": "github.com/sferik/twitter…",
+          "indices": [
+            104,
+            127
+          ]
+        }
+      ]
+    },
+    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 213747670,
+      "id_str": "213747670",
+      "name": "The Ruby Gem",
+      "screen_name": "gem",
+      "location": "",
+      "description": "",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 1745,
+      "friends_count": 10,
+      "listed_count": 123,
+      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
+      "favourites_count": 325,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 120,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_link_color": "1DA1F2",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 0,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Thu Oct 30 04:17:18 +0000 2014",
+    "id": 527675589361418240,
+    "id_str": "527675589361418240",
+    "text": "Released version 5.12.0, adding Comparable methods to Twitter::NullObject. Details at: https://t.co/xig57boHJa",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+
+      ],
+      "urls": [
+        {
+          "url": "https://t.co/xig57boHJa",
+          "expanded_url": "https://github.com/sferik/twitter/blob/master/CHANGELOG.md#5120",
+          "display_url": "github.com/sferik/twitter…",
+          "indices": [
+            87,
+            110
+          ]
+        }
+      ]
+    },
+    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 213747670,
+      "id_str": "213747670",
+      "name": "The Ruby Gem",
+      "screen_name": "gem",
+      "location": "",
+      "description": "",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 1745,
+      "friends_count": 10,
+      "listed_count": 123,
+      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
+      "favourites_count": 325,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 120,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_link_color": "1DA1F2",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 0,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Wed Jun 25 10:18:00 +0000 2014",
+    "id": 481743100927574016,
+    "id_str": "481743100927574016",
+    "text": "Just received a large box from the good people at @TwitterDev. Dankeschön! 🎁🐦🔵🍼☕️😻💎 http://t.co/KKJVDa4y24",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+        {
+          "screen_name": "TwitterDev",
+          "name": "Twitter Dev",
+          "id": 2244994945,
+          "id_str": "2244994945",
+          "indices": [
+            50,
+            61
+          ]
+        }
+      ],
+      "urls": [
+
+      ],
+      "media": [
+        {
+          "id": 481743099949895681,
+          "id_str": "481743099949895681",
+          "indices": [
+            84,
+            106
+          ],
+          "media_url": "http://pbs.twimg.com/media/Bq9-zAmCUAEoFFz.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/Bq9-zAmCUAEoFFz.jpg",
+          "url": "http://t.co/KKJVDa4y24",
+          "display_url": "pic.twitter.com/KKJVDa4y24",
+          "expanded_url": "https://twitter.com/gem/status/481743100927574016/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "small": {
+              "w": 510,
+              "h": 680,
+              "resize": "fit"
+            },
+            "large": {
+              "w": 768,
+              "h": 1024,
+              "resize": "fit"
+            },
+            "medium": {
+              "w": 768,
+              "h": 1024,
+              "resize": "fit"
+            }
+          }
+        }
+      ]
+    },
+    "extended_entities": {
+      "media": [
+        {
+          "id": 481743099949895681,
+          "id_str": "481743099949895681",
+          "indices": [
+            84,
+            106
+          ],
+          "media_url": "http://pbs.twimg.com/media/Bq9-zAmCUAEoFFz.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/Bq9-zAmCUAEoFFz.jpg",
+          "url": "http://t.co/KKJVDa4y24",
+          "display_url": "pic.twitter.com/KKJVDa4y24",
+          "expanded_url": "https://twitter.com/gem/status/481743100927574016/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "small": {
+              "w": 510,
+              "h": 680,
+              "resize": "fit"
+            },
+            "large": {
+              "w": 768,
+              "h": 1024,
+              "resize": "fit"
+            },
+            "medium": {
+              "w": 768,
+              "h": 1024,
+              "resize": "fit"
+            }
+          }
+        }
+      ]
+    },
+    "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 213747670,
+      "id_str": "213747670",
+      "name": "The Ruby Gem",
+      "screen_name": "gem",
+      "location": "",
+      "description": "",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 1745,
+      "friends_count": 10,
+      "listed_count": 123,
+      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
+      "favourites_count": 325,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 120,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_link_color": "1DA1F2",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        52.53784195,
+        13.39719833
+      ]
+    },
+    "coordinates": {
+      "type": "Point",
+      "coordinates": [
+        13.39719833,
+        52.53784195
+      ]
+    },
+    "place": {
+      "id": "31518521a29847bc",
+      "url": "https://api.twitter.com/1.1/geo/id/31518521a29847bc.json",
+      "place_type": "city",
+      "name": "Berlin",
+      "full_name": "Berlin, Deutschland",
+      "country_code": "DE",
+      "country": "Germany",
+      "contained_within": [
+
+      ],
+      "bounding_box": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              13.088304,
+              52.338079
+            ],
+            [
+              13.760909,
+              52.338079
+            ],
+            [
+              13.760909,
+              52.675323
+            ],
+            [
+              13.088304,
+              52.675323
+            ]
+          ]
+        ]
+      },
+      "attributes": {
+      }
+    },
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 1,
+    "favorite_count": 8,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Fri Jun 20 11:47:37 +0000 2014",
+    "id": 479953716209283072,
+    "id_str": "479953716209283072",
+    "text": "Released version 5.11.0, which now returns a Twitter::NullObject for empty attributes. Details at: https://t.co/NHyg3K9xAJ",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+
+      ],
+      "urls": [
+        {
+          "url": "https://t.co/NHyg3K9xAJ",
+          "expanded_url": "https://github.com/sferik/twitter/blob/master/CHANGELOG.md#5110",
+          "display_url": "github.com/sferik/twitter…",
+          "indices": [
+            99,
+            122
+          ]
+        }
+      ]
+    },
+    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 213747670,
+      "id_str": "213747670",
+      "name": "The Ruby Gem",
+      "screen_name": "gem",
+      "location": "",
+      "description": "",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 1745,
+      "friends_count": 10,
+      "listed_count": 123,
+      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
+      "favourites_count": 325,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 120,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_link_color": "1DA1F2",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 1,
+    "favorite_count": 3,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Tue Jun 10 08:37:01 +0000 2014",
+    "id": 476281868607045632,
+    "id_str": "476281868607045632",
+    "text": "Released version 5.10.0, with support for extended entities and bulk media uploading. Details at: https://t.co/i5e74A3hws",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+
+      ],
+      "urls": [
+        {
+          "url": "https://t.co/i5e74A3hws",
+          "expanded_url": "https://github.com/sferik/twitter/blob/master/CHANGELOG.md#5100",
+          "display_url": "github.com/sferik/twitter…",
+          "indices": [
+            98,
+            121
+          ]
+        }
+      ]
+    },
+    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 213747670,
+      "id_str": "213747670",
+      "name": "The Ruby Gem",
+      "screen_name": "gem",
+      "location": "",
+      "description": "",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 1745,
+      "friends_count": 10,
+      "listed_count": 123,
+      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
+      "favourites_count": 325,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 120,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_link_color": "1DA1F2",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 1,
+    "favorite_count": 0,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Wed May 14 13:28:26 +0000 2014",
+    "id": 466570736807579648,
+    "id_str": "466570736807579648",
+    "text": "The Twitter CLI just reached 2,000 Stargazers! https://t.co/CfdwFxXlea",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+
+      ],
+      "urls": [
+        {
+          "url": "https://t.co/CfdwFxXlea",
+          "expanded_url": "https://github.com/sferik/t/stargazers",
+          "display_url": "github.com/sferik/t/starg…",
+          "indices": [
+            47,
+            70
+          ]
+        }
+      ]
+    },
+    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 213747670,
+      "id_str": "213747670",
+      "name": "The Ruby Gem",
+      "screen_name": "gem",
+      "location": "",
+      "description": "",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 1745,
+      "friends_count": 10,
+      "listed_count": 123,
+      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
+      "favourites_count": 325,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 120,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_link_color": "1DA1F2",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 1,
+    "favorite_count": 1,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Wed May 14 13:03:15 +0000 2014",
+    "id": 466564399655055360,
+    "id_str": "466564399655055360",
+    "text": "Released version 5.9.0, with mute functionality and bulk lookup of Tweets by ID. Details at: https://t.co/G8tyZ6dFeM",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+
+      ],
+      "urls": [
+        {
+          "url": "https://t.co/G8tyZ6dFeM",
+          "expanded_url": "https://github.com/sferik/twitter/blob/master/CHANGELOG.md#590",
+          "display_url": "github.com/sferik/twitter…",
+          "indices": [
+            93,
+            116
+          ]
+        }
+      ]
+    },
+    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 213747670,
+      "id_str": "213747670",
+      "name": "The Ruby Gem",
+      "screen_name": "gem",
+      "location": "",
+      "description": "",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 1745,
+      "friends_count": 10,
+      "listed_count": 123,
+      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
+      "favourites_count": 325,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 120,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_link_color": "1DA1F2",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 0,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Mon Mar 10 15:58:25 +0000 2014",
+    "id": 443053269242621952,
+    "id_str": "443053269242621952",
+    "text": "Released version 5.8.0. Details at: https://t.co/MYyJ7wmdn1",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+
+      ],
+      "urls": [
+        {
+          "url": "https://t.co/MYyJ7wmdn1",
+          "expanded_url": "https://github.com/sferik/twitter/blob/master/CHANGELOG.md#580",
+          "display_url": "github.com/sferik/twitter…",
+          "indices": [
+            36,
+            59
+          ]
+        }
+      ]
+    },
+    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 213747670,
+      "id_str": "213747670",
+      "name": "The Ruby Gem",
+      "screen_name": "gem",
+      "location": "",
+      "description": "",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 1745,
+      "friends_count": 10,
+      "listed_count": 123,
+      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
+      "favourites_count": 325,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 120,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_link_color": "1DA1F2",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 2,
+    "favorite_count": 1,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Wed Feb 12 13:11:36 +0000 2014",
+    "id": 433589203210088449,
+    "id_str": "433589203210088449",
+    "text": "Released version 5.7.1, with a bug fix by @matthewrudy and documentation fix by @attilaolah. Details at: https://t.co/zHyJzFaVUE",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+        {
+          "screen_name": "matthewrudy",
+          "name": "Matthew Rudy Jacobs",
+          "id": 7291692,
+          "id_str": "7291692",
+          "indices": [
+            42,
+            54
+          ]
+        },
+        {
+          "screen_name": "attilaolah",
+          "name": "Attila Oláh",
+          "id": 53150422,
+          "id_str": "53150422",
+          "indices": [
+            80,
+            91
+          ]
+        }
+      ],
+      "urls": [
+        {
+          "url": "https://t.co/zHyJzFaVUE",
+          "expanded_url": "https://github.com/sferik/twitter/blob/master/CHANGELOG.md#571",
+          "display_url": "github.com/sferik/twitter…",
+          "indices": [
+            105,
+            128
+          ]
+        }
+      ]
+    },
+    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 213747670,
+      "id_str": "213747670",
+      "name": "The Ruby Gem",
+      "screen_name": "gem",
+      "location": "",
+      "description": "",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 1745,
+      "friends_count": 10,
+      "listed_count": 123,
+      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
+      "favourites_count": 325,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 120,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_link_color": "1DA1F2",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 3,
+    "favorite_count": 3,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Mon Feb 10 15:36:40 +0000 2014",
+    "id": 432900936504446976,
+    "id_str": "432900936504446976",
+    "text": "Poll: If version 6.0.0 removed the ability to set custom Faraday middleware, would you care?",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+
+      ],
+      "urls": [
+
+      ]
+    },
+    "source": "<a href=\"http://rubygems.org/gems/twitter\" rel=\"nofollow\">The Ruby Gem</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 213747670,
+      "id_str": "213747670",
+      "name": "The Ruby Gem",
+      "screen_name": "gem",
+      "location": "",
+      "description": "",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 1745,
+      "friends_count": 10,
+      "listed_count": 123,
+      "created_at": "Tue Nov 09 18:03:22 +0000 2010",
+      "favourites_count": 325,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 120,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO_normal.png",
+      "profile_link_color": "1DA1F2",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 1,
+    "favorite_count": 1,
+    "favorited": false,
+    "retweeted": false,
+    "lang": "en"
+  }
+]
