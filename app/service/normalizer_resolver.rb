@@ -9,7 +9,7 @@ module Service
     end
 
     def call
-      matching_normalizer || raise("no matching normalizer for [#{feed.name}]")
+      matching_normalizer || raise("no matching normalizer for '#{feed.name}'")
     end
 
     private
