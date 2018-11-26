@@ -14,10 +14,11 @@ class FeedFinderTest < Minitest::Test
   end
 
   def test_find
-    Service::FeedsList.load_config(SAMPLE_CONFIG_PATH)
-    Service::FeedsList.names.each do |name|
-      result = service.call(name)
-      expected = Feed.find_by(name: name)
+    feeds = Service::FeedsList.call(SAMPLE_CONFIG_PATH)
+    feeds.each do |feed|
+      feed_name = feed['name']
+      result = service.call(feed_name)
+      expected = Feed.find_by(name: feed_name)
       assert_equal(result, expected)
     end
   end
