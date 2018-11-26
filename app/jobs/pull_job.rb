@@ -29,9 +29,9 @@ class PullJob < ApplicationJob
     content = loader.call(feed)
 
     processor = Service::ProcessorResolver.call(feed)
-    logger.info "---> processor: #{processor}"
-
-    entities = processor.call(content)
+    limit = feed.limit || ENV['DEFAULT_IMPORT_LIMIT'].to_i
+    logger.info "---> processor: #{processor}, import limit: #{limit}"
+    entities = processor.call(content, limit: limit)
 
     normalizer = Service::NormalizerResolver.call(feed)
     logger.info "---> normalizer: #{normalizer}"

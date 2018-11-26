@@ -7,9 +7,10 @@ module Processors
     extend Dry::Initializer
 
     param :source
+    option :limit, default: proc { 0 }
 
-    def self.call(source)
-      new(source).call
+    def self.call(source, options = {})
+      new(source, options).call
     end
 
     def call
@@ -17,10 +18,6 @@ module Processors
     end
 
     protected
-
-    def limit
-      ENV['MAX_ENTITIES_PER_FEED'].to_i
-    end
 
     def entities
       raise NotImplementedError

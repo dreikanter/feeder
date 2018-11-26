@@ -39,9 +39,5 @@ module Processors
       safe_link = URI::encode(URI::decode(link))
       RestClient.get(safe_link).body
     end
-
-    def limit
-      0
-    end
   end
 end

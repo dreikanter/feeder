@@ -6,10 +6,11 @@
 
 - name: "oglaf"
   url: "http://oglaf.com/feeds/rss/"
-  processor: "oglaf"
+  processor: "rss"
   normalizer: "oglaf"
   after: "2018-09-18T00:00:00+00:00"
   refresh_interval: 1800
+  import_limit: 10
 
 - name: "phdcomics"
   url: "http://feeds.feedburner.com/PhdComics"
@@ -86,6 +87,7 @@
   normalizer: "hacker_news"
   after: "2018-09-18T20:00:00+00:00"
   refresh_interval: 600
+  import_limit: 100
 
 - name: "reddit-worldnews"
   url: "https://www.reddit.com/r/worldnews/.rss"
@@ -93,6 +95,7 @@
   normalizer: "reddit"
   after: "2018-09-18T20:00:00+00:00"
   refresh_interval: 600
+  import_limit: 0
 
 - name: "avokado-fm"
   url: "https://tele.ga/avokado_fm/rss/"
@@ -242,3 +245,11 @@
   processor: "rkn_alerts"
   normalizer: "rkn_alerts"
   refresh_interval: 600
+
+- name: "algtestament"
+  loader: "twitter"
+  processor: "twitter"
+  normalizer: "twitter"
+  refresh_interval: 0
+  options:
+    twitter_user: "alg_testament"

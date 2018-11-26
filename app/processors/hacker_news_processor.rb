@@ -10,10 +10,6 @@ module Processors
       end
     end
 
-    def limit
-      100
-    end
-
     def thread_url(id)
       "#{BASE_URL}/item?id=#{id}"
     end
