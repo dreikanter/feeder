@@ -4,7 +4,6 @@ class PullJob < ApplicationJob
   rescue_from StandardError do |exception|
     Rails.logger.error("---> error processing feed: #{exception.message}")
     feed_name = arguments[0]
-    Service::FeedFinder.call(feed_name).update(refreshed_at: nil)
     Error.dump(exception, context: {
       class_name: self.class.name,
       feed_name: feed_name,
@@ -24,7 +23,7 @@ class PullJob < ApplicationJob
     end
 
     logger.info "---> loading feed: #{feed_name}"
-    feed.update(refreshed_at: started_at)
+    feed.update(refreshed_at: nil)
 
     processor = Service::ProcessorResolver.call(feed)
     logger.info "---> processor: #{processor}"
@@ -82,6 +81,7 @@ class PullJob < ApplicationJob
       end
     end
 
+    feed.update(refreshed_at: started_at)
     Post.publishing_queue_for(feed).each { |p| PushJob.perform_later(p) }
 
     DataPoint.create_pull(
