@@ -81,6 +81,7 @@
 #   after: "2018-09-18T00:00:00+00:00"
 
 - name: "best-of-hacker-news"
+  loader: "null"
   processor: "hacker_news"
   normalizer: "hacker_news"
   after: "2018-09-18T20:00:00+00:00"
@@ -237,6 +238,7 @@
   refresh_interval: 1200
 
 - name: "rknalerts"
+  loader: "null"
   processor: "rkn_alerts"
   normalizer: "rkn_alerts"
   refresh_interval: 600
