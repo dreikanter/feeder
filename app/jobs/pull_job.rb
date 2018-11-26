@@ -22,13 +22,15 @@ class PullJob < ApplicationJob
       return
     end
 
-    logger.info "---> loading feed: #{feed_name}"
     feed.update(refreshed_at: nil)
+
+    loader = Service::LoaderResolver.call(feed)
+    logger.info "---> loading feed '#{feed_name}' with #{loader}"
+    content = loader.call(feed)
 
     processor = Service::ProcessorResolver.call(feed)
     logger.info "---> processor: #{processor}"
 
-    content = Service::FeedLoader.call(feed)
     entities = processor.call(content)
 
     normalizer = Service::NormalizerResolver.call(feed)
@@ -40,24 +42,26 @@ class PullJob < ApplicationJob
     entities.each do |link, entity|
       begin
         logger.info "---> processing next entity #{'-' * 50}"
+
+        # Skip existing entities
         if Post.exists?(feed: feed, link: link)
           logger.debug "---> already exists; skipping"
           next
         end
 
-        # Skip unprocessable entities
         normalized = normalizer.call(entity)
         payload = normalized.payload
 
+        # Skip unprocessable entities
         if normalized.failure?
           logger.debug "---> entity rejected: #{payload}"
           next
         end
 
-        # Skip stale entities
         published_at = payload['published_at']
         after = feed.after
 
+        # Skip stale entities
         unless !after || !published_at || (published_at > after)
           logger.debug "---> stale post; skipping"
           next
