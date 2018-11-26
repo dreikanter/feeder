@@ -54,3 +54,4 @@ gem 'momentjs-rails', '~> 2.20', '>= 2.20.1'
 gem 'feedjira', '~> 2.2'
 gem 'dry-initializer', '~> 2.5'
 gem 'bootsnap', '~> 1.3', '>= 1.3.2', require: false
+gem 'twitter', '~> 6.2'
