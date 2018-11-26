@@ -13,7 +13,7 @@ module Normalizers
     end
 
     def attachments
-      images = entity.dig('entities', 'media') || []
+      images = entity.dig('extended_entities', 'media') || []
       images.map { |image| image['media_url_https'] }
     end
 
