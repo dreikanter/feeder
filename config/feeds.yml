@@ -279,3 +279,10 @@
   normalizer: "nextbigfuture"
   refresh_interval: 1800
   import_limit: 5
+
+- name: "nepozner"
+  url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCNRYbltJXhf6DepS26-uSbQ"
+  processor: "youtube"
+  normalizer: "youtube"
+  refresh_interval: 1800
+  import_limit: 10
