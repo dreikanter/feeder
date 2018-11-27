@@ -272,3 +272,10 @@
   import_limit: 5
   options:
     twitter_user: "bojackhorseman"
+
+- name: "nextbigfuture"
+  url: "https://www.nextbigfuture.com/feed"
+  processor: "wordpress"
+  normalizer: "nextbigfuture"
+  refresh_interval: 1800
+  import_limit: 5
