@@ -2,8 +2,9 @@ class PullJob < ApplicationJob
   queue_as :default
 
   rescue_from StandardError do |exception|
-    Rails.logger.error("---> error processing feed: #{exception.message}")
+    logger.error("---> error processing feed: #{exception.message}")
     feed_name = arguments[0]
+
     Error.dump(
       exception,
       class_name: self.class.name,
@@ -17,36 +18,36 @@ class PullJob < ApplicationJob
     feed = Service::FeedFinder.call(feed_name)
 
     unless feed.refresh?
-      logger.info "---> skipping feed: #{feed_name}"
-      logger.debug "---> refresh interval: #{feed.refresh_interval}"
-      logger.debug "---> refreshed at: #{feed.refreshed_at}"
+      logger.info("---> skipping feed: #{feed_name}")
+      logger.debug("---> refresh interval: #{feed.refresh_interval}")
+      logger.debug("---> refreshed at: #{feed.refreshed_at}")
       return
     end
 
     feed.update(refreshed_at: nil)
 
     loader = Service::LoaderResolver.call(feed)
-    logger.info "---> loading feed '#{feed_name}' with #{loader}"
+    logger.info("---> loading feed '#{feed_name}' with #{loader}")
     content = loader.call(feed)
 
     processor = Service::ProcessorResolver.call(feed)
     limit = feed.import_limit || ENV['DEFAULT_IMPORT_LIMIT'].to_i
-    logger.info "---> processor: #{processor}, import limit: #{limit}"
+    logger.info("---> processor: #{processor}, import limit: #{limit}")
     entities = processor.call(content, limit: limit)
 
     normalizer = Service::NormalizerResolver.call(feed)
-    logger.info "---> normalizer: #{normalizer}"
+    logger.info("---> normalizer: #{normalizer}")
 
     posts_count = 0
     errors_count = 0
 
     entities.each do |uid, entity|
       begin
-        logger.info "---> processing next entity #{'-' * 50}"
+        logger.info("---> processing next entity #{'-' * 50}")
 
         # Skip existing entities
         if Post.exists?(feed: feed, uid: uid)
-          logger.debug "---> skipping existing post"
+          logger.debug('---> skipping existing post')
           next
         end
 
@@ -55,7 +56,7 @@ class PullJob < ApplicationJob
 
         # Skip unprocessable entities
         if normalized.failure?
-          logger.debug "---> entity rejected: #{payload}"
+          logger.debug("---> entity rejected: #{payload}")
           next
         end
 
@@ -64,16 +65,16 @@ class PullJob < ApplicationJob
 
         # Skip stale entities
         unless !after || !published_at || (published_at > after)
-          logger.debug "---> stale post; skipping"
+          logger.debug('---> stale post; skipping')
           next
         end
 
-        logger.info '---> creating new post'
+        logger.info('---> creating new post')
         attrs = { uid: uid, feed_id: feed.id, status: Enums::PostStatus.ready }
         Post.create_with(payload).create!(attrs)
         posts_count += 1
       rescue => exception
-        logger.error "---> error processing entity: #{exception.message}"
+        logger.error("---> error processing entity: #{exception.message}")
         errors_count += 1
         Error.dump(
           exception,
