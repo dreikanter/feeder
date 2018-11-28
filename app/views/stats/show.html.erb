@@ -82,7 +82,7 @@
       </tr>
     </thead>
     <tbody>
-      <% Post.includes(:feed).recent.each do |post| %>
+      <% @recent_posts.each do |post| %>
         <tr>
           <td>
             <%= post.id %>
@@ -148,6 +148,33 @@
           </td>
           <td class="nowrap">
             <%= readable_time_tag dp.created_at %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Update batches</h3>
+  </div>
+
+  <table class="table table-bordered table-hover data-table">
+    <thead>
+      <tr>
+        <th class="nowrap">Executed at</th>
+        <th class="text-right nowrap">Duration</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @batches.each do |dp| %>
+        <tr>
+          <td>
+            <%= readable_time_tag dp.created_at %>
+          </td>
+          <td class="text-right nowrap">
+            <%= dp.details['duration'].try(:round, 2) %> s
           </td>
         </tr>
       <% end %>
