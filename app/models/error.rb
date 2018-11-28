@@ -39,7 +39,6 @@ class Error < ApplicationRecord
       label: exception.backtrace_locations.first.try(:label) || '',
       message: exception.try(:message) || context[:message] || exception.to_s,
       backtrace: exception.backtrace,
-      filtered_backtrace: Service::ErrorBacktraceCleaner.clean(exception),
       context: context
     )
   end
