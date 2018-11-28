@@ -27,8 +27,6 @@
 class Error < ApplicationRecord
   enum status: Enums::ErrorStatus.hash
 
-  attr_accessor :exception
-
   def self.dump(exception, context = {})
     backtrace_location = exception.try(:backtrace_locations).try(:first)
 
