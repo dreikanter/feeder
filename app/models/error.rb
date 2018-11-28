@@ -30,7 +30,7 @@ class Error < ApplicationRecord
   def self.dump(exception, context = {})
     backtrace_location = exception.try(:backtrace_locations).try(:first)
 
-    new(
+    create!(
       status: Enums::ErrorStatus.pending,
       occured_at: context[:occured_at] || DateTime.now,
       error_class_name: exception.class.name,
