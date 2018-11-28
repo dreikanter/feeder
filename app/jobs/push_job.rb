@@ -9,6 +9,11 @@ class PushJob < ApplicationJob
   end
 
   def perform(post)
+    unless post.present?
+      logger.error('the post does not exist')
+      return
+    end
+
     if post.stale?
       logger.warn('post is stale; skipping')
       return
