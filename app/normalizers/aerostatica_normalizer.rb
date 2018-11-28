@@ -38,10 +38,11 @@ module Normalizers
     rescue => exception
       message = "error fetching record url from #{link}"
       Rails.logger.error(message)
-      Error.dump(exception, context: {
+      Error.dump(
+        exception,
         class_name: self.class.name,
         hint: message
-      })
+      )
       nil
     end
   end

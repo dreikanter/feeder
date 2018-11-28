@@ -3,7 +3,7 @@ class PushJob < ApplicationJob
 
   rescue_from StandardError do |exception|
     Rails.logger.error exception
-    Error.dump(exception, context: { class_name: self.class.name })
+    Error.dump(exception, class_name: self.class.name)
     post = self.arguments.first
     post.update(status: :error)
   end

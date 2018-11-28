@@ -4,11 +4,12 @@ class PullJob < ApplicationJob
   rescue_from StandardError do |exception|
     Rails.logger.error("---> error processing feed: #{exception.message}")
     feed_name = arguments[0]
-    Error.dump(exception, context: {
+    Error.dump(
+      exception,
       class_name: self.class.name,
       feed_name: feed_name,
       hint: 'error processing feed'
-    })
+    )
   end
 
   def perform(feed_name)
@@ -74,11 +75,12 @@ class PullJob < ApplicationJob
       rescue => exception
         logger.error "---> error processing entity: #{exception.message}"
         errors_count += 1
-        Error.dump(exception, context: {
+        Error.dump(
+          exception,
           class_name: self.class.name,
           feed_name: feed_name,
           hint: 'error processing entity'
-        })
+        )
       end
     end
 
