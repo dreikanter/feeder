@@ -29,21 +29,19 @@ class Error < ApplicationRecord
 
   attr_accessor :exception
 
-  def self.for(exception, context = {})
+  def self.dump(exception, context = {})
+    backtrace_location = exception.try(:backtrace_locations).try(:first)
+
     new(
       status: Enums::ErrorStatus.pending,
       occured_at: context[:occured_at] || DateTime.now,
       error_class_name: exception.class.name,
-      file_name: exception.backtrace_locations.first.try(:path) || '',
-      line_number: exception.backtrace_locations.first.try(:lineno),
-      label: exception.backtrace_locations.first.try(:label) || '',
+      file_name: backtrace_location.try(:path) || '',
+      line_number: backtrace_location.try(:lineno),
+      label: backtrace_location.try(:label) || '',
       message: exception.try(:message) || context[:message] || exception.to_s,
-      backtrace: exception.backtrace,
+      backtrace: exception.try(:backtrace) || [],
       context: context
     )
-  end
-
-  def self.dump(exception, context = {})
-    self.for(exception, context).save!
   end
 end
