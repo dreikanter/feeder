@@ -51,7 +51,7 @@ class PullJob < ApplicationJob
           next
         end
 
-        normalized = normalizer.call(entity)
+        normalized = normalizer.call(entity, feed.options)
         payload = normalized.payload
 
         # Skip unprocessable entities

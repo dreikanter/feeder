@@ -3,9 +3,10 @@ module Normalizers
     extend Dry::Initializer
 
     param :entity
+    param :options, default: proc { {} }
 
-    def self.call(entity)
-      new(entity).call
+    def self.call(entity, options = {})
+      new(entity, options).call
     end
 
     ATTRIBUTE_NAMES = %w[
