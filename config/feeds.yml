@@ -263,6 +263,7 @@
   import_limit: 5
   options:
     twitter_user: "extrafabulous"
+    only_with_attachments: true
 
 - name: "bojackhorseman"
   loader: "twitter"
