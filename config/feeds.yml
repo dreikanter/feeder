@@ -296,3 +296,13 @@
   options:
     twitter_user: "jakelikesonions"
     only_with_attachments: true
+
+- name: "catscafe"
+  loader: "twitter"
+  processor: "twitter"
+  normalizer: "twitter"
+  refresh_interval: 1200
+  import_limit: 20
+  options:
+    twitter_user: "CatsCafeComics"
+    only_with_attachments: true
