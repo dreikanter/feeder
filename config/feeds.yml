@@ -286,3 +286,13 @@
   normalizer: "youtube"
   refresh_interval: 1800
   import_limit: 10
+
+- name: "jakelikesonions"
+  loader: "twitter"
+  processor: "twitter"
+  normalizer: "twitter"
+  refresh_interval: 1200
+  import_limit: 20
+  options:
+    twitter_user: "jakelikesonions"
+    only_with_attachments: true
