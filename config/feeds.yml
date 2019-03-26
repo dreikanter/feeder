@@ -307,3 +307,14 @@
   options:
     twitter_user: "CatsCafeComics"
     only_with_attachments: true
+
+- name: hackernewsonion
+  loader: "twitter"
+  processor: "twitter"
+  normalizer: "twitter"
+  refresh_interval: 1200
+  import_limit: 20
+  options:
+    twitter_user: "hackernewsonion"
+    ignore_retweets: true
+
