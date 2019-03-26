@@ -346,6 +346,6 @@
 - name: smbc
   url: "https://www.smbc-comics.com/comic/rss"
   processor: "rss"
-  normalizer: "sbmc"
+  normalizer: "smbc"
   refresh_interval: 1800
   import_limit: 10
