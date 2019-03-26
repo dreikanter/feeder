@@ -30,7 +30,7 @@ module Normalizers
     end
 
     def duration
-      @duration ||= entity.try(:itunes_duration).try(:content)
+      @duration ||= entity.try(:itunes_duration).try(:content).gsub(/^00:/, '')
     end
   end
 end
