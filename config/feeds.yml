@@ -318,3 +318,10 @@
     twitter_user: "hackernewsonion"
     ignore_retweets: true
 
+- name: bazar
+  url: "https://meduza.io/rss/podcasts/knizhnyy-bazar"
+  processor: "rss"
+  normalizer: "bazar"
+  refresh_interval: 1800
+  import_limit: 10
+
