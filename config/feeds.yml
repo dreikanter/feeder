@@ -325,3 +325,10 @@
   refresh_interval: 1800
   import_limit: 10
 
+- name: rework
+  url: "https://rss.art19.com/rework"
+  processor: "feedjira"
+  normalizer: "rework"
+  refresh_interval: 1800
+  import_limit: 10
+
