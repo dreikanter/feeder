@@ -1,7 +1,9 @@
 module Normalizers
   class TwitterNormalizer < Normalizers::Base
     def valid?
-      !options['only_with_attachments'] || images.any?
+      return false if options['only_with_attachments'] && !has_attachments?
+      return false if options['ignore_retweets'] && retweet?
+      true
     end
 
     def validation_errors
@@ -34,6 +36,14 @@ module Normalizers
 
     def user_name
       entity.fetch('user').fetch('screen_name')
+    end
+
+    def has_attachments?
+      images.any?
+    end
+
+    def retweet?
+      entity['retweeted_status'].present?
     end
   end
 end
