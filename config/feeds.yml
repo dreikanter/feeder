@@ -341,4 +341,5 @@
   options:
     twitter_user: "nathanwpyle"
     only_with_attachments: true
+    ignore_retweets: true
 
