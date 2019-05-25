@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.2.1'
-gem 'puma', '~> 3.11', '>= 3.11.4'
-gem 'jquery-rails'
+gem 'rails', '~> 5.2.3'
+gem 'puma', '~> 3.12', '>= 3.12.1'
 
 # Replace with Webpacker
 gem 'sass-rails', '~> 5.0', '>= 5.0.7'
