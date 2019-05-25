@@ -33,5 +33,8 @@ module Feeder
       params = event.payload[:params].except('controller', 'action')
       { params: params } unless params.empty?
     end
+
+    # Turn off Rails Asset Pipeline
+    config.assets.enabled = false
   end
 end

@@ -3,12 +3,6 @@ source 'https://rubygems.org'
 gem 'rails', '~> 5.2.3'
 gem 'puma', '~> 3.12', '>= 3.12.1'
 
-# Replace with Webpacker
-gem 'sass-rails', '~> 5.0', '>= 5.0.7'
-gem 'uglifier', '~> 4.1', '>= 4.1.12'
-gem 'therubyracer', '~> 0.12.3', platforms: :ruby
-gem 'autoprefixer-rails', '~> 8.6', '>= 8.6.3'
-
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
@@ -47,10 +41,13 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-chartjs', '~> 2.5.0'
 end
 
+# TODO: Replace with NPM packages
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 gem 'momentjs-rails', '~> 2.20', '>= 2.20.1'
+
 gem 'feedjira', '~> 2.2'
 gem 'dry-initializer', '~> 2.5'
 gem 'bootsnap', '~> 1.3', '>= 1.3.2', require: false
 gem 'twitter', '~> 6.2'
+gem 'webpacker', '~> 4.0', '>= 4.0.2'
