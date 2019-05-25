@@ -4,7 +4,7 @@ HOSTNAME_ALIASES   = []
 VAGRANT_IP         = '192.168.99.101'
 VAGRANT_MEMORY_MB  = 2048
 VAGRANT_CPUS       = 2
-VAGRANT_BOX        = 'bento/ubuntu-16.04'
+VAGRANT_BOX        = 'bento/ubuntu-18.04'
 
 VAGRANT_PORTS = {
   puma: { guest: 3000, host: 3000 },
