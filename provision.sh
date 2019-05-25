@@ -59,7 +59,7 @@ createdb "$POSTGRES_DB_NAME"_production --username=postgres
 echo "-----> install nodejs"
 
 cd
-sudo curl --silent --show-error -L https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo curl --silent --show-error -L https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get update
 sudo apt-get install --yes nodejs
 
