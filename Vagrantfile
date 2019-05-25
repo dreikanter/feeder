@@ -12,11 +12,11 @@ VAGRANT_PORTS = {
   postgres: { guest: 5432, host: 5432 }
 }
 
-Vagrant.require_version '>= 1.9'
+Vagrant.require_version '>= 2.2'
 
 REQUIRED_PLUGINS = [
-  ['vagrant-vbguest', '0.14.2'],
-  ['vagrant-hostmanager', '1.8.6']
+  ['vagrant-vbguest', '0.18.0'],
+  ['vagrant-hostmanager', '1.8.9']
 ].freeze
 
 def require_plugins!(plugins)
