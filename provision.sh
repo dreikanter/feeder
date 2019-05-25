@@ -90,8 +90,8 @@ source ~/.bashrc
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-rbenv install 2.5.1
-rbenv global 2.5.1
+rbenv install 2.6.3
+rbenv global 2.6.3
 rbenv rehash
 
 sudo gem update --system
