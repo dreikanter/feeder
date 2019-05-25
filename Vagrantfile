@@ -1,5 +1,5 @@
 VAGRANT_APP_NAME   = 'feeder'
-HOSTNAME           = 'feeder.dev'
+HOSTNAME           = 'feeder.local'
 HOSTNAME_ALIASES   = []
 VAGRANT_IP         = '192.168.99.101'
 VAGRANT_MEMORY_MB  = 2048
