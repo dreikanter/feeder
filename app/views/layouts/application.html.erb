@@ -2,11 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <% if content_for? :title %>
-      <title><%= yield(:title) %></title>
-    <% else %>
-      <title>Feeder</title>
-    <% end %>
+    <title>Feeder</title>
     <%= csrf_meta_tags %>
   </head>
 
