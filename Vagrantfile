@@ -8,7 +8,7 @@ VAGRANT_BOX        = 'bento/ubuntu-18.04'
 
 VAGRANT_PORTS = {
   puma: { guest: 3000, host: 3000 },
-  webpack_dev_server: { guest: 8080, host: 8080 },
+  webpack_dev_server: { guest: 3035, host: 3035 },
   postgres: { guest: 5432, host: 5432 }
 }
 
