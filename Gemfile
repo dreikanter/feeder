@@ -21,6 +21,10 @@ end
 group :development, :test do
   gem 'awesome_print', '~> 1.8'
   gem 'pry-rails', '~> 0.3.4'
+
+  # TODO: Drop this after migrating to Rails 6
+  # Rails 6 have native support for multienv credentials
+  gem 'rails-env-credentials', '~> 0.1.3'
 end
 
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
