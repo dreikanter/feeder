@@ -1,8 +1,7 @@
 root = true
 
 [*]
-; Disabled as a workaround for Sublime Text bug (Sublime scrolls one line up on save if this enabled)
-;indent_style = space
+indent_style = space
 indent_size = 2
 end_of_line = lf
 charset = utf-8

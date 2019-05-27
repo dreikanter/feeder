@@ -1,0 +1,31 @@
+---
+detectors:
+  IrresponsibleModule:
+    enabled: false
+
+  UncommunicativeModuleName:
+    enabled: false
+
+  TooManyMethods:
+    max_methods: 10
+    exclude:
+      - "Test"
+
+  TooManyStatements:
+    max_statements: 15
+    exclude:
+      - "Test"
+
+  UtilityFunction:
+    exclude:
+      - "Test"
+
+  TooManyConstants:
+    enabled: false
+
+exclude_paths:
+  - bin
+  - node_modules
+  - public
+  - vendor
+  - db

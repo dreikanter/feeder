@@ -1,24 +1,55 @@
-inherit_from: .rubocop_todo.yml
-
 AllCops:
+  DisplayCopNames: true
   Exclude:
-    - 'vendor/**/*'
-    - 'spec/fixtures/**/*'
-    - 'tmp/**/*'
-  TargetRubyVersion: 2.0
+    - "db"
+    - "config/routes.rb"
+    - "**/*_schema.rb"
+    - "node_modules"
 
-Style/Encoding:
-  EnforcedStyle: always
+Rails:
   Enabled: true
 
+Documentation:
+  Enabled: false
+
+Layout/SpaceBeforeFirstArg:
+  Enabled: false
+
+Layout/SpaceAfterComma:
+  Enabled: false
+
+Naming/FileName:
+  Enabled: false
+
 Style/FrozenStringLiteralComment:
-  EnforcedStyle: always
-
-Style/AlignParameters:
   Enabled: false
 
-Style/Encoding:
+Style/DoubleNegation:
   Enabled: false
 
-Style/Documentation:
+Metrics/ModuleLength:
+  Exclude:
+    - "config/routes.rb"
+
+Rails/Delegate:
   Enabled: false
+
+Metrics/MethodLength:
+  Max: 15
+
+Metrics/BlockLength:
+  Exclude:
+    - "config/routes.rb"
+    - "**/*_schema.rb"
+
+Metrics/ClassLength:
+  Enabled: false
+
+Rails/RefuteMethods:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/IndentArray:
+  EnforcedStyle: consistent
