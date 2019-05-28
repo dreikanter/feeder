@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'stats#show'
+  root 'feeds#index'
   resources :feeds, only: %i[index show]
 
   namespace :api, defaults: { format: :json } do
