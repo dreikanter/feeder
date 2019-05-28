@@ -1,5 +1,5 @@
 module API
-  class FeedsController < Operations::APIController
+  class FeedsController < APIController
     def show
       perform Operations::Feeds::API::Show
     end
