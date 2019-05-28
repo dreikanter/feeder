@@ -4,7 +4,7 @@ import routingPaths from 'main/routingPaths'
 
 export default [
   {
-    path: routingPaths.profilePath,
+    path: routingPaths.rootPath,
     component: Index
   },
   // {
