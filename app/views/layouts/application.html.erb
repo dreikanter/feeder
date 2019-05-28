@@ -3,6 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Feeder</title>
+    <%= javascript_pack_tag 'application' %>
     <%= csrf_meta_tags %>
   </head>
   <body>
@@ -15,7 +16,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <%= yield %>
+          <div id="root"></div>
         </div>
       </div>
     </div>
