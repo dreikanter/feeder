@@ -1,6 +1,21 @@
 module Operations
   module Feeds
-    class Show < Operations::Layouts::Blank
+    class Show < Operations::Base
+      def call
+        {
+          json: feed
+        }
+      end
+
+      private
+
+      def feed
+        Feed.find(id)
+      end
+
+      def id
+        params.fetch(:id)
+      end
     end
   end
 end
