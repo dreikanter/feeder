@@ -36,17 +36,6 @@ gem 'nokogiri', '~> 1.8', '>= 1.8.3'
 gem 'annotate', '~> 2.7', '>= 2.7.4'
 gem 'addressable', '~> 2.5', '>= 2.5.2'
 gem 'marginalia', '~> 1.5'
-
-# TODO: Replace with NPM packages
-source 'https://rails-assets.org' do
-  gem 'rails-assets-chartjs', '~> 2.5.0'
-end
-
-# TODO: Replace with NPM packages
-gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
-gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
-gem 'momentjs-rails', '~> 2.20', '>= 2.20.1'
-
 gem 'feedjira', '~> 2.2'
 gem 'dry-initializer', '~> 2.5'
 gem 'bootsnap', '~> 1.3', '>= 1.3.2', require: false
