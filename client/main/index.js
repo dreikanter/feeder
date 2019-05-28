@@ -9,14 +9,12 @@ import routes from 'main/routes'
 const App = () => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <div className="Layout__content">
-        <Switch>
-          {routes.map((params, index) => (
-            <Route key={index} exact {...params} />
-          ))}
-          <Route component={PageNotFound} />
-        </Switch>
-      </div>
+      <Switch>
+        {routes.map((params, index) => (
+          <Route key={index} exact {...params} />
+        ))}
+        <Route component={PageNotFound} />
+      </Switch>
     </ConnectedRouter>
   </Provider>
 )
