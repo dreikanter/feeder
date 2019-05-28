@@ -55,3 +55,4 @@ gem 'dry-initializer', '~> 2.5'
 gem 'bootsnap', '~> 1.3', '>= 1.3.2', require: false
 gem 'twitter', '~> 6.2'
 gem 'webpacker', '~> 4.0', '>= 4.0.2'
+gem 'js-routes', '~> 1.4', '>= 1.4.6'

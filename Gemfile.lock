@@ -112,6 +112,9 @@ GEM
     http_parser.rb (0.6.0)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
+    js-routes (1.4.6)
+      railties (>= 4)
+      sprockets-rails
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -272,6 +275,7 @@ DEPENDENCIES
   figaro (~> 1.1, >= 1.1.1)
   font-awesome-rails (~> 4.7, >= 4.7.0.4)
   guard-minitest
+  js-routes (~> 1.4, >= 1.4.6)
   listen (>= 3.0.5, < 3.2)
   lograge (~> 0.3.6)
   marginalia (~> 1.5)
