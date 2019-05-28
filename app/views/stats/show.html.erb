@@ -196,43 +196,43 @@
 </p>
 
 <script>
-  $(function () {
-    $('[data-toggle="tooltip"]').tooltip();
-
-    var chart = new Chart(document.getElementById("history-chart"), {
-      type: "bar",
-      data: {
-        labels: <%= raw @history.keys.to_json %>,
-        datasets: [{
-          label: "Imported posts",
-          fill: true,
-          backgroundColor: Chart.helpers.color("#337ab7").alpha(0.5).rgbString(),
-          borderColor: "#337ab7",
-          borderWidth: 1,
-          data: <%= raw @history.values.to_json %>,
-        }]
-      },
-      options: {
-        scales: {
-          xAxes: [{
-            display: true,
-            ticks: {
-              callback: function(dataLabel, index) {
-                var date = moment(dataLabel)
-                var monday = date.weekday() === 0
-                return monday ? date.format("D") : "";
-              }
-            }
-          }],
-          yAxes: [{
-            display: true,
-            beginAtZero: false
-          }]
-        },
-        legend: {
-          display: false
-        }
-      }
-    });
-  });
+//  $(function () {
+//    $('[data-toggle="tooltip"]').tooltip();
+//
+//    var chart = new Chart(document.getElementById("history-chart"), {
+//      type: "bar",
+//      data: {
+//        labels: <%= raw @history.keys.to_json %>,
+//        datasets: [{
+//          label: "Imported posts",
+//          fill: true,
+//          backgroundColor: Chart.helpers.color("#337ab7").alpha(0.5).rgbString(),
+//          borderColor: "#337ab7",
+//          borderWidth: 1,
+//          data: <%= raw @history.values.to_json %>,
+//        }]
+//      },
+//      options: {
+//        scales: {
+//          xAxes: [{
+//            display: true,
+//            ticks: {
+//              callback: function(dataLabel, index) {
+//                var date = moment(dataLabel)
+//                var monday = date.weekday() === 0
+//                return monday ? date.format("D") : "";
+//              }
+//            }
+//          }],
+//          yAxes: [{
+//            display: true,
+//            beginAtZero: false
+//          }]
+//        },
+//        legend: {
+//          display: false
+//        }
+//      }
+//    });
+//  });
 </script>
