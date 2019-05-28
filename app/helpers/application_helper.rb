@@ -1,3 +1,4 @@
+# TODO: Drop this after React refactoring
 module ApplicationHelper
   def time_ago_tag(time)
     readable_time_tag(time, 'ago')
