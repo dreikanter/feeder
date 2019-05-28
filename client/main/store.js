@@ -1,5 +1,5 @@
-import createBrowserHistory from 'history/createBrowserHistory'
-import promiseMiddleware from 'redux-promise-middleware'
+import { createBrowserHistory } from 'history'
+import promise from 'redux-promise-middleware'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { createStore, applyMiddleware } from 'redux'
@@ -11,7 +11,7 @@ export const history = createBrowserHistory()
 
 const middleware = [
   routerMiddleware(history),
-  promiseMiddleware(),
+  promise,
   thunk
 ]
 
