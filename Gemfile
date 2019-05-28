@@ -4,10 +4,11 @@ gem 'rails', '~> 5.2.3'
 gem 'puma', '~> 3.12', '>= 3.12.1'
 
 group :development do
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'method_source', '~> 0.9.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'web-console', '>= 3.3.0'
 end
 
 group :test do
