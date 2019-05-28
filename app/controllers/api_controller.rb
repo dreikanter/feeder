@@ -1,8 +1,6 @@
 class APIController < ActionController::API
   include Operations::Performable
 
-  respond_to :json
-
   rescue_from StandardError do |ex|
     handle_error(ex, :internal_server_error, error: 'Internal server error')
   end
