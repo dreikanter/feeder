@@ -37,9 +37,6 @@ gem 'annotate', '~> 2.7', '>= 2.7.4'
 gem 'addressable', '~> 2.5', '>= 2.5.2'
 gem 'marginalia', '~> 1.5'
 
-# TODO: replace with Rails Credentials
-gem 'figaro', '~> 1.1', '>= 1.1.1'
-
 # TODO: Replace with NPM packages
 source 'https://rails-assets.org' do
   gem 'rails-assets-chartjs', '~> 2.5.0'
