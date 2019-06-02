@@ -5,6 +5,7 @@ import { ConnectedRouter } from 'connected-react-router'
 import PageNotFound from 'main/components/PageNotFound'
 import { store, history } from 'main/store'
 import routes from 'main/routes'
+import 'main/layout.scss'
 
 const App = () => (
   <Provider store={store}>

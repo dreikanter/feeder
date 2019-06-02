@@ -10,14 +10,28 @@
     <div class="wrapper wrapper--admin">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-          <a class="navbar-brand" href="#">FreeFeed Feeder Status</a>
+          <a class="navbar-brand" href="#">FreeFeed Feeder</a>
         </div>
       </nav>
-      <div class="container">
-        <div class="row">
-          <div class="col" id="root"></div>
+      <main role="main" class="container" id="root"></main>
+      <footer class="footer">
+        <div class="container">
+          <ul class="footer-list">
+            <li class="footer-item">
+              <a href="https://github.com/dreikanter/feeder">GitHub</a>
+            </li>
+            <li class="footer-item">
+              <a href="https://github.com/dreikanter/feeder/issues">Bug reports</a>
+            </li>
+            <li class="footer-item">
+              <a href="https://freefeed.net/feeder">Freefeed</a>
+            </li>
+            <li class="footer-item">
+              Maintained by: <a href="https://freefeed.net/dreikanter">dreikanter</a>
+            </li>
+          </ul>
         </div>
-      </div>
+      </footer>
     </div>
     <%= render(partial: 'partials/yandex_metrika') if Rails.env.production? %>
   </body>
