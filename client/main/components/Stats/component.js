@@ -16,7 +16,10 @@ const Stats = ({ items }) => (
 )
 
 Stats.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.object)
+  items: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    value: PropTypes.any
+  }))
 }
 
 Stats.defaultProps = {
