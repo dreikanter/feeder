@@ -1,6 +1,22 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Placeholder from 'main/components/Placeholder'
+import Stats from 'main/components/Stats'
+
+const stats = [
+  {
+    title: 'Subscribers',
+    value: 1000
+  },
+  {
+    title: 'Subscribers',
+    value: 1000
+  },
+  {
+    title: 'Subscribers',
+    value: 1000
+  },
+]
 
 class Main extends Component {
   componentDidMount () {
@@ -18,9 +34,9 @@ class Main extends Component {
     }
 
     return (
-      <div>
-        Index
-      </div>
+      <Fragment>
+        <Stats items={stats} />
+      </Fragment>
     )
   }
 }
