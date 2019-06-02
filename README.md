@@ -1,3 +1,47 @@
 # Freefeed Feeder
 
-See project [wiki](https://github.com/dreikanter/feeder/wiki).
+Feeder is a content sharing service built for [freefeed.net](https://freefeed.net), an open source social network. Feeder can monitor RSS, ATOM, Reddit, Twitter, YouTube, Tumblr, or potentially any other web feed updates, normalize the content and share clean and readable excerpts on FreeFeed. Check out https://freefeed.net/xkcd for example.
+
+## References
+
+- Production instance (service status page): https://frf.im
+- Ansible playbooks for deployment and server provisioning: https://github.com/dreikanter/feeder-ansible
+- Project wiki: https://github.com/dreikanter/feeder/wiki
+
+## Development
+
+Vagrant setup:
+
+    vagrant up
+    vagrant ssh
+
+Running Rails server:
+
+    rails s
+
+Running Webpack dev server:
+
+    ./bin/webpack-dev-server
+
+Chrome extensions:
+
+- [React dev tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
+- [Redux dev tools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
+
+## Contribution
+
+Feeder is open for contributions! Here are some tips if you like to add a new feed or feature:
+
+- Create a personal fork of the project on Github.
+- Clone the fork on your local machine. Your remote repo on Github is called origin.
+- Add the original repository as a remote called upstream.
+- If you created your fork a while ago be sure to pull upstream changes into your local repository.
+- Branch from the `dev`.
+- Implement your feature or fix a bug. Comment your code.
+- Write or adapt tests as needed.
+- Follow the code style of the project.
+- Push your branch to your fork on Github, the remote origin.
+- From your fork open a pull request in the correct branch. Target the `dev` branch.
+- Once the pull request is approved and merged you can pull the changes from upstream to your local repo and delete your extra branch(es).
+
+If you have any questions or want to report a bug, please open an issue or send me a message on alex.musayev@gmail.com
