@@ -17,11 +17,17 @@ Vagrant setup:
 
 Running Rails server:
 
-    rails s
+    bundle install
+    bundle exec rails server
 
 Running Webpack dev server:
 
+    yarn install
     ./bin/webpack-dev-server
+
+Running tests:
+
+    bundle exec rails test
 
 Chrome extensions:
 
