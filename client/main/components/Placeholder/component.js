@@ -1,7 +1,7 @@
 import cc from 'classcat'
 import React from 'react'
 import PropTypes from 'prop-types'
-import './style.scss'
+import './style'
 
 const Placeholder = ({ className, label }) => (
   <div className={cc('Placeholder', className)}>
