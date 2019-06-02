@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
-import { feedsSelector, pendingFeeds } from 'index/selectors'
+import { feedsSelector } from 'index/selectors'
+import { pendingFeeds } from 'main/selectors'
 import { loadFeeds } from 'main/actions/loadFeeds'
 import Main from './component'
 

@@ -1,0 +1,9 @@
+@import 'client/main/defaults';
+
+.Placeholder {
+  align-items: center;
+  color: $gray;
+  display: flex;
+  justify-content: center;
+  min-height: $span * 20;
+}

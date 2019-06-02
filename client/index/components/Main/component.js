@@ -1,24 +1,28 @@
-import React, { useEffect } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import Placeholder from 'main/components/Placeholder'
 
-function Main ({ load, pending }) {
-  useEffect(() => {
+class Main extends Component {
+  componentDidMount () {
+    const { load } = this.props
     load()
-  })
+  }
 
-  if (pending) {
+  render () {
+    const { pending } = this.props
+
+    if (pending) {
+      return (
+        <Placeholder label="Loading..." />
+      )
+    }
+
     return (
       <div>
-        Loading...
+        Index
       </div>
     )
   }
-
-  return (
-    <div>
-      Index
-    </div>
-  )
 }
 
 Main.propTypes = {
