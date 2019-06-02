@@ -3,5 +3,6 @@ import indexState from 'index/initState'
 
 export default {
   // feed: feedState,
-  index: indexState
+  index: indexState,
+  pending: []
 }

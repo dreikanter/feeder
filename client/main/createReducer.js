@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 import { connectRouter } from 'connected-react-router'
-import index from 'index/reducer'
-// import feed from 'feed/reducer'
+import feed from 'main/reducers/feedReducer'
+import index from 'main/reducers/indexReducer'
 import pending from 'main/reducers/pendingReducer'
 
 export default history => combineReducers({
-  // feed,
+  feed,
   index,
   pending,
   router: connectRouter(history)
