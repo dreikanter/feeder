@@ -3,21 +3,6 @@ import PropTypes from 'prop-types'
 import Placeholder from 'main/components/Placeholder'
 import Stats from 'main/components/Stats'
 
-const stats = [
-  {
-    title: 'Subscribers',
-    value: 1000
-  },
-  {
-    title: 'Subscribers',
-    value: 1000
-  },
-  {
-    title: 'Subscribers',
-    value: 1000
-  },
-]
-
 class Main extends Component {
   componentDidMount () {
     const { load } = this.props
@@ -25,7 +10,7 @@ class Main extends Component {
   }
 
   render () {
-    const { pending } = this.props
+    const { pending, stats } = this.props
 
     if (pending) {
       return (
@@ -43,12 +28,14 @@ class Main extends Component {
 
 Main.propTypes = {
   load: PropTypes.func,
-  pending: PropTypes.bool
+  pending: PropTypes.bool,
+  stats: PropTypes.arrayOf(PropTypes.object)
 }
 
 Main.defaultProps = {
   load: undefined,
-  pending: undefined
+  pending: undefined,
+  stats: []
 }
 
 export default Main
