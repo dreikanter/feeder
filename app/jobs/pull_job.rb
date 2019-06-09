@@ -71,7 +71,8 @@ class PullJob < ApplicationJob
 
         logger.info('---> creating new post')
         attrs = { uid: uid, feed_id: feed.id, status: Enums::PostStatus.ready }
-        Post.create_with(payload).create!(attrs)
+        post = Post.create_with(payload).create!(attrs)
+        feed.update(last_post_created_at: post.created_at)
         posts_count += 1
       rescue => exception
         logger.error("---> error processing entity: #{exception.message}")
