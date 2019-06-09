@@ -34,7 +34,7 @@ Main.propTypes = {
 
 Main.defaultProps = {
   load: undefined,
-  pending: undefined,
+  pending: false,
   stats: []
 }
 

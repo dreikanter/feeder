@@ -12,7 +12,7 @@ export default (state = {}, action) => {
     }
 
     case LOAD_FEEDS_FULFILLED: {
-      return action.payload.meta
+      return action.payload.data.meta
     }
 
     default: {

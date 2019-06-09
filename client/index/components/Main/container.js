@@ -1,13 +1,18 @@
 import { connect } from 'react-redux'
-import { feedsSelector } from 'index/selectors'
-import { pendingFeeds, statsSelector } from 'main/selectors'
 import { loadFeeds } from 'main/actions/loadFeeds'
+
+import {
+  feedsSelector,
+  pendingFeedsSelector,
+  statValuesSelector
+} from 'main/selectors'
+
 import Main from './component'
 
 const mapStateToProps = state => ({
   feeds: feedsSelector(state),
-  pending: pendingFeeds(state),
-  stats: statsSelector(state)
+  pending: pendingFeedsSelector(state),
+  stats: statValuesSelector(state)
 })
 
 const mapDispatchToProps = dispatch => ({

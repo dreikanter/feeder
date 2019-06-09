@@ -6,12 +6,12 @@ export const pendingSelector = state => state.pending || []
 
 export const statsSelector = state => state.stats || {}
 
-export const pendingFeeds = createSelector(
+export const pendingFeedsSelector = createSelector(
   pendingSelector,
   pending => pending.includes(LOAD_FEEDS)
 )
 
-export const pendingFeed = createSelector(
+export const pendingFeedSelector = createSelector(
   pendingSelector,
   pending => pending.includes(LOAD_FEED)
 )
