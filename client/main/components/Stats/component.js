@@ -1,14 +1,20 @@
+import cc from 'classcat'
 import React from 'react'
 import PropTypes from 'prop-types'
 import './style'
 
-const Stats = ({ items }) => (
+const valueClasses = value => cc([
+  'Stats__value',
+  { 'Stats__value--empty': !value }
+])
+
+const Stats = ({ items, placeholder }) => (
   <div className="card-group Stats">
     {items.map(({ title, value }, index) => (
       <div className="card" key={index}>
         <div className="card-body">
-          <h5 className="card-title">{title}</h5>
-          <p className="card-text">{value}</p>
+          <div className="Stats__title">{title}</div>
+          <div className={valueClasses(value)}>{value || placeholder}</div>
         </div>
       </div>
     ))}
@@ -19,11 +25,13 @@ Stats.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
     value: PropTypes.any
-  }))
+  })),
+  placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
 }
 
 Stats.defaultProps = {
-  items: []
+  items: [],
+  placeholder: '–'
 }
 
 export default Stats

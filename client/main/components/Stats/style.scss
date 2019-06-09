@@ -4,6 +4,15 @@
   margin: $span 0;
 
   .card-body {
+    padding: 0.75rem;
     text-align: center;
   }
+}
+
+.Stats__value {
+  font-size: 1.4rem;
+}
+
+.Stats__value--empty {
+  color: silver;
 }
