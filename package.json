@@ -3,8 +3,9 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.18",
     "@fortawesome/free-solid-svg-icons": "^5.8.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
-    "@rails/webpacker": "^4.0.2",
+    "@rails/webpacker": "^4.0.7",
     "axios": "^0.18.0",
+    "babel-loader": "^8.0.6",
     "bootstrap": "^4.3.1",
     "classcat": "^3.2.5",
     "connected-react-router": "^6.4.0",
@@ -43,6 +44,6 @@
     "stylelint-selector-bem-pattern": "^2.0.0",
     "webpack": "^4.33.0",
     "webpack-cli": "~3.3.0",
-    "webpack-dev-server": "^3.4.1"
+    "webpack-dev-server": "^3.7.1"
   }
 }
