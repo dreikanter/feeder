@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_26_194822) do
+ActiveRecord::Schema.define(version: 2019_06_09_193619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2018_11_26_194822) do
     t.json "options", default: {}, null: false
     t.string "loader"
     t.integer "import_limit"
+    t.datetime "last_post_created_at"
     t.index ["name"], name: "index_feeds_on_name", unique: true
   end
 
