@@ -4,6 +4,8 @@ import { LOAD_FEEDS } from 'main/actions/loadFeeds'
 
 export const pendingSelector = state => state.pending || []
 
+export const statsSelector = state => state.stats || {}
+
 export const pendingFeeds = createSelector(
   pendingSelector,
   pending => pending.includes(LOAD_FEEDS)
