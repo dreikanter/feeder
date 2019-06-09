@@ -56,6 +56,11 @@ module Freefeed
       })
     end
 
+    def get_timeline(username, options = {})
+      offset = options[:offset] || 0
+      execute(:get, "timeline/#{username}", payload: { 'offset' => offset })
+    end
+
     private
 
     def token
