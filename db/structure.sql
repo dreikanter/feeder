@@ -1,9 +1,11 @@
 SET statement_timeout = 0;
 SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
 SET check_function_bodies = false;
+SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
@@ -53,6 +55,7 @@ CREATE TABLE public.data_point_series (
 --
 
 CREATE SEQUENCE public.data_point_series_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -84,6 +87,7 @@ CREATE TABLE public.data_points (
 --
 
 CREATE SEQUENCE public.data_points_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -123,6 +127,7 @@ CREATE TABLE public.delayed_jobs (
 --
 
 CREATE SEQUENCE public.delayed_jobs_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -163,6 +168,7 @@ CREATE TABLE public.errors (
 --
 
 CREATE SEQUENCE public.errors_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -204,6 +210,7 @@ CREATE TABLE public.feeds (
 --
 
 CREATE SEQUENCE public.feeds_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -243,6 +250,7 @@ CREATE TABLE public.posts (
 --
 
 CREATE SEQUENCE public.posts_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -267,49 +275,49 @@ CREATE TABLE public.schema_migrations (
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: data_point_series id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.data_point_series ALTER COLUMN id SET DEFAULT nextval('public.data_point_series_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: data_points id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.data_points ALTER COLUMN id SET DEFAULT nextval('public.data_points_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: delayed_jobs id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.delayed_jobs ALTER COLUMN id SET DEFAULT nextval('public.delayed_jobs_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: errors id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.errors ALTER COLUMN id SET DEFAULT nextval('public.errors_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: feeds id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.feeds ALTER COLUMN id SET DEFAULT nextval('public.feeds_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: posts id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.posts ALTER COLUMN id SET DEFAULT nextval('public.posts_id_seq'::regclass);
 
 
 --
--- Name: ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: ar_internal_metadata ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.ar_internal_metadata
@@ -317,7 +325,7 @@ ALTER TABLE ONLY public.ar_internal_metadata
 
 
 --
--- Name: data_point_series_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: data_point_series data_point_series_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.data_point_series
@@ -325,7 +333,7 @@ ALTER TABLE ONLY public.data_point_series
 
 
 --
--- Name: data_points_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: data_points data_points_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.data_points
@@ -333,7 +341,7 @@ ALTER TABLE ONLY public.data_points
 
 
 --
--- Name: delayed_jobs_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: delayed_jobs delayed_jobs_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.delayed_jobs
@@ -341,7 +349,7 @@ ALTER TABLE ONLY public.delayed_jobs
 
 
 --
--- Name: errors_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: errors errors_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.errors
@@ -349,7 +357,7 @@ ALTER TABLE ONLY public.errors
 
 
 --
--- Name: feeds_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: feeds feeds_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.feeds
@@ -357,7 +365,7 @@ ALTER TABLE ONLY public.feeds
 
 
 --
--- Name: posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: posts posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.posts
@@ -365,7 +373,7 @@ ALTER TABLE ONLY public.posts
 
 
 --
--- Name: schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: schema_migrations schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.schema_migrations
