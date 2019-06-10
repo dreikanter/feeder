@@ -1,5 +1,7 @@
 import Index from 'index'
 import Feed from 'feed'
+import Posts from 'posts'
+import Updates from 'updates'
 import routingPaths from 'main/routingPaths'
 
 export default [
@@ -9,13 +11,11 @@ export default [
   },
   {
     path: routingPaths.postsPath,
-    // TODO
-    component: Index
+    component: Posts
   },
   {
     path: routingPaths.updatesPath,
-    // TODO
-    component: Index
+    component: Updates
   },
   {
     path: routingPaths.feedPath,
