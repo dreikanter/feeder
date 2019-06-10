@@ -16,30 +16,32 @@ function DataTable ({ className, cols, records }) {
   ])
 
   return (
-    <table className={tableClassName}>
-      <thead>
-        <tr>
-          {cols.map(({ classes, title }, index) => (
-            <th
-              key={index}
-              className={classes}
-              scope="col"
-            >
-              {title}
-            </th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {records.map((row, rowIndex) => (
-          <tr key={rowIndex}>
-            {cols.map(({ classes, value }, colIndex) => (
-              <td key={colIndex} className={classes}>{value(row)}</td>
+    <div className="table-responsive">
+      <table className={tableClassName}>
+        <thead>
+          <tr>
+            {cols.map(({ classes, title }, index) => (
+              <th
+                key={index}
+                className={classes}
+                scope="col"
+              >
+                {title}
+              </th>
             ))}
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {records.map((row, rowIndex) => (
+            <tr key={rowIndex}>
+              {cols.map(({ classes, value }, colIndex) => (
+                <td key={colIndex} className={classes}>{value(row)}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   )
 }
 
