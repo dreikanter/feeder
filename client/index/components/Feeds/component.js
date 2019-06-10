@@ -16,7 +16,7 @@ const cols = [
   },
   {
     title: 'Posts',
-    classes: '',
+    classes: 'min text-center',
     // eslint-disable-next-line
     value: ({ posts_count }) => posts_count
   },

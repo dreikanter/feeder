@@ -33,8 +33,8 @@ function DataTable ({ className, cols, records }) {
       <tbody>
         {records.map((row, rowIndex) => (
           <tr key={rowIndex}>
-            {cols.map(({ value }, colIndex) => (
-              <td key={colIndex}>{value(row)}</td>
+            {cols.map(({ classes, value }, colIndex) => (
+              <td key={colIndex} className={classes}>{value(row)}</td>
             ))}
           </tr>
         ))}
