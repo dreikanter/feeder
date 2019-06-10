@@ -7,8 +7,19 @@ export default [
     path: routingPaths.rootPath,
     component: Index
   },
-  // {
-  //   path: routingPaths.userPath,
-  //   component: Feed
-  // }
+  {
+    path: routingPaths.postsPath,
+    // TODO
+    component: Index
+  },
+  {
+    path: routingPaths.updatesPath,
+    // TODO
+    component: Index
+  },
+  {
+    path: routingPaths.feedPath,
+    // TODO
+    component: Index
+  }
 ]
