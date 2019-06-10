@@ -2,6 +2,9 @@
 #
 #   rails r scripts/purge_staging.rb
 
+# NOTE: Freefeed base URL is intentionally hardcoded since this script
+# is designed to be used with staging server only
+
 USER = 'feeder'.freeze
 
 posts_count = 0
@@ -13,7 +16,7 @@ loop do
     method: :get,
     url: 'https://candy.freefeed.net/v2/timelines/home?offset=0',
     headers: {
-      'X-Authentication-Token' => ENV.fetch('FREEFEED_TOKEN')
+      'X-Authentication-Token' => Rails.application.credentials.freefeed_token
     }
   )
 
@@ -39,7 +42,7 @@ loop do
       method: :delete,
       url: "https://candy.freefeed.net/v1/posts/#{post_id}",
       headers: {
-        'X-Authentication-Token' => ENV.fetch('FREEFEED_TOKEN')
+        'X-Authentication-Token' => Rails.application.credentials.freefeed_token
       }
     )
 

@@ -1,6 +1,5 @@
 module Freefeed
   class Client
-    BASE_URL = "#{ENV.fetch('FREEFEED_BASE_URL')}/v1/"
     USER_AGENT = 'Mozilla'
 
     def initialize(token)
@@ -68,7 +67,7 @@ module Freefeed
     end
 
     def url(path)
-      BASE_URL + path.to_s
+      "#{Rails.application.credentials.freefeed_base_url}/v1/#{path}"
     end
 
     def auth_header

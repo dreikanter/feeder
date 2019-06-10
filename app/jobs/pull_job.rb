@@ -31,7 +31,10 @@ class PullJob < ApplicationJob
     content = loader.call(feed)
 
     processor = Service::ProcessorResolver.call(feed)
-    limit = feed.import_limit || ENV['DEFAULT_IMPORT_LIMIT'].to_i
+
+    limit = feed.import_limit ||
+      Rails.application.credentials.default_import_limit.to_i
+
     logger.info("---> processor: #{processor}, import limit: #{limit}")
     entities = processor.call(content, limit: limit)
 

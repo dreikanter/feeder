@@ -24,7 +24,7 @@ class PushJob < ApplicationJob
       return
     end
 
-    ff = Freefeed::Client.new(ENV['FREEFEED_TOKEN'])
+    ff = Freefeed::Client.new(Rails.application.credentials.freefeed_token)
 
     attach_ids = post.attachments.reject(&:blank?).map do |url|
       logger.info("create new attachment for #{url}")
