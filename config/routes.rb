@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     end
 
     resource :activity, only: :show, controller: :activity
+    resources :batches, only: :index
   end
 
   root 'layout#show'
