@@ -10,7 +10,7 @@ export const LOAD_FEED_FULFILLED = fulfilled(LOAD_FEED)
 
 export const LOAD_FEED_REJECTED = rejected(LOAD_FEED)
 
-export function loadFeeds (feedId) {
+export function loadFeed (feedId) {
   return {
     type: LOAD_FEED,
     meta: { feedId },

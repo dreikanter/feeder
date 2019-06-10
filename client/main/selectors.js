@@ -4,6 +4,8 @@ import { LOAD_FEEDS } from 'main/actions/loadFeeds'
 
 export const indexSelector = root => root.index || []
 
+export const feedSelector = root => root.feed || {}
+
 export const pendingSelector = state => state.pending || []
 
 export const statsSelector = state => state.stats || {}
