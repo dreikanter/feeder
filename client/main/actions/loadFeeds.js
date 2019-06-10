@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { pending, fulfilled, rejected } from 'main/utils/promiseHelpers'
+import { pending, fulfilled, rejected } from 'lib/utils/promiseHelpers'
 import paths from 'main/paths'
 
 export const LOAD_FEEDS = 'main/LOAD_FEEDS'

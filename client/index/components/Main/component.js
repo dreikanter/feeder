@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import Placeholder from 'main/components/Placeholder'
+import Placeholder from 'lib/components/Placeholder'
+import Stats from 'lib/components/Stats'
 import Feeds from 'index/components/Feeds'
-import Stats from 'main/components/Stats'
 
 class Main extends Component {
   componentDidMount () {

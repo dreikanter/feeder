@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import DataTable from 'main/components/DataTable'
-import ago from 'main/utils/ago'
+import DataTable from 'lib/components/DataTable'
+import ago from 'lib/utils/ago'
 
 const cols = [
   {
