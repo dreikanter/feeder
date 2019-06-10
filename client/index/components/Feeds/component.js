@@ -1,18 +1,17 @@
+import { Link } from 'react-router-dom'
 import React from 'react'
 import PropTypes from 'prop-types'
 import DataTable from 'lib/components/DataTable'
 import ago from 'lib/utils/ago'
+import paths from 'main/paths'
 
 const cols = [
   {
-    title: 'ID',
-    classes: '',
-    value: ({ id }) => id
-  },
-  {
     title: 'Feed name',
     classes: '',
-    value: ({ name }) => name
+    value: ({ id, name }) => (
+      <Link to={paths.feedPath(id)}>{name}</Link>
+    )
   },
   {
     title: 'Posts',
