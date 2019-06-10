@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Placeholder from 'main/components/Placeholder'
+import Feeds from 'index/components/Feeds'
 import Stats from 'main/components/Stats'
 
 class Main extends Component {
@@ -10,7 +11,7 @@ class Main extends Component {
   }
 
   render () {
-    const { pending, stats } = this.props
+    const { feeds, pending, stats } = this.props
 
     if (pending) {
       return (
@@ -21,18 +22,21 @@ class Main extends Component {
     return (
       <Fragment>
         <Stats items={stats} />
+        <Feeds records={feeds} />
       </Fragment>
     )
   }
 }
 
 Main.propTypes = {
+  feeds: PropTypes.array,
   load: PropTypes.func,
   pending: PropTypes.bool,
   stats: PropTypes.arrayOf(PropTypes.object)
 }
 
 Main.defaultProps = {
+  feeds: [],
   load: undefined,
   pending: false,
   stats: []

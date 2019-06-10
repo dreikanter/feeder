@@ -2,7 +2,7 @@ import { createSelector } from 'reselect'
 import { LOAD_FEED } from 'main/actions/loadFeed'
 import { LOAD_FEEDS } from 'main/actions/loadFeeds'
 
-export const feedsSelector = root => root.feeds || []
+export const indexSelector = root => root.index || []
 
 export const pendingSelector = state => state.pending || []
 
