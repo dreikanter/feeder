@@ -11,7 +11,12 @@ class Main extends Component {
   }
 
   render () {
-    const { feeds, pending, stats } = this.props
+    const {
+      clickFeed,
+      feeds,
+      pending,
+      stats
+    } = this.props
 
     if (pending) {
       return (
@@ -22,13 +27,14 @@ class Main extends Component {
     return (
       <Fragment>
         <Stats items={stats} />
-        <Feeds records={feeds} />
+        <Feeds click={clickFeed} records={feeds} />
       </Fragment>
     )
   }
 }
 
 Main.propTypes = {
+  clickFeed: PropTypes.func,
   feeds: PropTypes.array,
   load: PropTypes.func,
   pending: PropTypes.bool,
@@ -36,6 +42,7 @@ Main.propTypes = {
 }
 
 Main.defaultProps = {
+  clickFeed: undefined,
   feeds: [],
   load: undefined,
   pending: false,

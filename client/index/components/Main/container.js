@@ -1,5 +1,7 @@
 import { connect } from 'react-redux'
+import { push } from 'connected-react-router'
 import { loadFeeds } from 'main/actions/loadFeeds'
+import paths from 'main/paths'
 
 import {
   indexSelector,
@@ -16,6 +18,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
+  clickFeed: ({ name }) => dispatch(push(paths.feedPath(name))),
   load: () => dispatch(loadFeeds())
 })
 

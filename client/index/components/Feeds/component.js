@@ -33,19 +33,22 @@ const cols = [
   },
 ]
 
-const Feeds = ({ records }) => (
+const Feeds = ({ click, records }) => (
   <DataTable
     className="Feeds"
+    click={click}
     cols={cols}
     records={records}
   />
 )
 
 Feeds.propTypes = {
+  click: PropTypes.func,
   records: PropTypes.array
 }
 
 Feeds.defaultProps = {
+  click: undefined,
   records: []
 }
 
