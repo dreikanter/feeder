@@ -1,23 +1,23 @@
 import { connect } from 'react-redux'
 import idRouterParam from 'lib/utils/idRouterParam'
-import { loadFeed } from 'main/actions/loadFeed'
+import { loadUpdates } from 'main/actions/loadUpdates'
 
 import {
-  feedSelector,
-  pendingFeedSelector
+  updatesSelector,
+  pendingUpdatesSelector
 } from 'main/selectors'
 
 import Main from './component'
 
 const mapStateToProps = state => ({
-  feed: feedSelector(state),
-  pending: pendingFeedSelector(state)
+  updates: updatesSelector(state),
+  pending: pendingUpdatesSelector(state)
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   load: () => {
     const feedId = idRouterParam(ownProps)
-    dispatch(loadFeed(feedId))
+    dispatch(loadUpdates(feedId))
   }
 })
 

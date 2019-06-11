@@ -9,7 +9,7 @@ class Main extends Component {
   }
 
   render () {
-    const { feed, pending } = this.props
+    const { updates, pending } = this.props
 
     if (pending) {
       return (
@@ -19,20 +19,20 @@ class Main extends Component {
 
     return (
       <pre>
-        {JSON.stringify(feed, null, 2)}
+        {JSON.stringify(updates, null, 2)}
       </pre>
     )
   }
 }
 
 Main.propTypes = {
-  feed: PropTypes.array,
+  updates: PropTypes.array,
   load: PropTypes.func,
   pending: PropTypes.bool
 }
 
 Main.defaultProps = {
-  feed: [],
+  updates: [],
   load: undefined,
   pending: false
 }
