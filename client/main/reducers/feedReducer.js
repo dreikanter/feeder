@@ -12,7 +12,7 @@ export default (state = {}, action) => {
     }
 
     case LOAD_FEED_FULFILLED: {
-      return action.payload.data
+      return action.payload.data.feed
     }
 
     default: {
