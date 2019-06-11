@@ -28,6 +28,7 @@ const Navbar = ({
               <NavLink
                 activeClassName="active"
                 className="nav-link"
+                exact
                 to={path}
               >
                 {label}
