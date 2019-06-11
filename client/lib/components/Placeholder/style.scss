@@ -4,6 +4,7 @@
   align-items: center;
   color: $text-muted;
   display: flex;
+  flex-flow: column;
   justify-content: center;
   min-height: $span * 20;
 }
