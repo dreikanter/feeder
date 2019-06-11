@@ -3,8 +3,10 @@ module Operations
     class Show < Operations::Base
       def call
         {
-          json: feed,
-          meta: meta
+          json: {
+            feed: feed,
+            meta: meta
+          }
         }
       end
 
