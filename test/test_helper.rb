@@ -9,6 +9,7 @@ require 'minitest/pride'
 require 'minitest/spec'
 require 'minitest/autorun'
 require 'minitest/mock'
+require_relative './custom_assertions'
 
 DatabaseCleaner.strategy = :transaction
 
