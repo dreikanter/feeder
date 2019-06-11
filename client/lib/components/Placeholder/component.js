@@ -3,19 +3,22 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './style'
 
-const Placeholder = ({ className, label }) => (
+const Placeholder = ({ children, className, label }) => (
   <div className={cc('Placeholder', className)}>
-    {label}
+    {label || children}
   </div>
 )
 
 Placeholder.propTypes = {
+  children: PropTypes.any,
   className: PropTypes.string,
-  label: PropTypes.string.isRequired
+  label: PropTypes.string
 }
 
 Placeholder.defaultProps = {
-  className: undefined
+  children: undefined,
+  className: undefined,
+  label: undefined
 }
 
 export default Placeholder
