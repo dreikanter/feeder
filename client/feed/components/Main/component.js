@@ -26,13 +26,13 @@ class Main extends Component {
 }
 
 Main.propTypes = {
-  feed: PropTypes.array,
+  feed: PropTypes.object,
   load: PropTypes.func,
   pending: PropTypes.bool
 }
 
 Main.defaultProps = {
-  feed: [],
+  feed: {},
   load: undefined,
   pending: false
 }
