@@ -3,7 +3,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './style.scss'
 
-function DataTable ({ className, cols, records }) {
+function DataTable ({
+  className,
+  click,
+  cols,
+  records
+}) {
   if (!cols.length) {
     return null
   }
@@ -11,6 +16,7 @@ function DataTable ({ className, cols, records }) {
   const tableClassName = cc([
     'table',
     'table-bordered',
+    'table-hover',
     'DataTable',
     className
   ])
@@ -32,8 +38,12 @@ function DataTable ({ className, cols, records }) {
           </tr>
         </thead>
         <tbody>
-          {records.map((row, rowIndex) => (
-            <tr key={rowIndex}>
+          {records.map((row, index) => (
+            <tr
+              key={index}
+              onClick={() => click && click(row, index)}
+              className="DataTable__row"
+            >
               {cols.map(({ classes, value }, colIndex) => (
                 <td key={colIndex} className={classes}>{value(row)}</td>
               ))}
@@ -47,12 +57,14 @@ function DataTable ({ className, cols, records }) {
 
 DataTable.propTypes = {
   className: PropTypes.string,
+  click: PropTypes.func,
   cols: PropTypes.arrayOf(PropTypes.object),
   records: PropTypes.arrayOf(PropTypes.object)
 }
 
 DataTable.defaultProps = {
   className: undefined,
+  click: undefined,
   cols: [],
   records: []
 }

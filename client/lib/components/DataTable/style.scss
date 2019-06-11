@@ -1,3 +1,5 @@
+@import "main/style/defaults";
+
 // NOTE: This rather complex selector is necessary to override
 // standard Bootstrap styling
 .DataTable {
@@ -9,8 +11,19 @@
     }
   }
 
+  &.table-hover tbody {
+    tr:hover td,
+    tr:hover th {
+      background-color: lighten($primary, 42%);
+    }
+  }
+
   .min {
     width: 1%;
     white-space: nowrap;
   }
+}
+
+.DataTable__row {
+  cursor: pointer;
 }
