@@ -12,11 +12,12 @@ Rails.application.routes.draw do
     resources :updates, only: :index
   end
 
-  # Generate path helpers for client-side routing
-  resources :feeds, only: %i[index show], controller: :layout, action: :show, param: :name
+  resources :feeds, only: %i[index show],
+    controller: :layout, action: :show, param: :name
+
   resources :posts, only: :index, controller: :layout, action: :show
   resources :updates, only: :index, controller: :layout, action: :show
-
   root 'layout#show'
+
   get '*path', to: 'layout#show'
 end
