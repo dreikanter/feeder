@@ -1,4 +1,16 @@
 // Shared styling configuration
 
+// This will make Bootstrap variables available from the component stylesheets
+// SEE: https://github.com/twbs/bootstrap/blob/master/scss/_variables.scss
+@import "bootstrap/scss/_functions";
+@import "bootstrap/scss/_variables";
+
+//
+// Dimensions
+//
+
 $span: 10px;
-$gray: gray;
+
+$span-small: 5px;
+$span-medium: $span;
+$span-large: 20px;
