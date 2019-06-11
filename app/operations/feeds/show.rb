@@ -11,11 +11,11 @@ module Operations
       private
 
       def feed
-        Feed.find(id)
+        Feed.find_by(name: name)
       end
 
-      def id
-        params.fetch(:id)
+      def name
+        params.fetch(:name)
       end
 
       def meta

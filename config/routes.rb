@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
-    resources :feeds, only: %i[index show] do
+    resources :feeds, only: %i[index show], param: :name do
       resource :activity, only: :show, controller: :activity
       resources :posts, only: :index
       resources :updates, only: :index
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   # Generate path helpers for client-side routing
-  resources :feeds, only: %i[index show], controller: :layout, action: :show
+  resources :feeds, only: %i[index show], controller: :layout, action: :show, param: :name
   resources :posts, only: :index, controller: :layout, action: :show
   resources :updates, only: :index, controller: :layout, action: :show
 

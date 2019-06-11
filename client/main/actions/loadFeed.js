@@ -10,10 +10,10 @@ export const LOAD_FEED_FULFILLED = fulfilled(LOAD_FEED)
 
 export const LOAD_FEED_REJECTED = rejected(LOAD_FEED)
 
-export function loadFeed (feedId) {
+export function loadFeed (name) {
   return {
     type: LOAD_FEED,
-    meta: { feedId },
-    payload: axios.get(paths.apiFeedPath(feedId))
+    meta: { name },
+    payload: axios.get(paths.apiFeedPath(name))
   }
 }

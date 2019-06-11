@@ -1,15 +1,16 @@
 import paths from 'main/paths'
 
 const patterns = {
-  id: ':id(\\d+)'
+  id: ':id(\\d+)',
+  name: ':name([\\w_-]+)'
 }
 
 const routingPaths = {
-  indexPath:
+  rootPath:
     paths.rootPath(),
 
   feedPath:
-    paths.feedPath(patterns.id),
+    paths.feedPath(patterns.name),
 
   postsPath:
     paths.postsPath(),

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import idRouterParam from 'lib/utils/idRouterParam'
+import routerParam from 'lib/utils/routerParam'
 import { loadFeed } from 'main/actions/loadFeed'
 
 import {
@@ -16,8 +16,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   load: () => {
-    const feedId = idRouterParam(ownProps)
-    dispatch(loadFeed(feedId))
+    const name = routerParam(ownProps, 'name')
+    dispatch(loadFeed(name))
   }
 })
 
