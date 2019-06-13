@@ -13,7 +13,7 @@ module Operations
       private
 
       def posts
-        []
+        each_s11n(Post.includes(:feed).recent, PostSerializer)
       end
 
       def meta

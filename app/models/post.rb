@@ -29,6 +29,7 @@ class Post < ApplicationRecord
 
   validate :link, :presence
 
+  # TODO: Consider moving this to configuration
   RECENT_LIMIT = 50
 
   scope :publishing_queue, -> { ready.order(published_at: :asc) }
