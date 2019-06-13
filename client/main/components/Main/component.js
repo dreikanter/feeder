@@ -22,6 +22,10 @@ const navLinks = [
     path: paths.updatesPath(),
     label: 'Updates'
   },
+  {
+    path: paths.aboutPath(),
+    label: 'About'
+  },
 ]
 
 const App = () => (

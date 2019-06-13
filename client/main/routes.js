@@ -2,6 +2,7 @@ import Index from 'index'
 import Feed from 'feed'
 import Posts from 'posts'
 import Updates from 'updates'
+import About from 'about'
 import routingPaths from 'main/routingPaths'
 
 export default [
@@ -20,5 +21,9 @@ export default [
   {
     path: routingPaths.feedPath,
     component: Feed
+  },
+  {
+    path: routingPaths.aboutPath,
+    component: About
   }
 ]

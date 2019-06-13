@@ -6,17 +6,11 @@ const patterns = {
 }
 
 const routingPaths = {
-  rootPath:
-    paths.rootPath(),
-
-  feedPath:
-    paths.feedPath(patterns.name),
-
-  postsPath:
-    paths.postsPath(),
-
-  updatesPath:
-    paths.updatesPath()
+  rootPath: paths.rootPath(),
+  feedPath: paths.feedPath(patterns.name),
+  postsPath: paths.postsPath(),
+  updatesPath: paths.updatesPath(),
+  aboutPath: paths.aboutPath()
 }
 
 export default Object.assign({}, ...Object.keys(routingPaths).map(

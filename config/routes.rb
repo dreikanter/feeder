@@ -17,7 +17,9 @@ Rails.application.routes.draw do
 
   resources :posts, only: :index, controller: :layout, action: :show
   resources :updates, only: :index, controller: :layout, action: :show
+
   root 'layout#show'
 
+  get :about, controller: :layout, action: :show
   get '*path', to: 'layout#show'
 end
