@@ -1,9 +1,6 @@
 module Operations
   module Batches
     class Index < Operations::Base
-      # Amount of recent data points to show
-      HISTORY_DEPTH = 20
-
       def call
         {
           json: {
@@ -15,7 +12,10 @@ module Operations
       private
 
       def batches
-        DataPoint.for('batch').limit(HISTORY_DEPTH)
+        DataPoint
+          .recent
+          .for('batch')
+          .map { |dp| dp.details }
       end
     end
   end
