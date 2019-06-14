@@ -22,7 +22,7 @@ const cols = [
     title: 'Feed',
     classes: '',
     value: ({ feed_name, feed_url }) => (
-      <Link to={feed_url}>{feed_name}</Link>
+      <a href={feed_url}>{feed_name}</a>
     )
   },
   {
