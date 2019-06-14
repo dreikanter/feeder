@@ -9,7 +9,7 @@ const valueClasses = value => cc([
 ])
 
 const Stats = ({ items, placeholder }) => (
-  <div className="card-group Stats">
+  <div className="card-group mb-3 Stats">
     {items.map(({ title, value }, index) => (
       <div className="card" key={index}>
         <div className="card-body">

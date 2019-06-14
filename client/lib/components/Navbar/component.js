@@ -7,7 +7,7 @@ const Navbar = ({
   brandTitle,
   links
 }) => (
-  <nav className="navbar navbar-expand-lg navbar-light bg-light">
+  <nav className="navbar navbar-expand-lg navbar-light bg-light mb-3">
     <div className="container">
       <Link className="navbar-brand" to={brandLink}>{brandTitle}</Link>
       <button
