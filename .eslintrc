@@ -4,6 +4,7 @@
     "browser": true
   },
   "rules": {
+    "camelcase": ["error", {ignoreDestructuring: true}],
     "semi": "off",
     "import/prefer-default-export": "off",
     "comma-dangle": "off",
