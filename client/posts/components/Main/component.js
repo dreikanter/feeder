@@ -6,6 +6,7 @@ import DataTable from 'lib/components/DataTable'
 import MutedZero from 'lib/components/MutedZero'
 import Pending from 'lib/components/Pending'
 import ReadableTime from 'lib/components/ReadableTime'
+import paths from 'main/paths'
 
 /* eslint-disable react/prop-types, camelcase */
 const cols = [
@@ -21,8 +22,8 @@ const cols = [
   {
     title: 'Feed',
     classes: '',
-    value: ({ feed_name, feed_url }) => (
-      <a href={feed_url}>{feed_name}</a>
+    value: ({ feed_name }) => (
+      <a href={paths.feedPath(feed_name)}>{feed_name}</a>
     )
   },
   {

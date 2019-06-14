@@ -92,12 +92,14 @@ class PullJob < ApplicationJob
     feed.update(refreshed_at: started_at)
     Post.publishing_queue_for(feed).each { |p| PushJob.perform_later(p) }
 
+    status = errors_count.zero? ? 'success' : 'has-errors'
+
     DataPoint.create_pull(
       feed_name: feed_name,
       posts_count: posts_count,
       errors_count: errors_count,
       duration: Time.new.utc - started_at,
-      status: 'success'
+      status: status
     )
 
     DataPoint.purge_old_records!

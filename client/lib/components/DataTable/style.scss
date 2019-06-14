@@ -25,5 +25,7 @@
 }
 
 .DataTable__row {
-  cursor: pointer;
+  .table-hover & {
+    cursor: pointer;
+  }
 }
