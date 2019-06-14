@@ -33,7 +33,11 @@ function ReadableTime ({ value }) {
 }
 
 ReadableTime.propTypes = {
-  value: PropTypes.string.isRequired
+  value: PropTypes.string
+}
+
+ReadableTime.defaultProps = {
+  value: undefined
 }
 
 export default ReadableTime
