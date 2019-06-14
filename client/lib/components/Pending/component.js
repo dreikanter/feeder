@@ -9,7 +9,7 @@ const Pending = () => (
       className="text-muted"
       icon={faSpinner}
       pulse
-      size="xl"
+      size="2x"
     />
   </Placeholder>
 )
