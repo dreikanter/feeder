@@ -14,9 +14,9 @@ const cols = [
     title: <FontAwesomeIcon icon={faLink} />,
     classes: 'min',
     value: ({ post_url }) => (
-      <Link to={post_url}>
+      <a href={post_url}>
         <FontAwesomeIcon icon={faLink} />
-      </Link>
+      </a>
     )
   },
   {
