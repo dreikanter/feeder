@@ -16,7 +16,9 @@ function DataTable ({
   const tableClassName = cc([
     'table',
     'table-bordered',
-    'table-hover',
+    {
+      'table-hover': !!click
+    },
     'DataTable',
     className
   ])
