@@ -15,7 +15,11 @@ class PostSerializer < ApplicationSerializer
     object.feed.name
   end
 
-  attribute :freefeed_url do
+  attribute :feed_url do
+    Service::FreefeedFeedURL.call(object.feed.name)
+  end
+
+  attribute :post_url do
     Service::FreefeedPostURL.call(object.feed.name, object.freefeed_post_id)
   end
 end
