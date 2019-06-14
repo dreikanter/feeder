@@ -13,7 +13,7 @@ class Main extends Component {
 
     if (pending) {
       return (
-        <Placeholder label="Loading..." />
+        <Pending />
       )
     }
 

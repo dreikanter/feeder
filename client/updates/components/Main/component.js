@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Placeholder from 'lib/components/Placeholder'
+import Pending from 'lib/components/Pending'
 
 class Main extends Component {
   componentDidMount () {
@@ -13,7 +13,7 @@ class Main extends Component {
 
     if (pending) {
       return (
-        <Placeholder label="Loading..." />
+        <Pending />
       )
     }
 
