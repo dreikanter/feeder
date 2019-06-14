@@ -1,11 +1,10 @@
-import { Link } from 'react-router-dom'
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLink } from '@fortawesome/free-solid-svg-icons'
-import Pending from 'lib/components/Pending'
 import DataTable from 'lib/components/DataTable'
 import MutedZero from 'lib/components/MutedZero'
+import Pending from 'lib/components/Pending'
 import ReadableTime from 'lib/components/ReadableTime'
 
 /* eslint-disable react/prop-types, camelcase */
@@ -73,10 +72,13 @@ class Main extends Component {
     }
 
     return (
-      <DataTable
-        cols={cols}
-        records={posts}
-      />
+      <Fragment>
+        <h1>Recent posts</h1>
+        <DataTable
+          cols={cols}
+          records={posts}
+        />
+      </Fragment>
     )
   }
 }
