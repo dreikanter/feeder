@@ -2,12 +2,20 @@ import moment from 'moment'
 import React from 'react'
 import PropTypes from 'prop-types'
 
+function fullFormat (value) {
+  return value.format('YYYY/MM/DD HH:mm')
+}
+
 function format (value) {
+  if (value.isAfter(moment().subtract(48, 'hours'))) {
+    return value.fromNow()
+  }
+
   if (value.isAfter(moment().startOf('year'))) {
     return value.format('MM/DD HH:mm')
   }
 
-  return value.format('YYYY/MM/DD HH:mm')
+  return fullFormat(value)
 }
 
 function ReadableTime ({ value }) {
@@ -17,7 +25,11 @@ function ReadableTime ({ value }) {
     return null
   }
 
-  return <time dateTime={value}>{format(parsedValue)}</time>
+  return (
+    <time dateTime={value} title={fullFormat(parsedValue)}>
+      {format(parsedValue)}
+    </time>
+  )
 }
 
 ReadableTime.propTypes = {
