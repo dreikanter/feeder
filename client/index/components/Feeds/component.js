@@ -11,12 +11,13 @@ import paths from 'main/paths'
 const recencyThreshold = 3600 // seconds
 
 function humanizedTime (value) {
-  const time = moment(value)
+  const time = moment.utc(value)
   const threshold = moment().subtract(recencyThreshold, 'seconds')
+  const formatted = <time dateTime={value}>{ago(value)}</time>
 
   if (time.isAfter(threshold)) {
     return (
-      <mark>{ago(value)}</mark>
+      <mark>{formatted}</mark>
     )
   }
 
@@ -25,7 +26,7 @@ function humanizedTime (value) {
       condition={!!value}
       placeholder="–"
     >
-      {ago(value)}
+      {formatted}
     </ConditionalPlaceholder>
   )
 }
