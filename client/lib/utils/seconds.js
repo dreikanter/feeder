@@ -1,5 +1,5 @@
 function seconds (amount) {
-  const value = amount.toPrecision(2)
+  const value = amount.toFixed(2)
 
   return `${value} s`
 }
