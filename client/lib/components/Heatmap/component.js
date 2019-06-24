@@ -5,21 +5,41 @@ import ReactTooltip from 'react-tooltip'
 import 'react-calendar-heatmap/dist/styles.css'
 import './style.scss'
 
-const Heatmap = ({ values }) => (
+function tooltipDataAttrs ({ count, date }) {
+  if (!count || !date) {
+    return {}
+  }
+
+  return {
+    'data-tip': `${date}: ${count}`
+  }
+}
+
+const Heatmap = ({
+  endDate,
+  startDate,
+  values
+}) => (
   <div className="Heatmap">
     <CalendarHeatmap
+      endDate={endDate}
+      startDate={startDate}
+      tooltipDataAttrs={tooltipDataAttrs}
       values={values}
-      tooltipDataAttrs={({ tip }) => tip}
     />
-    <ReactTooltip />
+    <ReactTooltip place="top" type="dark" effect="float" />
   </div>
 )
 
 Heatmap.propTypes = {
-  values: PropTypes.arrayOf(PropTypes.number)
+  endDate: PropTypes.object,
+  startDate: PropTypes.object,
+  values: PropTypes.arrayOf(PropTypes.object)
 }
 
 Heatmap.defaultProps = {
+  endDate: undefined,
+  startDate: undefined,
   values: []
 }
 

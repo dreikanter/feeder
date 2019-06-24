@@ -14,6 +14,8 @@ class Main extends Component {
   render () {
     const {
       activity,
+      activityEndDate,
+      activityStartDate,
       clickFeed,
       feeds,
       pending,
@@ -29,7 +31,11 @@ class Main extends Component {
     return (
       <Fragment>
         <Stats items={stats} />
-        <Heatmap values={activity} />
+        <Heatmap
+          endDate={activityEndDate}
+          startDate={activityStartDate}
+          values={activity}
+        />
         <Feeds click={clickFeed} records={feeds} />
       </Fragment>
     )
@@ -37,7 +43,9 @@ class Main extends Component {
 }
 
 Main.propTypes = {
-  activity: PropTypes.object,
+  activity: PropTypes.array,
+  activityEndDate: PropTypes.object,
+  activityStartDate: PropTypes.object,
   clickFeed: PropTypes.func,
   feeds: PropTypes.array,
   load: PropTypes.func,
@@ -46,7 +54,9 @@ Main.propTypes = {
 }
 
 Main.defaultProps = {
-  activity: {},
+  activity: [],
+  activityEndDate: undefined,
+  activityStartDate: undefined,
   clickFeed: undefined,
   feeds: [],
   load: undefined,
