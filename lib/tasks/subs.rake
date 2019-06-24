@@ -1,7 +1,8 @@
 SERIES_NAME = 'subs'
 EXPIRATION_THRESHOLD = 2.hours.ago
 
-# Limit for the amount of feeds to be updated in one batch
+# Limit for the amount of feeds to be updated in one batch. Updates frequency
+# will depend on this setting and cron configuration for the current task.
 THROTTLING_LIMIT = 5
 
 desc 'Update Freefeed subscriptions count'
