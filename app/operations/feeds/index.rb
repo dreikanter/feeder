@@ -14,7 +14,8 @@ module Operations
 
       def feeds
         names = Service::FeedsList.call.map { |feed| feed['name'] }
-        Feed.where(name: names).order(:updated_at)
+        feeds = Feed.where(name: names).order(:updated_at)
+        each_s11n(feeds, FeedSerializer)
       end
 
       def meta
