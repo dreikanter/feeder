@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Pending from 'lib/components/Pending'
 import Feed from 'feed/components/Feed'
@@ -19,7 +19,14 @@ class Main extends Component {
     }
 
     return (
-      <Feed feed={feed} />
+      <Fragment>
+        <h1>
+          Feed:
+          {' '}
+          <mark>@{feed.name}</mark>
+        </h1>
+        <Feed feed={feed} />
+      </Fragment>
     )
   }
 }
