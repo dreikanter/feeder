@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Pending from 'lib/components/Pending'
+import Feed from 'feed/components/Feed'
 
 class Main extends Component {
   componentDidMount () {
@@ -18,9 +19,7 @@ class Main extends Component {
     }
 
     return (
-      <pre>
-        {JSON.stringify(feed, null, 2)}
-      </pre>
+      <Feed feed={feed} />
     )
   }
 }
