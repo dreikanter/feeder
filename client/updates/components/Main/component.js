@@ -11,35 +11,32 @@ import paths from 'main/paths'
 const cols = [
   {
     title: 'Status',
-    classes: 'text-center min',
+    headClasses: 'text-center min',
+    cellClasses: 'text-center min',
     value: ({ status }) => (
       <UpdateStatus value={status} />
     )
   },
   {
     title: 'Feed name',
-    classes: '',
     value: ({ feed_name }) => (
       <a href={paths.feedPath(feed_name)}>{feed_name}</a>
     )
   },
   {
     title: 'New posts',
-    classes: '',
     value: ({ posts_count }) => (
       <MutedZero value={posts_count} />
     )
   },
   {
     title: 'Executed at',
-    classes: '',
     value: ({ created_at }) => (
       <ReadableTime value={created_at} />
     )
   },
   {
     title: 'Duration',
-    classes: '',
     value: ({ duration }) => (
       `${duration.toPrecision(2)} s`
     )
@@ -64,7 +61,12 @@ class Main extends Component {
 
     return (
       <Fragment>
-        <h1>Recent posts</h1>
+        <h1>Recent feed updates</h1>
+        <DataTable
+          cols={cols}
+          records={updates}
+        />
+        <h1>Batch updates</h1>
         <DataTable
           cols={cols}
           records={updates}

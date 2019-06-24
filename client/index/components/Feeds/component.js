@@ -9,24 +9,27 @@ import paths from 'main/paths'
 const cols = [
   {
     title: 'Feed name',
-    classes: 'col-auto text-nowrap',
+    headClasses: 'col-auto text-nowrap',
     value: ({ id, name }) => (
       <Link to={paths.feedPath(id)}>{name}</Link>
     )
   },
   {
     title: 'Posts',
-    classes: 'col-auto text-center text-nowrap',
+    headClasses: 'col-auto text-nowrap',
+    cellClasses: 'text-right',
     value: ({ posts_count }) => posts_count
   },
   {
     title: 'Last post',
-    classes: 'col-auto text-nowrap',
+    headClasses: 'col-auto text-nowrap',
+    cellClasses: 'text-right text-nowrap',
     value: ({ last_post_created_at }) => ago(last_post_created_at)
   },
   {
     title: 'Refreshed at',
-    classes: 'col-auto text-nowrap',
+    headClasses: 'col-auto text-nowrap',
+    cellClasses: 'text-right text-nowrap',
     value: ({ refreshed_at }) => ago(refreshed_at)
   },
 ]

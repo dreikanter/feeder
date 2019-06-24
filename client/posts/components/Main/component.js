@@ -12,7 +12,7 @@ import paths from 'main/paths'
 const cols = [
   {
     title: <FontAwesomeIcon icon={faLink} />,
-    classes: 'min',
+    headClasses: 'min',
     value: ({ post_url }) => (
       <a href={post_url}>
         <FontAwesomeIcon icon={faLink} />
@@ -21,35 +21,38 @@ const cols = [
   },
   {
     title: 'Feed',
-    classes: '',
     value: ({ feed_name }) => (
       <a href={paths.feedPath(feed_name)}>{feed_name}</a>
     )
   },
   {
     title: 'Comments',
-    classes: '',
+    headClasses: '',
+    cellClasses: '',
     value: ({ comments }) => (
       <MutedZero value={comments.length} />
     )
   },
   {
     title: 'Attachments',
-    classes: '',
+    headClasses: '',
+    cellClasses: '',
     value: ({ attachments }) => (
       <MutedZero value={attachments.length} />
     )
   },
   {
     title: 'Published at',
-    classes: '',
+    headClasses: '',
+    cellClasses: '',
     value: ({ published_at }) => (
       <ReadableTime value={published_at} />
     )
   },
   {
     title: 'Created at',
-    classes: '',
+    headClasses: '',
+    cellClasses: '',
     value: ({ created_at }) => (
       <ReadableTime value={created_at} />
     )

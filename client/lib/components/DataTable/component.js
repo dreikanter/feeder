@@ -28,10 +28,10 @@ function DataTable ({
       <table className={tableClassName}>
         <thead>
           <tr>
-            {cols.map(({ classes, title }, index) => (
+            {cols.map(({ headClasses, title }, index) => (
               <th
                 key={index}
-                className={classes}
+                className={headClasses}
                 scope="col"
               >
                 {title}
@@ -46,8 +46,8 @@ function DataTable ({
               onClick={() => click && click(row, index)}
               className="DataTable__row"
             >
-              {cols.map(({ classes, value }, colIndex) => (
-                <td key={colIndex} className={classes}>{value(row)}</td>
+              {cols.map(({ cellClasses, value }, colIndex) => (
+                <td key={colIndex} className={cellClasses}>{value(row)}</td>
               ))}
             </tr>
           ))}
