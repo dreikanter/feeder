@@ -8,6 +8,8 @@ import MutedZero from 'lib/components/MutedZero'
 
 const noConstrants = <Mute>No constraints</Mute>
 
+const timestampPlaceholder = <Mute>–</Mute>
+
 /* eslint-disable react/prop-types, camelcase */
 const feedPresenters = ([
   {
@@ -32,19 +34,27 @@ const feedPresenters = ([
   },
   {
     label: 'Refreshed at',
-    value: ({ refreshed_at }) => formatTime(refreshed_at)
+    value: ({ refreshed_at }) => (
+      formatTime(refreshed_at, timestampPlaceholder)
+    )
   },
   {
     label: 'Last post created at',
-    value: ({ last_post_created_at }) => formatTime(last_post_created_at, 'None')
+    value: ({ last_post_created_at }) => (
+      formatTime(last_post_created_at, timestampPlaceholder)
+    )
   },
   {
     label: 'Updated at',
-    value: ({ updated_at }) => formatTime(updated_at)
+    value: ({ updated_at }) => (
+      formatTime(updated_at, timestampPlaceholder)
+    )
   },
   {
     label: 'Created at',
-    value: ({ created_at }) => formatTime(created_at)
+    value: ({ created_at }) => (
+      formatTime(created_at, timestampPlaceholder)
+    )
   },
   {
     label: 'Source URL',
@@ -54,15 +64,21 @@ const feedPresenters = ([
   },
   {
     label: 'Loader',
-    value: ({ loader }) => <code>{loader || 'default'}</code>
+    value: ({ loader }) => (
+      <code>{loader || 'default'}</code>
+    )
   },
   {
     label: 'Processor',
-    value: ({ processor }) => <code>{processor}</code>
+    value: ({ processor }) => (
+      <code>{processor}</code>
+    )
   },
   {
     label: 'Normalizer',
-    value: ({ normalizer }) => <code>{normalizer}</code>
+    value: ({ normalizer }) => (
+      <code>{normalizer}</code>
+    )
   },
   {
     label: 'Import posts created after',

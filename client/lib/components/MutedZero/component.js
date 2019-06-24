@@ -5,7 +5,7 @@ import Mute from 'lib/components/Mute'
 function MutedZero ({ children }) {
   if (!children) {
     return (
-      <Mute>{children}</Mute>
+      <Mute>0</Mute>
     )
   }
 

@@ -1,6 +1,7 @@
 import cc from 'classcat'
 import React from 'react'
 import PropTypes from 'prop-types'
+import Mute from 'lib/components/Mute'
 import './style'
 
 const valueClasses = value => cc([
@@ -31,7 +32,7 @@ Stats.propTypes = {
 
 Stats.defaultProps = {
   items: [],
-  placeholder: '–'
+  placeholder: <Mute>–</Mute>
 }
 
 export default Stats
