@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import { Provider } from 'react-redux'
 import { Route, Switch } from 'react-router-dom'
 import { ConnectedRouter } from 'connected-react-router'
+import Footer from 'main/components/Footer'
 import Navbar from 'lib/components/Navbar'
 import PageNotFound from 'main/components/PageNotFound'
 import { store, history } from 'main/store'
@@ -25,7 +26,7 @@ const navLinks = [
   {
     path: paths.aboutPath(),
     label: 'About'
-  },
+  }
 ]
 
 const App = () => (
@@ -46,6 +47,7 @@ const App = () => (
           </Switch>
         </main>
       </Fragment>
+      <Footer />
     </ConnectedRouter>
   </Provider>
 )

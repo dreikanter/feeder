@@ -1,41 +1,10 @@
 @import "main/style/defaults";
 
-$footer-height: $spacer * 5;
-
 html {
   position: relative;
   min-height: 100%;
 }
 
 body {
-  margin-bottom: $footer-height;
-}
-
-.footer {
-  width: 100%;
-  // Set the fixed height of the footer here
-  height: $footer-height;
-  // Vertically center the text there
-  line-height: $footer-height;
-}
-
-.footer-list {
-  display: block;
-  margin: 0;
-  padding: 0;
-  text-align: center
-}
-
-.footer-item {
-  display: inline;
-}
-
-.footer-item a {
-  color: $text-muted;
-  white-space: nowrap;
-}
-
-.footer-item:not(:last-child)::after {
-  content: "·";
-  margin: 0 .25em;
+  margin-bottom: $spacer;
 }

@@ -9,21 +9,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <footer class="footer">
-      <div class="container">
-        <ul class="footer-list">
-          <li class="footer-item">
-            <a href="https://github.com/dreikanter/feeder">GitHub</a>
-          </li>
-          <li class="footer-item">
-            <a href="https://github.com/dreikanter/feeder/issues">Bug reports</a>
-          </li>
-          <li class="footer-item">
-            <a href="https://freefeed.net/feeder">Freefeed</a>
-          </li>
-        </ul>
-      </div>
-    </footer>
     <%= render(partial: 'partials/yandex_metrika') if Rails.env.production? %>
   </body>
 </html>
