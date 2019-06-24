@@ -34,6 +34,20 @@ Chrome extensions:
 - [React dev tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
 - [Redux dev tools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
 
+## Scheduling
+
+Schedule feeds updates:
+
+```
+*/5 * * * * cd /var/www/feeder/current && RAILS_ENV=production /home/deploy/.rbenv/shims/bundle exec rails pull:all jobs:workoff > /var/www/feeder/current/log/cron-pull.log 2>&1
+```
+
+Schedule Freefeed stats update:
+
+```
+0 * * * * cd /var/www/feeder/current && RAILS_ENV=production /home/deploy/.rbenv/shims/bundle exec rails subs jobs:workoff > /var/www/feeder/current/log/cron-subs.log 2>&1
+```
+
 ## Contribution
 
 Feeder is open for contributions! Here are some tips if you like to add a new feed or feature:
