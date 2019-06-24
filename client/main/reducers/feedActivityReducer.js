@@ -8,7 +8,7 @@ export default (state = {}, action) => {
   switch (action.type) {
     case LOAD_FEED_ACTIVITY_PENDING:
     case LOAD_FEED_ACTIVITY_REJECTED: {
-      return []
+      return {}
     }
 
     case LOAD_FEED_ACTIVITY_FULFILLED: {

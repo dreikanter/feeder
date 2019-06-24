@@ -21,7 +21,7 @@ export const postsSelector = state => state.posts || []
 
 export const updatesSelector = state => state.updates || []
 
-export const activitySelector = state => state.activity || []
+export const activitySelector = state => state.activity || {}
 
 export const batchesSelector = state => state.batches || []
 
@@ -29,7 +29,7 @@ export const feedPostsSelector = state => state.feedPosts || []
 
 export const feedUpdatesSelector = state => state.feedUpdates || []
 
-export const feedActivitySelector = state => state.feedActivity || []
+export const feedActivitySelector = state => state.feedActivity || {}
 
 const createPendingSelector = actionType => createSelector(
   pendingSelector,

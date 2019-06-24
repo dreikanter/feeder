@@ -1,8 +1,8 @@
 export default {
-  activity: [],
+  activity: {},
   batches: [],
   feed: {},
-  feedActivity: [],
+  feedActivity: {},
   feedPosts: [],
   feedUpdates: [],
   index: [],
