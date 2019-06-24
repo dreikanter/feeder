@@ -17,6 +17,7 @@
 #  loader               :string
 #  import_limit         :integer
 #  last_post_created_at :datetime
+#  subscriptions_count  :integer          default(0), not null
 #
 # Indexes
 #

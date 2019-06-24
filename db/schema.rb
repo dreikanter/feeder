@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_09_193619) do
+ActiveRecord::Schema.define(version: 2019_06_24_150553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 2019_06_09_193619) do
     t.string "loader"
     t.integer "import_limit"
     t.datetime "last_post_created_at"
+    t.integer "subscriptions_count", default: 0, null: false
     t.index ["name"], name: "index_feeds_on_name", unique: true
   end
 
