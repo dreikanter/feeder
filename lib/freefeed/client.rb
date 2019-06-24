@@ -1,6 +1,7 @@
 module Freefeed
   class Client
     USER_AGENT = 'Mozilla'
+    DEFAULT_API_VERSION = 1
 
     def initialize(token)
       @token = token
@@ -57,7 +58,13 @@ module Freefeed
 
     def get_timeline(username, options = {})
       offset = options[:offset] || 0
-      execute(:get, "timeline/#{username}", payload: { 'offset' => offset })
+
+      execute(
+        :get,
+        "timelines/#{username}",
+        payload: { 'offset' => offset },
+        version: 2
+      )
     end
 
     private
@@ -66,8 +73,9 @@ module Freefeed
       @token
     end
 
-    def url(path)
-      "#{Rails.application.credentials.freefeed_base_url}/v1/#{path}"
+    def url(path, options = {})
+      version = options[:version] || DEFAULT_API_VERSION
+      "#{Rails.application.credentials.freefeed_base_url}/v#{version}/#{path}"
     end
 
     def auth_header
@@ -77,7 +85,7 @@ module Freefeed
     def execute(method, path, options = {})
       request_params = {
         method: method,
-        url: url(path),
+        url: url(path, version: options[:version]),
         payload: options[:payload],
         headers: (options[:headers] || {}).merge(auth_header)
       }
