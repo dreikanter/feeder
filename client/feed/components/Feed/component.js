@@ -1,91 +1,88 @@
-import moment from 'moment'
 import React from 'react'
 import PropTypes from 'prop-types'
-import HorizontalTable from 'lib/components/HorizontalTable'
 import every from 'lib/utils/every'
+import formatTime from 'lib/utils/formatTime'
+import HorizontalTable from 'lib/components/HorizontalTable'
+import MutedZero from 'lib/components/MutedZero'
 
 /* eslint-disable react/prop-types, camelcase */
-const feedValues = ({
-  id,
-  name,
-  posts_count,
-  refreshed_at,
-  created_at,
-  updated_at,
-  url,
-  processor,
-  normalizer,
-  after,
-  refresh_interval,
-  loader,
-  import_limit,
-  last_post_created_at
-}) => ([
-  {
-    label: 'ID',
-    value: id
-  },
+const feedPresenters = ([
   {
     label: 'Name',
-    value: name
+    value: ({ name }) => name
   },
   {
     label: 'Freefeed group',
-    value: `https://freefeed.net/${name}`
+    value: ({ name }) => {
+      const url = `https://freefeed.net/${name}`
+
+      return (
+        <a href={url}>{url}</a>
+      )
+    }
   },
   {
     label: 'Posts count',
-    value: posts_count
+    value: ({ posts_count }) => (
+      <MutedZero value={posts_count} />
+    )
   },
   {
     label: 'Refreshed at',
-    value: moment(refreshed_at)
+    value: ({ refreshed_at }) => formatTime(refreshed_at)
   },
   {
     label: 'Last post created at',
-    value: moment(last_post_created_at)
+    value: ({ last_post_created_at }) => formatTime(last_post_created_at)
   },
   {
     label: 'Updated at',
-    value: moment(updated_at)
+    value: ({ updated_at }) => formatTime(updated_at)
   },
   {
     label: 'Created at',
-    value: moment(created_at)
+    value: ({ created_at }) => formatTime(created_at)
   },
   {
     label: 'Source URL',
-    value: url
+    value: ({ url }) => (
+      <a href={url}>{url}</a>
+    )
   },
   {
     label: 'Loader',
-    value: loader
+    value: ({ loader }) => loader || 'default'
   },
   {
     label: 'Processor',
-    value: processor
+    value: ({ processor }) => processor
   },
   {
     label: 'Normalizer',
-    value: normalizer
+    value: ({ normalizer }) => normalizer
   },
   {
     label: 'Import posts created after',
-    value: moment(after).format()
+    value: ({ after }) => formatTime(after)
   },
   {
     label: 'Refresh interval',
-    value: every(refresh_interval)
+    value: ({ refresh_interval }) => every(refresh_interval)
   },
   {
     label: 'Import limit',
-    value: import_limit
+    value: ({ import_limit }) => (
+      <MutedZero value={import_limit} />
+    )
   }
 ])
 /* eslint-enable react/prop-types, camelcase */
 
 const Feed = ({ feed }) => (
-  <HorizontalTable values={feedValues(feed)} />
+  <HorizontalTable
+    object={feed}
+    presenters={feedPresenters}
+  />
 )
 
 Feed.propTypes = {

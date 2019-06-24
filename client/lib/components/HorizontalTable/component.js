@@ -1,12 +1,14 @@
 import cc from 'classcat'
 import React from 'react'
 import PropTypes from 'prop-types'
+import './style.scss'
 
 function HorizontalTable ({
   className,
-  values
+  object,
+  presenters
 }) {
-  if (!values.length) {
+  if (!object || !presenters.length) {
     return null
   }
 
@@ -21,10 +23,14 @@ function HorizontalTable ({
     <div className="table-responsive">
       <table className={tableClassName}>
         <tbody>
-          {values.map(({ label, value }, index) => (
-            <tr key={index} className="HorizontalTable__row">
-              <th scope="row" className="">{label}</th>
-              <td className="">{value}</td>
+          {presenters.map(({ label, value }, index) => (
+            <tr key={index}>
+              <th className="HorizontalTable__header" scope="row">
+                {label}
+              </th>
+              <td className="HorizontalTable__value">
+                {value(object)}
+              </td>
             </tr>
           ))}
         </tbody>
@@ -35,12 +41,14 @@ function HorizontalTable ({
 
 HorizontalTable.propTypes = {
   className: PropTypes.string,
-  values: PropTypes.arrayOf(PropTypes.object)
+  object: PropTypes.object,
+  presenters: PropTypes.arrayOf(PropTypes.object)
 }
 
 HorizontalTable.defaultProps = {
   className: undefined,
-  values: []
+  object: undefined,
+  presenters: []
 }
 
 export default HorizontalTable
