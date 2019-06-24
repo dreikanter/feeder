@@ -1,13 +1,11 @@
 import moment from 'moment'
 
-function formatTime (value) {
-  const time = moment(value)
-
-  if (!time.isValid()) {
-    return null
+function formatTime (value, placeholder = null) {
+  if (!value) {
+    return placeholder
   }
 
-  return time.format('lll')
+  return moment(value).format('lll')
 }
 
 export default formatTime

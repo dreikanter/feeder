@@ -3,7 +3,10 @@ import PropTypes from 'prop-types'
 import every from 'lib/utils/every'
 import formatTime from 'lib/utils/formatTime'
 import HorizontalTable from 'lib/components/HorizontalTable'
+import Mute from 'lib/components/Mute'
 import MutedZero from 'lib/components/MutedZero'
+
+const noConstrants = <Mute>No constraints</Mute>
 
 /* eslint-disable react/prop-types, camelcase */
 const feedPresenters = ([
@@ -33,7 +36,7 @@ const feedPresenters = ([
   },
   {
     label: 'Last post created at',
-    value: ({ last_post_created_at }) => formatTime(last_post_created_at)
+    value: ({ last_post_created_at }) => formatTime(last_post_created_at, 'None')
   },
   {
     label: 'Updated at',
@@ -51,15 +54,15 @@ const feedPresenters = ([
   },
   {
     label: 'Loader',
-    value: ({ loader }) => loader || 'default'
+    value: ({ loader }) => <code>{loader || 'default'}</code>
   },
   {
     label: 'Processor',
-    value: ({ processor }) => processor
+    value: ({ processor }) => <code>{processor}</code>
   },
   {
     label: 'Normalizer',
-    value: ({ normalizer }) => normalizer
+    value: ({ normalizer }) => <code>{normalizer}</code>
   },
   {
     label: 'Import posts created after',
@@ -67,7 +70,13 @@ const feedPresenters = ([
   },
   {
     label: 'Refresh interval',
-    value: ({ refresh_interval }) => every(refresh_interval)
+    value: ({ refresh_interval }) => {
+      if (refresh_interval === 0) {
+        return noConstrants
+      }
+
+      return every(refresh_interval)
+    }
   },
   {
     label: 'Import limit',
