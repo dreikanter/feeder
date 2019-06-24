@@ -1,5 +1,8 @@
 SERIES_NAME = 'subs'
-EXPIRATION_THRESHOLD = 3.hours.ago
+EXPIRATION_THRESHOLD = 2.hours.ago
+
+# Limit for the amount of feeds to be updated in one batch
+THROTTLING_LIMIT = 5
 
 desc 'Update Freefeed subscriptions count'
 task subs: :environment do
@@ -12,7 +15,7 @@ task subs: :environment do
 
   feeds_to_update = Service::FeedsList.names - recently_updated_feed_names
 
-  feeds_to_update.each do |feed_name|
+  feeds_to_update.slice(0, THROTTLING_LIMIT).each do |feed_name|
     UpdateSubscriptionsCountJob.perform_later(feed_name)
   end
 end
