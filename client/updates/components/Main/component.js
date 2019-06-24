@@ -28,7 +28,7 @@ const updateCols = [
   {
     title: 'New posts',
     value: ({ posts_count }) => (
-      <MutedZero value={posts_count} />
+      <MutedZero>{posts_count}</MutedZero>
     )
   },
   {

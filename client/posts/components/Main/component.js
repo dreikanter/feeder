@@ -30,7 +30,7 @@ const cols = [
     headClasses: '',
     cellClasses: '',
     value: ({ comments }) => (
-      <MutedZero value={comments.length} />
+      <MutedZero>{comments.length}</MutedZero>
     )
   },
   {
@@ -38,7 +38,7 @@ const cols = [
     headClasses: '',
     cellClasses: '',
     value: ({ attachments }) => (
-      <MutedZero value={attachments.length} />
+      <MutedZero>{attachments.length}</MutedZero>
     )
   },
   {

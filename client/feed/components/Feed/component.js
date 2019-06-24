@@ -24,7 +24,7 @@ const feedPresenters = ([
   {
     label: 'Posts count',
     value: ({ posts_count }) => (
-      <MutedZero value={posts_count || 0} />
+      <MutedZero>{posts_count}</MutedZero>
     )
   },
   {
@@ -71,9 +71,7 @@ const feedPresenters = ([
   },
   {
     label: 'Import limit',
-    value: ({ import_limit }) => (
-      <MutedZero value={import_limit || 0} />
-    )
+    value: ({ import_limit }) => import_limit || noConstrants
   }
 ])
 /* eslint-enable react/prop-types, camelcase */
