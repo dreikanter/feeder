@@ -17,7 +17,7 @@ class DataPoint < ApplicationRecord
 
   # TODO: Consider moving configuration values to configuration
   RECENT_LIMIT = 50
-  KEEP_RECORDS_FOR = 1.month
+  KEEP_RECORDS_FOR = 3.month
 
   scope :ordered, -> { order(created_at: :desc) }
   scope :recent, -> { ordered.limit(RECENT_LIMIT) }
