@@ -12,7 +12,7 @@ import {
 import Main from './component'
 
 const mapStateToProps = state => ({
-  activity:
+  activity: feedActivitySelector(state),
   feed: feedSelector(state),
   pending: pendingFeedPageSelector(state)
 })

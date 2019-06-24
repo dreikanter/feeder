@@ -13,8 +13,23 @@ import {
 
 import Main from './component'
 
+const mapActivityValues = values => Object.keys(values).map(key => {
+  const date = new Date(Date.parse(key))
+  const count = values[key]
+
+  const formattedDate = [
+    date.getDate(),
+    date.getMonth() + 1,
+    date.getFullYear()
+  ].join('/')
+
+  const tip = `${formattedDate}: ${count}`
+
+  return { count, date, tip }
+})
+
 const mapStateToProps = state => ({
-  activity: activitySelector(state),
+  activity: mapActivityValues(activitySelector(state)),
   feeds: indexSelector(state),
   pending: pendingFeedsPageSelector(state),
   stats: statValuesSelector(state)

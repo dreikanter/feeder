@@ -1,33 +1,18 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import CalendarHeatmap from 'react-calendar-heatmap'
 import ReactTooltip from 'react-tooltip'
 import 'react-calendar-heatmap/dist/styles.css'
-
-function tooltipDataAttrs ({ count, date }) {
-  const formattedDate = [
-    date.getDate(),
-    date.getMonth() + 1,
-    date.getFullYear()
-  ].join('/')
-
-  return {
-    'data-tip': `${formattedDate}: ${count}`
-  }
-}
-
-const mapValues = values => (
-  Object.keys(values).map(date => ({ date, count: values[date] }))
-)
+import './style.scss'
 
 const Heatmap = ({ values }) => (
-  <Fragment>
+  <div className="Heatmap">
     <CalendarHeatmap
-      values={mapValues(values)}
-      tooltipDataAttrs={tooltipDataAttrs}
+      values={values}
+      tooltipDataAttrs={({ tip }) => tip}
     />
     <ReactTooltip />
-  </Fragment>
+  </div>
 )
 
 Heatmap.propTypes = {
