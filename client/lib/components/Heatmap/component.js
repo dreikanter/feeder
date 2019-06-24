@@ -27,7 +27,7 @@ function tooltipDataAttrs ({ count, date }) {
   }
 
   return {
-    'data-tip': `${date}: ${count}`
+    'data-tip': date
   }
 }
 
@@ -35,17 +35,18 @@ function findMinMax (values) {
   let min = values[0].count
   let max = values[0].count
 
-  for (let i = 1, length = values.length; i < length; i++) {
-    let { count } = values[i]
+  values.forEach(value => {
+    const { count } = value
     min = (count < min) ? count : min
     max = (count > max) ? count : max
-  }
+  })
 
   return [min, max]
 }
 
 function Heatmap ({
   endDate,
+  getTooltipContent,
   startDate,
   values
 }) {
@@ -64,19 +65,26 @@ function Heatmap ({
         tooltipDataAttrs={tooltipDataAttrs}
         values={values}
       />
-      <ReactTooltip place="top" type="dark" effect="float" />
+      <ReactTooltip
+        getContent={getTooltipContent}
+        place="top"
+        type="dark"
+        effect="float"
+      />
     </div>
   )
 }
 
 Heatmap.propTypes = {
   endDate: PropTypes.object,
+  getTooltipContent: PropTypes.func,
   startDate: PropTypes.object,
-  values: PropTypes.arrayOf(PropTypes.object)
+  values: PropTypes.arrayOf(PropTypes.object),
 }
 
 Heatmap.defaultProps = {
   endDate: undefined,
+  getTooltipContent: date => date,
   startDate: undefined,
   values: []
 }

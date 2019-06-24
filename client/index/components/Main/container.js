@@ -14,15 +14,16 @@ import {
 
 import Main from './component'
 
-const mapActivityValues = values => (
-  Object.keys(values).map(date => ({ count: values[date], date }))
+const mapActivityValues = activity => (
+  Object.keys(activity).map(date => ({ count: activity[date], date }))
 )
 
 const mapStateToProps = state => ({
-  activity: mapActivityValues(activitySelector(state)),
-  activityStartDate: moment().subtract(12, 'months').toDate(),
+  activity: activitySelector(state),
   activityEndDate: moment().toDate(),
+  activityStartDate: moment().subtract(12, 'months').toDate(),
   feeds: indexSelector(state),
+  mappedActivity: mapActivityValues(activitySelector(state)),
   pending: pendingFeedsPageSelector(state),
   stats: statValuesSelector(state)
 })
