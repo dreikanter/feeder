@@ -2,10 +2,10 @@ import moment from 'moment'
 import { Link } from 'react-router-dom'
 import React from 'react'
 import PropTypes from 'prop-types'
-import ago from 'lib/utils/ago'
-import ConditionalPlaceholder from 'lib/components/ConditionalPlaceholder'
 import DataTable from 'lib/components/DataTable'
+import Mute from 'lib/components/Mute'
 import MutedZero from 'lib/components/MutedZero'
+import Time from 'lib/components/Time'
 import paths from 'main/paths'
 
 const recencyThreshold = 3600 // seconds
@@ -13,22 +13,22 @@ const recencyThreshold = 3600 // seconds
 function humanizedTime (value) {
   const time = moment.utc(value)
   const threshold = moment().subtract(recencyThreshold, 'seconds')
-  const formatted = <time dateTime={value}>{ago(value)}</time>
+
+  const result = (
+    <Time
+      ago
+      value={value}
+      placeholder={<Mute>–</Mute>}
+    />
+  )
 
   if (time.isAfter(threshold)) {
     return (
-      <mark>{formatted}</mark>
+      <mark>{result}</mark>
     )
   }
 
-  return (
-    <ConditionalPlaceholder
-      condition={!!value}
-      placeholder="–"
-    >
-      {formatted}
-    </ConditionalPlaceholder>
-  )
+  return result
 }
 
 /* eslint-disable react/prop-types, camelcase */

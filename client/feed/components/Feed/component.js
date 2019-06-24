@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import every from 'lib/utils/every'
-import formatTime from 'lib/utils/formatTime'
 import HorizontalTable from 'lib/components/HorizontalTable'
 import Mute from 'lib/components/Mute'
 import MutedZero from 'lib/components/MutedZero'
+import Time from 'lib/components/Time'
 
 const noConstrants = <Mute>No constraints</Mute>
 
@@ -35,25 +35,25 @@ const feedPresenters = ([
   {
     label: 'Refreshed at',
     value: ({ refreshed_at }) => (
-      formatTime(refreshed_at, timestampPlaceholder)
+      <Time value={refreshed_at} placeholder={timestampPlaceholder} />
     )
   },
   {
     label: 'Last post created at',
     value: ({ last_post_created_at }) => (
-      formatTime(last_post_created_at, timestampPlaceholder)
+      <Time value={last_post_created_at} placeholder={timestampPlaceholder} />
     )
   },
   {
     label: 'Updated at',
     value: ({ updated_at }) => (
-      formatTime(updated_at, timestampPlaceholder)
+      <Time value={updated_at} placeholder={timestampPlaceholder} />
     )
   },
   {
     label: 'Created at',
     value: ({ created_at }) => (
-      formatTime(created_at, timestampPlaceholder)
+      <Time value={created_at} placeholder={timestampPlaceholder} />
     )
   },
   {
@@ -82,7 +82,9 @@ const feedPresenters = ([
   },
   {
     label: 'Import posts created after',
-    value: ({ after }) => formatTime(after)
+    value: ({ after }) => (
+      <Time value={after} placeholder={noConstrants} />
+    )
   },
   {
     label: 'Refresh interval',
