@@ -24,7 +24,7 @@ const feedPresenters = ([
   {
     label: 'Posts count',
     value: ({ posts_count }) => (
-      <MutedZero value={posts_count} />
+      <MutedZero value={posts_count || 0} />
     )
   },
   {
@@ -72,7 +72,7 @@ const feedPresenters = ([
   {
     label: 'Import limit',
     value: ({ import_limit }) => (
-      <MutedZero value={import_limit} />
+      <MutedZero value={import_limit || 0} />
     )
   }
 ])
