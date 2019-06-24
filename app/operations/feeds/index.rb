@@ -14,7 +14,11 @@ module Operations
 
       def feeds
         names = Service::FeedsList.call.map { |feed| feed['name'] }
-        feeds = Feed.where(name: names).order(:updated_at)
+
+        feeds = Feed
+          .where(name: names)
+          .order('last_post_created_at IS NULL, last_post_created_at DESC')
+
         each_s11n(feeds, FeedSerializer)
       end
 
