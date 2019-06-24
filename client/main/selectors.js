@@ -63,6 +63,12 @@ export const pendingFeedUpdatesSelector =
 export const pendingFeedActivitySelector =
   createPendingSelector(LOAD_FEED_ACTIVITY)
 
+export const pendingUpdatesPageSelector = createSelector(
+  pendingBatchesSelector,
+  pendingUpdatesSelector,
+  (pendingBatches, pendingUpdates) => pendingBatches || pendingUpdates
+)
+
 export const statValuesSelector = createSelector(
   statsSelector,
   stats => ([

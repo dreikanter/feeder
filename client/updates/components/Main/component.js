@@ -8,7 +8,7 @@ import UpdateStatus from 'updates/components/UpdateStatus'
 import paths from 'main/paths'
 
 /* eslint-disable react/prop-types, camelcase */
-const cols = [
+const updateCols = [
   {
     title: 'Status',
     headClasses: 'text-center min',
@@ -42,6 +42,21 @@ const cols = [
     )
   },
 ]
+
+const batchCols = [
+  {
+    title: 'Status',
+    headClasses: 'text-center min',
+    cellClasses: 'text-center min',
+    value: ({ }) => (1)
+  },
+  {
+    title: 'Status',
+    headClasses: '',
+    cellClasses: '',
+    value: ({ }) => (2)
+  },
+]
 /* eslint-enable react/prop-types, camelcase */
 
 class Main extends Component {
@@ -51,7 +66,11 @@ class Main extends Component {
   }
 
   render () {
-    const { updates, pending } = this.props
+    const {
+      batches,
+      updates,
+      pending
+    } = this.props
 
     if (pending) {
       return (
@@ -63,13 +82,13 @@ class Main extends Component {
       <Fragment>
         <h1>Recent feed updates</h1>
         <DataTable
-          cols={cols}
+          cols={updateCols}
           records={updates}
         />
         <h1>Batch updates</h1>
         <DataTable
-          cols={cols}
-          records={updates}
+          cols={batchCols}
+          records={batches}
         />
       </Fragment>
     )
@@ -77,15 +96,17 @@ class Main extends Component {
 }
 
 Main.propTypes = {
-  updates: PropTypes.array,
+  batches: PropTypes.array,
   load: PropTypes.func,
-  pending: PropTypes.bool
+  pending: PropTypes.bool,
+  updates: PropTypes.array
 }
 
 Main.defaultProps = {
-  updates: [],
+  batches: [],
   load: undefined,
-  pending: false
+  pending: false,
+  updates: []
 }
 
 export default Main
