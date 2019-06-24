@@ -1,26 +1,10 @@
-import pluralize from 'pluralize'
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Heatmap from 'lib/components/Heatmap'
 import Pending from 'lib/components/Pending'
 import Stats from 'lib/components/Stats'
+import getActivityTooltip from 'main/utils/getActivityTooltip'
 import Feeds from 'index/components/Feeds'
-
-function getTooltipContent (activity, date) {
-  const count = activity[date]
-
-  if (!count) {
-    return null
-  }
-
-  return (
-    <Fragment>
-      {date}
-      {' → '}
-      <b>{pluralize('post', count, true)}</b>
-    </Fragment>
-  )
-}
 
 class Main extends Component {
   componentDidMount () {
@@ -50,7 +34,7 @@ class Main extends Component {
       <Fragment>
         <Stats items={stats} />
         <Heatmap
-          getTooltipContent={date => getTooltipContent(activity, date)}
+          getTooltipContent={date => getActivityTooltip(activity, date)}
           endDate={activityEndDate}
           startDate={activityStartDate}
           values={mappedActivity}

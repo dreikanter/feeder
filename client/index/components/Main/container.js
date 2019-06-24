@@ -4,6 +4,7 @@ import { push } from 'connected-react-router'
 import { loadActivity } from 'main/actions/loadActivity'
 import { loadFeeds } from 'main/actions/loadFeeds'
 import paths from 'main/paths'
+import mapActivityValues from 'main/utils/mapActivityValues'
 
 import {
   activitySelector,
@@ -13,10 +14,6 @@ import {
 } from 'main/selectors'
 
 import Main from './component'
-
-const mapActivityValues = activity => (
-  Object.keys(activity).map(date => ({ count: activity[date], date }))
-)
 
 const mapStateToProps = state => ({
   activity: activitySelector(state),

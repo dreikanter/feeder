@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
+import Heatmap from 'lib/components/Heatmap'
 import Pending from 'lib/components/Pending'
+import getActivityTooltip from 'main/utils/getActivityTooltip'
 import Feed from 'feed/components/Feed'
 
 class Main extends Component {
@@ -10,7 +12,14 @@ class Main extends Component {
   }
 
   render () {
-    const { feed, pending } = this.props
+    const {
+      activity,
+      activityEndDate,
+      activityStartDate,
+      feed,
+      mappedActivity,
+      pending
+    } = this.props
 
     if (pending) {
       return (
@@ -25,6 +34,12 @@ class Main extends Component {
           {' '}
           <mark>{feed.name}</mark>
         </h1>
+        <Heatmap
+          getTooltipContent={date => getActivityTooltip(activity, date)}
+          endDate={activityEndDate}
+          startDate={activityStartDate}
+          values={mappedActivity}
+        />
         <Feed feed={feed} />
       </Fragment>
     )
@@ -33,15 +48,21 @@ class Main extends Component {
 
 Main.propTypes = {
   activity: PropTypes.object,
+  activityEndDate: PropTypes.object,
+  activityStartDate: PropTypes.object,
   feed: PropTypes.object,
   load: PropTypes.func,
+  mappedActivity: PropTypes.array,
   pending: PropTypes.bool
 }
 
 Main.defaultProps = {
   activity: {},
+  activityEndDate: undefined,
+  activityStartDate: undefined,
   feed: {},
   load: undefined,
+  mappedActivity: [],
   pending: false
 }
 
