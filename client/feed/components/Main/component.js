@@ -23,7 +23,7 @@ class Main extends Component {
         <h1>
           Feed:
           {' '}
-          <mark>@{feed.name}</mark>
+          <mark>{feed.name}</mark>
         </h1>
         <Feed feed={feed} />
       </Fragment>

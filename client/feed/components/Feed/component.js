@@ -9,7 +9,7 @@ import MutedZero from 'lib/components/MutedZero'
 const feedPresenters = ([
   {
     label: 'Name',
-    value: ({ name }) => name
+    value: ({ name }) => `@${name}`
   },
   {
     label: 'Freefeed group',
