@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
+import formatTime from 'lib/utils/formatTime'
+import seconds from 'lib/utils/seconds'
 import DataTable from 'lib/components/DataTable'
 import MutedZero from 'lib/components/MutedZero'
 import Pending from 'lib/components/Pending'
@@ -37,24 +39,20 @@ const updateCols = [
   },
   {
     title: 'Duration',
-    value: ({ duration }) => (
-      `${duration.toPrecision(2)} s`
-    )
+    value: ({ duration }) => seconds(duration)
   },
 ]
 
 const batchCols = [
   {
-    title: 'Status',
-    headClasses: 'text-center min',
-    cellClasses: 'text-center min',
-    value: ({ }) => (1)
+    title: 'Started at',
+    headClasses: 'w-50',
+    value: ({ started_at }) => formatTime(started_at)
   },
   {
     title: 'Status',
-    headClasses: '',
-    cellClasses: '',
-    value: ({ }) => (2)
+    headClasses: 'w-50',
+    value: ({ duration }) => seconds(duration)
   },
 ]
 /* eslint-enable react/prop-types, camelcase */
