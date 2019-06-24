@@ -32,12 +32,14 @@ class Main extends Component {
 }
 
 Main.propTypes = {
+  activity: PropTypes.object,
   feed: PropTypes.object,
   load: PropTypes.func,
   pending: PropTypes.bool
 }
 
 Main.defaultProps = {
+  activity: {},
   feed: {},
   load: undefined,
   pending: false

@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
+import Heatmap from 'lib/components/Heatmap'
 import Pending from 'lib/components/Pending'
 import Stats from 'lib/components/Stats'
 import Feeds from 'index/components/Feeds'
@@ -12,6 +13,7 @@ class Main extends Component {
 
   render () {
     const {
+      activity,
       clickFeed,
       feeds,
       pending,
@@ -27,6 +29,7 @@ class Main extends Component {
     return (
       <Fragment>
         <Stats items={stats} />
+        <Heatmap values={activity} />
         <Feeds click={clickFeed} records={feeds} />
       </Fragment>
     )
@@ -34,6 +37,7 @@ class Main extends Component {
 }
 
 Main.propTypes = {
+  activity: PropTypes.object,
   clickFeed: PropTypes.func,
   feeds: PropTypes.array,
   load: PropTypes.func,
@@ -42,6 +46,7 @@ Main.propTypes = {
 }
 
 Main.defaultProps = {
+  activity: {},
   clickFeed: undefined,
   feeds: [],
   load: undefined,
