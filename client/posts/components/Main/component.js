@@ -5,7 +5,7 @@ import { faLink } from '@fortawesome/free-solid-svg-icons'
 import DataTable from 'lib/components/DataTable'
 import MutedZero from 'lib/components/MutedZero'
 import Pending from 'lib/components/Pending'
-import ReadableTime from 'lib/components/ReadableTime'
+import Time from 'lib/components/Time'
 import paths from 'main/paths'
 
 /* eslint-disable react/prop-types, camelcase */
@@ -46,7 +46,7 @@ const cols = [
     headClasses: '',
     cellClasses: '',
     value: ({ published_at }) => (
-      <ReadableTime value={published_at} />
+      <Time value={published_at} />
     )
   },
   {
@@ -54,7 +54,7 @@ const cols = [
     headClasses: '',
     cellClasses: '',
     value: ({ created_at }) => (
-      <ReadableTime value={created_at} />
+      <Time value={created_at} />
     )
   },
 ]

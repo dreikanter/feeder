@@ -1,11 +1,10 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import formatTime from 'lib/utils/formatTime'
 import seconds from 'lib/utils/seconds'
 import DataTable from 'lib/components/DataTable'
 import MutedZero from 'lib/components/MutedZero'
 import Pending from 'lib/components/Pending'
-import ReadableTime from 'lib/components/ReadableTime'
+import Time from 'lib/components/Time'
 import UpdateStatus from 'updates/components/UpdateStatus'
 import paths from 'main/paths'
 
@@ -34,7 +33,7 @@ const updateCols = [
   {
     title: 'Executed at',
     value: ({ created_at }) => (
-      <ReadableTime value={created_at} />
+      <Time value={created_at} />
     )
   },
   {
@@ -47,7 +46,9 @@ const batchCols = [
   {
     title: 'Started at',
     headClasses: 'w-50',
-    value: ({ started_at }) => formatTime(started_at)
+    value: ({ started_at }) => (
+      <Time value={started_at} />
+    )
   },
   {
     title: 'Status',
