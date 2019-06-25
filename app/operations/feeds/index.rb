@@ -26,7 +26,7 @@ module Operations
         {
           feeds_count: Feed.count,
           posts_count: Post.count,
-          subscriptions_count: nil,
+          subscriptions_count: subscriptions_count,
           last_post_created_at: last_post_created_at,
           last_update: last_update
         }
