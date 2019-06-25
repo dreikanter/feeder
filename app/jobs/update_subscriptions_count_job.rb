@@ -32,6 +32,7 @@ class UpdateSubscriptionsCountJob < ApplicationJob
   def fetch_current_count(feed_name)
     Rails.logger.info("fetching group details: #{feed_name}")
     timeline = freefeed.get_timeline(feed_name)
-    timeline['subscriptions'].count
+    subscribers = timeline.dig('timelines', 'subscribers')
+    subscribers.count
   end
 end
