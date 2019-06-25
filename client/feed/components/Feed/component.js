@@ -33,6 +33,12 @@ const feedPresenters = ([
     )
   },
   {
+    label: 'Subscriptions',
+    value: ({ subscriptions_count }) => (
+      <MutedZero>{subscriptions_count}</MutedZero>
+    )
+  },
+  {
     label: 'Refreshed at',
     value: ({ refreshed_at }) => (
       <Time value={refreshed_at} placeholder={timestampPlaceholder} />
