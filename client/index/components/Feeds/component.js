@@ -10,7 +10,7 @@ import paths from 'main/paths'
 
 const recencyThreshold = 3600 // seconds
 
-function humanizedTime (value) {
+function humanizedTime (value, highlight = true) {
   const time = moment.utc(value)
   const threshold = moment().subtract(recencyThreshold, 'seconds')
 
@@ -22,7 +22,7 @@ function humanizedTime (value) {
     />
   )
 
-  if (time.isAfter(threshold)) {
+  if (highlight && time.isAfter(threshold)) {
     return (
       <mark>{result}</mark>
     )
@@ -58,7 +58,7 @@ const cols = [
     title: 'Refreshed at',
     headClasses: 'col-auto text-nowrap',
     cellClasses: 'text-nowrap',
-    value: ({ refreshed_at }) => humanizedTime(refreshed_at)
+    value: ({ refreshed_at }) => humanizedTime(refreshed_at, false)
   },
 ]
 /* eslint-enable react/prop-types, camelcase */
