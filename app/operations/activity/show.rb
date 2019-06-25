@@ -2,7 +2,7 @@ module Operations
   module Activity
     class Show < Operations::Base
       # TODO: Consider moving this to configuration
-      HISTORY_DEPTH = 30.days.ago
+      HISTORY_DEPTH = 1.year.ago
 
       def call
         {
