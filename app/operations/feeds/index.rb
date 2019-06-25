@@ -27,17 +27,21 @@ module Operations
           feeds_count: Feed.count,
           posts_count: Post.count,
           subscriptions_count: nil,
-          updated_at: updated_at,
           last_post_created_at: last_post_created_at,
+          last_update: last_update
         }
       end
 
-      def updated_at
+      def last_update
         DataPoint.ordered.for('pull').first.try(:created_at)
       end
 
       def last_post_created_at
         Post.order(created_at: :desc).first.try(:created_at)
+      end
+
+      def subscriptions_count
+        Feed.sum(:subscriptions_count)
       end
     end
   end
