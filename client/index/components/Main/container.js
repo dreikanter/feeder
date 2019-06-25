@@ -9,8 +9,7 @@ import mapActivityValues from 'main/utils/mapActivityValues'
 import {
   activitySelector,
   indexSelector,
-  pendingFeedsPageSelector,
-  statValuesSelector
+  pendingFeedsPageSelector
 } from 'main/selectors'
 
 import Main from './component'
@@ -21,8 +20,7 @@ const mapStateToProps = state => ({
   activityStartDate: moment().subtract(12, 'months').toDate(),
   feeds: indexSelector(state),
   mappedActivity: mapActivityValues(activitySelector(state)),
-  pending: pendingFeedsPageSelector(state),
-  stats: statValuesSelector(state)
+  pending: pendingFeedsPageSelector(state)
 })
 
 const mapDispatchToProps = dispatch => ({

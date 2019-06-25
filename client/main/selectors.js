@@ -80,29 +80,3 @@ export const pendingFeedPageSelector = createSelector(
   pendingActivitySelector,
   (pendingFeeds, pendingActivity) => pendingFeeds || pendingActivity
 )
-
-export const statValuesSelector = createSelector(
-  statsSelector,
-  stats => ([
-    {
-      title: 'Feeds',
-      value: stats.feeds_count
-    },
-    {
-      title: 'Posts',
-      value: stats.posts_count
-    },
-    {
-      title: 'Subscriptions',
-      value: stats.subscriptions_count
-    },
-    {
-      title: 'Last update',
-      value: stats.last_update
-    },
-    {
-      title: 'Last post',
-      value: stats.last_post
-    },
-  ])
-)

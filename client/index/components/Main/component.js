@@ -2,9 +2,9 @@ import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Heatmap from 'lib/components/Heatmap'
 import Pending from 'lib/components/Pending'
-import Stats from 'lib/components/Stats'
 import getActivityTooltip from 'main/utils/getActivityTooltip'
 import Feeds from 'index/components/Feeds'
+import OverallStats from 'index/components/OverallStats'
 
 class Main extends Component {
   componentDidMount () {
@@ -20,8 +20,7 @@ class Main extends Component {
       clickFeed,
       feeds,
       mappedActivity,
-      pending,
-      stats
+      pending
     } = this.props
 
     if (pending) {
@@ -32,7 +31,7 @@ class Main extends Component {
 
     return (
       <Fragment>
-        <Stats items={stats} />
+        <OverallStats />
         <Heatmap
           getTooltipContent={date => getActivityTooltip(activity, date)}
           endDate={activityEndDate}
@@ -53,8 +52,7 @@ Main.propTypes = {
   feeds: PropTypes.array,
   load: PropTypes.func,
   mappedActivity: PropTypes.array,
-  pending: PropTypes.bool,
-  stats: PropTypes.arrayOf(PropTypes.object)
+  pending: PropTypes.bool
 }
 
 Main.defaultProps = {
@@ -65,8 +63,7 @@ Main.defaultProps = {
   feeds: [],
   load: undefined,
   mappedActivity: [],
-  pending: false,
-  stats: []
+  pending: false
 }
 
 export default Main
