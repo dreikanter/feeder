@@ -33,7 +33,7 @@ const feedPresenters = ([
     )
   },
   {
-    label: 'Subscriptions',
+    label: 'Subscribers',
     value: ({ subscriptions_count }) => (
       <MutedZero>{subscriptions_count}</MutedZero>
     )
