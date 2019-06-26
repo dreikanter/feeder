@@ -56,8 +56,8 @@ const cols = [
   },
   {
     title: 'Refreshed at',
-    headClasses: 'col-auto text-nowrap',
-    cellClasses: 'text-nowrap',
+    headClasses: 'col-auto text-nowrap d-none d-md-table-cell',
+    cellClasses: 'text-nowrap d-none d-md-table-cell',
     value: ({ refreshed_at }) => humanizedTime(refreshed_at, false)
   },
 ]

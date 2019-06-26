@@ -36,7 +36,10 @@ function mapStats (stats) {
 }
 
 const OverallStats = ({ stats }) => (
-  <Stats items={mapStats(stats)} />
+  <Stats
+    className="d-none d-md-flex"
+    items={mapStats(stats)}
+  />
 )
 
 OverallStats.propTypes = {
