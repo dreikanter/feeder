@@ -1,45 +1,71 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Link, NavLink } from 'react-router-dom'
 
-const Navbar = ({
-  brandLink,
-  brandTitle,
-  links
-}) => (
-  <nav className="navbar navbar-expand-lg navbar-light bg-light mb-3">
-    <div className="container">
-      <Link className="navbar-brand" to={brandLink}>{brandTitle}</Link>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon" />
-      </button>
-      <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav">
-          {links.map(({ label, path }, index) => (
-            <li className="nav-item" key={index}>
-              <NavLink
-                activeClassName="active"
-                className="nav-link"
-                exact
-                to={path}
-              >
-                {label}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  </nav>
-)
+import {
+  Link,
+  NavLink as RoutedNavLink
+} from 'react-router-dom'
+
+import {
+  Collapse,
+  Navbar as BootstrapNavbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink
+} from 'reactstrap'
+
+class Navbar extends Component {
+  constructor (props) {
+    super(props)
+    this.state = { isOpen: false }
+    this.toggle = this.toggle.bind(this)
+  }
+
+  toggle () {
+    const { isOpen } = this.state
+    this.setState({ isOpen: !isOpen })
+  }
+
+  render () {
+    const {
+      brandLink,
+      brandTitle,
+      links
+    } = this.props
+
+    const { isOpen } = this.state
+
+    return (
+      <BootstrapNavbar color="light" light expand="lg" className="mb-3">
+        <div className="container">
+          <NavbarBrand tag={Link} to={brandLink}>
+            {brandTitle}
+          </NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={isOpen} navbar>
+            <Nav navbar>
+              {links.map(({ label, path }, index) => (
+                <NavItem key={index}>
+                  <NavLink
+                    tag={RoutedNavLink}
+                    to={path}
+                    activeClassName="active"
+                    className="nav-link"
+                    exact
+                  >
+                    {label}
+                  </NavLink>
+                </NavItem>
+              ))}
+            </Nav>
+          </Collapse>
+        </div>
+      </BootstrapNavbar>
+    )
+  }
+}
 
 Navbar.propTypes = {
   brandTitle: PropTypes.string,
