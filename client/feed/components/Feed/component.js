@@ -33,6 +33,12 @@ const feedPresenters = ([
     )
   },
   {
+    label: 'Avg. posts per week',
+    value: ({ avg_posts_per_week }) => (
+      <MutedZero>{(avg_posts_per_week || 0).toFixed(1)}</MutedZero>
+    )
+  },
+  {
     label: 'Subscribers',
     value: ({ subscriptions_count }) => (
       <MutedZero>{subscriptions_count}</MutedZero>

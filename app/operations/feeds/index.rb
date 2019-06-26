@@ -19,7 +19,7 @@ module Operations
           .where(name: names)
           .order('last_post_created_at IS NULL, last_post_created_at DESC')
 
-        each_s11n(feeds, FeedSerializer)
+        each_s11n(feeds, BriefFeedSerializer)
       end
 
       def meta
