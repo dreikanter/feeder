@@ -1,0 +1,13 @@
+@import "main/style/defaults";
+
+.Main__icon + .Main__icon {
+  margin-left: $spacer * .25;
+}
+
+.Main__icon-comment {
+  color: $gray-500;
+}
+
+.Main__icon-file {
+  color: $gray-500;
+}

@@ -1,12 +1,30 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLink } from '@fortawesome/free-solid-svg-icons'
+
+import {
+  faComment,
+  faLink,
+  faFile
+} from '@fortawesome/free-solid-svg-icons'
+
 import DataTable from 'lib/components/DataTable'
-import MutedZero from 'lib/components/MutedZero'
 import Pending from 'lib/components/Pending'
 import Time from 'lib/components/Time'
 import paths from 'main/paths'
+import './style.scss'
+
+const repeatIcons = (icon, length) => (
+  <Fragment>
+    {Array.from({ length }).map((_, index) => (
+      <FontAwesomeIcon
+        className={`Main__icon Main__icon-${icon.iconName}`}
+        icon={icon}
+        key={index}
+      />
+    ))}
+  </Fragment>
+)
 
 /* eslint-disable react/prop-types, camelcase */
 const cols = [
@@ -27,32 +45,20 @@ const cols = [
   },
   {
     title: 'Comments',
-    headClasses: '',
-    cellClasses: '',
-    value: ({ comments }) => (
-      <MutedZero>{comments.length}</MutedZero>
-    )
+    value: ({ comments }) => repeatIcons(faComment, comments.length)
   },
   {
     title: 'Attachments',
-    headClasses: '',
-    cellClasses: '',
-    value: ({ attachments }) => (
-      <MutedZero>{attachments.length}</MutedZero>
-    )
+    value: ({ attachments }) => repeatIcons(faFile, attachments.length)
   },
   {
     title: 'Published at',
-    headClasses: '',
-    cellClasses: '',
     value: ({ published_at }) => (
       <Time value={published_at} />
     )
   },
   {
     title: 'Created at',
-    headClasses: '',
-    cellClasses: '',
     value: ({ created_at }) => (
       <Time value={created_at} />
     )
