@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import every from 'lib/utils/every'
 import HorizontalTable from 'lib/components/HorizontalTable'
 import Mute from 'lib/components/Mute'
-import MutedZero from 'lib/components/MutedZero'
 import Time from 'lib/components/Time'
 
 const noConstrants = <Mute>No constraints</Mute>
@@ -28,21 +27,15 @@ const feedPresenters = ([
   },
   {
     label: 'Posts count',
-    value: ({ posts_count }) => (
-      <MutedZero>{posts_count}</MutedZero>
-    )
+    value: ({ posts_count }) => posts_count
   },
   {
     label: 'Avg. posts per week',
-    value: ({ avg_posts_per_week }) => (
-      <MutedZero>{(avg_posts_per_week || 0).toFixed(1)}</MutedZero>
-    )
+    value: ({ avg_posts_per_week }) => (avg_posts_per_week || 0).toFixed(1)
   },
   {
     label: 'Subscribers',
-    value: ({ subscriptions_count }) => (
-      <MutedZero>{subscriptions_count}</MutedZero>
-    )
+    value: ({ subscriptions_count }) => subscriptions_count
   },
   {
     label: 'Refreshed at',
