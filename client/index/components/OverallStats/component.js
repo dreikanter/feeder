@@ -21,7 +21,7 @@ function mapStats (stats) {
       value: formatNumber(stats.posts_count)
     },
     {
-      title: 'Subscribers',
+      title: 'Subscriptions',
       value: formatNumber(stats.subscriptions_count)
     },
     {

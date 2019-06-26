@@ -34,7 +34,7 @@ const feedPresenters = ([
     value: ({ avg_posts_per_week }) => (avg_posts_per_week || 0).toFixed(1)
   },
   {
-    label: 'Subscribers',
+    label: 'Subscriptions',
     value: ({ subscriptions_count }) => subscriptions_count
   },
   {
