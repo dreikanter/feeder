@@ -70,20 +70,20 @@ const feedPresenters = ([
   },
   {
     label: 'Loader',
-    value: ({ loader }) => (
-      <code>{loader || 'default'}</code>
+    value: ({ loader_class }) => (
+      <code>{loader_class}</code>
     )
   },
   {
     label: 'Processor',
-    value: ({ processor }) => (
-      <code>{processor}</code>
+    value: ({ processor_class }) => (
+      <code>{processor_class}</code>
     )
   },
   {
     label: 'Normalizer',
-    value: ({ normalizer }) => (
-      <code>{normalizer}</code>
+    value: ({ normalizer_class }) => (
+      <code>{normalizer_class}</code>
     )
   },
   {

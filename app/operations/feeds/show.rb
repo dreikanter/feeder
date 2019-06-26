@@ -13,7 +13,7 @@ module Operations
       private
 
       def feed
-        Feed.find_by(name: name)
+        s11n(Feed.find_by(name: name), FeedSerializer)
       end
 
       def name
