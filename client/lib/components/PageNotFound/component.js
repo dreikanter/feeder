@@ -1,11 +1,10 @@
 import React from 'react'
-import Placeholder from 'lib/components/Placeholder'
+import ErrorPage from 'lib/components/ErrorPage'
 
 const PageNotFound = () => (
-  <Placeholder>
-    <h2>404</h2>
+  <ErrorPage title="404">
     <p>Page not found</p>
-  </Placeholder>
+  </ErrorPage>
 )
 
 export default PageNotFound
