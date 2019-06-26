@@ -65,7 +65,7 @@ const feedPresenters = ([
   {
     label: 'Source URL',
     value: ({ url }) => (
-      <a href={url}>{url}</a>
+      url ? <a href={url}>{url}</a> : <Mute>Not specified</Mute>
     )
   },
   {
