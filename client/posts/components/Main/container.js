@@ -14,6 +14,9 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
+  click: ({ post_url }) => {
+    window.open(post_url)
+  },
   load: () => dispatch(loadPosts())
 })
 

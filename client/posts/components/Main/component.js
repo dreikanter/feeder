@@ -73,7 +73,11 @@ class Main extends Component {
   }
 
   render () {
-    const { posts, pending } = this.props
+    const {
+      click,
+      posts,
+      pending
+    } = this.props
 
     if (pending) {
       return (
@@ -85,6 +89,7 @@ class Main extends Component {
       <Fragment>
         <h1>Recent posts</h1>
         <DataTable
+          click={click}
           cols={cols}
           records={posts}
         />
@@ -94,12 +99,14 @@ class Main extends Component {
 }
 
 Main.propTypes = {
+  click: PropTypes.func,
   posts: PropTypes.array,
   load: PropTypes.func,
   pending: PropTypes.bool
 }
 
 Main.defaultProps = {
+  click: undefined,
   posts: [],
   load: undefined,
   pending: false
