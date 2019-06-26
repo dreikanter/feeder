@@ -1,6 +1,7 @@
 export default {
   activity: {},
   batches: [],
+  errors: {},
   feed: {},
   feedActivity: {},
   feedPosts: [],

@@ -8,6 +8,7 @@ import posts from 'main/reducers/postsReducer'
 import updates from 'main/reducers/updatesReducer'
 import activity from 'main/reducers/activityReducer'
 import batches from 'main/reducers/batchesReducer'
+import errors from 'main/reducers/errorsReducer'
 import feedPosts from 'main/reducers/feedPostsReducer'
 import feedUpdates from 'main/reducers/feedUpdatesReducer'
 import feedActivity from 'main/reducers/feedActivityReducer'
@@ -15,6 +16,7 @@ import feedActivity from 'main/reducers/feedActivityReducer'
 export default history => combineReducers({
   activity,
   batches,
+  errors,
   feed,
   feedActivity,
   feedPosts,
