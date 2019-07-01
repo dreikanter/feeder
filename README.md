@@ -2,6 +2,8 @@
 
 Feeder is a content sharing service built for [freefeed.net](https://freefeed.net), an open source social network. Feeder can monitor RSS, ATOM, Reddit, Twitter, YouTube, Tumblr, or potentially any other web feed updates, normalize the content and share clean and readable excerpts on FreeFeed. Check out https://freefeed.net/xkcd for example.
 
+![](https://raw.githubusercontent.com/dreikanter/feeder/master/screenshots/feeds-index.png)
+
 ## References
 
 - Production instance (service status page): https://frf.im
