@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_24_150553) do
+ActiveRecord::Schema.define(version: 2019_07_01_101346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
   enable_extension "plpgsql"
+
+  create_table "blocked_ips", force: :cascade do |t|
+    t.inet "ip", null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }
+    t.index ["ip"], name: "index_blocked_ips_on_ip", unique: true
+  end
 
   create_table "data_point_series", id: :serial, force: :cascade do |t|
     t.string "name", null: false

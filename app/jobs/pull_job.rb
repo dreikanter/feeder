@@ -92,6 +92,7 @@ class PullJob < ApplicationJob
     feed.update(refreshed_at: started_at)
     Post.publishing_queue_for(feed).each { |p| PushJob.perform_later(p) }
 
+    # TODO: Replace with ennum constants
     status = errors_count.zero? ? 'success' : 'has-errors'
 
     DataPoint.create_pull(

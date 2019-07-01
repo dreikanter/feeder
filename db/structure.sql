@@ -54,6 +54,37 @@ CREATE TABLE public.ar_internal_metadata (
 
 
 --
+-- Name: blocked_ips; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.blocked_ips (
+    id bigint NOT NULL,
+    ip inet NOT NULL,
+    created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP
+);
+
+
+--
+-- Name: blocked_ips_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.blocked_ips_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: blocked_ips_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.blocked_ips_id_seq OWNED BY public.blocked_ips.id;
+
+
+--
 -- Name: data_point_series; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -285,6 +316,13 @@ CREATE TABLE public.schema_migrations (
 
 
 --
+-- Name: blocked_ips id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.blocked_ips ALTER COLUMN id SET DEFAULT nextval('public.blocked_ips_id_seq'::regclass);
+
+
+--
 -- Name: data_point_series id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -332,6 +370,14 @@ ALTER TABLE ONLY public.posts ALTER COLUMN id SET DEFAULT nextval('public.posts_
 
 ALTER TABLE ONLY public.ar_internal_metadata
     ADD CONSTRAINT ar_internal_metadata_pkey PRIMARY KEY (key);
+
+
+--
+-- Name: blocked_ips blocked_ips_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.blocked_ips
+    ADD CONSTRAINT blocked_ips_pkey PRIMARY KEY (id);
 
 
 --
@@ -395,6 +441,13 @@ ALTER TABLE ONLY public.schema_migrations
 --
 
 CREATE INDEX delayed_jobs_priority ON public.delayed_jobs USING btree (priority, run_at);
+
+
+--
+-- Name: index_blocked_ips_on_ip; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_blocked_ips_on_ip ON public.blocked_ips USING btree (ip);
 
 
 --
@@ -490,6 +543,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20181126170638'),
 ('20181126194822'),
 ('20190609193619'),
-('20190624150553');
+('20190624150553'),
+('20190701101346');
 
 
