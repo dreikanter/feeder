@@ -3,8 +3,7 @@ module Service
     DOMAIN = 'freefeed.net'.freeze
 
     def self.call(fetcher: Service::DnsRecordsFetcher, domain: DOMAIN)
-      records = fetcher.call(domain)
-      records.map { |record| record['value'] }.uniq
+      fetcher.call(domain).uniq
     end
   end
 end
