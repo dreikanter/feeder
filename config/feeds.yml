@@ -55,6 +55,7 @@
   processor: "rss"
   normalizer: "medium"
   after: "2018-09-18T00:00:00+00:00"
+  refresh_interval: 7200
 
 - name: "signalvnoise-medium"
   url: "https://m.signalvnoise.com/feed"
@@ -103,6 +104,7 @@
   processor: "rss"
   normalizer: "telega"
   after: "2018-09-18T00:00:00+00:00"
+  refresh_interval: 7200
 
 # - name: "ecologica"
 #   url: "https://vkrss.com/ecologicaspb?key=EW9tJd7ZI8iGBQyg"
@@ -155,6 +157,7 @@
   processor: "rss"
   normalizer: "little_big_details"
   after: "2018-09-18T00:00:00+00:00"
+  refresh_interval: 86400
 
 - name: "blitz-and-chips"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCRQEBFeG3lTMDEIUtQulzLg"
