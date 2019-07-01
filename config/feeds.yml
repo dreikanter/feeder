@@ -21,6 +21,7 @@
   url: "https://www.commitstrip.com/en/feed/"
   processor: "rss"
   after: "2018-09-18T00:00:00+00:00"
+  refresh_interval: 7200
 
 - name: "dilbert"
   url: "http://dilbert.com/feed"
