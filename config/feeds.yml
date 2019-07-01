@@ -240,11 +240,12 @@
   normalizer: "aerostatica_normalizer"
   refresh_interval: 1200
 
-- name: "rknalerts"
-  loader: "null"
-  processor: "rkn_alerts"
-  normalizer: "rkn_alerts"
-  refresh_interval: 600
+# NOTE: Temporarily disabled
+# - name: "rknalerts"
+#   loader: "null"
+#   processor: "rkn_alerts"
+#   normalizer: "rkn_alerts"
+#   refresh_interval: 600
 
 - name: "algtestament"
   loader: "twitter"
