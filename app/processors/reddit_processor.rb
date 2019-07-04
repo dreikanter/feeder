@@ -1,12 +1,13 @@
 module Processors
   class RedditProcessor < Processors::AtomProcessor
     POINTS_THRESHOLD = 2000
+    CACHE_HISTORY_DEPTH = 6.hours
 
     def entities
       super.lazy.select { |uid, _| enough_points?(uid) }
     end
 
-    protected
+    private
 
     def enough_points?(link)
       reddit_points(link) >= POINTS_THRESHOLD
@@ -21,17 +22,19 @@ module Processors
     end
 
     def cached_data_point(link)
-      Rails.logger.debug 'loading reddit points from cache'
+      Rails.logger.debug 'attempting to load reddit points from cache'
       DataPoint.for(:reddit).
-        where('created_at > ?', 6.hours.ago).
+        where('created_at > ?', CACHE_HISTORY_DEPTH.ago).
         where("details->>'link' = ?", link).ordered.first
     end
 
+    # TODO: Use Reddit API instead
     def create_data_point(link)
       Rails.logger.debug 'loading reddit points from reddit'
       html = Nokogiri::HTML(page_content(link))
-      points = html.at('.sitetable .score.unvoted').try(:[], :title).to_i
-      desc = html.at('meta[property="og:description"]').try(:[], :content)
+      desc = html.at('meta[property="og:description"]').try(:[], :content).to_s
+      points = desc[/^\d+/]
+      raise 'error loading reddit points' unless points
       DataPoint.create_reddit(link: link, points: points, description: desc)
     end
 
