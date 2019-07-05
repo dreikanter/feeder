@@ -1,7 +1,7 @@
 module Processors
   class RedditProcessor < Processors::AtomProcessor
     POINTS_THRESHOLD = 2000
-    CACHE_HISTORY_DEPTH = 6.hours
+    CACHE_HISTORY_DEPTH = 4.hours
 
     def entities
       super.lazy.select { |uid, _| enough_points?(uid) }
