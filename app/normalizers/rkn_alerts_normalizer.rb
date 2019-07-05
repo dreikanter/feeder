@@ -1,5 +1,7 @@
 module Normalizers
   class RknAlertsNormalizer < Normalizers::Base
+    protected
+
     # NOTE: Placeholder for a required field
     def link
       SecureRandom.uuid

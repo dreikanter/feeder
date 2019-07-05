@@ -1,5 +1,7 @@
 module Normalizers
   class YoutubeNormalizer < Normalizers::Base
+    protected
+
     def link
       entity.url
     end

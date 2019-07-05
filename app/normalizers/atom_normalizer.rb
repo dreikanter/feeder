@@ -1,5 +1,7 @@
 module Normalizers
   class AtomNormalizer < Normalizers::Base
+    protected
+
     def link
       entity.link.try(:href)
     end

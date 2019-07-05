@@ -1,5 +1,7 @@
 module Normalizers
   class WaitbutwhyNormalizer < Normalizers::Base
+    protected
+
     def link
       entity.url
     end

@@ -1,5 +1,7 @@
 module Normalizers
   class GithubBlogNormalizer < Normalizers::AtomNormalizer
+    protected
+
     def text
       [super, "!#{link}"].join(separator)
     end

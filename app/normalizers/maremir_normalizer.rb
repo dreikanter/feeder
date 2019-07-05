@@ -2,6 +2,8 @@ module Normalizers
   class MaremirNormalizer < Normalizers::RssNormalizer
     WORDPRESS_THUMBNAIL_SUFFIX = '-150x150.'
 
+    protected
+
     def text
       [super, description, link].join(separator)
     end

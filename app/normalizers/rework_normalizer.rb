@@ -1,5 +1,7 @@
 module Normalizers
   class ReworkNormalizer < Normalizers::Base
+    protected
+
     # TODO: Link is not provided
     def link
       '-'

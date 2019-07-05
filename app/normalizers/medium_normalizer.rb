@@ -1,5 +1,7 @@
 module Normalizers
   class MediumNormalizer < Normalizers::RssNormalizer
+    protected
+
     def text
       [super, "!#{link}"].reject(&:blank?).join(separator)
     end

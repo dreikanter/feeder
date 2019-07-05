@@ -1,5 +1,7 @@
 module Normalizers
   class NewfluxNormalizer < Normalizers::FeedjiraNormalizer
+    protected
+
     def comments
       [summary]
     end

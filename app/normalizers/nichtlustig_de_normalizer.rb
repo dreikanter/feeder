@@ -1,5 +1,7 @@
 module Normalizers
   class NichtlustigDeNormalizer < Normalizers::RssNormalizer
+    protected
+
     def text
       [super, "!#{link}"].join(separator)
     end

@@ -1,5 +1,7 @@
 module Normalizers
   class SmbcNormalizer < Normalizers::Base
+    protected
+
     def link
       entity.link
     end

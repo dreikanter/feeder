@@ -1,5 +1,7 @@
 module Normalizers
   class VkRssNormalizer < Normalizers::RssNormalizer
+    protected
+
     def link
       entity.link
     end

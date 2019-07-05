@@ -1,5 +1,7 @@
 module Normalizers
   class TelegaNormalizer < Normalizers::RssNormalizer
+    protected
+
     def text
       Service::Html.post_excerpt(
         paragraphs.first,

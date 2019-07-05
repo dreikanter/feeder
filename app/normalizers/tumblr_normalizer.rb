@@ -1,5 +1,7 @@
 module Normalizers
   class TumblrNormalizer < Normalizers::RssNormalizer
+    protected
+
     def text
       [super, link].join(separator)
     end

@@ -1,5 +1,7 @@
 module Normalizers
   class OglafNormalizer < Normalizers::RssNormalizer
+    protected
+
     def text
       [super, link].join(separator)
     end

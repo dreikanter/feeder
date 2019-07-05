@@ -1,5 +1,7 @@
 module Normalizers
   class BazarNormalizer < Normalizers::Base
+    protected
+
     def link
       entity.link
     end

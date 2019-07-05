@@ -1,5 +1,7 @@
 module Normalizers
   class AgavrTodayNormalizer < Normalizers::TelegaNormalizer
+    protected
+
     def attachments
       return [image_url] if image_url.present?
       []

@@ -1,5 +1,7 @@
 module Normalizers
   class TheAtlanticPhotosNormalizer < Normalizers::TumblrNormalizer
+    protected
+
     def text
       [description, direct_link].reject(&:blank?).join(separator)
     end

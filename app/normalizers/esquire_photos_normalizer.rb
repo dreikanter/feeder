@@ -1,5 +1,7 @@
 module Normalizers
   class EsquirePhotosNormalizer < Normalizers::RssNormalizer
+    protected
+
     def text
       [entity.title, link].reject(&:blank?).join(separator)
     end

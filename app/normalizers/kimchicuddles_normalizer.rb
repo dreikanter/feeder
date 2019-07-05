@@ -1,5 +1,7 @@
 module Normalizers
   class KimchicuddlesNormalizer < Normalizers::Base
+    protected
+
     def text
       entity.url
     end

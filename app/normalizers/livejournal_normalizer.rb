@@ -1,6 +1,6 @@
 module Normalizers
   class LivejournalNormalizer < Normalizers::RssNormalizer
-    # https://freefeed-product.hackpad.com/LtsQ2rM1RGD
+    protected
 
     def text
       [super, "!#{link}"].reject(&:blank?).join(separator)

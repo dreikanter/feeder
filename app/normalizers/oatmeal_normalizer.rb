@@ -1,5 +1,7 @@
 module Normalizers
   class OatmealNormalizer < Normalizers::RssNormalizer
+    protected
+
     def text
       [super, "!#{link}"].join(separator)
     end

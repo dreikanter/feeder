@@ -1,5 +1,7 @@
 module Normalizers
   class RedditNormalizer < Normalizers::AtomNormalizer
+    protected
+
     def link
       discussion_url
     end
