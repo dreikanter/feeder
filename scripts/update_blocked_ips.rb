@@ -3,11 +3,7 @@ started_at = Time.new.utc
 API_URL = 'https://reestr.rublacklist.net/api/v2/ips/json'.freeze
 
 Rails.logger.info('fetching blocked ips...')
-# content = RestClient.get(API_URL).body
-
-# BlockedIP.delete_all
-content = File.read(Rails.root.join('tmp', 'ips.json'))
-
+content = RestClient.get(API_URL).body
 ips = JSON.parse(content)
 Rails.logger.info("total ips: #{ips.count}")
 
