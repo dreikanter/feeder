@@ -38,7 +38,7 @@ module Normalizers
     end
 
     def violates_score_threshold?
-      data['score'].to_i >= MIN_SCORE
+      data['score'].to_i <= MIN_SCORE
     end
   end
 end
