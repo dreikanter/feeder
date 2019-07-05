@@ -84,21 +84,21 @@
 #   processor: "rss"
 #   after: "2018-09-18T00:00:00+00:00"
 
-- name: "best-of-hacker-news"
-  loader: "null"
-  processor: "hacker_news"
-  normalizer: "hacker_news"
-  after: "2018-09-18T20:00:00+00:00"
-  refresh_interval: 600
-  import_limit: 100
+# - name: "best-of-hacker-news"
+#   loader: "null"
+#   processor: "hacker_news"
+#   normalizer: "hacker_news"
+#   after: "2018-09-18T20:00:00+00:00"
+#   refresh_interval: 600
+#   import_limit: 100
 
-- name: "reddit-worldnews"
-  url: "https://www.reddit.com/r/worldnews/.rss"
-  processor: "reddit"
-  normalizer: "reddit"
-  after: "2019-07-04T14:00:00+00:00"
-  refresh_interval: 900
-  import_limit: 0
+# - name: "reddit-worldnews"
+#   url: "https://www.reddit.com/r/worldnews/.rss"
+#   processor: "reddit"
+#   normalizer: "reddit"
+#   after: "2019-07-04T14:00:00+00:00"
+#   refresh_interval: 900
+#   import_limit: 0
 
 - name: "avokado-fm"
   url: "https://tele.ga/avokado_fm/rss/"
