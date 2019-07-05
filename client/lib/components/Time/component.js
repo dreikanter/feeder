@@ -2,18 +2,6 @@ import moment from 'moment'
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function formatTime ({ ago, value }) {
-  if (ago) {
-    return value.fromNow()
-  }
-
-  if (value.isAfter(moment().startOf('year'))) {
-    return value.format('MM/DD HH:mm')
-  }
-
-  return value.format('YYYY/MM/DD HH:mm')
-}
-
 function Time (props) {
   const {
     ago,
@@ -44,7 +32,7 @@ function Time (props) {
 
   return (
     <time className="Time" dateTime={value}>
-      {formatTime({ value: safeValue, ago })}
+      {ago ? safeValue.fromNow() : safeValue.format('YYYY/MM/DD HH:mm')}
     </time>
   )
 }
