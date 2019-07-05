@@ -44,8 +44,10 @@ module Normalizers
       []
     end
 
+    SEPARATOR = ' - '.freeze
+
     def separator
-      ' - '
+      SEPARATOR
     end
 
     def valid?
