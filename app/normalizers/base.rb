@@ -51,11 +51,11 @@ module Normalizers
     end
 
     def valid?
-      true
+      validation_errors.blank?
     end
 
     def validation_errors
-      nil
+      []
     end
   end
 end
