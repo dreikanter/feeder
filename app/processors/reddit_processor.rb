@@ -33,9 +33,15 @@ module Processors
       Rails.logger.debug 'loading reddit points from reddit'
       html = Nokogiri::HTML(page_content(link))
       desc = html.at('meta[property="og:description"]').try(:[], :content).to_s
-      points = desc[/^\d+/]
+      points = parse_points(desc)
       raise 'error loading reddit points' unless points
       DataPoint.create_reddit(link: link, points: points, description: desc)
+    end
+
+    def parse_points(string)
+      Integer(string[/^[\d,]+/].gsub(',', ''))
+    rescue
+      nil
     end
 
     def page_content(link)
