@@ -3,6 +3,8 @@ module Processors
     BASE_URL = 'https://news.ycombinator.com'.freeze
     BASE_API_URL = 'https://hacker-news.firebaseio.com/v0'.freeze
 
+    protected
+
     def entities
       load_data.map { |id| entity(id) }.to_h
     end

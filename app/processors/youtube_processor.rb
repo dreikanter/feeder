@@ -2,11 +2,11 @@
 
 module Processors
   class YoutubeProcessor < Processors::Base
+    protected
+
     def entities
       parse_source.map { |entity| [entity.url, entity] }.to_h
     end
-
-    private
 
     def parse_source
       Feedjira::Feed.parse(source).entries

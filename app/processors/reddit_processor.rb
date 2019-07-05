@@ -3,6 +3,8 @@ module Processors
     POINTS_THRESHOLD = 2000
     CACHE_HISTORY_DEPTH = 4.hours
 
+    protected
+
     def entities
       super.lazy.select { |uid, _| enough_points?(uid) }
     end

@@ -2,11 +2,11 @@ require 'rss'
 
 module Processors
   class AtomProcessor < Processors::Base
+    protected
+
     def entities
       parse_source.map { |i| [i.link.href, i] }.to_h
     end
-
-    private
 
     def parse_source
       RSS::Parser.parse(source, false).items

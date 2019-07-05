@@ -2,10 +2,10 @@ require 'rss'
 
 module Processors
   class ReworkProcessor < Processors::Base
-    def entities
-      items = RSS::Parser.parse(source).try(:items) || []
+    protected
 
-      items
+    def entities
+      (RSS::Parser.parse(source).try(:items) || [])
         .map { |item| [item.guid.content, item] }
         .reject { |guid, _| guid.blank? }
         .to_h

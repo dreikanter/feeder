@@ -14,12 +14,14 @@
 
 require "test_helper"
 
-class BlockedIpTest < ActiveSupport::TestCase
+class BlockedIPTest < ActiveSupport::TestCase
   def blocked_ip
-    @blocked_ip ||= BlockedIp.new
+    @blocked_ip ||= BlockedIP.new
   end
 
   def test_valid
     assert blocked_ip.valid?
   end
+
+  # TODO
 end
