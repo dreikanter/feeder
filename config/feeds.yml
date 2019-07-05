@@ -16,6 +16,7 @@
   url: "http://feeds.feedburner.com/PhdComics"
   processor: "rss"
   after: "2018-09-18T00:00:00+00:00"
+  refresh_interval: 86400
 
 - name: "commitstrip"
   url: "https://www.commitstrip.com/en/feed/"
@@ -137,6 +138,7 @@
   processor: "youtube"
   normalizer: "youtube"
   after: "2018-09-18T00:00:00+00:00"
+  refresh_interval: 1200
 
 - name: "myjetpack"
   # url: "http://myjetpack.tumblr.com/rss"
@@ -150,6 +152,7 @@
   processor: "rss"
   normalizer: "coding_horror"
   after: "2018-09-18T00:00:00+00:00"
+  refresh_interval: 7200
 
 - name: "little-big-details"
   # url: "http://littlebigdetails.com/rss"
@@ -164,6 +167,7 @@
   processor: "youtube"
   normalizer: "youtube"
   after: "2018-09-18T00:00:00+00:00"
+  refresh_interval: 3600
 
 - name: "jimmydiresta"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCiEk4xHBbz0hZNIBBpowdYQ"
@@ -176,6 +180,7 @@
   processor: "youtube"
   normalizer: "youtube"
   after: "2018-09-18T00:00:00+00:00"
+  refresh_interval: 3600
 
 - name: "theycantalk"
   # url: "http://theycantalk.com/rss"
@@ -189,6 +194,7 @@
   processor: "rss"
   normalizer: "maremir"
   after: "2018-09-18T00:00:00+00:00"
+  refresh_interval: 7200
 
 - name: "sarahcandersen"
   url: "http://feeds.feedburner.com/sarahcandersen/koPM"
@@ -213,6 +219,7 @@
   processor: "wordpress"
   normalizer: "waitbutwhy"
   after: "2018-09-18T00:00:00+00:00"
+  refresh_interval: 7200
 
 - name: "savagechickens"
   url: "http://www.savagechickens.com/feed"
@@ -242,7 +249,7 @@
   url: "https://feeds.feedburner.com/aerostatica"
   processor: "feedjira"
   normalizer: "aerostatica_normalizer"
-  refresh_interval: 1200
+  refresh_interval: 7200
 
 # NOTE: Temporarily disabled
 # - name: "rknalerts"
@@ -255,7 +262,7 @@
   loader: "twitter"
   processor: "twitter"
   normalizer: "twitter"
-  refresh_interval: 1200
+  refresh_interval: 7200
   import_limit: 5
   options:
     twitter_user: "alg_testament"
