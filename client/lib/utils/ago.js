@@ -1,15 +1,15 @@
-import moment from 'moment'
+import {
+  distanceInWordsToNow,
+  isValid,
+  parse
+} from 'date-fns'
 
 export default function ago (date) {
-  if (date === undefined) {
+  const value = parse(date)
+
+  if (!isValid(value)) {
     return null
   }
 
-  const value = moment(date)
-
-  if (!value.isValid()) {
-    return null
-  }
-
-  return value.fromNow()
+  return distanceInWordsToNow(value, { addSuffix: true })
 }

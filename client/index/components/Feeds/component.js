@@ -1,4 +1,9 @@
-import moment from 'moment'
+import {
+  isAfter,
+  parse,
+  subSeconds
+} from 'date-fns'
+
 import { Link } from 'react-router-dom'
 import React from 'react'
 import PropTypes from 'prop-types'
@@ -11,8 +16,8 @@ import paths from 'main/paths'
 const recencyThreshold = 3600 // seconds
 
 function humanizedTime (value, highlight = true) {
-  const time = moment.utc(value)
-  const threshold = moment().subtract(recencyThreshold, 'seconds')
+  const time = parse(value)
+  const threshold = subSeconds(new Date(), recencyThreshold, 'seconds')
 
   const result = (
     <Time
@@ -22,7 +27,7 @@ function humanizedTime (value, highlight = true) {
     />
   )
 
-  if (highlight && time.isAfter(threshold)) {
+  if (highlight && isAfter(time, threshold)) {
     return (
       <mark>{result}</mark>
     )

@@ -1,4 +1,4 @@
-import moment from 'moment'
+import { subMonths } from 'date-fns'
 import { connect } from 'react-redux'
 import { push } from 'connected-react-router'
 import { loadActivity } from 'main/actions/loadActivity'
@@ -12,16 +12,22 @@ import {
   pendingFeedsPageSelector
 } from 'main/selectors'
 
+import { activityHistoryDepth } from 'index/constants'
 import Main from './component'
 
-const mapStateToProps = state => ({
-  activity: activitySelector(state),
-  activityEndDate: moment().toDate(),
-  activityStartDate: moment().subtract(12, 'months').toDate(),
-  feeds: indexSelector(state),
-  mappedActivity: mapActivityValues(activitySelector(state)),
-  pending: pendingFeedsPageSelector(state)
-})
+function mapStateToProps (state) {
+  const activityEndDate = new Date()
+  const activityStartDate = subMonths(activityEndDate, activityHistoryDepth)
+
+  return {
+    activity: activitySelector(state),
+    activityEndDate,
+    activityStartDate,
+    feeds: indexSelector(state),
+    mappedActivity: mapActivityValues(activitySelector(state)),
+    pending: pendingFeedsPageSelector(state)
+  }
+}
 
 const mapDispatchToProps = dispatch => ({
   clickFeed: ({ name }) => dispatch(push(paths.feedPath(name))),

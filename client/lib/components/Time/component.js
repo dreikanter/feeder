@@ -1,6 +1,22 @@
-import moment from 'moment'
+import {
+  distanceInWordsToNow,
+  format,
+  isValid,
+  parse
+} from 'date-fns'
+
 import React from 'react'
 import PropTypes from 'prop-types'
+
+const fullDateFormat = 'YYYY/MM/DD HH:mm'
+
+function conditionalFormat (value, ago) {
+  if (ago) {
+    return distanceInWordsToNow(value, { addSuffix: true })
+  }
+
+  return format(value, fullDateFormat)
+}
 
 function Time (props) {
   const {
@@ -14,11 +30,13 @@ function Time (props) {
     return placeholder
   }
 
-  const safeValue = moment(value)
+  const parsedValue = parse(value)
 
-  if (!safeValue.isValid()) {
+  if (!isValid(parsedValue)) {
     return (
-      <span className="Time text-danger">{value}</span>
+      <span className="Time text-danger">
+        {value}
+      </span>
     )
   }
 
@@ -32,7 +50,7 @@ function Time (props) {
 
   return (
     <time className="Time" dateTime={value}>
-      {ago ? safeValue.fromNow() : safeValue.format('YYYY/MM/DD HH:mm')}
+      {conditionalFormat(parsedValue, ago)}
     </time>
   )
 }

@@ -1,4 +1,4 @@
-import moment from 'moment'
+import { subMonths } from 'date-fns'
 import { connect } from 'react-redux'
 import mapActivityValues from 'main/utils/mapActivityValues'
 import routerParam from 'lib/utils/routerParam'
@@ -11,16 +11,22 @@ import {
   pendingFeedPageSelector
 } from 'main/selectors'
 
+import { activityHistoryDepth } from 'index/constants'
 import Main from './component'
 
-const mapStateToProps = state => ({
-  activity: feedActivitySelector(state),
-  activityEndDate: moment().toDate(),
-  activityStartDate: moment().subtract(12, 'months').toDate(),
-  mappedActivity: mapActivityValues(feedActivitySelector(state)),
-  feed: feedSelector(state),
-  pending: pendingFeedPageSelector(state)
-})
+function mapStateToProps (state) {
+  const activityEndDate = new Date()
+  const activityStartDate = subMonths(activityEndDate, activityHistoryDepth)
+
+  return {
+    activity: feedActivitySelector(state),
+    activityEndDate,
+    activityStartDate,
+    mappedActivity: mapActivityValues(feedActivitySelector(state)),
+    feed: feedSelector(state),
+    pending: pendingFeedPageSelector(state)
+  }
+}
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   load: () => {
