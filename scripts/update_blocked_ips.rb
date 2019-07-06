@@ -29,10 +29,10 @@ query = "INSERT INTO blocked_ips (ip) VALUES #{values} " \
 
 Rails.logger.info('updating db...')
 
-begin
+ActiveRecord::Base.logger.silence(Logger::ERROR) do
   ActiveRecord::Base.connection.exec_query(query)
 rescue => e
-  Rails.logger.error(e.message.to_s[0, 1000])
+  Rails.logger.error(e.message)
   exit
 end
 
