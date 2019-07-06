@@ -12,32 +12,40 @@ import paths from 'main/paths'
 const updateCols = [
   {
     title: 'Status',
-    headClasses: 'text-center min',
-    cellClasses: 'text-center min',
+    headClasses: 'text-center text-nowrap min',
+    cellClasses: 'text-center text-nowrap min',
     value: ({ status }) => (
       <UpdateStatus value={status} />
     )
   },
   {
     title: 'Feed name',
+    headClasses: 'text-nowrap',
+    cellClasses: 'text-nowrap',
     value: ({ feed_name }) => (
       <a href={paths.feedPath(feed_name)}>{feed_name}</a>
     )
   },
   {
     title: 'New posts',
+    headClasses: 'text-nowrap',
+    cellClasses: 'text-nowrap',
     value: ({ posts_count }) => (
       <MutedZero>{posts_count}</MutedZero>
     )
   },
   {
     title: 'Executed at',
+    headClasses: 'text-nowrap',
+    cellClasses: 'text-nowrap',
     value: ({ created_at }) => (
       <Time value={created_at} />
     )
   },
   {
     title: 'Duration',
+    headClasses: 'text-nowrap',
+    cellClasses: 'text-nowrap',
     value: ({ duration }) => seconds(duration)
   },
 ]

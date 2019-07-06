@@ -41,6 +41,7 @@ const cols = [
   {
     title: 'Feed name',
     headClasses: 'col-auto text-nowrap',
+    cellClasses: 'text-nowrap',
     value: ({ id, name }) => (
       <Link to={paths.feedPath(id)}>{name}</Link>
     )
@@ -48,7 +49,7 @@ const cols = [
   {
     title: 'Posts',
     headClasses: 'col-auto text-nowrap',
-    cellClasses: '',
+    cellClasses: 'text-nowrap',
     value: ({ posts_count }) => (
       <MutedZero>{posts_count}</MutedZero>
     )

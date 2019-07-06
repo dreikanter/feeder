@@ -26,7 +26,7 @@ const repeatIcons = (icon, length) => (
 const cols = [
   {
     title: <FontAwesomeIcon icon={faLink} />,
-    headClasses: 'min',
+    headClasses: 'min text-nowrap',
     value: ({ post_url }) => (
       <a href={post_url}>
         <FontAwesomeIcon icon={faLink} />
@@ -35,26 +35,36 @@ const cols = [
   },
   {
     title: 'Feed',
+    headClasses: 'text-nowrap',
+    cellClasses: 'text-nowrap',
     value: ({ feed_name }) => (
       <a href={paths.feedPath(feed_name)}>{feed_name}</a>
     )
   },
   {
     title: 'Comments',
+    headClasses: 'text-nowrap',
+    cellClasses: 'text-nowrap',
     value: ({ comments }) => repeatIcons(faComment, comments.length)
   },
   {
     title: 'Attachments',
+    headClasses: 'text-nowrap',
+    cellClasses: 'text-nowrap',
     value: ({ attachments }) => repeatIcons(faFile, attachments.length)
   },
   {
     title: 'Published at',
+    headClasses: 'text-nowrap',
+    cellClasses: 'text-nowrap',
     value: ({ published_at }) => (
       <Time value={published_at} />
     )
   },
   {
     title: 'Created at',
+    headClasses: 'text-nowrap',
+    cellClasses: 'text-nowrap',
     value: ({ created_at }) => (
       <Time value={created_at} />
     )
