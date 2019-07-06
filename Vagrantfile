@@ -9,7 +9,8 @@ VAGRANT_BOX        = 'bento/ubuntu-18.04'
 VAGRANT_PORTS = {
   puma: { guest: 3000, host: 3000 },
   webpack_dev_server: { guest: 3035, host: 3035 },
-  postgres: { guest: 5432, host: 5432 }
+  postgres: { guest: 5432, host: 5432 },
+  webpack_bundle_analyzer: { guest: 8888, host: 8888 }
 }
 
 Vagrant.require_version '>= 2.2'
