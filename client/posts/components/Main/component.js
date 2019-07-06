@@ -1,13 +1,9 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-import {
-  faComment,
-  faLink,
-  faFile
-} from '@fortawesome/free-solid-svg-icons'
-
+import { faComment } from '@fortawesome/free-solid-svg-icons/faComment'
+import { faLink } from '@fortawesome/free-solid-svg-icons/faLink'
+import { faFile } from '@fortawesome/free-solid-svg-icons/faFile'
 import DataTable from 'lib/components/DataTable'
 import Pending from 'lib/components/Pending'
 import Time from 'lib/components/Time'

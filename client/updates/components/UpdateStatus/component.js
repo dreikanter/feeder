@@ -1,7 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheckCircle, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
+
+import {
+  faCheckCircle
+} from '@fortawesome/free-solid-svg-icons/faCheckCircle'
+
+import {
+  faExclamationTriangle
+} from '@fortawesome/free-solid-svg-icons/faExclamationTriangle'
 
 // TODO: Use shared enum for available update status values ('pull' series)
 
