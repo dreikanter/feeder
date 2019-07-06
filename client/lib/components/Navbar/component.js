@@ -6,15 +6,13 @@ import {
   NavLink as RoutedNavLink
 } from 'react-router-dom'
 
-import {
-  Collapse,
-  Navbar as BootstrapNavbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink
-} from 'reactstrap'
+import BootstrapNavbar from 'reactstrap/es/Navbar'
+import Collapse from 'reactstrap/es/Collapse'
+import Nav from 'reactstrap/es/Nav'
+import NavbarBrand from 'reactstrap/es/NavbarBrand'
+import NavbarToggler from 'reactstrap/es/NavbarToggler'
+import NavItem from 'reactstrap/es/NavItem'
+import NavLink from 'reactstrap/es/NavLink'
 
 class Navbar extends Component {
   constructor (props) {
