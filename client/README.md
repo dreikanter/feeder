@@ -1,11 +1,14 @@
 # Client side
 
+- [`main`](./main) — Redux state configuration and actions. Common application components.
+- [`lib`](./lib) — shared React components and utility functions library.
+- [`packs`](./packs) — Webpack entry points.
+
+Pages:
+
 - [`about`](./about) — about page.
 - [`feed`](./feed) — individual feed page.
 - [`index`](./index) — root page with the feeds list and activity graph.
-- [`lib`](./lib) — shared React components and utility functions library.
-- [`main`](./main) — Redux state configuration and actions. Common application components.
-- [`packs`](./packs) — Webpack entry points.
 - [`posts`](./posts) — posts list page.
 - [`updates`](./updates) — updates page.
 
