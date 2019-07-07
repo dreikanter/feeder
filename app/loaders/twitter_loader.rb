@@ -1,15 +1,16 @@
-# TwitterLoader requires "twitter" block in the application credentials file
-# to contain Twitter API access credentials. See REQUIRED_OPTIONS definition
+# TwitterLoader requires 'twitter' block in the application credentials file
+# to contain Twitter API access credentials. See REQUIRED_CREDENTIALS definition
 # and 'twitter' gem documentation.
 #
-# Rails.application.credentials.twitter will be used unless loader options
-# are defined during the loader instance initialization.
+# Rails.application.credentials.twitter will be used unless twitter
+# access credentials are defined in the 'credentials' loader option
+# during the class instance initialization.
 #
 # SEE: https://www.rubydoc.info/gems/twitter
 
 module Loaders
   class TwitterLoader < Base
-    REQUIRED_OPTIONS = %i[
+    REQUIRED_CREDENTIALS = %w[
       consumer_key
       consumer_secret
       access_token
@@ -17,39 +18,41 @@ module Loaders
     ].freeze
 
     def call
-      validate_options!
+      validate_credentials!
       client.user_timeline(twitter_user)
     end
 
     private
 
-    def validate_options!
-      return if undefined_options.empty?
-      undefined_list = undefined_options.join(', ')
-      raise "required options not found: #{undefined_list}"
+    def validate_credentials!
+      return if missing_credentials.empty?
+      raise "required credentials not found: #{missing_credentials.join(', ')}"
     end
 
-    def undefined_options
-      options_or_defaults.select { |opt| !options_or_defaults[opt] }
+    def missing_credentials
+      REQUIRED_CREDENTIALS.select { |key| credentials[key].blank? }
+    end
+
+    def credentials
+      options[:credentials] || Rails.application.credentials.twitter
     end
 
     def client
-      Twitter::REST::Client.new(safe_options)
+      options[:client] || twitter_client
+    end
+
+    def twitter_client
+      Twitter::REST::Client.new(safe_credentials)
+    end
+
+    def safe_credentials
+      credentials.slice(*REQUIRED_CREDENTIALS)
     end
 
     def twitter_user
       feed.options.fetch('twitter_user')
     rescue KeyError
-      raise "'twitter_user' option not defined in '#{feed.name}' feed options"
-    end
-
-    def options_or_defaults
-      return options unless options.empty?
-      Rails.application.credentials.twitter
-    end
-
-    def safe_options
-      options_or_defaults.slice(*REQUIRED_OPTIONS)
+      raise "'twitter_user' not defined in '#{feed.name}' feed options"
     end
   end
 end
