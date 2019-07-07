@@ -17,9 +17,12 @@ module Operations
       end
 
       def data_points
-        scope = DataPoint.recent.for('pull')
-        return scope unless feed_name
-        data_points.where("details->>'feed_name' = ?", feed_name)
+        return data_points_scope unless feed_name
+        data_points_scope.where("details->>'feed_name' = ?", feed_name)
+      end
+
+      def data_points_scope
+        DataPoint.for('pull').where("(details->>'posts_count')::int > ?", 0)
       end
 
       def meta
