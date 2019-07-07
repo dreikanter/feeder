@@ -22,6 +22,7 @@ end
 
 group :development, :test do
   gem 'awesome_print', '~> 1.8'
+  gem 'mocha', '~> 1.9'
   gem 'pry-rails', '~> 0.3.4'
 
   # TODO: Drop this after migrating to Rails 6
