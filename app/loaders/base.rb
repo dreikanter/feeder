@@ -3,9 +3,10 @@ module Loaders
     extend Dry::Initializer
 
     param :feed
+    param :options, default: proc { {} }
 
-    def self.call(feed)
-      new(feed).call
+    def self.call(feed, options = {})
+      new(entity, options).call
     end
 
     def call
