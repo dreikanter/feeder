@@ -30,6 +30,8 @@ module Operations
       raise NotImplementedError
     end
 
+    # TODO: Move helper methods to services
+
     def s11n(object, serializer = nil)
       return object.as_json unless serializer
 
