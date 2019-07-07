@@ -23,7 +23,7 @@ module Loaders
     end
 
     def sample_credentials
-      REQUIRED_OPTIONS.map { |option| [option.to_s, "#{option} value"] }.to_h
+      REQUIRED_OPTIONS.map { |option| [option, "#{option} value"] }.to_h
     end
 
     SAMPLE_RESULT = [].freeze

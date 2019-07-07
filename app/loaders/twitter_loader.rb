@@ -10,7 +10,7 @@
 
 module Loaders
   class TwitterLoader < Base
-    REQUIRED_CREDENTIALS = %w[
+    REQUIRED_CREDENTIALS = %i[
       consumer_key
       consumer_secret
       access_token
