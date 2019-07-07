@@ -24,10 +24,13 @@ module Loaders
     private
 
     def validate_options!
-      options_or_defaults.each do |option_name|
-        next if options_or_defaults[option_name].present?
-        raise "required option '#{option_name}' is not defined"
-      end
+      return if undefined_options.empty?
+      undefined_list = undefined_options.join(', ')
+      raise "required options not found: #{undefined_list}"
+    end
+
+    def undefined_options
+      options_or_defaults.select { |opt| !options_or_defaults[opt] }
     end
 
     def client
@@ -37,7 +40,7 @@ module Loaders
     def twitter_user
       feed.options.fetch('twitter_user')
     rescue KeyError
-      raise "'twitter_user' option is not defined for '#{feed.name}' feed"
+      raise "'twitter_user' option not defined in '#{feed.name}' feed options"
     end
 
     def options_or_defaults
