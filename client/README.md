@@ -1,4 +1,4 @@
-    # Client side
+# Client side
 
 - [`about`](./about) — about page.
 - [`feed`](./feed) — individual feed page.
