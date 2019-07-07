@@ -22,7 +22,10 @@ module Operations
       end
 
       def data_points_scope
-        DataPoint.for('pull').where("(details->>'posts_count')::int > ?", 0)
+        DataPoint
+          .for('pull')
+          .where("(details->>'posts_count')::int > ?", 0)
+          .recent
       end
 
       def meta
