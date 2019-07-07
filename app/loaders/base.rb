@@ -6,7 +6,7 @@ module Loaders
     param :options, default: proc { {} }
 
     def self.call(feed, options = {})
-      new(entity, options).call
+      new(feed, options).call
     end
 
     def call
