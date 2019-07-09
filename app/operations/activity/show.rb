@@ -6,10 +6,7 @@ module Operations
 
       def call
         {
-          json: {
-            activity: posts_per_day,
-            meta: meta
-          }
+          json: { activity: posts_per_day }.merge(meta)
         }
       end
 
@@ -21,14 +18,13 @@ module Operations
 
       def posts
         scope = Post.where('created_at > ?', HISTORY_DEPTH)
-        return scope unless feed_name
+        return scope if overall?
         scope.where(feed: feed)
       end
 
       def meta
-        {
-          feed_name: feed_name
-        }
+        return {} if overall?
+        { meta: { feed_name: feed_name } }
       end
 
       def feed
@@ -37,6 +33,10 @@ module Operations
 
       def feed_name
         params[:feed_name]
+      end
+
+      def overall?
+        feed_name.blank?
       end
     end
   end
