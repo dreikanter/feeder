@@ -11,7 +11,7 @@ class AerostaticaRecordLinkExtractorTest < Minitest::Test
     File.join(File.expand_path('../../data', __FILE__), SAMPLE_DATA_FILE).freeze
 
   def test_sample_data_file_exists
-    assert(File.exists?(SAMPLE_DATA_PATH))
+    assert(File.exist?(SAMPLE_DATA_PATH))
   end
 
   EXPECTED = 'https://aerostatica.ru/music/702.mp3'.freeze

@@ -10,7 +10,7 @@ class FeedFinderTest < Minitest::Test
 
   def test_sample_config_exists
     message = "#{SAMPLE_CONFIG_PATH} should exist"
-    assert(File.exists?(SAMPLE_CONFIG_PATH), message)
+    assert(File.exist?(SAMPLE_CONFIG_PATH), message)
   end
 
   def test_find
