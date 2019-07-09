@@ -7,8 +7,8 @@ import { loadFeedActivity } from 'main/actions/loadFeedActivity'
 
 import {
   feedActivitySelector,
-  feedSelector,
-  pendingFeedPageSelector
+  feedPageStateSelector,
+  feedSelector
 } from 'main/selectors'
 
 import { activityHistoryDepth } from 'index/constants'
@@ -24,7 +24,7 @@ function mapStateToProps (state) {
     activityStartDate,
     mappedActivity: mapActivityValues(feedActivitySelector(state)),
     feed: feedSelector(state),
-    pending: pendingFeedPageSelector(state)
+    pageState: feedPageStateSelector(state)
   }
 }
 

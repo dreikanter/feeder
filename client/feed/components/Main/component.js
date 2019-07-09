@@ -1,6 +1,9 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Heatmap from 'lib/components/Heatmap'
+import LoadingError from 'lib/components/LoadingError'
+import PageNotFound from 'lib/components/PageNotFound'
+import pageStates from 'lib/constants/pageStates'
 import Pending from 'lib/components/Pending'
 import getActivityTooltip from 'main/utils/getActivityTooltip'
 import Feed from 'feed/components/Feed'
@@ -18,31 +21,47 @@ class Main extends Component {
       activityStartDate,
       feed,
       mappedActivity,
-      pending
+      pageState
     } = this.props
 
-    if (pending) {
-      return (
-        <Pending />
-      )
-    }
+    switch (pageState) {
+      case pageStates.pending: {
+        return (
+          <Pending />
+        )
+      }
 
-    return (
-      <Fragment>
-        <h1>
-          Feed:
-          {' '}
-          <mark>{feed.name}</mark>
-        </h1>
-        <Heatmap
-          getTooltipContent={date => getActivityTooltip(activity, date)}
-          endDate={activityEndDate}
-          startDate={activityStartDate}
-          values={mappedActivity}
-        />
-        <Feed feed={feed} />
-      </Fragment>
-    )
+      case pageStates.notFound: {
+        return (
+          <PageNotFound />
+        )
+      }
+
+      case pageStates.error: {
+        return (
+          <LoadingError />
+        )
+      }
+
+      default: {
+        return (
+          <Fragment>
+            <h1>
+              Feed:
+              {' '}
+              <mark>{feed.name}</mark>
+            </h1>
+            <Heatmap
+              getTooltipContent={date => getActivityTooltip(activity, date)}
+              endDate={activityEndDate}
+              startDate={activityStartDate}
+              values={mappedActivity}
+            />
+            <Feed feed={feed} />
+          </Fragment>
+        )
+      }
+    }
   }
 }
 
@@ -53,7 +72,7 @@ Main.propTypes = {
   feed: PropTypes.object,
   load: PropTypes.func,
   mappedActivity: PropTypes.array,
-  pending: PropTypes.bool
+  pageState: PropTypes.oneOf(Object.values(pageStates))
 }
 
 Main.defaultProps = {
@@ -63,7 +82,7 @@ Main.defaultProps = {
   feed: {},
   load: undefined,
   mappedActivity: [],
-  pending: false
+  pageState: undefined
 }
 
 export default Main

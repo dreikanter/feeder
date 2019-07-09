@@ -1,4 +1,13 @@
+import get from 'lodash/get'
 import { createSelector } from 'reselect'
+
+import {
+  pending,
+  notFound,
+  error,
+  ready
+} from 'lib/constants/pageStates'
+
 import { LOAD_FEED } from 'main/actions/loadFeed'
 import { LOAD_FEEDS } from 'main/actions/loadFeeds'
 import { LOAD_POSTS } from 'main/actions/loadPosts'
@@ -9,9 +18,13 @@ import { LOAD_FEED_POSTS } from 'main/actions/loadFeedPosts'
 import { LOAD_FEED_UPDATES } from 'main/actions/loadFeedUpdates'
 import { LOAD_FEED_ACTIVITY } from 'main/actions/loadFeedActivity'
 
-export const indexSelector = root => root.index || []
+//
+// Root selectors
+//
 
-export const feedSelector = root => root.feed || {}
+export const indexSelector = state => state.index || []
+
+export const feedSelector = state => state.feed || {}
 
 export const pendingSelector = state => state.pending || []
 
@@ -30,6 +43,12 @@ export const feedPostsSelector = state => state.feedPosts || []
 export const feedUpdatesSelector = state => state.feedUpdates || []
 
 export const feedActivitySelector = state => state.feedActivity || {}
+
+export const errorsSelector = state => state.errors || {}
+
+//
+// Pending state
+//
 
 const createPendingSelector = actionType => createSelector(
   pendingSelector,
@@ -79,4 +98,46 @@ export const pendingFeedPageSelector = createSelector(
   pendingFeedSelector,
   pendingActivitySelector,
   (pendingFeeds, pendingActivity) => pendingFeeds || pendingActivity
+)
+
+//
+// Errors
+//
+
+const errorFeedActivitySelector = createSelector(
+  errorsSelector,
+  errors => errors[LOAD_FEED_ACTIVITY]
+)
+
+const errorFeedSelector = createSelector(
+  errorsSelector,
+  errors => errors[LOAD_FEED]
+)
+
+//
+// Pages state
+//
+
+const statusNotFound = 404
+
+export const feedPageStateSelector = createSelector(
+  pendingFeedActivitySelector,
+  pendingFeedSelector,
+  errorFeedActivitySelector,
+  errorFeedSelector,
+  (pendingFeedActivity, pendingFeed, errorFeedActivity, errorFeed) => {
+    if (pendingFeedActivity || pendingFeed) {
+      return pending
+    }
+
+    if (errorFeedActivity || errorFeed) {
+      if (get(errorFeed, ['response', 'status']) === statusNotFound) {
+        return notFound
+      }
+
+      return error
+    }
+
+    return ready
+  }
 )
