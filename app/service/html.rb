@@ -1,3 +1,5 @@
+# TODO: Split this to separate services
+
 module Service
   class Html
     def self.text(html)
