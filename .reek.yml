@@ -6,6 +6,9 @@ detectors:
   UncommunicativeModuleName:
     enabled: false
 
+  UncommunicativeVariableName:
+    accept_key: ['e']
+
   TooManyMethods:
     max_methods: 10
     exclude:
