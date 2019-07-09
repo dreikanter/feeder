@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.2.3'
 gem 'puma', '~> 3.12', '>= 3.12.1'
+gem 'rails', '~> 5.2.3'
 
 group :development do
   gem 'brakeman', '~> 4.3', '>= 4.3.1', require: false
@@ -31,21 +31,21 @@ group :development, :test do
 end
 
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'pg', '~> 1.1', '>= 1.1.3'
-gem 'delayed_job_active_record', '~> 4.1', '>= 4.1.1'
-gem 'lograge', '~> 0.3.6'
-gem 'rest-client', '~> 2.0'
-gem 'nokogiri', '~> 1.8', '>= 1.8.3'
-gem 'annotate', '~> 2.7', '>= 2.7.4'
+gem 'active_model_serializers', '~> 0.10.9'
 gem 'addressable', '~> 2.5', '>= 2.5.2'
-gem 'marginalia', '~> 1.5'
-gem 'feedjira', '~> 2.2'
+gem 'annotate', '~> 2.7', '>= 2.7.4'
 gem 'bootsnap', '~> 1.3', '>= 1.3.2', require: false
-gem 'twitter', '~> 6.2'
-gem 'webpacker', '~> 4.0', '>= 4.0.2'
-gem 'js-routes', '~> 1.4', '>= 1.4.6'
+gem 'delayed_job_active_record', '~> 4.1', '>= 4.1.1'
 gem 'dry-initializer', '~> 2.5'
 gem 'dry-types', '~> 0.13.2'
 gem 'dry-validation', '~> 0.12.2'
+gem 'feedjira', '~> 2.2'
+gem 'js-routes', '~> 1.4', '>= 1.4.6'
+gem 'lograge', '~> 0.3.6'
+gem 'marginalia', '~> 1.5'
+gem 'nokogiri', '~> 1.8', '>= 1.8.3'
+gem 'pg', '~> 1.1', '>= 1.1.3'
 gem 'rack-cors', '~> 1.0', '>= 1.0.2', require: 'rack/cors'
-gem 'active_model_serializers', '~> 0.10.9'
+gem 'rest-client', '~> 2.0'
+gem 'twitter', '~> 6.2'
+gem 'webpacker', '~> 4.0', '>= 4.0.2'
