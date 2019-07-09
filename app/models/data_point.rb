@@ -17,7 +17,6 @@ class DataPoint < ApplicationRecord
 
   # TODO: Consider moving configuration values to configuration
   RECENT_LIMIT = 50
-  KEEP_RECORDS_FOR = 3.month
 
   CREATE_METHOD_PREFIX = 'create_'.freeze
 
@@ -27,7 +26,7 @@ class DataPoint < ApplicationRecord
   def self.method_missing(method_name, details = {})
     return super unless valid_create_method_name?(method_name)
 
-    series = method_name.to_s.sub(/^create_/, '')
+    series = method_name.to_s.sub(/^#{CREATE_METHOD_PREFIX}/, '')
     DataPoint.create(
       series: DataPointSeries.find_or_create_by(name: series),
       details: details
@@ -40,10 +39,6 @@ class DataPoint < ApplicationRecord
 
   def self.for(series_name)
     DataPoint.where(series: DataPointSeries.find_by(name: series_name))
-  end
-
-  def self.purge_old_records!
-    DataPoint.where('created_at < ?', KEEP_RECORDS_FOR.ago).delete_all
   end
 
   private

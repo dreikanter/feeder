@@ -101,6 +101,6 @@ class PullJob < ApplicationJob
       status: status
     )
 
-    DataPoint.purge_old_records!
+    Service::PurgeDataPoints.call
   end
 end
