@@ -32,9 +32,7 @@ class DataPoint < ApplicationRecord
   end
 
   def self.for(series_name)
-    DataPoint.where(series: DataPointSeries.find_by_name(series_name))
-  rescue
-    DataPoint.none
+    DataPoint.where(series: DataPointSeries.find_by(name: series_name))
   end
 
   def self.purge_old_records!
