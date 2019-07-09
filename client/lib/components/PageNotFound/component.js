@@ -3,7 +3,7 @@ import ErrorPage from 'lib/components/ErrorPage'
 
 const PageNotFound = () => (
   <ErrorPage title="404">
-    <p>Page not found</p>
+    Page not found
   </ErrorPage>
 )
 
