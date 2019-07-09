@@ -1,17 +1,17 @@
 require_relative 'normalizer_test'
 
 class GithubBlogNormalizerTest < NormalizerTest
-  SAMPLE_DATA_FILE = 'feed_github_blog.xml'
+  SAMPLE_DATA_FILE = 'feed_github_blog.xml'.freeze
 
   SAMPLE_DATA_PATH =
-    File.join(File.expand_path('../../data', __FILE__), SAMPLE_DATA_FILE)
+    File.join(File.expand_path('../data', __dir__), SAMPLE_DATA_FILE).freeze
 
   def test_sample_data_file_exists
-    assert(File.exist?(open(SAMPLE_DATA_PATH)))
+    assert(File.exist?(SAMPLE_DATA_PATH))
   end
 
   def process_sample_data
-    source = open(SAMPLE_DATA_PATH).read
+    source = File.read(SAMPLE_DATA_PATH)
     Processors::AtomProcessor.call(source)
   end
 

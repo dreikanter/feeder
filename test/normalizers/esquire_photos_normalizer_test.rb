@@ -1,17 +1,17 @@
 require_relative 'normalizer_test'
 
 class EsquirePhotosNormalizerTest < NormalizerTest
-  SAMPLE_DATA_FILE = 'feed_esquire-photos.xml'
+  SAMPLE_DATA_FILE = 'feed_esquire-photos.xml'.freeze
 
   SAMPLE_DATA_PATH =
-    File.join(File.expand_path('../../data', __FILE__), SAMPLE_DATA_FILE)
+    File.join(File.expand_path('../data', __dir__), SAMPLE_DATA_FILE).freeze
 
   def test_sample_data_file_exists
-    assert(File.exist?(open(SAMPLE_DATA_PATH)))
+    assert(File.exist?(SAMPLE_DATA_PATH))
   end
 
   def process_sample_data
-    source = open(SAMPLE_DATA_PATH).read
+    source = File.read(SAMPLE_DATA_PATH)
     Processors::RssProcessor.call(source)
   end
 
@@ -50,7 +50,7 @@ class EsquirePhotosNormalizerTest < NormalizerTest
     'comments' => [
       '«Если мы не получим деньги, то прикроем их маленькое шоу».'
     ]
-  }
+  }.freeze
 
   def test_normalized_sample
     assert_equal(FIRST_SAMPLE, normalized.first.payload)

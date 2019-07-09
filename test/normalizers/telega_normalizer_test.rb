@@ -1,17 +1,17 @@
 require_relative 'normalizer_test'
 
 class TelegaNormalizerTest < NormalizerTest
-  SAMPLE_DATA_FILE = 'feed_agavr_today.xml'
+  SAMPLE_DATA_FILE = 'feed_agavr_today.xml'.freeze
 
   SAMPLE_DATA_PATH =
-    File.join(File.expand_path('../../data', __FILE__), SAMPLE_DATA_FILE)
+    File.join(File.expand_path('../data', __dir__), SAMPLE_DATA_FILE).freeze
 
   def test_sample_data_file_exists
-    assert(File.exist?(open(SAMPLE_DATA_PATH)))
+    assert(File.exist?(SAMPLE_DATA_PATH))
   end
 
   def process_sample_data
-    source = open(SAMPLE_DATA_PATH).read
+    source = File.read(SAMPLE_DATA_PATH)
     Processors::RssProcessor.call(source)
   end
 
@@ -51,7 +51,7 @@ class TelegaNormalizerTest < NormalizerTest
       "Так вот, я все придумал: сиквел назовем «Синекдоха, Превращение».\n\n" +
       "Сюжет такой: Грета Замза встречает мужчину своей мечты, они влюблены, у них роман, мужчина делает ей предложение, и они идут в ЗАГС. Но в ЗАГСе чиновник говорит им, что в этом году лимит свадеб исчерпан, но вы, конечно, можете записаться на следующий год. Встать в очередь. И Грета Замза и ее возлюбленный записываются в очередь на свадьбу. Проходит год, Грета уже беременна, она каждый день зачеркивает даты в календаре — считает дни до свадьбы. Затем они с возлюбленным снова идут в ЗАГС, но там им сообщают, что их место в очереди потерялось. Возлюбленный Греты спрашивает, что... (continued)"
     ]
-  }
+  }.freeze
 
   SECOND_SAMPLE = {
     'link' => 'http://tele.ga/agavr_today/120.html',
@@ -62,7 +62,7 @@ class TelegaNormalizerTest < NormalizerTest
       "Книга, представляющая собой диалог несчастного и подавленного Боэция с самой Философией (а она ему отвечает: то ли ещё бывало! ты же читал!), была настолько популярна в средневековьи, что ее фрагменты неоднократно становились песнями и в таком виде раходились по Европе. Не знаю, с чем сравнить - ну, как если бы нищие по электричкам пели из \"Архипелага Гулаг\" или хотя бы из \"Розы мира\" Даниила Андреева. Доктор Сэм Баррет из Кембриджского университета постарался восстановить звучание этих песен и университетский ансамбль исполнил их в этой новой, но вполне аутентичной аранжировке.\n\n" +
       "Read more » (http://tele.ga/agavr_today/120.html)"
     ]
-  }
+  }.freeze
 
   def test_normalized_sample
     assert_equal(FIRST_SAMPLE, normalized.first.payload)
