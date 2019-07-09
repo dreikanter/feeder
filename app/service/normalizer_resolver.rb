@@ -18,7 +18,7 @@ module Service
       available_names.each do |name|
         safe_name = name.to_s.gsub(/-/, '_')
         return "normalizers/#{safe_name}_normalizer".classify.constantize
-      rescue
+      rescue NameError
         next
       end
     end

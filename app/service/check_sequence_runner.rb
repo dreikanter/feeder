@@ -27,8 +27,7 @@ class CheckSequenceRunner
 
   def call
     names = failed_check_names
-    return Success.new if names.empty?
-    Failure.new(names)
+    names.empty? ? Success.new : Failure.new(names)
   end
 
   def checks

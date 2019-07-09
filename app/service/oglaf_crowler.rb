@@ -27,7 +27,8 @@ module Service
         .try(:[], 'href')
         .try(:value)
 
-      return nil if result.blank? || !result.match(/\/\d+\/$/)
+      return nil if result.blank? || !result.match(%r{/\d+/$})
+
       uri = Addressable::URI.parse(result)
       uri.host ||= HOST
       uri.scheme ||= SCHEME

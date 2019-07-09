@@ -20,7 +20,7 @@ module Service
       available_names.each do |name|
         safe_name = name.to_s.gsub(/-/, '_')
         return "loaders/#{safe_name}_loader".classify.constantize
-      rescue
+      rescue StandardError
         next
       end
     end

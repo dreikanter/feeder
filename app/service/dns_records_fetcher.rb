@@ -6,8 +6,8 @@ module Service
       end
 
       records.map { |record| record.address.to_s }
-    rescue
-      raise "error fetching DNS records for '#{domain}'"
+    rescue StandardError => e
+      raise "error fetching DNS records for '#{domain}': #{e.message}"
     end
   end
 end

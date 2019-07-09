@@ -12,12 +12,15 @@ module Service
       length: 0,
       omission: Const::Content::OMISSION,
       separator: ' '
-    }
+    }.freeze
 
     def self.excerpt(html, options = {})
       opts = EXCERPT_DEFAULTS.merge(options)
-      text(html).truncate(opts[:length], separator: opts[:separator],
-        omission: opts[:omission])
+      text(html).truncate(
+        opts[:length],
+        separator: opts[:separator],
+        omission: opts[:omission]
+      )
     end
 
     POST_EXCERPT_DEFAULTS = {
@@ -25,7 +28,7 @@ module Service
       omission: Const::Content::OMISSION,
       link: '',
       separator: ''
-    }
+    }.freeze
 
     def self.post_excerpt(html, options = {})
       opts = POST_EXCERPT_DEFAULTS.merge(options)
@@ -35,7 +38,7 @@ module Service
     end
 
     def self.squeeze(text)
-      text.squeeze(" ").gsub(/[ \n]{2,}/, "\n\n").strip
+      text.squeeze(' ').gsub(/[ \n]{2,}/, "\n\n").strip
     end
 
     def self.comment_excerpt(html)
@@ -58,7 +61,7 @@ module Service
       link_urls(html, selector).first
     end
 
-    HASHTAG_PATTERN = /(?:\s*|^)#[[:graph:]]+/
+    HASHTAG_PATTERN = /(?:\s*|^)#[[:graph:]]+/.freeze
 
     def self.paragraphs(html)
       result = Nokogiri::HTML(html)
@@ -67,7 +70,7 @@ module Service
       result.css('br,p,header,figure').each { |e| e.after "\n" }
 
       # Drop images
-      result.css('img,figure').each { |e| e.remove }
+      result.css('img,figure').each(&:remove)
 
       result.css('a').each do |e|
         href = e['href']
@@ -91,10 +94,10 @@ module Service
       ['\u{1f680}', '\u{1f6ff}'],
       ['\u{24C2}',  '\u{1F251}'],
       ['\u{1f300}', '\u{1f5ff}']
-    ]
+    ].freeze
 
     EMOJI_PATTERN =
-      Regexp.new(EMOJI_CHARS.map { |chars| chars.join('-') }.join)
+      Regexp.new(EMOJI_CHARS.map { |chars| chars.join('-') }.join).freeze
 
     def self.strip_emoji(text)
       text.force_encoding('utf-8').encode.gsub(EMOJI_PATTERN, '')

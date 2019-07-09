@@ -12,7 +12,7 @@ module Service
       available_names_for.each do |name|
         safe_name = name.to_s.gsub(/-/, '_')
         return "processors/#{safe_name}_processor".classify.constantize
-      rescue
+      rescue NameError
         next
       end
     end

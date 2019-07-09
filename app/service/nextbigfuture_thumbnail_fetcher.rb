@@ -6,7 +6,7 @@ module Service
       html = RestClient.get(url).body
       elements = Nokogiri::HTML(html).css(CSS_SELECTOR)
       elements.first['src']
-    rescue
+    rescue StandardError
       nil
     end
   end
