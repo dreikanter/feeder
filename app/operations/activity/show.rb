@@ -32,7 +32,7 @@ module Operations
       end
 
       def feed
-        Feed.find_by(name: feed_name)
+        Feed.find_by!(name: feed_name)
       end
 
       def feed_name
