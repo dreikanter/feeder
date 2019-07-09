@@ -45,48 +45,46 @@ class PullJob < ApplicationJob
     errors_count = 0
 
     entities.each do |uid, entity|
-      begin
-        logger.info("---> processing next entity #{'-' * 50}")
+      logger.info("---> processing next entity #{'-' * 50}")
 
-        # Skip existing entities
-        if Post.exists?(feed: feed, uid: uid)
-          logger.debug('---> skipping existing post')
-          next
-        end
-
-        normalized = normalizer.call(entity, feed.options)
-        payload = normalized.payload
-
-        # Skip unprocessable entities
-        if normalized.failure?
-          logger.debug("---> entity rejected: #{payload}")
-          next
-        end
-
-        published_at = payload['published_at']
-        after = feed.after
-
-        # Skip stale entities
-        unless !after || !published_at || (published_at > after)
-          logger.debug('---> stale post; skipping')
-          next
-        end
-
-        logger.info('---> creating new post')
-        attrs = { uid: uid, feed_id: feed.id, status: Enums::PostStatus.ready }
-        post = Post.create_with(payload).create!(attrs)
-        feed.update(last_post_created_at: post.created_at)
-        posts_count += 1
-      rescue => exception
-        logger.error("---> error processing entity: #{exception.message}")
-        errors_count += 1
-        Error.dump(
-          exception,
-          class_name: self.class.name,
-          feed_name: feed_name,
-          hint: 'error processing entity'
-        )
+      # Skip existing entities
+      if Post.exists?(feed: feed, uid: uid)
+        logger.debug('---> skipping existing post')
+        next
       end
+
+      normalized = normalizer.call(entity, feed.options)
+      payload = normalized.payload
+
+      # Skip unprocessable entities
+      if normalized.failure?
+        logger.debug("---> entity rejected: #{payload}")
+        next
+      end
+
+      published_at = payload['published_at']
+      after = feed.after
+
+      # Skip stale entities
+      unless !after || !published_at || (published_at > after)
+        logger.debug('---> stale post; skipping')
+        next
+      end
+
+      logger.info('---> creating new post')
+      attrs = { uid: uid, feed_id: feed.id, status: Enums::PostStatus.ready }
+      post = Post.create_with(payload).create!(attrs)
+      feed.update(last_post_created_at: post.created_at)
+      posts_count += 1
+    rescue StandardError => e
+      logger.error("---> error processing entity: #{e.message}")
+      errors_count += 1
+      Error.dump(
+        e,
+        class_name: self.class.name,
+        feed_name: feed_name,
+        hint: 'error processing entity'
+      )
     end
 
     feed.update(refreshed_at: started_at)

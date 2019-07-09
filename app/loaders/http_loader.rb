@@ -3,13 +3,14 @@ module Loaders
     def call
       url = feed.url
       raise "#{self.class.name} requires valid feed url" unless url.present?
+
       RestClient.get(url).body
-    rescue StandardError => exception
+    rescue StandardError => e
       raise [
         "error fetching feed: '#{feed.name}'",
         "url: '#{url}'",
-        exception.class.name,
-        exception.message
+        e.class.name,
+        e.message
       ].join('; ')
     end
   end

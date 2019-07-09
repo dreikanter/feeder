@@ -4,7 +4,7 @@ class PushJob < ApplicationJob
   rescue_from StandardError do |exception|
     logger.error(exception)
     Error.dump(exception, class_name: self.class.name)
-    post = self.arguments.first
+    post = arguments.first
     post.update(status: :error)
   end
 

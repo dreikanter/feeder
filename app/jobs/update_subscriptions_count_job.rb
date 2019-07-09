@@ -1,7 +1,7 @@
 class UpdateSubscriptionsCountJob < ApplicationJob
   queue_as :default
 
-  SERIES_NAME = 'subs'
+  SERIES_NAME = 'subs'.freeze
 
   def perform(feed_name)
     data_point = prev_data_point(feed_name)

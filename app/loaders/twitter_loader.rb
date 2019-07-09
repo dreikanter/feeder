@@ -26,6 +26,7 @@ module Loaders
 
     def validate_credentials!
       return if missing_credentials.empty?
+
       raise "required credentials not found: #{missing_credentials.join(', ')}"
     end
 
