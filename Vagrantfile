@@ -2,7 +2,7 @@ VAGRANT_APP_NAME   = 'feeder'
 HOSTNAME           = 'feeder.local'
 HOSTNAME_ALIASES   = []
 VAGRANT_IP         = '192.168.99.101'
-VAGRANT_MEMORY_MB  = 4096
+VAGRANT_MEMORY_MB  = 8192
 VAGRANT_CPUS       = 2
 VAGRANT_BOX        = 'bento/ubuntu-18.04'
 
