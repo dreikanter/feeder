@@ -10,7 +10,7 @@ module Processors
 
     def parse_source
       RSS::Parser.parse(source, false).items
-    rescue => e
+    rescue StandardError => e
       Rails.logger.error "error parsing atom feed: #{e}"
       []
     end
