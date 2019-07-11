@@ -1,5 +1,3 @@
-require 'rss'
-
 module Processors
   class TwitterProcessor < Processors::Base
     protected
