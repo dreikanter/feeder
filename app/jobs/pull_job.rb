@@ -90,15 +90,14 @@ class PullJob < ApplicationJob
     feed.update(refreshed_at: started_at)
     Post.publishing_queue_for(feed).each { |p| PushJob.perform_later(p) }
 
-    # TODO: Replace with ennum constants
-    status = errors_count.zero? ? 'success' : 'has-errors'
+    status = errors_count.zero? ? :success : :has_errors
 
     DataPoint.create_pull(
       feed_name: feed_name,
       posts_count: posts_count,
       errors_count: errors_count,
       duration: Time.new.utc - started_at,
-      status: status
+      status: Enums::UpdateStatus.send(status)
     )
 
     Service::PurgeDataPoints.call

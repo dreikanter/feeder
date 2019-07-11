@@ -33,7 +33,6 @@ loop do
 
   puts "#{own_posts.length} posts loaded"
 
-
   own_posts.each do |post|
     post_id = post['id']
     puts "deleting #{post_id}"
