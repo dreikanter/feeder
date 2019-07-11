@@ -10,7 +10,7 @@ USER = 'feeder'.freeze
 posts_count = 0
 
 loop do
-  puts "loading posts"
+  puts 'loading posts'
 
   result = RestClient::Request.execute(
     method: :get,

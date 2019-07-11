@@ -1,6 +1,6 @@
 module Freefeed
   class Client
-    USER_AGENT = 'Mozilla'
+    USER_AGENT = 'Mozilla'.freeze
     DEFAULT_API_VERSION = 1
 
     def initialize(token)

@@ -8,12 +8,10 @@ ips = JSON.parse(content)
 Rails.logger.info("total ips: #{ips.count}")
 
 valid_ips = ips.select do |ip|
-  begin
-    IPAddr.new(ip)
-    ip
-  rescue IPAddr::InvalidAddressError => e
-    Rails.logger.error(e)
-  end
+  IPAddr.new(ip)
+  ip
+rescue IPAddr::InvalidAddressError => e
+  Rails.logger.error(e)
 end
 
 bad_ips_count = ips.length - valid_ips.length
@@ -25,13 +23,13 @@ prev_blocked_count = BlockedIP.count
 values = valid_ips.map { |ip| "('#{ip}')" }.join(',')
 
 query = "INSERT INTO blocked_ips (ip) VALUES #{values} " \
-        "ON CONFLICT (ip) DO UPDATE SET updated_at = DEFAULT"
+        'ON CONFLICT (ip) DO UPDATE SET updated_at = DEFAULT'
 
 Rails.logger.info('updating db...')
 
 ActiveRecord::Base.logger.silence(Logger::ERROR) do
   ActiveRecord::Base.connection.exec_query(query)
-rescue => e
+rescue StandardError => e
   Rails.logger.error(e.message)
   exit
 end
