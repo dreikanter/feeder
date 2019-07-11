@@ -10,7 +10,8 @@ module Processors
     end
 
     def call
-      (limit > 0) ? entities.take(limit) : entities
+      return entities.take(limit) if limit.positive?
+      entities
     end
 
     protected

@@ -5,7 +5,12 @@ module Processors
     protected
 
     def entities
-      source.as_json.map { |entity| [entity['id'].to_s, entity] }.to_h
+      pick_uid = ->(entity) { [entity.fetch('id').to_s, entity] }
+      tweets.map(&pick_uid).to_h
+    end
+
+    def tweets
+      source.as_json
     end
   end
 end
