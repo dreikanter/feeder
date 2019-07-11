@@ -57,3 +57,6 @@ Layout/MultilineOperationIndentation:
 
 Layout/IndentFirstArrayElement:
   EnforcedStyle: consistent
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
