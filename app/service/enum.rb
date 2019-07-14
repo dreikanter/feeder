@@ -6,6 +6,7 @@ module Service
         @enum.each { |key, value| define_singleton_method(key) { value } }
         define_singleton_method(:keys) { @enum.keys }
         define_singleton_method(:values) { @enum.values }
+        define_singleton_method(:definition) { @enum }
 
         define_singleton_method(:to_h) do
           @enum.keys.map { |key| [key, key] }.to_h

@@ -25,7 +25,7 @@
 class Post < ApplicationRecord
   belongs_to :feed, counter_cache: true
 
-  enum status: Enums::PostStatus.to_h
+  enum status: Enums::PostStatus.definition
 
   validate :link, :presence
 
@@ -33,7 +33,7 @@ class Post < ApplicationRecord
   RECENT_LIMIT = 50
 
   scope :publishing_queue, -> { ready.order(published_at: :asc) }
-  scope :publishing_queue_for, -> (feed) { publishing_queue.where(feed: feed) }
+  scope :publishing_queue_for, ->(feed) { publishing_queue.where(feed: feed) }
   scope :recent, -> { order(created_at: :desc).limit(RECENT_LIMIT) }
 
   delegate :name, :after, to: :feed, prefix: :feed
