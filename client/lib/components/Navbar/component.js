@@ -41,7 +41,10 @@ class Navbar extends Component {
           <NavbarBrand tag={Link} to={brandLink}>
             {brandTitle}
           </NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
+          <NavbarToggler
+            aria-label='Toggle menu'
+            onClick={this.toggle}
+          />
           <Collapse isOpen={isOpen} navbar>
             <Nav navbar>
               {links.map(({ label, path }, index) => (
