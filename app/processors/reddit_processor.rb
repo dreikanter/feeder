@@ -25,9 +25,9 @@ module Processors
 
     def cached_data_point(link)
       Rails.logger.debug 'attempting to load reddit points from cache'
-      DataPoint.for(:reddit).
-        where('created_at > ?', CACHE_HISTORY_DEPTH.ago).
-        where("details->>'link' = ?", link).ordered.first
+      DataPoint.for(:reddit)
+        .where('created_at > ?', CACHE_HISTORY_DEPTH.ago)
+        .where("details->>'link' = ?", link).ordered.first
     end
 
     # TODO: Use Reddit API instead
@@ -37,16 +37,23 @@ module Processors
       desc = html.at('meta[property="og:description"]').try(:[], :content).to_s
       points = parse_points(desc)
       raise 'error loading reddit points' unless points
-      DataPoint.create_reddit(link: link, points: points, description: desc)
+
+      Service::CreateDataPoint.call(
+        :reddit,
+        link: link,
+        points: points,
+        description: desc
+      )
     end
 
     def parse_points(string)
       Integer(string[/^[\d,]+/].gsub(',', ''))
-    rescue
+    rescue StandardError
       nil
     end
 
     def page_content(link)
+      # TODO: Replace obsolete methods
       safe_link = URI::encode(URI::decode(link))
       RestClient.get(safe_link).body
     end

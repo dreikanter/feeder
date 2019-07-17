@@ -12,7 +12,8 @@ class BatchPullJob < ApplicationJob
       PullJob.perform_now(name)
     end
 
-    DataPoint.create_batch(
+    Service::CreateDataPoint.call(
+      :batch,
       started_at: started_at,
       duration: Time.new.utc - started_at
     )

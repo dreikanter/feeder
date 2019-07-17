@@ -92,7 +92,8 @@ class PullJob < ApplicationJob
 
     status = errors_count.zero? ? :success : :has_errors
 
-    DataPoint.create_pull(
+    Service::CreateDataPoint.call(
+      :pull,
       feed_name: feed_name,
       posts_count: posts_count,
       errors_count: errors_count,

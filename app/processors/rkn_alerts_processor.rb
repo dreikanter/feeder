@@ -41,7 +41,7 @@ module Processors
 
     def save_current_status
       DataPoint.for(:rkn).destroy_all
-      DataPoint.create_rkn(current_status)
+      Service::CreateDataPoint.call(:rkn, current_status)
     end
 
     def first_run?
