@@ -5,8 +5,8 @@ import './style.scss'
 
 function DataTable ({
   className,
-  click,
   cols,
+  hover,
   records
 }) {
   if (!cols.length) {
@@ -17,7 +17,7 @@ function DataTable ({
     'table',
     'table-bordered',
     {
-      'table-hover': !!click
+      'table-hover': hover
     },
     'DataTable',
     className
@@ -41,11 +41,7 @@ function DataTable ({
         </thead>
         <tbody>
           {records.map((row, index) => (
-            <tr
-              key={index}
-              onClick={() => click && click(row, index)}
-              className="DataTable__row"
-            >
+            <tr key={index} className="DataTable__row">
               {cols.map(({ cellClasses, value }, colIndex) => (
                 <td key={colIndex} className={cellClasses}>{value(row)}</td>
               ))}
@@ -59,15 +55,15 @@ function DataTable ({
 
 DataTable.propTypes = {
   className: PropTypes.string,
-  click: PropTypes.func,
   cols: PropTypes.arrayOf(PropTypes.object),
+  hover: PropTypes.bool,
   records: PropTypes.arrayOf(PropTypes.object)
 }
 
 DataTable.defaultProps = {
   className: undefined,
-  click: undefined,
   cols: [],
+  hover: undefined,
   records: []
 }
 

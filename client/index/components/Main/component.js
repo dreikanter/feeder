@@ -38,7 +38,7 @@ class Main extends Component {
           startDate={activityStartDate}
           values={mappedActivity}
         />
-        <Feeds click={clickFeed} records={feeds} />
+        <Feeds records={feeds} />
       </Fragment>
     )
   }
@@ -48,7 +48,6 @@ Main.propTypes = {
   activity: PropTypes.object,
   activityEndDate: PropTypes.object,
   activityStartDate: PropTypes.object,
-  clickFeed: PropTypes.func,
   feeds: PropTypes.array,
   load: PropTypes.func,
   mappedActivity: PropTypes.array,
@@ -59,7 +58,6 @@ Main.defaultProps = {
   activity: {},
   activityEndDate: undefined,
   activityStartDate: undefined,
-  clickFeed: undefined,
   feeds: [],
   load: undefined,
   mappedActivity: [],

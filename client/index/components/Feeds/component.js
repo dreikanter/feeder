@@ -43,7 +43,7 @@ const cols = [
     headClasses: 'col-auto text-nowrap',
     cellClasses: 'text-nowrap',
     value: ({ id, name }) => (
-      <Link to={paths.feedPath(id)}>{name}</Link>
+      <Link to={paths.feedPath(name)}>{name}</Link>
     )
   },
   {
@@ -69,22 +69,20 @@ const cols = [
 ]
 /* eslint-enable react/prop-types, camelcase */
 
-const Feeds = ({ click, records }) => (
+const Feeds = ({ records }) => (
   <DataTable
     className="Feeds"
-    click={click}
     cols={cols}
+    hover
     records={records}
   />
 )
 
 Feeds.propTypes = {
-  click: PropTypes.func,
   records: PropTypes.array
 }
 
 Feeds.defaultProps = {
-  click: undefined,
   records: []
 }
 

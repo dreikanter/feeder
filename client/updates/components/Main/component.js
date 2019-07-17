@@ -90,11 +90,13 @@ class Main extends Component {
         <h1>Recent feed updates</h1>
         <DataTable
           cols={updateCols}
+          hover
           records={updates}
         />
         <h1>Batch updates</h1>
         <DataTable
           cols={batchCols}
+          hover
           records={batches}
         />
       </Fragment>

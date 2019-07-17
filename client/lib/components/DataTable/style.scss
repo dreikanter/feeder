@@ -14,18 +14,12 @@
   &.table-hover tbody {
     tr:hover td,
     tr:hover th {
-      background-color: lighten($primary, 42%);
+      background-color: lighten($primary, 46%);
     }
   }
 
   .min {
     width: 1%;
     white-space: nowrap;
-  }
-}
-
-.DataTable__row {
-  .table-hover & {
-    cursor: pointer;
   }
 }
