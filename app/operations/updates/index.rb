@@ -13,7 +13,10 @@ module Operations
       private
 
       def updates
-        data_points.map { |dp| dp.details.merge(created_at: dp.created_at) }
+        data_points.map do |dp|
+          status = Enums::UpdateStatus.definition.key(dp.details['status'])
+          dp.details.merge(created_at: dp.created_at, status: status)
+        end
       end
 
       def data_points
