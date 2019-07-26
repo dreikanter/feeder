@@ -12,14 +12,13 @@ module Operations
 
       private
 
+      ORDER_FIELD = 'last_post_created_at'.freeze
+      FEEDS_ORDER = Arel.sql("#{ORDER_FIELD} IS NULL, #{ORDER_FIELD} DESC")
+
+      private_constant :ORDER_FIELD, :FEEDS_ORDER
+
       def feeds
-        names = Service::FeedsList.call.map { |feed| feed['name'] }
-
-        feeds = Feed
-          .where(name: names)
-          .order('last_post_created_at IS NULL, last_post_created_at DESC')
-
-        each_s11n(feeds, BriefFeedSerializer)
+        each_s11n(Feed.active.order(FEEDS_ORDER), BriefFeedSerializer)
       end
 
       def meta

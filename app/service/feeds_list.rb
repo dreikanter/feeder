@@ -15,8 +15,7 @@ module Service
 
     def self.call(path = DEFAULT_PATH)
       YAML.load_file(path).map do |options|
-        raise 'each feeds should have a name' if options['name'].empty?
-
+        raise 'each feed should have a name' if options['name'].empty?
         DEFAULTS.merge(options)
       end
     end

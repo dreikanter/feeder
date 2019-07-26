@@ -244,7 +244,8 @@ CREATE TABLE public.feeds (
     loader character varying,
     import_limit integer,
     last_post_created_at timestamp without time zone,
-    subscriptions_count integer DEFAULT 0 NOT NULL
+    subscriptions_count integer DEFAULT 0 NOT NULL,
+    status integer DEFAULT 0 NOT NULL
 );
 
 
@@ -500,6 +501,13 @@ CREATE UNIQUE INDEX index_feeds_on_name ON public.feeds USING btree (name);
 
 
 --
+-- Name: index_feeds_on_status; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_feeds_on_status ON public.feeds USING btree (status);
+
+
+--
 -- Name: index_posts_on_feed_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -544,6 +552,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20181126194822'),
 ('20190609193619'),
 ('20190624150553'),
-('20190701101346');
+('20190701101346'),
+('20190726193542');
 
 

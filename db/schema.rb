@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_01_101346) do
+ActiveRecord::Schema.define(version: 2019_07_26_193542) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "hstore"
   enable_extension "plpgsql"
 
   create_table "blocked_ips", force: :cascade do |t|
@@ -85,7 +86,9 @@ ActiveRecord::Schema.define(version: 2019_07_01_101346) do
     t.integer "import_limit"
     t.datetime "last_post_created_at"
     t.integer "subscriptions_count", default: 0, null: false
+    t.integer "status", default: 0, null: false
     t.index ["name"], name: "index_feeds_on_name", unique: true
+    t.index ["status"], name: "index_feeds_on_status"
   end
 
   create_table "posts", id: :serial, force: :cascade do |t|

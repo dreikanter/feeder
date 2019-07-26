@@ -17,6 +17,8 @@ class PullJob < ApplicationJob
     started_at = Time.now.utc
     feed = Service::FeedFinder.call(feed_name)
 
+    return if feed.inactive?
+
     unless feed.refresh?
       logger.info("---> skipping feed: #{feed_name}")
       logger.debug("---> refresh interval: #{feed.refresh_interval}")

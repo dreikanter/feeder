@@ -29,6 +29,8 @@ class Feed < ApplicationRecord
 
   validates :name, presence: true
 
+  enum status: Enums::FeedStatus.definition
+
   def refresh?
     return true if refresh_interval.zero? || !refreshed_at
     (Time.now.utc.to_i - refreshed_at.to_i).abs > refresh_interval
