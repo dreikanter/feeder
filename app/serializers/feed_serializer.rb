@@ -25,5 +25,4 @@
 #
 
 class FeedSerializer < BriefFeedSerializer
-  attribute :avg_posts_per_week
 end

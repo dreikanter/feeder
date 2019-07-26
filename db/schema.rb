@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 2019_07_01_101346) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "hstore"
   enable_extension "plpgsql"
 
   create_table "blocked_ips", force: :cascade do |t|

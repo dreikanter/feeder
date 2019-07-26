@@ -4,7 +4,7 @@ module Operations
       def call
         {
           json: {
-            feed: feed,
+            feed: s11n(feed, FeedSerializer),
             meta: meta
           }
         }
@@ -13,7 +13,7 @@ module Operations
       private
 
       def feed
-        s11n(Feed.find_by!(name: name), FeedSerializer)
+        Feed.find_by!(name: name)
       end
 
       def name
@@ -21,7 +21,9 @@ module Operations
       end
 
       def meta
-        {}
+        {
+          posts_per_week: Service::PostsPerWeek.call(feed)
+        }
       end
     end
   end

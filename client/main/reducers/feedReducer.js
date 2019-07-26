@@ -12,7 +12,8 @@ export default (state = {}, action) => {
     }
 
     case LOAD_FEED_FULFILLED: {
-      return action.payload.data.feed
+      const { feed, meta } = action.payload.data
+      return Object.assign({}, feed, meta)
     }
 
     default: {
