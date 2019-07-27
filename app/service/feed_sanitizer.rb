@@ -1,5 +1,7 @@
 module Service
-  class FeedSanitizer < Callable
+  class FeedSanitizer
+    include Callee
+
     option(:name, type: Dry::Types['strict.string'])
     option(:after, type: Dry::Types['params.date_time'], optional: true)
     option(:import_limit, type: Dry::Types['strict.integer'], optional: true)

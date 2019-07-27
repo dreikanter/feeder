@@ -1,5 +1,5 @@
 ENV['RAILS_ENV'] = 'test'
-require File.expand_path('../../config/environment', __FILE__)
+require File.expand_path('../config/environment', __dir__)
 
 require 'rails/test_help'
 require 'database_cleaner'
@@ -14,15 +14,17 @@ require_relative './custom_assertions'
 
 DatabaseCleaner.strategy = :transaction
 
-class Minitest::Test
-  include FactoryBot::Syntax::Methods
+module Minitest
+  class Test
+    include FactoryBot::Syntax::Methods
 
-  def setup
-    DatabaseCleaner.start
-  end
+    def setup
+      DatabaseCleaner.start
+    end
 
-  def teardown
-    DatabaseCleaner.clean
+    def teardown
+      DatabaseCleaner.clean
+    end
   end
 end
 

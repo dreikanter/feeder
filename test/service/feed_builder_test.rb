@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class FeedFinderTest < Minitest::Test
+class FeedBuilderTest < Minitest::Test
   def service
-    Service::FeedFinder
+    Service::FeedBuilder
   end
 
   SAMPLE_CONFIG_PATH =
@@ -16,8 +16,9 @@ class FeedFinderTest < Minitest::Test
   def test_find
     feeds = Service::FeedsList.call(SAMPLE_CONFIG_PATH)
     feeds.each do |feed|
-      feed_name = feed['name']
-      result = service.call(feed_name)
+      feed_name = feed[:name]
+      conf = ->(feed_name) { feeds.find { |feed| feed[:name] == feed_name } }
+      result = service.call(feed_name, conf)
       expected = Feed.find_by(name: feed_name)
       assert_equal(result, expected)
     end

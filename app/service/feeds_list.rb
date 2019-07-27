@@ -1,27 +1,19 @@
 module Service
   class FeedsList
-    DEFAULTS = {
-      'after' => nil,
-      'import_limit' => nil,
-      'loader' => nil,
-      'normalizer' => nil,
-      'options' => {},
-      'processor' => nil,
-      'refresh_interval' => 0,
-      'url' => nil
-    }.freeze
-
     DEFAULT_PATH = Rails.root.join('config', 'feeds.yml')
 
     def self.call(path = DEFAULT_PATH)
-      YAML.load_file(path).map do |options|
-        raise 'each feed should have a name' if options['name'].empty?
-        DEFAULTS.merge(options)
-      end
+      feeds = YAML.load_file(path)
+      raise 'feeds configuration should define a list' unless feeds.is_a?(Array)
+      feeds.map { |feed| Service::FeedSanitizer.call(feed.symbolize_keys) }
     end
 
     def self.names
-      call.map { |feed| feed['name'] }
+      call.map { |feed| feed[:name] }
+    end
+
+    def self.[](feed_name)
+      call.find { |feed| feed[:name] == feed_name }
     end
   end
 end

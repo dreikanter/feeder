@@ -3,19 +3,31 @@ class PullJob < ApplicationJob
 
   rescue_from StandardError do |exception|
     logger.error("---> error processing feed: #{exception.message}")
-    feed_name = arguments[0]
+    feed = arguments[0]
 
     Error.dump(
       exception,
       class_name: self.class.name,
-      feed_name: feed_name,
+      feed_name: feed.name,
       hint: 'error processing feed'
     )
   end
 
   def perform(feed_name)
     started_at = Time.now.utc
-    feed = Service::FeedFinder.call(feed_name)
+
+    options = Service::FeedsList.call.find { |feed| feed['name'] == name }
+
+    unless options
+      logger.error("---> feed not found: #{feed_name}")
+      return
+    end
+
+    feed = Feed
+      .create_with(status: Enums::FeedStatus.active)
+      .find_or_create_by(name: options['name'])
+
+    feed.update(options)
 
     return if feed.inactive?
 
