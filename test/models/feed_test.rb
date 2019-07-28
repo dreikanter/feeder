@@ -18,10 +18,12 @@
 #  import_limit         :integer
 #  last_post_created_at :datetime
 #  subscriptions_count  :integer          default(0), not null
+#  status               :integer          default("inactive"), not null
 #
 # Indexes
 #
-#  index_feeds_on_name  (name) UNIQUE
+#  index_feeds_on_name    (name) UNIQUE
+#  index_feeds_on_status  (status)
 #
 
 require "test_helper"
