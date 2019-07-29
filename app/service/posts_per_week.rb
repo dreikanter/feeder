@@ -1,15 +1,11 @@
 module Service
   class PostsPerWeek
-    extend Dry::Initializer
+    include Callee
 
     HISTORY_DEPTH = 30
     DAYS_IN_A_WEEK = 7
 
     param :feed
-
-    def self.call(feed, options = {})
-      new(feed, **options).call
-    end
 
     def call
       posts_count = recent_posts.count

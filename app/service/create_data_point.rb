@@ -1,13 +1,9 @@
 module Service
   class CreateDataPoint
-    extend Dry::Initializer
+    include Callee
 
     param :series_name, type: proc(&:to_s)
     param :details, default: proc { {} }
-
-    def self.call(series_name, details = {})
-      new(series_name, details).call
-    end
 
     def call
       DataPoint.create(series_id: series.id, details: details)

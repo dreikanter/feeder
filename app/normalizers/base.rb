@@ -1,13 +1,9 @@
 module Normalizers
   class Base
-    extend Dry::Initializer
+    include Callee
 
     param :entity
     param :options, default: proc { {} }
-
-    def self.call(entity, options = {})
-      new(entity, options).call
-    end
 
     ATTRIBUTE_NAMES = %w[
       link

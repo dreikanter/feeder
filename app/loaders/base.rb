@@ -1,16 +1,8 @@
 module Loaders
   class Base
-    extend Dry::Initializer
+    include Callee
 
     param :feed
     param :options, default: proc { {} }
-
-    def self.call(feed, options = {})
-      new(feed, options).call
-    end
-
-    def call
-      raise NotImplementedError
-    end
   end
 end

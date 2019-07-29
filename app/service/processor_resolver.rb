@@ -1,12 +1,8 @@
 module Service
   class ProcessorResolver
-    extend Dry::Initializer
+    include Callee
 
     param :feed
-
-    def self.call(feed)
-      new(feed).call
-    end
 
     def call
       available_names_for.each do |name|

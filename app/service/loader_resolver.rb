@@ -1,14 +1,10 @@
 module Service
   class LoaderResolver
-    extend Dry::Initializer
+    include Callee
 
     param :feed
 
     DEFAULT_LOADER = 'http'.freeze
-
-    def self.call(feed)
-      new(feed).call
-    end
 
     def call
       matching_loader || raise("no matching loader for '#{feed.name}'")

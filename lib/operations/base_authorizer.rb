@@ -16,13 +16,9 @@
 #
 module Operations
   class BaseAuthorizer < CheckSequenceRunner
-    extend Dry::Initializer
+    include Callee
 
     option :user, optional: true, default: -> { nil }
     option :params, optional: true, default: proc { {} }
-
-    def self.call(options = {})
-      new(**options).call
-    end
   end
 end

@@ -1,12 +1,8 @@
 module Service
   class NormalizerResolver
-    extend Dry::Initializer
+    include Callee
 
     param :feed
-
-    def self.call(feed)
-      new(feed).call
-    end
 
     def call
       matching_normalizer || raise("no matching normalizer for '#{feed.name}'")
