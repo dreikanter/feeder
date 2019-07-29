@@ -37,4 +37,15 @@ class Feed < ApplicationRecord
     return true if refresh_interval.zero? || !refreshed_at
     (Time.now.utc.to_i - refreshed_at.to_i).abs > refresh_interval
   end
+
+  def self.stale
+    where(refresh_interval: 0)
+      .or(where(refreshed_at: nil))
+      .or(where("#{PG_AGE} > #{PG_THRESHOLD}"))
+  end
+
+  PG_AGE = 'age(now(), refreshed_at)'.freeze
+  PG_THRESHOLD = 'make_interval(secs => refresh_interval)'.freeze
+
+  private_constant :PG_AGE, :PG_THRESHOLD
 end
