@@ -14,11 +14,16 @@
 #
 # Assuming there will be a JSON on client side with translated messages.
 #
+# TODO: Refactor base class with Callee
 module Operations
   class BaseAuthorizer < CheckSequenceRunner
-    include Callee
+    extend Dry::Initializer
 
     option :user, optional: true, default: -> { nil }
     option :params, optional: true, default: proc { {} }
+
+    def self.call(options = {})
+      new(**options).call
+    end
   end
 end

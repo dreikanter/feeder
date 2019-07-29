@@ -11,6 +11,7 @@
 #      that did not pass.
 #  (5) Empty array means all clear.
 #
+# TODO: Refactor with Callee
 class CheckSequenceRunner
   def self.call(options = {})
     new(options).call
