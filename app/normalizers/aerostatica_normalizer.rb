@@ -10,7 +10,7 @@ module Normalizers
 
     def text
       result = [entity.title, link].join(separator)
-      record_url = get_record_url
+      record_url = fetch_record_url
       return result unless record_url.present?
       "#{result}\n\nЗапись эфира: #{record_url}"
     end
@@ -32,17 +32,13 @@ module Normalizers
       Service::Html.comment_excerpt(excerpt.to_s.gsub(LINE_BREAK, "\n\n"))
     end
 
-    def record_url
+    def fetch_record_url
       content = RestClient.get(link).body
       Service::AerostaticaRecordLinkExtractor.call(content)
     rescue StandardError => e
       message = "error fetching record url from #{link}"
       Rails.logger.error(message)
-      Error.dump(
-        e,
-        class_name: self.class.name,
-        hint: message
-      )
+      Error.dump(e, class_name: self.class.name, hint: message)
       nil
     end
   end
