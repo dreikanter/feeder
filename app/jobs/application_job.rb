@@ -1,6 +1,14 @@
 class ApplicationJob < ActiveJob::Base
   rescue_from StandardError do |exception|
-    Rails.logger.error exception
-    Error.dump(exception, class_name: self.class.name)
+    class_name = self.class.name
+    logger.error("---> error in #{class_name}: #{exception.message}")
+    Error.dump(exception, class_name: class_name, **error_details)
+    on_error
   end
+
+  def error_details
+    {}
+  end
+
+  def on_error; end
 end

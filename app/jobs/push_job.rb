@@ -1,13 +1,6 @@
 class PushJob < ApplicationJob
   queue_as :default
 
-  rescue_from StandardError do |exception|
-    logger.error(exception)
-    Error.dump(exception, class_name: self.class.name)
-    post = arguments.first
-    post.update(status: :error)
-  end
-
   def perform(post)
     unless post.present?
       logger.error('the post does not exist')
@@ -47,5 +40,13 @@ class PushJob < ApplicationJob
     end
 
     post.update(status: :published)
+  end
+
+  def on_error
+    post = arguments.first
+    post.update(status: :error)
+  rescue StandardError => e
+    logger.error("---> error handling exception: #{e.message}")
+    Error.dump(e, class_name: class_name)
   end
 end

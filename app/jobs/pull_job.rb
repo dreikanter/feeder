@@ -1,18 +1,6 @@
 class PullJob < ApplicationJob
   queue_as :default
 
-  rescue_from StandardError do |exception|
-    logger.error("---> error processing feed: #{exception.message}")
-    feed = arguments[0]
-
-    Error.dump(
-      exception,
-      class_name: self.class.name,
-      feed_name: feed.name,
-      hint: 'error processing feed'
-    )
-  end
-
   def perform(feed_name)
     started_at = Time.now.utc
 
@@ -116,5 +104,12 @@ class PullJob < ApplicationJob
     )
 
     Service::PurgeDataPoints.call
+  end
+
+  def error_details
+    {
+      feed_name: arguments[0],
+      hint: 'error processing feed'
+    }.freeze
   end
 end
