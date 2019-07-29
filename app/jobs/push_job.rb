@@ -2,20 +2,9 @@ class PushJob < ApplicationJob
   queue_as :default
 
   def perform(post)
-    unless post.present?
-      logger.error('the post does not exist')
-      return
-    end
-
-    if post.stale?
-      logger.warn('post is stale; skipping')
-      return
-    end
-
-    unless post.ready?
-      logger.warn('post is not ready; skipping')
-      return
-    end
+    raise 'post does not exist' unless post.present?
+    raise 'post is stale' if post.stale?
+    raise 'post is not ready' unless post.ready?
 
     ff = Freefeed::Client.new(Rails.application.credentials.freefeed_token)
 
