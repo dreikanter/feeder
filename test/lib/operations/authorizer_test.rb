@@ -1,9 +1,9 @@
 require 'test_helper'
 
 module Operations
-  class BaseAuthorizerTest < Minitest::Test
+  class AuthorizerTest < Minitest::Test
     def authorizer
-      Operations::BaseAuthorizer
+      Operations::Authorizer
     end
 
     def user

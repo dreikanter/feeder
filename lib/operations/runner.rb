@@ -1,59 +1,61 @@
 module Operations
   class Runner
-    def self.call(operation, context)
-      Rails.logger.info("operation: #{operation}")
-      new(operation, context).call
-    end
+    include Callee
 
-    attr_reader :operation
-    attr_reader :context
+    param :operation
+    option :user
+    option :params
 
-    # TODO: Standardize sanitizers interface
+    option(
+      :schema_resolver,
+      options: true,
+      default: -> { Operations::SchemaResolver }
+    )
 
-    def initialize(operation, context)
-      @operation = operation
-      @context = context
-    end
+    option(
+      :authorizer_resolver,
+      options: true,
+      default: -> { Operations::AuthorizerResolver }
+    )
+
+    option(
+      :schema,
+      optional: true,
+      default: -> { schema_resolver.call(operation) }
+    )
+
+    option(
+      :authorizer,
+      optional: true,
+      default: -> { authorizer_resolver.call(operation) }
+    )
 
     def call
-      process_params_with_schema
+      Rails.logger.info("operation: #{operation}")
+      validate_params
       authorize_user
-      perform_operation
+      operation.call(user: user, params: params)
     end
 
     private
 
-    # NOTE: Dry::Validation.Schema suppose to accept params object as is,
-    # but this don't actually work. For this reason to_unsafe_hash conversion
-    # is used for now.
-    def process_params_with_schema
-      schema = Operations::SchemaResolver.call(operation)
+    def validate_params
       acceptable_params = params.try(:to_unsafe_hash) || params
       result = schema.call(acceptable_params)
-      return if result.success?
-      raise Exceptions::BadParams.new(errors: result.errors, source: operation)
+      raise bad_params(result) if result.failure?
     end
 
     def authorize_user
-      authorizer = Operations::AuthorizerResolver.call(operation)
       result = authorizer.call(user: user, params: params)
-      return if result.success?
-      raise Exceptions::NotAuthorized.new(
-        errors: result.payload,
-        source: operation
-      )
+      raise not_authorized(result) if result.failure?
     end
 
-    def perform_operation
-      operation.call(context)
+    def not_authorized(result)
+      Exceptions::NotAuthorized.new(errors: result.payload, source: operation)
     end
 
-    def user
-      context[:user]
-    end
-
-    def params
-      context[:params]
+    def bad_params(result)
+      Exceptions::BadParams.new(errors: result.errors, source: operation)
     end
   end
 end

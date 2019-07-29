@@ -16,7 +16,7 @@
 #
 # TODO: Refactor base class with Callee
 module Operations
-  class BaseAuthorizer < CheckSequenceRunner
+  class Authorizer < CheckSequenceRunner
     extend Dry::Initializer
 
     option :user, optional: true, default: -> { nil }

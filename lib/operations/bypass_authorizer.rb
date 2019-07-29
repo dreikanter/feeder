@@ -1,4 +1,4 @@
 module Operations
-  class BypassAuthorizer < BaseAuthorizer
+  class BypassAuthorizer < Authorizer
   end
 end

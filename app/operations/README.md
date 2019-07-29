@@ -3,7 +3,7 @@
 Basic classes:
 
 - [`Operations::Base`](../../lib/base.rb) — base operation class. Defines  accessors methods for the Rails actions context, and the public interface.
-- [`Operations::BaseAuthorizer`](../../lib/base_authorizer.rb) — base authorizer class. An authorizer suppose to check if associated operation is allowed to serve current request for the current user.
+- [`Operations::Authorizer`](../../lib/base_authorizer.rb) — base authorizer class. An authorizer suppose to check if associated operation is allowed to serve current request for the current user.
 
 Services:
 

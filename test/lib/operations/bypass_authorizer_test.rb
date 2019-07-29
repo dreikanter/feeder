@@ -1,7 +1,11 @@
 require 'test_helper'
 
 module Operations
-  class BaseAuthorizerTest < Minitest::Test
+  class BypassAuthorizerTest < Minitest::Test
+    def subject
+      Operations::BypassAuthorizer
+    end
+
     def new_user
       Object.new
     end
@@ -12,11 +16,11 @@ module Operations
 
     def test_should_bypass
       args = { user: new_user, params: new_params }
-      assert(Operations::BypassAuthorizer.call(**args).success?)
+      assert(subject.call(**args).success?)
     end
 
     def test_should_bypass_with_no_context
-      assert(Operations::BypassAuthorizer.call.success?)
+      assert(subject.call.success?)
     end
   end
 end
