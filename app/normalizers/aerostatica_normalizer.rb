@@ -25,21 +25,21 @@ module Normalizers
       Service::Html.first_image_url(entity.content)
     end
 
-    LINE_BREAK = /\n+|\<br\s*\/?\>/.freeze
+    LINE_BREAK = %r{\n+|\<br\s*/?\>}.freeze
 
     def description
       excerpt = Service::Html.squeeze(entity.content)
       Service::Html.comment_excerpt(excerpt.to_s.gsub(LINE_BREAK, "\n\n"))
     end
 
-    def get_record_url
+    def record_url
       content = RestClient.get(link).body
       Service::AerostaticaRecordLinkExtractor.call(content)
-    rescue => exception
+    rescue StandardError => e
       message = "error fetching record url from #{link}"
       Rails.logger.error(message)
       Error.dump(
-        exception,
+        e,
         class_name: self.class.name,
         hint: message
       )
