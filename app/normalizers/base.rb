@@ -5,17 +5,8 @@ module Normalizers
     param :entity
     param :options, default: proc { {} }
 
-    ATTRIBUTE_NAMES = %w[
-      link
-      published_at
-      text
-      attachments
-      comments
-    ].freeze
-
     def call
-      return ::Failure.new(validation_errors) unless valid?
-      ::Success.new(ATTRIBUTE_NAMES.map { |attr| [attr, send(attr)] }.to_h)
+      valid? ? ::Success.new(payload) : ::Failure.new(validation_errors)
     end
 
     protected
@@ -52,6 +43,18 @@ module Normalizers
 
     def validation_errors
       []
+    end
+
+    private
+
+    def payload
+      {
+        'link' => link,
+        'published_at' => published_at,
+        'text' => text,
+        'attachments' => attachments,
+        'comments' => comments
+      }.freeze
     end
   end
 end
