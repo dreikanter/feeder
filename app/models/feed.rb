@@ -31,7 +31,7 @@ class Feed < ApplicationRecord
 
   validates :name, presence: true
 
-  enum status: Enums::FeedStatus.definition
+  enum status: Enums::FeedStatus.options
 
   def stale?
     return true if refresh_interval.zero? || !refreshed_at

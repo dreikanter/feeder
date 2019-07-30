@@ -25,7 +25,7 @@
 #
 
 class Error < ApplicationRecord
-  enum status: Enums::ErrorStatus.definition
+  enum status: Enums::ErrorStatus.options
 
   def self.dump(exception, context = {})
     backtrace_location = exception.try(:backtrace_locations).try(:first)

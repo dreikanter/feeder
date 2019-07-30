@@ -25,7 +25,7 @@
 class Post < ApplicationRecord
   belongs_to :feed, counter_cache: true
 
-  enum status: Enums::PostStatus.definition
+  enum status: Enums::PostStatus.options
 
   validate :link, :presence
 
