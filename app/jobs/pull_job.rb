@@ -1,44 +1,45 @@
 class PullJob < ApplicationJob
   queue_as :default
 
-  def perform(feed_name)
+  def perform(feed_name, batch)
     started_at = Time.now.utc
 
-    options = Service::FeedsList.call.find { |feed| feed['name'] == name }
+    #
+    # Fetch or create feed (it will raise an error if feed_name not exists)
 
-    unless options
-      logger.error("---> feed not found: #{feed_name}")
-      return
-    end
+    # TODO: Move to BatchJob or the rake task
+    feed = Service::FeedBuilder.call(feed_name)
 
-    feed = Feed
-      .create_with(status: Enums::FeedStatus.active)
-      .find_or_create_by(name: options['name'])
+    #
+    # Skip fresh feeds
 
-    feed.update(options)
-
-    return if feed.inactive?
-
+    # TODO: Move to BatchJob
     unless feed.refresh?
-      logger.info("---> skipping feed: #{feed_name}")
-      logger.debug("---> refresh interval: #{feed.refresh_interval}")
-      logger.debug("---> refreshed at: #{feed.refreshed_at}")
+      messages = [
+        "skipping feed: #{feed_name}",
+        "refresh interval: #{feed.refresh_interval}",
+        "refreshed at: #{feed.refreshed_at}"
+      ]
+      logger.info("---> #{messages.join('; ')}")
       return
     end
+
+    #
+    # Intro
 
     feed.update(refreshed_at: nil)
 
     loader = Service::LoaderResolver.call(feed)
     logger.info("---> loading feed '#{feed_name}' with #{loader}")
-    content = loader.call(feed)
 
     processor = Service::ProcessorResolver.call(feed)
 
+    # TODO: Bypass feed to the processor
+    # TODO: Move default_import_limit definition to constants
     limit = feed.import_limit ||
       Rails.application.credentials.default_import_limit.to_i
 
     logger.info("---> processor: #{processor}, import limit: #{limit}")
-    entities = processor.call(content, limit: limit)
 
     normalizer = Service::NormalizerResolver.call(feed)
     logger.info("---> normalizer: #{normalizer}")
@@ -46,8 +47,23 @@ class PullJob < ApplicationJob
     posts_count = 0
     errors_count = 0
 
+    #
+    # Load content
+
+    content = loader.call(feed)
+
+    #
+    # Process content
+    entities = processor.call(content, limit: limit)
+
+    #
+    # Each entity
+
     entities.each do |uid, entity|
       logger.info("---> processing next entity #{'-' * 50}")
+
+      #
+      # Filter existing
 
       # Skip existing entities
       if Post.exists?(feed: feed, uid: uid)
@@ -55,14 +71,23 @@ class PullJob < ApplicationJob
         next
       end
 
+      #
+      # Normalize
+
       normalized = normalizer.call(entity, feed.options)
       payload = normalized.payload
+
+      #
+      # Filter failed entities
 
       # Skip unprocessable entities
       if normalized.failure?
         logger.debug("---> entity rejected: #{payload}")
         next
       end
+
+      #
+      # Filter stale
 
       published_at = payload['published_at']
       after = feed.after
@@ -73,12 +98,18 @@ class PullJob < ApplicationJob
         next
       end
 
+      #
+      # Create new post
+
       logger.info('---> creating new post')
       attrs = { uid: uid, feed_id: feed.id, status: Enums::PostStatus.ready }
       post = Post.create_with(payload).create!(attrs)
+
+      # TODO: Move to outro
       feed.update(last_post_created_at: post.created_at)
       posts_count += 1
     rescue StandardError => e
+      # TODO: Handle specific errors on each stage
       logger.error("---> error processing entity: #{e.message}")
       errors_count += 1
       Error.dump(
@@ -89,8 +120,17 @@ class PullJob < ApplicationJob
       )
     end
 
+    #
+    # Outro
+
     feed.update(refreshed_at: started_at)
+
+    # TODO: Move to the post creation block
+    # TODO: Remove #publishing_queue_for scope
     Post.publishing_queue_for(feed).each { |p| PushJob.perform_later(p) }
+
+    #
+    # Outro
 
     status = errors_count.zero? ? :success : :has_errors
 
@@ -100,10 +140,9 @@ class PullJob < ApplicationJob
       posts_count: posts_count,
       errors_count: errors_count,
       duration: Time.new.utc - started_at,
-      status: Enums::UpdateStatus.send(status)
+      status: Enums::UpdateStatus.send(status),
+      batch_id: batch.id
     )
-
-    Service::PurgeDataPoints.call
   end
 
   def error_details
