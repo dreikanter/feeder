@@ -14,18 +14,17 @@ group :development do
   gem 'web-console', '>= 3.3.0'
 end
 
-group :test do
-  gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
-  gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
-  gem 'guard-minitest', require: false
-  gem 'minitest-rails'
-  gem 'minitest-reporters'
-end
-
 group :development, :test do
   gem 'awesome_print', '~> 1.8'
+  gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
+  gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
+  gem 'guard', '~> 2.15'
+  gem 'guard-minitest', '~> 2.4', '>= 2.4.6', require: false
+  gem 'minitest-rails', '~> 5.2'
+  gem 'minitest-reporters', '~> 1.3', '>= 1.3.6'
   gem 'mocha', '~> 1.9'
   gem 'pry-rails', '~> 0.3.4'
+  gem 'simplecov', '~> 0.17'
 
   # TODO: Drop this after migrating to Rails 6
   # Rails 6 have native support for multienv credentials

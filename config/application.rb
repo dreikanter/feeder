@@ -27,14 +27,16 @@ module Feeder
 
     config.generators do |g|
       g.test_framework :minitest, spec: false, fixture: false
-      g.helper       false
-      g.decorator    false
-      g.assets       false
-      g.stylesheets  false
-      g.javascripts  false
-      g.view_specs   false
-      g.helper_specs false
-      g.skip_routes  true
+      g.assets           false
+      g.controller_specs false
+      g.decorator        false
+      g.helper           false
+      g.helper_specs     false
+      g.javascripts      false
+      g.routing_specs    false
+      g.skip_routes      true
+      g.stylesheets      false
+      g.view_specs       false
     end
 
     config.lograge.enabled = true

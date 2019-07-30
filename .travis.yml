@@ -1,0 +1,16 @@
+---
+addons:
+  # Make sure PostgreSQL version matches https://github.com/dreikanter/feeder-ansible/blob/master/roles/postgres/defaults/main.yml
+  postgresql: 10.0
+sudo: false
+language: ruby
+cache: bundler
+rvm:
+  - 2.6
+  - ruby-head
+before_script:
+  - gem install bundler -v 2.0.2
+  - bundle exec rake db:create --all
+  - bundle exec rake db:migrate RAILS_ENV=test
+cript:
+  - bundle exec rails test

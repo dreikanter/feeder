@@ -26,6 +26,9 @@ yarn-debug.log*
 /config/master-development.key
 /config/master-test.key
 
+# SimpleCov
+/coverage
+
 # Misc
+/public/assets
 .DS_Store
-public/assets/
