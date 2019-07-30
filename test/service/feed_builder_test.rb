@@ -39,4 +39,16 @@ class FeedBuilderTest < Minitest::Test
       assert_equal(result, expected)
     end
   end
+
+  def test_raise_when_feed_name_is_not_found
+    not_existing_feed_name = '404'
+    assert_raises(StandardError) { service.call(not_existing_feed_name) }
+  end
+
+  def test_all_feeds_in_configuration_are_active
+    feed_name = CONFIG[0][:name]
+    service.call(feed_name).update(status: Enums::FeedStatus.inactive)
+    new_status = service.call(feed_name).status
+    assert_equal(Enums::FeedStatus.active, new_status)
+  end
 end

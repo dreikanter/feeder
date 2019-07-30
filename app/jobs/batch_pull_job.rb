@@ -3,14 +3,19 @@ class BatchPullJob < ApplicationJob
 
   def perform
     batch = Service::CreateDataPoint.call(:batch, started_at: Time.now.utc)
-
-    names = Service::FeedsList.names
-    # Feed.where(name: names).update_all(status: Enums::FeedStatus.active)
-    Feed.where.not(name: names).update_all(status: Enums::FeedStatus.inactive)
-
-    names.each do |feed_name|
+    update_inactive_feeds_status
+    active_feed_names.each do |feed_name|
       feed = Service::FeedBuilder.call(feed_name)
       PullJob.perform_later(feed, batch) if feed.stale?
     end
+  end
+
+  def active_feed_names
+    @active_feed_names ||= Service::FeedsList.names
+  end
+
+  def update_inactive_feeds_status
+    inactive = Enums::FeedStatus.inactive
+    Feed.where.not(name: active_feed_names).update_all(status: inactive)
   end
 end
