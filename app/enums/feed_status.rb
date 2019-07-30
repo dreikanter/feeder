@@ -1,4 +1,6 @@
-Enums::FeedStatus = Service::Enum.new(
-  inactive: 0,
-  active: 1
-)
+module Enums
+  class FeedStatus < Enu
+    option :inactive, 0
+    option :active
+  end
+end

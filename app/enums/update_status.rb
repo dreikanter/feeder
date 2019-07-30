@@ -1,4 +1,6 @@
-Enums::UpdateStatus = Service::Enum.new(
-  success: 0,
-  has_errors: 1
-)
+module Enums
+  class UpdateStatus < Enu
+    option :success, 0
+    option :has_errors
+  end
+end

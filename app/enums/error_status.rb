@@ -1,4 +1,6 @@
-Enums::ErrorStatus = Service::Enum.new(
-  pending: 0,
-  resolved: 1
-)
+module Enums
+  class ErrorStatus < Enu
+    option :pending, 0
+    option :resolved
+  end
+end

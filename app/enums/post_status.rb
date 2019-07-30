@@ -1,6 +1,8 @@
-Enums::PostStatus = Service::Enum.new(
-  idle: 0,
-  ready: 1,
-  published: 2,
-  error: 3
-)
+module Enums
+  class PostStatus < Enu
+    option :idle, 0
+    option :ready
+    option :published
+    option :error
+  end
+end
