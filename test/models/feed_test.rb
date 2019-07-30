@@ -26,7 +26,7 @@
 #  index_feeds_on_status  (status)
 #
 
-require "test_helper"
+require 'test_helper'
 
 class FeedTest < Minitest::Test
   def test_valid
@@ -45,20 +45,32 @@ class FeedTest < Minitest::Test
     assert(feed.refresh_interval.zero?)
   end
 
-  def test_always_refresh_by_default
+  def test_new_feed_is_stale
     feed = Feed.new
-    assert(feed.refresh?)
+    assert(feed.stale?)
   end
 
-  def test_should_refresh
-    options = { refresh_interval: 600, refreshed_at: 700.seconds.ago }
-    feed = Feed.new(options)
-    assert(feed.refresh?)
+  REFRESH_INTERVAL = 600
+
+  def test_stale_condition
+    feed = Feed.new(
+      refresh_interval: REFRESH_INTERVAL,
+      refreshed_at: (REFRESH_INTERVAL + 10).seconds.ago
+    )
+
+    assert(feed.stale?)
   end
 
-  def test_should_not_refresh
-    options = { refresh_interval: 600, refreshed_at: 500.seconds.ago }
-    feed = Feed.new(options)
-    refute(feed.refresh?)
+  def test_not_stale_condition
+    feed = Feed.new(
+      refresh_interval: REFRESH_INTERVAL,
+      refreshed_at: (REFRESH_INTERVAL - 10).seconds.ago
+    )
+
+    refute(feed.stale?)
+  end
+
+  def test_stale_scope
+    # TODO
   end
 end

@@ -33,7 +33,7 @@ class Feed < ApplicationRecord
 
   enum status: Enums::FeedStatus.definition
 
-  def refresh?
+  def stale?
     return true if refresh_interval.zero? || !refreshed_at
     (Time.now.utc.to_i - refreshed_at.to_i).abs > refresh_interval
   end

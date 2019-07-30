@@ -11,6 +11,13 @@ namespace :pull do
 
   desc 'Pull all feeds'
   task all: :environment do
+    Service::FeedsList.names.each do |feed_name|
+      PullJob.perform_later(feed_name)
+    end
+  end
+
+  desc 'Pull stale feeds'
+  task stale: :environment do
     BatchPullJob.perform_later
   end
 end
