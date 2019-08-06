@@ -2,20 +2,16 @@ class BatchPullJob < ApplicationJob
   queue_as :default
 
   def perform
-    batch = Service::CreateDataPoint.call(:batch, started_at: Time.now.utc)
-    update_inactive_feeds_status
-    active_feed_names.each do |feed_name|
-      feed = Service::FeedBuilder.call(feed_name)
-      PullJob.perform_later(feed, batch) if feed.stale?
-    end
+    stale_feeds.each(PullJob.method(:perform_later))
   end
 
-  def active_feed_names
-    @active_feed_names ||= Service::FeedsList.names
+  private
+
+  def stale_feeds
+    active_feeds.select(&:stale?)
   end
 
-  def update_inactive_feeds_status
-    inactive = Enums::FeedStatus.inactive
-    Feed.where.not(name: active_feed_names).update_all(status: inactive)
+  def active_feeds
+    Service::FeedsList.names.map(&Service::FeedBuilder)
   end
 end

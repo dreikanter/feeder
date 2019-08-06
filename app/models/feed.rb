@@ -33,6 +33,8 @@ class Feed < ApplicationRecord
 
   enum status: Enums::FeedStatus.options
 
+  scope :ordered_active, -> { active.order(FEEDS_ORDER) }
+
   def stale?
     return true if refresh_interval.zero? || !refreshed_at
     (Time.now.utc.to_i - refreshed_at.to_i).abs > refresh_interval
@@ -46,6 +48,8 @@ class Feed < ApplicationRecord
 
   PG_AGE = 'age(now(), refreshed_at)'.freeze
   PG_THRESHOLD = 'make_interval(secs => refresh_interval)'.freeze
+  ORDER_FIELD = 'last_post_created_at'.freeze
+  FEEDS_ORDER = Arel.sql("#{ORDER_FIELD} IS NULL, #{ORDER_FIELD} DESC")
 
-  private_constant :PG_AGE, :PG_THRESHOLD
+  private_constant :ORDER_FIELD, :FEEDS_ORDER, :PG_AGE, :PG_THRESHOLD
 end

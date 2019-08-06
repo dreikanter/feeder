@@ -73,4 +73,9 @@ class FeedTest < Minitest::Test
   def test_stale_scope
     # TODO
   end
+
+  def test_default_import_limit
+    expected = Feed::DEFAULT_IMPORT_LIMIT
+    assert_equal(expected, Feed.new.import_limit)
+  end
 end
