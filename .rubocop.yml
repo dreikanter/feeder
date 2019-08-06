@@ -6,9 +6,6 @@ AllCops:
     - "**/*_schema.rb"
     - "node_modules"
 
-Rails:
-  Enabled: true
-
 Documentation:
   Enabled: false
 
@@ -31,9 +28,6 @@ Metrics/ModuleLength:
   Exclude:
     - "config/routes.rb"
 
-Rails/Delegate:
-  Enabled: false
-
 Metrics/MethodLength:
   Max: 15
 
@@ -43,9 +37,6 @@ Metrics/BlockLength:
     - "**/*_schema.rb"
 
 Metrics/ClassLength:
-  Enabled: false
-
-Rails/RefuteMethods:
   Enabled: false
 
 Layout/MultilineMethodCallIndentation:
