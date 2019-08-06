@@ -3,6 +3,7 @@ module Service
     include Callee
 
     param :feed
+    option :logger, optional: true, default: -> { Rails.logger }
 
     DEFAULT_LOADER = 'http'.freeze
 
@@ -15,7 +16,9 @@ module Service
     def matching_loader
       available_names.each do |name|
         safe_name = name.to_s.gsub(/-/, '_')
-        return "loaders/#{safe_name}_loader".classify.constantize
+        result = "loaders/#{safe_name}_loader".classify.constantize
+        logger.debug("feed '#{feed.name}' resolved to '#{result}'")
+        return result
       rescue StandardError
         next
       end

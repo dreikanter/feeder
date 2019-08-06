@@ -39,6 +39,7 @@ gem 'bootsnap', '~> 1.3', '>= 1.3.2', require: false
 gem 'callee', '~> 0.1.1'
 gem 'delayed_job_active_record', '~> 4.1', '>= 4.1.1'
 gem 'dry-initializer', '~> 3.0'
+gem 'dry-monads', '~> 1.2'
 gem 'dry-types', '~> 0.13.2'
 gem 'dry-validation', '~> 0.12.2'
 gem 'enu', '~> 0.0.1'

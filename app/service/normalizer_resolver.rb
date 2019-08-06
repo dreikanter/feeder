@@ -3,6 +3,7 @@ module Service
     include Callee
 
     param :feed
+    option :logger, optional: true, default: -> { Rails.logger }
 
     def call
       raise 'existing feed is required' unless feed
@@ -13,7 +14,9 @@ module Service
 
     def matching_normalizer
       available_names.each do |name|
-        return normalizer_class_name(name)
+        result = normalizer_class_name(name)
+        logger.debug("feed '#{feed.name}' resolved to '#{result}'")
+        return result
       rescue NameError
         next
       end

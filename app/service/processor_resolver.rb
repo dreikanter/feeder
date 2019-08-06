@@ -3,11 +3,14 @@ module Service
     include Callee
 
     param :feed
+    option :logger, optional: true, default: -> { Rails.logger }
 
     def call
       available_names_for.each do |name|
         safe_name = name.to_s.gsub(/-/, '_')
-        return "processors/#{safe_name}_processor".classify.constantize
+        result = "processors/#{safe_name}_processor".classify.constantize
+        logger.debug("feed '#{feed.name}' resolved to '#{result}'")
+        return result
       rescue NameError
         next
       end

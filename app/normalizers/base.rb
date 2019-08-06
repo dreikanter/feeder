@@ -3,10 +3,15 @@ module Normalizers
     include Callee
 
     param :entity
-    param :options, default: proc { {} }
+    param :feed
+    option :logger, optional: true, default: -> { Rails.logger }
 
     def call
       valid? ? ::Success.new(payload) : ::Failure.new(validation_errors)
+    rescue StandardError => e
+      logger.error(e)
+      # TODO: Persist error
+      ::Failure.new("normalization error: #{e.message}")
     end
 
     protected
@@ -43,6 +48,10 @@ module Normalizers
 
     def validation_errors
       []
+    end
+
+    def options
+      feed.try(:options) || {}
     end
 
     private

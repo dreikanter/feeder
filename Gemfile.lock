@@ -103,6 +103,10 @@ GEM
       dry-container (~> 0.2, >= 0.2.6)
       dry-core (~> 0.2)
       dry-equalizer (~> 0.2)
+    dry-monads (1.2.0)
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 0.4, >= 0.4.4)
+      dry-equalizer
     dry-types (0.13.4)
       concurrent-ruby (~> 1.0)
       dry-container (~> 0.3)
@@ -359,6 +363,7 @@ DEPENDENCIES
   database_cleaner (~> 1.5, >= 1.5.3)
   delayed_job_active_record (~> 4.1, >= 4.1.1)
   dry-initializer (~> 3.0)
+  dry-monads (~> 1.2)
   dry-types (~> 0.13.2)
   dry-validation (~> 0.12.2)
   enu (~> 0.0.1)
