@@ -1,19 +1,65 @@
+# NOTE: Always use FeedsList to fetch active feeds list
+#
 module Service
   class FeedsList
+    include Callee
+
     DEFAULT_PATH = Rails.root.join('config', 'feeds.yml')
 
-    def self.call(path = DEFAULT_PATH)
+    option :path, optional: true, default: -> { DEFAULT_PATH }
+    option :logger, optional: true, default: -> { Rails.logger }
+
+    def call
+      update_feeds if update_feeds?
+      Feed.ordered_active
+    end
+
+    private
+
+    def update_feeds
+      logger.info('updating feeds from configuration')
+      update_present_feeds
+      deactivate_missing_feeds
+    end
+
+    def update_present_feeds
+      feeds.each do |config|
+        feed = Feed.find_or_create_by(name: config[:name])
+        feed.update({ status: Enums::FeedStatus.active }.merge(config))
+      end
+    end
+
+    def deactivate_missing_feeds
+      missing_feeds.update_all(status: Enums::FeedStatus.inactive)
+    end
+
+    def missing_feeds
+      active_feeds = feeds.map { |feed| feed[:name] }
+      Feed.where('name NOT IN (?)', active_feeds)
+    end
+
+    def feeds
+      @feeds ||= load_feeds
+        .map(&:symbolize_keys)
+        .map(&Service::FeedSanitizer)
+    end
+
+    def load_feeds
       feeds = YAML.load_file(path)
       raise 'feeds configuration should define a list' unless feeds.is_a?(Array)
-      feeds.map { |feed| Service::FeedSanitizer.call(feed.symbolize_keys) }
+      feeds
     end
 
-    def self.names
-      call.map { |feed| feed[:name] }
+    def update_feeds?
+      !feeds_update_time || config_update_time > feeds_update_time
     end
 
-    def self.[](feed_name)
-      call.find { |feed| feed[:name] == feed_name }
+    def config_update_time
+      File.mtime(path).to_datetime
+    end
+
+    def feeds_update_time
+      @feeds_update_time ||= DataPoint.for(:config).last&.created_at
     end
   end
 end

@@ -5,31 +5,61 @@ class FeedsListTest < Minitest::Test
     Service::FeedsList
   end
 
-  SAMPLE_CONFIG_PATH = File.expand_path('./feeds.yml', __dir__).freeze
+  SAMPLE_CONFIG_PATH =
+    File.expand_path('../support/feeds.yml', __dir__).freeze
 
-  def test_happy_path
-    result = Service::FeedsList.call(SAMPLE_CONFIG_PATH)
-    expected = YAML.load_file(SAMPLE_CONFIG_PATH).map do |feed|
-      Service::FeedSanitizer.call(feed.symbolize_keys)
+  NON_EXISTING_CONFIG_PATH =
+    File.expand_path('../support/banana.bpm', __dir__).freeze
+
+  NOT_VALID_CONFIG_PATH =
+    File.expand_path('../support/not_valid.yml', __dir__).freeze
+
+  NOT_ARRAY_CONFIG_PATH =
+    File.expand_path('../support/not_array.yml', __dir__).freeze
+
+  def result
+    service.call(path: SAMPLE_CONFIG_PATH)
+  end
+
+  def expected
+    YAML.load_file(SAMPLE_CONFIG_PATH)
+      .map(&:symbolize_keys)
+      .map(&Service::FeedSanitizer)
+  end
+
+  def test_names_match_config
+    actual_names = result.map(&:name).sort
+    expected_names = expected.map { |conf| conf[:name] }.sort
+    assert(expected_names, actual_names)
+  end
+
+  def test_attributes_match_config
+    feeds = result.map { |feed| [feed.name, feed] }.to_h
+    expected.each do |config|
+      feed = feeds[config[:name]]
+      config.each_pair do |key, value|
+        actual = feed.send(key)
+        value && assert_equal(value, actual) || assert_nil(actual)
+      end
     end
-    assert_equal(expected, result)
   end
 
-  def test_names
-    feeds = Service::FeedsList.call(SAMPLE_CONFIG_PATH)
-    result = feeds.map { |feed| feed['name'] }
-    expected = YAML.load_file(SAMPLE_CONFIG_PATH).map { |feed| feed[:name] }
-    assert_equal(expected, result)
+  def test_non_existing_config
+    refute(File.exist?(NON_EXISTING_CONFIG_PATH))
+    assert_raises(Errno::ENOENT) do
+      service.call(path: NON_EXISTING_CONFIG_PATH)
+    end
   end
 
-  def test_find_by_name
-    feeds = Service::FeedsList.call(SAMPLE_CONFIG_PATH)
-    feeds.each { |feed| assert(service[feed[:name]]) }
+  def test_malformed_config
+    assert_raises(Psych::SyntaxError) do
+      service.call(path: NOT_VALID_CONFIG_PATH)
+    end
   end
 
-  def test_not_found
-    refute(Service::FeedsList[nil])
-    refute(Service::FeedsList[''])
-    refute(Service::FeedsList['!non-existing feed name!'])
+  def test_not_array_config
+    assert_raises(RuntimeError) do
+      service.call(path: NOT_ARRAY_CONFIG_PATH)
+    end
   end
 end

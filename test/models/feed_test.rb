@@ -75,7 +75,6 @@ class FeedTest < Minitest::Test
   end
 
   def test_default_import_limit
-    expected = Feed::DEFAULT_IMPORT_LIMIT
-    assert_equal(expected, Feed.new.import_limit)
+    assert_nil(Feed.new.import_limit)
   end
 end
