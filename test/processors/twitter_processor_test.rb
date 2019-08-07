@@ -16,8 +16,11 @@ module Processors
 
     def test_happy_path
       expected = data.map { |entity| entity['id'].to_s }.sort
-      result = processor.call(data, limit: 0).map { |uid, _| uid }.sort
-      assert_equal(expected, result)
+      feed = create(:feed, :twitter)
+      result = processor.call(data, feed, import_limit: 0)
+      assert(result.success?)
+      entities = result.value!.map { |uid, _| uid }.sort
+      assert_equal(expected, entities)
     end
   end
 end

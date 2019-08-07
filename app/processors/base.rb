@@ -5,6 +5,7 @@ module Processors
 
     param :source
     param :feed
+    option :import_limit, optional: true, default: -> { nil }
     option :logger, optional: true, default: -> { Rails.logger }
 
     DEFAULT_LIMIT = 2
@@ -23,7 +24,7 @@ module Processors
     end
 
     def limit
-      feed.import_limit || DEFAULT_LIMIT
+      import_limit || feed.import_limit || DEFAULT_LIMIT
     end
   end
 end
