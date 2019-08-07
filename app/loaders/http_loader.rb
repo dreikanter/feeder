@@ -1,9 +1,15 @@
 module Loaders
   class HttpLoader < Base
-    def call
-      url = feed.url
-      raise "#{self.class.name} requires valid feed url" unless url.present?
-      RestClient.get(url).body
+    option(
+      :client,
+      optional: true,
+      default: -> { ->(url) { RestClient.get(url).body } }
+    )
+
+    protected
+
+    def perform
+      client.call(feed.url)
     end
   end
 end
