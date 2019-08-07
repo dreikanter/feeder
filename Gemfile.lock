@@ -66,7 +66,7 @@ GEM
     brakeman (4.6.1)
     buftok (0.2.0)
     builder (3.2.3)
-    callee (0.2.1)
+    callee (0.2.2)
       dry-initializer (>= 2.5, < 4.0)
     case_transform (0.2)
       activesupport
