@@ -8,28 +8,32 @@ module Processors
 
     ENTITIES = Array.new(1).fill { Object.new }.freeze
 
-    def loader
-      Class.new(subject) do
-        define_method(:entities) { ENTITIES }
-      end
-    end
-
     def test_descendants_callable
-      assert(loader.respond_to?(:call))
+      processor = Class.new(subject) {}
+      assert(processor.respond_to?(:call))
     end
 
     def test_success
-      result = loader.call(Object.new, Feed.new)
+      processor = Class.new(subject) do
+        define_method(:entities) { [] }
+      end
+      result = processor.call(Object.new, Feed.new)
       assert(result.success?)
     end
 
     def test_failure
-      result = loader.call(nil)
+      processor = Class.new(subject) do
+        define_method(:entities) { raise }
+      end
+      result = processor.call(nil, Feed.new)
       assert(result.failure?)
     end
 
     def test_returns_entities
-      result = loader.call(Object.new, Feed.new).value!
+      processor = Class.new(subject) do
+        define_method(:entities) { ENTITIES }
+      end
+      result = processor.call(Object.new, Feed.new).value!
       assert_equal(ENTITIES, result)
     end
 
