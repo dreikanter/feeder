@@ -1,6 +1,8 @@
 module Loaders
   class NullLoader < Base
-    def call
+    protected
+
+    def perform
       nil
     end
   end
