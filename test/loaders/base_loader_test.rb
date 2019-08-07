@@ -2,7 +2,7 @@ require 'test_helper'
 
 module Loaders
   class BaseLoaderTest < Minitest::Test
-    def loader
+    def subject
       Loaders::Base
     end
 
@@ -10,28 +10,28 @@ module Loaders
       @sample_feed ||= create(:feed)
     end
 
-    def test_class_should_be_callable
-      assert_respond_to(loader, :call)
+    def test_require_feed_argument
+      loader = Class.new(subject)
+      assert_raises(NotImplementedError) { loader.call(sample_feed) }
     end
 
-    def test_instance_should_be_callable
-      assert_respond_to(loader.new(sample_feed), :call)
+    def test_success
+      expected = Object.new
+      loader = Class.new(subject) do
+        define_method(:perform) { expected }
+      end
+      result = loader.call(sample_feed)
+      assert(result.success?)
+      assert_equal(expected, result.value!)
     end
 
-    def test_should_accept_feed_param
-      instance = loader.new(sample_feed)
-      assert_equal(sample_feed, instance.feed)
-    end
-
-    def test_should_require_feed_param
-      assert_raises(ArgumentError) { loader.new }
-    end
-
-    SAMPLE_OPTIONS = { client: 'twitter client' }.freeze
-
-    def test_should_accept_options
-      instance = loader.new(nil, SAMPLE_OPTIONS)
-      assert_equal(SAMPLE_OPTIONS, instance.options)
+    def test_failure
+      loader = Class.new(subject) do
+        define_method(:perform) { raise }
+      end
+      result = loader.call(sample_feed)
+      assert(result.failure?)
+      assert(result.failure.is_a?(RuntimeError))
     end
   end
 end
