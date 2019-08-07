@@ -3,8 +3,5 @@ class ApplicationJob < ActiveJob::Base
     class_name = self.class.name
     logger.error("---> error in #{class_name}: #{exception.message}")
     Error.dump(exception, class_name: class_name)
-    on_error
   end
-
-  def on_error; end
 end

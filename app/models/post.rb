@@ -38,10 +38,6 @@ class Post < ApplicationRecord
 
   before_save :sanitize_published_at
 
-  def feeds
-    feed ? [feed.name] : []
-  end
-
   def stale?
     feed_after.present? && (published_at < feed_after)
   end

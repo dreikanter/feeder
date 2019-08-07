@@ -22,7 +22,7 @@
 #  index_posts_on_status   (status)
 #
 
-require "test_helper"
+require 'test_helper'
 
 class PostTest < Minitest::Test
   def post

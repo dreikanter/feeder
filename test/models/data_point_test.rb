@@ -12,7 +12,7 @@
 #  index_data_points_on_series_id  (series_id)
 #
 
-require "test_helper"
+require 'test_helper'
 
 class DataPointTest < Minitest::Test
   def data_point
