@@ -10,6 +10,18 @@
 
 module Loaders
   class TwitterLoader < Base
+    option(
+      :credentials,
+      optional: true,
+      default: -> { Rails.application.credentials.twitter || {} }
+    )
+
+    option(
+      :client,
+      optional: true,
+      default: -> { Twitter::REST::Client.new(safe_credentials) }
+    )
+
     REQUIRED_CREDENTIALS = %i[
       consumer_key
       consumer_secret
@@ -17,7 +29,9 @@ module Loaders
       access_token_secret
     ].freeze
 
-    def call
+    protected
+
+    def perform
       validate_credentials!
       client.user_timeline(twitter_user)
     end
@@ -26,24 +40,11 @@ module Loaders
 
     def validate_credentials!
       return if missing_credentials.empty?
-
-      raise "required credentials not found: #{missing_credentials.join(', ')}"
+      raise "missing credentials: #{missing_credentials.join(', ')}"
     end
 
     def missing_credentials
       REQUIRED_CREDENTIALS.select { |key| credentials[key].blank? }
-    end
-
-    def credentials
-      options[:credentials] || Rails.application.credentials.twitter
-    end
-
-    def client
-      options[:client] || twitter_client
-    end
-
-    def twitter_client
-      Twitter::REST::Client.new(safe_credentials)
     end
 
     def safe_credentials
@@ -52,8 +53,6 @@ module Loaders
 
     def twitter_user
       feed.options.fetch('twitter_user')
-    rescue KeyError
-      raise "'twitter_user' not defined in '#{feed.name}' feed options"
     end
   end
 end
