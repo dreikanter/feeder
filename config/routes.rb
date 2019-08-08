@@ -21,7 +21,4 @@ Rails.application.routes.draw do
   root 'layout#show'
 
   get :about, controller: :layout, action: :show
-
-  # Handle 404
-  get '*path', to: 'layout#show'
 end
