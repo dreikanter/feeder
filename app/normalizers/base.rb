@@ -63,8 +63,8 @@ module Normalizers
         'link' => link,
         'published_at' => published_at,
         'text' => text,
-        'attachments' => attachments,
-        'comments' => comments
+        'attachments' => (attachments || []).reject(&:blank?),
+        'comments' => (comments || []).reject(&:blank?)
       }.freeze
     end
   end
