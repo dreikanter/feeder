@@ -14,6 +14,10 @@ module Normalizers
       entity.link.to_s.gsub(%r{^//}, 'https://')
     end
 
+    def attachments
+      image_url ? [image_url] : []
+    end
+
     private
 
     def content
@@ -22,6 +26,13 @@ module Normalizers
 
     def paragraphs
       Service::Html.paragraphs(entity.description)
+    end
+
+    def image_url
+      html = Nokogiri::HTML(entity.description)
+      html.css('img').first.attributes['src'].value
+    rescue StandardError
+      nil
     end
   end
 end
