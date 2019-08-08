@@ -5,6 +5,7 @@ module Operations
     param :operation
     option :user
     option :params
+    option :request
 
     option(
       :schema_resolver,
@@ -34,7 +35,7 @@ module Operations
       Rails.logger.info("operation: #{operation}")
       validate_params
       authorize_user
-      operation.call(user: user, params: params)
+      operation.call(user: user, params: params, request: request)
     end
 
     private
