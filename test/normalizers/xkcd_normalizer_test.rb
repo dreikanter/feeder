@@ -1,16 +1,19 @@
-require_relative 'normalizer_test'
+require 'test_helper'
+require_relative '../support/normalizer_test_helper'
 
-class XkcdNormalizerTest < NormalizerTest
-  def sample_data_file
-    'feed_xkcd.xml'
+class XkcdNormalizerTest < Minitest::Test
+  include NormalizerTestHelper
+
+  def subject
+    Normalizers::XkcdNormalizer
   end
 
   def processor
     Processors::RssProcessor
   end
 
-  def normalizer
-    Normalizers::XkcdNormalizer
+  def sample_data_file
+    'feed_xkcd.xml'
   end
 
   def test_sample_data_file_exists
@@ -28,6 +31,7 @@ class XkcdNormalizerTest < NormalizerTest
   end
 
   FIRST_SAMPLE = {
+    'uid' => 'http://xkcd.com/1732/',
     'link' => 'http://xkcd.com/1732/',
     'published_at' => Time.parse('2016-09-12 04:00:00 UTC'),
     'text' => 'Earth Temperature Timeline - http://xkcd.com/1732/',
@@ -38,9 +42,9 @@ class XkcdNormalizerTest < NormalizerTest
       '[After setting your car on fire] Listen, your car\'s ' \
       'temperature has changed before.'
     ]
-  }
+  }.freeze
 
   def test_normalized_sample
-    assert_equal(FIRST_SAMPLE, normalized.first.payload)
+    assert_equal(FIRST_SAMPLE, normalized.first.value!)
   end
 end

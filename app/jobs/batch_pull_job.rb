@@ -2,7 +2,9 @@ class BatchPullJob < ApplicationJob
   queue_as :default
 
   def perform
-    stale_feeds.each(PullJob.method(:perform_later))
+    stale_feeds.each do |feed|
+      PullJob.perform_later(feed)
+    end
   end
 
   private
@@ -12,6 +14,6 @@ class BatchPullJob < ApplicationJob
   end
 
   def active_feeds
-    Service::FeedsList.names.map(&Service::FeedBuilder)
+    Service::FeedsList.call
   end
 end

@@ -1,37 +1,24 @@
-require_relative 'normalizer_test'
+require 'test_helper'
+require_relative '../support/normalizer_test_helper'
 
-class TelegaNormalizerTest < NormalizerTest
-  SAMPLE_DATA_FILE = 'feed_agavr_today.xml'.freeze
+class TelegaNormalizerTest < Minitest::Test
+  include NormalizerTestHelper
 
-  SAMPLE_DATA_PATH =
-    File.join(File.expand_path('../data', __dir__), SAMPLE_DATA_FILE).freeze
-
-  def test_sample_data_file_exists
-    assert(File.exist?(SAMPLE_DATA_PATH))
+  def subject
+    Normalizers::TelegaNormalizer
   end
 
-  def process_sample_data
-    source = File.read(SAMPLE_DATA_PATH)
-    Processors::RssProcessor.call(source)
+  def processor
+    Processors::RssProcessor
   end
 
-  def processed
-    @processed ||= process_sample_data
+  def sample_data_file
+    'feed_agavr_today.xml'.freeze
   end
 
   def test_have_sample_data
     assert(processed.present?)
     assert(processed.any?)
-  end
-
-  def normalize_sample_data
-    processed.map do |entity|
-      Normalizers::TelegaNormalizer.call(entity[1])
-    end
-  end
-
-  def normalized
-    @normalized ||= normalize_sample_data
   end
 
   def test_normalization
@@ -40,6 +27,7 @@ class TelegaNormalizerTest < NormalizerTest
   end
 
   FIRST_SAMPLE = {
+    'uid' => 'http://tele.ga/agavr_today/126.html',
     'link' => 'http://tele.ga/agavr_today/126.html',
     'published_at' => DateTime.parse('2017-09-07 14:51:45 +0000'),
     'text' => 'Находясь в настоящий момент в двух поразительных тяжбах в Израиле, я всё думаю: ведь не напрасно Кафка был еврей. Но умереть планирую позже, чем завершу. Это и есть еврейский оптимизм - http://tele.ga/agavr_today/126.html',
@@ -54,6 +42,7 @@ class TelegaNormalizerTest < NormalizerTest
   }.freeze
 
   SECOND_SAMPLE = {
+    'uid' => 'http://tele.ga/agavr_today/120.html',
     'link' => 'http://tele.ga/agavr_today/120.html',
     'published_at' => DateTime.parse('2017-08-30 11:27:28 +0000'),
     'text' => 'Католический святой Боэций прожил жизнь, вполне понятную любому, кто интересовался русской историей ХХ века: прилежно занимался наукой, по идиотическому и очевидно ложному обвинению сидел в тюрьме, рассказывал товарищам по заключению всякие философические байки, из которых потом сделал, не выходя из тюрьмы, книгу "Утешение философией", казнён. - http://tele.ga/agavr_today/120.html',
@@ -65,7 +54,7 @@ class TelegaNormalizerTest < NormalizerTest
   }.freeze
 
   def test_normalized_sample
-    assert_equal(FIRST_SAMPLE, normalized.first.payload)
-    assert_equal(SECOND_SAMPLE, normalized.second.payload)
+    assert_equal(FIRST_SAMPLE, normalized.first.value!)
+    assert_equal(SECOND_SAMPLE, normalized.second.value!)
   end
 end

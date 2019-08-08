@@ -4,7 +4,18 @@ class PullJob < ApplicationJob
 
   def perform(feed)
     feed.update(refreshed_at: nil)
-    Service::Pull.call(feed, on_error: errors_counter) do |post|
+    Service::Pull.call(feed).each do |entity|
+      if entity.failure?
+        count_error
+        next
+      end
+
+      post_attributes = entity.value!.symbolize_keys.merge(
+        feed_id: feed.id,
+        status: Enums::PostStatus.ready
+      )
+
+      post = Post.create!(**post_attributes)
       PushJob.perform_later(post)
       count_post
     end
@@ -13,7 +24,7 @@ class PullJob < ApplicationJob
 
   private
 
-  attr_reader :posts_count, :errors_count, :started_at
+  attr_reader :errors_count, :posts_count, :started_at
 
   def intro
     @started_at = Time.now.utc
@@ -28,8 +39,7 @@ class PullJob < ApplicationJob
       posts_count: posts_count,
       errors_count: errors_count,
       duration: Time.new.utc - started_at,
-      status: status,
-      batch_id: batch_id
+      status: status
     )
   end
 
@@ -42,15 +52,11 @@ class PullJob < ApplicationJob
     @posts_count += 1
   end
 
-  def errors_counter
-    -> { @errors_count += 1 }
+  def count_error
+    @errors_count += 1
   end
 
   def feed_name
     arguments[0].name
-  end
-
-  def batch_id
-    arguments[1].try(:id)
   end
 end

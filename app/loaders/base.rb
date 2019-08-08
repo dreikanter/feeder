@@ -7,9 +7,10 @@ module Loaders
     option :logger, optional: true, default: -> { Rails.logger }
 
     def call
-      logger.info("loading feed [#{feed&.name}] with [#{self.class.name}]")
+      logger.info("loading feed [#{feed&.name}]")
       Success(perform)
     rescue StandardError => e
+      logger.error("error loading feed [#{feed&.name}]")
       Failure(e)
     end
 

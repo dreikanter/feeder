@@ -1,37 +1,24 @@
-require_relative 'normalizer_test'
+require 'test_helper'
+require_relative '../support/normalizer_test_helper'
 
-class CommitstripNormalizerTest < NormalizerTest
-  SAMPLE_DATA_FILE = 'feed_commitstrip.xml'.freeze
+class CommitstripNormalizerTest < Minitest::Test
+  include NormalizerTestHelper
 
-  SAMPLE_DATA_PATH =
-    File.join(File.expand_path('../data', __dir__), SAMPLE_DATA_FILE)
-
-  def test_sample_data_file_exists
-    assert(File.exist?(SAMPLE_DATA_PATH))
+  def subject
+    Normalizers::CommitstripNormalizer
   end
 
-  def process_sample_data
-    source = File.read(SAMPLE_DATA_PATH)
-    Processors::RssProcessor.call(source)
+  def processor
+    Processors::RssProcessor
   end
 
-  def processed
-    @processed ||= process_sample_data
+  def sample_data_file
+    'feed_commitstrip.xml'.freeze
   end
 
   def test_have_sample_data
     assert(processed.present?)
     assert(processed.any?)
-  end
-
-  def normalize_sample_data
-    processed.map do |entity|
-      Normalizers::CommitstripNormalizer.call(entity[1])
-    end
-  end
-
-  def normalized
-    @normalized ||= normalize_sample_data
   end
 
   def test_normalization
@@ -40,6 +27,7 @@ class CommitstripNormalizerTest < NormalizerTest
   end
 
   FIRST_SAMPLE = {
+    'uid' => 'https://www.commitstrip.com/2017/09/19/the-whole-teams-working-on-it/',
     'link' => 'https://www.commitstrip.com/2017/09/19/the-whole-teams-working-on-it/',
     'published_at' => DateTime.parse('2017-09-19 16:42:52 +0000'),
     'text' => 'The whole team’s working on it - https://www.commitstrip.com/2017/09/19/the-whole-teams-working-on-it/',
@@ -48,6 +36,6 @@ class CommitstripNormalizerTest < NormalizerTest
   }.freeze
 
   def test_normalized_sample
-    assert_equal(FIRST_SAMPLE, normalized.first.payload)
+    assert_equal(FIRST_SAMPLE, normalized.first.value!)
   end
 end

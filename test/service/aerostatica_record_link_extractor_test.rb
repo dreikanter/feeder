@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class AerostaticaRecordLinkExtractorTest < Minitest::Test
-  def service
+  def subject
     Service::AerostaticaRecordLinkExtractor
   end
 
@@ -12,15 +12,11 @@ class AerostaticaRecordLinkExtractorTest < Minitest::Test
     SAMPLE_DATA_FILE
   ).freeze
 
-  def test_sample_data_file_exists
-    assert(File.exist?(SAMPLE_DATA_PATH))
-  end
-
   EXPECTED = 'https://aerostatica.ru/music/702.mp3'.freeze
 
   def test_happy_path
     content = File.read(SAMPLE_DATA_PATH)
-    result = service.call(content)
+    result = subject.call(content)
     assert_equal(EXPECTED, result)
   end
 end

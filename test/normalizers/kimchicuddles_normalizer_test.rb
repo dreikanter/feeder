@@ -1,16 +1,19 @@
-require_relative 'normalizer_test'
+require 'test_helper'
+require_relative '../support/normalizer_test_helper'
 
-class KimchicuddlesNormalizerTest < NormalizerTest
-  def sample_data_file
-    'feed_kimchicuddles.xml'
+class KimchicuddlesNormalizerTest < Minitest::Test
+  include NormalizerTestHelper
+
+  def subject
+    Normalizers::KimchicuddlesNormalizer
   end
 
   def processor
     Processors::FeedjiraProcessor
   end
 
-  def normalizer
-    Normalizers::KimchicuddlesNormalizer
+  def sample_data_file
+    'feed_kimchicuddles.xml'
   end
 
   def test_sample_data_file_exists
@@ -32,13 +35,13 @@ class KimchicuddlesNormalizerTest < NormalizerTest
     'published_at' => Time.parse('2018-09-27 15:53:34 UTC'),
     'text' => 'http://kimchicuddles.com/post/178513799060',
     'attachments' => ['https://66.media.tumblr.com/45381225846ed0dde118340a6aeb4329/tumblr_pfq1hahDTV1spe4pno1_500.jpg'],
-    "comments" => ["Who are some people you’re grateful for right now?\nIf you appreciate my work, check out my Patreon: https://www.patreon.com/kimchicuddles"]
+    'comments' => ['Who are some people you’re grateful for right now?\nIf you appreciate my work, check out my Patreon: https://www.patreon.com/kimchicuddles']
   }.freeze
 
   # TODO: Offline test for Service::TumblrImageFetcher
   # TODO: Fix attachments test
   def test_normalized_sample
     skip
-    # assert_equal(FIRST_SAMPLE, normalized.first.payload)
+    # assert_equal(FIRST_SAMPLE, normalized.first.value!)
   end
 end

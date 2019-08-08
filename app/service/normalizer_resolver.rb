@@ -6,22 +6,17 @@ module Service
     option :logger, optional: true, default: -> { Rails.logger }
 
     def call
-      raise 'existing feed is required' unless feed
-      matching_normalizer
-    end
-
-    private
-
-    def matching_normalizer
       available_names.each do |name|
         result = normalizer_class_name(name)
-        logger.debug("feed '#{feed.name}' resolved to '#{result}'")
+        logger.debug("feed [#{feed&.name}] normalizer resolved to [#{result}]")
         return result
       rescue NameError
         next
       end
-      raise("no matching normalizer for '#{feed.name}'")
+      raise "can not resolve normalizer for [#{feed&.name}]"
     end
+
+    private
 
     def normalizer_class_name(name)
       safe_name = name.to_s.gsub(/-/, '_')

@@ -1,37 +1,24 @@
-require_relative 'normalizer_test'
+require 'test_helper'
+require_relative '../support/normalizer_test_helper'
 
-class TheAtlanticPhotosNormalizer < NormalizerTest
-  SAMPLE_DATA_FILE = 'feed_the_atlantic_photos.xml'.freeze
+class TheAtlanticPhotosNormalizer < Minitest::Test
+  include NormalizerTestHelper
 
-  SAMPLE_DATA_PATH =
-    File.join(File.expand_path('../data', __dir__), SAMPLE_DATA_FILE).freeze
-
-  def test_sample_data_file_exists
-    assert(File.exist?(SAMPLE_DATA_PATH))
+  def subject
+    Normalizers::TheAtlanticPhotosNormalizer
   end
 
-  def process_sample_data
-    source = File.read(SAMPLE_DATA_PATH)
-    Processors::RssProcessor.call(source)
+  def processor
+    Processors::RssProcessor
   end
 
-  def processed
-    @processed ||= process_sample_data
+  def sample_data_file
+    'feed_the_atlantic_photos.xml'.freeze
   end
 
   def test_have_sample_data
     assert(processed.present?)
     assert(processed.any?)
-  end
-
-  def normalize_sample_data
-    processed.map do |entity|
-      Normalizers::TheAtlanticPhotosNormalizer.call(entity[1])
-    end
-  end
-
-  def normalized
-    @normalized ||= normalize_sample_data
   end
 
   def test_normalization
@@ -40,6 +27,7 @@ class TheAtlanticPhotosNormalizer < NormalizerTest
   end
 
   FIRST_SAMPLE = {
+    'uid' => 'http://feedproxy.google.com/~r/theatlantic/infocus/~3/5PMsxSsNGFk/',
     'link' => 'http://feedproxy.google.com/~r/theatlantic/infocus/~3/5PMsxSsNGFk/',
     'published_at' => DateTime.parse('2017-09-19 14:15:30 -0400'),
     'text' => 'Yellowstone National Park, now 145 years old, was the first national park established in the world. In 2016, the 2.2-million-acre park was visited by a record 4.2 million people, who came to experience the wilderness, explore countless geothermal features, witness the gorgeous vistas, and try to catch a glimpse of the resident wildlife. Gathered here are a handful of compelling photos from Yellowstone’s past, as... (continued) - https://www.theatlantic.com/photo/2017/09/a-photo-trip-through-yellowstone-national-park/540339/',
@@ -52,6 +40,6 @@ class TheAtlanticPhotosNormalizer < NormalizerTest
   }.freeze
 
   def test_normalized_sample
-    assert_equal(FIRST_SAMPLE, normalized.first.payload)
+    assert_equal(FIRST_SAMPLE, normalized.first.value!)
   end
 end

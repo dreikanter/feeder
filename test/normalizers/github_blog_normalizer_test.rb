@@ -1,37 +1,24 @@
-require_relative 'normalizer_test'
+require 'test_helper'
+require_relative '../support/normalizer_test_helper'
 
-class GithubBlogNormalizerTest < NormalizerTest
-  SAMPLE_DATA_FILE = 'feed_github_blog.xml'.freeze
+class GithubBlogNormalizerTest < Minitest::Test
+  include NormalizerTestHelper
 
-  SAMPLE_DATA_PATH =
-    File.join(File.expand_path('../data', __dir__), SAMPLE_DATA_FILE).freeze
-
-  def test_sample_data_file_exists
-    assert(File.exist?(SAMPLE_DATA_PATH))
+  def subject
+    Normalizers::GithubBlogNormalizer
   end
 
-  def process_sample_data
-    source = File.read(SAMPLE_DATA_PATH)
-    Processors::AtomProcessor.call(source)
+  def processor
+    Processors::AtomProcessor
   end
 
-  def processed
-    @processed ||= process_sample_data
+  def sample_data_file
+    'feed_github_blog.xml'.freeze
   end
 
   def test_have_sample_data
     assert(processed.present?)
     assert(processed.length.positive?)
-  end
-
-  def normalize_sample_data
-    processed.map do |entity|
-      Normalizers::GithubBlogNormalizer.call(entity[1])
-    end
-  end
-
-  def normalized
-    @normalized ||= normalize_sample_data.compact
   end
 
   def test_normalization
@@ -40,7 +27,7 @@ class GithubBlogNormalizerTest < NormalizerTest
   end
 
   def test_all_attachment_urls_should_be_absolute
-    attachments = normalized.map { |entity| entity.payload['attachments'] }
+    attachments = normalized.map { |entity| entity.value!['attachments'] }
     attachments.flatten.compact.each do |uri|
       assert(Addressable::URI.parse(uri).absolute?)
     end

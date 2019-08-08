@@ -1,16 +1,19 @@
-require_relative 'normalizer_test'
+require 'test_helper'
+require_relative '../support/normalizer_test_helper'
 
-class AgavrTodayNormalizerTest < NormalizerTest
-  def sample_data_file
-    'feed_agavr_today.xml'
+class AgavrTodayNormalizerTest < Minitest::Test
+  include NormalizerTestHelper
+
+  def subject
+    Normalizers::AgavrTodayNormalizer
   end
 
   def processor
     Processors::RssProcessor
   end
 
-  def normalizer
-    Normalizers::AgavrTodayNormalizer
+  def sample_data_file
+    'feed_agavr_today.xml'
   end
 
   def test_sample_data_file_exists
@@ -26,6 +29,4 @@ class AgavrTodayNormalizerTest < NormalizerTest
     assert(normalized.present?)
     assert_equal(processed.length, normalized.length)
   end
-
-  # TODO: Test normalization result
 end

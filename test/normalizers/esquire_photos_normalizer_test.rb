@@ -1,37 +1,24 @@
-require_relative 'normalizer_test'
+require 'test_helper'
+require_relative '../support/normalizer_test_helper'
 
-class EsquirePhotosNormalizerTest < NormalizerTest
-  SAMPLE_DATA_FILE = 'feed_esquire-photos.xml'.freeze
+class EsquirePhotosNormalizerTest < Minitest::Test
+  include NormalizerTestHelper
 
-  SAMPLE_DATA_PATH =
-    File.join(File.expand_path('../data', __dir__), SAMPLE_DATA_FILE).freeze
-
-  def test_sample_data_file_exists
-    assert(File.exist?(SAMPLE_DATA_PATH))
+  def subject
+    Normalizers::EsquirePhotosNormalizer
   end
 
-  def process_sample_data
-    source = File.read(SAMPLE_DATA_PATH)
-    Processors::RssProcessor.call(source)
+  def processor
+    Processors::RssProcessor
   end
 
-  def processed
-    @processed ||= process_sample_data
+  def sample_data_file
+    'feed_esquire-photos.xml'.freeze
   end
 
   def test_have_sample_data
     assert(processed.present?)
     assert(processed.any?)
-  end
-
-  def normalize_sample_data
-    processed.map do |entity|
-      Normalizers::EsquirePhotosNormalizer.call(entity[1])
-    end
-  end
-
-  def normalized
-    @normalized ||= normalize_sample_data
   end
 
   def test_normalization
@@ -40,6 +27,7 @@ class EsquirePhotosNormalizerTest < NormalizerTest
   end
 
   FIRST_SAMPLE = {
+    'uid' => 'https://esquire.ru/escobar-netflix',
     'link' => 'https://esquire.ru/escobar-netflix',
     'published_at' => nil,
     'text' => 'Брат Пабло Эскобара требует с Netflix миллиард долларов - https://esquire.ru/escobar-netflix',
@@ -53,6 +41,6 @@ class EsquirePhotosNormalizerTest < NormalizerTest
   }.freeze
 
   def test_normalized_sample
-    assert_equal(FIRST_SAMPLE, normalized.first.payload)
+    assert_equal(FIRST_SAMPLE, normalized.first.value!)
   end
 end

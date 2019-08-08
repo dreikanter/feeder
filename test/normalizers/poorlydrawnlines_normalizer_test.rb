@@ -1,16 +1,18 @@
-require_relative 'normalizer_test'
+require 'test_helper'
+require_relative '../support/normalizer_test_helper'
 
-class PoorlydrawnlinesNormalizerTest < NormalizerTest
-  def sample_data_file
-    'feed_poorlydrawnlines.xml'
+class PoorlydrawnlinesNormalizerTest < Minitest::Test
+  include NormalizerTestHelper
+  def subject
+    Normalizers::PoorlydrawnlinesNormalizer
   end
 
   def processor
     Processors::FeedjiraProcessor
   end
 
-  def normalizer
-    Normalizers::PoorlydrawnlinesNormalizer
+  def sample_data_file
+    'feed_poorlydrawnlines.xml'
   end
 
   def test_sample_data_file_exists
@@ -28,6 +30,7 @@ class PoorlydrawnlinesNormalizerTest < NormalizerTest
   end
 
   FIRST_SAMPLE = {
+    'uid' => 'http://www.poorlydrawnlines.com/comic/hello/',
     'link' => 'http://www.poorlydrawnlines.com/comic/hello/',
     'published_at' => Time.parse('2018-10-22 16:03:51 UTC'),
     'text' => 'Hello - http://www.poorlydrawnlines.com/comic/hello/',
@@ -36,6 +39,6 @@ class PoorlydrawnlinesNormalizerTest < NormalizerTest
   }.freeze
 
   def test_normalized_sample
-    assert_equal(FIRST_SAMPLE, normalized.first.payload)
+    assert_equal(FIRST_SAMPLE, normalized.first.value!)
   end
 end

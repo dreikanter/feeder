@@ -1,6 +1,9 @@
-require_relative 'normalizer_test'
+require 'test_helper'
+require_relative '../support/normalizer_test_helper'
 
-class NextbigfutureNormalizerTest < NormalizerTest
+class NextbigfutureNormalizerTest < Minitest::Test
+  include NormalizerTestHelper
+
   def sample_data_file
     'feed_nextbigfuture.xml'
   end
@@ -9,7 +12,7 @@ class NextbigfutureNormalizerTest < NormalizerTest
     Processors::WordpressProcessor
   end
 
-  def normalizer
+  def subject
     Normalizers::NextbigfutureNormalizer
   end
 
@@ -37,7 +40,7 @@ class NextbigfutureNormalizerTest < NormalizerTest
   # TODO: Test attachments
 
   def test_normalized_sample
-    result = normalized.first.payload
+    result = normalized.first.value!
 
     FIRST_SAMPLE.keys.each do |key|
       assert_equal(FIRST_SAMPLE[key], result[key])

@@ -1,16 +1,19 @@
-require_relative 'normalizer_test'
+require 'test_helper'
+require_relative '../support/normalizer_test_helper'
 
-class AerostaticaNormalizerTest < NormalizerTest
+class AerostaticaNormalizerTest < Minitest::Test
+  include NormalizerTestHelper
+
+  def subject
+    Normalizers::AerostaticaNormalizer
+  end
+
   def sample_data_file
     'feed_aerostatica.xml'
   end
 
   def processor
     Processors::FeedjiraProcessor
-  end
-
-  def normalizer
-    Normalizers::AerostaticaNormalizer
   end
 
   def test_sample_data_file_exists

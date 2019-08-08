@@ -9,8 +9,7 @@ namespace :feeder do
 
   desc 'Pull all feeds'
   task pull_all: :environment do
-    Service::FeedsList.names.each do |feed_name|
-      feed = Service::FeedBuilder(feed_name)
+    Service::FeedsList.call.each do |feed|
       PullJob.perform_later(feed)
     end
   end

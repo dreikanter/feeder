@@ -1,27 +1,31 @@
-require_relative 'normalizer_test'
+require 'test_helper'
+require_relative '../support/normalizer_test_helper'
 
-class NormalizerBaseTest < NormalizerTest
+class NormalizerBaseTest < Minitest::Test
+  include NormalizerTestHelper
+
   def subject
     Normalizers::Base
-  end
-
-  def test_is_callable
-    subject.respond_to?(:call)
   end
 
   ENTITY = Object.new
   OPTIONS = {}.freeze
 
-  def test_accept_entity
-    subject.call(ENTITY, OPTIONS)
+  def feed
+    build(:feed)
   end
 
-  class SuccessNormalizer < Normalizers::Base
+  def uid
+    nil
+  end
+
+  def test_accept_entity
+    subject.call(uid, ENTITY, feed)
   end
 
   def test_success_normalizer
-    result = SuccessNormalizer.call(ENTITY, OPTIONS)
-    assert(result.is_a?(Success))
+    result = Class.new(subject).call(uid, ENTITY, feed)
+    assert(result.success?)
   end
 
   EXPECTED_ATTRIBUTES = %w[
@@ -30,21 +34,19 @@ class NormalizerBaseTest < NormalizerTest
     link
     published_at
     text
+    uid
   ].to_set.freeze
 
   def test_return_attributes_hash
-    result = SuccessNormalizer.call(ENTITY, OPTIONS)
-    assert_equal(EXPECTED_ATTRIBUTES, result.payload.keys.to_set)
-  end
-
-  class FailureNormalizer < Normalizers::Base
-    def validation_errors
-      ['sample error']
-    end
+    result = Class.new(subject).call(uid, ENTITY, feed).value!
+    assert_equal(EXPECTED_ATTRIBUTES, result.keys.to_set)
   end
 
   def test_failure_normalizer
-    result = FailureNormalizer.call(ENTITY, OPTIONS)
-    assert(result.is_a?(Failure))
+    normalizer = Class.new(subject) do
+      define_method('validation_errors') { ['sample error'] }
+    end
+    result = normalizer.call(uid, ENTITY, feed)
+    assert(result.failure?)
   end
 end
