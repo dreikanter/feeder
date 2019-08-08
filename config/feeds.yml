@@ -361,3 +361,10 @@
   normalizer: "smbc"
   refresh_interval: 1800
   import_limit: 10
+
+- name: officetalk
+  url: "https://tele.ga/office_talk/rss/"
+  processor: "rss"
+  normalizer: "telega_basic"
+  # refresh_interval: 1800
+  import_limit: 20
