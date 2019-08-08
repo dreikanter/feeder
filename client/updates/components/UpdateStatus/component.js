@@ -13,11 +13,7 @@ import {
 
 import { updateStatus } from 'main/enums'
 
-const isValid = status => Object.keys(updateStatus).includes(status)
-
 function UpdateStatus ({ value }) {
-  invariant(isValid(value), 'unknown update status')
-
   if (value === updateStatus.success) {
     return (
       <FontAwesomeIcon
@@ -27,12 +23,16 @@ function UpdateStatus ({ value }) {
     )
   }
 
-  return (
-    <FontAwesomeIcon
-      className="text-danger"
-      icon={faExclamationTriangle}
-    />
-  )
+  if (value === updateStatus.has_errors) {
+    return (
+      <FontAwesomeIcon
+        className="text-danger"
+        icon={faExclamationTriangle}
+      />
+    )
+  }
+
+  return null
 }
 
 UpdateStatus.propTypes = {
