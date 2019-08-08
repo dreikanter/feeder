@@ -20,6 +20,7 @@ module Service
       logger.info('updating feeds from configuration')
       update_present_feeds
       deactivate_missing_feeds
+      Service::CreateDataPoint.call(:config)
     end
 
     def update_present_feeds
