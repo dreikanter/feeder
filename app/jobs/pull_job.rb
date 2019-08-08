@@ -19,7 +19,14 @@ class PullJob < ApplicationJob
       PushJob.perform_later(post)
       count_post
     end
-    feed.update(refreshed_at: started_at)
+
+    last_post_created_at =
+      feed.posts.order(created_at: :desc).first.try(:created_at)
+
+    feed.update(
+      last_post_created_at: last_post_created_at,
+      refreshed_at: started_at
+    )
   end
 
   private
