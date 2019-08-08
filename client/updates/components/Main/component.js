@@ -49,21 +49,6 @@ const updateCols = [
     value: ({ duration }) => seconds(duration)
   },
 ]
-
-const batchCols = [
-  {
-    title: 'Started at',
-    headClasses: 'w-50',
-    value: ({ started_at }) => (
-      <Time value={started_at} />
-    )
-  },
-  {
-    title: 'Status',
-    headClasses: 'w-50',
-    value: ({ duration }) => seconds(duration)
-  },
-]
 /* eslint-enable react/prop-types, camelcase */
 
 class Main extends Component {
@@ -74,7 +59,6 @@ class Main extends Component {
 
   render () {
     const {
-      batches,
       updates,
       pending
     } = this.props
@@ -93,26 +77,18 @@ class Main extends Component {
           hover
           records={updates}
         />
-        <h1>Batch updates</h1>
-        <DataTable
-          cols={batchCols}
-          hover
-          records={batches}
-        />
       </Fragment>
     )
   }
 }
 
 Main.propTypes = {
-  batches: PropTypes.array,
   load: PropTypes.func,
   pending: PropTypes.bool,
   updates: PropTypes.array
 }
 
 Main.defaultProps = {
-  batches: [],
   load: undefined,
   pending: false,
   updates: []
