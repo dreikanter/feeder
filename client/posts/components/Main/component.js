@@ -1,3 +1,4 @@
+import get from 'lodash/get'
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -23,7 +24,7 @@ const repeatIcons = (icon, length) => (
 )
 
 /* eslint-disable react/prop-types, camelcase */
-const cols = [
+const cols = feeds => [
   {
     title: <FontAwesomeIcon icon={faLink} />,
     headClasses: 'min text-nowrap',
@@ -37,9 +38,11 @@ const cols = [
     title: 'Feed',
     headClasses: 'text-nowrap',
     cellClasses: 'text-nowrap',
-    value: ({ feed_name }) => (
-      <a href={paths.feedPath(feed_name)}>{feed_name}</a>
-    )
+    value: ({ feed_id }) => {
+      return feed_id
+      // const feedName = get(feeds, [feed_id, 'name'])
+      // return <a href={paths.feedPath(feedName)}>{feedName}</a>
+    }
   },
   {
     title: 'Comments',
@@ -80,8 +83,9 @@ class Main extends Component {
 
   render () {
     const {
-      posts,
-      pending
+      feeds,
+      pending,
+      posts
     } = this.props
 
     if (pending) {
@@ -94,7 +98,7 @@ class Main extends Component {
       <Fragment>
         <h1>Recent posts</h1>
         <DataTable
-          cols={cols}
+          cols={cols(feeds)}
           hover
           records={posts}
         />
@@ -104,15 +108,19 @@ class Main extends Component {
 }
 
 Main.propTypes = {
-  posts: PropTypes.array,
+  feedName: PropTypes.string,
+  feeds: PropTypes.object,
   load: PropTypes.func,
-  pending: PropTypes.bool
+  pending: PropTypes.bool,
+  posts: PropTypes.array
 }
 
 Main.defaultProps = {
-  posts: [],
+  feedName: undefined,
+  feeds: {},
   load: undefined,
-  pending: false
+  pending: false,
+  posts: []
 }
 
 export default Main

@@ -17,13 +17,20 @@ module Operations
       end
 
       def meta
-        {
-          feed_name: feed_name
-        }
+        return { feed_name: feed_name } if individual_feed?
+        { feeds: feeds }
+      end
+
+      def individual_feed?
+        feed_name.present?
       end
 
       def feed_name
         params[:feed_name]
+      end
+
+      def feeds
+        each_s11n(Feed.active, FeedSerializer)
       end
     end
   end

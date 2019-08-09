@@ -30,7 +30,7 @@ export const pendingSelector = state => state.pending || []
 
 export const statsSelector = state => state.stats || {}
 
-export const postsSelector = state => state.posts || []
+export const postsRootSelector = state => state.posts || []
 
 export const updatesSelector = state => state.updates || []
 
@@ -140,4 +140,19 @@ export const feedPageStateSelector = createSelector(
 
     return ready
   }
+)
+
+export const postsSelector = createSelector(
+  postsRootSelector,
+  postsRoot => postsRoot.posts
+)
+
+export const postFeedsSelector = createSelector(
+  postsRootSelector,
+  postsRoot => postsRoot.feeds
+)
+
+export const postsFeedNameSelector = createSelector(
+  postsRootSelector,
+  postsRoot => postsRoot.feed_name
 )
