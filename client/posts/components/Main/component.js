@@ -9,6 +9,7 @@ import DataTable from 'lib/components/DataTable'
 import Pending from 'lib/components/Pending'
 import Time from 'lib/components/Time'
 import paths from 'main/paths'
+import postUrl from 'main/utils/postUrl'
 import './style.scss'
 
 const repeatIcons = (icon, length) => (
@@ -28,20 +29,27 @@ const cols = feeds => [
   {
     title: <FontAwesomeIcon icon={faLink} />,
     headClasses: 'min text-nowrap',
-    value: ({ post_url }) => (
-      <a href={post_url}>
-        <FontAwesomeIcon icon={faLink} />
-      </a>
-    )
+    value: ({ feed_id, freefeed_post_id }) => {
+      const feedName = get(feeds, [feed_id, 'name'])
+      return (
+        <a href={postUrl(feedName, freefeed_post_id)}>
+          <FontAwesomeIcon icon={faLink} />
+        </a>
+      )
+    }
   },
   {
     title: 'Feed',
     headClasses: 'text-nowrap',
     cellClasses: 'text-nowrap',
     value: ({ feed_id }) => {
-      return feed_id
-      // const feedName = get(feeds, [feed_id, 'name'])
-      // return <a href={paths.feedPath(feedName)}>{feedName}</a>
+      const feedName = get(feeds, [feed_id, 'name'])
+
+      if (!feedName) {
+        return null
+      }
+
+      return <a href={paths.feedPath(feedName)}>{feedName}</a>
     }
   },
   {

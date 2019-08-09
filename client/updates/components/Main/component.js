@@ -22,9 +22,15 @@ const updateCols = [
     title: 'Feed name',
     headClasses: 'text-nowrap',
     cellClasses: 'text-nowrap',
-    value: ({ feed_name }) => (
-      <a href={paths.feedPath(feed_name)}>{feed_name}</a>
-    )
+    value: ({ feed_name }) => {
+      if (!feed_name) {
+        return null
+      }
+
+      return (
+        <a href={paths.feedPath(feed_name)}>{feed_name}</a>
+      )
+    }
   },
   {
     title: 'New posts',

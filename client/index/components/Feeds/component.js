@@ -42,7 +42,7 @@ const cols = [
     title: 'Feed name',
     headClasses: 'col-auto text-nowrap',
     cellClasses: 'text-nowrap',
-    value: ({ id, name }) => (
+    value: ({ name }) => (
       <Link to={paths.feedPath(name)}>{name}</Link>
     )
   },
