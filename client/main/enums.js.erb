@@ -1,7 +1,3 @@
 // Rails enums
 
-export const updateStatus = <%= JSON.dump(Enums::UpdateStatus.options) %>
-
-export const errorStatus = <%= JSON.dump(Enums::ErrorStatus.options) %>
-
-export const postStatus = <%= JSON.dump(Enums::PostStatus.options) %>
+export const updateStatus = <%= Enums::UpdateStatus.to_json %>

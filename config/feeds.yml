@@ -320,7 +320,7 @@
     twitter_user: "CatsCafeComics"
     only_with_attachments: true
 
-- name: hackernewsonion
+- name: "hackernewsonion"
   loader: "twitter"
   processor: "twitter"
   normalizer: "twitter"
@@ -330,14 +330,14 @@
     twitter_user: "hackernewsonion"
     ignore_retweets: true
 
-- name: bazar
+- name: "bazar"
   url: "https://meduza.io/rss/podcasts/knizhnyy-bazar"
   processor: "rss"
   normalizer: "bazar"
   refresh_interval: 1800
   import_limit: 10
 
-- name: rework
+- name: "rework"
   url: "https://rss.art19.com/rework"
   processor: "feedjira"
   normalizer: "rework"
@@ -355,14 +355,14 @@
     only_with_attachments: true
     ignore_retweets: true
 
-- name: smbc
+- name: "smbc"
   url: "https://www.smbc-comics.com/comic/rss"
   processor: "rss"
   normalizer: "smbc"
   refresh_interval: 1800
   import_limit: 10
 
-- name: officetalk
+- name: "officetalk"
   url: "https://tele.ga/office_talk/rss/"
   processor: "rss"
   normalizer: "telega_basic"
