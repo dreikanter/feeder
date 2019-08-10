@@ -27,4 +27,15 @@
 #
 
 class FeedSerializer < BriefFeedSerializer
+  attribute :loader_class do
+    Service::LoaderResolver.call(object).name
+  end
+
+  attribute :processor_class do
+    Service::ProcessorResolver.call(object).name
+  end
+
+  attribute :normalizer_class do
+    Service::NormalizerResolver.call(object).name
+  end
 end

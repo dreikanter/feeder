@@ -40,16 +40,4 @@ class BriefFeedSerializer < ApplicationSerializer
   attribute :created_at
   attribute :updated_at
   attribute :last_post_created_at
-
-  attribute :loader_class do
-    Service::LoaderResolver.call(object).name
-  end
-
-  attribute :processor_class do
-    Service::ProcessorResolver.call(object).name
-  end
-
-  attribute :normalizer_class do
-    Service::NormalizerResolver.call(object).name
-  end
 end
