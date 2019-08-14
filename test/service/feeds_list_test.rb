@@ -6,16 +6,16 @@ class FeedsListTest < Minitest::Test
   end
 
   SAMPLE_CONFIG_PATH =
-    File.expand_path('../support/feeds.yml', __dir__).freeze
+    File.expand_path('../data/feeds.yml', __dir__).freeze
 
   NON_EXISTING_CONFIG_PATH =
-    File.expand_path('../support/banana.bpm', __dir__).freeze
+    File.expand_path('../data/feeds_not_existing.yml', __dir__).freeze
 
   NOT_VALID_CONFIG_PATH =
-    File.expand_path('../support/not_valid.yml', __dir__).freeze
+    File.expand_path('../data/feeds_not_valid.yml', __dir__).freeze
 
   NOT_ARRAY_CONFIG_PATH =
-    File.expand_path('../support/not_array.yml', __dir__).freeze
+    File.expand_path('../data/feeds_not_array.yml', __dir__).freeze
 
   def result
     service.call(path: SAMPLE_CONFIG_PATH)
@@ -25,6 +25,10 @@ class FeedsListTest < Minitest::Test
     YAML.load_file(SAMPLE_CONFIG_PATH)
       .map(&:symbolize_keys)
       .map(&Service::FeedSanitizer)
+  end
+
+  def setup
+    DataPoint.for(:config).delete_all
   end
 
   def test_names_match_config

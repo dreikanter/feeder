@@ -11,7 +11,13 @@ module Operations
     end
 
     def new_runner(options = {})
-      Runner.new(SampleOperation, user: Object.new, params: {}, **options)
+      Runner.new(
+        SampleOperation,
+        user: Object.new,
+        params: {},
+        request: Object.new,
+        **options
+      )
     end
 
     def test_accept_schema

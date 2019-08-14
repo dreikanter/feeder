@@ -29,7 +29,7 @@ class FeedBuilderTest < Minitest::Test
   def test_find
     CONFIG.map { |feed| feed[:name] }.each do |feed_name|
       feeds_list = Feed.all
-      result = subject.call(feed_name, feeds_list)
+      result = subject.call(feed_name, feeds_list: feeds_list)
       expected = Feed.find_by(name: feed_name)
       assert_equal(result, expected)
     end
