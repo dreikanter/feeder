@@ -26,7 +26,7 @@ module Loaders
     end
 
     def feed
-      create(:feed, :twitter)
+      build(:feed, :twitter)
     end
 
     def test_should_fetch_data_from_twitter
