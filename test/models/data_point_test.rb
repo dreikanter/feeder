@@ -15,11 +15,54 @@
 require 'test_helper'
 
 class DataPointTest < Minitest::Test
-  def data_point
-    @data_point ||= DataPoint.new
+  def subject
+    DataPoint
   end
 
   def test_valid
-    assert data_point.valid?
+    assert(subject.new.valid?)
+  end
+
+  def setup
+    subject.delete_all
+  end
+
+  SERIES_A = :a
+  SERIES_B = :b
+  DETAILS = { key: :value }.freeze
+
+  def test_for
+    dp_a = Service::CreateDataPoint.call(SERIES_A)
+    dp_b = Service::CreateDataPoint.call(SERIES_B)
+    ids = subject.for(SERIES_A).pluck(:id)
+    assert(ids.include?(dp_a.id))
+    refute(ids.include?(dp_b.id))
+  end
+
+  def test_series
+    records = Service::CreateDataPoint.call(SERIES_A)
+    assert(records.series.present?)
+  end
+
+  def random_time
+    Time.new.utc - rand(0..1_000_000)
+  end
+
+  AMOUNT_OF_SAMPLES = 3
+
+  def test_ordered_scope
+    AMOUNT_OF_SAMPLES.times do
+      Service::CreateDataPoint.call(SERIES_A, created_at: random_time)
+    end
+    expected = subject.order(created_at: :desc).pluck(:id)
+    result = subject.ordered.pluck(:id)
+    assert(expected, result)
+  end
+
+  def test_recent_scope
+    AMOUNT_OF_SAMPLES.times do
+      Service::CreateDataPoint.call(SERIES_A, DETAILS)
+    end
+    assert(subject.recent.count < DataPoint::RECENT_LIMIT)
   end
 end

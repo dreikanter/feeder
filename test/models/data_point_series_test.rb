@@ -14,11 +14,11 @@
 require 'test_helper'
 
 class DataPointSeriesTest < Minitest::Test
-  def data_point_series
-    @data_point_series ||= DataPointSeries.new
+  def subject
+    DataPointSeries
   end
 
   def test_valid
-    assert data_point_series.valid?
+    assert(subject.new.valid?)
   end
 end
