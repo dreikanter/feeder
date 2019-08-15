@@ -7,7 +7,7 @@ module Loaders
     end
 
     def sample_feed
-      create(:feed)
+      build(:feed)
     end
 
     def test_always_succeed

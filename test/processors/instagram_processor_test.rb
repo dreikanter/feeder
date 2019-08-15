@@ -1,5 +1,5 @@
 require 'test_helper'
-require_relative 'processor_test_helpers'
+require_relative '../support/processor_test_helpers'
 
 module Processors
   class InstagramProcessorTest < Minitest::Test
