@@ -24,7 +24,11 @@ module NormalizerTestHelper
   end
 
   def process_sample_data
-    processor.call(File.open(sample_data_path).read, feed).value!
+    processor.call(fetch_sample_data, feed).value!
+  end
+
+  def fetch_sample_data
+    File.open(sample_data_path).read
   end
 
   def sample_data_path
