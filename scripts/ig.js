@@ -17,7 +17,7 @@ async function download ({ user, executablePath }) {
 
   // eslint-disable-next-line no-underscore-dangle
   const data = await page.evaluate(() => window._sharedData);
-  process.stdout.write(JSON.stringify(data));
+  process.stdout.write(`${JSON.stringify(data)}\n`);
   await browser.close();
 }
 
