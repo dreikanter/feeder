@@ -1,7 +1,5 @@
-require 'test_helper'
-
 module Processors
-  class ProcessorTest < Minitest::Test
+  module ProcessorTestHelpers
     SAMPLE_DATA_PATH = '../data'.freeze
 
     def sample_data_path
