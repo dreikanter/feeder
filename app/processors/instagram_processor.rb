@@ -3,7 +3,7 @@ module Processors
     protected
 
     def entities
-      nodes.map { |node| [node['id'], node] }.to_h
+      nodes.map { |node| [node['shortcode'], node] }.to_h
     end
 
     EDGES_PATH = [
