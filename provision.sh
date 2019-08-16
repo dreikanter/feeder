@@ -30,6 +30,7 @@ sudo apt-get install --yes \
   sqlite3 \
   libsqlite3-dev \
   ne \
+  jq \
   2> /dev/null
 
 
