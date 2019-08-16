@@ -7,7 +7,7 @@ module Service
     option :logger, optional: true, default: -> { Rails.logger }
 
     def call
-      fresh_entities
+      fresh_entities.sort_by { |item| item.value!['published_at'] }
     end
 
     private
