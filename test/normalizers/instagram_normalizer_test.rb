@@ -25,6 +25,25 @@ module Normalizers
       JSON.parse(super)
     end
 
+    EXPECTED_ATTACHMENTS =
+      Array.new(2).fill { |index| "https://example.com/#{index}" }.freeze
+
+    def with_sample_node_script
+      Tempfile.create(subject.name.demodulize) do |script_file|
+        script_file.write("console.log(#{EXPECTED_ATTACHMENTS.to_json.dump})")
+        script_file.close
+        yield script_file.path
+      end
+    end
+
+    def normalize_sample_data
+      with_sample_node_script do |script_path|
+        processed.map do |entity|
+          subject.call(entity[0], entity[1], feed, script_path: script_path)
+        end
+      end
+    end
+
     def test_success
       normalized.each do |normalized_entity|
         assert(normalized_entity.success?)
@@ -62,6 +81,13 @@ module Normalizers
       normalized.each do |normalized_entity|
         value = normalized_entity.value!
         assert(value['published_at'].is_a?(DateTime))
+      end
+    end
+
+    def test_multiple_attachments
+      normalized.each do |normalized_entity|
+        value = normalized_entity.value!
+        assert_equal(EXPECTED_ATTACHMENTS, value['attachments'])
       end
     end
   end

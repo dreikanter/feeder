@@ -6,6 +6,7 @@ module Loaders
 
     protected
 
+    # TODO: Move script interaction to a service class
     def perform
       output = `node #{script_path} user #{instagram_user}`
       JSON.parse(output)
