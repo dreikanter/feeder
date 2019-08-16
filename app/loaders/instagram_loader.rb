@@ -7,7 +7,7 @@ module Loaders
     protected
 
     def perform
-      output = `node #{script_path} download #{instagram_user}`
+      output = `node #{script_path} user #{instagram_user}`
       JSON.parse(output)
     end
 
