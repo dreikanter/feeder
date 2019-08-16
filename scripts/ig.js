@@ -3,15 +3,23 @@
 const puppeteer = require('puppeteer-core');
 const program = require('commander');
 
+const imagesSelector = 'article img[srcset]'
+const timeout = 10000
+const instagramBaseUrl = 'https://www.instagram.com'
+
 function instagramFeedUrl (user) {
-  return `https://www.instagram.com/${user}/`;
+  return `${instagramBaseUrl}/${user}/`;
 }
 
-async function download ({ user, executablePath }) {
+function instagramPostUrl (shortCode) {
+  return `${instagramBaseUrl}/p/${shortCode}/`;
+}
+
+async function fetchUser ({ name, executablePath }) {
   const browser = await puppeteer.launch({ executablePath });
   const page = await browser.newPage();
 
-  await page.goto(instagramFeedUrl(user), {
+  await page.goto(instagramFeedUrl(name), {
     waitUntil: 'load'
   });
 
@@ -21,18 +29,45 @@ async function download ({ user, executablePath }) {
   await browser.close();
 }
 
+async function fetchPost ({ shortCode, executablePath }) {
+  const browser = await puppeteer.launch({ executablePath });
+  const page = await browser.newPage();
+  await page.goto(instagramPostUrl(shortCode));
+  await page.waitForSelector(imagesSelector, { timeout });
+
+  const data = await page.evaluate(() => (
+    Array
+      .from(document.querySelectorAll(imagesSelector))
+      .map(item => item.src)
+  ));
+
+  process.stdout.write(`${JSON.stringify(data)}\n`);
+  await browser.close();
+}
+
 program
   .version('0.0.1')
-  .description('Instagram feed downloader')
+  .description('Instagram content downloader')
   .option(
     '--exec-path <path>',
-    'Chrome browser executable path',
+    'Chrome executable path',
     '/usr/bin/google-chrome-stable'
   );
 
 program
-  .command('download <user>')
+  .command('user <name>')
   .description('download Instagram feed for specified user')
-  .action(user => download({ user, executablePath: program.execPath }));
+  .action(name => fetchUser({
+    name,
+    executablePath: program.execPath
+  }));
+
+program
+  .command('post <shortCode>')
+  .description('fetch Instagram post contents')
+  .action(shortCode => fetchPost({
+    shortCode,
+    executablePath: program.execPath
+  }));
 
 program.parse(process.argv);
