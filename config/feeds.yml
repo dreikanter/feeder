@@ -368,3 +368,10 @@
   normalizer: "telega_basic"
   refresh_interval: 1800
   import_limit: 10
+
+- name: "infiniteimmortalbens"
+  url: "https://infiniteimmortalbens.com/feed/"
+  processor: "rss"
+  normalizer: "infiniteimmortalbens"
+  refresh_interval: 0
+  import_limit: 10
