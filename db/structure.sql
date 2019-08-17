@@ -23,20 +23,6 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
---
--- Name: hstore; Type: EXTENSION; Schema: -; Owner: -
---
-
-CREATE EXTENSION IF NOT EXISTS hstore WITH SCHEMA public;
-
-
---
--- Name: EXTENSION hstore; Type: COMMENT; Schema: -; Owner: -
---
-
-COMMENT ON EXTENSION hstore IS 'data type for storing sets of (key, value) pairs';
-
-
 SET default_tablespace = '';
 
 SET default_with_oids = false;
@@ -100,6 +86,7 @@ CREATE TABLE public.data_point_series (
 --
 
 CREATE SEQUENCE public.data_point_series_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -131,6 +118,7 @@ CREATE TABLE public.data_points (
 --
 
 CREATE SEQUENCE public.data_points_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -170,6 +158,7 @@ CREATE TABLE public.delayed_jobs (
 --
 
 CREATE SEQUENCE public.delayed_jobs_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -191,17 +180,18 @@ ALTER SEQUENCE public.delayed_jobs_id_seq OWNED BY public.delayed_jobs.id;
 CREATE TABLE public.errors (
     id integer NOT NULL,
     status integer DEFAULT 0 NOT NULL,
-    error_class_name character varying DEFAULT ''::character varying NOT NULL,
+    exception character varying DEFAULT ''::character varying NOT NULL,
     file_name character varying,
     line_number integer,
     label character varying DEFAULT ''::character varying NOT NULL,
     message character varying DEFAULT ''::character varying NOT NULL,
     backtrace character varying[] DEFAULT '{}'::character varying[] NOT NULL,
-    filtered_backtrace character varying[] DEFAULT '{}'::character varying[] NOT NULL,
     context json DEFAULT '{}'::json NOT NULL,
     occured_at timestamp without time zone NOT NULL,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    target_type character varying,
+    target_id bigint
 );
 
 
@@ -210,6 +200,7 @@ CREATE TABLE public.errors (
 --
 
 CREATE SEQUENCE public.errors_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -254,6 +245,7 @@ CREATE TABLE public.feeds (
 --
 
 CREATE SEQUENCE public.feeds_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -293,6 +285,7 @@ CREATE TABLE public.posts (
 --
 
 CREATE SEQUENCE public.posts_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -466,10 +459,10 @@ CREATE INDEX index_data_points_on_series_id ON public.data_points USING btree (s
 
 
 --
--- Name: index_errors_on_error_class_name; Type: INDEX; Schema: public; Owner: -
+-- Name: index_errors_on_exception; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_errors_on_error_class_name ON public.errors USING btree (error_class_name);
+CREATE INDEX index_errors_on_exception ON public.errors USING btree (exception);
 
 
 --
@@ -491,6 +484,13 @@ CREATE INDEX index_errors_on_occured_at ON public.errors USING btree (occured_at
 --
 
 CREATE INDEX index_errors_on_status ON public.errors USING btree (status);
+
+
+--
+-- Name: index_errors_on_target_type_and_target_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_errors_on_target_type_and_target_id ON public.errors USING btree (target_type, target_id);
 
 
 --
@@ -553,6 +553,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190609193619'),
 ('20190624150553'),
 ('20190701101346'),
-('20190726193542');
+('20190726193542'),
+('20190817114629');
 
 

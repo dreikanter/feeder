@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_26_193542) do
+ActiveRecord::Schema.define(version: 2019_08_17_114629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,21 +52,23 @@ ActiveRecord::Schema.define(version: 2019_07_26_193542) do
 
   create_table "errors", id: :serial, force: :cascade do |t|
     t.integer "status", default: 0, null: false
-    t.string "error_class_name", default: "", null: false
+    t.string "exception", default: "", null: false
     t.string "file_name"
     t.integer "line_number"
     t.string "label", default: "", null: false
     t.string "message", default: "", null: false
     t.string "backtrace", default: [], null: false, array: true
-    t.string "filtered_backtrace", default: [], null: false, array: true
     t.json "context", default: {}, null: false
     t.datetime "occured_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["error_class_name"], name: "index_errors_on_error_class_name"
+    t.string "target_type"
+    t.bigint "target_id"
+    t.index ["exception"], name: "index_errors_on_exception"
     t.index ["file_name"], name: "index_errors_on_file_name"
     t.index ["occured_at"], name: "index_errors_on_occured_at"
     t.index ["status"], name: "index_errors_on_status"
+    t.index ["target_type", "target_id"], name: "index_errors_on_target_type_and_target_id"
   end
 
   create_table "feeds", id: :serial, force: :cascade do |t|
