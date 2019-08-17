@@ -13,6 +13,10 @@ module NormalizerTestHelper
     raise NotImplementedError
   end
 
+  def sample_post_file
+    raise NotImplementedError
+  end
+
   protected
 
   def feed
@@ -28,11 +32,11 @@ module NormalizerTestHelper
   end
 
   def fetch_sample_data
-    File.open(sample_data_path).read
+    File.open(File.join(SAMPLE_DATA_PATH, sample_data_file)).read
   end
 
-  def sample_data_path
-    File.join(SAMPLE_DATA_PATH, sample_data_file)
+  def fetch_sample_post
+    File.open(File.join(SAMPLE_DATA_PATH, sample_post_file)).read
   end
 
   def normalized
@@ -40,6 +44,12 @@ module NormalizerTestHelper
   end
 
   def normalize_sample_data
-    processed.map { |entity| subject.call(entity[0], entity[1], feed) }
+    processed.map do |entity|
+      subject.call(entity[0], entity[1], feed, **options)
+    end
+  end
+
+  def options
+    {}
   end
 end
