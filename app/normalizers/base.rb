@@ -63,9 +63,19 @@ module Normalizers
         'link' => link,
         'published_at' => published_at,
         'text' => text,
-        'attachments' => (attachments || []).reject(&:blank?),
-        'comments' => (comments || []).reject(&:blank?)
+        'attachments' => sanitized_attachments,
+        'comments' => comments.reject(&:blank?)
       }.freeze
+    end
+
+    DEFAULT_SCHEME = 'https'.freeze
+
+    def sanitized_attachments
+      attachments.reject(&:blank?).map do |url|
+        value = Addressable::URI.parse(url)
+        value.scheme ||= DEFAULT_SCHEME
+        value.to_s
+      end
     end
   end
 end
