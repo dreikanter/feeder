@@ -17,6 +17,10 @@ module Normalizers
       'feed_instagram.json'
     end
 
+    def sample_data
+      @sample_data ||= JSON.parse(super)
+    end
+
     def feed
       build(:feed, options: { instagram_user: 'dreikanter' })
     end
