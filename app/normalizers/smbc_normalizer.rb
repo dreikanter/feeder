@@ -1,5 +1,7 @@
 module Normalizers
   class SmbcNormalizer < Normalizers::Base
+    option :content, optional: true, default: -> { RestClient.get(link).body }
+
     protected
 
     def link
@@ -15,7 +17,7 @@ module Normalizers
     end
 
     def attachments
-      [image_url, hidden_img].reject(&:blank?)
+      [image_url, hidden_image_url].reject(&:blank?)
     end
 
     def comments
@@ -39,25 +41,21 @@ module Normalizers
     def description
       first_paragraph = parsed_description.css('p').first.children.text
       first_paragraph.gsub(DESCRIPTION_PREFIX, '')
-    rescue
+    rescue StandardError
       nil
     end
 
     def image_url
       parsed_description.css('img').first.attributes['src'].value
-    rescue
+    rescue StandardError
       nil
     end
 
-    def hidden_img
-      content = Nokogiri::HTML(page_content)
+    def hidden_image_url
+      content = Nokogiri::HTML(content)
       content.css('#aftercomic img').first.attributes['src'].value
-    rescue
+    rescue StandardError
       nil
-    end
-
-    def page_content
-      RestClient.get(link).body
     end
   end
 end
