@@ -5,7 +5,7 @@ class AerostaticaRecordLinkExtractorTest < Minitest::Test
     Service::AerostaticaRecordLinkExtractor
   end
 
-  SAMPLE_DATA_FILE = 'aerostatica_post.html'.freeze
+  SAMPLE_DATA_FILE = 'post_aerostatica.html'.freeze
 
   SAMPLE_DATA_PATH = File.join(
     File.expand_path('../data', __dir__),
