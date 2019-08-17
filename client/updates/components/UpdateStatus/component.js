@@ -25,7 +25,7 @@ function UpdateStatus ({ value }) {
   if (value === updateStatus.has_errors) {
     return (
       <FontAwesomeIcon
-        className="text-danger"
+        className="text-warning"
         icon={faExclamationTriangle}
       />
     )
