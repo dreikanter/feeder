@@ -16,10 +16,6 @@ class NextbigfutureNormalizerTest < Minitest::Test
     Normalizers::NextbigfutureNormalizer
   end
 
-  def test_sample_data_file_exists
-    assert(File.exist?(sample_data_path))
-  end
-
   def test_have_sample_data
     assert(processed.present?)
     assert(processed.length.positive?)
