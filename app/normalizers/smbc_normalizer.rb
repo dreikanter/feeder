@@ -52,8 +52,8 @@ module Normalizers
     end
 
     def hidden_image_url
-      content = Nokogiri::HTML(content)
-      content.css('#aftercomic img').first.attributes['src'].value
+      html = Nokogiri::HTML(content)
+      html.css('#aftercomic img').first.attributes['src'].value
     rescue StandardError
       nil
     end
