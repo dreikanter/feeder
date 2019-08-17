@@ -28,15 +28,17 @@ module NormalizerTestHelper
   end
 
   def process_sample_data
-    processor.call(fetch_sample_data, feed).value!
+    processor.call(sample_data, feed).value!
   end
 
-  def fetch_sample_data
-    File.open(File.join(SAMPLE_DATA_PATH, sample_data_file)).read
+  def sample_data
+    @sample_data ||=
+      File.read(File.join(SAMPLE_DATA_PATH, sample_data_file))
   end
 
-  def fetch_sample_post
-    File.open(File.join(SAMPLE_DATA_PATH, sample_post_file)).read
+  def sample_post
+    @sample_post ||=
+      File.read(File.join(SAMPLE_DATA_PATH, sample_post_file))
   end
 
   def normalized

@@ -21,18 +21,16 @@ class SmbcNormalizerTest < Minitest::Test
   end
 
   def options
-    {
-      content: 'SAMPLE CONTENT'
-    }
+    { content: sample_post }
   end
 
   def test_normalization
-    normalized.each do |result|
-      assert(result.success?)
-    end
+    result = normalized.first
+    assert(result.success?)
   end
 
   def test_hidden_image
-    # fetch_sample_post
+    result = normalized.first.value!
+    assert_equal(2, result['attachments'].count)
   end
 end
