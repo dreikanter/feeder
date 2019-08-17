@@ -32,7 +32,7 @@ module Processors
 
     def test_ids
       result.value!.each do |entity|
-        expected_id = entity[1]['id']
+        expected_id = entity[1]['shortcode']
         assert(expected_id)
         assert(entity[0])
         assert_equal(expected_id, entity[0])
