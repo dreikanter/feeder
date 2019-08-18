@@ -11,7 +11,7 @@ module API
     end
 
     def test_index
-      assert_perform(controller, :show, Operations::Activity::Show)
+      assert_perform(controller, :show, Activity::Show)
     end
   end
 end
