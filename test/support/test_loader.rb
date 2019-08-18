@@ -1,4 +1,4 @@
-class TestLoader < BaseLoaders
+class TestLoader < BaseLoader
   protected
 
   def perform

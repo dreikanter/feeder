@@ -11,7 +11,7 @@ module API
     end
 
     def test_index
-      assert_perform(controller, :index, Operations::Batches::Index)
+      assert_perform(controller, :index, Batches::Index)
     end
   end
 end

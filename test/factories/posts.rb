@@ -22,14 +22,16 @@
 #  index_posts_on_status   (status)
 #
 
-require 'test_helper'
-
-class PostTest < Minitest::Test
-  def post
-    @post ||= Post.new(feed: Feed.new)
-  end
-
-  def test_valid
-    assert post.valid?
+FactoryBot.define do
+  factory :post, class: Post do
+    feed_id { 0 }
+    link { "https://example.com/#{SecureRandom.uuid}" }
+    published_at { Time.new.utc }
+    text { 'Sample post text' }
+    attachments { [] }
+    comments { [] }
+    freefeed_post_id { SecureRandom.uuid }
+    status { PostStatus.published }
+    uid { SecureRandom.uuid }
   end
 end

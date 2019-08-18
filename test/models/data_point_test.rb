@@ -20,7 +20,7 @@ class DataPointTest < Minitest::Test
   end
 
   def test_valid
-    assert(subject.new.valid?)
+    assert(subject.new(series: DataPointSeries.new).valid?)
   end
 
   def setup

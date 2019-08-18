@@ -11,11 +11,11 @@ module API
     end
 
     def test_index
-      assert_perform(controller, :index, Operations::Feeds::Index)
+      assert_perform(controller, :index, Feeds::Index)
     end
 
     def test_show
-      assert_perform(controller, :show, Operations::Feeds::Show)
+      assert_perform(controller, :show, Feeds::Show)
     end
   end
 end
