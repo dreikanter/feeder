@@ -79,6 +79,7 @@ GEM
     brakeman (4.6.1)
     buftok (0.2.0)
     builder (3.2.3)
+    byebug (11.0.1)
     callee (0.2.2)
       dry-initializer (>= 2.5, < 4.0)
     case_transform (0.2)
@@ -376,6 +377,7 @@ DEPENDENCIES
   awesome_print (~> 1.8)
   bootsnap (>= 1.4.2)
   brakeman (~> 4.3, >= 4.3.1)
+  byebug
   callee (~> 0.2.1)
   database_cleaner (~> 1.5, >= 1.5.3)
   delayed_job_active_record (~> 4.1, >= 4.1.1)
