@@ -5,11 +5,11 @@ class AgavrTodayNormalizerTest < Minitest::Test
   include NormalizerTestHelper
 
   def subject
-    Normalizers::AgavrTodayNormalizer
+    AgavrTodayNormalizer
   end
 
   def processor
-    Processors::RssProcessor
+    RssProcessor
   end
 
   def sample_data_file

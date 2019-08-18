@@ -9,11 +9,11 @@ class NextbigfutureNormalizerTest < Minitest::Test
   end
 
   def processor
-    Processors::WordpressProcessor
+    WordpressProcessor
   end
 
   def subject
-    Normalizers::NextbigfutureNormalizer
+    NextbigfutureNormalizer
   end
 
   def test_have_sample_data

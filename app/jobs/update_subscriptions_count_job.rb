@@ -13,7 +13,7 @@ class UpdateSubscriptionsCountJob < ApplicationJob
     end
 
     Rails.logger.info("new subscriptions count: #{current}")
-    Service::CreateDataPoint.call(:subs, feed_name: feed_name, count: current)
+    CreateDataPoint.call(:subs, feed_name: feed_name, count: current)
     Feed.find_by(name: feed_name).update(subscriptions_count: current)
   end
 

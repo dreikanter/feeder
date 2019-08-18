@@ -1,9 +1,7 @@
-module Loaders
-  class NullLoader < Base
-    protected
+class NullLoader < BaseLoader
+  protected
 
-    def perform
-      nil
-    end
+  def perform
+    nil
   end
 end

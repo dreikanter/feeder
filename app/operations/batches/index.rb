@@ -1,22 +1,20 @@
-module Operations
-  module Batches
-    class Index < Operations::Base
-      def call
-        {
-          json: {
-            batches: batches
-          }
+module Batches
+  class Index < Operations::Base
+    def call
+      {
+        json: {
+          batches: batches
         }
-      end
+      }
+    end
 
-      private
+    private
 
-      def batches
-        DataPoint
-          .recent
-          .for('batch')
-          .map { |dp| dp.details }
-      end
+    def batches
+      DataPoint
+        .recent
+        .for('batch')
+        .map { |dp| dp.details }
     end
   end
 end

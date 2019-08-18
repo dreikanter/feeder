@@ -1,7 +1,7 @@
 module API
   class PostsController < APIController
     def index
-      perform Operations::Posts::Index
+      perform Posts::Index
     end
   end
 end

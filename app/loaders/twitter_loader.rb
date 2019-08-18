@@ -8,51 +8,49 @@
 #
 # SEE: https://www.rubydoc.info/gems/twitter
 
-module Loaders
-  class TwitterLoader < Base
-    option(
-      :credentials,
-      optional: true,
-      default: -> { Rails.application.credentials.twitter || {} }
-    )
+class TwitterLoader < BaseLoader
+  option(
+    :credentials,
+    optional: true,
+    default: -> { Rails.application.credentials.twitter || {} }
+  )
 
-    option(
-      :client,
-      optional: true,
-      default: -> { Twitter::REST::Client.new(safe_credentials) }
-    )
+  option(
+    :client,
+    optional: true,
+    default: -> { Twitter::REST::Client.new(safe_credentials) }
+  )
 
-    REQUIRED_CREDENTIALS = %i[
-      consumer_key
-      consumer_secret
-      access_token
-      access_token_secret
-    ].freeze
+  REQUIRED_CREDENTIALS = %i[
+    consumer_key
+    consumer_secret
+    access_token
+    access_token_secret
+  ].freeze
 
-    protected
+  protected
 
-    def perform
-      validate_credentials!
-      client.user_timeline(twitter_user)
-    end
+  def perform
+    validate_credentials!
+    client.user_timeline(twitter_user)
+  end
 
-    private
+  private
 
-    def validate_credentials!
-      return if missing_credentials.empty?
-      raise "missing credentials: #{missing_credentials.join(', ')}"
-    end
+  def validate_credentials!
+    return if missing_credentials.empty?
+    raise "missing credentials: #{missing_credentials.join(', ')}"
+  end
 
-    def missing_credentials
-      REQUIRED_CREDENTIALS.select { |key| credentials[key].blank? }
-    end
+  def missing_credentials
+    REQUIRED_CREDENTIALS.select { |key| credentials[key].blank? }
+  end
 
-    def safe_credentials
-      credentials.slice(*REQUIRED_CREDENTIALS)
-    end
+  def safe_credentials
+    credentials.slice(*REQUIRED_CREDENTIALS)
+  end
 
-    def twitter_user
-      feed.options.fetch('twitter_user')
-    end
+  def twitter_user
+    feed.options.fetch('twitter_user')
   end
 end

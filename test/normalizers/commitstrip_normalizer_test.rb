@@ -5,11 +5,11 @@ class CommitstripNormalizerTest < Minitest::Test
   include NormalizerTestHelper
 
   def subject
-    Normalizers::CommitstripNormalizer
+    CommitstripNormalizer
   end
 
   def processor
-    Processors::RssProcessor
+    RssProcessor
   end
 
   def sample_data_file

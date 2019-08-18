@@ -32,15 +32,15 @@ class DataPointTest < Minitest::Test
   DETAILS = { key: :value }.freeze
 
   def test_for
-    dp_a = Service::CreateDataPoint.call(SERIES_A)
-    dp_b = Service::CreateDataPoint.call(SERIES_B)
+    dp_a = CreateDataPoint.call(SERIES_A)
+    dp_b = CreateDataPoint.call(SERIES_B)
     ids = subject.for(SERIES_A).pluck(:id)
     assert(ids.include?(dp_a.id))
     refute(ids.include?(dp_b.id))
   end
 
   def test_series
-    records = Service::CreateDataPoint.call(SERIES_A)
+    records = CreateDataPoint.call(SERIES_A)
     assert(records.series.present?)
   end
 
@@ -52,7 +52,7 @@ class DataPointTest < Minitest::Test
 
   def test_ordered_scope
     AMOUNT_OF_SAMPLES.times do
-      Service::CreateDataPoint.call(SERIES_A, created_at: random_time)
+      CreateDataPoint.call(SERIES_A, created_at: random_time)
     end
     expected = subject.order(created_at: :desc).pluck(:id)
     result = subject.ordered.pluck(:id)
@@ -61,7 +61,7 @@ class DataPointTest < Minitest::Test
 
   def test_recent_scope
     AMOUNT_OF_SAMPLES.times do
-      Service::CreateDataPoint.call(SERIES_A, DETAILS)
+      CreateDataPoint.call(SERIES_A, DETAILS)
     end
     assert(subject.recent.count < DataPoint::RECENT_LIMIT)
   end

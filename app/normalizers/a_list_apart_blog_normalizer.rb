@@ -1,5 +1,3 @@
-module Normalizers
-  class AListApartBlogNormalizer < Normalizers::RssNormalizer
+class AListApartBlogNormalizer < RssNormalizer
 
-  end
 end

@@ -5,7 +5,7 @@ class AerostaticaNormalizerTest < Minitest::Test
   include NormalizerTestHelper
 
   def subject
-    Normalizers::AerostaticaNormalizer
+    AerostaticaNormalizer
   end
 
   def sample_data_file
@@ -13,7 +13,7 @@ class AerostaticaNormalizerTest < Minitest::Test
   end
 
   def processor
-    Processors::FeedjiraProcessor
+    FeedjiraProcessor
   end
 
   def test_have_sample_data

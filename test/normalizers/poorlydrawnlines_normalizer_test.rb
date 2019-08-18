@@ -4,11 +4,11 @@ require_relative '../support/normalizer_test_helper'
 class PoorlydrawnlinesNormalizerTest < Minitest::Test
   include NormalizerTestHelper
   def subject
-    Normalizers::PoorlydrawnlinesNormalizer
+    PoorlydrawnlinesNormalizer
   end
 
   def processor
-    Processors::FeedjiraProcessor
+    FeedjiraProcessor
   end
 
   def sample_data_file

@@ -1,7 +1,7 @@
 module API
   class ActivityController < APIController
     def show
-      perform Operations::Activity::Show
+      perform Activity::Show
     end
   end
 end

@@ -1,21 +1,19 @@
-module Normalizers
-  class YoutubeNormalizer < Normalizers::Base
-    protected
+class YoutubeNormalizer < BaseNormalizer
+  protected
 
-    def link
-      entity.url
-    end
+  def link
+    entity.url
+  end
 
-    def published_at
-      entity.published
-    end
+  def published_at
+    entity.published
+  end
 
-    def text
-      [entity.title, entity.url].join(separator)
-    end
+  def text
+    [entity.title, entity.url].join(separator)
+  end
 
-    def comments
-      [Service::Html.comment_excerpt(entity.content)]
-    end
+  def comments
+    [Html.comment_excerpt(entity.content)]
   end
 end

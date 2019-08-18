@@ -1,13 +1,12 @@
+# TODO: Get rid of explicit require
 require 'rss'
 
-module Processors
-  class RssProcessor < Processors::Base
-    protected
+class RssProcessor < BaseProcessor
+  protected
 
-    def entities
-      items = RSS::Parser.parse(source).try(:items)
-      Rails.logger.warn('RSS has no items') unless items
-      (items || []).map { |item| [item.link, item] }.to_h
-    end
+  def entities
+    items = RSS::Parser.parse(source).try(:items)
+    Rails.logger.warn('RSS has no items') unless items
+    (items || []).map { |item| [item.link, item] }.to_h
   end
 end

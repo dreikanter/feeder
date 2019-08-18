@@ -15,7 +15,7 @@ namespace :feeder do
       .map(&:feed_name)
       .uniq
 
-    feeds_to_update = Service::FeedNames.call - recently_updated_feed_names
+    feeds_to_update = FeedNames.call - recently_updated_feed_names
 
     feeds_to_update.slice(0, THROTTLING_LIMIT).each do |feed_name|
       UpdateSubscriptionsCountJob.perform_later(feed_name)

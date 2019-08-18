@@ -1,19 +1,17 @@
-module Normalizers
-  class NichtlustigDeNormalizer < Normalizers::RssNormalizer
-    protected
+class NichtlustigDeNormalizer < RssNormalizer
+  protected
 
-    def text
-      [super, "!#{link}"].join(separator)
-    end
+  def text
+    [super, "!#{link}"].join(separator)
+  end
 
-    def attachments
-      [image_url]
-    rescue
-      []
-    end
+  def attachments
+    [image_url]
+  rescue
+    []
+  end
 
-    def image_url
-      Nokogiri::HTML(entity.description).css('img')[1]['src']
-    end
+  def image_url
+    Nokogiri::HTML(entity.description).css('img')[1]['src']
   end
 end

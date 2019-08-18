@@ -1,9 +1,7 @@
-module Processors
-  class NullProcessor < Processors::Base
-    protected
+class NullProcessor < BaseProcessor
+  protected
 
-    def entities
-      {}
-    end
+  def entities
+    {}
   end
 end

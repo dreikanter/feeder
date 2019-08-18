@@ -27,13 +27,13 @@
 #
 
 class Error < ApplicationRecord
-  enum status: Enums::ErrorStatus.options
+  enum status: ErrorStatus.options
 
   def self.dump(exception, context = {})
     backtrace_location = exception.try(:backtrace_locations).try(:first)
 
     create!(
-      status: Enums::ErrorStatus.pending,
+      status: ErrorStatus.pending,
       occured_at: context[:occured_at] || DateTime.now,
       exception: exception.class.name,
       file_name: backtrace_location.try(:path) || '',

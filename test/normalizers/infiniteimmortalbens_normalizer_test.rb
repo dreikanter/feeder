@@ -5,11 +5,11 @@ class InfiniteimmortalbensNormalizerTest < Minitest::Test
   include NormalizerTestHelper
 
   def subject
-    Normalizers::InfiniteimmortalbensNormalizer
+    InfiniteimmortalbensNormalizer
   end
 
   def processor
-    Processors::RssProcessor
+    RssProcessor
   end
 
   def sample_data_file

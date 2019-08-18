@@ -1,9 +1,7 @@
-module Normalizers
-  class MyJetpackNormalizer < Normalizers::TumblrNormalizer
-    protected
+class MyJetpackNormalizer < TumblrNormalizer
+  protected
 
-    def text
-      [Service::Html.text(entity.description), link].join(separator)
-    end
+  def text
+    [Html.text(entity.description), link].join(separator)
   end
 end

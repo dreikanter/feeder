@@ -5,11 +5,11 @@ class TheAtlanticPhotosNormalizer < Minitest::Test
   include NormalizerTestHelper
 
   def subject
-    Normalizers::TheAtlanticPhotosNormalizer
+    TheAtlanticPhotosNormalizer
   end
 
   def processor
-    Processors::RssProcessor
+    RssProcessor
   end
 
   def sample_data_file

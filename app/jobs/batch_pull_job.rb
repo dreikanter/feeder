@@ -15,6 +15,6 @@ class BatchPullJob < ApplicationJob
   end
 
   def active_feeds
-    Service::FeedsList.call
+    FeedsList.call
   end
 end

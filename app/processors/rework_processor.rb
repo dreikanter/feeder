@@ -1,14 +1,13 @@
+# TODO: Get rid of explicit require
 require 'rss'
 
-module Processors
-  class ReworkProcessor < Processors::Base
-    protected
+class ReworkProcessor < BaseProcessor
+  protected
 
-    def entities
-      (RSS::Parser.parse(source).try(:items) || [])
-        .map { |item| [item.guid.content, item] }
-        .reject { |guid, _| guid.blank? }
-        .to_h
-    end
+  def entities
+    (RSS::Parser.parse(source).try(:items) || [])
+      .map { |item| [item.guid.content, item] }
+      .reject { |guid, _| guid.blank? }
+      .to_h
   end
 end

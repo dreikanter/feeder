@@ -39,7 +39,7 @@ unblocked_count = unblocked.count
 
 if unblocked_count.positive?
   Rails.logger.info("new unblocked ips: #{unblocked_count}")
-  Service::CreateDataPoint.call(:rkn_unblock, count: unblocked_count)
+  CreateDataPoint.call(:rkn_unblock, count: unblocked_count)
   unblocked.delete_all
 end
 
@@ -48,12 +48,12 @@ new_blocked_count = [blocked_count - prev_blocked_count, 0].max
 
 if new_blocked_count.positive?
   Rails.logger.info("new blocked ips: #{new_blocked_count}")
-  Service::CreateDataPoint.call(:rkn_block, count: new_blocked_count)
+  CreateDataPoint.call(:rkn_block, count: new_blocked_count)
 end
 
 Rails.logger.info("overall blocked ips: #{blocked_count}")
 
-Service::CreateDataPoint.call(
+CreateDataPoint.call(
   :pull,
   feed_name: 'update_blocked_ips',
   duration: Time.new.utc - started_at,
