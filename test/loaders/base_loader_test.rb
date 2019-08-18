@@ -5,13 +5,13 @@ class BaseLoaderTest < Minitest::Test
     BaseLoader
   end
 
-  def sample_feed
-    @sample_feed ||= create(:feed)
+  def feed
+    build(:feed, name: SecureRandom.hex)
   end
 
   def test_require_feed_argument
     loader = Class.new(subject)
-    assert_raises(NotImplementedError) { loader.call(sample_feed) }
+    assert_raises(NotImplementedError) { loader.call(feed) }
   end
 
   def test_success
@@ -19,7 +19,7 @@ class BaseLoaderTest < Minitest::Test
     loader = Class.new(subject) do
       define_method(:perform) { expected }
     end
-    result = loader.call(sample_feed)
+    result = loader.call(feed)
     assert(result.success?)
     assert_equal(expected, result.value!)
   end
@@ -28,7 +28,7 @@ class BaseLoaderTest < Minitest::Test
     loader = Class.new(subject) do
       define_method(:perform) { raise }
     end
-    result = loader.call(sample_feed)
+    result = loader.call(feed)
     assert(result.failure?)
     assert(result.failure.is_a?(RuntimeError))
   end

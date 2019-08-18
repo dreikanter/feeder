@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :data_point_series, class: DataPointSeries do
-    name { 'samples' }
+    name { SecureRandom.hex }
   end
 end

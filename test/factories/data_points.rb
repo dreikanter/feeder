@@ -16,9 +16,6 @@ FactoryBot.define do
   factory :data_point, class: DataPoint do
     details { {} }
     created_at { Time.new.utc }
-
-    trait :sample do
-      association :series, :data_point_series, name: :samples
-    end
+    association :series, factory: :data_point_series
   end
 end
