@@ -12,14 +12,14 @@ class NormalizerResolver
     rescue NameError
       next
     end
-    raise "can not resolve normalizer for [#{feed&.name}]"
+    raise "can not resolve normalizer for [#{feed&.name}] feed"
   end
 
   private
 
   def normalizer_class_name(name)
     safe_name = name.to_s.gsub(/-/, '_')
-    "normalizers/#{safe_name}_normalizer".classify.constantize
+    "#{safe_name}_normalizer".classify.constantize
   end
 
   def available_names
