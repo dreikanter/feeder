@@ -1,15 +1,20 @@
 require_relative 'boot'
 require 'rails'
-require 'active_model/railtie'
-require 'active_job/railtie'
+
+# SEE: https://github.com/rails/rails/blob/6-0-stable/railties/lib/rails/all.rb
+# require 'rails/all'
+
 require 'active_record/railtie'
 # require 'active_storage/engine'
 require 'action_controller/railtie'
-require 'action_mailer/railtie'
 require 'action_view/railtie'
+# require 'action_mailer/railtie'
+require 'active_job/railtie'
 # require 'action_cable/engine'
-require 'sprockets/railtie'
+# require 'action_mailbox/engine'
+# require 'action_text/engine'
 require 'rails/test_unit/railtie'
+require 'sprockets/railtie'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -17,17 +22,22 @@ Bundler.require(*Rails.groups)
 
 module Feeder
   class Application < Rails::Application
-    config.autoload_paths += %w[app lib].map { |p| Rails.root.join p }
+    config.load_defaults 6.0
+    Rails.autoloaders.log!
+
+    config.autoload_paths += %w[app lib].map { |path| config.root.join(path) }
+
+    config.add_autoload_paths_to_load_path = false
+
+    config.hosts << 'feeder.local'
 
     config.active_job.queue_adapter = :delayed_job
-
-    config.eager_load = true
 
     # config.action_cable.mount_path = '/cable'
 
     config.generators do |g|
       g.test_framework :minitest, spec: false, fixture: false
-      g.assets           false
+      # g.assets           false
       g.controller_specs false
       g.decorator        false
       g.helper           false
@@ -46,7 +56,7 @@ module Feeder
     end
 
     # Turn off Rails Asset Pipeline
-    config.assets.enabled = false
+    # config.assets.enabled = false
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
