@@ -24,7 +24,6 @@
 
 FactoryBot.define do
   factory :post, class: Post do
-    feed_id { 0 }
     link { "https://example.com/#{SecureRandom.uuid}" }
     published_at { Time.new.utc }
     text { 'Sample post text' }

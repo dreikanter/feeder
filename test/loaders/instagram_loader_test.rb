@@ -6,7 +6,11 @@ class InstagramLoaderTest < Minitest::Test
   end
 
   def create_feed
-    create(:feed, options: { instagram_user: 'dreikanter' })
+    create(
+      :feed,
+      name: SecureRandom.hex,
+      options: { instagram_user: 'dreikanter' }
+    )
   end
 
   EXPECTED_OBJECT = { 'mango' => 'banana' }.freeze
@@ -42,7 +46,7 @@ class InstagramLoaderTest < Minitest::Test
   end
 
   def test_require_instagram_user_option
-    feed = create(:feed, options: {})
+    feed = create(:feed, name: SecureRandom.hex, options: {})
     with_sample_node_script do |script_path|
       result = subject.call(feed, script_path: script_path)
       assert(result.failure?)

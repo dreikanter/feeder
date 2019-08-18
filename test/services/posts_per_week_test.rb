@@ -21,7 +21,7 @@ class PostsPerWeekTest < Minitest::Test
     end
 
     result = subject.call(feed)
-    expected = POSTS_PER_DAY * DAYS_IN_A_WEEK
+    expected = POSTS_PER_DAY * subject::DAYS_IN_A_WEEK
     assert_in_delta(expected, result, DELTA)
   end
 
@@ -31,14 +31,14 @@ class PostsPerWeekTest < Minitest::Test
   end
 
   def test_should_return_zero_for_recently_inactive_feed
-    published_at = HISTORY_DEPTH.days.ago
+    published_at = subject::HISTORY_DEPTH.days.ago
     create(:post, feed: feed, published_at: published_at)
     result = subject.call(feed)
     assert_in_delta(0, result, DELTA)
   end
 
   def test_should_count_each_post_after_date_threshold
-    published_at = HISTORY_DEPTH.days.ago + 1.second
+    published_at = subject::HISTORY_DEPTH.days.ago + 1.second
     create(:post, feed: feed, published_at: published_at)
     result = subject.call(feed)
     assert(result.positive?)
