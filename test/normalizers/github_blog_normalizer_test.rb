@@ -5,11 +5,11 @@ class GithubBlogNormalizerTest < Minitest::Test
   include NormalizerTestHelper
 
   def subject
-    Normalizers::GithubBlogNormalizer
+    GithubBlogNormalizer
   end
 
   def processor
-    Processors::AtomProcessor
+    AtomProcessor
   end
 
   def sample_data_file

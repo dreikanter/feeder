@@ -31,7 +31,7 @@ class Feed < ApplicationRecord
 
   validates :name, presence: true
 
-  enum status: Enums::FeedStatus.options
+  enum status: FeedStatus.options
 
   scope :ordered_active, -> { active.order(FEEDS_ORDER) }
 

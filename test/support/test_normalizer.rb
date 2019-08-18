@@ -1,25 +1,23 @@
-module Normalizers
-  class TestNormalizer < Normalizers::Base
-    protected
+class TestNormalizer < BaseNormalizer
+  protected
 
-    def link
-      ''
-    end
+  def link
+    ''
+  end
 
-    def published_at
-      ''
-    end
+  def published_at
+    ''
+  end
 
-    def text
-      ''
-    end
+  def text
+    ''
+  end
 
-    def attachments
-      []
-    end
+  def attachments
+    []
+  end
 
-    def comments
-      []
-    end
+  def comments
+    []
   end
 end

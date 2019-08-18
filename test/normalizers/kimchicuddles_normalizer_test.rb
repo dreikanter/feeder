@@ -5,11 +5,11 @@ class KimchicuddlesNormalizerTest < Minitest::Test
   include NormalizerTestHelper
 
   def subject
-    Normalizers::KimchicuddlesNormalizer
+    KimchicuddlesNormalizer
   end
 
   def processor
-    Processors::FeedjiraProcessor
+    FeedjiraProcessor
   end
 
   def sample_data_file
@@ -34,7 +34,7 @@ class KimchicuddlesNormalizerTest < Minitest::Test
     'comments' => ['Who are some people you’re grateful for right now?\nIf you appreciate my work, check out my Patreon: https://www.patreon.com/kimchicuddles']
   }.freeze
 
-  # TODO: Offline test for Service::TumblrImageFetcher
+  # TODO: Offline test for TumblrImageFetcher
   # TODO: Fix attachments test
   def test_normalized_sample
     skip

@@ -1,30 +1,28 @@
-module Normalizers
-  class MaremirNormalizer < Normalizers::RssNormalizer
-    WORDPRESS_THUMBNAIL_SUFFIX = '-150x150.'
+class MaremirNormalizer < RssNormalizer
+  WORDPRESS_THUMBNAIL_SUFFIX = '-150x150.'
 
-    protected
+  protected
 
-    def text
-      [super, description, link].join(separator)
-    end
+  def text
+    [super, description, link].join(separator)
+  end
 
-    def attachments
-      [first_image_url]
-    end
+  def attachments
+    [first_image_url]
+  end
 
-    private
+  private
 
-    def first_image_url
-      url = Service::Html.first_image_url(safe_content)
-      url.to_s.gsub(WORDPRESS_THUMBNAIL_SUFFIX, '.')
-    end
+  def first_image_url
+    url = Html.first_image_url(safe_content)
+    url.to_s.gsub(WORDPRESS_THUMBNAIL_SUFFIX, '.')
+  end
 
-    def safe_content
-      entity.content_encoded || ''
-    end
+  def safe_content
+    entity.content_encoded || ''
+  end
 
-    def description
-      Service::Html.comment_excerpt(entity.description)
-    end
+  def description
+    Html.comment_excerpt(entity.description)
   end
 end

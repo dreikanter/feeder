@@ -1,7 +1,7 @@
 module API
   class BatchesController < APIController
     def index
-      perform Operations::Batches::Index
+      perform Batches::Index
     end
   end
 end

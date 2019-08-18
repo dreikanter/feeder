@@ -5,11 +5,11 @@ class SmbcNormalizerTest < Minitest::Test
   include NormalizerTestHelper
 
   def subject
-    Normalizers::SmbcNormalizer
+    SmbcNormalizer
   end
 
   def processor
-    Processors::RssProcessor
+    RssProcessor
   end
 
   def sample_data_file

@@ -1,19 +1,17 @@
-module Normalizers
-  class CodingHorrorNormalizer < Normalizers::RssNormalizer
-    protected
+class CodingHorrorNormalizer < RssNormalizer
+  protected
 
-    def text
-      [super, link].join(separator)
-    end
+  def text
+    [super, link].join(separator)
+  end
 
-    def attachments
-      [image_url]
-    end
+  def attachments
+    [image_url]
+  end
 
-    private
+  private
 
-    def image_url
-      Service::Html.first_image_url(entity.content_encoded)
-    end
+  def image_url
+    Html.first_image_url(entity.content_encoded)
   end
 end

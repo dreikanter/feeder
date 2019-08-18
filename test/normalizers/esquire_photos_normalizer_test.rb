@@ -5,11 +5,11 @@ class EsquirePhotosNormalizerTest < Minitest::Test
   include NormalizerTestHelper
 
   def subject
-    Normalizers::EsquirePhotosNormalizer
+    EsquirePhotosNormalizer
   end
 
   def processor
-    Processors::RssProcessor
+    RssProcessor
   end
 
   def sample_data_file

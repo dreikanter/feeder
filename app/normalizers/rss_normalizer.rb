@@ -1,17 +1,15 @@
-module Normalizers
-  class RssNormalizer < Normalizers::Base
-    protected
+class RssNormalizer < BaseNormalizer
+  protected
 
-    def link
-      entity.link
-    end
+  def link
+    entity.link
+  end
 
-    def published_at
-      entity.respond_to?(:pubDate) ? entity.pubDate : entity.dc_date
-    end
+  def published_at
+    entity.respond_to?(:pubDate) ? entity.pubDate : entity.dc_date
+  end
 
-    def text
-      entity.title
-    end
+  def text
+    entity.title
   end
 end

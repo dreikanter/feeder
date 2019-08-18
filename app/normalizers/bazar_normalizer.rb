@@ -1,38 +1,36 @@
-module Normalizers
-  class BazarNormalizer < Normalizers::Base
-    protected
+class BazarNormalizer < BaseNormalizer
+  protected
 
-    def link
-      entity.link
-    end
+  def link
+    entity.link
+  end
 
-    def published_at
-      entity.pubDate
-    end
+  def published_at
+    entity.pubDate
+  end
 
-    def text
-      result = [entity.title, link].join(separator)
-      return result unless record_url.present?
-      "#{result}\n\nЗапись: #{record_url} #{formatted_duration}".strip
-    end
+  def text
+    result = [entity.title, link].join(separator)
+    return result unless record_url.present?
+    "#{result}\n\nЗапись: #{record_url} #{formatted_duration}".strip
+  end
 
-    def comments
-      [entity.description].reject(&:blank?)
-    end
+  def comments
+    [entity.description].reject(&:blank?)
+  end
 
-    private
+  private
 
-    def record_url
-      @record_url ||= entity.try(:enclosure).try(:url)
-    end
+  def record_url
+    @record_url ||= entity.try(:enclosure).try(:url)
+  end
 
-    def formatted_duration
-      return nil unless duration
-      "(#{duration})"
-    end
+  def formatted_duration
+    return nil unless duration
+    "(#{duration})"
+  end
 
-    def duration
-      @duration ||= entity.try(:itunes_duration).try(:content).gsub(/^00:/, '')
-    end
+  def duration
+    @duration ||= entity.try(:itunes_duration).try(:content).gsub(/^00:/, '')
   end
 end

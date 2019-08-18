@@ -4,7 +4,7 @@ class PullJob < ApplicationJob
 
   def perform(feed)
     feed.update(refreshed_at: nil)
-    Service::Pull.call(feed).each do |entity|
+    Pull.call(feed).each do |entity|
       if entity.failure?
         count_error
         next
@@ -12,7 +12,7 @@ class PullJob < ApplicationJob
 
       post_attributes = entity.value!.symbolize_keys.merge(
         feed_id: feed.id,
-        status: Enums::PostStatus.ready
+        status: PostStatus.ready
       )
 
       post = Post.create!(**post_attributes)
@@ -40,7 +40,7 @@ class PullJob < ApplicationJob
   end
 
   def outro
-    Service::CreateDataPoint.call(
+    CreateDataPoint.call(
       :pull,
       feed_name: feed_name,
       posts_count: posts_count,
@@ -51,8 +51,8 @@ class PullJob < ApplicationJob
   end
 
   def status
-    return Enums::UpdateStatus.success if errors_count.zero?
-    Enums::UpdateStatus.has_errors
+    return UpdateStatus.success if errors_count.zero?
+    UpdateStatus.has_errors
   end
 
   def count_post

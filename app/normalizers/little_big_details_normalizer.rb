@@ -1,15 +1,13 @@
-module Normalizers
-  class LittleBigDetailsNormalizer < Normalizers::TumblrNormalizer
-    protected
+class LittleBigDetailsNormalizer < TumblrNormalizer
+  protected
 
-    def text
-      [description, link].join(separator)
-    end
+  def text
+    [description, link].join(separator)
+  end
 
-    private
+  private
 
-    def description
-      Service::Html.text(entity.description)
-    end
+  def description
+    Html.text(entity.description)
   end
 end

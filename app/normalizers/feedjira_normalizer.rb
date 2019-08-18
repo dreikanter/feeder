@@ -1,21 +1,19 @@
-module Normalizers
-  class FeedjiraNormalizer < Normalizers::Base
-    protected
+class FeedjiraNormalizer < BaseNormalizer
+  protected
 
-    def link
-      entity.url
-    end
+  def link
+    entity.url
+  end
 
-    def published_at
-      entity.published
-    end
+  def published_at
+    entity.published
+  end
 
-    def text
-      [entity.title, entity.url].join(separator)
-    end
+  def text
+    [entity.title, entity.url].join(separator)
+  end
 
-    def comments
-      [entity.content]
-    end
+  def comments
+    [entity.content]
   end
 end

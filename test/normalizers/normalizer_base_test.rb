@@ -5,7 +5,7 @@ class NormalizerBaseTest < Minitest::Test
   include NormalizerTestHelper
 
   def subject
-    Normalizers::Base
+    BaseNormalizer
   end
 
   ENTITY = Object.new

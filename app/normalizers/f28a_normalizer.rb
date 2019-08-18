@@ -1,23 +1,21 @@
-module Normalizers
-  class F28aNormalizer < Normalizers::TumblrNormalizer
-    protected
+class F28aNormalizer < TumblrNormalizer
+  protected
 
-    def text
-      [post_excerpt, link].reject(&:blank?).join(separator)
-    end
+  def text
+    [post_excerpt, link].reject(&:blank?).join(separator)
+  end
 
-    def attachments
-      [image_url]
-    end
+  def attachments
+    [image_url]
+  end
 
-    private
+  private
 
-    def image_url
-      Service::Html.first_image_url(entity.description)
-    end
+  def image_url
+    Html.first_image_url(entity.description)
+  end
 
-    def post_excerpt
-      Service::Html.post_excerpt(entity.description)
-    end
+  def post_excerpt
+    Html.post_excerpt(entity.description)
   end
 end

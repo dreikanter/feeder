@@ -1,7 +1,7 @@
 module API
   class UpdatesController < APIController
     def index
-      perform Operations::Updates::Index
+      perform Updates::Index
     end
   end
 end

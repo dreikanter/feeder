@@ -5,11 +5,11 @@ class XkcdNormalizerTest < Minitest::Test
   include NormalizerTestHelper
 
   def subject
-    Normalizers::XkcdNormalizer
+    XkcdNormalizer
   end
 
   def processor
-    Processors::RssProcessor
+    RssProcessor
   end
 
   def sample_data_file

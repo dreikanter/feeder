@@ -1,35 +1,33 @@
-module Normalizers
-  class NextbigfutureNormalizer < Normalizers::Base
-    protected
+class NextbigfutureNormalizer < BaseNormalizer
+  protected
 
-    def link
-      entity.url
-    end
+  def link
+    entity.url
+  end
 
-    def published_at
-      entity.published
-    end
+  def published_at
+    entity.published
+  end
 
-    def text
-      [entity.title, link].join(separator)
-    end
+  def text
+    [entity.title, link].join(separator)
+  end
 
-    def attachments
-      [image_url].compact
-    end
+  def attachments
+    [image_url].compact
+  end
 
-    def comments
-      [description].compact
-    end
+  def comments
+    [description].compact
+  end
 
-    private
+  private
 
-    def image_url
-      @image_url ||= Service::NextbigfutureThumbnailFetcher.call(link)
-    end
+  def image_url
+    @image_url ||= NextbigfutureThumbnailFetcher.call(link)
+  end
 
-    def description
-      Service::Html.comment_excerpt(entity.summary)
-    end
+  def description
+    Html.comment_excerpt(entity.summary)
   end
 end

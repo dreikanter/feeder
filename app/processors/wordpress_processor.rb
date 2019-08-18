@@ -1,4 +1,2 @@
-module Processors
-  class WordpressProcessor < Processors::FeedjiraProcessor
-  end
+class WordpressProcessor < FeedjiraProcessor
 end

@@ -1,19 +1,17 @@
-module Normalizers
-  class TumblrNormalizer < Normalizers::RssNormalizer
-    protected
+class TumblrNormalizer < RssNormalizer
+  protected
 
-    def text
-      [super, link].join(separator)
-    end
+  def text
+    [super, link].join(separator)
+  end
 
-    def attachments
-      [image_url]
-    end
+  def attachments
+    [image_url]
+  end
 
-    private
+  private
 
-    def image_url
-      Service::Html.first_image_url(entity.description)
-    end
+  def image_url
+    Html.first_image_url(entity.description)
   end
 end

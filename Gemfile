@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-gem 'puma', '~> 3.12', '>= 3.12.1'
-gem 'rails', '~> 5.2.3'
+ruby '2.6.3'
+
+gem 'puma', '~> 4.1'
+gem 'rails', '~> 6.0.0'
 
 group :development do
   gem 'brakeman', '~> 4.3', '>= 4.3.1', require: false
@@ -20,8 +23,8 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
   gem 'guard', '~> 2.15'
   gem 'guard-minitest', '~> 2.4', '>= 2.4.6', require: false
-  gem 'minitest-rails', '~> 5.2'
-  gem 'minitest-reporters', '~> 1.3', '>= 1.3.6'
+  gem 'minitest-rails', '~> 6.0'
+  gem 'minitest-reporters', '~> 1.3', '>= 1.3.8'
   gem 'mocha', '~> 1.9'
   gem 'pry-rails', '~> 0.3.4'
   gem 'simplecov', '~> 0.17'
@@ -35,7 +38,7 @@ end
 gem 'active_model_serializers', '~> 0.10.9'
 gem 'addressable', '~> 2.5', '>= 2.5.2'
 gem 'annotate', '~> 2.7', '>= 2.7.4'
-gem 'bootsnap', '~> 1.3', '>= 1.3.2', require: false
+gem 'bootsnap', '>= 1.4.2', require: false
 gem 'callee', '~> 0.2.1'
 gem 'delayed_job_active_record', '~> 4.1', '>= 4.1.1'
 gem 'dry-initializer', '~> 3.0'

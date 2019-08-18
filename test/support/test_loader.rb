@@ -1,9 +1,7 @@
-module Loaders
-  class TestLoader < Loaders::Base
-    protected
+class TestLoader < BaseLoaders
+  protected
 
-    def perform
-      ''.freeze
-    end
+  def perform
+    ''.freeze
   end
 end

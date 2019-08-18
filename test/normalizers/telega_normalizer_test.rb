@@ -5,11 +5,11 @@ class TelegaNormalizerTest < Minitest::Test
   include NormalizerTestHelper
 
   def subject
-    Normalizers::TelegaNormalizer
+    TelegaNormalizer
   end
 
   def processor
-    Processors::RssProcessor
+    RssProcessor
   end
 
   def sample_data_file
