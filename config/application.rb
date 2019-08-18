@@ -23,21 +23,13 @@ Bundler.require(*Rails.groups)
 module Feeder
   class Application < Rails::Application
     config.load_defaults 6.0
-    Rails.autoloaders.log!
-
     config.autoload_paths += %w[app lib].map { |path| config.root.join(path) }
-
     config.add_autoload_paths_to_load_path = false
-
     config.hosts << 'feeder.local'
-
     config.active_job.queue_adapter = :delayed_job
-
-    # config.action_cable.mount_path = '/cable'
 
     config.generators do |g|
       g.test_framework :minitest, spec: false, fixture: false
-      # g.assets           false
       g.controller_specs false
       g.decorator        false
       g.helper           false
