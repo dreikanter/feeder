@@ -7,7 +7,7 @@ class PushJob < ApplicationJob
   def perform(post)
     raise 'post does not exist' unless post.present?
     raise 'post is stale' if post.stale?
-    raise 'post is not ready' unless post.ready?
+    raise 'post is not ready yet or already published' unless post.ready?
 
     attach_ids = post.attachments.map do |url|
       # TODO: Move API logging to the wrapper class
