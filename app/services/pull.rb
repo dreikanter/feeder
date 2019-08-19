@@ -5,7 +5,26 @@ class Pull
   param :feed
   option :logger, optional: true, default: -> { Rails.logger }
 
+  option(
+    :loader,
+    optional: true,
+    default: -> { LoaderResolver.call(feed) }
+  )
+
+  option(
+    :processor,
+    optional: true,
+    default: -> { ProcessorResolver.call(feed) }
+  )
+
+  option(
+    :normalizer,
+    optional: true,
+    default: -> { NormalizerResolver.call(feed) }
+  )
+
   def call
+    binding.pry
     fresh_entities.sort_by { |item| item.value!['published_at'] }
   end
 
@@ -25,27 +44,13 @@ class Pull
       .bind { |content| processor.call(content, feed) }
       .bind { |entities| entities.filter(&not_imported_yet?) }
       .map { |entity| normalizer.call(entity[0], entity[1], feed) }
+      # TODO: Drop non valid entities
+      # TODO: Return #value!
   end
 
   def not_imported_yet?
     proc do |uid, _entity|
       Post.where(feed: feed, uid: uid).none?
     end
-  end
-
-  def feed_name
-    feed.name
-  end
-
-  def loader
-    @loader ||= LoaderResolver.call(feed)
-  end
-
-  def processor
-    @processor ||= ProcessorResolver.call(feed)
-  end
-
-  def normalizer
-    @normalizer ||= NormalizerResolver.call(feed)
   end
 end
