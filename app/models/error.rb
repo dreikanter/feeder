@@ -28,20 +28,5 @@
 
 class Error < ApplicationRecord
   enum status: ErrorStatus.options
-
-  def self.dump(exception, context = {})
-    backtrace_location = exception.try(:backtrace_locations).try(:first)
-
-    create!(
-      status: ErrorStatus.pending,
-      occured_at: context[:occured_at] || DateTime.now,
-      exception: exception.class.name,
-      file_name: backtrace_location.try(:path) || '',
-      line_number: backtrace_location.try(:lineno),
-      label: backtrace_location.try(:label) || '',
-      message: exception.try(:message) || context[:message] || exception.to_s,
-      backtrace: exception.try(:backtrace) || [],
-      context: context
-    )
-  end
+  belongs_to :target, polymorphic: true, optional: true
 end
