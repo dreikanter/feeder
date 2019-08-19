@@ -27,7 +27,7 @@ class GithubBlogNormalizerTest < Minitest::Test
   end
 
   def test_all_attachment_urls_should_be_absolute
-    attachments = normalized.map { |entity| entity.value!['attachments'] }
+    attachments = normalized.map { |entity| entity.value![:attachments] }
     attachments.flatten.compact.each do |uri|
       assert(Addressable::URI.parse(uri).absolute?)
     end

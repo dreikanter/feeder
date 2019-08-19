@@ -26,12 +26,12 @@ class PoorlydrawnlinesNormalizerTest < Minitest::Test
   end
 
   FIRST_SAMPLE = {
-    'uid' => 'http://www.poorlydrawnlines.com/comic/hello/',
-    'link' => 'http://www.poorlydrawnlines.com/comic/hello/',
-    'published_at' => Time.parse('2018-10-22 16:03:51 UTC'),
-    'text' => 'Hello - http://www.poorlydrawnlines.com/comic/hello/',
-    'attachments' => ['http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/hello.png'],
-    'comments' => []
+    uid: 'http://www.poorlydrawnlines.com/comic/hello/',
+    link: 'http://www.poorlydrawnlines.com/comic/hello/',
+    published_at: Time.parse('2018-10-22 16:03:51 UTC'),
+    text: 'Hello - http://www.poorlydrawnlines.com/comic/hello/',
+    attachments: ['http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/hello.png'],
+    comments: []
   }.freeze
 
   def test_normalized_sample

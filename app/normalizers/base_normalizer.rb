@@ -54,16 +54,14 @@ class BaseNormalizer
     feed.try(:options) || {}
   end
 
-  private
-
   def payload
     {
-      'uid' => uid,
-      'link' => link,
-      'published_at' => published_at,
-      'text' => text,
-      'attachments' => sanitized_attachments,
-      'comments' => comments.reject(&:blank?)
+      uid: uid,
+      link: link,
+      published_at: published_at,
+      text: text,
+      attachments: sanitized_attachments,
+      comments: comments.reject(&:blank?)
     }.freeze
   end
 
