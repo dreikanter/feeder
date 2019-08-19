@@ -18,7 +18,7 @@ class TwitterProcessorTest < Minitest::Test
 
   def test_happy_path
     expected = data.map { |entity| entity['id'].to_s }.sort
-    feed = create(:feed, :twitter)
+    feed = build(:feed, :twitter)
     result = subject.call(data, feed, import_limit: 0)
     assert(result.success?)
     entities = result.value!.map { |uid, _| uid }.sort

@@ -46,7 +46,7 @@ class InstagramLoaderTest < Minitest::Test
   end
 
   def test_require_instagram_user_option
-    feed = create(:feed, name: SecureRandom.hex, options: {})
+    feed = build(:feed, name: SecureRandom.hex, options: {})
     with_sample_node_script do |script_path|
       result = subject.call(feed, script_path: script_path)
       assert(result.failure?)

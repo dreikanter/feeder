@@ -9,7 +9,7 @@ class PullTest < Minitest::Test
   end
 
   def feed
-    create(:feed, name: :test, import_limit: 0)
+    build(:feed, name: :test, import_limit: 0)
   end
 
   def test_loader
