@@ -8,10 +8,11 @@ class BaseNormalizer
   option :logger, optional: true, default: -> { Rails.logger }
 
   def call
+    logger.info("normalizing entity [#{uid}]")
     valid? ? Success(payload) : Failure(validation_errors)
   rescue StandardError => e
     logger.error(e)
-    Failure("normalization error: #{e.message}")
+    Failure(e)
   end
 
   protected
