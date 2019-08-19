@@ -27,14 +27,14 @@ class XkcdNormalizerTest < Minitest::Test
   end
 
   FIRST_SAMPLE = {
-    'uid' => 'http://xkcd.com/1732/',
-    'link' => 'http://xkcd.com/1732/',
-    'published_at' => Time.parse('2016-09-12 04:00:00 UTC'),
-    'text' => 'Earth Temperature Timeline - http://xkcd.com/1732/',
-    'attachments' => [
+    uid: 'http://xkcd.com/1732/',
+    link: 'http://xkcd.com/1732/',
+    published_at: Time.parse('2016-09-12 04:00:00 UTC'),
+    text: 'Earth Temperature Timeline - http://xkcd.com/1732/',
+    attachments: [
       'http://imgs.xkcd.com/comics/earth_temperature_timeline.png'
     ],
-    'comments' => [
+    comments: [
       '[After setting your car on fire] Listen, your car\'s ' \
       'temperature has changed before.'
     ]

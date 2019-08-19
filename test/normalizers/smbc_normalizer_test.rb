@@ -31,6 +31,6 @@ class SmbcNormalizerTest < Minitest::Test
 
   def test_hidden_image
     result = normalized.first.value!
-    assert_equal(2, result['attachments'].count)
+    assert_equal(2, result[:attachments].count)
   end
 end

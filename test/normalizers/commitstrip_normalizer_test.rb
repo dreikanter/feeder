@@ -27,12 +27,12 @@ class CommitstripNormalizerTest < Minitest::Test
   end
 
   FIRST_SAMPLE = {
-    'uid' => 'https://www.commitstrip.com/2017/09/19/the-whole-teams-working-on-it/',
-    'link' => 'https://www.commitstrip.com/2017/09/19/the-whole-teams-working-on-it/',
-    'published_at' => DateTime.parse('2017-09-19 16:42:52 +0000'),
-    'text' => 'The whole team’s working on it - https://www.commitstrip.com/2017/09/19/the-whole-teams-working-on-it/',
-    'attachments' => ['https://www.commitstrip.com/wp-content/uploads/2017/09/Strip-La-super-équipe-de-maintenance-650-finalenglish.jpg'],
-    'comments' => []
+    uid: 'https://www.commitstrip.com/2017/09/19/the-whole-teams-working-on-it/',
+    link: 'https://www.commitstrip.com/2017/09/19/the-whole-teams-working-on-it/',
+    published_at: DateTime.parse('2017-09-19 16:42:52 +0000'),
+    text: 'The whole team’s working on it - https://www.commitstrip.com/2017/09/19/the-whole-teams-working-on-it/',
+    attachments: ['https://www.commitstrip.com/wp-content/uploads/2017/09/Strip-La-super-équipe-de-maintenance-650-finalenglish.jpg'],
+    comments: []
   }.freeze
 
   def test_normalized_sample

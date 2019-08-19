@@ -36,18 +36,18 @@ class PullTest < Minitest::Test
   SAMPLE_NORMALIZED_ENTITIES = [].freeze
   SAMPLE_UID = Object.new.freeze
 
-  SAMPLE_ENTITY = {
-    'uid' => nil,
-    'link' => nil,
-    'published_at' => nil,
-    'text' => nil,
-    'attachments' => [],
-    'comments' => []
+  NORMALIZED_ENTITY = {
+    uid: nil,
+    link: nil,
+    published_at: nil,
+    text: nil,
+    attachments: [],
+    comments: []
   }.freeze
 
   def loader(expected_result)
     Class.new(BaseLoader) do
-      define_method('perform') { expected_result }
+      define_method(:perform) { result }
     end
   end
 

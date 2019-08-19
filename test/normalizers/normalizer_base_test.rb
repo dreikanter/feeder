@@ -28,7 +28,7 @@ class NormalizerBaseTest < Minitest::Test
     assert(result.success?)
   end
 
-  EXPECTED_ATTRIBUTES = %w[
+  EXPECTED_ATTRIBUTES = %i[
     attachments
     comments
     link
@@ -45,7 +45,7 @@ class NormalizerBaseTest < Minitest::Test
 
   def test_validation_errors
     normalizer = Class.new(subject) do
-      define_method('validation_errors') { ['sample error'] }
+      define_method(:validation_errors) { ['sample error'] }
     end
     result = normalizer.call(uid, ENTITY, feed)
     assert(result.failure?)
@@ -59,17 +59,17 @@ class NormalizerBaseTest < Minitest::Test
   def test_sanitize_attachments
     incomplete_url = '//example.com'
     normalizer = Class.new(subject) do
-      define_method('attachments') { [incomplete_url] }
+      define_method(:attachments) { [incomplete_url] }
     end
     result = normalizer.call(uid, ENTITY, feed)
     expected = ["https:#{incomplete_url}"]
-    assert(expected, result.value!['attachments'])
+    assert(expected, result.value![:attachments])
   end
 
   def test_require_valid_attachment_urls
     non_valid_url = ':'
     normalizer = Class.new(subject) do
-      define_method('attachments') { [non_valid_url] }
+      define_method(:attachments) { [non_valid_url] }
     end
     result = normalizer.call(uid, ENTITY, feed)
     assert(result.failure?)
@@ -77,7 +77,7 @@ class NormalizerBaseTest < Minitest::Test
 
   def test_require_attachments_array
     normalizer = Class.new(subject) do
-      define_method('attachments') { nil }
+      define_method(:attachments) { nil }
     end
     result = normalizer.call(uid, ENTITY, feed)
     assert(result.failure?)
@@ -85,15 +85,15 @@ class NormalizerBaseTest < Minitest::Test
 
   def test_drop_empty_attachment_urls
     normalizer = Class.new(subject) do
-      define_method('attachments') { [nil, ''] }
+      define_method(:attachments) { [nil, ''] }
     end
     result = normalizer.call(uid, ENTITY, feed)
-    assert(result.value!['attachments'].empty?)
+    assert(result.value![:attachments].empty?)
   end
 
   def test_require_comments_array
     normalizer = Class.new(subject) do
-      define_method('comments') { nil }
+      define_method(:comments) { nil }
     end
     result = normalizer.call(uid, ENTITY, feed)
     assert(result.failure?)
@@ -101,9 +101,9 @@ class NormalizerBaseTest < Minitest::Test
 
   def test_drop_empty_comments
     normalizer = Class.new(subject) do
-      define_method('comments') { [nil, ''] }
+      define_method(:comments) { [nil, ''] }
     end
     result = normalizer.call(uid, ENTITY, feed)
-    assert(result.value!['comments'].empty?)
+    assert(result.value![:comments].empty?)
   end
 end
