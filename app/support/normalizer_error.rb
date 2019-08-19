@@ -1,0 +1,2 @@
+class NormalizerError < FeederError
+end

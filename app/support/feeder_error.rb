@@ -1,0 +1,2 @@
+class FeederError < StandardError
+end
