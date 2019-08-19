@@ -44,7 +44,7 @@ class TwitterLoaderTest < Minitest::Test
   end
 
   def test_require_twitter_user_in_feed_options
-    sample_feed = create(:feed, :twitter, options: {})
+    sample_feed = build(:feed, :twitter, options: {})
     result = loader.call(sample_feed)
     assert(result.failure?)
     assert(result.failure.is_a?(RuntimeError))

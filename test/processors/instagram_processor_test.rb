@@ -17,7 +17,7 @@ class InstagramProcessorTest < Minitest::Test
   end
 
   def result
-    @result ||= subject.call(sample_json, create(:feed))
+    @result ||= subject.call(sample_json, build(:feed))
   end
 
   def test_success

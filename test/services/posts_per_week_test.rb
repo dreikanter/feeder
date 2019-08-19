@@ -6,7 +6,7 @@ class PostsPerWeekTest < Minitest::Test
   end
 
   def feed
-    @feed ||= create(:feed)
+    @feed ||= build(:feed)
   end
 
   AMOUNT_OF_DAYS = 3
