@@ -33,7 +33,7 @@ FactoryBot.define do
     refreshed_at { nil }
     created_at { Time.new.utc }
     updated_at { Time.new.utc }
-    url { nil }
+    url { 'https://example.com' }
     processor { nil }
     normalizer { nil }
     after { nil }

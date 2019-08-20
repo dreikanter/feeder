@@ -1,5 +1,3 @@
-# TODO: Use Feedjira processor instead
-
 class YoutubeProcessor < BaseProcessor
   protected
 
@@ -9,8 +7,5 @@ class YoutubeProcessor < BaseProcessor
 
   def parse_content
     Feedjira::Feed.parse(content).entries
-  rescue StandardError => e
-    Rails.logger.error "error parsing feed: #{e}"
-    []
   end
 end
