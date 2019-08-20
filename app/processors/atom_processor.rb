@@ -9,8 +9,5 @@ class AtomProcessor < BaseProcessor
 
   def parse_content
     RSS::Parser.parse(content, false).items
-  rescue StandardError => e
-    Rails.logger.error "error parsing atom feed: #{e}"
-    []
   end
 end

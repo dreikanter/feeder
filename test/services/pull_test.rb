@@ -31,18 +31,6 @@ class PullTest < Minitest::Test
     assert_equal(TestNormalizer, result)
   end
 
-  def test_handle_loader_resolution_error
-    # TODO
-  end
-
-  def test_handle_processor_resolution_error
-    # TODO
-  end
-
-  def test_handle_normalization_resolution_error
-    # TODO
-  end
-
   def test_handle_loader_error
     loader = Class.new(BaseLoader) { define_method(:perform) { raise } }
     result = subject.call(feed, loader: loader)
@@ -60,6 +48,18 @@ class PullTest < Minitest::Test
     result = subject.call(feed, normalizer: norm)
     assert(result.success?)
     assert(result.value!.all?(&:failure?))
+  end
+
+  SOME_ENTITIES = [[Object.new, Object.new]].freeze
+
+  def test_handle_normalizer_resolution_error
+    feed = build(:feed, name: :unresolvable)
+    assert_raises(RuntimeError) { NormalizerResolver.call(feed) }
+    processor = Class.new(BaseProcessor) do
+      define_method(:entities) { SOME_ENTITIES }
+    end
+    result = subject.call(feed, processor: processor)
+    assert(result.failure?)
   end
 
   SOME_ERRORS = ['some errors'].freeze
