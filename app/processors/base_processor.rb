@@ -12,6 +12,9 @@ class BaseProcessor
   def call
     logger.info("processing feed [#{feed_name}]")
     Success(limit.positive? ? entities.take(limit) : entities)
+  rescue StandardError => e
+    logger.error("error processing feed [#{feed_name}]")
+    Failure(e)
   end
 
   protected

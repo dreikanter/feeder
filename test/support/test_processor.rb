@@ -1,8 +1,8 @@
 class TestProcessor < BaseProcessor
   ENTITIES = [
-    %w[uid0 entity0],
-    %w[uid1 entity1],
-    %w[uid2 entity2]
+    Entity.new(:uid0, :entity0),
+    Entity.new(:uid1, :entity1),
+    Entity.new(:uid2, :entity2)
   ].freeze
 
   protected
