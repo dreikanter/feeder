@@ -5,7 +5,7 @@ class ReworkProcessor < BaseProcessor
   protected
 
   def entities
-    (RSS::Parser.parse(source).try(:items) || [])
+    (RSS::Parser.parse(content).try(:items) || [])
       .map { |item| [item.guid.content, item] }
       .reject { |guid, _| guid.blank? }
       .to_h

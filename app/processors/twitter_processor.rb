@@ -7,6 +7,6 @@ class TwitterProcessor < BaseProcessor
   end
 
   def tweets
-    source.as_json
+    content.as_json
   end
 end
