@@ -2,7 +2,7 @@ class BaseProcessor
   include Callee
   include Dry::Monads[:result]
 
-  param :source
+  param :content
   param :feed
   option :import_limit, optional: true, default: -> { nil }
   option :logger, optional: true, default: -> { Rails.logger }

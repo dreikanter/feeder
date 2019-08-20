@@ -16,7 +16,7 @@ class InstagramProcessor < BaseProcessor
   ].freeze
 
   def edges
-    source.dig(*EDGES_PATH)
+    content.dig(*EDGES_PATH)
   end
 
   def nodes
