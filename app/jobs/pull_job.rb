@@ -36,7 +36,6 @@ class PullJob < ApplicationJob
         count_error
         break
       end
-
       Post.create!(**entity.value!.merge(
         feed_id: feed.id,
         status: PostStatus.ready
@@ -70,6 +69,6 @@ class PullJob < ApplicationJob
   end
 
   def feed_name
-    arguments[0].name
+    @feed_name ||= arguments.first.name
   end
 end

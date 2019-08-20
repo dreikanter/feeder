@@ -31,10 +31,10 @@ class InstagramProcessorTest < Minitest::Test
 
   def test_ids
     result.value!.each do |entity|
-      expected_id = entity[1]['shortcode']
+      expected_id = entity.content['shortcode']
       assert(expected_id)
-      assert(entity[0])
-      assert_equal(expected_id, entity[0])
+      assert(entity.uid)
+      assert_equal(expected_id, entity.uid)
     end
   end
 end

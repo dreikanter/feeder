@@ -20,8 +20,7 @@ class TwitterProcessorTest < Minitest::Test
     expected = data.map { |entity| entity['id'].to_s }.sort
     feed = build(:feed, :twitter)
     result = subject.call(data, feed, import_limit: 0)
-    assert(result.success?)
-    entities = result.value!.map { |uid, _| uid }.sort
+    entities = result.value!.map(&:uid).sort
     assert_equal(expected, entities)
   end
 end

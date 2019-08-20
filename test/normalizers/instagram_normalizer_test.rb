@@ -42,7 +42,7 @@ class InstagramNormalizerTest < Minitest::Test
   def normalize_sample_data
     with_sample_node_script do |script_path|
       processed.map do |entity|
-        subject.call(entity[0], entity[1], feed, script_path: script_path)
+        subject.call(entity.uid, entity.content, feed, script_path: script_path)
       end
     end
   end

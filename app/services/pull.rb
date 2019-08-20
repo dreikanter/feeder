@@ -24,13 +24,13 @@ class Pull
 
   def normalize(entities)
     new_entities(entities).map do |entity|
-      normalizer_or_default.call(entity[0], entity[1], feed)
+      normalizer_or_default.call(entity.uid, entity.content, feed)
     end
   end
 
   def new_entities(entities)
-    entities.filter do |uid|
-      feed.posts.where(uid: uid).none?
+    entities.filter do |entity|
+      feed.posts.where(uid: entity.uid).none?
     end
   end
 
