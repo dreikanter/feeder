@@ -16,68 +16,66 @@ class PullTest < Minitest::Test
     assert_raises(ArgumentError) { subject.call }
   end
 
-  def test_resolve_loader
+  def test_resolve_support_loader
     result = LoaderResolver.call(feed)
     assert_equal(TestLoader, result)
   end
 
-  def test_resolve_processor
+  def test_resolve_support_processor
     result = ProcessorResolver.call(feed)
     assert_equal(TestProcessor, result)
   end
 
-  def test_resolve_normalizer
+  def test_resolve_support_normalizer
     result = NormalizerResolver.call(feed)
     assert_equal(TestNormalizer, result)
   end
 
-  SAMPLE_CONTENT = 'sample content'.freeze
-  SAMPLE_ENTITIES = [].freeze
-  SAMPLE_NORMALIZED_ENTITIES = [].freeze
-  SAMPLE_UID = Object.new.freeze
-
-  NORMALIZED_ENTITY = {
-    uid: nil,
-    link: nil,
-    published_at: nil,
-    text: nil,
-    attachments: [],
-    comments: []
-  }.freeze
-
-  def loader(expected_result)
-    Class.new(BaseLoader) do
-      define_method(:perform) { result }
-    end
+  def test_handle_loader_resolution_error
+    # TODO
   end
 
-  def test_loader
-    result = loader(SAMPLE_CONTENT).call(feed)
+  def test_handle_processor_resolution_error
+    # TODO
+  end
+
+  def test_handle_normalization_resolution_error
+    # TODO
+  end
+
+  def test_handle_loader_error
+    loader = Class.new(BaseLoader) { define_method(:perform) { raise } }
+    result = subject.call(feed, loader: loader)
+    assert(result.failure?)
+  end
+
+  def test_handle_processor_error
+    processor = Class.new(BaseProcessor) { define_method(:entities) { raise } }
+    result = subject.call(feed, processor: processor)
+    assert(result.failure?)
+  end
+
+  def test_handle_normalization_error
+    norm = Class.new(BaseNormalizer) { define_method(:link) { raise } }
+    result = subject.call(feed, normalizer: norm)
     assert(result.success?)
-    assert_equal(SAMPLE_CONTENT, result.value!)
+    assert(result.value!.all?(&:failure?))
   end
 
-  def processor(expected_result)
-    Class.new(BaseProcessor) do
-      define_method('entities') { expected_result }
+  SOME_ERRORS = ['some errors'].freeze
+
+  def test_handle_validation_error
+    norm = Class.new(BaseNormalizer) do
+      define_method(:validation_errors) { SOME_ERRORS }
     end
-  end
-
-  def test_processor
-    result = processor(SAMPLE_ENTITIES).call(nil, feed)
+    result = subject.call(feed, normalizer: norm)
     assert(result.success?)
-    assert_equal(SAMPLE_ENTITIES, result.value!)
+    assert(result.value!.all?(&:failure?))
   end
 
-  def normalizer(expected_result)
-    Class.new(BaseNormalizer) do
-      define_method('perform') { expected_result }
-    end
-  end
-
-  def test_normalizer
-    result = normalizer(SAMPLE_ENTITY).call(nil, nil, feed)
+  def test_happy_path
+    result = subject.call(feed)
     assert(result.success?)
-    assert_equal(SAMPLE_ENTITY, result.value!)
+    assert(result.value!.all?(&:success?))
   end
 end
