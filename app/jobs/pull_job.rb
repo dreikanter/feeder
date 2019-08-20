@@ -1,45 +1,11 @@
 class PullJob < ApplicationJob
-  before_perform :intro
-  after_perform :outro
-
-  def perform(feed)
-    feed.update(refreshed_at: nil)
-    Pull.call(feed).each do |entity|
-      if entity.failure?
-        count_error
-        next
-      end
-
-      post_attributes = entity.value!.symbolize_keys.merge(
-        feed_id: feed.id,
-        status: PostStatus.ready
-      )
-
-      post = Post.create!(**post_attributes)
-      PushJob.perform_later(post)
-      count_post
-    end
-
-    last_post_created_at =
-      feed.posts.order(created_at: :desc).first.try(:created_at)
-
-    feed.update(
-      last_post_created_at: last_post_created_at,
-      refreshed_at: started_at
-    )
-  end
-
-  private
-
-  attr_reader :errors_count, :posts_count, :started_at
-
-  def intro
+  before_perform do
     @started_at = Time.now.utc
     @posts_count = 0
     @errors_count = 0
   end
 
-  def outro
+  after_perform do
     CreateDataPoint.call(
       :pull,
       feed_name: feed_name,
@@ -49,6 +15,46 @@ class PullJob < ApplicationJob
       status: status
     )
   end
+
+  def perform(feed)
+    entities = Pull.call(feed)
+
+    if entities.failure?
+      error = entities.failure
+      exception = error.is_a?(Exception) ? error : nil
+      ErrorDumper.call(
+        exception: exception,
+        message: "error pulling feed [#{feed_name}]: #{error}",
+        target: feed
+      )
+      return
+    end
+
+    entities.value!.each do |entity|
+      if entity.failure?
+        ErrorDumper.call(target: feed)
+        count_error
+        break
+      end
+
+      Post.create!(**entity.value!.merge(
+        feed_id: feed.id,
+        status: PostStatus.ready
+      ))
+      count_post
+    end
+
+    feed.posts.ready.each { |post| PushJob.perform_later(post) }
+  ensure
+    feed.update(
+      last_post_created_at: feed.posts.maximum(:created_at),
+      refreshed_at: started_at
+    )
+  end
+
+  private
+
+  attr_reader :errors_count, :posts_count, :started_at
 
   def status
     return UpdateStatus.success if errors_count.zero?

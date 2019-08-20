@@ -1,56 +1,47 @@
 class Pull
   include Callee
   include Dry::Monads[:result]
+  include Dry::Monads[:do]
 
   param :feed
   option :logger, optional: true, default: -> { Rails.logger }
+  option :loader, optional: true, default: -> { nil }
+  option :processor, optional: true, default: -> { nil }
+  option :normalizer, optional: true, default: -> { nil }
 
-  option(
-    :loader,
-    optional: true,
-    default: -> { LoaderResolver.call(feed) }
-  )
-
-  option(
-    :processor,
-    optional: true,
-    default: -> { ProcessorResolver.call(feed) }
-  )
-
-  option(
-    :normalizer,
-    optional: true,
-    default: -> { NormalizerResolver.call(feed) }
-  )
+  Dry::Monads::Do.for(:call)
 
   def call
-    binding.pry
-    fresh_entities.sort_by { |item| item.value!['published_at'] }
+    content = yield loader_or_default.call(feed)
+    entities = yield processor_or_default.call(content, feed)
+    Success(normalize(entities))
+  rescue StandardError => e
+    Failure(e)
   end
 
   private
 
-  def fresh_entities
-    after = feed.after
-    return entities unless after
-    entities.filter do |entity|
-      published_at = entity.value_or({})['published_at']
-      !published_at || (published_at > after)
+  def normalize(entities)
+    new_entities(entities).map do |entity|
+      normalizer_or_default.call(entity[0], entity[1], feed)
     end
   end
 
-  def entities
-    loader.call(feed)
-      .bind { |content| processor.call(content, feed) }
-      .bind { |entities| entities.filter(&not_imported_yet?) }
-      .map { |entity| normalizer.call(entity[0], entity[1], feed) }
-      # TODO: Drop non valid entities
-      # TODO: Return #value!
+  def new_entities(entities)
+    entities.filter do |uid|
+      feed.posts.where(uid: uid).none?
+    end
   end
 
-  def not_imported_yet?
-    proc do |uid, _entity|
-      Post.where(feed: feed, uid: uid).none?
-    end
+  def loader_or_default
+    loader || LoaderResolver.call(feed)
+  end
+
+  def processor_or_default
+    processor || ProcessorResolver.call(feed)
+  end
+
+  def normalizer_or_default
+    normalizer || NormalizerResolver.call(feed)
   end
 end

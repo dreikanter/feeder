@@ -5,7 +5,11 @@ class PullJobTest < Minitest::Test
     PullJob
   end
 
-  def test_perform
-    # TODO
+  def feed
+    build(:feed, name: :test, import_limit: 0)
+  end
+
+  def test_require_success_result
+    subject.perform_now(feed)
   end
 end
