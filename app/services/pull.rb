@@ -43,6 +43,6 @@ class Pull
   end
 
   def normalizer_or_default
-    normalizer || NormalizerResolver.call(feed)
+    @normalizer_or_default ||= normalizer || NormalizerResolver.call(feed)
   end
 end
