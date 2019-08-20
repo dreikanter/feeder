@@ -11,6 +11,7 @@ class Pull
 
   Dry::Monads::Do.for(:call)
 
+  # NOTE: Returns Result(Result[])
   def call
     content = yield loader_or_default.call(feed)
     entities = yield processor_or_default.call(content, feed)

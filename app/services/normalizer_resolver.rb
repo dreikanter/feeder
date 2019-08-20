@@ -7,7 +7,7 @@ class NormalizerResolver
   def call
     available_names.each do |name|
       result = normalizer_class_name(name)
-      logger.debug("feed [#{feed&.name}] normalizer resolved to [#{result}]")
+      logger.debug("normalizer resolved to [#{result}]")
       return result
     rescue NameError
       next
