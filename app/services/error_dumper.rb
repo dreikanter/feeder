@@ -1,9 +1,7 @@
 class ErrorDumper
   include Callee
 
-  UNDEFINED_ERROR = '[undefined]'.freeze
-
-  option :exception, optional: true, default: -> { UNDEFINED_ERROR }
+  option :exception, optional: true, default: -> { nil }
 
   option :file_name, optional: true, default: -> { location.try(:path).to_s }
   option :label, optionsl: true, default: -> { location.try(:label).to_s }
@@ -22,7 +20,7 @@ class ErrorDumper
     Error.create!(
       backtrace: backtrace,
       context: context,
-      exception: exception,
+      exception: exception_class,
       file_name: file_name,
       label: label,
       line_number: line_number,
@@ -39,5 +37,9 @@ class ErrorDumper
 
   def backtrace
     exception.try(:backtrace) || []
+  end
+
+  def exception_class
+    exception.try(:class).try(:name)
   end
 end
