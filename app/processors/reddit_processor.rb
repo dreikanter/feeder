@@ -5,7 +5,7 @@ class RedditProcessor < AtomProcessor
   protected
 
   def entities
-    super.lazy.select { |uid, _| enough_points?(uid) }
+    super.lazy.select { |entity| enough_points?(entity.uid) }
   end
 
   private
@@ -23,7 +23,7 @@ class RedditProcessor < AtomProcessor
   end
 
   def cached_data_point(link)
-    Rails.logger.debug 'attempting to load reddit points from cache'
+    logger.debug('attempting to load reddit points from cache')
     DataPoint.for(:reddit)
       .where('created_at > ?', CACHE_HISTORY_DEPTH.ago)
       .where("details->>'link' = ?", link).ordered.first
@@ -31,7 +31,7 @@ class RedditProcessor < AtomProcessor
 
   # TODO: Use Reddit API instead
   def create_data_point(link)
-    Rails.logger.debug 'loading reddit points from reddit'
+    logger.debug('loading reddit points from reddit')
     html = Nokogiri::HTML(page_content(link))
     desc = html.at('meta[property="og:description"]').try(:[], :content).to_s
     points = parse_points(desc)

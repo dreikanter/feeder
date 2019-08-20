@@ -16,7 +16,7 @@ class LoaderResolver
     available_names.each do |name|
       safe_name = name.to_s.gsub(/-/, '_')
       result = "#{safe_name}_loader".classify.constantize
-      logger.debug("feed [#{feed&.name}] loader resolved to [#{result}]")
+      logger.debug("loader resolved to [#{result}]")
       return result
     rescue StandardError
       next

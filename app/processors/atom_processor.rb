@@ -4,7 +4,7 @@ class AtomProcessor < BaseProcessor
   protected
 
   def entities
-    parse_content.map { |i| [i.link.href, i] }.to_h
+    parse_content.map { |item| Entity.new(item.link.href, item) }
   end
 
   def parse_content

@@ -3,7 +3,7 @@ class RknAlertsProcessor < BaseProcessor
     save_current_status if first_run?
     return [] if first_run? || nothing_changed?
     save_current_status
-    [[nil, payload]]
+    [Entity.new(nil, payload)]
   end
 
   private
