@@ -5,10 +5,6 @@ class ErrorDumperTest < Minitest::Test
     ErrorDumper
   end
 
-  def setup
-    Error.delete_all
-  end
-
   def test_can_dump_things
     subject.call
     assert(Error.any?)

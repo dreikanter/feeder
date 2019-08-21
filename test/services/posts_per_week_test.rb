@@ -9,10 +9,6 @@ class PostsPerWeekTest < Minitest::Test
     @feed ||= build(:feed)
   end
 
-  def setup
-    Feed.delete_all
-  end
-
   AMOUNT_OF_DAYS = 3
   POSTS_PER_DAY = 1
   DELTA = 0.001
