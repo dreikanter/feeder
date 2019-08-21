@@ -14,7 +14,7 @@
 
 require 'test_helper'
 
-class BlockedIPTest < ActiveSupport::TestCase
+class BlockedIPTest < Minitest::Test
   def blocked_ip
     @blocked_ip ||= BlockedIP.new
   end
@@ -22,6 +22,4 @@ class BlockedIPTest < ActiveSupport::TestCase
   def test_valid
     assert blocked_ip.valid?
   end
-
-  # TODO
 end
