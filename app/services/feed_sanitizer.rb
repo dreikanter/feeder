@@ -24,6 +24,15 @@ class FeedSanitizer
   )
 
   def call
-    self.class.dry_initializer.public_attributes(self)
+    option_names
+      .map { |target| [target, send(target)] }
+      .filter { |_, value| value.present? }
+      .to_h
+  end
+
+  private
+
+  def option_names
+    self.class.dry_initializer.options.map(&:target)
   end
 end

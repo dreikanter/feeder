@@ -16,6 +16,10 @@ class FeedSanitizerTest < Minitest::Test
     refresh_interval: 1800
   }.freeze
 
+  MINIMAL_FEED = {
+    name: 'dilbert'
+  }.freeze
+
   def test_return_hash
     result = subject.call(SAMPLE_FEED)
     assert(result.is_a?(Hash))
@@ -26,9 +30,8 @@ class FeedSanitizerTest < Minitest::Test
     assert_raises(KeyError) { subject.call(feed) }
   end
 
-  def test_require_only_name
-    feed = SAMPLE_FEED.slice(:name)
-    subject.call(feed)
+  def test_minimal_configuration
+    subject.call(MINIMAL_FEED)
   end
 
   def test_parse_after
@@ -40,5 +43,12 @@ class FeedSanitizerTest < Minitest::Test
     result = subject.call(SAMPLE_FEED)
     assert(result[:import_limit].is_a?(Integer))
     assert(result[:refresh_interval].is_a?(Integer))
+  end
+
+  def test_omit_undefined_attrubutes
+    result = subject.call(MINIMAL_FEED)
+    MINIMAL_FEED.each do |key, value|
+      assert_equal(value, result[key])
+    end
   end
 end
