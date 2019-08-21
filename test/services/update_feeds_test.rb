@@ -8,6 +8,9 @@ class UpdateFeedsTest < Minitest::Test
   SAMPLE_CONFIG_PATH =
     File.expand_path('../data/feeds.yml', __dir__).freeze
 
+  ALT_SAMPLE_CONFIG_PATH =
+    File.expand_path('../data/feeds_alt.yml', __dir__).freeze
+
   NON_EXISTING_CONFIG_PATH =
     File.expand_path('../data/feeds_not_existing.yml', __dir__).freeze
 
@@ -18,13 +21,12 @@ class UpdateFeedsTest < Minitest::Test
     File.expand_path('../data/feeds_not_array.yml', __dir__).freeze
 
   def expected
-    YAML.load_file(SAMPLE_CONFIG_PATH)
+    @expected ||= YAML.load_file(SAMPLE_CONFIG_PATH)
       .map(&:symbolize_keys)
       .map(&FeedSanitizer)
   end
 
   def test_names_match_config
-    Feed.delete_all
     subject.call(path: SAMPLE_CONFIG_PATH)
     actual_names = Feed.pluck(:name).to_set
     expected_names = expected.map { |feed| feed[:name] }.to_set
@@ -32,7 +34,6 @@ class UpdateFeedsTest < Minitest::Test
   end
 
   def test_update_inactive_feeds_status
-    Feed.delete_all
     feed = Feed.create!(name: SecureRandom.hex, status: FeedStatus.active)
     subject.call(path: SAMPLE_CONFIG_PATH)
     feed.reload
@@ -40,7 +41,6 @@ class UpdateFeedsTest < Minitest::Test
   end
 
   def test_active_feeds_status
-    Feed.delete_all
     subject.call(path: SAMPLE_CONFIG_PATH)
     Feed.update_all(status: FeedStatus.inactive)
     subject.call(path: SAMPLE_CONFIG_PATH)
@@ -49,9 +49,24 @@ class UpdateFeedsTest < Minitest::Test
   end
 
   def test_attributes_match_config
-    Feed.delete_all
     subject.call(path: SAMPLE_CONFIG_PATH)
-    expected
+    expected.each do |expected_feed|
+      feed = Feed.find_by(name: expected_feed[:name])
+      assert(feed)
+      expected_feed.each do |attribute_name, expected_value|
+        actual_value = feed.send(attribute_name)
+        if expected_value.nil?
+          assert_nil(actual_value)
+        else
+          assert_equal(expected_value, actual_value)
+        end
+      end
+    end
+  end
+
+  def test_config_override_existind_records
+    subject.call(path: ALT_SAMPLE_CONFIG_PATH)
+    subject.call(path: SAMPLE_CONFIG_PATH)
     expected.each do |expected_feed|
       feed = Feed.find_by(name: expected_feed[:name])
       assert(feed)
