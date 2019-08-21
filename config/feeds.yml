@@ -389,3 +389,13 @@
   normalizer: "monkeyuser"
   refresh_interval: 0
   import_limit: 10
+
+- name: "warandpeas"
+  loader: "twitter"
+  processor: "twitter"
+  normalizer: "twitter"
+  refresh_interval: 0
+  import_limit: 10
+  options:
+    twitter_user: "warandpeass"
+    only_with_attachments: true
