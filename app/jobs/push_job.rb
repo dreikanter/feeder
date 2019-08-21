@@ -13,27 +13,19 @@ class PushJob < ApplicationJob
 
   private
 
-  def create_freefeed_post
-    attach_ids = create_freefeed_attachments
+  def create_freefeed_post # rubocop:disable Metric/AbcSize
+    attach_ids = post.attachments.map do |url|
+      ff.create_attachment_from_url(url)
+    end
     post_id = ff.create_post(
       post.text,
       feeds: [post.feed.name],
       attachments: attach_ids
     )
-    create_freefeed_comments
-    post_id
-  end
-
-  def create_freefeed_comments
     post.comments.each do |comment|
       ff.create_comment(post_id, comment)
     end
-  end
-
-  def create_freefeed_attachments
-    post.attachments.map do |url|
-      ff.create_attachment_from_url(url)
-    end
+    post_id
   end
 
   def post
