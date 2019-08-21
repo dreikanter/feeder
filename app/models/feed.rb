@@ -35,6 +35,9 @@ class Feed < ApplicationRecord
 
   scope :ordered_active, -> { active.order(FEEDS_ORDER) }
 
+  # TODO: Refactor with a single query
+  scope :stale, -> { all.select(&:stale?) }
+
   def stale?
     return true if refresh_interval.zero? || !refreshed_at
     (Time.now.utc.to_i - refreshed_at.to_i).abs > refresh_interval
