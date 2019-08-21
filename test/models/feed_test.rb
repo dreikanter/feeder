@@ -54,28 +54,41 @@ class FeedTest < Minitest::Test
     assert(feed.stale?)
   end
 
-  REFRESH_INTERVAL = 600
+  REFRESH_INTERVAL = 1.day.seconds.to_i
 
   def test_stale_condition
-    feed = subject.new(
+    assert(REFRESH_INTERVAL.positive?)
+    refreshed_at = (REFRESH_INTERVAL + 1).seconds.ago
+    feed = create(
+      :feed,
       refresh_interval: REFRESH_INTERVAL,
-      refreshed_at: (REFRESH_INTERVAL + 10).seconds.ago
+      refreshed_at: refreshed_at
     )
-
     assert(feed.stale?)
+    assert(Feed.stale.exists?(feed.id))
   end
 
   def test_not_stale_condition
-    feed = subject.new(
+    assert(REFRESH_INTERVAL.positive?)
+    feed = create(
+      :feed,
       refresh_interval: REFRESH_INTERVAL,
-      refreshed_at: (REFRESH_INTERVAL - 10).seconds.ago
+      refreshed_at: Time.new.utc
     )
-
     refute(feed.stale?)
+    refute(Feed.stale.exists?(feed.id))
   end
 
-  def test_stale_scope
-    # TODO
+  def test_zero_refresh_interval_makes_feed_stale
+    feed = create(:feed, refresh_interval: 0)
+    assert(feed.stale?)
+    assert(subject.stale.exists?(feed.id))
+  end
+
+  def test_new_feeds_are_stale
+    feed = create(:feed, refreshed_at: nil)
+    assert(feed.stale?)
+    assert(subject.stale.exists?(feed.id))
   end
 
   def test_default_import_limit
