@@ -25,8 +25,8 @@ class SmbcNormalizerTest < Minitest::Test
   end
 
   def test_normalization
-    result = normalized.first
-    assert(result.success?)
+    assert(normalized.any?)
+    assert(normalized.each(&:success?))
   end
 
   def test_hidden_image

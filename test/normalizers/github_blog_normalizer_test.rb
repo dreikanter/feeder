@@ -22,8 +22,8 @@ class GithubBlogNormalizerTest < Minitest::Test
   end
 
   def test_normalization
-    assert(normalized.present?)
-    assert_equal(processed.length, normalized.length)
+    assert(normalized.any?)
+    assert(normalized.each(&:success?))
   end
 
   def test_all_attachment_urls_should_be_absolute
