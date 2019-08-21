@@ -29,31 +29,35 @@
 require 'test_helper'
 
 class FeedTest < Minitest::Test
+  def subject
+    Feed
+  end
+
   def test_valid
-    feed = Feed.new(name: 'sample')
+    feed = subject.new(name: 'sample')
     assert(feed.valid?)
   end
 
   def test_should_require_name
-    feed = Feed.new
+    feed = subject.new
     refute(feed.valid?)
     assert_includes(feed.errors, :name)
   end
 
   def test_default_refresh_interval
-    feed = Feed.new
+    feed = subject.new
     assert(feed.refresh_interval.zero?)
   end
 
   def test_new_feed_is_stale
-    feed = Feed.new
+    feed = subject.new
     assert(feed.stale?)
   end
 
   REFRESH_INTERVAL = 600
 
   def test_stale_condition
-    feed = Feed.new(
+    feed = subject.new(
       refresh_interval: REFRESH_INTERVAL,
       refreshed_at: (REFRESH_INTERVAL + 10).seconds.ago
     )
@@ -62,7 +66,7 @@ class FeedTest < Minitest::Test
   end
 
   def test_not_stale_condition
-    feed = Feed.new(
+    feed = subject.new(
       refresh_interval: REFRESH_INTERVAL,
       refreshed_at: (REFRESH_INTERVAL - 10).seconds.ago
     )
@@ -75,6 +79,6 @@ class FeedTest < Minitest::Test
   end
 
   def test_default_import_limit
-    assert_nil(Feed.new.import_limit)
+    assert_nil(subject.new.import_limit)
   end
 end

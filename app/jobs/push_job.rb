@@ -5,9 +5,8 @@ class PushJob < ApplicationJob
   # post.update(status: :error)
 
   def perform(post)
-    raise 'post does not exist' unless post.present?
     raise 'post is stale' if post.stale?
-    raise 'post is not ready yet or already published' unless post.ready?
+    raise 'post is not ready' unless post.ready?
 
     attach_ids = post.attachments.map do |url|
       # TODO: Move API logging to the wrapper class
@@ -31,7 +30,10 @@ class PushJob < ApplicationJob
       ff.create_comment(post_id, comment)
     end
 
-    post.update(status: :published)
+    post.update(status: PostStatus.published)
+  rescue StandardError
+    post.update(status: PostStatus.error)
+    raise
   end
 
   private

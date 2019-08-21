@@ -3,13 +3,14 @@ namespace :feeder do
   task pull: :environment do |_task, args|
     feed_name = args.extras[0]
     raise 'feed name is required' unless feed_name
-    feed = FeedBuilder.call(feed_name)
+    feed = Feed.active.find_by(name: feed_name)
+    raise 'specified feed does not exist or inactive' unless feed
     PullJob.perform_later(feed)
   end
 
   desc 'Pull all feeds'
   task pull_all: :environment do
-    FeedsList.call.each do |feed|
+    Feed.active.each do |feed|
       PullJob.perform_later(feed)
     end
   end
