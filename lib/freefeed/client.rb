@@ -1,3 +1,4 @@
+# TODO: Refactor and move to a gem
 module Freefeed
   class Client
     USER_AGENT = 'Mozilla'.freeze
