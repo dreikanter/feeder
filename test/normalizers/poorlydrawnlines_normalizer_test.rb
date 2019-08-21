@@ -21,8 +21,8 @@ class PoorlydrawnlinesNormalizerTest < Minitest::Test
   end
 
   def test_normalization
-    assert(normalized.present?)
-    assert_equal(processed.length, normalized.length)
+    assert(normalized.any?)
+    assert(normalized.each(&:success?))
   end
 
   FIRST_SAMPLE = {

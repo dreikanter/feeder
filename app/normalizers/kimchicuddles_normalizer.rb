@@ -1,4 +1,10 @@
 class KimchicuddlesNormalizer < BaseNormalizer
+  option(
+    :image_fetcher,
+    optional: true,
+    default: -> { TumblrImageFetcher }
+  )
+
   protected
 
   def text
@@ -14,7 +20,7 @@ class KimchicuddlesNormalizer < BaseNormalizer
   end
 
   def attachments
-    [TumblrImageFetcher.call(image_url)]
+    [image_url]
   end
 
   def comments
@@ -24,6 +30,10 @@ class KimchicuddlesNormalizer < BaseNormalizer
   private
 
   def image_url
+    image_fetcher.call(post_url)
+  end
+
+  def post_url
     Html.first_image_url(entity.summary)
   end
 

@@ -28,7 +28,8 @@ class NextbigfutureNormalizerTest < Minitest::Test
   end
 
   def test_normalization
-    normalized.each(&:success?)
+    assert(normalized.any?)
+    assert(normalized.each(&:success?))
   end
 
   FIRST_SAMPLE = {
