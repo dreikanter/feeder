@@ -1,4 +1,10 @@
 class NextbigfutureNormalizer < BaseNormalizer
+  option(
+    :thumb_fetcher,
+    optional: true,
+    default: -> { NextbigfutureThumbnailFetcher }
+  )
+
   protected
 
   def link
@@ -24,7 +30,7 @@ class NextbigfutureNormalizer < BaseNormalizer
   private
 
   def image_url
-    @image_url ||= NextbigfutureThumbnailFetcher.call(link)
+    @image_url ||= thumb_fetcher.call(entity.url)
   end
 
   def description
