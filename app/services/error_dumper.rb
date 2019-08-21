@@ -22,7 +22,7 @@ class ErrorDumper
     Error.create!(
       backtrace: backtrace,
       context: context,
-      exception: exception_class,
+      exception: exception_name,
       file_name: file_name,
       label: label,
       line_number: line_number,
@@ -41,7 +41,8 @@ class ErrorDumper
     exception.try(:backtrace) || []
   end
 
-  def exception_class
-    exception.try(:class).try(:name)
+  def exception_name
+    return exception.try(:class).try(:name) if exception.is_a?(Exception)
+    exception.to_s
   end
 end

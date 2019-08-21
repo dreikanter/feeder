@@ -32,7 +32,7 @@ class PullJob < ApplicationJob
 
     entities.value!.each do |entity|
       if entity.failure?
-        ErrorDumper.call(target: feed)
+        ErrorDumper.call(exception: entity.failure, target: feed)
         count_error
         break
       end
