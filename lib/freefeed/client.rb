@@ -17,14 +17,14 @@ module Freefeed
         safe_url = Addressable::URI.parse(Addressable::URI.encode(url))
         safe_url.scheme ||= DEFAULT_SCHEME
         # NOTE: User agent here is a workaround for PhD Comics "protection"
-        re = RestClient.get(safe_url.to_s, user_agent: USER_AGENT)
-        file.write(re.body)
+        response = RestClient.get(safe_url.to_s, user_agent: USER_AGENT)
+        file.write(response.body)
         file.rewind
         response = execute(:post, :attachments, payload: {
           'miltipart' => true,
           'file' => file
         }, headers: {
-          'Content-Type' => re.headers[:content_type]
+          'Content-Type' => response.headers[:content_type]
         })
         response.dig('attachments', 'id')
       end
