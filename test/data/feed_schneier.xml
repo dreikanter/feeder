@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+
+
+    <title>Schneier on Security</title>
+    <link rel="alternate" type="text/html" href="https://www.schneier.com/blog/" />
+    <link rel="self" type="application/atom+xml" href="https://www.schneier.com/blog/atom.xml" />
+    <id>tag:www.schneier.com,2014-06-11:/blog//2</id>
+
+
+    <updated>2019-08-21T11:46:38Z</updated>
+    <subtitle>A blog covering security and security technology.</subtitle>
+    <generator uri="http://www.sixapart.com/movabletype/">Movable Type Pro</generator>
+
+
+<entry>
+    <title>Google Finds 20-Year-Old Microsoft Windows Vulnerability</title>
+    <link rel="alternate" type="text/html" href="https://www.schneier.com/blog/archives/2019/08/google_finds_20.html" />
+    <id>tag:www.schneier.com,2019:/blog//2.12196</id>
+
+
+
+    <published>2019-08-21T11:46:38Z</published>
+    <updated>2019-08-21T11:46:38Z</updated>
+    <summary>There&apos;s no indication that this vulnerability was ever used in the wild, but the code it was discovered in -- Microsoft&apos;s Text Services Framework -- has been around since Windows XP....</summary>
+    <author>
+        <name>Bruce Schneier</name>
+    </author>
+
+    <category term="google" label="Google" scheme="http://www.sixapart.com/ns/types#tag" />
+    <category term="microsoft" label="Microsoft" scheme="http://www.sixapart.com/ns/types#tag" />
+    <category term="vulnerabilities" label="vulnerabilities" scheme="http://www.sixapart.com/ns/types#tag" />
+    <category term="windows" label="Windows" scheme="http://www.sixapart.com/ns/types#tag" />
+
+    <content type="html" xml:lang="en-us" xml:base="https://www.schneier.com/blog/">
+
+      <![CDATA[<p>There's no indication that <a href="https://arstechnica.com/information-technology/2019/08/a-look-at-the-windows-10-exploit-google-zero-disclosed-this-week/">this vulnerability</a> was ever used in the wild, but the code it was discovered in -- Microsoft's Text Services Framework -- has been around since Windows XP.</p>]]>
+
+
+    </content>
+</entry>
+
+<entry>
+    <title>Surveillance as a Condition for Humanitarian Aid</title>
+    <link rel="alternate" type="text/html" href="https://www.schneier.com/blog/archives/2019/08/surveillance_as_2.html" />
+    <id>tag:www.schneier.com,2019:/blog//2.12192</id>
+
+
+
+    <published>2019-08-20T11:45:41Z</published>
+    <updated>2019-08-20T11:45:41Z</updated>
+    <summary>Excellent op-ed on the growing trend to tie humanitarian aid to surveillance. Despite the best intentions, the decision to deploy technology like biometrics is built on a number of unproven assumptions, such as, technology solutions can fix deeply embedded political problems. And that auditing for fraud requires entire populations to be tracked using their personal data. And that experimental technologies...</summary>
+    <author>
+        <name>Bruce Schneier</name>
+    </author>
+
+    <category term="biometrics" label="biometrics" scheme="http://www.sixapart.com/ns/types#tag" />
+    <category term="privacy" label="privacy" scheme="http://www.sixapart.com/ns/types#tag" />
+    <category term="surveillance" label="surveillance" scheme="http://www.sixapart.com/ns/types#tag" />
+
+    <content type="html" xml:lang="en-us" xml:base="https://www.schneier.com/blog/">
+
+      <![CDATA[<p>Excellent <a href="https://www.nytimes.com/2019/07/11/opinion/data-humanitarian-aid.html">op-ed</a> on the growing trend to tie humanitarian aid to surveillance.</p>
+
+<blockquote><p>Despite the best intentions, the decision to deploy technology like biometrics is built on a number of unproven assumptions, such as, technology solutions can fix deeply embedded political problems. And that auditing for fraud requires entire populations to be tracked using their personal data. And that experimental technologies will work as planned in a chaotic conflict setting. And last, that the ethics of consent don't apply for people who are starving.</p></blockquote> ]]>
+
+
+    </content>
+</entry>
+
+<entry>
+    <title>Influence Operations Kill Chain</title>
+    <link rel="alternate" type="text/html" href="https://www.schneier.com/blog/archives/2019/08/influence_opera.html" />
+    <id>tag:www.schneier.com,2019:/blog//2.12194</id>
+
+
+
+    <published>2019-08-19T11:14:58Z</published>
+    <updated>2019-08-19T11:14:58Z</updated>
+    <summary>Influence operations are elusive to define. The Rand Corp.&apos;s definition is as good as any: &quot;the collection of tactical information about an adversary as well as the dissemination of propaganda in pursuit of a competitive advantage over an opponent.&quot; Basically, we know it when we see it, from bots controlled by the Russian Internet Research Agency to Saudi attempts to...</summary>
+    <author>
+        <name>Bruce Schneier</name>
+    </author>
+
+    <category term="disinformation" label="disinformation" scheme="http://www.sixapart.com/ns/types#tag" />
+    <category term="essays" label="essays" scheme="http://www.sixapart.com/ns/types#tag" />
+    <category term="fakenews" label="fake news" scheme="http://www.sixapart.com/ns/types#tag" />
+    <category term="nationalsecuritypolicy" label="national security policy" scheme="http://www.sixapart.com/ns/types#tag" />
+    <category term="propaganda" label="propaganda" scheme="http://www.sixapart.com/ns/types#tag" />
+
+    <content type="html" xml:lang="en-us" xml:base="https://www.schneier.com/blog/">
+
+      <![CDATA[<p>Influence operations are elusive to define. The Rand Corp.'s <a href="https://www.rand.org/topics/information-operations.html">definition</a> is as good as any: "the collection of tactical information about an adversary as well as the dissemination of propaganda in pursuit of a competitive advantage over an opponent." Basically, we know it when we see it, from bots controlled by the Russian Internet Research Agency to Saudi attempts to plant fake stories and manipulate political debate. These operations have been run by Iran against the United States, Russia against Ukraine, China against Taiwan, and probably lots more besides.</p>
+
+<p>Since the 2016 US presidential election, there have been an endless series of ideas about how countries can defend themselves. It's time to pull those together into a comprehensive approach to defending the public sphere and the institutions of democracy.</p>
+
+<p>Influence operations don't come out of nowhere. They exploit a series of predictable weaknesses -- and fixing those holes should be the first step in fighting them. In cybersecurity, this is known as a "<a href="https://www.sans.org/security-awareness-training/blog/applying-security-awareness-cyber-kill-chain">kill chain</a>." That can work in fighting influence operations, too­ -- laying out the steps of an attack and building the taxonomy of countermeasures.</p>
+
+<p>In an <a href="https://www.lawfareblog.com/toward-information-operations-kill-chain">exploratory blog post</a>, I first laid out a straw man information operations kill chain. I started with the seven <a href="https://euvsdisinfo.eu/seven-commandments-of-fake-news-new-york-times-exposes-kremlins-methods/">commandments</a>, or steps, laid out in a 2018 <i>New York Times</i> opinion <a href="https://www.nytimes.com/2018/11/12/opinion/russia-meddling-disinformation-fake-news-elections.html">video series</a> on "Operation Infektion," a 1980s Russian disinformation campaign. The information landscape has changed since the 1980s, and these operations have changed as well. Based on my own research and feedback from that initial attempt, I have modified those steps to bring them into the present day. I have also changed the name from "information operations" to "<a href="https://www.lawfareblog.com/developing-responses-cyber-enabled-information-warfare-and-influence-operations">influence operations</a>," because the former is <a href="https://www.jcs.mil/Portals/36/Documents/Doctrine/pubs/jp3_13.pdf">traditionally defined</a> by the US Department of Defense in ways that don't really suit these sorts of attacks.</p>
+
+<p><strong>Step 1:</strong> Find the cracks in the fabric of society­ -- the social, demographic, economic, and ethnic divisions. For campaigns that just try to weaken collective trust in government's institutions, lots of cracks will do. But for influence operations that are more directly focused on a particular policy outcome, only those related to that issue will be effective.</p>
+
+<p><strong>Countermeasures:</strong> There will always be open disagreements in a democratic society, but one defense is to shore up the institutions that make that society possible. Elsewhere I have <a href="https://www.lawfareblog.com/information-attacks-democracies">written</a> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3273111">about</a> the "common political knowledge" necessary for democracies to function. That shared knowledge has to be strengthened, thereby making it harder to exploit the inevitable cracks. It needs to be made unacceptable -- or at least costly -- for domestic actors to use these same disinformation techniques in their own rhetoric and political maneuvering, and to highlight and encourage cooperation when politicians honestly work across party lines. The public must learn to become reflexively suspicious of information that makes them angry at fellow citizens. These cracks can't be entirely sealed, as they emerge from the diversity that makes democracies strong, but they can be made harder to exploit. Much of the work in "norms" falls here, although this is essentially an unfixable problem. This makes the countermeasures in the later steps even more important.</p>
+
+<p><strong>Step 2:</strong> Build audiences, either by directly controlling a platform (like RT) or by cultivating relationships with people who will be receptive to those narratives. In 2016, this consisted of <a href="https://www.nytimes.com/2018/02/18/world/europe/russia-troll-factory.html">creating</a> social media accounts run either by human operatives or automatically by bots, making them seem legitimate, gathering followers. In the years following, this has gotten <a href="https://docs.wixstatic.com/ugd/9d177c_3e548ca15bb64a85ab936d76c95897c7.pdf?index=true">subtler</a>. As social media companies have gotten better at deleting these accounts, two separate tactics have emerged. The first is microtargeting, where influence accounts join existing social circles and only engage with a few different people. The other is influencer influencing, where these accounts only try to affect a few proxies (see step 6) -- either journalists or other influencers -- who can carry their message for them.</p>
+
+<p><strong>Countermeasures:</strong> This is where social media companies have made all the difference. By allowing groups of like-minded people to find and talk to each other, these companies have given propagandists the ability to find audiences who are receptive to their messages. Social media companies need <a href="https://washingtonmonthly.com/magazine/january-february-march-2018/how-to-fix-facebook-before-it-fixes-us/">to</a> <a href="https://datasociety.net/output/data-craft/">detect</a> and <a href="https://techcrunch.com/2018/04/03/facebook-russia/">delete</a> accounts belonging to propagandists as well as bots and groups run by those propagandists. Troll farms exhibit particular behaviors that the platforms need to be able to recognize. It would be best to delete accounts early, before those accounts have the time to establish themselves.</p>
+
+<p>This might involve normally competitive companies working together, since operations and account names <a href="https://www.fpri.org/article/2017/10/extremist-content-russian-disinformation-online-working-tech-find-solutions/">often cross platforms</a>, and cross-platform visibility is an important tool for identifying them. Taking down accounts as early as possible is important, because it takes time to establish the legitimacy and reach of any one account. The NSA and US Cyber Command worked with the FBI and social media companies to <a href="https://www.nytimes.com/2018/12/21/us/politics/russia-midterm-election-influence-coates.html">take down</a> Russian propaganda accounts during the 2018 midterm elections. It may be necessary to pass laws requiring Internet companies to do this. While many social networking companies have reversed their "we don't care" attitudes since the 2016 election, there's no guarantee that they will continue to remove these accounts -- especially since their profits depend on engagement and not accuracy.</p>
+
+<p><strong>Step 3:</strong> Seed distortion by creating alternative narratives. In the 1980s, this was a single "big lie," but today it is more about many contradictory alternative truths -- a "<a href="https://www.rand.org/content/dam/rand/pubs/perspectives/PE100/PE198/RAND_PE198.pdf">firehose of falsehood</a>" -- that distort the political debate. These can be fake or heavily slanted news stories, extremist blog posts, fake stories on <a href="https://citizenlab.ca/2019/05/burned-after-reading-endless-mayflys-ephemeral-disinformation-campaign/">real-looking websites</a>, <a href="https://www.lawfareblog.com/deep-fakes-looming-crisis-national-security-democracy-and-privacy">deepfake videos</a>, and so on.</p>
+
+<p><strong>Countermeasures:</strong> Fake news and propaganda are <a href="https://warontherocks.com/2018/05/defending-the-indefensible-a-new-strategy-for-stopping-information-operations/">viruses</a>; they spread through otherwise healthy populations. Fake news has to be identified and labeled as such by social media companies and others, including recognizing and identifying manipulated videos known as deepfakes. Facebook is <a href="https://www.zdnet.com/article/facebooks-fact-checkers-train-ai-to-detect-deep-fake-videos/">already</a> making <a href="https://www.theverge.com/2018/10/19/18001288/facebook-fake-news-hunt-spread-blog-election-misinformation">moves</a> in this direction. Educators need to teach <a href="https://www.usatoday.com/story/opinion/2019/02/12/internet-confusion-rethink-education-digital-sputnik-moment-column/2769781002/">better</a> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3048994">digital</a> <a href="https://webliteracy.pressbooks.com/">literacy</a>, as <a href="https://www.cnn.com/interactive/2019/05/europe/finland-fake-news-intl/">Finland is doing</a>. All of this will help people recognize propaganda campaigns when they occur, so they can <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/gch2.201600008">inoculate themselves</a> against their effects. This alone cannot solve the problem, as much sharing of fake news is about <a href="https://www.cnn.com/2016/11/20/opinions/fake-news-stories-thrive-donath/index.html">social</a> <a href="https://www.theguardian.com/commentisfree/2017/nov/10/fake-news-social-media-current-affairs-approval">signaling</a>, and those who share it care more about how it demonstrates their core beliefs than whether or not it is true. Still, it is part of the solution.</p>
+
+<p><strong>Step 4:</strong> Wrap those narratives in kernels of truth. A core of fact makes falsehoods more believable and helps them spread. Releasing stolen emails from Hillary Clinton's campaign chairman John Podesta and the Democratic National Committee, or <a href="https://www.nytimes.com/2017/05/08/world/europe/macron-hacking-attack-france.html">documents</a> from Emmanuel Macron's campaign in France, were both an example of that kernel of truth. Releasing stolen emails with a few deliberate falsehoods embedded among them is an even more effective tactic.</p>
+
+<p><strong>Countermeasures:</strong> Defenses involve exposing the untruths and distortions, but this is also complicated to put into practice. Fake news <a href="https://www.journalism.org/2016/12/15/many-americans-believe-fake-news-is-sowing-confusion/">sows confusion</a> just by being there. Psychologists have <a href="https://www.poynter.org/fact-checking/2017/a-meta-analysis-of-studies-about-debunking-offers-a-few-tips-for-fact-checkers/">demonstrated</a> that an inadvertent effect of debunking a piece of fake news is to amplify the message of that debunked story. Hence, it is essential to replace the fake news with accurate narratives that counter the propaganda. That kernel of truth is part of a larger true narrative. The media needs to learn skepticism about the chain of information and to exercise caution in how they approach debunked stories.</p>
+
+<p><strong>Step 5:</strong> Conceal your hand. Make it seem as if the stories came from somewhere else.</p>
+
+<p><strong>Countermeasures:</strong> Here the answer is attribution, attribution, attribution. The quicker an influence operation can be pinned on an attacker, the easier it is to defend against it. This will require efforts by both the social media platforms and the intelligence community, not just to detect influence operations and expose them but also to be able to <a href="https://www.lawfareblog.com/secdef-panetta-speech-cybersecurity">attribute</a> attacks. Social media companies need to be more transparent about how their algorithms work and make source publications more obvious for online articles. Even small measures like the <a href="https://www.warner.senate.gov/public/index.cfm/the-honest-ads-act">Honest Ads Act</a>, requiring transparency in online political ads, will help. Where companies lack business incentives to do this, regulation will be the only answer.</p>
+
+<p><strong>Step 6:</strong> Cultivate proxies who <a href="https://observer.com/2017/11/infowars-alex-jones-stole-content-from-kremlin-backed-russia-today/">believe and amplify</a> the narratives. Traditionally, these people have been called "useful idiots." Encourage them to take action outside of the Internet, like holding <a href="https://thehill.com/policy/technology/439532-mueller-identified-dozens-of-us-rallies-organized-by-russian-troll-farm">political rallies</a>, and to adopt positions even <a href="https://www.seattletimes.com/nation-world/justice-dept-charges-russian-woman-with-interference-in-midterm-elections/">more extreme</a> than they would otherwise.</p>
+
+<p><strong>Countermeasures:</strong> We can mitigate the influence of people who disseminate harmful information, even if they are unaware they are amplifying deliberate propaganda. This does not mean that the government needs to regulate speech; corporate platforms already employ a variety of systems to amplify and diminish particular speakers and messages. Additionally, the antidote to the ignorant people who repeat and amplify propaganda messages is other influencers who respond with the truth -- in the words of <a href="https://shorensteincenter.org/wp-content/uploads/2017/05/Combating-Fake-News-Agenda-for-Research-1.pdf">one report</a>, we must "make the truth louder." Of course, there will always be true believers for whom no amount of fact-checking or counter-speech will suffice; this is not intended for them. Focus instead on persuading the persuadable.</p>
+
+<p><strong>Step 7:</strong> Deny involvement in the propaganda campaign, even if the truth is obvious. Although since one major goal is to convince people that nothing can be trusted, rumors of involvement can be beneficial. The first was Russia's tactic during the 2016 US presidential election; it employed the second during the 2018 midterm elections.</p>
+
+<p><strong>Countermeasures:</strong> When attack attribution relies on secret evidence, it is easy for the attacker to deny involvement. Public attribution of information attacks must be accompanied by convincing evidence. This will be difficult when attribution involves classified intelligence information, but there is no alternative. Trusting the government without evidence, as the NSA's Rob Joyce <a href="https://www.wired.com/2016/01/nsa-hacker-chief-explains-how-to-keep-him-out-of-your-system/">recommended</a> in a 2016 talk, is not enough. Governments will have to disclose.</p>
+
+<p><strong>Step 8:</strong> Play the long game. Strive for long-term impact over immediate effects. Engage in multiple operations; most won't be successful, but some will.</p>
+
+<p><strong>Countermeasures:</strong> Counterattacks can disrupt the attacker's ability to maintain influence operations, as <a href="https://www.washingtonpost.com/world/national-security/us-cyber-command-operation-disrupted-internet-access-of-russian-troll-factory-on-day-of-2018-midterms/2019/02/26/1827fc9e-36d6-11e9-af5b-b51b7ff322e9_story.html">US Cyber Command did</a> during the 2018 midterm elections. The NSA's new policy of "<a href="https://www.lawfareblog.com/persistent-engagement-and-tacit-bargaining-path-toward-constructing-norms-cyberspace">persistent engagement</a>" (see the article by, and interview with, US Cyber Command Commander Paul Nakasone <a href="https://ndupress.ndu.edu/Portals/68/Documents/jfq/jfq-92/jfq-92.pdf">here</a>) is a strategy to achieve this. So are <a href="https://www.nytimes.com/2016/12/29/us/politics/russia-election-hacking-sanctions.html">targeted</a> <a href="https://home.treasury.gov/news/featured-stories/treasury-designates-russian-oligarchs-officials-and-entities-in-response-to">sanctions</a> and <a href="https://www.justice.gov/opa/pr/grand-jury-indicts-thirteen-russian-individuals-and-three-russian-companies-scheme-interfere">indicting individuals</a> involved in these operations. While there is little hope of bringing them to the United States to stand trial, the possibility of not being able to travel internationally for fear of being arrested will lead some people to refuse to do this kind of work. More generally, we need to better encourage both politicians and social media companies to think beyond the next election cycle or quarterly earnings report.</p>
+
+<p>Permeating all of this is the importance of deterrence. Deterring them will require a different theory. It will require, as the political scientist Henry Farrell and I <a href="https://www.lawfareblog.com/information-attacks-democracies">have</a> <a href="https://motherboard.vice.com/en_us/article/mbyg3x/the-most-damaging-election-disinformation-campaign-came-from-donald-trump-not-russia">postulated</a>, thinking of democracy itself as an <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3273111">information system</a> and understanding "<a href="https://bostonreview.net/forum-henry-farrell-bruce-schneier-democracys-dilemma">Democracy's Dilemma</a>": how the very tools of a free and open society can be subverted to attack that society. We need to adjust our <a href="https://www.belfercenter.org/publication/protecting-democracy-era-cyber-information-war">theories</a> of <a href="https://www.airuniversity.af.edu/Portals/10/SSQ/documents/Volume-12_Issue-3/Ajir.pdf">deterrence</a> to the realities of the information age and the democratization of attackers. If we can mitigate the effectiveness of influence operations, if we can publicly attribute, if we can respond either diplomatically or otherwise -- we can deter these attacks from nation-states.</p>
+
+<p>None of these defensive actions is sufficient on its own. Steps overlap and in some cases can be skipped. Steps can be conducted simultaneously or out of order. A single operation can span multiple targets or be an amalgamation of multiple attacks by multiple actors. Unlike a cyberattack, <a href="https://defusingdis.info/2019/01/28/defending-democratic-mechanisms-and-institutions-against-information-attacks/">disrupting</a> will require more than disrupting any particular step. It will require a coordinated effort between government, Internet platforms, the media, and others.</p>
+
+<p>Also, this model is not static, of course. Influence operations have already evolved since the 2016 election and will continue to evolve over time -- especially as countermeasures are deployed and attackers figure out how to evade them. We need to be prepared for wholly different kinds of influencer operations during the 2020 US presidential election. The goal of this kill chain is to be general enough to encompass a panoply of tactics but specific enough to illuminate countermeasures. But even if this particular model doesn't fit every influence operation, it's important to start somewhere.</p>
+
+<p>Others have worked on similar ideas. Anthony Soules, a former NSA employee who now leads cybersecurity strategy for Amgen, presented this concept at a private event. Clint Watts of the Alliance for Securing Democracy is <a href="https://securingdemocracy.gmfus.org/advanced-persistent-manipulators-part-two-intelligence-led-social-media-defense/">thinking</a> along these lines as well. The <a href="https://credibilitycoalition.org/">Credibility Coalition's</a> Misinfosec Working Group proposed a "<a href="https://misinfocon.com/misinformation-has-stages-7e00bd917108">misinformation pyramid</a>." The US Justice Department developed a "<a href="https://www.justice.gov/ag/page/file/1076696/download">Malign Foreign Influence Campaign Cycle</a>," with associated countermeasures.</p>
+
+<p>The threat from influence operations is real and important, and it deserves more study. At the same time, there's no reason to panic. Just as overly optimistic technologists were wrong that the Internet was the single technology that was going to overthrow dictators and liberate the planet, so pessimists are also probably wrong that it is going to empower dictators and destroy democracy. If we deploy countermeasures across the entire kill chain, we can defend ourselves from these attacks.</p>
+
+<p>But Russian interference in the 2016 presidential election shows not just that such actions are possible but also that they're surprisingly inexpensive to run. As these tactics continue to be democratized, more people will attempt them. And as more people, and multiple parties, conduct influence operations, they will increasingly be seen as how the game of politics is played in the information age. This means that the line will increasingly blur between influence operations and politics as usual, and that domestic influencers will be using them as part of campaigning. Defending democracy against foreign influence also necessitates making our own political debate healthier.</p>
+
+<p>This essay <a href="https://foreignpolicy.com/2019/08/12/8-ways-to-stay-ahead-of-influence-operations/">previously appeared</a> in <i>Foreign Policy</i>.<br />
+</p>]]>
+
+
+    </content>
+</entry>
+
+<entry>
+    <title>Friday Squid Blogging: Robot Squid Propulsion</title>
+    <link rel="alternate" type="text/html" href="https://www.schneier.com/blog/archives/2019/08/friday_squid_bl_690.html" />
+    <id>tag:www.schneier.com,2019:/blog//2.12166</id>
+
+
+
+    <published>2019-08-16T21:05:53Z</published>
+    <updated>2019-08-16T21:05:53Z</updated>
+    <summary>Interesting research: The squid robot is powered primarily by compressed air, which it stores in a cylinder in its nose (do squids have noses?). The fins and arms are controlled by pneumatic actuators. When the robot wants to move through the water, it opens a value to release a modest amount of compressed air; releasing the air all at once...</summary>
+    <author>
+        <name>Bruce Schneier</name>
+    </author>
+
+    <category term="robotics" label="robotics" scheme="http://www.sixapart.com/ns/types#tag" />
+    <category term="squid" label="squid" scheme="http://www.sixapart.com/ns/types#tag" />
+
+    <content type="html" xml:lang="en-us" xml:base="https://www.schneier.com/blog/">
+
+      <![CDATA[<p>Interesting <a href="https://spectrum.ieee.org/automaton/robotics/robotics-hardware/robot-squid-and-robot-scallop-showcase-bioinspired-underwater-propulsion">research</a>:</p>
+
+<blockquote><p>The squid robot is powered primarily by compressed air, which it stores in a cylinder in its nose (do squids have noses?). The fins and arms are controlled by pneumatic actuators. When the robot wants to move through the water, it opens a value to release a modest amount of compressed air; releasing the air all at once generates enough thrust to fire the robot squid completely out of the water.
+
+<p>The jumping that you see at the end of the video is preliminary work; we're told that the robot squid can travel between 10 and 20 meters by jumping, whereas using its jet underwater will take it just 10 meters. At the moment, the squid can only fire its jet once, but the researchers plan to replace the compressed air with something a bit denser, like liquid CO2, which will allow for extended operation and multiple jumps. There's also plenty of work to do with using the fins for dynamic control, which the researchers say will "reveal the superiority of the natural flying squid movement."</p></blockquote>
+
+<p>I can't find the paper online.</p>
+
+<p>As usual, you can also use this squid post to talk about the security stories in the news that I haven't covered.</p>
+
+<p>Read my blog posting guidelines <a href="https://www.schneier.com/blog/archives/2017/03/commenting_poli.html">here</a>.</p>]]>
+
+
+    </content>
+</entry>
+
+<entry>
+    <title>Software Vulnerabilities in the Boeing 787</title>
+    <link rel="alternate" type="text/html" href="https://www.schneier.com/blog/archives/2019/08/software_vulner.html" />
+    <id>tag:www.schneier.com,2019:/blog//2.12183</id>
+
+
+
+    <published>2019-08-16T11:12:05Z</published>
+    <updated>2019-08-16T11:12:05Z</updated>
+    <summary>Boeing left its software unprotected, and researchers have analyzed it for vulnerabilities: At the Black Hat security conference today in Las Vegas, Santamarta, a researcher for security firm IOActive, plans to present his findings, including the details of multiple serious security flaws in the code for a component of the 787 known as a Crew Information Service/Maintenance System. The CIS/MS...</summary>
+    <author>
+        <name>Bruce Schneier</name>
+    </author>
+
+    <category term="airtravel" label="air travel" scheme="http://www.sixapart.com/ns/types#tag" />
+    <category term="hacking" label="hacking" scheme="http://www.sixapart.com/ns/types#tag" />
+    <category term="vulnerabilities" label="vulnerabilities" scheme="http://www.sixapart.com/ns/types#tag" />
+
+    <content type="html" xml:lang="en-us" xml:base="https://www.schneier.com/blog/">
+
+      <![CDATA[<p>Boeing left its software unprotected, and researchers have <a href="https://www.wired.com/story/boeing-787-code-leak-security-flaws/">analyzed it</a> for vulnerabilities:</p>
+
+<blockquote><p>At the Black Hat security conference today in Las Vegas, Santamarta, a researcher for security firm IOActive, plans to present his findings, including the details of multiple serious security flaws in the code for a component of the 787 known as a Crew Information Service/Maintenance System. The CIS/MS is responsible for applications like maintenance systems and the so-called electronic flight bag, a collection of navigation documents and manuals used by pilots. Santamarta says he found a slew of memory corruption vulnerabilities in that CIS/MS, and he claims that a hacker could use those flaws as a foothold inside a restricted part of a plane's network. An attacker could potentially pivot, Santamarta says, from the in-flight entertainment system to the CIS/MS to send commands to far more sensitive components that control the plane's safety-critical systems, including its engine, brakes, and sensors. Boeing maintains that other security barriers in the 787's network architecture would make that progression impossible.
+
+<p>Santamarta admits that he doesn't have enough visibility into the 787's internals to know if those security barriers are circumventable. But he says his research nonetheless represents a significant step toward showing the possibility of an actual plane-hacking technique. "We don't have a 787 to test, so we can't assess the impact," Santamarta says. "We're not saying it's doomsday, or that we can take a plane down. But we can say: This shouldn't happen."</p></blockquote>
+
+<p>Boeing denies that there's any problem:</p>
+
+<blockquote><p>In a statement, Boeing said it had investigated IOActive's claims and concluded that they don't represent any real threat of a cyberattack. "IOActive's scenarios cannot affect any critical or essential airplane system and do not describe a way for remote attackers to access important 787 systems like the avionics system," the company's statement reads. "IOActive reviewed only one part of the 787 network using rudimentary tools, and had no access to the larger system or working environments. IOActive chose to ignore our verified results and limitations in its research, and instead made provocative statements as if they had access to and analyzed the working system. While we appreciate responsible engagement from independent cybersecurity researchers, we're disappointed in IOActive's irresponsible presentation."</p></blockquote>
+
+<p>This being Black Hat and Las Vegas, I'll say it this way: I would bet money that Boeing is wrong. I don't have an opinion about whether or not it's lying.</p>]]>
+
+
+    </content>
+</entry>
+
+<entry>
+    <title>Bypassing Apple FaceID&apos;s Liveness Detection Feature</title>
+    <link rel="alternate" type="text/html" href="https://www.schneier.com/blog/archives/2019/08/bypassing_apple.html" />
+    <id>tag:www.schneier.com,2019:/blog//2.12182</id>
+
+
+
+    <published>2019-08-15T11:19:12Z</published>
+    <updated>2019-08-15T11:19:12Z</updated>
+    <summary>Apple&apos;s FaceID has a liveness detection feature, which prevents someone from unlocking a victim&apos;s phone by putting it in front of his face while he&apos;s sleeping. That feature has been hacked: Researchers on Wednesday during Black Hat USA 2019 demonstrated an attack that allowed them to bypass a victim&apos;s FaceID and log into their phone simply by putting a pair...</summary>
+    <author>
+        <name>Bruce Schneier</name>
+    </author>
+
+    <category term="apple" label="Apple" scheme="http://www.sixapart.com/ns/types#tag" />
+    <category term="biometrics" label="biometrics" scheme="http://www.sixapart.com/ns/types#tag" />
+    <category term="hacking" label="hacking" scheme="http://www.sixapart.com/ns/types#tag" />
+    <category term="identification" label="identification" scheme="http://www.sixapart.com/ns/types#tag" />
+
+    <content type="html" xml:lang="en-us" xml:base="https://www.schneier.com/blog/">
+
+      <![CDATA[<p>Apple's FaceID has a liveness detection feature, which prevents someone from unlocking a victim's phone by putting it in front of his face while he's sleeping. That feature has been <a href="https://threatpost.com/researchers-bypass-apple-faceid-using-biometrics-achilles-heel/147109/">hacked</a>:</p>
+
+<blockquote><p>Researchers on Wednesday during <a href="https://threatpost.com/researchers-bypass-apple-faceid-using-biometrics-achilles-heel/147109/">Black Hat USA 2019</a> demonstrated an attack that allowed them to bypass a victim's FaceID and log into their phone simply by putting a pair of modified glasses on their face. By merely placing tape carefully over the lenses of a pair glasses and placing them on the victim's face the researchers demonstrated how they could bypass Apple's FaceID in a specific scenario. The attack itself is difficult, given the bad actor would need to figure out how to put the glasses on an unconscious victim without waking them up.</p></blockquote>]]>
+
+
+    </content>
+</entry>
+
+<entry>
+    <title>Side-Channel Attack against Electronic Locks</title>
+    <link rel="alternate" type="text/html" href="https://www.schneier.com/blog/archives/2019/08/side-channel_at_2.html" />
+    <id>tag:www.schneier.com,2019:/blog//2.12181</id>
+
+
+
+    <published>2019-08-14T17:36:54Z</published>
+    <updated>2019-08-14T17:36:54Z</updated>
+    <summary>Several high-security electronic locks are vulnerable to side-channel attacks involving power monitoring....</summary>
+    <author>
+        <name>Bruce Schneier</name>
+    </author>
+
+    <category term="hacking" label="hacking" scheme="http://www.sixapart.com/ns/types#tag" />
+    <category term="locks" label="locks" scheme="http://www.sixapart.com/ns/types#tag" />
+    <category term="sidechannelattacks" label="side-channel attacks" scheme="http://www.sixapart.com/ns/types#tag" />
+    <category term="vulnerabilities" label="vulnerabilities" scheme="http://www.sixapart.com/ns/types#tag" />
+
+    <content type="html" xml:lang="en-us" xml:base="https://www.schneier.com/blog/">
+
+      <![CDATA[<p>Several high-security electronic locks are vulnerable to <a href="https://www.reuters.com/article/us-locks-cyber-exclusive/exclusive-high-security-locks-for-government-and-banks-hacked-by-researcher-idUSKCN1UW26Z">side-channel attacks</a> involving power monitoring.<br />
+</p>]]>
+
+
+    </content>
+</entry>
+
+<entry>
+    <title>Attorney General Barr and Encryption</title>
+    <link rel="alternate" type="text/html" href="https://www.schneier.com/blog/archives/2019/08/attorney_genera.html" />
+    <id>tag:www.schneier.com,2019:/blog//2.12186</id>
+
+
+
+    <published>2019-08-14T11:18:01Z</published>
+    <updated>2019-08-14T11:18:01Z</updated>
+    <summary>Last month, Attorney General William Barr gave a major speech on encryption policy­what is commonly known as &quot;going dark.&quot; Speaking at Fordham University in New York, he admitted that adding backdoors decreases security but that it is worth it. Some hold this view dogmatically, claiming that it is technologically impossible to provide lawful access without weakening security against unlawful access....</summary>
+    <author>
+        <name>Bruce Schneier</name>
+    </author>
+
+
+    <content type="html" xml:lang="en-us" xml:base="https://www.schneier.com/blog/">
+
+      <![CDATA[<p>Last month, Attorney General William Barr gave a major speech on encryption policy­what is commonly known as "going dark." Speaking at Fordham University in New York, <a href="https://techcrunch.com/2019/07/23/william-barr-consumers-security-risks-backdoors/">he</a> <a href="https://twitter.com/charlie_savage/status/1153692366966013952">admitted</a> that adding backdoors decreases security but that it is worth it.</p>
+
+<blockquote><p>Some hold this view dogmatically, claiming that it is technologically impossible to provide lawful access without weakening security against unlawful access. But, in the world of cybersecurity, we do not deal in absolute guarantees but in relative risks. All systems fall short of optimality and have some residual risk of vulnerability -- a point which the tech community acknowledges when they propose that law enforcement can satisfy its requirements by exploiting vulnerabilities in their products. The real question is whether the residual risk of vulnerability resulting from incorporating a lawful access mechanism is materially greater than those already in the unmodified product. The Department does not believe this can be demonstrated.
+
+<p>Moreover, even if there was, in theory, a slight risk differential, its significance should not be judged solely by the extent to which it falls short of theoretical optimality. Particularly with respect to encryption marketed to consumers, the significance of the risk should be assessed based on its practical effect on consumer cybersecurity, as well as its relation to the net risks that offering the product poses for society. After all, we are not talking about protecting the Nation's nuclear launch codes. Nor are we necessarily talking about the customized encryption used by large business enterprises to protect their operations. We are talking about consumer products and services such as messaging, smart phones, e-mail, and voice and data applications. If one already has an effective level of security say, by way of illustration, one that protects against 99 percent of foreseeable threats -- is it reasonable to incur massive further costs to move slightly closer to optimality and attain a 99.5 percent level of protection? A company would not make that expenditure; nor should society. Here, some argue that, to achieve at best a slight incremental improvement in security, it is worth imposing a massive cost on society in the form of degraded safety. This is untenable. If the choice is between a world where we can achieve a 99 percent assurance against cyber threats to consumers, while still providing law enforcement 80 percent of the access it might seek; or a world, on the other hand, where we have boosted our cybersecurity to 99.5 percent but at a cost reducing law enforcements [sic] access to zero percent the choice for society is clear.</p></blockquote>
+
+<p>I think this is a major change in government position. Previously, the FBI, the Justice Department and so on had claimed that backdoors for law enforcement could be added without any loss of security. They maintained that technologists just need to figure out how­ -- an approach we have derisively named "<a href="https://boingboing.net/2018/01/12/imaginary-numbers.html">nerd harder</a>."</p>
+
+<p>With this change, we can finally have a sensible policy conversation. Yes, adding a backdoor increases our collective security because it allows law enforcement to eavesdrop on the bad guys. But adding that backdoor also decreases our collective security because the bad guys can eavesdrop on everyone. This is exactly the policy debate we should be having -- not the fake one about whether or not we can have both security and surveillance.</p>
+
+<p>Barr makes the point that this is about "consumer cybersecurity" and not "nuclear launch codes." This is true, but it ignores the huge amount of national security-related communications between those two poles. The same consumer communications and computing devices are used by our lawmakers, CEOs, legislators, law enforcement officers, nuclear power plant operators, election officials and so on. There's no longer a difference between consumer tech and government tech -- it's all the same tech.</p>
+
+<p>Barr also says:</p>
+
+<blockquote><p>Further, the burden is not as onerous as some make it out to be. I served for many years as the general counsel of a large telecommunications concern. During my tenure, we dealt with these issues and lived through the passage and implementation of CALEA the Communications Assistance for Law Enforcement Act. CALEA imposes a statutory duty on telecommunications carriers to maintain the capability to provide lawful access to communications over their facilities. Companies bear the cost of compliance but have some flexibility in how they achieve it, and the system has by and large worked. I therefore reserve a heavy dose of skepticism for those who claim that maintaining a mechanism for lawful access would impose an unreasonable burden on tech firms especially the big ones. It is absurd to think that we would preserve lawful access by mandating that physical telecommunications facilities be accessible to law enforcement for the purpose of obtaining content, while allowing tech providers to block law enforcement from obtaining that very content.</p></blockquote>
+
+<p>That telecommunications company was <a href="https://biglawbusiness.com/william-barr-would-bring-telecom-chops-to-justice-department">GTE -- which became Verizon</a>. Barr conveniently ignores that CALEA-enabled phone switches were used to <a href="https://www.schneier.com/blog/archives/2007/07/story_of_the_gr_1.html">spy</a> <a href="https://spectrum.ieee.org/telecom/security/the-athens-affair">on</a> government officials in Greece in 2003 -- which seems to have been a National Security Agency operation -- and on <a href="https://en.wikipedia.org/wiki/SISMI-Telecom_scandal">a variety of people in Italy</a> in 2006. Moreover, in 2012 every CALEA-enabled switch sold to the Defense Department had <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2028152">security vulnerabilities</a>. (I wrote about all this, and more, <a href="https://www.schneier.com/blog/archives/2013/06/the_problems_wi_3.html">in 2013</a>.)</p>
+
+<p>The final thing I noticed about the speech is that it is not about iPhones and data at rest. It is about communications­ -- data in transit. The "going dark" debate has bounced back and forth between those two aspects for decades. It seems to be bouncing once again.</p>
+
+<p>I hope that Barr's latest speech signals that we can finally move on from the fake security vs. privacy debate, and to the real <a href="https://opensource.com/article/18/6/listening-susan-landau">security vs. security</a> debate. I know where I stand on that: As computers continue to permeate every aspect of our lives, society, and critical infrastructure, it is much more important to ensure that they are secure from everybody -- even at the cost of law enforcement access­ -- than it is to allow access at the cost of security. Barr is wrong, it kind of is like these systems are protecting nuclear launch codes.</p>
+
+<p>This essay <a href="https://www.lawfareblog.com/attorney-general-william-barr-encryption-policy">previously appeared</a> on Lawfare.com.</p>]]>
+
+
+    </content>
+</entry>
+
+<entry>
+    <title>Exploiting GDPR to Get Private Information</title>
+    <link rel="alternate" type="text/html" href="https://www.schneier.com/blog/archives/2019/08/exploiting_gdpr.html" />
+    <id>tag:www.schneier.com,2019:/blog//2.12180</id>
+
+
+
+    <published>2019-08-13T11:17:38Z</published>
+    <updated>2019-08-14T11:49:04Z</updated>
+    <summary>A researcher abused the GDPR to get information on his fiancee: It is one of the first tests of its kind to exploit the EU&apos;s General Data Protection Regulation (GDPR), which came into force in May 2018. The law shortened the time organisations had to respond to data requests, added new types of information they have to provide, and increased...</summary>
+    <author>
+        <name>Bruce Schneier</name>
+    </author>
+
+    <category term="cybersecurity" label="cybersecurity" scheme="http://www.sixapart.com/ns/types#tag" />
+    <category term="gdpr" label="GDPR" scheme="http://www.sixapart.com/ns/types#tag" />
+    <category term="privacy" label="privacy" scheme="http://www.sixapart.com/ns/types#tag" />
+
+    <content type="html" xml:lang="en-us" xml:base="https://www.schneier.com/blog/">
+
+      <![CDATA[<p>A researcher <a href="https://www.bbc.com/news/technology-49252501">abused the GDPR</a> to get information on his fiancee:</p>
+
+<blockquote><p>It is one of the first tests of its kind to exploit the <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN">EU's General Data Protection Regulation (GDPR)</a>, which came into force in May 2018. The law shortened the time organisations had to respond to data requests, added new types of information they have to provide, and increased the potential penalty for non-compliance.
+
+<p>"Generally if it was an extremely large company -- especially tech ones -- they tended to do really well," he told the BBC.</p>
+
+<p>"Small companies tended to ignore me.</p>
+
+<p>"But the kind of mid-sized businesses that knew about GDPR, but maybe didn't have much of a specialised process [to handle requests], failed."</p>
+
+<p>He declined to identify the organisations that had mishandled the requests, but said they had included:</p>
+
+<ul><li>a UK hotel chain that shared a complete record of his partner's overnight stays
+
+<p><li>two UK rail companies that provided records of all the journeys she had taken with them over several years</p>
+
+<p><li>a US-based educational company that handed over her high school grades, mother's maiden name and the results of a criminal background check survey.</ul></blockquote>]]>
+
+
+    </content>
+</entry>
+
+<entry>
+    <title>Evaluating the NSA&apos;s Telephony Metadata Program</title>
+    <link rel="alternate" type="text/html" href="https://www.schneier.com/blog/archives/2019/08/evaluating_the_1.html" />
+    <id>tag:www.schneier.com,2019:/blog//2.12178</id>
+
+
+
+    <published>2019-08-12T11:14:49Z</published>
+    <updated>2019-08-12T11:14:49Z</updated>
+    <summary>Interesting analysis: &quot;Examining the Anomalies, Explaining the Value: Should the USA FREEDOM Act&apos;s Metadata Program be Extended?&quot; by Susan Landau and Asaf Lubin. Abstract: The telephony metadata program which was authorized under Section 215 of the PATRIOT Act, remains one of the most controversial programs launched by the U.S. Intelligence Community (IC) in the wake of the 9/11 attacks. Under...</summary>
+    <author>
+        <name>Bruce Schneier</name>
+    </author>
+
+    <category term="academicpapers" label="academic papers" scheme="http://www.sixapart.com/ns/types#tag" />
+    <category term="fisa" label="FISA" scheme="http://www.sixapart.com/ns/types#tag" />
+    <category term="metadata" label="metadata" scheme="http://www.sixapart.com/ns/types#tag" />
+    <category term="nationalsecuritypolicy" label="national security policy" scheme="http://www.sixapart.com/ns/types#tag" />
+    <category term="nsa" label="NSA" scheme="http://www.sixapart.com/ns/types#tag" />
+    <category term="phones" label="phones" scheme="http://www.sixapart.com/ns/types#tag" />
+    <category term="terrorism" label="terrorism" scheme="http://www.sixapart.com/ns/types#tag" />
+
+    <content type="html" xml:lang="en-us" xml:base="https://www.schneier.com/blog/">
+
+      <![CDATA[<p>Interesting analysis: "<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3434358">Examining the Anomalies, Explaining the Value: Should the USA FREEDOM Act's Metadata Program be Extended?</a>" by Susan Landau and Asaf Lubin.</p>
+
+<blockquote><p><b>Abstract:</b> The telephony metadata program which was authorized under Section 215 of the PATRIOT Act, remains one of the most controversial programs launched by the U.S. Intelligence Community (IC) in the wake of the 9/11 attacks. Under the program major U.S. carriers were ordered to provide NSA with daily Call Detail Records (CDRs) for all communications to, from, or within the United States. The Snowden disclosures and the public controversy that followed led Congress in 2015 to end bulk collection and amend the CDR authorities with the adoption of the USA FREEDOM Act (UFA).
+
+<p>For a time, the new program seemed to be functioning well. Nonetheless, three issues emerged around the program. The first concern was over high numbers: in both 2016 and 2017, the Foreign Intelligence Surveillance Court issued 40 orders for collection, but the NSA collected hundreds of millions of CDRs, and the agency provided little clarification for the high numbers. The second emerged in June 2018 when the NSA announced the purging of three years' worth of CDR records for "technical irregularities." Finally, in March 2019 it was reported that the NSA had decided to completely abandon the program and not seek its renewal as it is due to sunset in late 2019.</p>
+
+<p>This paper sheds significant light on all three of these concerns. First, we carefully analyze the numbers, showing how forty orders might lead to the collection of several million CDRs, thus offering a model to assist in understanding Intelligence Community transparency reporting across its surveillance programs. Second, we show how the architecture of modern telephone communications might cause collection errors that fit the reported reasons for the 2018 purge. Finally, we show how changes in the terrorist threat environment as well as in the technology and communication methods they employ ­ in particular the deployment of asynchronous encrypted IP-based communications ­ has made the telephony metadata program far less beneficial over time. We further provide policy recommendations for Congress to increase effective intelligence oversight.</p></blockquote>]]>
+
+
+    </content>
+</entry>
+
+
+</feed>

@@ -375,3 +375,10 @@
   normalizer: "infiniteimmortalbens"
   refresh_interval: 0
   import_limit: 10
+
+- name: "schneier"
+  url: "https://www.schneier.com/blog/atom.xml"
+  processor: "atom"
+  normalizer: "schneier"
+  refresh_interval: 0
+  import_limit: 10
