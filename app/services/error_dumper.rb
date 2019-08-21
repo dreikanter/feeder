@@ -1,11 +1,13 @@
 class ErrorDumper
   include Callee
 
-  option :exception, optional: true, default: -> { nil }
+  UNDEFINED_EXCEPTION = ''.freeze
+
+  option :exception, optional: true, default: -> { UNDEFINED_EXCEPTION }
 
   option :file_name, optional: true, default: -> { location.try(:path).to_s }
-  option :label, optionsl: true, default: -> { location.try(:label).to_s }
-  option :line_number, option: true, default: -> { location.try(:lineno) }
+  option :label, optional: true, default: -> { location.try(:label).to_s }
+  option :line_number, optional: true, default: -> { location.try(:lineno) }
   option :occured_at, optional: true, default: -> { DateTime.now }
   option :target, optional: true, default: -> { nil }
   option :context, optional: true, default: -> { {} }
