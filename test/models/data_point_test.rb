@@ -23,10 +23,6 @@ class DataPointTest < Minitest::Test
     assert(subject.new(series: DataPointSeries.new).valid?)
   end
 
-  def setup
-    subject.delete_all
-  end
-
   SERIES_A = :a
   SERIES_B = :b
   DETAILS = { key: :value }.freeze
