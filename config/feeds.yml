@@ -382,3 +382,10 @@
   normalizer: "schneier"
   refresh_interval: 0
   import_limit: 10
+
+- name: "monkeyuser"
+  url: "https://www.monkeyuser.com/feed.xml"
+  processor: "feedjira"
+  normalizer: "monkeyuser"
+  refresh_interval: 0
+  import_limit: 10
