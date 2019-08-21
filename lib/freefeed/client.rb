@@ -10,6 +10,7 @@ module Freefeed
     DEFAULT_SCHEME = 'http'.freeze
 
     def create_attachment_from_url(url)
+      Rails.logger.info("create new attachment for #{url}")
       Tempfile.open(['feeder', path_from_url(url)]) do |file|
         file.binmode
         safe_url = Addressable::URI.parse(Addressable::URI.encode(url))
@@ -18,16 +19,18 @@ module Freefeed
         re = RestClient.get(safe_url.to_s, user_agent: USER_AGENT)
         file.write(re.body)
         file.rewind
-        execute(:post, :attachments, payload: {
+        response = execute(:post, :attachments, payload: {
           'miltipart' => true,
           'file' => file
         }, headers: {
           'Content-Type' => re.headers[:content_type]
         })
+        response.dig('attachments', 'id')
       end
     end
 
     def create_attachment_from_file(file)
+      Rails.logger.info('create attachment from file')
       execute(:post, :attachments, payload: {
         'miltipart' => true,
         'file' => file
@@ -35,12 +38,14 @@ module Freefeed
     end
 
     def create_post(body, options = {})
-      execute(:post, :posts, payload: {
+      Rails.logger.info('create new post')
+      response = execute(:post, :posts, payload: {
         'post' => post_payload(body, options),
         'meta' => {
           'feeds' => options[:feeds]
         }
       })
+      response.dig('posts', 'id')
     end
 
     def post(id)
@@ -48,7 +53,8 @@ module Freefeed
     end
 
     def create_comment(post_id, body)
-      execute(:post, 'comments', payload: {
+      Rails.logger.info('create comment')
+      Rails.logger.info execute(:post, 'comments', payload: {
         'comment' => {
           'body' => body,
           'postId' => post_id
@@ -57,6 +63,7 @@ module Freefeed
     end
 
     def get_timeline(username, options = {})
+      Rails.logger.info('fetch timeline')
       offset = options[:offset] || 0
 
       execute(
