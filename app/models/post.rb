@@ -31,6 +31,7 @@ class Post < ApplicationRecord
   RECENT_LIMIT = 50
 
   scope :recent, -> { order(created_at: :desc).limit(RECENT_LIMIT) }
+  scope :queue, -> { ready.order(created_at: :desc) }
   delegate :name, :after, to: :feed, prefix: :feed
   before_save :sanitize_published_at
 

@@ -51,7 +51,7 @@ class PullJob < ApplicationJob
       count_post
     end
 
-    feed.posts.ready.each { |post| PushJob.perform_later(post) }
+    feed.posts.queue.each { |post| PushJob.perform_later(post) }
   ensure
     feed.update(
       last_post_created_at: feed.posts.maximum(:created_at),
