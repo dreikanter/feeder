@@ -25,7 +25,10 @@ module Feeder
     config.load_defaults 6.0
     config.autoload_paths += %w[app lib].map { |path| config.root.join(path) }
     config.add_autoload_paths_to_load_path = false
+
     config.hosts << 'feeder.local'
+    config.hosts << 'frf.im'
+
     config.active_job.queue_adapter = :delayed_job
 
     config.generators do |g|
