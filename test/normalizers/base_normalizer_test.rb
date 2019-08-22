@@ -1,7 +1,7 @@
 require 'test_helper'
 require_relative '../support/normalizer_test_helper'
 
-class NormalizerBaseTest < Minitest::Test
+class BaseNormalizerTest < Minitest::Test
   include NormalizerTestHelper
 
   def subject
@@ -35,6 +35,8 @@ class NormalizerBaseTest < Minitest::Test
     published_at
     text
     uid
+    valid
+    errors
   ].to_set.freeze
 
   def test_minimal_viable_inheritence
@@ -43,12 +45,16 @@ class NormalizerBaseTest < Minitest::Test
     assert(result.success?)
   end
 
-  def test_validation_errors
+  SAMPLE_ERRORS = ['sample error'].freeze
+
+  def test_errors
+    error
     normalizer = Class.new(subject) do
-      define_method(:validation_errors) { ['sample error'] }
+      define_method(:errors) { SAMPLE_ERRORS }
     end
     result = normalizer.call(uid, ENTITY, feed)
-    assert(result.failure?)
+    assert(result.valid?)
+    assert_equal(result.errors, SAMPLE_ERRORS)
   end
 
   def test_return_hash

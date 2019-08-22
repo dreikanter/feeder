@@ -9,7 +9,7 @@ class BaseNormalizer
 
   def call
     logger.info("normalizing entity [#{uid}]")
-    valid? ? Success(payload) : Failure(validation_errors)
+    Success(payload)
   rescue StandardError => e
     logger.error(e)
     Failure(e)
@@ -44,10 +44,10 @@ class BaseNormalizer
   end
 
   def valid?
-    validation_errors.blank?
+    errors.blank?
   end
 
-  def validation_errors
+  def errors
     []
   end
 
@@ -62,7 +62,9 @@ class BaseNormalizer
       published_at: published_at,
       text: text,
       attachments: sanitized_attachments,
-      comments: comments.reject(&:blank?)
+      comments: comments.reject(&:blank?),
+      valid: valid?,
+      errors: errors
     }.freeze
   end
 

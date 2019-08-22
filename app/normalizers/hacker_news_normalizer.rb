@@ -3,8 +3,8 @@ class HackerNewsNormalizer < BaseNormalizer
 
   protected
 
-  def validation_errors
-    Array.new.tap do |errors|
+  def errors
+    [].tap do |errors|
       errors << 'insufficient score' if violates_score_threshold?
     end
   end
