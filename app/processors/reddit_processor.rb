@@ -5,7 +5,7 @@ class RedditProcessor < AtomProcessor
   protected
 
   def entities
-    super.lazy.select { |entity| enough_points?(entity.uid) }
+    super.select { |entity| enough_points?(entity.uid) }
   end
 
   private
@@ -52,8 +52,16 @@ class RedditProcessor < AtomProcessor
   end
 
   def page_content(link)
-    # TODO: Replace obsolete methods
-    safe_link = URI::encode(URI::decode(link))
+    logger.debug("fetching [#{link}]")
+
+    # TODO: Figure out why sanitization is required here
+    safe_link = URI.encode(URI.decode(link))
+    CreateDataPoint.call(
+      :test_reddit_links,
+      link: link,
+      safe_link: safe_link
+    )
+
     RestClient.get(safe_link).body
   end
 end
