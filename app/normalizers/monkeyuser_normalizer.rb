@@ -13,7 +13,7 @@ class MonkeyuserNormalizer < FeedjiraNormalizer
     Html.first_image_url(entity.summary)
   end
 
-  def errors
+  def validation_errors
     super.tap do |errors|
       errors << 'no image' unless attachments.any?
     end

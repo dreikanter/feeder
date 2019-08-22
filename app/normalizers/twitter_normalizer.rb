@@ -1,7 +1,7 @@
 class TwitterNormalizer < BaseNormalizer
   protected
 
-  def errors
+  def validation_errors
     [].tap do |errors|
       errors << 'no images' if violates_no_images?
       errors << 'retweet' if violates_retweet?
