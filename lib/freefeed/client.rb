@@ -55,7 +55,7 @@ module Freefeed
 
     def create_comment(post_id, body)
       Rails.logger.info('create comment')
-      Rails.logger.info execute(:post, 'comments', payload: {
+      execute(:post, 'comments', payload: {
         'comment' => {
           'body' => body,
           'postId' => post_id

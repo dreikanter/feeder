@@ -5,10 +5,6 @@ class OglafNormalizer < RssNormalizer
     [super, link].join(separator)
   end
 
-  def published_at
-    @published_at ||= last_modified
-  end
-
   def attachments
     images.map { |image| image[:src] }.compact
   end
@@ -31,7 +27,7 @@ class OglafNormalizer < RssNormalizer
 
   def last_modified
     Time.parse(response.headers[:last_modified])
-  rescue
+  rescue StandardError
     Time.now.utc
   end
 
