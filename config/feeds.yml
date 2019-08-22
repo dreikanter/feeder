@@ -332,7 +332,7 @@
 
 - name: "bazar"
   url: "https://meduza.io/rss/podcasts/knizhnyy-bazar"
-  processor: "rss"
+  processor: "feedjira"
   normalizer: "bazar"
   refresh_interval: 1800
   import_limit: 10

@@ -2,11 +2,11 @@ class BazarNormalizer < BaseNormalizer
   protected
 
   def link
-    entity.link
+    entity.url
   end
 
   def published_at
-    entity.pubDate
+    entity.published
   end
 
   def text
@@ -16,13 +16,13 @@ class BazarNormalizer < BaseNormalizer
   end
 
   def comments
-    [entity.description].reject(&:blank?)
+    [entity.content].reject(&:blank?)
   end
 
   private
 
   def record_url
-    @record_url ||= entity.try(:enclosure).try(:url)
+    @record_url ||= entity.try(:enclosure_url)
   end
 
   def formatted_duration
@@ -31,6 +31,6 @@ class BazarNormalizer < BaseNormalizer
   end
 
   def duration
-    @duration ||= entity.try(:itunes_duration).try(:content).gsub(/^00:/, '')
+    @duration ||= entity.try(:itunes_duration).gsub(/^00:/, '')
   end
 end
