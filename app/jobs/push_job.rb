@@ -2,11 +2,12 @@ class PushJob < ApplicationJob
   queue_as :default
 
   def perform(post)
-    if post.stale?
-      post.update(status: PostStatus.ignored)
+    if post.ignored?
+      logger.info('ignoring non-valid post')
       return
     end
-    raise 'post is not ready' unless post.ready?
+
+    raise "unexpected post status: #{post.status}" unless post.ready?
     post_id = create_freefeed_post
     post.update(freefeed_post_id: post_id, status: PostStatus.published)
   rescue StandardError
