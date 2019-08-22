@@ -32,9 +32,11 @@ class PullJob < ApplicationJob
 
     entities.value!.each do |entity|
       if entity.failure?
+        message = "normalization error: #{error}"
+        logger.error(message)
         ErrorDumper.call(
           exception: entity.failure,
-          message: "normalization error: #{error}",
+          message: message,
           target: feed
         )
         count_error
@@ -43,10 +45,9 @@ class PullJob < ApplicationJob
 
       value = entity.value!
       valid = value[:validation_errors].none?
-      Post.create!(**value.merge(
-        feed_id: feed.id,
-        status: valid ? PostStatus.ready : PostStatus.ignored
-      ))
+      post_status = valid ? PostStatus.ready : PostStatus.ignored
+      logger.info("new post [#{post_status}]")
+      Post.create!(**value.merge(feed_id: feed.id, status: post_status))
       count_post
     end
 

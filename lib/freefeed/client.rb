@@ -11,7 +11,7 @@ module Freefeed
     DEFAULT_SCHEME = 'http'.freeze
 
     def create_attachment_from_url(url)
-      Rails.logger.info("create new attachment for #{url}")
+      Rails.logger.info("create attachment for #{url}")
       Tempfile.open(['feeder', path_from_url(url)]) do |file|
         file.binmode
         safe_url = Addressable::URI.parse(Addressable::URI.encode(url))
@@ -39,7 +39,7 @@ module Freefeed
     end
 
     def create_post(body, options = {})
-      Rails.logger.info('create new post')
+      Rails.logger.info('create post')
       response = execute(:post, :posts, payload: {
         'post' => post_payload(body, options),
         'meta' => {
