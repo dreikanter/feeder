@@ -29,9 +29,9 @@ class Pull
   end
 
   def new_entities(entities)
-    entities.filter do |entity|
-      feed.posts.where(uid: entity.uid).none?
-    end
+    uids = entities.map(&:uid)
+    existing_uids = Post.where(feed: feed, uid: uids).pluck(:uid)
+    entities.filter { |entity| !existing_uids.include?(entity.uid) }
   end
 
   def loader_or_default
