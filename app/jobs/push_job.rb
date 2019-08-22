@@ -3,7 +3,7 @@ class PushJob < ApplicationJob
 
   def perform(post)
     if post.stale?
-      post.update(status: PostStatus.ignore)
+      post.update(status: PostStatus.ignored)
       return
     end
     raise 'post is not ready' unless post.ready?
