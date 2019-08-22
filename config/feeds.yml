@@ -399,3 +399,4 @@
   options:
     twitter_user: "warandpeass"
     only_with_attachments: true
+    ignore_retweets: true
