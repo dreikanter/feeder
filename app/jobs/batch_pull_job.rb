@@ -6,7 +6,8 @@ class BatchPullJob < ApplicationJob
     logger.info("batch update: #{stale_feeds.count} feed(s)")
     CreateDataPoint.call(:batch, feeds: stale_feeds.pluck(:name))
     stale_feeds.each do |feed|
-      PullJob.perform_later(feed)
+      # TODO: Exclude inactive feeds from stale scope
+      PullJob.perform_later(feed) if feed.active?
     end
   end
 end
