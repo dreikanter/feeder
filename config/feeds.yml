@@ -287,6 +287,7 @@
   import_limit: 5
   options:
     twitter_user: "alg_testament"
+    ignore_retweets: true
 
 - name: "extrafabulous"
   loader: "twitter"
@@ -297,6 +298,7 @@
   options:
     twitter_user: "extrafabulous"
     only_with_attachments: true
+    ignore_retweets: true
 
 - name: "bojackhorseman"
   loader: "twitter"
@@ -306,6 +308,7 @@
   import_limit: 5
   options:
     twitter_user: "bojackhorseman"
+    ignore_retweets: true
 
 - name: "nextbigfuture"
   url: "https://www.nextbigfuture.com/feed"
@@ -326,27 +329,29 @@
   processor: "twitter"
   normalizer: "twitter"
   refresh_interval: 1200
-  import_limit: 20
+  import_limit: 5
   options:
     twitter_user: "jakelikesonions"
     only_with_attachments: true
+    ignore_retweets: true
 
 - name: "catscafe"
   loader: "twitter"
   processor: "twitter"
   normalizer: "twitter"
   refresh_interval: 1200
-  import_limit: 20
+  import_limit: 5
   options:
     twitter_user: "CatsCafeComics"
     only_with_attachments: true
+    ignore_retweets: true
 
 - name: "hackernewsonion"
   loader: "twitter"
   processor: "twitter"
   normalizer: "twitter"
   refresh_interval: 1200
-  import_limit: 20
+  import_limit: 5
   options:
     twitter_user: "hackernewsonion"
     ignore_retweets: true
@@ -356,7 +361,7 @@
   processor: "feedjira"
   normalizer: "bazar"
   refresh_interval: 1800
-  import_limit: 10
+  import_limit: 5
 
 - name: "rework"
   url: "https://rss.art19.com/rework"
