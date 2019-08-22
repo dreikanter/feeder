@@ -44,10 +44,10 @@ class BaseNormalizer
   end
 
   def valid?
-    errors.blank?
+    validation_errors.blank?
   end
 
-  def errors
+  def validation_errors
     []
   end
 
@@ -63,8 +63,7 @@ class BaseNormalizer
       text: text,
       attachments: sanitized_attachments,
       comments: comments.reject(&:blank?),
-      valid: valid?,
-      errors: errors
+      validation_errors: validation_errors
     }.freeze
   end
 

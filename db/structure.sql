@@ -5,23 +5,8 @@ SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
 SET check_function_bodies = false;
-SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
-
---
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
---
-
-CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
-
-
---
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: -
---
-
-COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
-
 
 SET default_tablespace = '';
 
@@ -34,8 +19,8 @@ SET default_with_oids = false;
 CREATE TABLE public.ar_internal_metadata (
     key character varying NOT NULL,
     value character varying,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
 );
 
 
@@ -187,7 +172,7 @@ CREATE TABLE public.errors (
     message character varying DEFAULT ''::character varying NOT NULL,
     backtrace character varying[] DEFAULT '{}'::character varying[] NOT NULL,
     context json DEFAULT '{}'::json NOT NULL,
-    occured_at timestamp without time zone NOT NULL,
+    occured_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     target_type character varying,
@@ -276,7 +261,8 @@ CREATE TABLE public.posts (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     status integer DEFAULT 0 NOT NULL,
-    uid character varying NOT NULL
+    uid character varying NOT NULL,
+    validation_errors character varying[] DEFAULT '{}'::character varying[] NOT NULL
 );
 
 
@@ -554,6 +540,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190624150553'),
 ('20190701101346'),
 ('20190726193542'),
-('20190817114629');
+('20190817114629'),
+('20190819174940'),
+('20190822074055');
 
 

@@ -26,14 +26,17 @@ class PoorlydrawnlinesNormalizerTest < Minitest::Test
     assert(normalized.each(&:success?))
   end
 
+  # rubocop:disable Metric/LineLength
   FIRST_SAMPLE = {
     uid: 'http://www.poorlydrawnlines.com/comic/hello/',
     link: 'http://www.poorlydrawnlines.com/comic/hello/',
     published_at: Time.parse('2018-10-22 16:03:51 UTC'),
     text: 'Hello - http://www.poorlydrawnlines.com/comic/hello/',
     attachments: ['http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/hello.png'],
-    comments: []
+    comments: [],
+    validation_errors: []
   }.freeze
+  # rubocop:enable Metric/LineLength
 
   def test_normalized_sample
     assert_equal(FIRST_SAMPLE, normalized.first.value!)

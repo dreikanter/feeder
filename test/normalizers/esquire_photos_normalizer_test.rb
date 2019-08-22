@@ -26,19 +26,17 @@ class EsquirePhotosNormalizerTest < Minitest::Test
     assert(normalized.each(&:success?))
   end
 
+  # rubocop:disable Metric/LineLength
   FIRST_SAMPLE = {
     uid: 'https://esquire.ru/escobar-netflix',
     link: 'https://esquire.ru/escobar-netflix',
     published_at: nil,
     text: 'Брат Пабло Эскобара требует с Netflix миллиард долларов - https://esquire.ru/escobar-netflix',
-    attachments:
-      [
-        'https://images.esquire.ru/files/cache/images/f7/16/4572a4a1.crop1200x628x0x12-fit705x705.9f0ac3.TASS_23154406.jpg'
-      ],
-    comments: [
-      '«Если мы не получим деньги, то прикроем их маленькое шоу».'
-    ]
+    attachments: ['https://images.esquire.ru/files/cache/images/f7/16/4572a4a1.crop1200x628x0x12-fit705x705.9f0ac3.TASS_23154406.jpg'],
+    comments: ['«Если мы не получим деньги, то прикроем их маленькое шоу».'],
+    validation_errors: []
   }.freeze
+  # rubocop:enable Metric/LineLength
 
   def test_normalized_sample
     assert_equal(FIRST_SAMPLE, normalized.first.value!)

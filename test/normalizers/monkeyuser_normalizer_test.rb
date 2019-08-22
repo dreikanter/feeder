@@ -28,7 +28,8 @@ class MonkeyuserNormalizerTest < Minitest::Test
     published_at: DateTime.parse('2019-08-20 00:00:00 UTC'),
     text: 'Platypuscorn - https://www.monkeyuser.com/2019/platypuscorn/ - https://www.monkeyuser.com/2019/platypuscorn/',
     attachments: ['https://www.monkeyuser.com/assets/images/2019/145-platypuscorn.png'],
-    comments: []
+    comments: [],
+    validation_errors: []
   }.freeze
   # rubocop:enable Metric/LineLength
 

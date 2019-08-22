@@ -32,13 +32,16 @@ class NextbigfutureNormalizerTest < Minitest::Test
     assert(normalized.each(&:success?))
   end
 
+  # rubocop:disable Metric/LineLength
   FIRST_SAMPLE = {
     link: 'https://www.nextbigfuture.com/2018/11/rise-of-china-and-strictly-business-competition-in-the-world.html',
     published_at: Time.parse('2018-11-27 09:19:49 UTC'),
     text: 'Rise of China and Strictly Business Competition in the World - https://www.nextbigfuture.com/2018/11/rise-of-china-and-strictly-business-competition-in-the-world.html',
     comments: ['There have been many books written about\\n\\nthe rise of China'],
-    attachments: [ATTACHMENT_URL]
+    attachments: [ATTACHMENT_URL],
+    validation_errors: []
   }.freeze
+  # rubocop:enable Metric/LineLength
 
   def test_normalized_sample
     result = normalized.first.value!

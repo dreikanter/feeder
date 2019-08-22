@@ -35,8 +35,7 @@ class BaseNormalizerTest < Minitest::Test
     published_at
     text
     uid
-    valid
-    errors
+    validation_errors
   ].to_set.freeze
 
   def test_minimal_viable_inheritence
@@ -47,14 +46,13 @@ class BaseNormalizerTest < Minitest::Test
 
   SAMPLE_ERRORS = ['sample error'].freeze
 
-  def test_errors
-    error
+  def test_validation_errors
     normalizer = Class.new(subject) do
-      define_method(:errors) { SAMPLE_ERRORS }
+      define_method(:validation_errors) { SAMPLE_ERRORS }
     end
     result = normalizer.call(uid, ENTITY, feed)
-    assert(result.valid?)
-    assert_equal(result.errors, SAMPLE_ERRORS)
+    assert(result.success?)
+    assert_equal(result.value![:validation_errors], SAMPLE_ERRORS)
   end
 
   def test_return_hash
