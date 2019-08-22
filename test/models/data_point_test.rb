@@ -27,16 +27,23 @@ class DataPointTest < Minitest::Test
   SERIES_B = :b
   DETAILS = { key: :value }.freeze
 
-  def test_for
-    dp_a = CreateDataPoint.call(SERIES_A)
-    dp_b = CreateDataPoint.call(SERIES_B)
-    ids = subject.for(SERIES_A).pluck(:id)
-    assert(ids.include?(dp_a.id))
-    refute(ids.include?(dp_b.id))
+  def test_for_include
+    series = create(:data_point_series)
+    dp = subject.create!(series: series)
+    ids = subject.for(series.name).pluck(:id)
+    assert(ids.include?(dp.id))
+  end
+
+  def test_for_exclude
+    series = create(:data_point_series)
+    dp = subject.create!(series: create(:data_point_series))
+    ids = subject.for("different_from_#{series.name}").pluck(:id)
+    refute(ids.include?(dp.id))
   end
 
   def test_series
-    records = CreateDataPoint.call(SERIES_A)
+    series = create(:data_point_series)
+    records = subject.create!(series: series)
     assert(records.series.present?)
   end
 
@@ -47,8 +54,9 @@ class DataPointTest < Minitest::Test
   AMOUNT_OF_SAMPLES = 3
 
   def test_ordered_scope
+    series = create(:data_point_series)
     AMOUNT_OF_SAMPLES.times do
-      CreateDataPoint.call(SERIES_A, created_at: random_time)
+      subject.create!(series: series, created_at: random_time)
     end
     expected = subject.order(created_at: :desc).pluck(:id)
     result = subject.ordered.pluck(:id)
@@ -56,9 +64,10 @@ class DataPointTest < Minitest::Test
   end
 
   def test_recent_scope
-    AMOUNT_OF_SAMPLES.times do
-      CreateDataPoint.call(SERIES_A, DETAILS)
+    series = create(:data_point_series)
+    (DataPoint::RECENT_LIMIT + 1).times do
+      subject.create!(series: series, details: DETAILS)
     end
-    assert(subject.recent.count < DataPoint::RECENT_LIMIT)
+    assert(subject.recent.count <= DataPoint::RECENT_LIMIT)
   end
 end

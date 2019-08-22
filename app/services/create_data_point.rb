@@ -1,19 +1,10 @@
 class CreateDataPoint
-  include Callee
-
-  param :series_name, type: proc(&:to_s)
-  param :details, default: proc { {} }
-  option :created_at, options: true, default: -> { nil }
-
-  def call
+  def self.call(series_name, created_at: nil, **details)
+    series = DataPointSeries.find_or_create_by(name: series_name)
     DataPoint.create(
-      series_id: series.id,
+      created_at: created_at,
       details: details,
-      created_at: created_at
+      series: series
     )
-  end
-
-  def series
-    DataPointSeries.find_or_create_by(name: series_name)
   end
 end
