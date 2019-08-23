@@ -7,7 +7,11 @@ class PushJob < ApplicationJob
       return
     end
 
-    raise "unexpected post status: #{post.status}" unless post.ready?
+    unless post.ready?
+      logger.error("unexpected post status: #{post.status}")
+      return
+    end
+
     post_id = create_freefeed_post
     post.update(freefeed_post_id: post_id, status: PostStatus.published)
   rescue StandardError
