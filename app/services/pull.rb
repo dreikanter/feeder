@@ -17,7 +17,7 @@ class Pull
     entities = yield processor_or_default.call(content, feed)
 
     # TODO: Refactor this
-    return entities if entities.failure?
+    return entities if entities.is_a?(Failure)
 
     Success(normalize(entities))
   rescue StandardError => e
