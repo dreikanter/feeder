@@ -15,6 +15,10 @@ class Pull
   def call
     content = yield loader_or_default.call(feed)
     entities = yield processor_or_default.call(content, feed)
+
+    # TODO: Refactor this
+    return entities if entities.failure?
+
     Success(normalize(entities))
   rescue StandardError => e
     Failure(e)
