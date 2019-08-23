@@ -1,6 +1,6 @@
 ---
 - name: "xkcd"
-  url: "http://xkcd.com/rss.xml"
+  url: "https://xkcd.com/rss.xml"
   processor: "rss"
   after: "2018-09-15T00:00:00+00:00"
   refresh_interval: 600
@@ -14,7 +14,7 @@
   import_limit: 10
 
 - name: "phdcomics"
-  url: "http://feeds.feedburner.com/PhdComics"
+  url: "https://feeds.feedburner.com/PhdComics"
   processor: "rss"
   after: "2018-09-18T00:00:00+00:00"
   refresh_interval: 86400
@@ -26,32 +26,33 @@
   refresh_interval: 7200
 
 - name: "dilbert"
-  url: "http://dilbert.com/feed"
+  url: "https://dilbert.com/feed"
   processor: "atom"
   after: "2018-09-18T00:00:00+00:00"
   refresh_interval: 1800
 
 - name: "rllivejournal"
-  url: "http://r-l.livejournal.com/data/rss"
+  url: "https://r-l.livejournal.com/data/rss"
   processor: "rss"
   normalizer: "livejournal"
   after: "2018-09-18T00:00:00+00:00"
   refresh_interval: 3600
 
-- name: "nichtlustig-de"
-  url: "http://static.nichtlustig.de/rss/nichtrss.rss"
-  processor: "rss"
-  after: "2018-09-18T00:00:00+00:00"
-  refresh_interval: 86400
+# NOTE: Feed is inactive since 2017; HTTPS is not supported
+# - name: "nichtlustig-de"
+#   url: "http://static.nichtlustig.de/rss/nichtrss.rss"
+#   processor: "rss"
+#   after: "2018-09-18T00:00:00+00:00"
+#   refresh_interval: 86400
 
 - name: "oatmeal"
-  url: "http://feeds.feedburner.com/oatmealfeed"
+  url: "https://feeds.feedburner.com/oatmealfeed"
   processor: "rss"
   after: "2018-09-18T00:00:00+00:00"
   refresh_interval: 3600
 
 - name: "wumo"
-  url: "http://wumo.com/wumo?view=rss"
+  url: "https://wumo.com/wumo?view=rss"
   processor: "rss"
   after: "2018-09-18T00:00:00+00:00"
   refresh_interval: 3600
@@ -77,19 +78,19 @@
   refresh_interval: 3600
 
 - name: "explosm-comics"
-  url: "http://feeds.feedburner.com/Explosm"
+  url: "https://feeds.feedburner.com/Explosm"
   processor: "rss"
   after: "2018-09-18T00:00:00+00:00"
   refresh_interval: 3600
 
 - name: "the-atlantic-photos"
-  url: "http://feeds.feedburner.com/theatlantic/infocus"
+  url: "https://feeds.feedburner.com/theatlantic/infocus"
   processor: "rss"
   after: "2018-09-18T00:00:00+00:00"
   refresh_interval: 3600
 
 # - name: "esquire-photos"
-#   url: "http://feeds.feedburner.com/esquire-ru"
+#   url: "https://feeds.feedburner.com/esquire-ru"
 #   processor: "rss"
 #   after: "2018-09-18T00:00:00+00:00"
 
@@ -125,7 +126,7 @@
 
 - name: "f28a"
   # url: "http://floccinaucinihilipilificationa.tumblr.com/rss"
-  url: http://feeds.feedburner.com/tumblr/bAzd
+  url: https://feeds.feedburner.com/tumblr/bAzd
   processor: "rss"
   normalizer: "f28a"
   after: "2018-09-18T00:00:00+00:00"
@@ -154,14 +155,14 @@
 
 - name: "myjetpack"
   # url: "http://myjetpack.tumblr.com/rss"
-  url: "http://feeds.feedburner.com/tumblr/uOke"
+  url: "https://feeds.feedburner.com/tumblr/uOke"
   processor: "rss"
   normalizer: "my_jetpack"
   after: "2018-09-18T00:00:00+00:00"
   refresh_interval: 1200
 
 - name: "codinghorror"
-  url: "http://feeds.feedburner.com/codinghorror"
+  url: "https://feeds.feedburner.com/codinghorror"
   processor: "rss"
   normalizer: "coding_horror"
   after: "2018-09-18T00:00:00+00:00"
@@ -169,7 +170,7 @@
 
 - name: "little-big-details"
   # url: "http://littlebigdetails.com/rss"
-  url: "http://feeds.feedburner.com/littlebigdetails/wJCD"
+  url: "https://feeds.feedburner.com/littlebigdetails/wJCD"
   processor: "rss"
   normalizer: "little_big_details"
   after: "2018-09-18T00:00:00+00:00"
@@ -198,12 +199,13 @@
 
 - name: "theycantalk"
   # url: "http://theycantalk.com/rss"
-  url: "http://feeds.feedburner.com/theycantalk/xFcE"
+  url: "https://feeds.feedburner.com/theycantalk/xFcE"
   processor: "rss"
   normalizer: "theycantalk"
   after: "2018-09-18T00:00:00+00:00"
   refresh_interval: 600
 
+# NOTE: HTTPS is not supported
 - name: "maremir"
   url: "http://maremir.org/feed/"
   processor: "rss"
@@ -212,7 +214,7 @@
   refresh_interval: 7200
 
 - name: "sarahcandersen"
-  url: "http://feeds.feedburner.com/sarahcandersen/koPM"
+  url: "https://feeds.feedburner.com/sarahcandersen/koPM"
   processor: "rss"
   normalizer: "sarah_andersen"
   after: "2018-09-18T00:00:00+00:00"
@@ -240,28 +242,28 @@
   refresh_interval: 7200
 
 - name: "savagechickens"
-  url: "http://www.savagechickens.com/feed"
+  url: "https://www.savagechickens.com/feed"
   processor: "wordpress"
   normalizer: "savagechickens"
   after: "2018-09-18T00:00:00+00:00"
   refresh_interval: 300
 
 - name: "poorlydrawnlines"
-  url: "http://feeds.feedburner.com/PoorlyDrawnLines"
+  url: "https://feeds.feedburner.com/PoorlyDrawnLines"
   processor: "feedjira"
   normalizer: "poorlydrawnlines"
   after: "2018-09-18T00:00:00+00:00"
   refresh_interval: 300
 
 - name: "kimchicuddles"
-  url: "http://kimchicuddles.com/rss"
+  url: "https://kimchicuddles.com/rss"
   processor: "feedjira"
   normalizer: "tumblr_normalizer"
   after: "2018-09-18T00:00:00+00:00"
   refresh_interval: 600
 
 # - name: "kimchicuddlesrus"
-#   url: "http://kimchicuddlesrus.com"
+#   url: "https://kimchicuddlesrus.com"
 #   processor: "kimchicuddlesrus"
 #   normalizer: "kimchicuddlesrus"
 #   after: "2018-09-18T00:00:00+00:00"
