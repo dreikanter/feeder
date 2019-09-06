@@ -428,3 +428,14 @@
     twitter_user: "warandpeass"
     only_with_attachments: true
     ignore_retweets: true
+
+- name: "dailycattt"
+  loader: "twitter"
+  processor: "twitter"
+  normalizer: "twitter"
+  refresh_interval: 1100
+  import_limit: 10
+  options:
+    twitter_user: "dailycattt"
+    only_with_attachments: true
+    ignore_retweets: true
