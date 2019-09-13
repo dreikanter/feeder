@@ -22,7 +22,7 @@ class ExplosmComicsNormalizer < RssNormalizer
   end
 
   def load_image_url
-    Html.first_image_url(page_content, '#main-comic')
+    Html.first_image_url(page_content, selector: '#main-comic')
   end
 
   def page_content

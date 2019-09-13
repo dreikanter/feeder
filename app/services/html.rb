@@ -1,9 +1,9 @@
-# TODO: Split this to separate services
+# frozen_string_literal: true
 
 class Html
   MAX_POST_LENGTH = 1500
   MAX_COMMENT_LENGTH = 1500
-  OMISSION = '... (continued)'.freeze
+  OMISSION = '... (continued)'
 
   EXCERPT_DEFAULTS = {
     length: 0,
@@ -61,20 +61,16 @@ class Html
     excerpt(html, length: MAX_COMMENT_LENGTH)
   end
 
-  def self.image_urls(html, selector = nil)
-    Nokogiri::HTML(html).css(selector || 'img').map { |e| e['src'] }
+  def self.image_urls(html, selector: nil, attribute: 'src')
+    Nokogiri::HTML(html).css(selector || 'img').map { |e| e[attribute] }
   end
 
-  def self.first_image_url(html, selector = nil)
+  def self.first_image_url(html, selector: nil)
     image_urls(html, selector).first
   end
 
-  def self.link_urls(html, selector = nil)
+  def self.link_urls(html, selector: nil)
     Nokogiri::HTML(html).css(selector || 'a').map { |e| e['href'] }
-  end
-
-  def self.first_link_url(html, selector = nil)
-    link_urls(html, selector).first
   end
 
   def self.paragraphs(html)
