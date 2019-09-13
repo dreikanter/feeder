@@ -66,7 +66,7 @@ class Html
   end
 
   def self.first_image_url(html, selector: nil)
-    image_urls(html, selector).first
+    image_urls(html, selector: selector).first
   end
 
   def self.link_urls(html, selector: nil)

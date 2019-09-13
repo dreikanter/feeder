@@ -23,7 +23,7 @@ class TelegaNormalizerTest < Minitest::Test
 
   def test_normalization
     assert(normalized.any?)
-    assert(normalized.each(&:success?))
+    assert(normalized.all?(&:success?))
   end
 
   # rubocop:disable Metric/LineLength

@@ -18,7 +18,7 @@ class OglafNormalizerTest < Minitest::Test
 
   def test_normalization
     assert(normalized.any?)
-    assert(normalized.each(&:success?))
+    assert(normalized.all?(&:success?))
   end
 
   FIRST_SAMPLE = {
