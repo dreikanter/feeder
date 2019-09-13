@@ -439,3 +439,10 @@
     twitter_user: "dailycattt"
     only_with_attachments: true
     ignore_retweets: true
+
+- name: "redakciya"
+  url: "https://www.youtube.com/feeds/videos.xml?channel_id=UC1eFXmJNkjITxPFWTy6RsWg"
+  processor: "youtube"
+  normalizer: "redakciya"
+  refresh_interval: 3600
+  import_limit: 20
