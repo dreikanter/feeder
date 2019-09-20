@@ -457,3 +457,10 @@
     twitter_user: "endangeredcomic"
     only_with_attachments: true
     ignore_retweets: true
+
+- name: "kurzgesagt"
+  url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCsXVk37bltHxD1rDPwtNM8Q"
+  processor: "youtube"
+  normalizer: "kurzgesagt"
+  refresh_interval: 3600
+  import_limit: 100
