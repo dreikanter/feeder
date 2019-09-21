@@ -34,13 +34,11 @@ async function fetchPost ({ shortCode, executablePath }) {
   const page = await browser.newPage();
   await page.goto(instagramPostUrl(shortCode));
   await page.waitForSelector(imagesSelector, { timeout });
-
-  const data = await page.evaluate(() => (
+  const data = await page.evaluate(selector => (
     Array
-      .from(document.querySelectorAll(imagesSelector))
+      .from(document.querySelectorAll(selector))
       .map(item => item.src)
-  ));
-
+  ), imagesSelector);
   process.stdout.write(`${JSON.stringify(data)}\n`);
   await browser.close();
 }
