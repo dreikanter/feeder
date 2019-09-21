@@ -377,7 +377,7 @@
   processor: "twitter"
   normalizer: "twitter"
   refresh_interval: 1200
-  import_limit: 20
+  import_limit: 10
   options:
     twitter_user: "nathanwpyle"
     only_with_attachments: true
@@ -445,7 +445,7 @@
   processor: "youtube"
   normalizer: "redakciya"
   refresh_interval: 3600
-  import_limit: 20
+  import_limit: 10
 
 - name: "safelyendangered"
   loader: "twitter"
@@ -463,4 +463,4 @@
   processor: "youtube"
   normalizer: "kurzgesagt"
   refresh_interval: 3600
-  import_limit: 100
+  import_limit: 10
