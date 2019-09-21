@@ -464,3 +464,21 @@
   normalizer: "kurzgesagt"
   refresh_interval: 3600
   import_limit: 10
+
+- name: "system32comics"
+  loader: "instagram"
+  processor: "instagram"
+  normalizer: "system32"
+  refresh_interval: 3600
+  import_limit: 10
+  options:
+    instagram_user: "system32comics"
+
+- name: "feeder-sandbox"
+  loader: "instagram"
+  processor: "instagram"
+  normalizer: "instagram"
+  refresh_interval: 3600
+  import_limit: 10
+  options:
+    instagram_user: "nathanwpyle"

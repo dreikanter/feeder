@@ -19,7 +19,11 @@ class InstagramNormalizer < BaseNormalizer
   end
 
   def text
-    [entity.dig(*CAPTION_PATH), link].join(separator)
+    [content, link].join(separator)
+  end
+
+  def content
+    entity.dig(*CAPTION_PATH)
   end
 
   # TODO: Move script interaction to a service class
