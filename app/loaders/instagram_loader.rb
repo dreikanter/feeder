@@ -7,7 +7,9 @@ class InstagramLoader < HttpLoader
 
   # TODO: Move script interaction to a service class
   def perform
-    output = `node #{script_path} user #{instagram_user}`
+    command = "node #{script_path} user #{instagram_user}"
+    logger.debug("loading instagram feed: #{command}")
+    output = `#{command}`
     JSON.parse(output)
   end
 

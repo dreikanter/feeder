@@ -28,7 +28,9 @@ class InstagramNormalizer < BaseNormalizer
   end
 
   def fetch_image_urls
-    output = `node #{script_path} post #{entity['shortcode']}`
+    command = "node #{script_path} post #{entity['shortcode']}"
+    logger.debug("fetching instagram image urls: #{command}")
+    output = `#{command}`
     JSON.parse(output)
   end
 end
