@@ -2,12 +2,12 @@ class DilbertNormalizer < AtomNormalizer
   protected
 
   def text
-    [super, link].join(separator)
+    [title, super].join(separator)
   end
 
   def published_at
     DateTime.parse(link.split('/').last)
-  rescue
+  rescue StandardError
     Rails.logger.error "error parsing date from url: #{link}"
     nil
   end
@@ -16,8 +16,16 @@ class DilbertNormalizer < AtomNormalizer
     @attachments ||= [image_url]
   end
 
+  def title
+    page_body.title.split(separator).first
+  end
+
   def image_url
-    Nokogiri::HTML(page_content).css('img.img-comic:first').first[:src]
+    page_body.css('img.img-comic:first').first[:src]
+  end
+
+  def page_body
+    @page_body ||= Nokogiri::HTML(page_content)
   end
 
   def page_content
