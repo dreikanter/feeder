@@ -4,54 +4,58 @@
   <link rel="alternate" type="text/html" href="http://dilbert.com"/>
   <link rel="self" type="application/atom+xml" href="http://dilbert.com/feed"/>
   <title>Dilbert Daily Strip</title>
-  <updated>2016-09-12T00:00:00Z</updated>
+  <updated>2019-10-04T00:00:00Z</updated>
+  <author>
+    <name>Scott Adams</name>
+    <email>service@dilbert.com</email>
+  </author>
   <entry>
-    <id>2016-09-12</id>
-    <updated>2016-09-12T23:59:59+00:00</updated>
-    <link rel="alternate" type="text/html" href="http://dilbert.com/strip/2016-09-12"/>
-    <title>Comic for September 12, 2016</title>
+    <id>2019-10-04</id>
+    <updated>2019-10-04T23:59:59+00:00</updated>
+    <link rel="alternate" type="text/html" href="https://dilbert.com/strip/2019-10-04"/>
+    <title>Comic for October 04, 2019</title>
     <content type="html">Dilbert readers - Please visit Dilbert.com to read this feature. Due to changes with our feeds, we are now making this RSS feed a link to Dilbert.com.</content>
   </entry>
   <entry>
-    <id>2016-09-11</id>
-    <updated>2016-09-11T23:59:59+00:00</updated>
-    <link rel="alternate" type="text/html" href="http://dilbert.com/strip/2016-09-11"/>
-    <title>Comic for September 11, 2016</title>
+    <id>2019-10-03</id>
+    <updated>2019-10-03T23:59:59+00:00</updated>
+    <link rel="alternate" type="text/html" href="https://dilbert.com/strip/2019-10-03"/>
+    <title>Comic for October 03, 2019</title>
     <content type="html">Dilbert readers - Please visit Dilbert.com to read this feature. Due to changes with our feeds, we are now making this RSS feed a link to Dilbert.com.</content>
   </entry>
   <entry>
-    <id>2016-09-10</id>
-    <updated>2016-09-10T23:59:59+00:00</updated>
-    <link rel="alternate" type="text/html" href="http://dilbert.com/strip/2016-09-10"/>
-    <title>Comic for September 10, 2016</title>
+    <id>2019-10-02</id>
+    <updated>2019-10-02T23:59:59+00:00</updated>
+    <link rel="alternate" type="text/html" href="https://dilbert.com/strip/2019-10-02"/>
+    <title>Comic for October 02, 2019</title>
     <content type="html">Dilbert readers - Please visit Dilbert.com to read this feature. Due to changes with our feeds, we are now making this RSS feed a link to Dilbert.com.</content>
   </entry>
   <entry>
-    <id>2016-09-09</id>
-    <updated>2016-09-09T23:59:59+00:00</updated>
-    <link rel="alternate" type="text/html" href="http://dilbert.com/strip/2016-09-09"/>
-    <title>Comic for September 09, 2016</title>
+    <id>2019-10-01</id>
+    <updated>2019-10-01T23:59:59+00:00</updated>
+    <link rel="alternate" type="text/html" href="https://dilbert.com/strip/2019-10-01"/>
+    <title>Comic for October 01, 2019</title>
     <content type="html">Dilbert readers - Please visit Dilbert.com to read this feature. Due to changes with our feeds, we are now making this RSS feed a link to Dilbert.com.</content>
   </entry>
   <entry>
-    <id>2016-09-08</id>
-    <updated>2016-09-08T23:59:59+00:00</updated>
-    <link rel="alternate" type="text/html" href="http://dilbert.com/strip/2016-09-08"/>
-    <title>Comic for September 08, 2016</title>
+    <id>2019-09-30</id>
+    <updated>2019-09-30T23:59:59+00:00</updated>
+    <link rel="alternate" type="text/html" href="https://dilbert.com/strip/2019-09-30"/>
+    <title>Comic for September 30, 2019</title>
     <content type="html">Dilbert readers - Please visit Dilbert.com to read this feature. Due to changes with our feeds, we are now making this RSS feed a link to Dilbert.com.</content>
   </entry>
   <entry>
-    <id>2016-09-07</id>
-    <updated>2016-09-07T23:59:59+00:00</updated>
-    <link rel="alternate" type="text/html" href="http://dilbert.com/strip/2016-09-07"/>
-    <title>Comic for September 07, 2016</title>
+    <id>2019-09-29</id>
+    <updated>2019-09-29T23:59:59+00:00</updated>
+    <link rel="alternate" type="text/html" href="https://dilbert.com/strip/2019-09-29"/>
+    <title>Comic for September 29, 2019</title>
     <content type="html">Dilbert readers - Please visit Dilbert.com to read this feature. Due to changes with our feeds, we are now making this RSS feed a link to Dilbert.com.</content>
   </entry>
   <entry>
-    <id>2016-09-06</id>
-    <updated>2016-09-06T23:59:59+00:00</updated>
-    <link rel="alternate" type="text/html" href="http://dilbert.com/strip/2016-09-06"/>
-    <title>Comic for September 06, 2016</title>
+    <id>2019-09-28</id>
+    <updated>2019-09-28T23:59:59+00:00</updated>
+    <link rel="alternate" type="text/html" href="https://dilbert.com/strip/2019-09-28"/>
+    <title>Comic for September 28, 2019</title>
     <content type="html">Dilbert readers - Please visit Dilbert.com to read this feature. Due to changes with our feeds, we are now making this RSS feed a link to Dilbert.com.</content>
   </entry>
 </feed>
