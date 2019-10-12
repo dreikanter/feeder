@@ -34,11 +34,32 @@ async function fetchPost ({ shortCode, executablePath }) {
   const page = await browser.newPage();
   await page.goto(instagramPostUrl(shortCode));
   await page.waitForSelector(imagesSelector, { timeout });
-  const data = await page.evaluate(selector => (
-    Array
-      .from(document.querySelectorAll(selector))
-      .map(item => item.src)
-  ), imagesSelector);
+
+  const data = await page.evaluate(selector => {
+    function flipPage () {
+      const icon = document.querySelector('.coreSpriteRightChevron')
+
+      if (!icon || !icon.parentElement) {
+        return false;
+      }
+
+      icon.parentElement.click();
+      return true;
+    }
+
+    const images = new Set();
+
+    do {
+      document.querySelectorAll(selector).forEach(image => {
+        if (image.height > 500) {
+          images.add(image.src);
+        }
+      })
+    } while (!flipPage(document));
+
+    return Array.from(images);
+  }, imagesSelector);
+
   process.stdout.write(`${JSON.stringify(data)}\n`);
   await browser.close();
 }
