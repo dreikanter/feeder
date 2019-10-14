@@ -21,7 +21,7 @@
 yarn-debug.log*
 .yarn-integrity
 
-# Rails Credentials
+# Rails Credentials (rails-env-credentials)
 /config/master.key
 /config/master-development.key
 /config/master-test.key
@@ -32,3 +32,8 @@ yarn-debug.log*
 # Misc
 /public/assets
 .DS_Store
+
+# Rails credentials
+/config/credentials/development.key
+/config/credentials/test.key
+/config/credentials/production.key
