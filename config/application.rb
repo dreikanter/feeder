@@ -25,6 +25,7 @@ module Feeder
     config.load_defaults 6.0
     config.autoload_paths += %w[app lib].map { |path| config.root.join(path) }
     config.add_autoload_paths_to_load_path = false
+    config.read_encrypted_secrets = true
 
     config.hosts << 'feeder.local'
     config.hosts << 'frf.im'
