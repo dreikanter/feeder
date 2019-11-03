@@ -19,6 +19,11 @@ class ErrorDumper
   )
 
   def call
+    persist_error
+    notify_honeybadger
+  end
+
+  def persist_error
     Error.create!(
       backtrace: backtrace,
       context: context,
@@ -31,6 +36,10 @@ class ErrorDumper
       status: ErrorStatus.pending,
       target: target
     )
+  end
+
+  def notify_honeybadger
+    Honeybadger.notify(exception, error_message: message)
   end
 
   def location
