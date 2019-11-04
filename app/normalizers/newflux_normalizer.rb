@@ -15,10 +15,12 @@ class NewfluxNormalizer < FeedjiraNormalizer
     Html.comment_excerpt(entity.summary)
   end
 
-  COVER_QUERY = 'meta[name="twitter:image"]'
+  COVER_QUERY = 'meta[name="twitter:image"]'.freeze
 
   def image_url
     Nokogiri::HTML(page_content).css(COVER_QUERY).first[:content]
+  rescue StandardError
+    nil
   end
 
   def page_content
