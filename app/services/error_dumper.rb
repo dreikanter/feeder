@@ -20,7 +20,7 @@ class ErrorDumper
 
   def call
     persist_error
-    notify_honeybadger
+    notify_honeybadger(exception, message)
   end
 
   def persist_error
@@ -37,7 +37,7 @@ class ErrorDumper
       target: target
     )
   rescue StandardError => e
-    notify_honeybadger(e)
+    notify_honeybadger(e, 'Error saving an Error')
   end
 
   def notify_honeybadger(error, error_message = nil)
