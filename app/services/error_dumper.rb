@@ -36,10 +36,12 @@ class ErrorDumper
       status: ErrorStatus.pending,
       target: target
     )
+  rescue StandardError => e
+    notify_honeybadger(e)
   end
 
-  def notify_honeybadger
-    Honeybadger.notify(exception, error_message: message)
+  def notify_honeybadger(error, error_message = nil)
+    Honeybadger.notify(error, error_message: error_message)
   end
 
   def location
