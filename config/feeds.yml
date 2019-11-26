@@ -488,4 +488,4 @@
   processor: "feedjira"
   normalizer: "buni"
   import_limit: 10
-  refresh_interval: 0
+  refresh_interval: 3600
