@@ -27,8 +27,9 @@ group :development, :test do
   gem 'minitest-rails', '~> 6.0'
   gem 'minitest-reporters', '~> 1.3', '>= 1.3.8'
   gem 'mocha', '~> 1.9'
-  gem 'pry-rails', '~> 0.3.4'
+  gem 'pry-rails', '~> 0.3.9'
   gem 'simplecov', '~> 0.17'
+  gem 'webmock', '~> 3.7', '>= 3.7.6'
 end
 
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
