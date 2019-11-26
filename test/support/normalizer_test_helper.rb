@@ -32,13 +32,15 @@ module NormalizerTestHelper
   end
 
   def sample_data
-    @sample_data ||=
-      File.read(File.join(SAMPLE_DATA_PATH, sample_data_file))
+    @sample_data ||= sample_file(sample_data_file)
   end
 
   def sample_post
-    @sample_post ||=
-      File.read(File.join(SAMPLE_DATA_PATH, sample_post_file))
+    @sample_post ||= sample_file(sample_post_file)
+  end
+
+  def sample_file(path)
+    File.read(File.join(SAMPLE_DATA_PATH, path))
   end
 
   def normalized
