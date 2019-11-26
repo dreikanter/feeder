@@ -1,6 +1,10 @@
 class BuniNormalizer < FeedjiraNormalizer
   protected
 
+  def text
+    [title, entity.url].join(separator)
+  end
+
   def attachments
     [image_url]
   end
@@ -15,12 +19,17 @@ class BuniNormalizer < FeedjiraNormalizer
 
   private
 
-  def image_url
-    page_images.first[:src] if page_images.any?
+  def title
+    image_title = image[:alt]
+    image_title.blank? ? entity.title : image_title
   end
 
-  def page_images
-    Nokogiri::HTML(page_content).css(image_selector)
+  def image_url
+    image[:src] if image
+  end
+
+  def image
+    @image ||= Nokogiri::HTML(page_content).css(image_selector).first
   end
 
   def image_selector

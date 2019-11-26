@@ -48,6 +48,11 @@ class BuniNormalizerTest < Minitest::Test
     assert_equal(expected, ordinary_post_field(:link))
   end
 
+  def test_text
+    expected = 'De-Metamorphosis - http://www.bunicomic.com/comic/buni-1315/'
+    assert_equal(expected, ordinary_post_field(:text))
+  end
+
   def test_published_at
     expected = DateTime.parse('2019-11-25 06:00:09 UTC')
     assert_equal(expected, ordinary_post_field(:published_at))
