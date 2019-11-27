@@ -21,6 +21,11 @@ class Pull
 
     Success(normalize(entities))
   rescue StandardError => e
+    Honeybadger.context(
+      error: e,
+      feed: feed.name
+    )
+
     Failure(e)
   end
 
