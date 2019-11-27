@@ -18,8 +18,8 @@ class MediumNormalizer < RssNormalizer
   end
 
   def image_url
-    @image_url ||= description.
-      css('.medium-feed-image img:first').first['src']
+    @image_url ||= description
+      .css('.medium-feed-image img:first').first['src']
   end
 
   def description
@@ -34,8 +34,8 @@ class MediumNormalizer < RssNormalizer
   end
 
   def page_body
-    @page_body ||= Nokogiri::HTML(page_content).
-      css('.section--body .section-content').first
+    @page_body ||= Nokogiri::HTML(page_content)
+      .css('.section--body .section-content').first
   end
 
   def page_content

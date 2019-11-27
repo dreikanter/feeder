@@ -29,7 +29,7 @@ class EsquirePhotosNormalizer < RssNormalizer
   READ_MORE_LINK = /\s*Читать дальше\s*/.freeze
 
   def description
-    Html.comment_excerpt(Html.squeeze(entity.description)).
-      gsub(READ_MORE_LINK, '')
+    Html.comment_excerpt(Html.squeeze(entity.description))
+      .gsub(READ_MORE_LINK, '')
   end
 end
