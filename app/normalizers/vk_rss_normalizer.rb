@@ -6,8 +6,11 @@ class VkRssNormalizer < RssNormalizer
   end
 
   def text
-    Html.post_excerpt(paragraphs.first,
-      link: entity.link, separator: separator)
+    Html.post_excerpt(
+      paragraphs.first,
+      link: entity.link,
+      separator: separator
+    )
   end
 
   def comments
