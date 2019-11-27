@@ -55,3 +55,6 @@ Style/StringLiterals:
   Exclude:
     - "bin/**/*"
     - "db/migrations"
+
+Layout/IndentFirstHashElement:
+  EnforcedStyle: consistent
