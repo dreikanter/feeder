@@ -1,10 +1,10 @@
 if Rails.env.development?
-  Marginalia::Comment.components = [
-    :application,
-    :controller_with_namespace,
-    :action,
-    :line,
-    :job
+  Marginalia::Comment.components = %i[
+    application
+    controller_with_namespace
+    action
+    line
+    job
   ]
 end
 
