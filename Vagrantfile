@@ -59,8 +59,12 @@ Vagrant.configure('2') do |config|
   config.hostmanager.ignore_private_ip = false
   config.hostmanager.include_offline = true
 
-  config.vm.synced_folder '.', '/app', fsnotify: true,
+  config.vm.synced_folder(
+    '.',
+    '/app',
+    fsnotify: true,
     exclude: ['.git/', 'node_modules/', 'tmp/', 'coverage/']
+  )
 
   config.vm.synced_folder '../feeder-ansible', '/ansible'
   config.vm.synced_folder '../feeder-ansible-secrets', '/secrets'
