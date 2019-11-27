@@ -14,7 +14,7 @@ module Batches
       DataPoint
         .recent
         .for('batch')
-        .map { |dp| dp.details }
+        .map(&:details)
     end
   end
 end
