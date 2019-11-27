@@ -47,6 +47,6 @@ class TwitterLoaderTest < Minitest::Test
     sample_feed = build(:feed, :twitter, options: {})
     result = loader.call(sample_feed)
     assert(result.failure?)
-    assert(result.failure.is_a?(RuntimeError))
+    assert(result.failure.is_a?(KeyError))
   end
 end
