@@ -6,7 +6,7 @@ class TheAtlanticPhotosNormalizer < TumblrNormalizer
   end
 
   def direct_link
-    RestClient.get(entity.link) do |response, request, result, &block|
+    RestClient.get(entity.link) do |response, _request, _result|
       redirecting = [301, 302, 307].include?(response.code)
       redirecting ? response.headers[:location] : entity.link
     end
