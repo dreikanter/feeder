@@ -16,6 +16,14 @@ class AerostaticaNormalizerTest < Minitest::Test
     FeedjiraProcessor
   end
 
+  def setup
+    super
+    sample_post = sample_file('post_aerostatica.html')
+
+    stub_request(:get, %r{^https://aerostatica.ru/\d+.*})
+      .to_return(body: sample_post)
+  end
+
   def test_have_sample_data
     assert(processed.present?)
     assert(processed.length.positive?)
