@@ -2,7 +2,7 @@
 
 VAGRANT_APP_NAME   = 'feeder'
 HOSTNAME           = 'feeder.local'
-HOSTNAME_ALIASES   = []
+HOSTNAME_ALIASES   = [].freeze
 VAGRANT_IP         = '192.168.99.101'
 VAGRANT_MEMORY_MB  = 8192
 VAGRANT_CPUS       = 2
@@ -13,7 +13,7 @@ VAGRANT_PORTS = {
   webpack_dev_server: { guest: 3035, host: 3035 },
   postgres: { guest: 5432, host: 5432 },
   webpack_bundle_analyzer: { guest: 8888, host: 8888 }
-}
+}.freeze
 
 Vagrant.require_version '>= 2.2'
 
@@ -47,7 +47,7 @@ Vagrant.configure('2') do |config|
     vb.cpus = Integer(VAGRANT_CPUS)
     vb.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
     vb.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
-    vb.customize ['guestproperty', 'set', :id, '--timesync-threshold', 10000]
+    vb.customize ['guestproperty', 'set', :id, '--timesync-threshold', 10_000]
     vb.gui = false
   end
 

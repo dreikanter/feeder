@@ -1,5 +1,5 @@
 class MaremirNormalizer < RssNormalizer
-  WORDPRESS_THUMBNAIL_SUFFIX = '-150x150.'
+  WORDPRESS_THUMBNAIL_SUFFIX = '-150x150.'.freeze
 
   protected
 
