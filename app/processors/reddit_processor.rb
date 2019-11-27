@@ -55,7 +55,9 @@ class RedditProcessor < AtomProcessor
     logger.debug("fetching [#{link}]")
 
     # TODO: Figure out why sanitization is required here
+    # rubocop:disable Lint/UriEscapeUnescape
     safe_link = URI.encode(URI.decode(link))
+    # rubocop:enable Lint/UriEscapeUnescape
     CreateDataPoint.call(
       :test_reddit_links,
       link: link,
