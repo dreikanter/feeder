@@ -20,7 +20,8 @@ class NewfluxNormalizer < FeedjiraNormalizer
   COVER_QUERY = 'meta[name="twitter:image"]'.freeze
 
   def image_url
-    Nokogiri::HTML(page_content).css(COVER_QUERY).first[:content]
+    image = Nokogiri::HTML(page_content).css(COVER_QUERY).first
+    image[:content] if image
   rescue StandardError => e
     ErrorDumper.call(
       exception: e,
