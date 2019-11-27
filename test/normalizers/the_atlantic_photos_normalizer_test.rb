@@ -26,7 +26,7 @@ class TheAtlanticPhotosNormalizerTest < Minitest::Test
     assert(normalized.all?(&:success?))
   end
 
-  # rubocop:disable Metric/LineLength
+  # rubocop:disable Metrics/LineLength
   FIRST_SAMPLE = {
     uid: 'http://feedproxy.google.com/~r/theatlantic/infocus/~3/5PMsxSsNGFk/',
     link: 'http://feedproxy.google.com/~r/theatlantic/infocus/~3/5PMsxSsNGFk/',
@@ -36,7 +36,7 @@ class TheAtlanticPhotosNormalizerTest < Minitest::Test
     comments: ['The Lower Falls of the Yellowstone River, in Yellowstone National Park, photographed on September 2, 2006. (Stewart Tomlinson / U.S. Geological Survey)'],
     validation_errors: []
   }.freeze
-  # rubocop:enable Metric/LineLength
+  # rubocop:enable Metrics/LineLength
 
   def test_normalized_sample
     assert_equal(FIRST_SAMPLE, normalized.first.value!)
