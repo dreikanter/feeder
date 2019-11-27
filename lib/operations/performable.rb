@@ -8,7 +8,7 @@ module Operations
 
     def perform(operation, options = {})
       render(Operations::Runner.call(
-        operation,
+               operation,
         user: try(:current_user),
         params: try(:params),
         request: try(:request),
