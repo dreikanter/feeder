@@ -16,6 +16,14 @@ class DilbertNormalizerTest < Minitest::Test
     'feed_dilbert.xml'.freeze
   end
 
+  def setup
+    super
+    sample_post = sample_file('post_dilbert.html')
+
+    stub_request(:get, %r{^https://dilbert.com/strip/[\d-]+$})
+      .to_return(body: sample_post)
+  end
+
   def test_have_sample_data
     assert(processed.present?)
     assert(processed.length.positive?)
