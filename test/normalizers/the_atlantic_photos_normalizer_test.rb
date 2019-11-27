@@ -4,6 +4,13 @@ require_relative '../support/normalizer_test_helper'
 class TheAtlanticPhotosNormalizerTest < Minitest::Test
   include NormalizerTestHelper
 
+  def setup
+    super
+
+    stub_request(:get, /feedproxy.google.com/)
+      .to_return(status: 200, body: '')
+  end
+
   def subject
     TheAtlanticPhotosNormalizer
   end
@@ -26,19 +33,56 @@ class TheAtlanticPhotosNormalizerTest < Minitest::Test
     assert(normalized.all?(&:success?))
   end
 
+  def test_uid
+    assert_equal(
+      'http://feedproxy.google.com/~r/theatlantic/infocus/~3/5PMsxSsNGFk/',
+      normalized.first.value![:uid]
+    )
+  end
+
+  def test_link
+    assert_equal(
+      'http://feedproxy.google.com/~r/theatlantic/infocus/~3/5PMsxSsNGFk/',
+      normalized.first.value![:link]
+    )
+  end
+
+  def test_published_at
+    assert_equal(
+      DateTime.parse('2017-09-19 14:15:30 -0400'),
+      normalized.first.value![:published_at]
+    )
+  end
+
   # rubocop:disable Metrics/LineLength
-  FIRST_SAMPLE = {
-    uid: 'http://feedproxy.google.com/~r/theatlantic/infocus/~3/5PMsxSsNGFk/',
-    link: 'http://feedproxy.google.com/~r/theatlantic/infocus/~3/5PMsxSsNGFk/',
-    published_at: DateTime.parse('2017-09-19 14:15:30 -0400'),
-    text: 'Yellowstone National Park, now 145 years old, was the first national park established in the world. In 2016, the 2.2-million-acre park was visited by a record 4.2 million people, who came to experience the wilderness, explore countless geothermal features, witness the gorgeous vistas, and try to catch a glimpse of the resident wildlife. Gathered here are a handful of compelling photos from Yellowstone’s past, as... (continued) - https://www.theatlantic.com/photo/2017/09/a-photo-trip-through-yellowstone-national-park/540339/',
-    attachments: ['https://cdn.theatlantic.com/assets/media/img/photo/2017/09/a-photo-trip-through-yellowstone-na/y01_WY09022006/main_1200.jpg?1505843933'],
-    comments: ['The Lower Falls of the Yellowstone River, in Yellowstone National Park, photographed on September 2, 2006. (Stewart Tomlinson / U.S. Geological Survey)'],
-    validation_errors: []
-  }.freeze
+  EXPECTED_TEXT = 'Yellowstone National Park, now 145 years old, was the first national park established in the world. In 2016, the 2.2-million-acre park was visited by a record 4.2 million people, who came to experience the wilderness, explore countless geothermal features, witness the gorgeous vistas, and try to catch a glimpse of the resident wildlife. Gathered here are a handful of compelling photos from Yellowstone’s past, as... (continued) - http://feedproxy.google.com/~r/theatlantic/infocus/~3/5PMsxSsNGFk/'.freeze
   # rubocop:enable Metrics/LineLength
 
-  def test_normalized_sample
-    assert_equal(FIRST_SAMPLE, normalized.first.value!)
+  def test_text
+    assert_equal(EXPECTED_TEXT, normalized.first.value![:text])
+  end
+
+  # rubocop:disable Metrics/LineLength
+  EXPECTED_ATTACHMENTS = [
+    'https://cdn.theatlantic.com/assets/media/img/photo/2017/09/a-photo-trip-through-yellowstone-na/y01_WY09022006/main_1200.jpg?1505843933'
+  ].freeze
+  # rubocop:enable Metrics/LineLength
+
+  def test_attachments
+    assert_equal(EXPECTED_ATTACHMENTS, normalized.first.value![:attachments])
+  end
+
+  # rubocop:disable Metrics/LineLength
+  EXPECTED_COMMENTS = [
+    'The Lower Falls of the Yellowstone River, in Yellowstone National Park, photographed on September 2, 2006. (Stewart Tomlinson / U.S. Geological Survey)'
+  ].freeze
+  # rubocop:enable Metrics/LineLength
+
+  def test_comments
+    assert_equal(EXPECTED_COMMENTS, normalized.first.value![:comments])
+  end
+
+  def test_validation_errors
+    assert_empty(normalized.first.value![:validation_errors])
   end
 end
