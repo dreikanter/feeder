@@ -1,21 +1,16 @@
+inherit_from: .rubocop_todo.yml
+
 AllCops:
+  TargetRubyVersion: 2.6
   DisplayCopNames: true
   Exclude:
-    - "db"
-    - "config/routes.rb"
-    - "**/*_schema.rb"
-    - "node_modules"
+    - "bin/*"
+    - "db/**/*"
+    - "node_modules/**/*"
+    - "coverage"
+    - "tmp"
 
-Documentation:
-  Enabled: false
-
-Layout/SpaceBeforeFirstArg:
-  Enabled: false
-
-Layout/SpaceAfterComma:
-  Enabled: false
-
-Naming/FileName:
+Style/Documentation:
   Enabled: false
 
 Style/FrozenStringLiteralComment:
@@ -32,16 +27,20 @@ Metrics/MethodLength:
   Max: 15
 
 Metrics/BlockLength:
+  Max: 15
   Exclude:
     - "config/routes.rb"
     - "**/*_schema.rb"
+    - "test/**/*"
+    - "Vagrantfile"
+    - "config/environments/*"
+    - "**/*.rake"
 
 Metrics/ClassLength:
-  Enabled: false
+  Max: 300
 
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
-
 
 Layout/MultilineOperationIndentation:
   EnforcedStyle: indented
@@ -51,3 +50,8 @@ Layout/IndentFirstArrayElement:
 
 Layout/EmptyLineAfterGuardClause:
   Enabled: false
+
+Style/StringLiterals:
+  Exclude:
+    - "bin/**/*"
+    - "db/migrations"

@@ -19,7 +19,7 @@ class RedditNormalizer < AtomNormalizer
 
   def source_url
     @source_url ||= Html.link_urls(content)[1]
-  rescue
+  rescue StandardError
     @source_url ||= discussion_url
   end
 

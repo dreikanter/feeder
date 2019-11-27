@@ -26,7 +26,6 @@ class XkcdNormalizerTest < Minitest::Test
     assert(normalized.all?(&:success?))
   end
 
-  # rubocop:disable Metrics/LineLength
   FIRST_SAMPLE = {
     uid: 'http://xkcd.com/1732/',
     link: 'http://xkcd.com/1732/',
@@ -36,7 +35,6 @@ class XkcdNormalizerTest < Minitest::Test
     comments: ['[After setting your car on fire] Listen, your car\'s temperature has changed before.'],
     validation_errors: []
   }.freeze
-  # rubocop:enable Metrics/LineLength
 
   def test_normalized_sample
     assert_equal(FIRST_SAMPLE, normalized.first.value!)

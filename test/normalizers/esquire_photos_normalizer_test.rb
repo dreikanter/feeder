@@ -26,7 +26,6 @@ class EsquirePhotosNormalizerTest < Minitest::Test
     assert(normalized.all?(&:success?))
   end
 
-  # rubocop:disable Metrics/LineLength
   FIRST_SAMPLE = {
     uid: 'https://esquire.ru/escobar-netflix',
     link: 'https://esquire.ru/escobar-netflix',
@@ -36,7 +35,6 @@ class EsquirePhotosNormalizerTest < Minitest::Test
     comments: ['«Если мы не получим деньги, то прикроем их маленькое шоу».'],
     validation_errors: []
   }.freeze
-  # rubocop:enable Metrics/LineLength
 
   def test_normalized_sample
     assert_equal(FIRST_SAMPLE, normalized.first.value!)

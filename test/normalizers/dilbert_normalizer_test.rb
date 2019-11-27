@@ -26,10 +26,8 @@ class DilbertNormalizerTest < Minitest::Test
     assert(normalized.all?(&:success?))
   end
 
-  # rubocop:disable Metrics/LineLength
   def test_text
     result = normalized.first.value![:text]
     assert_equal('Garbage Man Breaks Fourth Wall - Comic for October 04, 2019', result)
   end
-  # rubocop:enable Metrics/LineLength
 end

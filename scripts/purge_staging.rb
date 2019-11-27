@@ -9,6 +9,7 @@ USER = 'feeder'.freeze
 
 posts_count = 0
 
+# rubocop:disable Metrics/BlockLength
 loop do
   puts 'loading posts'
 
@@ -48,3 +49,4 @@ loop do
     posts_count += 1
   end
 end
+# rubocop:enable Metrics/BlockLength

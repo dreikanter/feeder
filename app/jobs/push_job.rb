@@ -21,7 +21,7 @@ class PushJob < ApplicationJob
 
   private
 
-  def create_freefeed_post # rubocop:disable Metric/AbcSize
+  def create_freefeed_post
     attach_ids = post.attachments.map do |url|
       ff.create_attachment_from_url(url)
     end

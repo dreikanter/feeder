@@ -10,6 +10,8 @@ module Freefeed
 
     DEFAULT_SCHEME = 'http'.freeze
 
+    # TODO: Refactor this method
+    # rubocop:disable Metrics/MethodLength
     def create_attachment_from_url(url)
       Rails.logger.info("create attachment for #{url}")
       Tempfile.open(['feeder', path_from_url(url)]) do |file|
@@ -29,6 +31,7 @@ module Freefeed
         response.dig('attachments', 'id')
       end
     end
+    # rubocop:enable Metrics/MethodLength
 
     def create_attachment_from_file(file)
       Rails.logger.info('create attachment from file')

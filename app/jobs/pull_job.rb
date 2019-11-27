@@ -16,6 +16,8 @@ class PullJob < ApplicationJob
     )
   end
 
+  # TODO: Refactor this method
+  # rubocop:disable Metrics/MethodLength
   def perform(feed)
     entities = Pull.call(feed)
 
@@ -30,6 +32,7 @@ class PullJob < ApplicationJob
       return
     end
 
+    # rubocop:disable Metrics/BlockLength
     entities.value!.each do |entity|
       if entity.failure?
         message = "normalization error: #{error}"
@@ -50,6 +53,7 @@ class PullJob < ApplicationJob
       Post.create!(**value.merge(feed_id: feed.id, status: post_status))
       count_post
     end
+    # rubocop:enable Metrics/BlockLength
 
     feed.posts.queue.each { |post| PushJob.perform_later(post) }
   ensure
@@ -58,6 +62,7 @@ class PullJob < ApplicationJob
       refreshed_at: started_at
     )
   end
+  # rubocop:enable Metrics/MethodLength
 
   private
 

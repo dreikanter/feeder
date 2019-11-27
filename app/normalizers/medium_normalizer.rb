@@ -7,13 +7,13 @@ class MediumNormalizer < RssNormalizer
 
   def attachments
     [image_url]
-  rescue
+  rescue StandardError
     []
   end
 
   def comments
     [excerpt]
-  rescue
+  rescue StandardError
     []
   end
 

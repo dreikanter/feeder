@@ -26,7 +26,6 @@ class CommitstripNormalizerTest < Minitest::Test
     assert(normalized.all?(&:success?))
   end
 
-  # rubocop:disable Metrics/LineLength
   FIRST_SAMPLE = {
     uid: 'https://www.commitstrip.com/2017/09/19/the-whole-teams-working-on-it/',
     link: 'https://www.commitstrip.com/2017/09/19/the-whole-teams-working-on-it/',
@@ -36,7 +35,6 @@ class CommitstripNormalizerTest < Minitest::Test
     comments: [],
     validation_errors: []
   }.freeze
-  # rubocop:enable Metrics/LineLength
 
   def test_normalized_sample
     assert_equal(FIRST_SAMPLE, normalized.first.value!)

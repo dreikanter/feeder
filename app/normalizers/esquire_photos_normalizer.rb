@@ -8,7 +8,7 @@ class EsquirePhotosNormalizer < RssNormalizer
   def published_at
     parts = /(\d\d)(\d\d)(\d\d\d\d)/.match(link)
     DateTime.new(Integer(parts[3]), Integer(parts[2]), Integer(parts[1]))
-  rescue
+  rescue StandardError
     super
   end
 

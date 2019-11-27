@@ -21,7 +21,6 @@ class MonkeyuserNormalizerTest < Minitest::Test
     assert(normalized.all?(&:success?))
   end
 
-  # rubocop:disable Metrics/LineLength
   FIRST_SAMPLE = {
     uid: 'https://www.monkeyuser.com/2019/platypuscorn/',
     link: 'https://www.monkeyuser.com/2019/platypuscorn/',
@@ -31,7 +30,6 @@ class MonkeyuserNormalizerTest < Minitest::Test
     comments: [],
     validation_errors: []
   }.freeze
-  # rubocop:enable Metrics/LineLength
 
   def test_normalized_sample
     assert_equal(FIRST_SAMPLE, normalized.first.value!)

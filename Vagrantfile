@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 VAGRANT_APP_NAME   = 'feeder'
 HOSTNAME           = 'feeder.local'
 HOSTNAME_ALIASES   = []
