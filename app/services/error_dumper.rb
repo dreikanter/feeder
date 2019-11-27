@@ -19,8 +19,8 @@ class ErrorDumper
   )
 
   def call
-    persist_error
     notify_honeybadger(exception, message)
+    persist_error
   end
 
   def persist_error
