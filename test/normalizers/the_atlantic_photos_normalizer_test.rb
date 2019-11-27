@@ -62,11 +62,9 @@ class TheAtlanticPhotosNormalizerTest < Minitest::Test
     assert_equal(EXPECTED_TEXT, normalized.first.value![:text])
   end
 
-  # rubocop:disable Metrics/LineLength
   EXPECTED_ATTACHMENTS = [
     'https://cdn.theatlantic.com/assets/media/img/photo/2017/09/a-photo-trip-through-yellowstone-na/y01_WY09022006/main_1200.jpg?1505843933'
   ].freeze
-  # rubocop:enable Metrics/LineLength
 
   def test_attachments
     assert_equal(EXPECTED_ATTACHMENTS, normalized.first.value![:attachments])
