@@ -80,9 +80,7 @@ module Freefeed
 
     private
 
-    def token
-      @token
-    end
+    attr_reader :token
 
     def url(path, options = {})
       version = options[:version] || DEFAULT_API_VERSION
