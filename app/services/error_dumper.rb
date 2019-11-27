@@ -23,6 +23,8 @@ class ErrorDumper
     persist_error
   end
 
+  private
+
   def persist_error
     Error.create!(
       backtrace: backtrace,
