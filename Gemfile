@@ -8,12 +8,10 @@ gem 'rails', '~> 6.0.0'
 
 group :development do
   gem 'brakeman', '~> 4.3', '>= 4.3.1', require: false
-  gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'method_source', '~> 0.9.2'
   gem 'reek', '~> 5.4'
   gem 'rubocop', '~> 0.75.1'
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
 
@@ -22,8 +20,6 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
   gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
-  gem 'guard', '~> 2.15'
-  gem 'guard-minitest', '~> 2.4', '>= 2.4.6', require: false
   gem 'minitest-rails', '~> 6.0'
   gem 'minitest-reporters', '~> 1.3', '>= 1.3.8'
   gem 'mocha', '~> 1.9'

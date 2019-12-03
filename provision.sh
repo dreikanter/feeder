@@ -88,10 +88,6 @@ echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$HOME/.rbenv/bin:$PATH"' 
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 source ~/.bashrc
 
-# Increasing the amount of inotify watchers
-# SEE: https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers
-echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
-
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
