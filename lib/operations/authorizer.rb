@@ -20,7 +20,7 @@ module Operations
     extend Dry::Initializer
 
     option :user, optional: true, default: -> { nil }
-    option :params, optional: true, default: proc { {} }
+    option :params, optional: true, default: -> { {} }
 
     def self.call(options = {})
       new(**options).call

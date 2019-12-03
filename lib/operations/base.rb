@@ -6,6 +6,6 @@ module Operations
     option :user
     option :params
     option :request
-    option :options, optional: true, default: proc { {} }
+    option :options, optional: true, default: -> { {} }
   end
 end

@@ -13,14 +13,14 @@ class FeedSanitizer
     :options,
     type: Dry::Types['strict.hash'],
     optional: true,
-    default: proc { {} }
+    default: -> { {} }
   )
 
   option(
     :refresh_interval,
     type: Dry::Types['strict.integer'],
     optional: true,
-    default: proc { 0 }
+    default: -> { 0 }
   )
 
   def call
