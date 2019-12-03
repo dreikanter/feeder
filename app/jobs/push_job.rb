@@ -23,24 +23,33 @@ class PushJob < ApplicationJob
 
   def create_freefeed_post
     attach_ids = post.attachments.map do |url|
-      ff.create_attachment_from_url(url)
+      FileDownloader.call(url) { |file| freefeed.create_attachment(file) }
     end
-    post_id = ff.create_post(
+
+    post_id = freefeed.create_post(
       post.text,
       feeds: [post.feed.name],
       attachments: attach_ids
     )
+
     post.comments.each do |comment|
-      ff.create_comment(post_id, comment)
+      freefeed.create_comment(post_id, comment)
     end
+
     post_id
+  end
+
+  def create_attachment(url)
+    FileDownloader.call(url) do |file|
+      freefeed.create_attachment(file)
+    end
   end
 
   def post
     arguments[0]
   end
 
-  def ff
-    @ff ||= Freefeed::Client.new(Rails.application.credentials.freefeed_token)
+  def freefeed
+    @freefeed ||= FreefeedClientBuilder.call
   end
 end
