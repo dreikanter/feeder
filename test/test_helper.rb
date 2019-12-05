@@ -15,12 +15,14 @@ require 'minitest/mock'
 require 'mocha/minitest'
 require 'webmock/minitest'
 require_relative './custom_assertions'
+require_relative './support/file_helpers'
 
 DatabaseCleaner.strategy = :transaction
 
 module Minitest
   class Test
     include FactoryBot::Syntax::Methods
+    include FileHelpers
 
     def setup
       DatabaseCleaner.start
