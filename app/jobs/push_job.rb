@@ -62,7 +62,7 @@ class PushJob < ApplicationJob
   def create_attachment(url)
     Downloader.call(url) do |io, content_type|
       response = freefeed.create_attachment(io, content_type: content_type)
-      response.dig('attachments', 'id')
+      response.parse.dig('attachments', 'id')
     end
   end
 
