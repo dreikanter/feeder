@@ -1,6 +1,10 @@
 class PushJob < ApplicationJob
   queue_as :default
 
+  # TODO: Move publication to a service class
+  # TODO: Test coverage
+  # TODO: Use data objects for Freefeed API wrapper
+
   def perform(post)
     if post.ignored?
       logger.info('ignoring non-valid post')
@@ -12,8 +16,8 @@ class PushJob < ApplicationJob
       return
     end
 
-    post_id = create_freefeed_post
-    post.update(freefeed_post_id: post_id, status: PostStatus.published)
+    create_post_with_comments
+    post.update(status: PostStatus.published)
   rescue StandardError
     post.update(status: PostStatus.error)
     raise
@@ -21,27 +25,44 @@ class PushJob < ApplicationJob
 
   private
 
-  def create_freefeed_post
-    attach_ids = post.attachments.map do |url|
-      FileDownloader.call(url) { |file| freefeed.create_attachment(file) }
-    end
+  def create_post_with_comments
+    attachment_ids = create_attachments
+    post_id = create_post(attachment_ids)
+    post.update(freefeed_post_id: post_id)
+    create_comments(post_id)
+  end
 
-    post_id = freefeed.create_post(
-      post.text,
-      feeds: [post.feed.name],
-      attachments: attach_ids
+  def create_post(attachment_ids)
+    freefeed.create_post(
+      post: {
+        body: post.text,
+        attachments: attachment_ids
+      },
+      meta: {
+        feeds: [post.feed.name]
+      }
     )
+  end
 
+  def create_comments(post_id)
     post.comments.each do |comment|
-      freefeed.create_comment(post_id, comment)
+      freefeed.create_comment(
+        comment: {
+          body: comment,
+          postId: post_id
+        }
+      )
     end
+  end
 
-    post_id
+  def create_attachments
+    post.attachments.map { |url| create_attachment(url) }
   end
 
   def create_attachment(url)
-    FileDownloader.call(url) do |file|
-      freefeed.create_attachment(file)
+    Downloader.call(url) do |io, content_type|
+      response = freefeed.create_attachment(io, content_type: content_type)
+      response.dig('attachments', 'id')
     end
   end
 

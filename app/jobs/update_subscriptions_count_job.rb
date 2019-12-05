@@ -17,10 +17,6 @@ class UpdateSubscriptionsCountJob < ApplicationJob
     Feed.active.find_by(name: feed_name).update(subscriptions_count: current)
   end
 
-  def freefeed
-    @freefeed ||= FreefeedClientBuilder.call
-  end
-
   def prev_data_point(feed_name)
     DataPoint
       .for(SERIES_NAME)
@@ -34,5 +30,9 @@ class UpdateSubscriptionsCountJob < ApplicationJob
     timeline = freefeed.timeline(feed_name)
     subscribers = timeline.dig('timelines', 'subscribers')
     subscribers.count
+  end
+
+  def freefeed
+    @freefeed ||= FreefeedClientBuilder.call
   end
 end
