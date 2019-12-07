@@ -370,7 +370,7 @@
   processor: "feedjira"
   normalizer: "rework"
   refresh_interval: 1800
-  import_limit: 10
+  import_limit: 2
 
 - name: "nathanwpyle"
   loader: "twitter"
