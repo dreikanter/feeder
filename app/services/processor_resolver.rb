@@ -21,8 +21,8 @@ class ProcessorResolver
 
   def available_names_for
     [
-      feed.name,
       feed.processor,
+      feed.name,
       FALLBACK_PROCESSOR
     ]
   end
