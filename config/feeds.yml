@@ -110,12 +110,12 @@
   refresh_interval: 600
   import_limit: 10
 
-- name: "avokado-fm"
-  url: "https://tele.ga/avokado_fm/rss/"
-  processor: "rss"
-  normalizer: "telega"
-  after: "2018-09-18T00:00:00+00:00"
-  refresh_interval: 7200
+# - name: "avokado-fm"
+#   url: "https://tele.ga/avokado_fm/rss/"
+#   processor: "rss"
+#   normalizer: "telega"
+#   after: "2018-09-18T00:00:00+00:00"
+#   refresh_interval: 7200
 
 # - name: "ecologica"
 #   url: "https://vkrss.com/ecologicaspb?key=EW9tJd7ZI8iGBQyg"
@@ -465,23 +465,23 @@
   refresh_interval: 3600
   import_limit: 10
 
-- name: "system32comics"
-  loader: "instagram"
-  processor: "instagram"
-  normalizer: "system32"
-  refresh_interval: 3600
-  import_limit: 10
-  options:
-    instagram_user: "system32comics"
+# - name: "system32comics"
+#   loader: "instagram"
+#   processor: "instagram"
+#   normalizer: "system32"
+#   refresh_interval: 3600
+#   import_limit: 10
+#   options:
+#     instagram_user: "system32comics"
 
-- name: "feeder-sandbox"
-  loader: "instagram"
-  processor: "instagram"
-  normalizer: "instagram"
-  refresh_interval: 3600
-  import_limit: 10
-  options:
-    instagram_user: "nathanwpyle"
+# - name: "feeder-sandbox"
+#   loader: "instagram"
+#   processor: "instagram"
+#   normalizer: "instagram"
+#   refresh_interval: 3600
+#   import_limit: 10
+#   options:
+#     instagram_user: "nathanwpyle"
 
 - name: "buni"
   url: "bunicomic.com/feed/"
