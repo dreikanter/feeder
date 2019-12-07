@@ -10,14 +10,19 @@ class BaseProcessor
   DEFAULT_LIMIT = 2
 
   def call
-    logger.info("processing feed [#{feed_name}]")
-    Success(limit.positive? ? entities.take(limit) : entities)
+    log('processing started')
+    Success(actual_entities)
   rescue StandardError => e
-    logger.error("error processing feed [#{feed_name}]")
+    log("[#{e.class.name}] #{e.message}", level: :error)
     Failure(e)
   end
 
   protected
+
+  def actual_entities
+    return entities.take(limit) if limit.positive?
+    entities
+  end
 
   def entities
     raise NotImplementedError
@@ -25,6 +30,11 @@ class BaseProcessor
 
   def limit
     import_limit || feed.import_limit || DEFAULT_LIMIT
+  end
+
+  # TODO: Move to a mixin
+  def log(message, level: :info)
+    logger.public_send(level, "[feed:#{feed_name}] #{message}")
   end
 
   def feed_name
