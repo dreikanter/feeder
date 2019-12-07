@@ -9,6 +9,8 @@ class Downloader
     io.write(response.body)
     io.rewind
     yield io, response.headers[:content_type]
+  rescue StandardError
+    raise "error downloading url: '#{url}'"
   end
 
   private
