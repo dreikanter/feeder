@@ -29,7 +29,8 @@ class ReworkNormalizer < BaseNormalizer
 
   def formatted_duration
     return nil unless duration
-    "(#{duration})"
+    seconds = Integer(duration)
+    "(#{Time.at(seconds).utc.strftime('%H:%M:%S').gsub(/^(00:|0)/, '')})"
   end
 
   def duration
