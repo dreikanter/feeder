@@ -436,7 +436,7 @@
   refresh_interval: 1100
   import_limit: 10
   options:
-    twitter_user: "dailycattt"
+    twitter_user: "PoorlyFluff"
     only_with_attachments: true
     ignore_retweets: true
 
