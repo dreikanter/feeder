@@ -46,11 +46,15 @@ class PullJob < ApplicationJob
         break
       end
 
-      value = entity.value!
-      valid = value[:validation_errors].none?
+      attributes = entity.value!
+      valid = attributes[:validation_errors].none?
       post_status = valid ? PostStatus.ready : PostStatus.ignored
+
       logger.info("new post [#{post_status}]")
-      Post.create!(**value.merge(feed_id: feed.id, status: post_status))
+      post = Post.find_by(feed_id: feed.id, uid: attributes[:uid])
+      post ||= Post.create!(attributes.merge(feed_id: feed.id))
+      post.update(status: post_status)
+
       count_post
     end
     # rubocop:enable Metrics/BlockLength
