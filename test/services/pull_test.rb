@@ -27,10 +27,6 @@ class PullTest < Minitest::Test
     assert_equal(TestNormalizer, result)
   end
 
-  def test_requires_feed_param
-    assert_raises(ArgumentError) { subject.call }
-  end
-
   def test_call
     expected_entities_count = TestProcessor::ENTITIES.count
     entities = subject.call(feed)
