@@ -489,3 +489,10 @@
   normalizer: "buni"
   import_limit: 10
   refresh_interval: 3600
+
+- name: "lunarbaboon"
+  url: "http://www.lunarbaboon.com/comics/rss.xml"
+  processor: "feedjira"
+  normalizer: "lunarbaboon"
+  import_limit: 10
+  refresh_interval: 3600
