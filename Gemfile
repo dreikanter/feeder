@@ -33,7 +33,7 @@ gem 'active_model_serializers', '~> 0.10.9'
 gem 'addressable', '~> 2.5', '>= 2.5.2'
 gem 'annotate', '~> 2.7', '>= 2.7.4'
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'callee', '~> 0.3.0'
+gem 'callee', '~> 0.3.2'
 gem 'daemons', '~> 1.3', '>= 1.3.1'
 gem 'delayed_job_active_record', '~> 4.1', '>= 4.1.1'
 gem 'dry-initializer', '~> 3.0'
