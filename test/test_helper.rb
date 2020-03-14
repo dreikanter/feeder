@@ -32,6 +32,10 @@ module Minitest
     def teardown
       DatabaseCleaner.clean
     end
+
+    def file_fixture(path)
+      File.new(::Rails.root.join('test/fixtures/files', path))
+    end
   end
 end
 
