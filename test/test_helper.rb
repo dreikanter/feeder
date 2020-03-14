@@ -18,6 +18,7 @@ require_relative './custom_assertions'
 require_relative './support/file_helpers'
 
 DatabaseCleaner.strategy = :transaction
+WebMock.enable!
 
 module Minitest
   class Test
