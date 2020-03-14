@@ -429,7 +429,7 @@
     only_with_attachments: true
     ignore_retweets: true
 
-# Account was deleted
+# NOTE: Twitter account was deleted
 # - name: "dailycattt"
 #   loader: "twitter"
 #   processor: "twitter"
