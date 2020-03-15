@@ -181,14 +181,14 @@
   processor: "youtube"
   normalizer: "youtube"
   after: "2018-09-18T00:00:00+00:00"
-  refresh_interval: 3600
+  refresh_interval: 7200
 
 - name: "jimmydiresta"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCiEk4xHBbz0hZNIBBpowdYQ"
   processor: "youtube"
   normalizer: "youtube"
   after: "2018-09-18T00:00:00+00:00"
-  refresh_interval: 3600
+  refresh_interval: 7200
 
 - name: "confreaks"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCWnPjmqvljcafA0z2U1fwKQ"
@@ -211,7 +211,7 @@
   processor: "rss"
   normalizer: "maremir"
   after: "2018-09-18T00:00:00+00:00"
-  refresh_interval: 7200
+  refresh_interval: 86400
 
 - name: "sarahcandersen"
   url: "https://feeds.feedburner.com/sarahcandersen/koPM"
@@ -232,14 +232,14 @@
   processor: "wordpress"
   normalizer: "blogdummi"
   after: "2018-09-18T00:00:00+00:00"
-  refresh_interval: 600
+  refresh_interval: 86400
 
 - name: "waitbutwhy"
   url: "https://waitbutwhy.com/feed"
   processor: "wordpress"
   normalizer: "waitbutwhy"
   after: "2018-09-18T00:00:00+00:00"
-  refresh_interval: 7200
+  refresh_interval: 86400
 
 - name: "savagechickens"
   url: "https://www.savagechickens.com/feed"
@@ -285,7 +285,7 @@
   loader: "twitter"
   processor: "twitter"
   normalizer: "twitter"
-  refresh_interval: 7200
+  refresh_interval: 86400
   import_limit: 5
   options:
     twitter_user: "alg_testament"
@@ -429,16 +429,17 @@
     only_with_attachments: true
     ignore_retweets: true
 
-- name: "dailycattt"
-  loader: "twitter"
-  processor: "twitter"
-  normalizer: "twitter"
-  refresh_interval: 1100
-  import_limit: 10
-  options:
-    twitter_user: "PoorlyFluff"
-    only_with_attachments: true
-    ignore_retweets: true
+# Account was deleted
+# - name: "dailycattt"
+#   loader: "twitter"
+#   processor: "twitter"
+#   normalizer: "twitter"
+#   refresh_interval: 1100
+#   import_limit: 10
+#   options:
+#     twitter_user: "PoorlyFluff"
+#     only_with_attachments: true
+#     ignore_retweets: true
 
 - name: "redakciya"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UC1eFXmJNkjITxPFWTy6RsWg"
