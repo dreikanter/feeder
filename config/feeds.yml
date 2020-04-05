@@ -497,3 +497,9 @@
   normalizer: "lunarbaboon"
   import_limit: 10
   refresh_interval: 3600
+
+- name: "shvarz"
+  url: "https://shvarz.livejournal.com/data/rss"
+  processor: "rss"
+  normalizer: "livejournal"
+  refresh_interval: 3600
