@@ -21,8 +21,8 @@
 
 - name: "commitstrip"
   url: "https://www.commitstrip.com/en/feed/"
-  processor: "rss"
-  after: "2018-09-18T00:00:00+00:00"
+  processor: "feedjira"
+  after: "2020-03-30T00:00:00+00:00"
   refresh_interval: 7200
 
 - name: "dilbert"

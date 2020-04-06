@@ -1,11 +1,11 @@
-class CommitstripNormalizer < RssNormalizer
+class CommitstripNormalizer < FeedjiraNormalizer
   protected
 
-  def text
-    [super, link].join(separator)
+  def attachments
+    [Nokogiri::HTML(entity.content).css('img:first').first['src']]
   end
 
-  def attachments
-    [Nokogiri::HTML(entity.content_encoded).css('img:first').first['src']]
+  def comments
+    []
   end
 end
