@@ -504,9 +504,14 @@
   normalizer: "livejournal"
   refresh_interval: 3600
 
-
 - name: "schooloflife"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UC7IcJI8PUf5Z3zKxnZvTBog"
   processor: "youtube"
   normalizer: "youtube"
+  refresh_interval: 3600
+
+- name: "365tomorrows"
+  url: "https://365tomorrows.com/feed/"
+  processor: "rss"
+  normalizer: "tomorrows"
   refresh_interval: 3600
