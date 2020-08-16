@@ -24,6 +24,12 @@ class TomorrowsTest < Minitest::Test
         body: file_fixture('feeds/tomorrows.xml'),
         headers: { 'Content-Type' => 'text/xml' }
       )
+
+    stub_request(:get, %r{https://365tomorrows.com/\d+/.*})
+      .to_return(
+        body: file_fixture('feeds/tomorrows_post.html'),
+        headers: { 'Content-Type' => 'text/html' }
+      )
   end
 
   def test_general_success
