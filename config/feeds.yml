@@ -515,3 +515,9 @@
   processor: "rss"
   normalizer: "tomorrows"
   refresh_interval: 3600
+
+- name: "prof-afv"
+  url: "https://prof-afv.livejournal.com/data/rss"
+  processor: "rss"
+  normalizer: "livejournal"
+  refresh_interval: 3600
