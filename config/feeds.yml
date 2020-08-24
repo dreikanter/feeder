@@ -521,3 +521,10 @@
   processor: "rss"
   normalizer: "livejournal"
   refresh_interval: 3600
+
+- name: "einzelganger"
+  url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCybBViio_TH_uiFFDJuz5tg"
+  processor: "youtube"
+  normalizer: "youtube"
+  refresh_interval: 14400
+  import_limit: 20
