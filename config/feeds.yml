@@ -527,4 +527,3 @@
   processor: "youtube"
   normalizer: "youtube"
   refresh_interval: 14400
-  import_limit: 20
