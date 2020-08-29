@@ -3,8 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '~> 2.7.0'
 
-gem 'puma', '~> 4.3'
-gem 'rails', '~> 6.0.0'
+gem 'puma', '~> 4'
+gem 'rails', '~> 6'
 
 group :development do
   gem 'brakeman', '~> 4.3', '>= 4.3.1', require: false
@@ -28,19 +28,18 @@ group :development, :test do
   gem 'webmock', '~> 3.7', '>= 3.7.6'
 end
 
-# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'active_model_serializers', '~> 0.10.9'
-gem 'addressable', '~> 2.5', '>= 2.5.2'
-gem 'annotate', '~> 2.7', '>= 2.7.4'
-gem 'bootsnap', '>= 1.4.2', require: false
+gem 'active_model_serializers', '~> 0.10'
+gem 'addressable', '~> 2.7'
+gem 'annotate', '~> 3.1'
+gem 'bootsnap', '>= 1.4', require: false
 gem 'callee', '~> 0.3.2'
 gem 'daemons', '~> 1.3', '>= 1.3.1'
 gem 'delayed_job_active_record', '~> 4.1', '>= 4.1.1'
 gem 'dry-initializer', '~> 3.0'
-gem 'dry-monads', '~> 1.2'
-gem 'dry-types', '~> 0.13.2'
-gem 'dry-validation', '~> 0.12.2'
-gem 'enu', '~> 0.1.2'
+gem 'dry-monads', '~> 1.3'
+gem 'dry-types', '~> 1.4'
+gem 'dry-validation', '~> 1.5'
+gem 'enu', '~> 0.1'
 gem 'feedjira', '~> 2.2'
 gem 'freefeed', '~> 0.5.4'
 gem 'honeybadger', '~> 4.0'
