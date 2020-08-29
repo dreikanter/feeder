@@ -28,7 +28,6 @@ group :development, :test do
   gem 'webmock', '~> 3.7', '>= 3.7.6'
 end
 
-# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'active_model_serializers', '~> 0.10.9'
 gem 'addressable', '~> 2.5', '>= 2.5.2'
 gem 'annotate', '~> 2.7', '>= 2.7.4'
@@ -42,12 +41,12 @@ gem 'dry-types', '~> 0.13.2'
 gem 'dry-validation', '~> 0.12.2'
 gem 'enu', '~> 0.1.2'
 gem 'feedjira', '~> 2.2'
-gem 'freefeed', '~> 0.5.4'
 gem 'honeybadger', '~> 4.0'
 gem 'js-routes', '~> 1.4', '>= 1.4.6'
 gem 'listen', '~> 3.2'
 gem 'lograge', '~> 0.3.6'
 gem 'marginalia', '~> 1.5'
+gem 'mimemagic', '~> 0.3.5'
 gem 'nokogiri', '~> 1.10'
 gem 'pg', '~> 1.1', '>= 1.1.3'
 gem 'rack-cors', '~> 1.0', require: 'rack/cors'
