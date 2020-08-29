@@ -16,7 +16,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'awesome_print', '~> 1.8'
+  gem 'amazing_print', '~> 1.2'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
   gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
