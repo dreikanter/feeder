@@ -14,7 +14,7 @@ class ReworkTest < Minitest::Test
       name: 'rework',
       processor: 'feedjira',
       normalizer: 'rework',
-      url: 'https://rss.art19.com/rework'
+      url: 'https://feeds.transistor.fm/rework'
     }
   end
 
