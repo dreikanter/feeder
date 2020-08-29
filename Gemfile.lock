@@ -63,12 +63,12 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
-    amazing_print (1.2.1)
     annotate (3.1.0)
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 14.0)
     ansi (1.5.0)
     ast (2.4.1)
+    awesome_print (1.8.0)
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
@@ -368,8 +368,8 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (~> 0.10)
   addressable (~> 2.7)
-  amazing_print (~> 1.2)
   annotate (~> 3.1)
+  awesome_print (~> 1.8)
   bootsnap (>= 1.4)
   brakeman (~> 4.3, >= 4.3.1)
   byebug
