@@ -17,15 +17,14 @@ sudo apt-get install --yes \
   wget \
   htop \
   tree \
-  zlib1g-dev\
-  build-essential\
-  libssl-dev\
-  libreadline-dev\
-  libyaml-dev\
-  libxml2-dev\
-  libxslt1-dev\
+  zlib1g-dev \
+  build-essential \
+  libssl-dev \
+  libreadline-dev \
+  libyaml-dev \
+  libxml2-dev \
+  libxslt1-dev \
   libcurl4-openssl-dev\
-  python-software-properties \
   software-properties-common \
   sqlite3 \
   libsqlite3-dev \
