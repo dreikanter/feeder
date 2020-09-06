@@ -21,7 +21,6 @@ group :development, :test do
   gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
   gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
   gem 'minitest-rails', '~> 6.0'
-  gem 'minitest-reporters', '~> 1.3', '>= 1.3.8'
   gem 'mocha', '~> 1.9'
   gem 'pry-rails', '~> 0.3.9'
   gem 'simplecov', '~> 0.17'
