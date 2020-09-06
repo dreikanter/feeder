@@ -26,6 +26,8 @@ class Pull
       feed: feed.name
     )
 
+    Honeybadger.notify(e)
+
     Failure(e)
   end
 
