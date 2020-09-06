@@ -372,7 +372,7 @@
   import_limit: 5
 
 - name: "rework"
-  url: "https://rss.art19.com/rework"
+  url: "https://feeds.transistor.fm/rework"
   processor: "feedjira"
   normalizer: "rework"
   refresh_interval: 1800

@@ -1,6 +1,8 @@
 class ReworkNormalizer < BaseNormalizer
   protected
 
+  # NOTE: Sometimes RSS items don't have <content:encoded> element
+
   def link
     entity.url
   end
@@ -20,11 +22,7 @@ class ReworkNormalizer < BaseNormalizer
   private
 
   def description
-    html = Nokogiri::HTML(entity.content)
-    result = html.css('p').try(:first)
-    result.css('br').each { |br| br.replace("\n") }
-    result = result.text.squeeze(' ').gsub(/[ \n]{2,}/, "\n\n").strip
-    Html.comment_excerpt(result)
+    entity.summary
   end
 
   def formatted_duration
