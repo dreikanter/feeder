@@ -26,7 +26,7 @@ class PullJob < ApplicationJob
       exception = error.is_a?(Exception) ? error : nil
       ErrorDumper.call(
         exception: exception,
-        message: "pull error: #{error}",
+        message: 'pull error',
         target: feed
       )
       return
@@ -35,11 +35,9 @@ class PullJob < ApplicationJob
     # rubocop:disable Metrics/BlockLength
     entities.value!.each do |entity|
       if entity.failure?
-        message = "normalization error: #{error}"
-        logger.error(message)
         ErrorDumper.call(
           exception: entity.failure,
-          message: message,
+          message: 'normalization error',
           target: feed
         )
         count_error
@@ -48,6 +46,7 @@ class PullJob < ApplicationJob
 
       attributes = entity.value!
       valid = attributes[:validation_errors].none?
+      # TODO: Replace PostStatus.ignored with non_valid
       post_status = valid ? PostStatus.ready : PostStatus.ignored
 
       logger.info("new post [#{post_status}]")
@@ -60,6 +59,9 @@ class PullJob < ApplicationJob
     # rubocop:enable Metrics/BlockLength
 
     feed.posts.queue.each { |post| PushJob.perform_later(post) }
+  rescue StandardError => e
+    Honeybadger.notify(e)
+    raise e
   ensure
     feed.update(
       last_post_created_at: feed.posts.maximum(:created_at),
