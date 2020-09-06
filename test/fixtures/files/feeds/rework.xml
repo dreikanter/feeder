@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet href="https://feeds.transistor.fm/stylesheet.xsl" type="text/xsl"?>
-<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom/" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
   <channel>
     <atom:link rel="self" type="application/atom+xml" href="https://feeds.transistor.fm/rework" title="MP3 Audio"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
@@ -10,8 +10,8 @@
     <description>A podcast by Basecamp about the better way to work and run your business. We bring you stories and unconventional wisdom from Basecamp’s co-founders and other business owners.</description>
     <copyright>© All Rights Reserved</copyright>
     <language>en</language>
-    <pubDate>Tue, 03 Dec 2019 07:00:00 -0600</pubDate>
-    <lastBuildDate>Tue, 03 Dec 2019 14:49:01 -0600</lastBuildDate>
+    <pubDate>Tue, 01 Sep 2020 07:00:00 -0500</pubDate>
+    <lastBuildDate>Fri, 04 Sep 2020 10:34:29 -0500</lastBuildDate>
     <link>https://rework.fm</link>
     <image>
       <url>https://images.transistor.fm/file/transistor/images/show/4671/full_1569860119-artwork.jpg</url>
@@ -41,51 +41,48 @@
     <itunes:explicit>No</itunes:explicit>
     <itunes:block>No</itunes:block>
     <item>
-      <title>Venture Capital and Control with Dave Teare</title>
-      <itunes:episode>63</itunes:episode>
-      <itunes:title>Venture Capital and Control with Dave Teare</itunes:title>
+      <title>Apps Without Code</title>
+      <itunes:episode>103</itunes:episode>
+      <itunes:title>Apps Without Code</itunes:title>
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:block>No</itunes:block>
       <googleplay:block>No</googleplay:block>
-      <guid isPermaLink="false">74dcfab7-009f-472f-8019-d7cc5339b658</guid>
-      <link>https://share.transistor.fm/s/49d755a9</link>
-      <description>Dave Teare is the co-founder and official "heart and soul" of 1Password, which recently raised $200 million in its first round of venture capital. Basecamp is a longtime happy customer of 1Password and also a longtime critic of venture capital, so the funding announcement led to some back-and-forth on Twitter between Basecamp co-founder David Heinemeier Hansson and Dave Teare. In this episode, DHH and Dave get on the phone to hash out their feelings about venture capital and what this funding round means for 1Password's future.</description>
+      <guid isPermaLink="false">4c259c5e-eab2-4bb2-a9eb-48130e7d0e91</guid>
+      <link>https://share.transistor.fm/s/10c5186c</link>
+      <description>Tara Reed started a tech company without knowing how to code and now teaches others to do the same.</description>
       <content:encoded>
-        <![CDATA["<a href="https://rework.fm/open-source-and-power-with-matt-mullenweg/">Open Source and Power with Matt Mullenweg</a>," our episode featuring a phone call between DHH and Automattic's Matt Mullenweg - 00:34<br><br><a href="https://twitter.com/dhh/status/1174695189090308096?s=20">DHH's tweet</a> about Automattic's funding round - 00:49<br><br>Dave Teare <a href="https://twitter.com/dteare">on Twitter</a> | <a href="https://1password.com/">1Password</a> - 00:56<br><br><a href="https://blog.1password.com/accel-partnership/">1Password's blog post</a> announcing the funding round - 1:02<br><br><a href="https://twitter.com/dhh/status/1195009383349903361">DHH's tweet</a> about 1Password's funding announcement - 1:04<br><br><a href="https://medium.com/@dteare/a-love-letter-to-dhh-and-others-concerned-about-our-recent-funding-announcement-b9209c3b57c1">"A love letter to DHH and others concerned about our recent funding announcement"</a> - 1:30<br><br><a href="https://signalvnoise.com/archives2/bezos_expeditions_invests_in_37signals.php">"Bezos Expeditions invests in 37signals"</a> (Signal v. Noise) - 1:55<br><br>1Password co-founder Roustem Karimov <a href="https://twitter.com/roustem?">on Twitter</a> - 3:10<br><br>DHH's <a href="https://www.youtube.com/watch?v=Gzj723LkRJY&amp;feature=youtu.be">Ruby on Rails demo</a> about building a blog engine in 15 minutes - 3:30<br><br>"Conceal, don't feel" is a lyric from Frozen's <a href="https://www.youtube.com/watch?v=moSFlvxnbgk">Let It Go</a> - 14:14<br><br><a href="https://www.cnn.com/2019/11/22/tech/wework-layoffs-staffers-react/index.html">"Inside WeWork's week from hell: How the mass layoffs went down"</a> (CNN) - 19:16<br><br><a href="https://m.signalvnoise.com/the-day-i-became-a-millionaire/">"The day I became a millionaire"</a> (Signal v. Noise) - 21:22<br><br><a href="https://basecamp.com/books/calm">"It Doesn't Have to Be Crazy at Work"</a> - 25:31<br><br><a href="https://www.apple.com/privacy/docs/Differential_Privacy_Overview.pdf">Apple's Differential Privacy policy</a> (PDF) - 26:25<br><br><a href="https://ourincrediblejourney.tumblr.com/">Our Incredible Journey</a> (Tumblr) - 31:42<br><br><a href="https://gizmodo.com/the-mess-at-meetup-1822243738">"The Mess at Meetup"</a> (Gizmodo) - 32:08<br><br><a href="https://www.theverge.com/2019/10/15/20893343/meetup-users-furious-new-rsvp-payment-test">"Meetup wants to charge users $2 just to RSVP for events — and some are furious"</a> (The Verge) - 32:18<br><br><a href="https://venturebeat.com/2019/03/19/patreon-now-offers-creators-3-plans-with-fees-ranging-from-5-12/">"Patreon now offers creators 3 plans, with fees ranging from 5-12%"</a> (VentureBeat) - 32:45<br><br><a href="https://www.dropboxforum.com/t5/Accounts-billing/Is-anyone-else-furious-at-the-upgrade-to-2TB-and-extra-60-a-year/td-p/348356">An irate forum post</a> about Dropbox's new storage plan - 33:12<br><br><a href="https://www.latimes.com/business/technology/story/2019-10-31/github-ice-contract-defense">"GitHub is trying to quell employee anger over its ICE contract. It's not going well"</a> (LA Times) - 34:55<br><br><a href="https://m.signalvnoise.com/the-deal-jeff-bezos-got-on-basecamp/">"The deal Jeff Bezos got on Basecamp"</a> (Signal v. Noise) - 39:20<br><br><a href="https://en.wikipedia.org/wiki/How_to_Fly_a_Horse">"How to Fly a Horse"</a> by Kevin Ashton (Wikipedia) - 41:00<br><br><a href="https://twitter.com/ammathew">Arun Mathew</a> on Twitter - 43:10<br><br><a href="https://www.buzzfeednews.com/article/katienotopoulos/patagonia-power-vest-policy-change">"Patagonia Is Refusing To Sell Its Iconic Power Vests To Some Financial Firms"</a> (BuzzFeed) - 47:22<br><br><a href="https://basecamp.com/books/getting-real">Getting Real</a> - 49:45<br><br>Jeff Shiner's <a href="https://www.linkedin.com/in/jshiner">LinkedIn profile</a> - 58:18]]>
+        <![CDATA[We're back from our August hiatus! To kick things off, we have a conversation with <a href="https://twitter.com/tarareed_">Tara Reed</a>, the CEO of <a href="https://www.appswithoutcode.com/">Apps Without Code</a>. She started an online art advising business without knowing how to code, and that early success led to an entire company and educational program that teaches others how to do the same. Tara talks about her career, the tools she uses, and why she hates the term "non-technical founder."<br><br><strong>Show Notes</strong><br><br><a href="https://www.netflix.com/title/80223108">Selling Sunset</a> on Netflix - 00:42<br><br><a href="https://en.wikipedia.org/wiki/The_Hills_(TV_series)">The Hills</a> - 00:54<br><br> A <a href="https://www.buzzfeednews.com/article/scaachikoul/selling-sunset-season-2-netflix-adam-divello">BuzzFeed News profile</a> of the reality show producer behind Selling Sunset and The Hills - 1:04<br><br><a href="https://en.wikipedia.org/wiki/Columbo">Columbo</a> - 1:30<br><br><a href="https://www.imdb.com/tv/">IMDb TV</a> - 1:40<br><br>Wailin discusses her idea for an app to help you choose a streaming provider at the end of <a href="https://rework.fm/spending-in-the-clouds/">this episode</a> - 1:56<br><br>Tara Reed on <a href="https://twitter.com/tarareed_">Twitter</a> | <a href="https://www.linkedin.com/in/tarawreed/">LinkedIn</a> - 2:36<br><br><a href="https://www.appswithoutcode.com/">Apps Without Code</a> - 2:41<br><br><a href="https://en.wikipedia.org/wiki/Google_Offers">Google Offers</a> - 4:06<br><br><a href="https://www.chicagotribune.com/nation-world/ct-xpm-2010-12-04-ct-biz-1204-groupon-20101204-story.html">"Sources: Groupon rejects Google's $5 billion offer"</a> (story co-written by Wailin in the Chicago Tribune, 2010) - 4:10<br><br><a href="https://kollecto.com/beta">Kollecto</a> - 5:05<br><br><a href="https://www.strikingly.com/">Strikingly</a> - 6:57<br><br>Kollecto <a href="https://www.producthunt.com/posts/kollecto">on Product Hunt</a> - 8:02<br><br>Kollecto <a href="https://betalist.com/startups/kollecto">on BetaList</a> - 8:03<br><br><a href="https://www.surveygizmo.com/">SurveyGizmo</a> - 9:40<br><br><a href="https://500.co/">500 Startups</a> - 9:52<br><br><a href="https://bubble.io/">Bubble</a> - 11:25<br><br><a href="https://zapier.com/">Zapier</a> - 13:13<br><br>Tara's <a href="https://www.youtube.com/watch?v=u1X9M5Idqfo">TEDx Detroit talk</a> - 17:07<br><br>The apps Tara teaches are: <a href="https://www.glideapps.com/">Glide</a> | <a href="https://www.mightynetworks.com/">Mighty Networks</a> | <a href="https://www.sharetribe.com/">Sharetribe</a> | <a href="https://www.thinkific.com/">Thinkific</a> | <a href="https://cloudmatchapp.com/">CloudMatch</a> - 17:48<br><br><a href="https://sparkar.facebook.com/ar-studio/">Spark AR</a> - 21:05<br><br>Apps Without Code's <a href="https://www.appswithoutcodetraining.com/ewwebinar-1/">free class</a> | <a href="https://www.awcbootcamp.com/learn">bootcamp</a> - 24:36<br><br><a href="https://starwars.fandom.com/wiki/Jek_Tono_Porkins">Jek Porkins</a> - 25:23<br><br><a href="https://starwars.fandom.com/wiki/Wedge_Antilles">Wedge Antilles</a> - 25:35]]>
       </content:encoded>
-      <pubDate>Tue, 03 Dec 2019 07:00:00 -0600</pubDate>
+      <pubDate>Tue, 01 Sep 2020 07:00:00 -0500</pubDate>
       <author>Basecamp</author>
-      <enclosure url="https://media.transistor.fm/178d7279.mp3" length="79454351" type="audio/mpeg"/>
+      <enclosure url="https://media.transistor.fm/031df0ec.mp3" length="25151643" type="audio/mpeg"/>
       <itunes:author>Basecamp</itunes:author>
       <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4671/full_1569860119-artwork.jpg"/>
-      <itunes:duration>3971</itunes:duration>
-      <itunes:summary>Dave Teare is the co-founder and official "heart and soul" of 1Password, which recently raised $200 million in its first round of venture capital. Basecamp is a longtime happy customer of 1Password and also a longtime critic of venture capital, so the funding announcement led to some back-and-forth on Twitter between Basecamp co-founder David Heinemeier Hansson and Dave Teare. In this episode, DHH and Dave get on the phone to hash out their feelings about venture capital and what this funding round means for 1Password's future.</itunes:summary>
-      <itunes:subtitle>Dave Teare is the co-founder and official "heart and soul" of 1Password, which recently raised $200 million in its first round of venture capital. Basecamp is a longtime happy customer of 1Password and also a longtime critic of venture capital, so the fun</itunes:subtitle>
+      <itunes:duration>1570</itunes:duration>
+      <itunes:summary>Tara Reed started a tech company without knowing how to code and now teaches others to do the same.</itunes:summary>
+      <itunes:subtitle>Tara Reed started a tech company without knowing how to code and now teaches others to do the same.</itunes:subtitle>
       <itunes:keywords>entrepreneur, technology, business, design, small business</itunes:keywords>
-      <itunes:explicit>Yes</itunes:explicit>
-      <googleplay:explicit>Yes</googleplay:explicit>
+      <itunes:explicit>No</itunes:explicit>
+      <googleplay:explicit>No</googleplay:explicit>
     </item>
     <item>
-      <title>Calm in the Political Storm</title>
-      <itunes:episode>62</itunes:episode>
-      <itunes:title>Calm in the Political Storm</itunes:title>
-      <itunes:episodeType>full</itunes:episodeType>
+      <title>Rerun - Breaking the Black Box</title>
+      <itunes:episode>101</itunes:episode>
+      <itunes:title>Rerun - Breaking the Black Box</itunes:title>
+      <itunes:episodeType>bonus</itunes:episodeType>
       <itunes:block>No</itunes:block>
       <googleplay:block>No</googleplay:block>
-      <guid isPermaLink="false">b895f242-f941-43bb-b1ae-6a29525a2e94</guid>
-      <link>https://share.transistor.fm/s/c1fb6e83</link>
-      <description>Workplace cultures in politics and tech share many similarities: Overwork is glorified; long hours are the norm; employees are expected to respond to communication instantly, no matter the day or time; and those that opt out are seen as lacking hustle or ceding ground to competitors. Marty Santalucia, a political consultant in Pennsylvania, wanted to do things differently. In this episode, he talks about applying calm work principles to an industry that's known for the opposite dynamic.</description>
-      <content:encoded>
-        <![CDATA[NPR's <a href="https://www.npr.org/podcasts/510318/up-first">Up First podcast</a> - 00:51<br><br>FiveThirtyEight's <a href="https://fivethirtyeight.com/tag/politics-podcast/">Politics podcast</a> - 00:55<br><br>Dan Sinker's <a href="https://dansinker.com/">website</a> | <a href="https://twitter.com/dansinker">Twitter</a> - 1:15<br><br><a href="https://www.impeachment.fyi/">impeachment.fyi</a> - 1:21<br><br>Marty Santalucia <a href="https://twitter.com/msantalucia?">on Twitter</a> - 2:55<br><br>MFStrategies <a href="http://www.mfstrategies.com/">website</a> | <a href="https://twitter.com/mfstrategies">Twitter</a> - 2:58<br><br><a href="https://www.npr.org/2019/05/08/721560528/sanders-campaign-workers-ratify-union-contract">"Sanders Campaign, Workers Ratify Union Contract"</a> (NPR) - 22:23<br><br>Bonus link! The New York Times asked 2020 Democratic candidates how much sleep they get a night and <a href="https://www.nytimes.com/interactive/2019/us/politics/sleep-democratic-candidates.html">filmed the responses</a>.]]>
-      </content:encoded>
-      <pubDate>Tue, 26 Nov 2019 07:00:00 -0600</pubDate>
+      <guid isPermaLink="false">b5e70a43-07e6-401c-bb43-98558256cb97</guid>
+      <link>https://share.transistor.fm/s/4ed14171</link>
+      <description>Basecamp co-founder David Heinemeier Hansson sparked a national controversy this week when he posted a series of livid tweets about how his wife received a much lower credit limit than he did on their Apple Cards, despite applying with the same financial information. What began as a rant against opaque algorithms turned into a regulatory investigation and more. In this episode, Dr. Ruha Benjamin of Princeton University and entrepreneur Mara Zepeda, co-founder of the XXcelerate Fund and Zebras Unite, talk about how the tech and financial sectors perpetuate systemic inequalities and how to start repairing the damage—or building something more equitable and inclusive from the ground up.</description>
+      <pubDate>Tue, 25 Aug 2020 07:00:00 -0500</pubDate>
       <author>Basecamp</author>
-      <enclosure url="https://media.transistor.fm/230af5e8.mp3" length="22963258" type="audio/mpeg"/>
+      <enclosure url="https://media.transistor.fm/1dd56075.mp3" length="68214915" type="audio/mpeg"/>
       <itunes:author>Basecamp</itunes:author>
       <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4671/full_1569860119-artwork.jpg"/>
-      <itunes:duration>1433</itunes:duration>
-      <itunes:summary>Workplace cultures in politics and tech share many similarities: Overwork is glorified; long hours are the norm; employees are expected to respond to communication instantly, no matter the day or time; and those that opt out are seen as lacking hustle or ceding ground to competitors. Marty Santalucia, a political consultant in Pennsylvania, wanted to do things differently. In this episode, he talks about applying calm work principles to an industry that's known for the opposite dynamic.</itunes:summary>
-      <itunes:subtitle>Workplace cultures in politics and tech share many similarities: Overwork is glorified; long hours are the norm; employees are expected to respond to communication instantly, no matter the day or time; and those that opt out are seen as lacking hustle or </itunes:subtitle>
+      <itunes:duration>3409</itunes:duration>
+      <itunes:summary>Basecamp co-founder David Heinemeier Hansson sparked a national controversy this week when he posted a series of livid tweets about how his wife received a much lower credit limit than he did on their Apple Cards, despite applying with the same financial information. What began as a rant against opaque algorithms turned into a regulatory investigation and more. In this episode, Dr. Ruha Benjamin of Princeton University and entrepreneur Mara Zepeda, co-founder of the XXcelerate Fund and Zebras Unite, talk about how the tech and financial sectors perpetuate systemic inequalities and how to start repairing the damage—or building something more equitable and inclusive from the ground up.</itunes:summary>
+      <itunes:subtitle>Basecamp co-founder David Heinemeier Hansson sparked a national controversy this week when he posted a series of livid tweets about how his wife received a much lower credit limit than he did on their Apple Cards, despite applying with the same financial </itunes:subtitle>
       <itunes:keywords>entrepreneur, technology, business, design, small business</itunes:keywords>
       <itunes:explicit>No</itunes:explicit>
       <googleplay:explicit>No</googleplay:explicit>
