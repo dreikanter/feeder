@@ -38,7 +38,7 @@ echo "-----> install postgres"
 
 sudo apt-get install --yes postgresql postgresql-contrib libpq-dev
 
-sudo bash -c "cat > /etc/postgresql/10.0/main/pg_hba.conf" <<EOL
+sudo bash -c "cat > /etc/postgresql/10/main/pg_hba.conf" <<EOL
 local all all trust
 host all all 127.0.0.1/32 trust
 host all all ::1/128 trust
@@ -141,9 +141,9 @@ sudo apt-get clean
 
 echo "-----> report"
 
-echo "ruby:          $(ruby --version)"
-echo "gem:           $(gem --version) GEM_HOME: $GEM_HOME"
-echo "bundler:       $(bundler --version)"
-echo "yarn:          $(yarn --version)"
-echo "node:          $(node --version)"
-echo "psql:          $(psql --version)"
+echo "ruby: $(ruby --version)"
+echo "gem: $(gem --version) GEM_HOME: $GEM_HOME"
+echo "bundler: $(bundler --version)"
+echo "yarn: $(yarn --version)"
+echo "node: $(node --version)"
+echo "psql: $(psql --version)"
