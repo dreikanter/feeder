@@ -1,11 +1,15 @@
 {
-  "uid": "https://share.transistor.fm/s/353d5b5b",
-  "link": "https://share.transistor.fm/s/353d5b5b",
-  "published_at": "2020-02-20 13:00:00 UTC",
-  "text": "Extreme Capitalism with Jason Calacanis\nhttps://media.transistor.fm/2822aa5e.mp3 (59:42)",
-  "attachments": [],
-  "comments": [
-    "The conversation in this episode is adapted from a longer interview that can be found in full at This Week in Startups."
+  "uid": "https://share.transistor.fm/s/49d755a9",
+  "link": "https://share.transistor.fm/s/49d755a9",
+  "published_at": "2019-12-03 13:00:00 UTC",
+  "text": "Venture Capital and Control with Dave Teare\nhttps://media.transistor.fm/178d7279.mp3 (1:06:11)",
+  "attachments": [
+
   ],
-  "validation_errors": []
+  "comments": [
+    "\"Open Source and Power with Matt Mullenweg,\" our episode featuring a phone call between DHH and Automattic's Matt Mullenweg - 00:34\n\nDHH's tweet about Automattic's funding round - 00:49\n\nDave Teare on Twitter | 1Password - 00:56\n\n1Password's blog post announcing the funding round - 1:02\n\nDHH's tweet about 1Password's funding announcement - 1:04\n\n\"A love letter to DHH and others concerned about our recent funding announcement\" - 1:30\n\n\"Bezos Expeditions invests in 37signals\" (Signal v. Noise) - 1:55\n\n1Password co-founder Roustem Karimov on Twitter - 3:10\n\nDHH's Ruby on Rails demo about building a blog engine in 15 minutes - 3:30\n\n\"Conceal, don't feel\" is a lyric from Frozen's Let It Go - 14:14\n\n\"Inside WeWork's week from hell: How the mass layoffs went down\" (CNN) - 19:16\n\n\"The day I became a millionaire\" (Signal v. Noise) - 21:22\n\n\"It Doesn't Have to Be Crazy at Work\" - 25:31\n\nApple's Differential Privacy policy (PDF) - 26:25\n\nOur Incredible Journey (Tumblr) - 31:42\n\n\"The Mess at Meetup\" (Gizmodo) - 32:08\n\n\"Meetup wants to charge users $2 just to RSVP for events — and some are furious\" (The Verge) - 32:18\n\n\"Patreon now offers creators 3 plans, with fees ranging from 5-12%\" (VentureBeat) - 32:45\n\nAn irate forum post about Dropbox's new storage plan - 33:12\n\n\"GitHub is trying to quell employee anger over its ICE contract. It's not going well\" (LA Times) - 34:55\n\n\"The deal Jeff Bezos got on Basecamp\" (Signal v. Noise) - 39:20\n\n\"How to Fly a Horse\" by Kevin Ashton... (continued)"
+  ],
+  "validation_errors": [
+
+  ]
 }
