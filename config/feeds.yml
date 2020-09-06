@@ -287,6 +287,7 @@
   normalizer: "twitter"
   refresh_interval: 86400
   import_limit: 5
+  after: "2020-09-06T12:00:00+00:00"
   options:
     twitter_user: "alg_testament"
     ignore_retweets: true
@@ -297,6 +298,7 @@
   normalizer: "twitter"
   refresh_interval: 1200
   import_limit: 5
+  after: "2020-09-06T12:00:00+00:00"
   options:
     twitter_user: "extrafabulous"
     only_with_attachments: true
@@ -308,6 +310,7 @@
   normalizer: "twitter"
   refresh_interval: 1200
   import_limit: 5
+  after: "2020-09-06T12:00:00+00:00"
   options:
     twitter_user: "bojackhorseman"
     ignore_retweets: true
@@ -332,6 +335,7 @@
   normalizer: "twitter"
   refresh_interval: 1200
   import_limit: 5
+  after: "2020-09-06T12:00:00+00:00"
   options:
     twitter_user: "jakelikesonions"
     only_with_attachments: true
@@ -343,6 +347,7 @@
   normalizer: "twitter"
   refresh_interval: 1200
   import_limit: 5
+  after: "2020-09-06T12:00:00+00:00"
   options:
     twitter_user: "CatsCafeComics"
     only_with_attachments: true
@@ -354,6 +359,7 @@
   normalizer: "twitter"
   refresh_interval: 1200
   import_limit: 5
+  after: "2020-09-06T12:00:00+00:00"
   options:
     twitter_user: "hackernewsonion"
     ignore_retweets: true
@@ -378,6 +384,7 @@
   normalizer: "twitter"
   refresh_interval: 1200
   import_limit: 10
+  after: "2020-09-06T12:00:00+00:00"
   options:
     twitter_user: "nathanwpyle"
     only_with_attachments: true
@@ -424,6 +431,7 @@
   normalizer: "twitter"
   refresh_interval: 1200
   import_limit: 10
+  after: "2020-09-06T12:00:00+00:00"
   options:
     twitter_user: "warandpeass"
     only_with_attachments: true
@@ -454,6 +462,7 @@
   normalizer: "twitter"
   refresh_interval: 3600
   import_limit: 10
+  after: "2020-09-06T12:00:00+00:00"
   options:
     twitter_user: "endangeredcomic"
     only_with_attachments: true
