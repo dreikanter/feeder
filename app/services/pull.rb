@@ -33,18 +33,6 @@ class Pull
 
   private
 
-  def normalize(entities)
-    new_entities(entities).map do |entity|
-      normalizer_or_default.call(entity.uid, entity.content, feed)
-    end
-  end
-
-  def new_entities(entities)
-    uids = entities.map(&:uid)
-    existing_uids = Post.where(feed: feed, uid: uids).pluck(:uid)
-    entities.filter { |entity| !existing_uids.include?(entity.uid) }
-  end
-
   def loader_or_default
     loader || LoaderResolver.call(feed)
   end
