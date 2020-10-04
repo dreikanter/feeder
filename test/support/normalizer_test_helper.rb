@@ -2,19 +2,19 @@ module NormalizerTestHelper
   SAMPLE_DATA_PATH = File.expand_path('../data', __dir__).freeze
 
   def subject
-    raise NotImplementedError
+    raise 'not implemented'
   end
 
   def processor
-    raise NotImplementedError
+    raise 'not implemented'
   end
 
   def sample_data_file
-    raise NotImplementedError
+    raise 'not implemented'
   end
 
   def sample_post_file
-    raise NotImplementedError
+    raise 'not implemented'
   end
 
   protected

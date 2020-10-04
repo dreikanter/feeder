@@ -17,7 +17,7 @@ class BaseProcessor
   protected
 
   def entities
-    raise NotImplementedError
+    raise 'not implemented'
   end
 
   def limit
