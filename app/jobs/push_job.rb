@@ -13,5 +13,7 @@ class PushJob < ApplicationJob
     end
 
     Push.call(post)
+  rescue StandardError => error
+    Honeybadger.notify(error)
   end
 end
