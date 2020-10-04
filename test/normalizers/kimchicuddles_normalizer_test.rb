@@ -45,7 +45,7 @@ class KimchicuddlesNormalizerTest < Minitest::Test
 
   def test_normalized_sample
     result = normalized.first.value!
-    FIRST_SAMPLE.keys.each do |key|
+    FIRST_SAMPLE.each_key do |key|
       assert_equal(FIRST_SAMPLE[key], result[key])
     end
   end
