@@ -10,15 +10,11 @@ class BaseProcessor
 
   def call
     log("processing #{feed.name} with #{self.class.name}")
-    actual_entities
-  end
-
-  protected
-
-  def actual_entities
     return entities.take(limit) if limit.positive?
     entities
   end
+
+  protected
 
   def entities
     raise 'not implemented'
