@@ -34,6 +34,6 @@ class BaseProcessor
   end
 
   def feed_name
-    feed&.name
+    feed.name
   end
 end
