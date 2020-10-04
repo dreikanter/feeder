@@ -54,9 +54,9 @@ class TheAtlanticPhotosNormalizerTest < Minitest::Test
     )
   end
 
-  # rubocop:disable Metrics/LineLength
+  # rubocop:disable Layout/LineLength
   EXPECTED_TEXT = 'Yellowstone National Park, now 145 years old, was the first national park established in the world. In 2016, the 2.2-million-acre park was visited by a record 4.2 million people, who came to experience the wilderness, explore countless geothermal features, witness the gorgeous vistas, and try to catch a glimpse of the resident wildlife. Gathered here are a handful of compelling photos from Yellowstone’s past, as... (continued) - http://feedproxy.google.com/~r/theatlantic/infocus/~3/5PMsxSsNGFk/'.freeze
-  # rubocop:enable Metrics/LineLength
+  # rubocop:enable Layout/LineLength
 
   def test_text
     assert_equal(EXPECTED_TEXT, normalized.first.value![:text])
@@ -70,11 +70,11 @@ class TheAtlanticPhotosNormalizerTest < Minitest::Test
     assert_equal(EXPECTED_ATTACHMENTS, normalized.first.value![:attachments])
   end
 
-  # rubocop:disable Metrics/LineLength
+  # rubocop:disable Layout/LineLength
   EXPECTED_COMMENTS = [
     'The Lower Falls of the Yellowstone River, in Yellowstone National Park, photographed on September 2, 2006. (Stewart Tomlinson / U.S. Geological Survey)'
   ].freeze
-  # rubocop:enable Metrics/LineLength
+  # rubocop:enable Layout/LineLength
 
   def test_comments
     assert_equal(EXPECTED_COMMENTS, normalized.first.value![:comments])

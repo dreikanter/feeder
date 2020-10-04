@@ -35,7 +35,7 @@ class CheckSequenceRunner
 
   def failed_check_names
     from = CHECK_PREFIX.length
-    failed_checks.map { |method| method.to_s[from..-1].to_sym }
+    failed_checks.map { |method| method.to_s[from..].to_sym }
   end
 
   def checks

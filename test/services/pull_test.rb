@@ -1,7 +1,7 @@
 require 'test_helper'
-require_relative '../support/test_loader.rb'
-require_relative '../support/test_processor.rb'
-require_relative '../support/test_normalizer.rb'
+require_relative '../support/test_loader'
+require_relative '../support/test_processor'
+require_relative '../support/test_normalizer'
 
 class PullTest < Minitest::Test
   def subject

@@ -21,7 +21,7 @@ class BazarNormalizerTest < Minitest::Test
     assert(normalized.all?(&:success?))
   end
 
-  # rubocop:disable Metrics/LineLength
+  # rubocop:disable Layout/LineLength
   FIRST_SAMPLE = {
     uid: 'https://meduza.io/episodes/2019/08/21/glava-v-kotoroy-russkie-nikak-ne-rasstanutsya-s-shapkami-ushankami-a-donna-tartt-materitsya',
     link: 'https://meduza.io/episodes/2019/08/21/glava-v-kotoroy-russkie-nikak-ne-rasstanutsya-s-shapkami-ushankami-a-donna-tartt-materitsya',
@@ -31,7 +31,7 @@ class BazarNormalizerTest < Minitest::Test
     comments: ['В восьмом выпуске летнего «Книжного базара» литературный обозреватель «Медузы» Галина Юзефович и кинокритик Антон Долин обсуждают, как западные режиссеры и писатели показывают Россию и русских. Можно ли избежать кокошников, ушанок и тостов «на здоровье»?'],
     validation_errors: []
   }.freeze
-  # rubocop:enable Metrics/LineLength
+  # rubocop:enable Layout/LineLength
 
   def test_normalized_sample
     assert_equal(FIRST_SAMPLE, normalized.first.value!)

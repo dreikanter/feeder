@@ -24,7 +24,7 @@ class AerostaticaNormalizer < BaseNormalizer
     Html.first_image_url(entity.content)
   end
 
-  LINE_BREAK = %r{\n+|\<br\s*/?\>}.freeze
+  LINE_BREAK = %r{\n+|<br\s*/?>}.freeze
 
   def description
     excerpt = Html.squeeze(entity.content)

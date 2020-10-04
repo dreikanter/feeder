@@ -73,7 +73,7 @@ Vagrant.configure('2') do |config|
     config.vm.box = VAGRANT_BOX
     machine.vm.hostname = HOSTNAME
 
-    VAGRANT_PORTS.values.each do |ports|
+    VAGRANT_PORTS.each_value do |ports|
       machine.vm.network('forwarded_port', auto_correct: true, **ports)
     end
 

@@ -4,13 +4,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '~> 2.6.5'
 
 gem 'puma', '~> 4.3'
-gem 'rails', '~> 6.0.0'
+gem 'rails', '~> 6.0'
 
 group :development do
   gem 'brakeman', '~> 4.3', '>= 4.3.1', require: false
   gem 'method_source', '~> 0.9.2'
-  gem 'reek', '~> 5.4'
-  gem 'rubocop', '~> 0.75.1'
+  gem 'reek', '~> 6.0'
+  gem 'rubocop', '~> 0.92'
   gem 'spring'
   gem 'web-console', '>= 3.3.0'
 end

@@ -26,7 +26,7 @@ class TelegaNormalizerTest < Minitest::Test
     assert(normalized.all?(&:success?))
   end
 
-  # rubocop:disable Metrics/LineLength
+  # rubocop:disable Layout/LineLength
   FIRST_SAMPLE = {
     uid: 'http://tele.ga/agavr_today/126.html',
     link: 'http://tele.ga/agavr_today/126.html',
@@ -46,7 +46,7 @@ class TelegaNormalizerTest < Minitest::Test
     comments: ["Книга, представляющая собой диалог несчастного и подавленного Боэция с самой Философией (а она ему отвечает: то ли ещё бывало! ты же читал!), была настолько популярна в средневековьи, что ее фрагменты неоднократно становились песнями и в таком виде раходились по Европе. Не знаю, с чем сравнить - ну, как если бы нищие по электричкам пели из \"Архипелага Гулаг\" или хотя бы из \"Розы мира\" Даниила Андреева. Доктор Сэм Баррет из Кембриджского университета постарался восстановить звучание этих песен и университетский ансамбль исполнил их в этой новой, но вполне аутентичной аранжировке.\n\nRead more » (http://tele.ga/agavr_today/120.html)"],
     validation_errors: []
   }.freeze
-  # rubocop:enable Metrics/LineLength
+  # rubocop:enable Layout/LineLength
 
   def test_normalized_sample
     assert_equal(FIRST_SAMPLE, normalized.first.value!)

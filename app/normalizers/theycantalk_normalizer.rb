@@ -10,7 +10,7 @@ class TheycantalkNormalizer < TumblrNormalizer
   end
 
   def comments
-    paragraphs[1..-1] || []
+    paragraphs[1..] || []
   end
 
   private

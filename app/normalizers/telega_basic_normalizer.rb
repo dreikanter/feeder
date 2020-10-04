@@ -20,7 +20,7 @@ class TelegaBasicNormalizer < RssNormalizer
   private
 
   def content
-    (paragraphs[0..-1] || []).join("\n\n")
+    (paragraphs[0..] || []).join("\n\n")
   end
 
   def paragraphs

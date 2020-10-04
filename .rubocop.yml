@@ -1,6 +1,7 @@
 inherit_from: .rubocop_todo.yml
 
 AllCops:
+  NewCops: enable
   TargetRubyVersion: 2.6
   DisplayCopNames: true
   Exclude:
@@ -45,7 +46,7 @@ Layout/MultilineMethodCallIndentation:
 Layout/MultilineOperationIndentation:
   EnforcedStyle: indented
 
-Layout/IndentFirstArrayElement:
+Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
 
 Layout/EmptyLineAfterGuardClause:
@@ -56,5 +57,5 @@ Style/StringLiterals:
     - "bin/**/*"
     - "db/migrations"
 
-Layout/IndentFirstHashElement:
+Layout/FirstHashElementIndentation:
   EnforcedStyle: consistent

@@ -73,6 +73,7 @@ class Html
     Nokogiri::HTML(html).css(selector || 'a').map { |e| e['href'] }
   end
 
+  # rubocop:disable Metrics/CyclomaticComplexity
   def self.paragraphs(html)
     result = Nokogiri::HTML(html)
 
@@ -92,11 +93,14 @@ class Html
       e.replace(e.content) if e.content =~ HASHTAG_PATTERN
     end
 
+    # rubocop:disable Style/CombinableLoops
     # Replace links with plain text URLs
     result.css('a').each { |e| e.after(" (#{e['href']})") }
+    # rubocop:enable Style/CombinableLoops
 
     result.text.split(/\n/).reject(&:blank?)
   end
+  # rubocop:enable Metrics/CyclomaticComplexity
 
   def self.strip_emoji(text)
     text.force_encoding('utf-8').encode.gsub(EMOJI_PATTERN, '')
