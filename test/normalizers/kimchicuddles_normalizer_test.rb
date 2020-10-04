@@ -32,7 +32,7 @@ class KimchicuddlesNormalizerTest < Minitest::Test
     assert(normalized.all?(&:success?))
   end
 
-  # rubocop:disable Metrics/LineLength
+  # rubocop:disable Layout/LineLength
   FIRST_SAMPLE = {
     link: 'http://kimchicuddles.com/post/178513799060',
     published_at: Time.parse('2018-09-27 15:53:34 UTC'),
@@ -41,7 +41,7 @@ class KimchicuddlesNormalizerTest < Minitest::Test
     comments: ["Who are some people you’re grateful for right now?\nIf you appreciate my work, check out my Patreon: https://www.patreon.com/kimchicuddles"],
     validation_errors: []
   }.freeze
-  # rubocop:enable Metrics/LineLength
+  # rubocop:enable Layout/LineLength
 
   def test_normalized_sample
     result = normalized.first.value!

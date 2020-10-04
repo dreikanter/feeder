@@ -17,7 +17,7 @@ class PullJob < ApplicationJob
   end
 
   # TODO: Refactor this method
-  # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
+  # rubocop:disable Metrics/MethodLength, Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
   def perform(feed)
     entities = Pull.call(feed)
 
@@ -68,7 +68,7 @@ class PullJob < ApplicationJob
       refreshed_at: started_at
     )
   end
-  # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
+  # rubocop:enable Metrics/MethodLength, Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 
   private
 
