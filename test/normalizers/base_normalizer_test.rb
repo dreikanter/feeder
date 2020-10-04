@@ -50,6 +50,7 @@ class BaseNormalizerTest < Minitest::Test
     normalizer = Class.new(subject) do
       define_method(:validation_errors) { SAMPLE_ERRORS }
     end
+
     result = normalizer.call(uid, ENTITY, feed)
     assert(result.success?)
     assert_equal(result.value![:validation_errors], SAMPLE_ERRORS)
@@ -62,9 +63,11 @@ class BaseNormalizerTest < Minitest::Test
 
   def test_sanitize_attachments
     incomplete_url = '//example.com'
+
     normalizer = Class.new(subject) do
       define_method(:attachments) { [incomplete_url] }
     end
+
     result = normalizer.call(uid, ENTITY, feed)
     expected = ["https:#{incomplete_url}"]
     assert(expected, result.value![:attachments])
@@ -72,9 +75,11 @@ class BaseNormalizerTest < Minitest::Test
 
   def test_require_valid_attachment_urls
     non_valid_url = ':'
+
     normalizer = Class.new(subject) do
       define_method(:attachments) { [non_valid_url] }
     end
+
     result = normalizer.call(uid, ENTITY, feed)
     assert(result.failure?)
   end
@@ -83,6 +88,7 @@ class BaseNormalizerTest < Minitest::Test
     normalizer = Class.new(subject) do
       define_method(:attachments) { nil }
     end
+
     result = normalizer.call(uid, ENTITY, feed)
     assert(result.failure?)
   end
@@ -91,6 +97,7 @@ class BaseNormalizerTest < Minitest::Test
     normalizer = Class.new(subject) do
       define_method(:attachments) { [nil, ''] }
     end
+
     result = normalizer.call(uid, ENTITY, feed)
     assert(result.value![:attachments].empty?)
   end
@@ -99,6 +106,7 @@ class BaseNormalizerTest < Minitest::Test
     normalizer = Class.new(subject) do
       define_method(:comments) { nil }
     end
+
     result = normalizer.call(uid, ENTITY, feed)
     assert(result.failure?)
   end
@@ -107,6 +115,7 @@ class BaseNormalizerTest < Minitest::Test
     normalizer = Class.new(subject) do
       define_method(:comments) { [nil, ''] }
     end
+
     result = normalizer.call(uid, ENTITY, feed)
     assert(result.value![:comments].empty?)
   end
