@@ -49,7 +49,7 @@ class TelegaNormalizerTest < Minitest::Test
   # rubocop:enable Layout/LineLength
 
   def test_normalized_sample
-    assert_equal(FIRST_SAMPLE, normalized.first)
-    assert_equal(SECOND_SAMPLE, normalized.second)
+    assert_equal(FIRST_SAMPLE, normalized.first.value!)
+    assert_equal(SECOND_SAMPLE, normalized.second.value!)
   end
 end

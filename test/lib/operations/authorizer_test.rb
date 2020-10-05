@@ -47,7 +47,7 @@ module Operations
 
     def test_callable
       acceptable_arg_variations.each do |args|
-        assert(authorizer.call(**args))
+        assert(authorizer.call(**args).success?)
       end
     end
   end

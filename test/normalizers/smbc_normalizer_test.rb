@@ -26,10 +26,11 @@ class SmbcNormalizerTest < Minitest::Test
 
   def test_normalization
     assert(normalized.any?)
+    assert(normalized.all?(&:success?))
   end
 
   def test_hidden_image
-    result = normalized.first
+    result = normalized.first.value!
     assert_equal(2, result[:attachments].count)
   end
 end

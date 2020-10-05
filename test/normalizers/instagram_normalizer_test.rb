@@ -49,20 +49,20 @@ class InstagramNormalizerTest < Minitest::Test
 
   def test_success
     normalized.each do |normalized_entity|
-      assert(normalized_entity)
+      assert(normalized_entity.success?)
     end
   end
 
   def test_attachments
     normalized.each do |normalized_entity|
-      value = normalized_entity
+      value = normalized_entity.value!
       assert(value[:attachments].any?)
     end
   end
 
   def test_text
     normalized.each do |normalized_entity|
-      value = normalized_entity
+      value = normalized_entity.value!
       refute(value[:text].blank?)
     end
   end
@@ -72,7 +72,7 @@ class InstagramNormalizerTest < Minitest::Test
 
   def test_link
     normalized.each do |normalized_entity|
-      link = normalized_entity[:link]
+      link = normalized_entity.value![:link]
       assert(link)
       url = Addressable::URI.parse(link)
       assert_equal(EXPECTED_SCHEME, url.scheme)
@@ -82,14 +82,14 @@ class InstagramNormalizerTest < Minitest::Test
 
   def test_published_at
     normalized.each do |normalized_entity|
-      value = normalized_entity
+      value = normalized_entity.value!
       assert(value[:published_at].is_a?(DateTime))
     end
   end
 
   def test_multiple_attachments
     normalized.each do |normalized_entity|
-      value = normalized_entity
+      value = normalized_entity.value!
       assert_equal(EXPECTED_ATTACHMENTS, value[:attachments])
     end
   end

@@ -1,4 +1,4 @@
-class BatchImportJob < ApplicationJob
+class BatchPullJob < ApplicationJob
   queue_as :default
 
   def perform
@@ -7,7 +7,7 @@ class BatchImportJob < ApplicationJob
     CreateDataPoint.call(:batch, feeds: stale_feeds.pluck(:name))
     stale_feeds.each do |feed|
       # TODO: Exclude inactive feeds from stale scope
-      ImportJob.perform_later(feed) if feed.active?
+      PullJob.perform_later(feed) if feed.active?
     end
   end
 end

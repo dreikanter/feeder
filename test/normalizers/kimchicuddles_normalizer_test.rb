@@ -29,6 +29,7 @@ class KimchicuddlesNormalizerTest < Minitest::Test
 
   def test_normalization
     assert(normalized.any?)
+    assert(normalized.all?(&:success?))
   end
 
   # rubocop:disable Layout/LineLength
@@ -43,7 +44,7 @@ class KimchicuddlesNormalizerTest < Minitest::Test
   # rubocop:enable Layout/LineLength
 
   def test_normalized_sample
-    result = normalized.first
+    result = normalized.first.value!
     FIRST_SAMPLE.each_key do |key|
       assert_equal(FIRST_SAMPLE[key], result[key])
     end

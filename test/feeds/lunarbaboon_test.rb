@@ -26,6 +26,10 @@ class LunarbaboonTest < Minitest::Test
       )
   end
 
+  def test_general_success
+    assert(subject.success?)
+  end
+
   def expected_entity
     content = file_fixture('entities/lunarbaboon.json').read
     result = JSON.parse(content).symbolize_keys
@@ -34,7 +38,11 @@ class LunarbaboonTest < Minitest::Test
     result
   end
 
+  def test_each_entity_is_a_success
+    subject.value!.all?(&:success?)
+  end
+
   def test_entity_normalization
-    assert_equal(expected_entity, subject.first)
+    assert_equal(expected_entity, subject.value!.first.value!)
   end
 end

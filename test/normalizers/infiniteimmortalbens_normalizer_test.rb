@@ -18,37 +18,37 @@ class InfiniteimmortalbensNormalizerTest < Minitest::Test
 
   def test_success
     normalized.each do |entity|
-      assert(entity)
+      assert(entity.success?)
     end
   end
 
   def test_text
     normalized.each do |entity|
-      refute(entity[:text].empty?)
+      refute(entity.value![:text].empty?)
     end
   end
 
   def test_comments
     normalized.each do |entity|
-      assert(entity[:comments].empty?)
+      assert(entity.value![:comments].empty?)
     end
   end
 
   def test_valid_link
     normalized.each do |entity|
-      Addressable::URI.parse(entity[:link])
+      Addressable::URI.parse(entity.value![:link])
     end
   end
 
   def test_published_at
     normalized.each do |entity|
-      assert(entity[:published_at].is_a?(Time))
+      assert(entity.value![:published_at].is_a?(Time))
     end
   end
 
   def test_attachments
     normalized.each do |entity|
-      result = entity[:attachments]
+      result = entity.value![:attachments]
       assert(result.is_a?(Array))
       assert(result.any?)
     end

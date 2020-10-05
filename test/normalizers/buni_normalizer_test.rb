@@ -35,6 +35,7 @@ class BuniNormalizerTest < Minitest::Test
 
   def test_normalization
     assert(normalized.any?)
+    assert(normalized.all?(&:success?))
   end
 
   def test_uid
@@ -88,10 +89,10 @@ class BuniNormalizerTest < Minitest::Test
   end
 
   def ordinary_post_field(field)
-    normalized.first[field]
+    normalized.first.value![field]
   end
 
   def webtoons_post_field(field)
-    normalized.second[field]
+    normalized.second.value![field]
   end
 end

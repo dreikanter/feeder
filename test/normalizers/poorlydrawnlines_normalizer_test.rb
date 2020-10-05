@@ -23,6 +23,7 @@ class PoorlydrawnlinesNormalizerTest < Minitest::Test
 
   def test_normalization
     assert(normalized.any?)
+    assert(normalized.all?(&:success?))
   end
 
   FIRST_SAMPLE = {
@@ -36,6 +37,6 @@ class PoorlydrawnlinesNormalizerTest < Minitest::Test
   }.freeze
 
   def test_normalized_sample
-    assert_equal(FIRST_SAMPLE, normalized.first)
+    assert_equal(FIRST_SAMPLE, normalized.first.value!)
   end
 end

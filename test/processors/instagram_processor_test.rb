@@ -20,13 +20,17 @@ class InstagramProcessorTest < Minitest::Test
     @result ||= subject.call(sample_json, build(:feed))
   end
 
+  def test_success
+    assert(result.success?)
+  end
+
   def test_array
-    value = result
+    value = result.value!
     assert(value.is_a?(Array))
   end
 
   def test_ids
-    result.each do |entity|
+    result.value!.each do |entity|
       expected_id = entity.content['shortcode']
       assert(expected_id)
       assert(entity.uid)

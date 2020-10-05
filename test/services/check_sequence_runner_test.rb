@@ -5,14 +5,16 @@ class CheckSequenceRunnerTest < Minitest::Test
     CheckSequenceRunner
   end
 
+  def test_success_when_empty
+    assert(subject.call.success?)
+  end
+
   def test_success_when_all_checks_passed
     prefix = subject::CHECK_PREFIX
-
     sequence = Class.new(subject) do
       define_method("#{prefix}_test") { true }
     end
-
-    assert(sequence.call)
+    assert(sequence.call.success?)
   end
 
   def test_failure_when_some_checks_are_not_passed

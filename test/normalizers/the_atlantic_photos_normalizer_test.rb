@@ -30,26 +30,27 @@ class TheAtlanticPhotosNormalizerTest < Minitest::Test
 
   def test_normalization
     assert(normalized.any?)
+    assert(normalized.all?(&:success?))
   end
 
   def test_uid
     assert_equal(
       'http://feedproxy.google.com/~r/theatlantic/infocus/~3/5PMsxSsNGFk/',
-      normalized.first[:uid]
+      normalized.first.value![:uid]
     )
   end
 
   def test_link
     assert_equal(
       'http://feedproxy.google.com/~r/theatlantic/infocus/~3/5PMsxSsNGFk/',
-      normalized.first[:link]
+      normalized.first.value![:link]
     )
   end
 
   def test_published_at
     assert_equal(
       DateTime.parse('2017-09-19 14:15:30 -0400'),
-      normalized.first[:published_at]
+      normalized.first.value![:published_at]
     )
   end
 
@@ -58,7 +59,7 @@ class TheAtlanticPhotosNormalizerTest < Minitest::Test
   # rubocop:enable Layout/LineLength
 
   def test_text
-    assert_equal(EXPECTED_TEXT, normalized.first[:text])
+    assert_equal(EXPECTED_TEXT, normalized.first.value![:text])
   end
 
   EXPECTED_ATTACHMENTS = [
@@ -66,7 +67,7 @@ class TheAtlanticPhotosNormalizerTest < Minitest::Test
   ].freeze
 
   def test_attachments
-    assert_equal(EXPECTED_ATTACHMENTS, normalized.first[:attachments])
+    assert_equal(EXPECTED_ATTACHMENTS, normalized.first.value![:attachments])
   end
 
   # rubocop:disable Layout/LineLength
@@ -76,10 +77,10 @@ class TheAtlanticPhotosNormalizerTest < Minitest::Test
   # rubocop:enable Layout/LineLength
 
   def test_comments
-    assert_equal(EXPECTED_COMMENTS, normalized.first[:comments])
+    assert_equal(EXPECTED_COMMENTS, normalized.first.value![:comments])
   end
 
   def test_validation_errors
-    assert_empty(normalized.first[:validation_errors])
+    assert_empty(normalized.first.value![:validation_errors])
   end
 end
