@@ -55,15 +55,13 @@ class InstagramNormalizerTest < Minitest::Test
 
   def test_attachments
     normalized.each do |normalized_entity|
-      value = normalized_entity
-      assert(value[:attachments].any?)
+      assert(normalized_entity[:attachments].any?)
     end
   end
 
   def test_text
     normalized.each do |normalized_entity|
-      value = normalized_entity
-      refute(value[:text].blank?)
+      refute(normalized_entity[:text].blank?)
     end
   end
 
@@ -82,15 +80,13 @@ class InstagramNormalizerTest < Minitest::Test
 
   def test_published_at
     normalized.each do |normalized_entity|
-      value = normalized_entity
-      assert(value[:published_at].is_a?(DateTime))
+      assert(normalized_entity[:published_at].is_a?(DateTime))
     end
   end
 
   def test_multiple_attachments
     normalized.each do |normalized_entity|
-      value = normalized_entity
-      assert_equal(EXPECTED_ATTACHMENTS, value[:attachments])
+      assert_equal(EXPECTED_ATTACHMENTS, normalized_entity[:attachments])
     end
   end
 end
