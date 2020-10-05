@@ -18,19 +18,18 @@ class HttpLoaderTest < Minitest::Test
   end
 
   def test_success
-    client = ->(_url) {}
+    client = ->(_url) { '' }
     result = subject.call(feed, client: client)
     assert(result)
   end
 
   def test_failure
     client = ->(_url) { raise }
-    result = subject.call(feed, client: client)
-    assert(result.failure?)
+    assert_raises(RuntimeError) { subject.call(feed, client: client) }
   end
 
   def test_default_client_should_raise_on_empty_url
     feed = build(:feed, name: SecureRandom.hex, url: nil)
-    assert_raises(RuntimeErrr) { subject.call(feed) }
+    assert_raises(ArgumentError) { subject.call(feed) }
   end
 end
