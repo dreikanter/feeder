@@ -8,7 +8,7 @@ class BaseNormalizer
 
   # TODO: Introduce NormalizedEntity class to replace payload hash
   def call
-    logger.info("normalizing entity [#{uid}] with #{self.class.name}")
+    logger.info("---> normalizing [#{uid}] with [#{self.class.name}]")
     payload
   end
 

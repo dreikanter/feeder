@@ -5,7 +5,7 @@ class BaseLoader
   option :logger, optional: true, default: -> { Rails.logger }
 
   def call
-    logger.info("loading feed [#{feed&.name}]")
+    logger.info("---> loading feed [#{feed&.name}]")
     perform
   end
 

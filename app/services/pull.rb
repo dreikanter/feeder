@@ -3,9 +3,9 @@ class Pull
 
   param :feed
   option :logger, optional: true, default: -> { Rails.logger }
-  option :loader, optional: true, default: -> { LoaderResolver.call(feed) }
-  option :processor, optional: true, default: -> { ProcessorResolver.call(feed) }
-  option :normalizer, optional: true, default: -> { NormalizerResolver.call(feed) }
+  option :loader, optional: true, default: -> { LoaderResolver.call(feed, logger: logger) }
+  option :processor, optional: true, default: -> { ProcessorResolver.call(feed, logger: logger) }
+  option :normalizer, optional: true, default: -> { NormalizerResolver.call(feed, logger: logger) }
 
   def call
     normalize(entities)
