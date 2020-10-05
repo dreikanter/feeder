@@ -17,23 +17,22 @@ class BaseProcessorTest < Minitest::Test
       define_method(:entities) { [] }
     end
     result = processor.call(Object.new, Feed.new)
-    assert(result)
+    assert(result.success?)
   end
 
   def test_failure
     processor = Class.new(subject) do
       define_method(:entities) { raise }
     end
-
-    assert_raises(RuntimeError) { processor.call(nil, Feed.new) }
+    result = processor.call(nil, Feed.new)
+    assert(result.failure?)
   end
 
   def test_returns_entities
     processor = Class.new(subject) do
       define_method(:entities) { ENTITIES }
     end
-
-    result = processor.call(Object.new, Feed.new)
+    result = processor.call(Object.new, Feed.new).value!
     assert_equal(ENTITIES, result)
   end
 
