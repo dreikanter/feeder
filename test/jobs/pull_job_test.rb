@@ -9,7 +9,7 @@ class PullJobTest < Minitest::Test
     build(:feed, name: :test, import_limit: 0)
   end
 
-  def test_require_success_result
+  def test_happy_path
     subject.perform_now(feed)
   end
 end

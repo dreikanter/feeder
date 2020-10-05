@@ -6,6 +6,7 @@ class BaseNormalizer
   param :feed
   option :logger, optional: true, default: -> { Rails.logger }
 
+  # TODO: Introduce NormalizedEntity class to replace payload hash
   def call
     logger.info("normalizing entity [#{uid}] with #{self.class.name}")
     payload
