@@ -16,11 +16,11 @@ module Operations
 
     def test_should_bypass
       args = { user: new_user, params: new_params }
-      assert(subject.call(**args).success?)
+      assert(subject.call(**args))
     end
 
     def test_should_bypass_with_no_context
-      assert(subject.call.success?)
+      assert(subject.call)
     end
   end
 end

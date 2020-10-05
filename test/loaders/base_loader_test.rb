@@ -20,8 +20,8 @@ class BaseLoaderTest < Minitest::Test
       define_method(:perform) { expected }
     end
     result = loader.call(feed)
-    assert(result.success?)
-    assert_equal(expected, result.value!)
+    assert(result)
+    assert_equal(expected, result)
   end
 
   def test_failure
