@@ -59,6 +59,3 @@ Style/StringLiterals:
 
 Layout/FirstHashElementIndentation:
   EnforcedStyle: consistent
-
-Naming/RescuedExceptionsVariableName:
-  PreferredName: e
