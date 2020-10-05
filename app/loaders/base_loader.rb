@@ -16,6 +16,6 @@ class BaseLoader
   protected
 
   def perform
-    raise 'not implemented'
+    raise NotImplementedError
   end
 end
