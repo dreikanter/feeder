@@ -6,7 +6,7 @@ module ProcessorTestHelpers
   end
 
   def sample_data_file
-    raise NotImplementedError
+    raise 'not implemented'
   end
 
   def sample_data
