@@ -35,8 +35,4 @@ class BaseProcessorTest < Minitest::Test
     result = processor.call(Object.new, Feed.new).value!
     assert_equal(ENTITIES, result)
   end
-
-  def test_abstract_entities
-    assert_raises(NotImplementedError) { subject.call(Object.new, Feed.new) }
-  end
 end
