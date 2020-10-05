@@ -14,9 +14,7 @@ class Pull
   private
 
   def normalize(entities)
-    new_entities(entities).map do |entity|
-      normalizer.call(entity.uid, entity.content, feed)
-    end
+    new_entities(entities).map { |entity| normalize_entity(entity, feed) }.compact
   end
 
   def new_entities(entities)
@@ -31,5 +29,12 @@ class Pull
 
   def content
     loader.call(feed)
+  end
+
+  def normalize_entity(entity, feed)
+    normalizer.call(entity.uid, entity.content, feed)
+  rescue StandardError => e
+    Honeybadger.notify(e, error_message: "normalization error: #{e.message}")
+    nil
   end
 end
