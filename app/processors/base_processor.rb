@@ -9,7 +9,7 @@ class BaseProcessor
   DEFAULT_LIMIT = 2
 
   def call
-    log("processing #{feed.name} with #{self.class.name}")
+    logger.info("processing [#{feed.name}] with [#{self.class.name}]")
     actual_entities
   end
 
@@ -26,11 +26,6 @@ class BaseProcessor
 
   def limit
     import_limit || feed.import_limit || DEFAULT_LIMIT
-  end
-
-  # TODO: Move to a mixin
-  def log(message, level: :info)
-    logger.public_send(level, "[feed:#{feed_name}] #{message}")
   end
 
   def feed_name
