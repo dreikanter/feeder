@@ -26,10 +26,6 @@ class CommitstripTest < Minitest::Test
       )
   end
 
-  def test_general_success
-    assert(subject.success?)
-  end
-
   def expected_entity
     content = file_fixture('entities/commitstrip.json').read
     result = JSON.parse(content).symbolize_keys
@@ -38,11 +34,7 @@ class CommitstripTest < Minitest::Test
     result
   end
 
-  def test_each_entity_is_a_success
-    subject.value!.all?(&:success?)
-  end
-
   def test_entity_normalization
-    assert_equal(expected_entity, subject.value!.first.value!)
+    assert_equal(expected_entity, subject.first)
   end
 end

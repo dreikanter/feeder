@@ -31,7 +31,6 @@ class AerostaticaNormalizerTest < Minitest::Test
 
   def test_normalization
     assert(normalized.any?)
-    assert(normalized.all?(&:success?))
   end
 
   # TODO: Use DI to test the normalizer offline

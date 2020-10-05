@@ -28,7 +28,7 @@ module NormalizerTestHelper
   end
 
   def process_sample_data
-    processor.call(sample_data, feed).value!
+    processor.call(sample_data, feed)
   end
 
   def sample_data

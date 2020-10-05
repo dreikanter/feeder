@@ -40,16 +40,15 @@ class InstagramLoaderTest < Minitest::Test
   def test_execute_script
     with_sample_node_script do |script_path|
       result = subject.call(create_feed, script_path: script_path)
-      assert(result.success?)
-      assert_equal(EXPECTED_OBJECT, result.value!)
+      assert(result)
+      assert_equal(EXPECTED_OBJECT, result)
     end
   end
 
   def test_require_instagram_user_option
     feed = build(:feed, name: SecureRandom.hex, options: {})
     with_sample_node_script do |script_path|
-      result = subject.call(feed, script_path: script_path)
-      assert(result.failure?)
+      assert_raises(RuntimeError) { subject.call(feed, script_path: script_path) }
     end
   end
 end

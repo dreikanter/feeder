@@ -14,24 +14,22 @@ class HttpLoaderTest < Minitest::Test
     client = ->(_url) {}
     client.expects(:call).returns(expected)
     result = subject.call(feed, client: client)
-    assert_equal(expected, result.value!)
+    assert_equal(expected, result)
   end
 
   def test_success
-    client = ->(_url) {}
+    client = ->(_url) { '' }
     result = subject.call(feed, client: client)
-    assert(result.success?)
+    assert(result)
   end
 
   def test_failure
     client = ->(_url) { raise }
-    result = subject.call(feed, client: client)
-    assert(result.failure?)
+    assert_raises(RuntimeError) { subject.call(feed, client: client) }
   end
 
   def test_default_client_should_raise_on_empty_url
     feed = build(:feed, name: SecureRandom.hex, url: nil)
-    result = subject.call(feed)
-    assert(result.failure?)
+    assert_raises(ArgumentError) { subject.call(feed) }
   end
 end

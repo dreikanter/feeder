@@ -30,8 +30,7 @@ class PullTest < Minitest::Test
   def test_call
     expected_entities_count = TestProcessor::ENTITIES.count
     entities = subject.call(feed)
-    assert(entities.success?)
-    assert(entities.value!.is_a?(Enumerable))
-    assert_equal(expected_entities_count, entities.value!.count)
+    assert(entities.is_a?(Enumerable))
+    assert_equal(expected_entities_count, entities.count)
   end
 end

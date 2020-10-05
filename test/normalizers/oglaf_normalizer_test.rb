@@ -24,34 +24,33 @@ class OglafNormalizerTest < Minitest::Test
 
   def test_normalization
     assert(normalized.any?)
-    assert(normalized.all?(&:success?))
   end
 
   def test_uid
     assert_equal(
       'https://www.oglaf.com/thesitter/',
-      normalized.first.value![:uid]
+      normalized.first[:uid]
     )
   end
 
   def test_link
     assert_equal(
       'https://www.oglaf.com/thesitter/',
-      normalized.first.value![:link]
+      normalized.first[:link]
     )
   end
 
   def test_published_at
     assert_equal(
       DateTime.parse('2019-08-18 00:00:00 +0000'),
-      normalized.first.value![:published_at]
+      normalized.first[:published_at]
     )
   end
 
   EXPECTED_TEXT = 'Legend of the Sitter - https://www.oglaf.com/thesitter/'.freeze
 
   def test_text
-    assert_equal(EXPECTED_TEXT, normalized.first.value![:text])
+    assert_equal(EXPECTED_TEXT, normalized.first[:text])
   end
 
   EXPECTED_ATTACHMENTS = [
@@ -59,7 +58,7 @@ class OglafNormalizerTest < Minitest::Test
   ].freeze
 
   def test_attachments
-    assert_equal(EXPECTED_ATTACHMENTS, normalized.first.value![:attachments])
+    assert_equal(EXPECTED_ATTACHMENTS, normalized.first[:attachments])
   end
 
   EXPECTED_COMMENTS = [
@@ -67,10 +66,10 @@ class OglafNormalizerTest < Minitest::Test
   ].freeze
 
   def test_comments
-    assert_equal(EXPECTED_COMMENTS, normalized.first.value![:comments])
+    assert_equal(EXPECTED_COMMENTS, normalized.first[:comments])
   end
 
   def test_validation_errors
-    assert_empty(normalized.first.value![:validation_errors])
+    assert_empty(normalized.first[:validation_errors])
   end
 end
