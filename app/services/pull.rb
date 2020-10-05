@@ -1,31 +1,47 @@
 class Pull
   include Callee
+  include Dry::Monads[:result]
+  include Dry::Monads[:do]
 
   param :feed
   option :logger, optional: true, default: -> { Rails.logger }
-  option :loader, optional: true, default: -> { LoaderResolver.call(feed) }
-  option :processor, optional: true, default: -> { ProcessorResolver.call(feed) }
-  option :normalizer, optional: true, default: -> { NormalizerResolver.call(feed) }
+  option :loader, optional: true, default: -> { nil }
+  option :processor, optional: true, default: -> { nil }
+  option :normalizer, optional: true, default: -> { nil }
 
+  Dry::Monads::Do.for(:call)
+
+  # NOTE: Returns Result(Result[])
   def call
-    new_entities.map do |entity|
-      normalizer.call(entity.uid, entity.content, feed)
-    end
+    content = yield loader_or_default.call(feed)
+    entities = yield processor_or_default.call(content, feed)
+
+    # TODO: Refactor this
+    return entities if entities.is_a?(Failure)
+
+    Success(normalize(entities))
+  rescue StandardError => e
+    Honeybadger.context(
+      error: e,
+      feed: feed.name
+    )
+
+    Honeybadger.notify(e)
+
+    Failure(e)
   end
 
   private
 
-  def new_entities
-    uids = entities.map(&:uid)
-    existing_uids = Post.where(feed: feed, uid: uids).pluck(:uid)
-    entities.select { |entity| existing_uids.exclude?(entity.uid) }
+  def loader_or_default
+    loader || LoaderResolver.call(feed)
   end
 
-  def entities
-    processor.call(content, feed)
+  def processor_or_default
+    processor || ProcessorResolver.call(feed)
   end
 
-  def content
-    loader.call(feed)
+  def normalizer_or_default
+    @normalizer_or_default ||= normalizer || NormalizerResolver.call(feed)
   end
 end
