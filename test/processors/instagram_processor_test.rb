@@ -21,8 +21,7 @@ class InstagramProcessorTest < Minitest::Test
   end
 
   def test_array
-    value = result
-    assert(value.is_a?(Array))
+    assert(result.is_a?(Array))
   end
 
   def test_ids

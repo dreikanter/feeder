@@ -11,11 +11,12 @@ class BaseLoaderTest < Minitest::Test
 
   def test_success
     expected = Object.new
+
     loader = Class.new(subject) do
       define_method(:perform) { expected }
     end
+
     result = loader.call(feed)
-    assert(result)
     assert_equal(expected, result)
   end
 
@@ -23,8 +24,7 @@ class BaseLoaderTest < Minitest::Test
     loader = Class.new(subject) do
       define_method(:perform) { raise }
     end
-    result = loader.call(feed)
-    assert(result.failure?)
-    assert(result.failure.is_a?(RuntimeError))
+
+    assert_raises(RuntimeError) { loader.call(feed) }
   end
 end

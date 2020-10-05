@@ -31,7 +31,6 @@ class HttpLoaderTest < Minitest::Test
 
   def test_default_client_should_raise_on_empty_url
     feed = build(:feed, name: SecureRandom.hex, url: nil)
-    result = subject.call(feed)
-    assert(result.failure?)
+    assert_raises(RuntimeErrr) { subject.call(feed) }
   end
 end
