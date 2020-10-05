@@ -24,15 +24,15 @@ class Pull
   end
 
   def entities
-    processor.call(content, feed)
+    processor.call(content, feed, logger: logger)
   end
 
   def content
-    loader.call(feed)
+    loader.call(feed, logger: logger)
   end
 
   def normalize_entity(entity, feed)
-    normalizer.call(entity.uid, entity.content, feed)
+    normalizer.call(entity.uid, entity.content, feed, logger: logger)
   rescue StandardError => e
     Honeybadger.notify(e, error_message: "normalization error: #{e.message}")
     nil
