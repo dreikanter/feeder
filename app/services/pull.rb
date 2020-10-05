@@ -34,7 +34,13 @@ class Pull
   def normalize_entity(entity, feed)
     normalizer.call(entity.uid, entity.content, feed, logger: logger)
   rescue StandardError => e
-    Honeybadger.notify(e, error_message: "normalization error: #{e.message}")
+    ErrorDumper.call(
+      exception: e,
+      message: 'Normalization error',
+      target: feed,
+      context: { uid: entity.uid }
+    )
+
     nil
   end
 end
