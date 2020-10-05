@@ -1,5 +1,6 @@
 class BaseNormalizer
   include Callee
+  include Dry::Monads[:result]
 
   param :uid
   param :entity
@@ -7,8 +8,11 @@ class BaseNormalizer
   option :logger, optional: true, default: -> { Rails.logger }
 
   def call
-    logger.info("normalizing entity [#{uid}] with #{self.class.name}")
-    payload
+    logger.info("normalizing entity [#{uid}]")
+    Success(payload)
+  rescue StandardError => e
+    logger.error(e)
+    Failure(e)
   end
 
   protected
