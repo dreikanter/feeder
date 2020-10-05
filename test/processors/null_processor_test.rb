@@ -9,7 +9,6 @@ class NullProcessorTest < Minitest::Test
     source = nil
     feed = build(:feed)
     result = subject.call(source, feed)
-    assert(result.success?)
-    assert_equal([], result.value!)
+    assert_equal([], result)
   end
 end

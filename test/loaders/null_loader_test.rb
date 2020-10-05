@@ -11,11 +11,11 @@ class NullLoaderTest < Minitest::Test
 
   def test_always_succeed
     result = subject.call(sample_feed)
-    assert(result.success?)
+    assert(result)
   end
 
   def test_returns_nothing
     result = subject.call(sample_feed)
-    assert_nil(result.value!)
+    assert_nil(result)
   end
 end

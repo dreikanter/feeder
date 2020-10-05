@@ -5,18 +5,18 @@ namespace :feeder do
     raise 'feed name is required' unless feed_name
     feed = Feed.active.find_by(name: feed_name)
     raise 'specified feed does not exist or inactive' unless feed
-    PullJob.perform_later(feed)
+    ImportJob.perform_later(feed)
   end
 
   desc 'Pull all feeds'
   task pull_all: :environment do
     Feed.active.each do |feed|
-      PullJob.perform_later(feed)
+      ImportJob.perform_later(feed)
     end
   end
 
   desc 'Pull stale feeds'
   task pull_stale: :environment do
-    BatchPullJob.perform_later
+    BatchImportJob.perform_later
   end
 end

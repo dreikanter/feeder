@@ -34,8 +34,8 @@ class TwitterLoaderTest < Minitest::Test
       credentials: sample_credentials,
       client: twitter_client_mock
     )
-    assert(result.success?)
-    assert_equal(SAMPLE_RESULT, result.value!)
+    assert(result)
+    assert_equal(SAMPLE_RESULT, result)
   end
 
   def test_should_require_twitter_credentials

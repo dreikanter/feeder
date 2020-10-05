@@ -31,7 +31,6 @@ class DilbertNormalizerTest < Minitest::Test
 
   def test_normalization
     assert(normalized.any?)
-    assert(normalized.all?(&:success?))
   end
 
   def test_text
