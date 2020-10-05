@@ -9,11 +9,6 @@ class BaseLoaderTest < Minitest::Test
     build(:feed, name: SecureRandom.hex)
   end
 
-  def test_require_feed_argument
-    loader = Class.new(subject)
-    assert_raises(NotImplementedError) { loader.call(feed) }
-  end
-
   def test_success
     expected = Object.new
     loader = Class.new(subject) do
