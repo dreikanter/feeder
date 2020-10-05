@@ -32,23 +32,7 @@ module Operations
       assert_equal(expected, runner.schema)
     end
 
-    def test_accept_authorizer
-      authorizer = Object.new
-      runner = new_runner(authorizer: authorizer)
-      assert_equal(authorizer, runner.authorizer)
-    end
-
-    def test_default_authorizer
-      runner = new_runner
-      expected = Operations::AuthorizerResolver.call(SampleOperation)
-      assert_equal(expected, runner.authorizer)
-    end
-
     def test_validate_params
-      # TODO
-    end
-
-    def test_authorize_user
       # TODO
     end
 
