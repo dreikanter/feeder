@@ -14,7 +14,7 @@ class Pull
   private
 
   def normalized_entities
-    new_entities.map { |entity| normalize_entity(entity, feed) }.compact
+    new_entities.map { |entity| normalize_entity(entity) }.compact
   end
 
   def new_entities
@@ -31,7 +31,7 @@ class Pull
     loader.call(feed, logger: logger)
   end
 
-  def normalize_entity(entity, feed)
+  def normalize_entity(entity)
     normalizer.call(entity.uid, entity.content, feed, logger: logger)
   rescue StandardError => e
     ErrorDumper.call(
