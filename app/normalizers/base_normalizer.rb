@@ -57,7 +57,7 @@ class BaseNormalizer
       uid: uid,
       link: link,
       published_at: published_at,
-      text: text,
+      text: text || '',
       attachments: sanitized_attachments,
       comments: comments.reject(&:blank?),
       validation_errors: validation_errors
