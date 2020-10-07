@@ -7,8 +7,6 @@ class Import
   def call
     @started_at = Time.current
     generate_new_posts
-  ensure
-    update_feed_timestamps
     create_data_point
   end
 
@@ -22,6 +20,7 @@ class Import
       logger.info("---> creating post [#{entity[:uid]}]")
       post = find_or_create_new_post(entity)
       post.update(status: post_status(entity))
+      update_feed_timestamps
       next unless post.ready?
       logger.info("---> scheduling post; uid: [#{entity[:uid]}]")
       PushJob.perform_later(post)
