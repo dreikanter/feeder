@@ -2,22 +2,17 @@ class TestNormalizer < BaseNormalizer
   protected
 
   def link
-    ''
-  end
-
-  def published_at
-    ''
+    entity.fetch('link')
   end
 
   def text
-    ''
+    entity.fetch('text')
   end
 
-  def attachments
-    []
-  end
-
-  def comments
-    []
+  def validation_errors
+    [].tap do |errors|
+      errors << 'empty_link' unless link.present?
+      errors << 'empty_text' unless text.present?
+    end
   end
 end

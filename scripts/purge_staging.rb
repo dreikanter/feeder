@@ -1,6 +1,6 @@
 # Use Rails runner to execute this script:
 #
-#   rails r scripts/purge_staging.rb
+#   bundle exec rails r scripts/purge_staging.rb
 
 # NOTE: Freefeed base URL is intentionally hardcoded since this script
 # is designed to be used with staging server only

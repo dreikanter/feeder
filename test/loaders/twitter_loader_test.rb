@@ -34,19 +34,16 @@ class TwitterLoaderTest < Minitest::Test
       credentials: sample_credentials,
       client: twitter_client_mock
     )
-    assert(result.success?)
-    assert_equal(SAMPLE_RESULT, result.value!)
+
+    assert_equal(SAMPLE_RESULT, result)
   end
 
   def test_should_require_twitter_credentials
-    result = loader.call(feed, credentials: {})
-    assert(result.failure?)
+    assert_raises(RuntimeError) { loader.call(feed, credentials: {}) }
   end
 
   def test_require_twitter_user_in_feed_options
     sample_feed = build(:feed, :twitter, options: {})
-    result = loader.call(sample_feed)
-    assert(result.failure?)
-    assert(result.failure.is_a?(KeyError))
+    assert_raises(KeyError) { loader.call(sample_feed) }
   end
 end

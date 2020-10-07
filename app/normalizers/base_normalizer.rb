@@ -1,18 +1,15 @@
 class BaseNormalizer
   include Callee
-  include Dry::Monads[:result]
 
   param :uid
   param :entity
   param :feed
   option :logger, optional: true, default: -> { Rails.logger }
 
+  # TODO: Introduce NormalizedEntity class to replace payload hash
   def call
-    logger.info("normalizing entity [#{uid}]")
-    Success(payload)
-  rescue StandardError => e
-    logger.error(e)
-    Failure(e)
+    logger.info("---> normalizing entity [#{uid}] with [#{self.class.name}]")
+    payload
   end
 
   protected
@@ -60,7 +57,7 @@ class BaseNormalizer
       uid: uid,
       link: link,
       published_at: published_at,
-      text: text,
+      text: text || '',
       attachments: sanitized_attachments,
       comments: comments.reject(&:blank?),
       validation_errors: validation_errors

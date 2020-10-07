@@ -1,59 +1,46 @@
 class Pull
   include Callee
-  include Dry::Monads[:result]
-  include Dry::Monads[:do]
 
   param :feed
   option :logger, optional: true, default: -> { Rails.logger }
-  option :loader, optional: true, default: -> { nil }
-  option :processor, optional: true, default: -> { nil }
-  option :normalizer, optional: true, default: -> { nil }
+  option :loader, optional: true, default: -> { LoaderResolver.call(feed, logger: logger) }
+  option :processor, optional: true, default: -> { ProcessorResolver.call(feed, logger: logger) }
+  option :normalizer, optional: true, default: -> { NormalizerResolver.call(feed, logger: logger) }
 
-  Dry::Monads::Do.for(:call)
-
-  # NOTE: Returns Result(Result[])
   def call
-    content = yield loader_or_default.call(feed)
-    entities = yield processor_or_default.call(content, feed)
-
-    # TODO: Refactor this
-    return entities if entities.is_a?(Failure)
-
-    Success(normalize(entities))
-  rescue StandardError => e
-    Honeybadger.context(
-      error: e,
-      feed: feed.name
-    )
-
-    Honeybadger.notify(e)
-
-    Failure(e)
+    normalized_entities
   end
 
   private
 
-  def normalize(entities)
-    new_entities(entities).map do |entity|
-      normalizer_or_default.call(entity.uid, entity.content, feed)
-    end
+  def normalized_entities
+    new_entities.map { |entity| normalize_entity(entity) }.compact
   end
 
-  def new_entities(entities)
+  def new_entities
     uids = entities.map(&:uid)
     existing_uids = Post.where(feed: feed, uid: uids).pluck(:uid)
     entities.filter { |entity| !existing_uids.include?(entity.uid) }
   end
 
-  def loader_or_default
-    loader || LoaderResolver.call(feed)
+  def entities
+    @entities ||= processor.call(content, feed, logger: logger)
   end
 
-  def processor_or_default
-    processor || ProcessorResolver.call(feed)
+  def content
+    loader.call(feed, logger: logger)
   end
 
-  def normalizer_or_default
-    @normalizer_or_default ||= normalizer || NormalizerResolver.call(feed)
+  def normalize_entity(entity)
+    normalizer.call(entity.uid, entity.content, feed, logger: logger)
+  rescue StandardError => e
+    ErrorDumper.call(
+      exception: e,
+      message: 'Normalization error',
+      target: feed,
+      context: { uid: entity.uid }
+    )
+
+    nil
   end
 end
