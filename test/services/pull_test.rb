@@ -52,7 +52,7 @@ class PullTest < Minitest::Test
       uid: 'https://example.com/2',
       link: 'https://example.com/2',
       published_at: nil,
-      text: nil,
+      text: '',
       attachments: [],
       comments: [],
       validation_errors: ['empty_text']
