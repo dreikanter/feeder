@@ -8,16 +8,16 @@ class Pull
   option :normalizer, optional: true, default: -> { NormalizerResolver.call(feed, logger: logger) }
 
   def call
-    normalize(entities)
+    normalized_entities
   end
 
   private
 
-  def normalize(entities)
-    new_entities(entities).map { |entity| normalize_entity(entity, feed) }.compact
+  def normalized_entities
+    new_entities.map { |entity| normalize_entity(entity, feed) }.compact
   end
 
-  def new_entities(entities)
+  def new_entities
     uids = entities.map(&:uid)
     existing_uids = Post.where(feed: feed, uid: uids).pluck(:uid)
     entities.filter { |entity| !existing_uids.include?(entity.uid) }
