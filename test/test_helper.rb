@@ -24,6 +24,7 @@ module Minitest
     include FactoryBot::Syntax::Methods
     include FileHelpers
 
+    # TODO: Replace with Rails transactional tests
     def setup
       DatabaseCleaner.start
     end
@@ -32,6 +33,7 @@ module Minitest
       DatabaseCleaner.clean
     end
 
+    # TODO: Drop this in favor to FileHelpers
     def file_fixture(path)
       File.new(::Rails.root.join('test/fixtures/files', path))
     end
