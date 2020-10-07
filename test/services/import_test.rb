@@ -12,7 +12,8 @@ class ImportTest < Minitest::Test
   end
 
   def setup
-    Feed.destroy_all
+    Feed.delete_all
+    Post.delete_all
     stub_feed_loader_request('feeds/test_feed.json')
   end
 
