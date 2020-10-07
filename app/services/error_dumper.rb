@@ -4,10 +4,9 @@ class ErrorDumper
   UNDEFINED_EXCEPTION = ''.freeze
 
   option :exception, optional: true, default: -> { UNDEFINED_EXCEPTION }
-
-  option :file_name, optional: true, default: -> { location.try(:path).to_s }
+  option :file_name, optional: true, default: -> { extract_file_name }
   option :label, optional: true, default: -> { location.try(:label).to_s }
-  option :line_number, optional: true, default: -> { location.try(:lineno) }
+  option :line_number, optional: true, default: -> { extract_line_number }
   option :occured_at, optional: true, default: -> { DateTime.now }
   option :target, optional: true, default: -> { nil }
   option :context, optional: true, default: -> { {} }
@@ -46,10 +45,6 @@ class ErrorDumper
     Honeybadger.notify(error, error_message: error_message)
   end
 
-  def location
-    exception.try(:locations).try(:first)
-  end
-
   def backtrace
     exception.try(:backtrace) || []
   end
@@ -57,5 +52,28 @@ class ErrorDumper
   def exception_name
     return exception.try(:class).try(:name) if exception.is_a?(Exception)
     exception.to_s
+  end
+
+  def extract_line_number
+    location.try(:lineno) || line_number_from_backtrace
+  end
+
+  def line_number_from_backtrace
+    line = backtrace.first
+    return unless line
+    line.match(/:(\d+):/).captures.first.to_i
+  end
+
+  def extract_file_name
+    location.try(:path)&.to_s || file_name_from_backtrace
+  end
+
+  def file_name_from_backtrace
+    line = backtrace.first
+    line&.gsub(/:\d+:.*$/, '')
+  end
+
+  def location
+    exception.try(:locations).try(:first)
   end
 end
