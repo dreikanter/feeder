@@ -5,11 +5,11 @@ class Import
   option :logger, optional: true, default: -> { Rails.logger }
 
   def call
-    @started_at = Time.now.utc
+    @started_at = Time.current
     generate_new_posts
   ensure
     update_feed_timestamps
-    save_data_point
+    create_data_point
   end
 
   private
@@ -45,7 +45,8 @@ class Import
     entity[:validation_errors].none? ? PostStatus.ready : PostStatus.ignored
   end
 
-  def save_data_point
+  # TODO: Create data point with error status on error
+  def create_data_point
     logger.info("---> updating feed history [#{feed_name}]")
 
     CreateDataPoint.call(
@@ -53,7 +54,7 @@ class Import
       feed_name: feed_name,
       posts_count: entities.count,
       errors_count: errors_count,
-      duration: Time.new.utc - started_at,
+      duration: Time.current - started_at,
       status: UpdateStatus.success
     )
   end
