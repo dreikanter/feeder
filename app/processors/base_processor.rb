@@ -9,7 +9,7 @@ class BaseProcessor
   DEFAULT_LIMIT = 2
 
   def call
-    logger.info("processing [#{feed.name}] with [#{self.class.name}]")
+    logger.info("---> processing [#{feed.name}] with [#{self.class.name}]")
     actual_entities
   end
 

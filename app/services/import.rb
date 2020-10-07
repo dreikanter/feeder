@@ -19,7 +19,7 @@ class Import
   def generate_new_posts
     entities.each do |entity|
       next unless entity
-      logger.info("---> creating new post [#{entity[:uid]}]")
+      logger.info("---> creating post [#{entity[:uid]}]")
       post = find_or_create_new_post(entity)
       post.update(status: post_status(entity))
       next unless post.ready?
