@@ -24,7 +24,7 @@ class Pull
   end
 
   def entities
-    processor.call(content, feed, logger: logger)
+    @entities ||= processor.call(content, feed, logger: logger)
   end
 
   def content
