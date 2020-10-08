@@ -19,7 +19,7 @@ class MaremirNormalizer < RssNormalizer
   end
 
   def safe_content
-    entity.content_encoded || ''
+    content.content_encoded || ''
   end
 
   def description

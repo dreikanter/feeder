@@ -2,18 +2,18 @@ class FeedjiraNormalizer < BaseNormalizer
   protected
 
   def link
-    entity.url
+    content.url
   end
 
   def published_at
-    entity.published
+    content.published
   end
 
   def text
-    [entity.title, entity.url].join(separator)
+    [content.title, content.url].join(separator)
   end
 
   def comments
-    [entity.content]
+    [content.content]
   end
 end

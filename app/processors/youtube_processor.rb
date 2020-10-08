@@ -2,7 +2,7 @@ class YoutubeProcessor < BaseProcessor
   protected
 
   def entities
-    parse_content.map { |item| Entity.new(item.url, item) }
+    parse_content.map { |item| entity(item.url, item) }
   end
 
   def parse_content

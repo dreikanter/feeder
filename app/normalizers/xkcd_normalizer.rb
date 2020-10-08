@@ -16,6 +16,6 @@ class XkcdNormalizer < RssNormalizer
   end
 
   def image
-    @image ||= Nokogiri::HTML(entity.description).css('img:first').first
+    @image ||= Nokogiri::HTML(content.description).css('img:first').first
   end
 end

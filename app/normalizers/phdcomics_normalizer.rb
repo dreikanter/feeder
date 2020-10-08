@@ -6,6 +6,6 @@ class PhdcomicsNormalizer < RssNormalizer
   end
 
   def attachments
-    [Nokogiri::HTML(entity.description).css('img').first['src']]
+    [Nokogiri::HTML(content.description).css('img').first['src']]
   end
 end

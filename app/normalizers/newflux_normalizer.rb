@@ -14,7 +14,7 @@ class NewfluxNormalizer < FeedjiraNormalizer
   private
 
   def summary
-    Html.comment_excerpt(entity.summary)
+    Html.comment_excerpt(content.summary)
   end
 
   COVER_QUERY = 'meta[name="twitter:image"]'.freeze

@@ -21,15 +21,15 @@ class RknAlertsNormalizer < BaseNormalizer
   private
 
   def blocked
-    entity[:blocked]
+    content[:blocked]
   end
 
   def unblocked
-    entity[:unblocked]
+    content[:unblocked]
   end
 
   def total
-    entity[:total_count]
+    content[:total_count]
   end
 
   def blocked_amount

@@ -2,7 +2,7 @@ class TomorrowsNormalizer < RssNormalizer
   protected
 
   def text
-    [entity.title, link].join(separator)
+    [content.title, link].join(separator)
   end
 
   def comments
@@ -12,10 +12,10 @@ class TomorrowsNormalizer < RssNormalizer
   private
 
   def excerpt
-    Html.comment_excerpt(Html.squeeze(content).to_s.gsub(/\n+/, "\n\n"))
+    Html.comment_excerpt(Html.squeeze(page_content).to_s.gsub(/\n+/, "\n\n"))
   end
 
-  def content
+  def page_content
     Nokogiri::HTML(page_body).css('.entry-content').text
   end
 

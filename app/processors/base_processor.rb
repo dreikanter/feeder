@@ -2,7 +2,7 @@ class BaseProcessor
   include Callee
 
   param :content
-  param :feed
+  option :feed
   option :import_limit, optional: true, default: -> { nil }
   option :logger, optional: true, default: -> { Rails.logger }
 
@@ -18,6 +18,10 @@ class BaseProcessor
   def actual_entities
     return entities.take(limit) if limit.positive?
     entities
+  end
+
+  def entity(uid, entity_content)
+    Entity.new(uid: uid, content: entity_content, feed: feed)
   end
 
   def entities

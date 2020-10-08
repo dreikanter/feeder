@@ -2,15 +2,15 @@ class SavagechickensNormalizer < BaseNormalizer
   protected
 
   def link
-    entity.url
+    content.url
   end
 
   def published_at
-    entity.published
+    content.published
   end
 
   def text
-    [entity.title, link].join(separator)
+    [content.title, link].join(separator)
   end
 
   def attachments
@@ -24,11 +24,11 @@ class SavagechickensNormalizer < BaseNormalizer
   private
 
   def image_url
-    Html.first_image_url(entity.content)
+    Html.first_image_url(content.content)
   end
 
   def description
-    excerpt = Html.squeeze(entity.content)
+    excerpt = Html.squeeze(content.content)
     Html.comment_excerpt(excerpt)
   end
 end

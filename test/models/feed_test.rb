@@ -57,38 +57,57 @@ class FeedTest < Minitest::Test
   REFRESH_INTERVAL = 1.day.seconds.to_i
 
   def test_stale_condition
-    assert(REFRESH_INTERVAL.positive?)
-    refreshed_at = (REFRESH_INTERVAL + 1).seconds.ago
-    feed = create(
-      :feed,
-      refresh_interval: REFRESH_INTERVAL,
-      refreshed_at: refreshed_at
-    )
-    assert(feed.stale?)
-    assert(Feed.stale.exists?(feed.id))
+    freeze_time do
+      refreshed_at = (REFRESH_INTERVAL + 1).seconds.ago
+
+      feed = create(
+        :feed,
+        refresh_interval: REFRESH_INTERVAL,
+        refreshed_at: refreshed_at
+      )
+
+      assert(feed.stale?)
+      assert(Feed.stale.exists?(feed.id))
+    end
+  end
+
+  def test_stale_condition_with_zero_refresh_interval
+    freeze_time do
+      feed = create(
+        :feed,
+        refresh_interval: 0,
+        refreshed_at: Time.current
+      )
+
+      assert(feed.stale?)
+      assert(Feed.stale.exists?(feed.id))
+    end
+  end
+
+  def test_stale_condition_with_empty_refreshed_at
+    freeze_time do
+      feed = create(
+        :feed,
+        refresh_interval: 0,
+        refreshed_at: nil
+      )
+
+      assert(feed.stale?)
+      assert(Feed.stale.exists?(feed.id))
+    end
   end
 
   def test_not_stale_condition
-    assert(REFRESH_INTERVAL.positive?)
-    feed = create(
-      :feed,
-      refresh_interval: REFRESH_INTERVAL,
-      refreshed_at: Time.new.utc
-    )
-    refute(feed.stale?)
-    refute(Feed.stale.exists?(feed.id))
-  end
+    freeze_time do
+      feed = create(
+        :feed,
+        refresh_interval: REFRESH_INTERVAL,
+        refreshed_at: Time.current
+      )
 
-  def test_zero_refresh_interval_makes_feed_stale
-    feed = create(:feed, refresh_interval: 0)
-    assert(feed.stale?)
-    assert(subject.stale.exists?(feed.id))
-  end
-
-  def test_new_feeds_are_stale
-    feed = create(:feed, refreshed_at: nil)
-    assert(feed.stale?)
-    assert(subject.stale.exists?(feed.id))
+      refute(feed.stale?)
+      refute(Feed.stale.exists?(feed.id))
+    end
   end
 
   def test_default_import_limit

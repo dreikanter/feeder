@@ -10,7 +10,7 @@ class TelegaNormalizer < RssNormalizer
   end
 
   def sanitized_link
-    entity.link.to_s.gsub(%r{^//}, 'https://')
+    content.link.to_s.gsub(%r{^//}, 'https://')
   end
 
   def comments
@@ -24,6 +24,6 @@ class TelegaNormalizer < RssNormalizer
   end
 
   def paragraphs
-    @paragraphs ||= Html.paragraphs(entity.description)
+    @paragraphs ||= Html.paragraphs(content.description)
   end
 end

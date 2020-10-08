@@ -24,7 +24,7 @@ class Pull
   end
 
   def entities
-    @entities ||= processor.call(content, feed, logger: logger)
+    @entities ||= processor.call(content, feed: feed, logger: logger)
   end
 
   def content
@@ -32,7 +32,7 @@ class Pull
   end
 
   def normalize_entity(entity)
-    normalizer.call(entity.uid, entity.content, feed, logger: logger)
+    normalizer.call(entity, logger: logger)
   rescue StandardError => e
     ErrorDumper.call(
       exception: e,

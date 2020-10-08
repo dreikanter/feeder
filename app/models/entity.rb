@@ -1,8 +1,7 @@
 class Entity
-  attr_reader :uid, :content
+  extend Dry::Initializer
 
-  def initialize(uid, content)
-    @uid = uid
-    @content = content
-  end
+  option :uid
+  option :content
+  option :feed
 end

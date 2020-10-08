@@ -6,9 +6,9 @@ class TheAtlanticPhotosNormalizer < TumblrNormalizer
   end
 
   def direct_link
-    RestClient.get(entity.link) do |response, _request, _result|
+    RestClient.get(content.link) do |response, _request, _result|
       redirecting = [301, 302, 307].include?(response.code)
-      redirecting ? response.headers[:location] : entity.link
+      redirecting ? response.headers[:location] : content.link
     end
   end
 
@@ -23,7 +23,7 @@ class TheAtlanticPhotosNormalizer < TumblrNormalizer
   private
 
   def description
-    kill_newlines(Html.excerpt(entity.description, length: limit))
+    kill_newlines(Html.excerpt(content.description, length: limit))
   end
 
   MAX_EXPANDED_POST_LENGTH = 500
@@ -33,7 +33,7 @@ class TheAtlanticPhotosNormalizer < TumblrNormalizer
   end
 
   def image_url
-    Html.first_image_url(entity.description)
+    Html.first_image_url(content.description)
   end
 
   def photo_description_excerpt
@@ -41,7 +41,7 @@ class TheAtlanticPhotosNormalizer < TumblrNormalizer
   end
 
   def photo_description
-    caption = Nokogiri::HTML(entity.description).css('figure > figcaption')
+    caption = Nokogiri::HTML(content.description).css('figure > figcaption')
     caption.try(:first).try(:text) || ''
   end
 

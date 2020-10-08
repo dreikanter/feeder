@@ -18,7 +18,7 @@ class RedditNormalizer < AtomNormalizer
   private
 
   def source_url
-    @source_url ||= Html.link_urls(content)[1]
+    @source_url ||= Html.link_urls(extract_content)[1]
   rescue StandardError
     @source_url ||= discussion_url
   end
@@ -27,8 +27,8 @@ class RedditNormalizer < AtomNormalizer
     entity.link.href
   end
 
-  def content
-    entity.content.content
+  def extract_content
+    content.content.content
   end
 
   def reddit_info

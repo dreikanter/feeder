@@ -12,6 +12,6 @@ class TumblrNormalizer < RssNormalizer
   private
 
   def image_url
-    Html.first_image_url(entity.description)
+    Html.first_image_url(content.description)
   end
 end

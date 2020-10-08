@@ -10,21 +10,21 @@ class TwitterNormalizer < BaseNormalizer
   end
 
   def link
-    entity_id = entity.fetch('id')
-    user_name = entity.fetch('user').fetch('screen_name')
-    "https://twitter.com/#{user_name}/status/#{entity_id}"
+    id = content.fetch('id')
+    user_name = content.fetch('user').fetch('screen_name')
+    "https://twitter.com/#{user_name}/status/#{id}"
   rescue KeyError
     nil
   end
 
   def published_at
-    Time.parse(entity.fetch('created_at'))
+    Time.parse(content.fetch('created_at'))
   rescue ArgumentError, KeyError
     nil
   end
 
   def text
-    [entity.fetch('text'), "!#{link}"].join(separator)
+    [content.fetch('text'), "!#{link}"].join(separator)
   rescue KeyError
     nil
   end
@@ -38,7 +38,7 @@ class TwitterNormalizer < BaseNormalizer
   private
 
   def images
-    @images ||= entity.dig('extended_entities', 'media') || []
+    @images ||= content.dig('extended_entities', 'media') || []
   end
 
   def no_images?
@@ -46,7 +46,7 @@ class TwitterNormalizer < BaseNormalizer
   end
 
   def retweet?
-    entity['retweeted_status'].present?
+    content['retweeted_status'].present?
   end
 
   def violates_no_images?

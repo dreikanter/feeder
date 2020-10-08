@@ -28,7 +28,7 @@ module NormalizerTestHelper
   end
 
   def process_sample_data
-    processor.call(sample_data, feed)
+    processor.call(sample_data, feed: feed)
   end
 
   def sample_data
@@ -49,7 +49,7 @@ module NormalizerTestHelper
 
   def normalize_sample_data
     processed.map do |entity|
-      subject.call(entity.uid, entity.content, feed, **options)
+      subject.call(entity, **options)
     end
   end
 

@@ -4,15 +4,15 @@ class ReworkNormalizer < BaseNormalizer
   # NOTE: Sometimes RSS items don't have <content:encoded> element
 
   def link
-    entity.url
+    content.url
   end
 
   def published_at
-    entity.published
+    content.published
   end
 
   def text
-    "#{entity.title}\n#{entity.enclosure_url} #{formatted_duration}".strip
+    "#{content.title}\n#{content.enclosure_url} #{formatted_duration}".strip
   end
 
   def comments
@@ -22,7 +22,7 @@ class ReworkNormalizer < BaseNormalizer
   private
 
   def description
-    entity.summary
+    content.summary
   end
 
   def formatted_duration
@@ -32,6 +32,6 @@ class ReworkNormalizer < BaseNormalizer
   end
 
   def duration
-    @duration ||= entity.try(:itunes_duration)
+    @duration ||= content.try(:itunes_duration)
   end
 end

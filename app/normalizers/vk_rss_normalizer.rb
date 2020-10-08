@@ -2,13 +2,13 @@ class VkRssNormalizer < RssNormalizer
   protected
 
   def link
-    entity.link
+    content.link
   end
 
   def text
     Html.post_excerpt(
       paragraphs.first,
-      link: entity.link,
+      link: content.link,
       separator: separator
     )
   end
@@ -31,10 +31,10 @@ class VkRssNormalizer < RssNormalizer
   end
 
   def paragraphs
-    @paragraphs ||= Html.paragraphs(entity.description)
+    @paragraphs ||= Html.paragraphs(content.description)
   end
 
   def first_image_url
-    Html.first_image_url(entity.description)
+    Html.first_image_url(content.description)
   end
 end

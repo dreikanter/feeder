@@ -8,6 +8,6 @@ class LittleBigDetailsNormalizer < TumblrNormalizer
   private
 
   def description
-    Html.text(entity.description)
+    Html.text(content.description)
   end
 end

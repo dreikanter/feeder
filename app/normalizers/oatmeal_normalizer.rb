@@ -12,6 +12,6 @@ class OatmealNormalizer < RssNormalizer
   end
 
   def image_url
-    Nokogiri::HTML(entity.description).css('img').first['src']
+    Nokogiri::HTML(content.description).css('img').first['src']
   end
 end

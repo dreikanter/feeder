@@ -3,14 +3,14 @@ class TelegaBasicNormalizer < RssNormalizer
 
   def text
     Html.post_excerpt(
-      content,
+      post_content,
       link: sanitized_link,
       separator: separator
     )
   end
 
   def sanitized_link
-    entity.link.to_s.gsub(%r{^//}, 'https://')
+    content.link.to_s.gsub(%r{^//}, 'https://')
   end
 
   def attachments
@@ -19,16 +19,16 @@ class TelegaBasicNormalizer < RssNormalizer
 
   private
 
-  def content
+  def post_content
     (paragraphs[0..] || []).join("\n\n")
   end
 
   def paragraphs
-    Html.paragraphs(entity.description)
+    Html.paragraphs(content.description)
   end
 
   def image_url
-    html = Nokogiri::HTML(entity.description)
+    html = Nokogiri::HTML(content.description)
     html.css('img').first.attributes['src'].value
   rescue StandardError
     nil

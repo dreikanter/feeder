@@ -1,10 +1,10 @@
 class BaseNormalizer
   include Callee
 
-  param :uid
   param :entity
-  param :feed
   option :logger, optional: true, default: -> { Rails.logger }
+
+  delegate :uid, :content, :feed, to: :entity
 
   # TODO: Introduce NormalizedEntity class to replace payload hash
   def call
@@ -52,6 +52,7 @@ class BaseNormalizer
     feed.try(:options) || {}
   end
 
+  # TODO: Replace with an object
   def payload
     {
       uid: uid,

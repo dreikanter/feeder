@@ -12,6 +12,6 @@ class CodingHorrorNormalizer < RssNormalizer
   private
 
   def image_url
-    Html.first_image_url(entity.content_encoded)
+    Html.first_image_url(content.content_encoded)
   end
 end

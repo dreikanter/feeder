@@ -2,7 +2,7 @@ class System32Normalizer < InstagramNormalizer
   protected
 
   def link
-    [BASE_URL, entity['shortcode']].join
+    [BASE_URL, content['shortcode']].join
   end
 
   def content

@@ -14,7 +14,7 @@ class HackerNewsNormalizer < BaseNormalizer
   end
 
   def link
-    entity[:link]
+    content[:link]
   end
 
   def comments
@@ -33,7 +33,7 @@ class HackerNewsNormalizer < BaseNormalizer
   end
 
   def data
-    @data ||= JSON.parse(RestClient.get(entity[:data_url]).body)
+    @data ||= JSON.parse(RestClient.get(content[:data_url]).body)
   end
 
   def violates_score_threshold?

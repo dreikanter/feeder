@@ -2,15 +2,15 @@ class PoorlydrawnlinesNormalizer < BaseNormalizer
   protected
 
   def link
-    entity.url
+    content.url
   end
 
   def published_at
-    entity.published
+    content.published
   end
 
   def text
-    [entity.title, link].join(separator)
+    [content.title, link].join(separator)
   end
 
   def attachments
@@ -20,6 +20,6 @@ class PoorlydrawnlinesNormalizer < BaseNormalizer
   private
 
   def image_url
-    Html.first_image_url(entity.content)
+    Html.first_image_url(content.content)
   end
 end

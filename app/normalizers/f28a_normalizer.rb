@@ -12,10 +12,10 @@ class F28aNormalizer < TumblrNormalizer
   private
 
   def image_url
-    Html.first_image_url(entity.description)
+    Html.first_image_url(content.description)
   end
 
   def post_excerpt
-    Html.post_excerpt(entity.description)
+    Html.post_excerpt(content.description)
   end
 end

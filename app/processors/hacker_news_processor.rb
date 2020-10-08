@@ -5,13 +5,13 @@ class HackerNewsProcessor < BaseProcessor
   protected
 
   def entities
-    load_data.map { |id| entity(id) }
+    load_data.map { |id| build_entity(id) }
   end
 
-  def entity(id)
+  def build_entity(id)
     link = thread_url(id)
     content = { id: id, link: link, data_url: item_url(id) }
-    Entity.new(link, content)
+    entity(link, content)
   end
 
   def load_data

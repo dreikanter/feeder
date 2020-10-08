@@ -32,6 +32,6 @@ class GithubBlogNormalizer < AtomNormalizer
   end
 
   def safe_content
-    entity.content.try(:content) || ''
+    content.content.try(:content) || ''
   end
 end

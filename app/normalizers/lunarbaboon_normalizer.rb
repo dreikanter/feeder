@@ -2,7 +2,7 @@ class LunarbaboonNormalizer < FeedjiraNormalizer
   protected
 
   def attachments
-    [Html.first_image_url(entity.summary)]
+    [Html.first_image_url(content.summary)]
   end
 
   def validation_errors

@@ -5,7 +5,7 @@ class RedditProcessor < AtomProcessor
   protected
 
   def entities
-    super.select { |entity| enough_points?(entity.uid) }
+    super.select { |item| enough_points?(item.uid) }
   end
 
   private

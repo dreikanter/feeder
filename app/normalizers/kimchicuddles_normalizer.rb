@@ -8,15 +8,15 @@ class KimchicuddlesNormalizer < BaseNormalizer
   protected
 
   def text
-    entity.url
+    content.url
   end
 
   def link
-    entity.url
+    content.url
   end
 
   def published_at
-    entity.published
+    content.published
   end
 
   def attachments
@@ -34,11 +34,11 @@ class KimchicuddlesNormalizer < BaseNormalizer
   end
 
   def post_url
-    Html.first_image_url(entity.summary)
+    Html.first_image_url(content.summary)
   end
 
   def description
-    result = Html.comment_excerpt(entity.summary)
+    result = Html.comment_excerpt(content.summary)
     result.to_s.gsub(/\n+/, "\n")
   end
 end
