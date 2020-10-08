@@ -1,6 +1,4 @@
 class SmbcNormalizer < BaseNormalizer
-  option :content, optional: true, default: -> { RestClient.get(link).body }
-
   protected
 
   def link
@@ -51,9 +49,13 @@ class SmbcNormalizer < BaseNormalizer
   end
 
   def hidden_image_url
-    html = Nokogiri::HTML(content)
+    html = Nokogiri::HTML(page_content)
     html.css('#aftercomic img').first.attributes['src'].value
   rescue StandardError
     nil
+  end
+
+  def page_content
+    RestClient.get(link).body
   end
 end

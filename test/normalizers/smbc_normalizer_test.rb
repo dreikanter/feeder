@@ -8,6 +8,14 @@ class SmbcNormalizerTest < Minitest::Test
     SmbcNormalizer
   end
 
+  def setup
+    stub_request(:get, 'https://www.smbc-comics.com/comic/back')
+      .to_return(body: sample_post)
+
+    stub_request(:get, 'https://www.smbc-comics.com/comic/kill')
+      .to_return(body: sample_post)
+  end
+
   def processor
     RssProcessor
   end
@@ -18,10 +26,6 @@ class SmbcNormalizerTest < Minitest::Test
 
   def sample_post_file
     'post_smbc.html'
-  end
-
-  def options
-    { content: sample_post }
   end
 
   def test_normalization
