@@ -25,15 +25,6 @@ class BaseNormalizerTest < Minitest::Test
     nil
   end
 
-  def test_accept_entity
-    subject.call(uid, ENTITY, feed)
-  end
-
-  def test_success_normalizer
-    result = Class.new(subject).call(uid, ENTITY, feed)
-    assert(result)
-  end
-
   EXPECTED_ATTRIBUTES = %i[
     attachments
     comments
@@ -62,7 +53,7 @@ class BaseNormalizerTest < Minitest::Test
   end
 
   def test_return_hash
-    result = Class.new(subject).call(uid, ENTITY, feed)
+    result = Class.new(subject).call(entity)
     assert_equal(EXPECTED_ATTRIBUTES, result.keys.to_set)
   end
 
