@@ -2,7 +2,7 @@ class InstagramProcessor < BaseProcessor
   protected
 
   def entities
-    nodes.map { |node| Entity.new(node['shortcode'], node) }
+    nodes.map { |node| entity(node['shortcode'], node) }
   end
 
   EDGES_PATH = [
