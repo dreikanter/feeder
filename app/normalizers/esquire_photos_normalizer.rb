@@ -2,7 +2,7 @@ class EsquirePhotosNormalizer < RssNormalizer
   protected
 
   def text
-    [entity.title, link].reject(&:blank?).join(separator)
+    [content.title, link].reject(&:blank?).join(separator)
   end
 
   def published_at
@@ -23,13 +23,13 @@ class EsquirePhotosNormalizer < RssNormalizer
   private
 
   def image_url
-    Html.first_image_url(entity.description)
+    Html.first_image_url(content.description)
   end
 
   READ_MORE_LINK = /\s*Читать дальше\s*/.freeze
 
   def description
-    Html.comment_excerpt(Html.squeeze(entity.description))
+    Html.comment_excerpt(Html.squeeze(content.description))
       .gsub(READ_MORE_LINK, '')
   end
 end

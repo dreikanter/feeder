@@ -4,11 +4,11 @@ class SmbcNormalizer < BaseNormalizer
   protected
 
   def link
-    entity.link
+    content.link
   end
 
   def published_at
-    entity.pubDate
+    content.pubDate
   end
 
   def text
@@ -28,11 +28,11 @@ class SmbcNormalizer < BaseNormalizer
   TITLE_PREFIX = /^Saturday Morning Breakfast Cereal - /.freeze
 
   def title
-    entity.title.gsub(TITLE_PREFIX, '')
+    content.title.gsub(TITLE_PREFIX, '')
   end
 
   def parsed_description
-    @parsed_description ||= Nokogiri::HTML(entity.description)
+    @parsed_description ||= Nokogiri::HTML(content.description)
   end
 
   DESCRIPTION_PREFIX = /^Hovertext:\s*/.freeze

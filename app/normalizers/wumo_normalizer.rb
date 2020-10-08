@@ -17,6 +17,6 @@ class WumoNormalizer < RssNormalizer
   end
 
   def image_url
-    Nokogiri::HTML(entity.description).css('img:first').first[:src]
+    Nokogiri::HTML(content.description).css('img:first').first[:src]
   end
 end

@@ -16,7 +16,7 @@ class TheycantalkNormalizer < TumblrNormalizer
   private
 
   def image_url
-    Html.first_image_url(entity.description)
+    Html.first_image_url(content.description)
   end
 
   def post_excerpt
@@ -24,6 +24,6 @@ class TheycantalkNormalizer < TumblrNormalizer
   end
 
   def paragraphs
-    @paragraphs ||= Html.paragraphs(entity.description)
+    @paragraphs ||= Html.paragraphs(content.description)
   end
 end

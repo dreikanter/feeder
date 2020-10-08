@@ -2,7 +2,7 @@ class BuniNormalizer < FeedjiraNormalizer
   protected
 
   def text
-    [title, entity.url].join(separator)
+    [title, content.url].join(separator)
   end
 
   def attachments
@@ -21,7 +21,7 @@ class BuniNormalizer < FeedjiraNormalizer
 
   def title
     image_title = image[:alt]
-    image_title.blank? ? entity.title : image_title
+    image_title.blank? ? content.title : image_title
   end
 
   def image_url
@@ -56,6 +56,6 @@ class BuniNormalizer < FeedjiraNormalizer
   end
 
   def links
-    @links ||= Nokogiri::HTML(entity.content).css('a')
+    @links ||= Nokogiri::HTML(content.content).css('a')
   end
 end

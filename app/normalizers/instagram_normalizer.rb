@@ -11,11 +11,11 @@ class InstagramNormalizer < BaseNormalizer
   protected
 
   def link
-    [BASE_URL, entity['shortcode']].join
+    [BASE_URL, content['shortcode']].join
   end
 
   def published_at
-    Time.at(entity.dig(*TIMESTAMP_PATH)).to_datetime
+    Time.at(content.dig(*TIMESTAMP_PATH)).to_datetime
   end
 
   def text
@@ -23,7 +23,7 @@ class InstagramNormalizer < BaseNormalizer
   end
 
   def content
-    entity.dig(*CAPTION_PATH)
+    content.dig(*CAPTION_PATH)
   end
 
   # TODO: Move script interaction to a service class
@@ -32,7 +32,7 @@ class InstagramNormalizer < BaseNormalizer
   end
 
   def fetch_image_urls
-    command = "node #{script_path} post #{entity['shortcode']}"
+    command = "node #{script_path} post #{content['shortcode']}"
     logger.debug("fetching instagram image urls: #{command}")
     output = `#{command}`
     JSON.parse(output)

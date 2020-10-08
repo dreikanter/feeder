@@ -4,6 +4,6 @@ class InfiniteimmortalbensNormalizer < RssNormalizer
   end
 
   def attachments
-    Html.image_urls(entity.content_encoded)
+    Html.image_urls(content.content_encoded)
   end
 end

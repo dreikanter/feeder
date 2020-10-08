@@ -10,6 +10,6 @@ class SchneierNormalizer < AtomNormalizer
   end
 
   def excerpt
-    Html.comment_excerpt(entity.content.content)
+    Html.comment_excerpt(content.content.content)
   end
 end

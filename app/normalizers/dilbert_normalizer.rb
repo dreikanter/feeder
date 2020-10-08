@@ -8,7 +8,7 @@ class DilbertNormalizer < AtomNormalizer
   def published_at
     DateTime.parse(link.split('/').last)
   rescue StandardError
-    Rails.logger.error "error parsing date from url: #{link}"
+    logger.error "error parsing date from url: #{link}"
     nil
   end
 

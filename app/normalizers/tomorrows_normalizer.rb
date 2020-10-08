@@ -2,7 +2,7 @@ class TomorrowsNormalizer < RssNormalizer
   protected
 
   def text
-    [entity.title, link].join(separator)
+    [content.title, link].join(separator)
   end
 
   def comments

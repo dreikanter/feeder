@@ -16,10 +16,10 @@ class LivejournalNormalizer < RssNormalizer
   end
 
   def first_image_url
-    @first_image_url ||= Html.first_image_url(entity.description)
+    @first_image_url ||= Html.first_image_url(content.description)
   end
 
   def excerpt
-    @excerpt ||= Html.comment_excerpt(entity.description)
+    @excerpt ||= Html.comment_excerpt(content.description)
   end
 end

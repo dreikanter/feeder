@@ -23,7 +23,7 @@ class MediumNormalizer < RssNormalizer
   end
 
   def description
-    Nokogiri::HTML(entity.description)
+    Nokogiri::HTML(content.description)
   end
 
   def excerpt

@@ -2,11 +2,11 @@ class CommitstripNormalizer < FeedjiraNormalizer
   protected
 
   def link
-    entity.url
+    content.url
   end
 
   def attachments
-    [Nokogiri::HTML(entity.content).css('img:first').first['src']]
+    [Nokogiri::HTML(content.content).css('img:first').first['src']]
   end
 
   def comments

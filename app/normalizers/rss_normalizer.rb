@@ -2,14 +2,14 @@ class RssNormalizer < BaseNormalizer
   protected
 
   def link
-    entity.link
+    content.link
   end
 
   def published_at
-    entity.respond_to?(:pubDate) ? entity.pubDate : entity.dc_date
+    content.respond_to?(:pubDate) ? content.send('pubDate') : content.dc_date
   end
 
   def text
-    entity.title
+    content.title
   end
 end

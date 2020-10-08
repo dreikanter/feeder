@@ -1,14 +1,14 @@
 class AerostaticaNormalizer < BaseNormalizer
   def link
-    entity.url
+    content.url
   end
 
   def published_at
-    entity.published
+    content.published
   end
 
   def text
-    result = [entity.title, link].join(separator)
+    result = [content.title, link].join(separator)
     record_url = fetch_record_url
     return result unless record_url.present?
     "#{result}\n\nЗапись эфира: #{record_url}"
@@ -21,13 +21,13 @@ class AerostaticaNormalizer < BaseNormalizer
   private
 
   def image_url
-    Html.first_image_url(entity.content)
+    Html.first_image_url(content.content)
   end
 
   LINE_BREAK = %r{\n+|<br\s*/?>}.freeze
 
   def description
-    excerpt = Html.squeeze(entity.content)
+    excerpt = Html.squeeze(content.content)
     Html.comment_excerpt(excerpt.to_s.gsub(LINE_BREAK, "\n\n"))
   end
 
