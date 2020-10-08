@@ -49,7 +49,7 @@ module NormalizerTestHelper
 
   def normalize_sample_data
     processed.map do |entity|
-      subject.call(entity.uid, entity.content, feed, **options)
+      subject.call(entity, **options)
     end
   end
 
