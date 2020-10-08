@@ -32,7 +32,7 @@ class Pull
   end
 
   def normalize_entity(entity)
-    normalizer.call(entity.uid, entity.content, feed, logger: logger)
+    normalizer.call(entity, logger: logger)
   rescue StandardError => e
     ErrorDumper.call(
       exception: e,
