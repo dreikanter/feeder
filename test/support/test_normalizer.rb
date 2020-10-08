@@ -2,11 +2,11 @@ class TestNormalizer < BaseNormalizer
   protected
 
   def link
-    entity.fetch('link')
+    content.fetch('link')
   end
 
   def text
-    entity.fetch('text')
+    content.fetch('text')
   end
 
   def validation_errors
