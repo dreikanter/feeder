@@ -10,9 +10,8 @@ group :development do
   gem 'brakeman', '~> 4.3', '>= 4.3.1', require: false
   gem 'method_source', '~> 0.9.2'
   gem 'reek', '~> 6.0'
-  gem 'rubocop', '~> 0.92'
+  gem 'rubocop', '~> 0.93'
   gem 'spring'
-  gem 'web-console', '>= 3.3.0'
 end
 
 group :development, :test do
