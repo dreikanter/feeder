@@ -65,7 +65,7 @@ class ErrorDumper
   end
 
   def extract_file_name
-    location.try(:path)&.to_s || file_name_from_backtrace
+    location.try(:path).to_s || file_name_from_backtrace
   end
 
   def file_name_from_backtrace
