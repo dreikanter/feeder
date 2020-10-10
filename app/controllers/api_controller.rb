@@ -21,6 +21,7 @@ class APIController < ActionController::API
 
   def handle_error(exception, status, payload = nil)
     Rails.logger.error(exception)
+    Honeybadger.notify(exception)
     render(status: status, json: payload)
   end
 end
