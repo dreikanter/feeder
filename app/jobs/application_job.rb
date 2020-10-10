@@ -5,5 +5,7 @@ class ApplicationJob < ActiveJob::Base
       exception: exception,
       target: arguments[0].is_a?(ActiveRecord::Base) ? arguments[0] : nil
     )
+
+    raise exception
   end
 end
