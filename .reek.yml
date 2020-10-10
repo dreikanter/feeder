@@ -18,7 +18,6 @@ detectors:
     - Html#self.post_excerpt
     - TumblrImageFetcher#self.call
     - DataPointTest#test_for_exclude
-    - InstagramProcessorTest#test_ids
     - ErrorDumperTest#test_backtrace
     - PullTest#test_call
     - UpdateFeedsTest#test_active_feeds_status
@@ -31,7 +30,6 @@ detectors:
     - ExplosmComicsNormalizer#normalized_image_uri
     - GithubBlogNormalizer#safe_image_url
     - MediumNormalizer#excerpt
-    - System32Normalizer#attachments
     - Updates::Index#updates
     - Pull#new_entities
     - UpdateFeeds#update_active_feeds
@@ -41,8 +39,6 @@ detectors:
     - ShvarzTest#expected_entity
     - TomorrowsTest#expected_entity
     - XkcdTest#expected_entity
-    - InstagramLoaderTest#with_sample_node_script
-    - InstagramNormalizerTest#with_sample_node_script
     - CreateFeeds#change
     - CreatePosts#change
     - CreateDataPoints#change
@@ -59,7 +55,6 @@ detectors:
     - TwitterLoader
   NestedIterators:
     exclude:
-    - InstagramNormalizerTest#normalize_sample_data
     - UpdateFeedsTest#test_attributes_match_config
     - UpdateFeedsTest#test_config_override_existind_records
   NilCheck:
@@ -95,12 +90,10 @@ detectors:
     - UpdateSubscriptionsCount#call
     - BaseLoaderTest#test_failure
     - BaseLoaderTest#test_success
-    - InstagramLoaderTest#test_with_sample_node_script
     - DataPointTest#test_ordered_scope
     - BaseNormalizerTest#test_require_valid_attachment_urls
     - BaseNormalizerTest#test_sanitize_attachments
     - BaseNormalizerTest#test_validation_errors
-    - InstagramNormalizerTest#test_link
     - TwitterProcessorTest#test_happy_path
     - CheckSequenceRunnerTest#test_failure_when_some_checks_are_not_passed
     - CheckSequenceRunnerTest#test_return_failed_check_names
