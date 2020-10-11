@@ -6,14 +6,12 @@ class PullJobTest < Minitest::Test
   end
 
   def feed
-    build(:feed, name: :test, import_limit: 0)
+    build(:feed)
   end
 
-  def setup
-    stub_request(:get, 'https://example.com/').to_return(status: 200, body: '')
-  end
-
-  def test_happy_path
+  def test_call_import_service
+    Import.stubs(:call)
+    Import.expects(:call)
     subject.perform_now(feed)
   end
 end

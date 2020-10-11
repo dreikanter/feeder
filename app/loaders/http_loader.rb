@@ -1,4 +1,5 @@
 class HttpLoader < BaseLoader
+  # TODO: Rename client to fetcher
   option(
     :client,
     optional: true,

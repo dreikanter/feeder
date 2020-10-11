@@ -4,6 +4,13 @@ class Push
   param :post
 
   def call
+    raise 'post is not ready' unless post.ready?
+    publish_post_content
+  end
+
+  private
+
+  def publish_post_content
     attachment_ids = create_attachments
     post_id = create_post(attachment_ids)
     post.update(freefeed_post_id: post_id)
@@ -13,11 +20,6 @@ class Push
     post.update(status: PostStatus.error)
     raise
   end
-
-  # TODO: Test coverage
-  # TODO: Use data objects for Freefeed API wrapper
-
-  private
 
   def create_post(attachment_ids)
     response = freefeed.create_post(
@@ -51,7 +53,7 @@ class Push
   def create_attachment(url)
     Downloader.call(url) do |io, content_type|
       response = freefeed.create_attachment(io, content_type: content_type)
-      response.parse.dig('attachments', 'id')
+      response.parse.fetch('attachments').fetch('id')
     end
   end
 
