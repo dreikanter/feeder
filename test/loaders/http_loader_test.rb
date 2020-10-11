@@ -5,31 +5,28 @@ class HttpLoaderTest < Minitest::Test
     HttpLoader
   end
 
+  def loader_call
+    subject.call(feed)
+  end
+
   def feed
     build(:feed, name: SecureRandom.hex)
   end
 
-  def test_call_client
-    expected = Object.new
-    client = ->(_url) {}
-    client.expects(:call).returns(expected)
-    result = subject.call(feed, client: client)
-    assert_equal(expected, result)
+  EXPECTED = {}.to_json
+
+  def test_fetch_http_url
+    stub_request(:get, feed.url).to_return(body: EXPECTED)
+    assert_equal(EXPECTED, loader_call)
   end
 
-  def test_success
-    client = ->(_url) { '' }
-    result = subject.call(feed, client: client)
-    assert(result)
+  def test_bypass_http_client_error
+    stub_request(:get, feed.url).to_raise(StandardError)
+    assert_raises(StandardError) { loader_call }
   end
 
-  def test_failure
-    client = ->(_url) { raise }
-    assert_raises(RuntimeError) { subject.call(feed, client: client) }
-  end
-
-  def test_default_client_should_raise_on_empty_url
-    feed = build(:feed, name: SecureRandom.hex, url: nil)
+  def test_requires_feed_url
+    feed = build(:feed, url: nil)
     assert_raises(ArgumentError) { subject.call(feed) }
   end
 end
