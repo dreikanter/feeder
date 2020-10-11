@@ -1,7 +1,7 @@
 class NormalizedEntity
   extend Dry::Initializer
 
-  option :feed, optional: true
+  option :feed_id, optional: true
   option :uid, optional: true
   option :link, optional: true
   option :published_at, optional: true
@@ -9,6 +9,10 @@ class NormalizedEntity
   option :attachments, optional: true
   option :comments, optional: true
   option :validation_errors, optional: true, default: -> { [] }
+
+  def ==(other)
+    instance_values == other.instance_values
+  end
 
   def status
     validation_errors.none? ? PostStatus.ready : PostStatus.ignored

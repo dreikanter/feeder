@@ -31,19 +31,20 @@ class NextbigfutureNormalizerTest < Minitest::Test
     assert(normalized.any?)
   end
 
-  FIRST_SAMPLE = {
-    link: 'https://www.nextbigfuture.com/2018/11/rise-of-china-and-strictly-business-competition-in-the-world.html',
-    published_at: Time.parse('2018-11-27 09:19:49 UTC'),
-    text: 'Rise of China and Strictly Business Competition in the World - https://www.nextbigfuture.com/2018/11/rise-of-china-and-strictly-business-competition-in-the-world.html',
-    comments: ['There have been many books written about\\n\\nthe rise of China'],
-    attachments: [ATTACHMENT_URL],
-    validation_errors: []
-  }.freeze
+  def expected
+    NormalizedEntity.new(
+      feed_id: feed.id,
+      uid: 'https://www.nextbigfuture.com/2018/11/rise-of-china-and-strictly-business-competition-in-the-world.html',
+      link: 'https://www.nextbigfuture.com/2018/11/rise-of-china-and-strictly-business-competition-in-the-world.html',
+      published_at: Time.parse('2018-11-27 09:19:49 UTC'),
+      text: 'Rise of China and Strictly Business Competition in the World - https://www.nextbigfuture.com/2018/11/rise-of-china-and-strictly-business-competition-in-the-world.html',
+      comments: ['There have been many books written about\\n\\nthe rise of China'],
+      attachments: [ATTACHMENT_URL],
+      validation_errors: []
+    )
+  end
 
   def test_normalized_sample
-    result = normalized.first
-    FIRST_SAMPLE.each_key do |key|
-      assert_equal(FIRST_SAMPLE[key], result[key])
-    end
+    assert_equal(expected, normalized.first)
   end
 end
