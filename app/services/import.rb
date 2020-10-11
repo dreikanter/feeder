@@ -15,21 +15,15 @@ class Import
   attr_reader :started_at
 
   def generate_new_posts
-    entities.each do |entity|
-      next unless entity
-      logger.info("---> creating post [#{entity[:uid]}]")
-      post = find_or_create_new_post(entity)
-      post.update(status: post_status(entity))
+    normalized_entities do |normalized_entity|
+      next unless normalized_entity
+      logger.info("---> creating post; uid: [#{normalized_entity.uid}]")
+      post = normalized_entity.find_or_create_post
       update_feed_timestamps
       next unless post.ready?
-      logger.info("---> scheduling post; uid: [#{entity[:uid]}]")
+      logger.info("---> scheduling post; uid: [#{post.uid}]")
       PushJob.perform_later(post)
     end
-  end
-
-  def find_or_create_new_post(entity)
-    existing_post = Post.find_by(feed_id: feed_id, uid: entity[:uid])
-    existing_post || Post.create!(entity.merge(feed_id: feed_id))
   end
 
   def feed_id
@@ -38,10 +32,6 @@ class Import
 
   def feed_name
     feed.name
-  end
-
-  def post_status(entity)
-    entity[:validation_errors].none? ? PostStatus.ready : PostStatus.ignored
   end
 
   # TODO: Create data point with error status on error
@@ -59,13 +49,13 @@ class Import
   end
 
   def errors_count
-    entities.count do |entity|
-      entity.nil? || post_status(entity) != PostStatus.ready
+    normalized_entities.count do |entity|
+      entity.nil? || entity.status != PostStatus.ready
     end
   end
 
-  def entities
-    @entities ||= Pull.call(feed)
+  def normalized_entities
+    @normalized_entities ||= Pull.call(feed)
   end
 
   def update_feed_timestamps
