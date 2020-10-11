@@ -16,6 +16,7 @@ require 'webmock/minitest'
 require_relative './custom_assertions'
 require_relative './support/file_helpers'
 require_relative './support/feed_test_helper'
+require_relative './support/normalizer_test_helper'
 
 DatabaseCleaner.strategy = :transaction
 WebMock.enable!

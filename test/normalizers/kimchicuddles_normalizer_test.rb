@@ -1,5 +1,4 @@
 require 'test_helper'
-require_relative '../support/normalizer_test_helper'
 
 class KimchicuddlesNormalizerTest < Minitest::Test
   include NormalizerTestHelper
@@ -25,6 +24,7 @@ class KimchicuddlesNormalizerTest < Minitest::Test
   def expected
     NormalizedEntity.new(
       feed_id: feed.id,
+      uid: 'http://kimchicuddles.com/post/178513799060',
       link: 'http://kimchicuddles.com/post/178513799060',
       published_at: DateTime.parse('2018-09-27 15:53:34 UTC'),
       text: 'http://kimchicuddles.com/post/178513799060',

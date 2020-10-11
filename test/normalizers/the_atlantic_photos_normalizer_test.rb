@@ -1,5 +1,4 @@
 require 'test_helper'
-require_relative '../support/normalizer_test_helper'
 
 class TheAtlanticPhotosNormalizerTest < Minitest::Test
   include NormalizerTestHelper

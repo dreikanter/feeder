@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'test_helper'
-require_relative '../support/normalizer_test_helper'
 
 class BaseNormalizerTest < Minitest::Test
   include NormalizerTestHelper
