@@ -16,17 +16,12 @@ class GithubBlogNormalizerTest < Minitest::Test
     'feed_github_blog.xml'.freeze
   end
 
-  def test_have_sample_data
-    assert(processed.present?)
-    assert(processed.length.positive?)
-  end
-
   def test_normalization
     assert(normalized.any?)
   end
 
   def test_all_attachment_urls_should_be_absolute
-    attachments = normalized.map { |entity| entity[:attachments] }
+    attachments = normalized.map { |entity| entity.attachments }
     attachments.flatten.compact.each do |uri|
       assert(Addressable::URI.parse(uri).absolute?)
     end

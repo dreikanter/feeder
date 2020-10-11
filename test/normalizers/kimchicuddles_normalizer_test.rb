@@ -22,30 +22,19 @@ class KimchicuddlesNormalizerTest < Minitest::Test
     { image_fetcher: ->(_) { ATTACHMENT_URL } }
   end
 
-  def test_have_sample_data
-    assert(processed.present?)
-    assert(processed.length.positive?)
+  def expected
+    NormalizedEntity.new(
+      feed_id: feed.id,
+      link: 'http://kimchicuddles.com/post/178513799060',
+      published_at: DateTime.parse('2018-09-27 15:53:34 UTC'),
+      text: 'http://kimchicuddles.com/post/178513799060',
+      attachments: [ATTACHMENT_URL],
+      comments: ["Who are some people you’re grateful for right now?\nIf you appreciate my work, check out my Patreon: https://www.patreon.com/kimchicuddles"],
+      validation_errors: []
+    )
   end
-
-  def test_normalization
-    assert(normalized.any?)
-  end
-
-  # rubocop:disable Layout/LineLength
-  FIRST_SAMPLE = {
-    link: 'http://kimchicuddles.com/post/178513799060',
-    published_at: Time.parse('2018-09-27 15:53:34 UTC'),
-    text: 'http://kimchicuddles.com/post/178513799060',
-    attachments: [ATTACHMENT_URL],
-    comments: ["Who are some people you’re grateful for right now?\nIf you appreciate my work, check out my Patreon: https://www.patreon.com/kimchicuddles"],
-    validation_errors: []
-  }.freeze
-  # rubocop:enable Layout/LineLength
 
   def test_normalized_sample
-    result = normalized.first
-    FIRST_SAMPLE.each_key do |key|
-      assert_equal(FIRST_SAMPLE[key], result[key])
-    end
+    assert_equal(expected, normalized.first)
   end
 end

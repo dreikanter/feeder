@@ -39,22 +39,22 @@ class BuniNormalizerTest < Minitest::Test
 
   def test_uid
     expected = 'http://www.bunicomic.com/comic/buni-1315/'
-    assert_equal(expected, ordinary_post_field(:uid))
+    assert_equal(expected, ordinary_post_field.uid)
   end
 
   def test_link
     expected = 'http://www.bunicomic.com/comic/buni-1315/'
-    assert_equal(expected, ordinary_post_field(:link))
+    assert_equal(expected, ordinary_post_field.link)
   end
 
   def test_text
     expected = 'De-Metamorphosis - http://www.bunicomic.com/comic/buni-1315/'
-    assert_equal(expected, ordinary_post_field(:text))
+    assert_equal(expected, ordinary_post_field.text)
   end
 
   def test_published_at
     expected = DateTime.parse('2019-11-25 06:00:09 UTC')
-    assert_equal(expected, ordinary_post_field(:published_at))
+    assert_equal(expected, ordinary_post_field.published_at)
   end
 
   EXPECTED_ATTACHMENTS = [
@@ -62,11 +62,11 @@ class BuniNormalizerTest < Minitest::Test
   ].freeze
 
   def test_attachments
-    assert_equal(EXPECTED_ATTACHMENTS, ordinary_post_field(:attachments))
+    assert_equal(EXPECTED_ATTACHMENTS, ordinary_post_field.attachments)
   end
 
   def test_comments
-    assert_empty(ordinary_post_field(:comments))
+    assert_empty(ordinary_post_field.comments)
   end
 
   WENTOONS_ATTACHMENTS = [
@@ -75,7 +75,7 @@ class BuniNormalizerTest < Minitest::Test
   ].freeze
 
   def test_webtoons_attachments
-    assert_equal(WENTOONS_ATTACHMENTS, webtoons_post_field(:attachments))
+    assert_equal(WENTOONS_ATTACHMENTS, webtoons_post_field.attachments)
   end
 
   WEBTOONS_COMMENTS = [
@@ -84,14 +84,14 @@ class BuniNormalizerTest < Minitest::Test
   ].freeze
 
   def test_webtoons_comments
-    assert_equal(WEBTOONS_COMMENTS, webtoons_post_field(:comments))
+    assert_equal(WEBTOONS_COMMENTS, webtoons_post_field.comments)
   end
 
-  def ordinary_post_field(field)
-    normalized.first[field]
+  def ordinary_post_field
+    normalized.first
   end
 
-  def webtoons_post_field(field)
-    normalized.second[field]
+  def webtoons_post_field
+    normalized.second
   end
 end

@@ -16,10 +16,6 @@ class SchneierNormalizerTest < Minitest::Test
     'feed_schneier.xml'
   end
 
-  def test_normalization
-    assert(normalized.any?)
-  end
-
   def expected
     NormalizedEntity.new(
       feed_id: feed.id,

@@ -22,54 +22,20 @@ class OglafNormalizerTest < Minitest::Test
     stub_request(:get, /www.oglaf.com/).to_return(body: sample_post)
   end
 
-  def test_normalization
-    assert(normalized.any?)
-  end
-
-  def test_uid
-    assert_equal(
-      'https://www.oglaf.com/thesitter/',
-      normalized.first[:uid]
+  def expected
+    NormalizedEntity.new(
+      feed_id: feed.id,
+      uid: 'https://www.oglaf.com/thesitter/',
+      link: 'https://www.oglaf.com/thesitter/',
+      published_at: DateTime.parse('2019-08-18 00:00:00 +0000'),
+      text: 'Legend of the Sitter - https://www.oglaf.com/thesitter/',
+      attachments: ['https://media.oglaf.com/comic/thesitter.jpg'],
+      comments: ['formerly the baby sitter'],
+      validation_errors: []
     )
   end
 
-  def test_link
-    assert_equal(
-      'https://www.oglaf.com/thesitter/',
-      normalized.first[:link]
-    )
-  end
-
-  def test_published_at
-    assert_equal(
-      DateTime.parse('2019-08-18 00:00:00 +0000'),
-      normalized.first[:published_at]
-    )
-  end
-
-  EXPECTED_TEXT = 'Legend of the Sitter - https://www.oglaf.com/thesitter/'.freeze
-
-  def test_text
-    assert_equal(EXPECTED_TEXT, normalized.first[:text])
-  end
-
-  EXPECTED_ATTACHMENTS = [
-    'https://media.oglaf.com/comic/thesitter.jpg'
-  ].freeze
-
-  def test_attachments
-    assert_equal(EXPECTED_ATTACHMENTS, normalized.first[:attachments])
-  end
-
-  EXPECTED_COMMENTS = [
-    'formerly the baby sitter'
-  ].freeze
-
-  def test_comments
-    assert_equal(EXPECTED_COMMENTS, normalized.first[:comments])
-  end
-
-  def test_validation_errors
-    assert_empty(normalized.first[:validation_errors])
+  def test_first_entity
+    assert_equal(expected, normalized.first)
   end
 end

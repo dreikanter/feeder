@@ -34,7 +34,7 @@ class DilbertNormalizerTest < Minitest::Test
   end
 
   def test_text
-    result = normalized.first[:text]
+    result = normalized.first.text
     assert_equal('Garbage Man Breaks Fourth Wall - Comic for October 04, 2019', result)
   end
 end
