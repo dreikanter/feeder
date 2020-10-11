@@ -53,7 +53,7 @@ class BaseNormalizer
 
   def normalized_entity
     NormalizedEntity.new(
-      feed: feed,
+      feed_id: feed.id,
       uid: uid,
       link: link,
       published_at: published_at,
