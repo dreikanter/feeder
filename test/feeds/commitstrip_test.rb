@@ -1,13 +1,7 @@
 require 'test_helper'
 
 class CommitstripTest < Minitest::Test
-  def subject
-    Pull.call(feed)
-  end
-
-  def feed
-    build(:feed, **feed_config)
-  end
+  include FeedTestHelper
 
   def feed_config
     {
@@ -26,15 +20,7 @@ class CommitstripTest < Minitest::Test
       )
   end
 
-  def expected_entity
-    content = file_fixture('entities/commitstrip.json').read
-    result = JSON.parse(content).symbolize_keys
-    return result unless result.key?(:published_at)
-    result[:published_at] = DateTime.parse(result[:published_at])
-    result
-  end
-
-  def test_entity_normalization
-    assert_equal(expected_entity, subject.first)
+  def fixture_path
+    'entities/commitstrip.json'
   end
 end

@@ -29,12 +29,12 @@ class NormalizedEntity
   private
 
   def existing_post
-    Post.find_by(feed: feed, uid: uid)
+    Post.find_by(feed_id: feed_id, uid: uid)
   end
 
   def create_post
     Post.create!(
-      feed: feed,
+      feed_id: feed_id,
       uid: uid,
       link: link,
       published_at: published_at,
