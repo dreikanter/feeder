@@ -1,6 +1,6 @@
 development:
   adapter: postgresql
-  url: <%= Rails.application.credentials.database_url %>
+  url: <%= ENV['DATABASE_URL'] %>
 
 test:
   adapter: postgresql
