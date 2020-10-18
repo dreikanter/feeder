@@ -6,10 +6,9 @@ class BaseNormalizer
 
   delegate :uid, :content, :feed, to: :entity
 
-  # TODO: Introduce NormalizedEntity class to replace payload hash
   def call
     logger.info("---> normalizing entity [#{uid}] with [#{self.class.name}]")
-    payload
+    normalized_entity
   end
 
   protected
@@ -52,9 +51,9 @@ class BaseNormalizer
     feed.try(:options) || {}
   end
 
-  # TODO: Replace with an object
-  def payload
-    {
+  def normalized_entity
+    NormalizedEntity.new(
+      feed_id: feed.id,
       uid: uid,
       link: link,
       published_at: published_at,
@@ -62,11 +61,12 @@ class BaseNormalizer
       attachments: sanitized_attachments,
       comments: comments.reject(&:blank?),
       validation_errors: validation_errors
-    }.freeze
+    )
   end
 
   DEFAULT_SCHEME = 'https'.freeze
 
+  # TODO: Move to a service
   def sanitized_attachments
     attachments.reject(&:blank?).map do |url|
       value = Addressable::URI.parse(url)

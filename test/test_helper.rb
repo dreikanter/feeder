@@ -14,7 +14,8 @@ require 'minitest/mock'
 require 'mocha/minitest'
 require 'webmock/minitest'
 require_relative './custom_assertions'
-require_relative './support/file_helpers'
+require_relative './support/feed_test_helper'
+require_relative './support/normalizer_test_helper'
 
 DatabaseCleaner.strategy = :transaction
 WebMock.enable!
@@ -23,7 +24,6 @@ module Minitest
   class Test
     include ActiveSupport::Testing::TimeHelpers
     include FactoryBot::Syntax::Methods
-    include FileHelpers
 
     # TODO: Replace with Rails transactional tests
     def setup
@@ -34,9 +34,23 @@ module Minitest
       DatabaseCleaner.clean
     end
 
-    # TODO: Drop this in favor to FileHelpers
-    def file_fixture(path)
-      File.new(::Rails.root.join('test/fixtures/files', path))
+    def file_fixture(path, scope: 'files')
+      File.new(file_fixture_path(path, scope: scope))
+    end
+
+    # TODO: Move to a factory
+    def normalized_entity_fixture(path, attributes = {})
+      file = file_fixture(path, scope: 'normalized_entities')
+      entity = JSON.parse(file.read)
+      value = entity['published_at']
+      entity['published_at'] = DateTime.parse(value) if value
+      NormalizedEntity.new(entity.merge(attributes).symbolize_keys)
+    end
+
+    private
+
+    def file_fixture_path(path, scope:)
+      ::Rails.root.join('test/fixtures', scope, path)
     end
   end
 end

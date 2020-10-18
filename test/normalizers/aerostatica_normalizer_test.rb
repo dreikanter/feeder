@@ -1,5 +1,4 @@
 require 'test_helper'
-require_relative '../support/normalizer_test_helper'
 
 class AerostaticaNormalizerTest < Minitest::Test
   include NormalizerTestHelper
@@ -33,7 +32,6 @@ class AerostaticaNormalizerTest < Minitest::Test
     assert(normalized.any?)
   end
 
-  # TODO: Use DI to test the normalizer offline
   # TODO: Test normalization result
 
   # FIRST_SAMPLE = {

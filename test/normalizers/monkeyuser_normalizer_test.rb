@@ -1,5 +1,4 @@
 require 'test_helper'
-require_relative '../support/normalizer_test_helper'
 
 class MonkeyuserNormalizerTest < Minitest::Test
   include NormalizerTestHelper
@@ -20,17 +19,20 @@ class MonkeyuserNormalizerTest < Minitest::Test
     assert(normalized.any?)
   end
 
-  FIRST_SAMPLE = {
-    uid: 'https://www.monkeyuser.com/2019/platypuscorn/',
-    link: 'https://www.monkeyuser.com/2019/platypuscorn/',
-    published_at: DateTime.parse('2019-08-20 00:00:00 UTC'),
-    text: 'Platypuscorn - https://www.monkeyuser.com/2019/platypuscorn/ - https://www.monkeyuser.com/2019/platypuscorn/',
-    attachments: ['https://www.monkeyuser.com/assets/images/2019/145-platypuscorn.png'],
-    comments: [],
-    validation_errors: []
-  }.freeze
+  def expected
+    NormalizedEntity.new(
+      feed_id: feed.id,
+      uid: 'https://www.monkeyuser.com/2019/platypuscorn/',
+      link: 'https://www.monkeyuser.com/2019/platypuscorn/',
+      published_at: DateTime.parse('2019-08-20 00:00:00 UTC'),
+      text: 'Platypuscorn - https://www.monkeyuser.com/2019/platypuscorn/ - https://www.monkeyuser.com/2019/platypuscorn/',
+      attachments: ['https://www.monkeyuser.com/assets/images/2019/145-platypuscorn.png'],
+      comments: [],
+      validation_errors: []
+    )
+  end
 
   def test_normalized_sample
-    assert_equal(FIRST_SAMPLE, normalized.first)
+    assert_equal(expected, normalized.first)
   end
 end

@@ -1,5 +1,4 @@
 require 'test_helper'
-require_relative '../support/normalizer_test_helper'
 
 class SmbcNormalizerTest < Minitest::Test
   include NormalizerTestHelper
@@ -28,12 +27,23 @@ class SmbcNormalizerTest < Minitest::Test
     'post_smbc.html'
   end
 
-  def test_normalization
-    assert(normalized.any?)
+  def expected
+    NormalizedEntity.new(
+      feed_id: feed.id,
+      uid: 'https://www.smbc-comics.com/comic/back',
+      link: 'https://www.smbc-comics.com/comic/back',
+      text: 'Back - https://www.smbc-comics.com/comic/back',
+      published_at: DateTime.parse('2019-08-16 08:40:18 -0400'),
+      attachments: [
+        'https://www.smbc-comics.com/comics/1565959235-20190816.png',
+        'https://www.smbc-comics.com/comics/156372243220190721after.png'
+      ],
+      comments: ['I mean, statistically, shouldn\'t this be the most common outcome?'],
+      validation_errors: []
+    )
   end
 
-  def test_hidden_image
-    result = normalized.first
-    assert_equal(2, result[:attachments].count)
+  def test_normalization
+    assert_equal(expected, normalized.first)
   end
 end

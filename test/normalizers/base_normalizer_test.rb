@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'test_helper'
-require_relative '../support/normalizer_test_helper'
 
 class BaseNormalizerTest < Minitest::Test
   include NormalizerTestHelper
@@ -25,16 +24,6 @@ class BaseNormalizerTest < Minitest::Test
     nil
   end
 
-  EXPECTED_ATTRIBUTES = %i[
-    attachments
-    comments
-    link
-    published_at
-    text
-    uid
-    validation_errors
-  ].to_set.freeze
-
   def test_minimal_viable_inheritence
     normalizer = Class.new(subject)
     result = normalizer.call(entity)
@@ -49,12 +38,12 @@ class BaseNormalizerTest < Minitest::Test
     end
 
     result = normalizer.call(entity)
-    assert_equal(result[:validation_errors], SAMPLE_ERRORS)
+    assert_equal(result.validation_errors, SAMPLE_ERRORS)
   end
 
   def test_return_hash
     result = Class.new(subject).call(entity)
-    assert_equal(EXPECTED_ATTRIBUTES, result.keys.to_set)
+    assert(result.is_a?(NormalizedEntity))
   end
 
   INCOMPLETE_URL = '//example.com'
@@ -66,7 +55,7 @@ class BaseNormalizerTest < Minitest::Test
 
     result = normalizer.call(entity)
     expected = ["https:#{INCOMPLETE_URL}"]
-    assert(expected, result[:attachments])
+    assert(expected, result.attachments)
   end
 
   NON_VALID_URL = ':'
@@ -93,7 +82,7 @@ class BaseNormalizerTest < Minitest::Test
     end
 
     result = normalizer.call(entity)
-    assert(result[:attachments].empty?)
+    assert(result.attachments.empty?)
   end
 
   def test_require_comments_array
@@ -110,6 +99,6 @@ class BaseNormalizerTest < Minitest::Test
     end
 
     result = normalizer.call(entity)
-    assert(result[:comments].empty?)
+    assert(result.comments.empty?)
   end
 end
