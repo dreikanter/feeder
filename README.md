@@ -57,11 +57,11 @@ Note: Check out start-service shell script `help` command for more details.
 
 Schedule feeds updates:
 
-    */5 * * * * cd /var/www/feeder/current && RAILS_ENV=production /home/deploy/.rbenv/shims/bundle exec rails pull:all jobs:workoff > /var/www/feeder/current/log/cron-pull.log 2>&1
+    */5 * * * * cd /var/www/feeder/current && RAILS_ENV=production /home/deploy/.rbenv/shims/bundle exec rails feeder:pull_stale jobs:workoff
 
 Schedule Freefeed stats update:
 
-    0 * * * * cd /var/www/feeder/current && RAILS_ENV=production /home/deploy/.rbenv/shims/bundle exec rails subs jobs:workoff > /var/www/feeder/current/log/cron-subs.log 2>&1
+    0 * * * * cd /var/www/feeder/current && RAILS_ENV=production /home/deploy/.rbenv/shims/bundle exec rails feeder:subs jobs:workoff
 
 ## Contribution
 
