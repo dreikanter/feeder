@@ -37,8 +37,23 @@ module Minitest
     end
 
     # TODO: Drop this in favor to FileHelpers
-    def file_fixture(path)
-      File.new(::Rails.root.join('test/fixtures/files', path))
+    def file_fixture(path, scope: 'files')
+      File.new(fixture_path(path, scope: scope))
+    end
+
+    # TODO: Move to a factory
+    def normalized_entity_fixture(path, attributes = {})
+      file = file_fixture(path, scope: 'normalized_entities')
+      entity = JSON.parse(file.read)
+      value = entity['published_at']
+      entity['published_at'] = DateTime.parse(value) if value
+      NormalizedEntity.new(entity.merge(attributes).symbolize_keys)
+    end
+
+    private
+
+    def fixture_path(path, scope:)
+      ::Rails.root.join('test/fixtures', scope, path)
     end
   end
 end

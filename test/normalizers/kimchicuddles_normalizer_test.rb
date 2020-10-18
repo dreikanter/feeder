@@ -22,15 +22,10 @@ class KimchicuddlesNormalizerTest < Minitest::Test
   end
 
   def expected
-    NormalizedEntity.new(
+    normalized_entity_fixture(
+      'kimchicuddles.json',
       feed_id: feed.id,
-      uid: 'http://kimchicuddles.com/post/178513799060',
-      link: 'http://kimchicuddles.com/post/178513799060',
-      published_at: DateTime.parse('2018-09-27 15:53:34 UTC'),
-      text: 'http://kimchicuddles.com/post/178513799060',
-      attachments: [ATTACHMENT_URL],
-      comments: ["Who are some people you’re grateful for right now?\nIf you appreciate my work, check out my Patreon: https://www.patreon.com/kimchicuddles"],
-      validation_errors: []
+      attachments: [ATTACHMENT_URL]
     )
   end
 
