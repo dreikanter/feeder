@@ -25,7 +25,6 @@ module Minitest
   class Test
     include ActiveSupport::Testing::TimeHelpers
     include FactoryBot::Syntax::Methods
-    include FileHelpers
 
     # TODO: Replace with Rails transactional tests
     def setup
@@ -36,9 +35,8 @@ module Minitest
       DatabaseCleaner.clean
     end
 
-    # TODO: Drop this in favor to FileHelpers
     def file_fixture(path, scope: 'files')
-      File.new(fixture_path(path, scope: scope))
+      File.new(file_fixture_path(path, scope: scope))
     end
 
     # TODO: Move to a factory
@@ -52,7 +50,7 @@ module Minitest
 
     private
 
-    def fixture_path(path, scope:)
+    def file_fixture_path(path, scope:)
       ::Rails.root.join('test/fixtures', scope, path)
     end
   end
