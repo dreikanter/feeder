@@ -1,0 +1,132 @@
+name: Run linter and test suite
+
+on:
+  pull_request:
+    branches:
+      - master
+      - dev
+  push:
+    branches:
+      - master
+      - dev
+
+jobs:
+  rubocop:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6.x
+
+    - uses: actions/cache@v2
+      id: cache
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-feeder-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-feeder-
+
+    - name: "Install gems"
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: |
+        sudo apt-get -yqq install libpq-dev
+        gem install bundler
+        bundle config path vendor/bundle
+        bundle install --jobs 4 --retry 3
+
+    - name: "Rubocop"
+      run: bundle exec rubocop
+
+  reek:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6.x
+
+    - uses: actions/cache@v2
+      id: cache
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-feeder-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-feeder-
+
+    - name: "Install gems"
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: |
+        sudo apt-get -yqq install libpq-dev
+        gem install bundler
+        bundle config path vendor/bundle
+        bundle install --jobs 4 --retry 3
+
+    - name: "Reek"
+      run: bundle exec reek
+
+  test:
+    runs-on: ubuntu-latest
+    services:
+      db:
+        image: postgres:11
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6.x
+
+    - name: "Set up node"
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14'
+
+    - id: yarn-cache-dir-path
+      run: echo "::set-output name=dir::$(yarn cache dir)"
+
+    - uses: actions/cache@v2
+      id: yarn-cache
+      with:
+        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
+
+    - name: "Install NPM packages"
+      if: steps.yarn-cache.outputs.cache-hit != 'true'
+      run: yarn install
+
+    - uses: actions/cache@v2
+      id: gems-cache
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-feeder-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-feeder-
+
+    - name: "Install gems"
+      if: steps.gems-cache.outputs.cache-hit != 'true'
+      run: |
+        sudo apt-get -yqq install libpq-dev
+        gem install bundler
+        bundle config path vendor/bundle
+        bundle install --jobs 4 --retry 3
+
+    - name: "Run tests"
+      env:
+        RAILS_ENV: test
+        RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+      run: |
+        bundle exec rails db:create db:migrate
+        bundle exec rails test
