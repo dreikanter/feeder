@@ -31,63 +31,52 @@ Running tests:
 
     bundle exec rails test
 
-Docker setup:
+### Docker setup
 
-- Build docker image
- ```sh
-    $ docker-compose build
- ```
-- Start feeder service
- ```sh
-    $ ./docker/start-service.sh -s
- ```
- _Note: If you are facing 'Permission denied' error when executing the above command, then re-run the command after granting executable permissions to the 'start-service.sh' file_
-   ```sh
-      $ chmod +x ./docker/start-service.sh
-   ```
+Build docker image:
 
-- Stop feeder service
- ```sh
-    $ ./docker/start-service.sh -k
- ```
-- _Note: Check out start-service shell script 'help' command for more details_
- ```sh
-     $ ./docker/start-service.sh -h
- ```
+    docker-compose build
 
-Chrome extensions:
+Start feeder service:
 
-- [React dev tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
-- [Redux dev tools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
+    ./docker/start-service.sh -s
+
+Note: If you are facing "Permission denied" error when executing the above command, then re-run the command after granting executable permissions to the `start-service.sh` file.
+
+    chmod +x ./docker/start-service.sh
+
+Stop feeder service:
+
+    ./docker/start-service.sh -k
+
+Note: Check out start-service shell script `help` command for more details.
+
+    ./docker/start-service.sh -h
 
 ## Scheduling
 
 Schedule feeds updates:
 
-```
-*/5 * * * * cd /var/www/feeder/current && RAILS_ENV=production /home/deploy/.rbenv/shims/bundle exec rails pull:all jobs:workoff > /var/www/feeder/current/log/cron-pull.log 2>&1
-```
+    */5 * * * * cd /var/www/feeder/current && RAILS_ENV=production /home/deploy/.rbenv/shims/bundle exec rails pull:all jobs:workoff > /var/www/feeder/current/log/cron-pull.log 2>&1
 
 Schedule Freefeed stats update:
 
-```
-0 * * * * cd /var/www/feeder/current && RAILS_ENV=production /home/deploy/.rbenv/shims/bundle exec rails subs jobs:workoff > /var/www/feeder/current/log/cron-subs.log 2>&1
-```
+    0 * * * * cd /var/www/feeder/current && RAILS_ENV=production /home/deploy/.rbenv/shims/bundle exec rails subs jobs:workoff > /var/www/feeder/current/log/cron-subs.log 2>&1
 
 ## Contribution
 
 Feeder is open for contributions! Here are some tips if you like to add a new feed or feature:
 
 - Create a personal fork of the project on Github.
-- Clone the fork on your local machine. Your remote repo on Github is called origin.
-- Add the original repository as a remote called upstream.
-- If you created your fork a while ago be sure to pull upstream changes into your local repository.
-- Branch from the `dev`.
+- Clone the fork on your local machine. Your remote repo on Github is called `origin`.
+- Add the original repository as a remote called `upstream` (`git remote add upstream https://github.com/dreikanter/feeder.git`).
+- If you created your fork a while ago be sure to pull upstream changes into your local repository (`git checkout master && git pull --rebase upstream master`).
+- Branch from the `master`.
 - Implement your feature or fix a bug. Comment your code.
 - Write or adapt tests as needed.
 - Follow the code style of the project.
 - Push your branch to your fork on Github, the remote origin.
-- From your fork open a pull request in the correct branch. Target the `dev` branch.
+- From your fork open a pull request in the correct branch. Target the `master` branch.
 - Once the pull request is approved and merged you can pull the changes from upstream to your local repo and delete your extra branch(es).
 
 If you have any questions or want to report a bug, please open an issue or send me a message on alex.musayev@gmail.com
