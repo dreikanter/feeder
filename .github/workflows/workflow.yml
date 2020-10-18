@@ -15,13 +15,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+
     - uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.6.x
-    - name: Rubocop
+
+    - uses: actions/cache@v2
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+
+    - name: "Rubocop"
       run: |
         sudo apt-get -yqq install libpq-dev
         gem install bundler
+        bundle config path vendor/bundle
         bundle install --jobs 4 --retry 3
         bundle exec rubocop
 
@@ -29,13 +39,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+
     - uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.6.x
-    - name: Reek
+
+    - uses: actions/cache@v2
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+
+    - name: "Reek"
       run: |
         sudo apt-get -yqq install libpq-dev
         gem install bundler
+        bundle config path vendor/bundle
         bundle install --jobs 4 --retry 3
         bundle exec reek
 
@@ -54,22 +74,47 @@ jobs:
           --health-retries 5
     steps:
     - uses: actions/checkout@v2
+
     - uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.6.x
-    - name: Set up node
+
+    - name: "Set up node"
       uses: actions/setup-node@v1
       with:
         node-version: '14'
-    - name: Install NPM packages
+
+    - name: "Install NPM packages"
       run: yarn install
-    - name: Run tests
+
+    - uses: actions/cache@v2
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+
+    - name: "Get yarn cache directory path"
+      id: yarn-cache-dir-path
+      run: echo "::set-output name=dir::$(yarn cache dir)"
+
+    - name: "Cache NPM packages"
+      uses: actions/cache@v2
+      id: yarn-cache
+      with:
+        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
+
+    - name: "Run tests"
       env:
         RAILS_ENV: test
         RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
       run: |
         sudo apt-get -yqq install libpq-dev
         gem install bundler
+        bundle config path vendor/bundle
         bundle install --jobs 4 --retry 3
         bundle exec rails db:create db:migrate
         bundle exec rails test
