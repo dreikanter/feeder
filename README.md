@@ -37,21 +37,17 @@ Build docker image:
 
     docker-compose build
 
-Start feeder service:
+Install dependensies:
 
-    ./docker/start-service.sh -s
+    docker-compose run runner bin/setup
 
-Note: If you are facing "Permission denied" error when executing the above command, then re-run the command after granting executable permissions to the `start-service.sh` file.
+Start feeder web app:
 
-    chmod +x ./docker/start-service.sh
+    docker-compose up app
 
-Stop feeder service:
+Start dev environment bash console:
 
-    ./docker/start-service.sh -k
-
-Note: Check out start-service shell script `help` command for more details.
-
-    ./docker/start-service.sh -h
+    docker-compose run runner bash
 
 ## Scheduling
 
