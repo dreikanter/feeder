@@ -52,7 +52,7 @@ Start dev environment bash console:
 Stream logs:
 
     docker-compose logs -f app
-    docker-compose logs -f app webpacker
+    docker-compose logs -f app webpack
 
 ## Scheduling
 
