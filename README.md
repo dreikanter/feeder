@@ -59,20 +59,6 @@ Schedule Freefeed stats update:
 
     0 * * * * cd /var/www/feeder/current && RAILS_ENV=production /home/deploy/.rbenv/shims/bundle exec rails feeder:subs jobs:workoff
 
-## Contribution
+## Communication
 
-Feeder is open for contributions! Here are some tips if you like to add a new feed or feature:
-
-- Create a personal fork of the project on Github.
-- Clone the fork on your local machine. Your remote repo on Github is called `origin`.
-- Add the original repository as a remote called `upstream` (`git remote add upstream https://github.com/dreikanter/feeder.git`).
-- If you created your fork a while ago be sure to pull upstream changes into your local repository (`git checkout master && git pull --rebase upstream master`).
-- Branch from the `master`.
-- Implement your feature or fix a bug. Comment your code.
-- Write or adapt tests as needed.
-- Follow the code style of the project.
-- Push your branch to your fork on Github, the remote origin.
-- From your fork open a pull request in the correct branch. Target the `master` branch.
-- Once the pull request is approved and merged you can pull the changes from upstream to your local repo and delete your extra branch(es).
-
-If you have any questions or want to report a bug, please open an issue or send me a message on alex.musayev@gmail.com
+If you have any questions or want to report a bug, please open an issue.
