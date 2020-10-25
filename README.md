@@ -49,6 +49,11 @@ Start dev environment bash console:
 
     docker-compose run runner bash
 
+Stream logs:
+
+    docker-compose logs -f app
+    docker-compose logs -f app webpacker
+
 ## Scheduling
 
 Schedule feeds updates:
