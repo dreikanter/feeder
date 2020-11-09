@@ -26,6 +26,10 @@ class NormalizedEntity
     existing_post || create_post
   end
 
+  def as_json
+    instance_values
+  end
+
   private
 
   def existing_post
