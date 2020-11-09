@@ -49,8 +49,12 @@ module FeedTestHelper
   end
 
   def test_entity_normalization
-    # puts JSON.pretty_generate(expected.map(&:as_json))
-    # puts JSON.pretty_generate(subject.map(&:as_json))
-    assert_equal(expected, subject)
+    assert_equal(expected, subject, error_message)
+  end
+
+  def error_message
+    expected_json = JSON.pretty_generate(expected.as_json)
+    actual_json = JSON.pretty_generate(subject.as_json)
+    "Expected:\n\n#{expected_json}\n\nActual:\n\n#{actual_json}\n"
   end
 end
