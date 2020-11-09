@@ -1,18 +1,24 @@
 module FeedTestHelper
   def subject
-    Pull.call(feed)
+    Pull.call(feed).first
   end
 
   def setup
-    stub_request(:get, feed_config[:url])
+    stub_request(:get, feed_config.fetch(:url))
       .to_return(
         body: file_fixture(source_fixture_path).read,
         headers: { 'Content-Type' => 'text/xml' }
       )
   end
 
+  def feed_defaults
+    {
+      id: 1
+    }
+  end
+
   def feed
-    @feed ||= build(:feed, feed_config)
+    @feed ||= build(:feed, feed_defaults.merge(feed_config))
   end
 
   def feed_config
@@ -27,14 +33,22 @@ module FeedTestHelper
     raise 'not implemented'
   end
 
-  def expected_entity
-    content = file_fixture(expected_fixture_path).read
-    result = JSON.parse(content).symbolize_keys
-    published_at = DateTime.parse(result.fetch(:published_at))
-    NormalizedEntity.new(result.merge(published_at: published_at, feed_id: feed.id))
+  def expected
+    data = JSON.parse(file_fixture(expected_fixture_path).read)
+    return normalize(data) if data.is_a?(Hash)
+    data.map { |item| normalize(item) }
+  end
+
+  def notmalize(item)
+    replacements = {
+      'published_at' => DateTime.parse(item.fetch('published_at')),
+      'feed_id' => feed.id
+    }
+
+    NormalizedEntity.new(item.merge(replacements))
   end
 
   def test_entity_normalization
-    assert_equal(expected_entity, subject.first)
+    assert_equal(expected, subject)
   end
 end
