@@ -24,7 +24,7 @@ class RedditNormalizer < AtomNormalizer
   end
 
   def discussion_url
-    entity.link.href
+    entity.content.link.href
   end
 
   def extract_content
@@ -32,7 +32,7 @@ class RedditNormalizer < AtomNormalizer
   end
 
   def reddit_info
-    cached_data_point(entity.link.href).details.try(:[], 'description')
+    cached_data_point(discussion_url).details.try(:[], 'description')
   end
 
   def cached_data_point(link)
