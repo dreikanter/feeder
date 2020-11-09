@@ -3,6 +3,14 @@ module FeedTestHelper
     Pull.call(feed)
   end
 
+  def setup
+    stub_request(:get, feed_config[:url])
+      .to_return(
+        body: file_fixture(source_fixture_path).read,
+        headers: { 'Content-Type' => 'text/xml' }
+      )
+  end
+
   def feed
     @feed ||= build(:feed, feed_config)
   end
@@ -11,12 +19,16 @@ module FeedTestHelper
     raise 'not implemented'
   end
 
-  def fixture_path
+  def source_fixture_path
+    raise 'not implemented'
+  end
+
+  def expected_fixture_path
     raise 'not implemented'
   end
 
   def expected_entity
-    content = file_fixture(fixture_path).read
+    content = file_fixture(expected_fixture_path).read
     result = JSON.parse(content).symbolize_keys
     published_at = DateTime.parse(result.fetch(:published_at))
     NormalizedEntity.new(result.merge(published_at: published_at, feed_id: feed.id))
