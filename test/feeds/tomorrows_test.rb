@@ -26,7 +26,7 @@ class TomorrowsTest < Minitest::Test
       )
   end
 
-  def fixture_path
+  def expected_fixture_path
     'entities/tomorrows.json'
   end
 end

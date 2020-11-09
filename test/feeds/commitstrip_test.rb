@@ -12,15 +12,11 @@ class CommitstripTest < Minitest::Test
     }
   end
 
-  def setup
-    stub_request(:get, 'https://www.commitstrip.com/en/feed/')
-      .to_return(
-        body: file_fixture('feeds/commitstrip.xml'),
-        headers: { 'Content-Type' => 'text/xml' }
-      )
+  def source_fixture_path
+    'feeds/commitstrip.xml'
   end
 
-  def fixture_path
+  def expected_fixture_path
     'entities/commitstrip.json'
   end
 end

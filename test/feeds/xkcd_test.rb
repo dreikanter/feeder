@@ -12,7 +12,7 @@ class XkcdTest < Minitest::Test
     }
   end
 
-  def fixture_path
+  def expected_fixture_path
     'entities/xkcd.json'
   end
 
