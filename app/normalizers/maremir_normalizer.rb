@@ -23,6 +23,6 @@ class MaremirNormalizer < RssNormalizer
   end
 
   def description
-    Html.comment_excerpt(entity.description)
+    Html.comment_excerpt(entity.content.description)
   end
 end
