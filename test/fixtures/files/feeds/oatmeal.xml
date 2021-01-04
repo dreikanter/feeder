@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss1full.xsl"?><?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?><!-- generator="FeedCreator 1.7.2" --><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel rdf:about="http://theoatmeal.com/feed/rss">
+        <title>The Oatmeal - Comics, Quizzes, &amp; Stories</title>
+        <description>The oatmeal tastes better than stale skittles found under the couch cushions</description>
+        <link>http://theoatmeal.com/</link>
+       <dc:date>2021-01-04T04:08:03+01:00</dc:date>
+        <items>
+            <rdf:Seq>
+                <rdf:li rdf:resource="http://expktns.co/OatCAM" />
+                <rdf:li rdf:resource="http://theoatmeal.com/comics/oracle_disappointment" />
+                <rdf:li rdf:resource="http://theoatmeal.com/comics/oracle_compliments" />
+                <rdf:li rdf:resource="http://theoatmeal.com/comics/boredom_overeating" />
+                <rdf:li rdf:resource="http://theoatmeal.com/comics/vibes" />
+                <rdf:li rdf:resource="http://theoatmeal.com/comics/reincarnation" />
+                <rdf:li rdf:resource="http://theoatmeal.com/comics/finishing_project" />
+                <rdf:li rdf:resource="http://theoatmeal.com/comics/plunge" />
+                <rdf:li rdf:resource="http://theoatmeal.com/comics/slowfast" />
+            </rdf:Seq>
+        </items>
+    <atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rdf+xml" href="http://feeds.feedburner.com/oatmealfeed" /><feedburner:info xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" uri="oatmealfeed" /><atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" /></channel>
+    <item rdf:about="http://expktns.co/OatCAM">
+        <dc:format>text/html</dc:format>
+        <dc:date>2020-10-12T16:18:23+01:00</dc:date>
+        <dc:source>http://theoatmeal.com</dc:source>
+        <dc:creator>Matthew Inman</dc:creator>
+        <title>A Game of Cat and Mouth</title>
+        <link>http://expktns.co/OatCAM</link>
+        <description>&lt;a href="http://expktns.co/OatCAM"&gt;&lt;img width="600" src="https://s3.amazonaws.com/theoatmeal-img/thumbnails/cat_and_mouth_big.png" alt="A Game of Cat and Mouth" class="border0" /&gt;&lt;/a&gt;&lt;p&gt;A magnet-powered, fiercely competitive, pinball(ish) game. &lt;/p&gt;&lt;a href="http://expktns.co/OatCAM"&gt;View on my website&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;</description>
+    </item>
+    <item rdf:about="http://theoatmeal.com/comics/oracle_disappointment">
+        <dc:format>text/html</dc:format>
+        <dc:date>2020-09-25T19:17:54+01:00</dc:date>
+        <dc:source>http://theoatmeal.com</dc:source>
+        <dc:creator>Matthew Inman</dc:creator>
+        <title>Disappointment</title>
+        <link>http://theoatmeal.com/comics/oracle_disappointment</link>
+        <description>&lt;a href="http://theoatmeal.com/comics/oracle_disappointment"&gt;&lt;img width="600" src="https://s3.amazonaws.com/theoatmeal-img/thumbnails/oracle_disappointment_big.png" alt="Disappointment" class="border0" /&gt;&lt;/a&gt;&lt;p&gt;The Oracle offers some insight.&lt;/p&gt;&lt;a href="http://theoatmeal.com/comics/oracle_disappointment"&gt;View on my website&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;</description>
+    </item>
+    <item rdf:about="http://theoatmeal.com/comics/oracle_compliments">
+        <dc:format>text/html</dc:format>
+        <dc:date>2020-05-26T20:53:46+01:00</dc:date>
+        <dc:source>http://theoatmeal.com</dc:source>
+        <dc:creator>Matthew Inman</dc:creator>
+        <title>I have a hard time taking compliments</title>
+        <link>http://theoatmeal.com/comics/oracle_compliments</link>
+        <description>&lt;a href="http://theoatmeal.com/comics/oracle_compliments"&gt;&lt;img width="600" src="https://s3.amazonaws.com/theoatmeal-img/thumbnails/oracle_compliments_big.png" alt="I have a hard time taking compliments" class="border0" /&gt;&lt;/a&gt;&lt;p&gt;A comic about taking compliments.&lt;/p&gt;&lt;a href="http://theoatmeal.com/comics/oracle_compliments"&gt;View on my website&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;</description>
+    </item>
+    <item rdf:about="http://theoatmeal.com/comics/boredom_overeating">
+        <dc:format>text/html</dc:format>
+        <dc:date>2020-05-01T16:28:30+01:00</dc:date>
+        <dc:source>http://theoatmeal.com</dc:source>
+        <dc:creator>Matthew Inman</dc:creator>
+        <title>Boredom + Overeating</title>
+        <link>http://theoatmeal.com/comics/boredom_overeating</link>
+        <description>&lt;a href="http://theoatmeal.com/comics/boredom_overeating"&gt;&lt;img width="600" src="https://s3.amazonaws.com/theoatmeal-img/thumbnails/boredom_overeating_big.png" alt="Boredom + Overeating" class="border0" /&gt;&lt;/a&gt;&lt;p&gt;A comic about friendship.&lt;/p&gt;&lt;a href="http://theoatmeal.com/comics/boredom_overeating"&gt;View on my website&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;</description>
+    </item>
+    <item rdf:about="http://theoatmeal.com/comics/vibes">
+        <dc:format>text/html</dc:format>
+        <dc:date>2020-04-30T17:12:54+01:00</dc:date>
+        <dc:source>http://theoatmeal.com</dc:source>
+        <dc:creator>Matthew Inman</dc:creator>
+        <title>Vibes</title>
+        <link>http://theoatmeal.com/comics/vibes</link>
+        <description>&lt;a href="http://theoatmeal.com/comics/vibes"&gt;&lt;img width="600" src="https://s3.amazonaws.com/theoatmeal-img/thumbnails/vibes_big.png" alt="Vibes" class="border0" /&gt;&lt;/a&gt;&lt;p&gt;A comic about positivity. &lt;/p&gt;&lt;a href="http://theoatmeal.com/comics/vibes"&gt;View on my website&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;</description>
+    </item>
+    <item rdf:about="http://theoatmeal.com/comics/reincarnation">
+        <dc:format>text/html</dc:format>
+        <dc:date>2020-04-27T16:27:16+01:00</dc:date>
+        <dc:source>http://theoatmeal.com</dc:source>
+        <dc:creator>Matthew Inman</dc:creator>
+        <title>When I die</title>
+        <link>http://theoatmeal.com/comics/reincarnation</link>
+        <description>&lt;a href="http://theoatmeal.com/comics/reincarnation"&gt;&lt;img width="600" src="https://s3.amazonaws.com/theoatmeal-img/thumbnails/reincarnation_big.png" alt="When I die" class="border0" /&gt;&lt;/a&gt;&lt;p&gt;Reincatnation.&lt;/p&gt;&lt;a href="http://theoatmeal.com/comics/reincarnation"&gt;View on my website&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;</description>
+    </item>
+    <item rdf:about="http://theoatmeal.com/comics/finishing_project">
+        <dc:format>text/html</dc:format>
+        <dc:date>2020-04-26T16:35:12+01:00</dc:date>
+        <dc:source>http://theoatmeal.com</dc:source>
+        <dc:creator>Matthew Inman</dc:creator>
+        <title>Finishing a project</title>
+        <link>http://theoatmeal.com/comics/finishing_project</link>
+        <description>&lt;a href="http://theoatmeal.com/comics/finishing_project"&gt;&lt;img width="600" src="https://s3.amazonaws.com/theoatmeal-img/thumbnails/finishing_project_big.png" alt="Finishing a project" class="border0" /&gt;&lt;/a&gt;&lt;p&gt;A comic about cheetahs and tricycles.&lt;/p&gt;&lt;a href="http://theoatmeal.com/comics/finishing_project"&gt;View on my website&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;</description>
+    </item>
+    <item rdf:about="http://theoatmeal.com/comics/plunge">
+        <dc:format>text/html</dc:format>
+        <dc:date>2020-04-24T16:35:12+01:00</dc:date>
+        <dc:source>http://theoatmeal.com</dc:source>
+        <dc:creator>Matthew Inman</dc:creator>
+        <title>Plunge</title>
+        <link>http://theoatmeal.com/comics/plunge</link>
+        <description>&lt;a href="http://theoatmeal.com/comics/plunge"&gt;&lt;img width="600" src="https://s3.amazonaws.com/theoatmeal-img/thumbnails/plunge_big.png" alt="Plunge" class="border0" /&gt;&lt;/a&gt;&lt;p&gt;A comic about books&lt;/p&gt;&lt;a href="http://theoatmeal.com/comics/plunge"&gt;View on my website&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;</description>
+    </item>
+    <item rdf:about="http://theoatmeal.com/comics/slowfast">
+        <dc:format>text/html</dc:format>
+        <dc:date>2020-04-23T16:22:49+01:00</dc:date>
+        <dc:source>http://theoatmeal.com</dc:source>
+        <dc:creator>Matthew Inman</dc:creator>
+        <title>Slowfast</title>
+        <link>http://theoatmeal.com/comics/slowfast</link>
+        <description>&lt;a href="http://theoatmeal.com/comics/slowfast"&gt;&lt;img width="600" src="https://s3.amazonaws.com/theoatmeal-img/thumbnails/slowfast_big.png" alt="Slowfast" class="border0" /&gt;&lt;/a&gt;&lt;p&gt;A comic about being tired and also full of energy.&lt;/p&gt;&lt;a href="http://theoatmeal.com/comics/slowfast"&gt;View on my website&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;</description>
+    </item>
+</rdf:RDF>

@@ -21,6 +21,7 @@ group :development, :test do
   gem 'minitest-rails', '~> 6.0'
   gem 'mocha', '~> 1.9'
   gem 'pry-rails', '~> 0.3.9'
+  gem 'pry-byebug'
   gem 'simplecov', '~> 0.17'
   gem 'webmock', '~> 3.7', '>= 3.7.6'
 end
