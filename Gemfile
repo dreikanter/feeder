@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '~> 2.6.5'
 
-gem 'puma', '~> 4.3'
+gem 'puma', '~> 5'
 gem 'rails', '~> 6.0'
 
 group :development do
@@ -20,8 +20,8 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
   gem 'minitest-rails', '~> 6.0'
   gem 'mocha', '~> 1.9'
-  gem 'pry-rails', '~> 0.3.9'
   gem 'pry-byebug'
+  gem 'pry-rails', '~> 0.3.9'
   gem 'simplecov', '~> 0.17'
   gem 'webmock', '~> 3.7', '>= 3.7.6'
 end
