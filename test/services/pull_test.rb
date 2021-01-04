@@ -30,11 +30,15 @@ class PullTest < Minitest::Test
     stub_request(:get, FEED_URL).to_return(body: file_fixture(fixture_path))
   end
 
+  def feed_id
+    feed.id
+  end
+
   # rubocop:disable Metrics/MethodLength
   def test_feed_entities
     [
       NormalizedEntity.new(
-        feed_id: feed.id,
+        feed_id: feed_id,
         uid: 'https://example.com/0',
         link: 'https://example.com/0',
         published_at: nil,
@@ -44,7 +48,7 @@ class PullTest < Minitest::Test
         validation_errors: []
       ),
       NormalizedEntity.new(
-        feed_id: feed.id,
+        feed_id: feed_id,
         uid: 'https://example.com/1',
         link: 'https://example.com/1',
         published_at: nil,
@@ -54,7 +58,7 @@ class PullTest < Minitest::Test
         validation_errors: []
       ),
       NormalizedEntity.new(
-        feed_id: feed.id,
+        feed_id: feed_id,
         uid: 'https://example.com/2',
         link: 'https://example.com/2',
         published_at: nil,

@@ -131,6 +131,8 @@ detectors:
     - CreateBlockedIps#change
   UtilityFunction:
     exclude:
+    - PullJob#perform
+    - PushJob#perform
     - "Test"
     - UpdateSubscriptionsCountJob#perform
     - RedditNormalizer#cached_data_point

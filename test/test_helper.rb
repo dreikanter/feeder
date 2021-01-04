@@ -39,6 +39,7 @@ module Minitest
     end
 
     # TODO: Move to a factory
+    # :reek:FeatureEnvy
     def normalized_entity_fixture(path, attributes = {})
       file = file_fixture(path, scope: 'normalized_entities')
       entity = JSON.parse(file.read)

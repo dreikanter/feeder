@@ -49,8 +49,8 @@ class Import
   end
 
   def errors_count
-    normalized_entities.count do |entity|
-      entity.nil? || entity.status != PostStatus.ready
+    normalized_entities.compact.count do |entity|
+      entity.status != PostStatus.ready
     end
   end
 

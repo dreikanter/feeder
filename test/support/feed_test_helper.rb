@@ -39,6 +39,7 @@ module FeedTestHelper
     data.map { |item| normalize(item) }
   end
 
+  # :reek:FeatureEnvy
   def normalize(item)
     replacements = {
       'published_at' => DateTime.parse(item.fetch('published_at')),
