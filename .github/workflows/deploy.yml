@@ -1,0 +1,23 @@
+name: 'Deploy production server'
+on:
+  push:
+    branches:
+      - release
+description: 'Deploy release branch head revision using Ansible playbook'
+author: 'Alex Musayev'
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v2
+        with:
+          repository: 'dreikanter/feeder-ansible'
+          ref: 'master'
+          path: 'feeder-ansible'
+      - name: "ls root"
+        run: "ls -al"
+        shell: "bash"
+      - name: "ls playbooks"
+        run: "ls -al feeder-ansible"
+        shell: "bash"
