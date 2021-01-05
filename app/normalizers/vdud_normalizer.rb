@@ -5,4 +5,8 @@ class VdudNormalizer < YoutubeNormalizer
     title = content.title.gsub(%r{\s+/\s+вДудь\Z}, '')
     [title, content.url].join(separator)
   end
+
+  def comments
+    []
+  end
 end

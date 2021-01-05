@@ -3,7 +3,7 @@ class BaseProcessor
 
   param :content
   option :feed
-  option :import_limit, optional: true, default: -> { nil }
+  option :import_limit, optional: true, default: -> {}
   option :logger, optional: true, default: -> { Rails.logger }
 
   DEFAULT_LIMIT = 2
