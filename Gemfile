@@ -11,6 +11,7 @@ group :development do
   gem 'method_source', '~> 0.9.2'
   gem 'reek', '~> 6.0'
   gem 'rubocop', '~> 1.7'
+  gem 'rubocop-rails'
   gem 'spring'
 end
 

@@ -8,7 +8,7 @@ class BaseProcessorTest < Minitest::Test
   ENTITIES = Array.new(1).fill { Object.new }.freeze
 
   def test_descendants_callable
-    processor = Class.new(subject) {}
+    processor = Class.new(subject)
     assert(processor.respond_to?(:call))
   end
 
