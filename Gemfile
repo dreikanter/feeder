@@ -34,6 +34,7 @@ gem 'addressable', '~> 2.5', '>= 2.5.2'
 gem 'amazing_print'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'callee', '~> 0.3.2'
+gem 'daemons'
 gem 'delayed_job_active_record', '~> 4.1', '>= 4.1.1'
 gem 'dry-initializer', '~> 3.0'
 gem 'dry-types', '~> 0.13.2'

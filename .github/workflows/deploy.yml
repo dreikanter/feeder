@@ -1,0 +1,35 @@
+name: 'Deploy production server'
+on:
+  workflow_dispatch
+  push:
+    branches:
+      - release
+description: 'Deploy release branch head revision using Ansible playbook'
+author: 'Alex Musayev'
+jobs:
+  checkout:
+    name: "Checkout Ansible playbooks"
+    uses: actions/checkout@v2
+    with:
+      repository: 'dreikanter/feeder-ansible'
+      ref: 'master'
+      path: 'feeder-ansible'
+  deploy:
+    name: "Test Docker container"
+    needs: checkout
+    container:
+      image: debian:buster-slim
+      volumes: feeder-ansible:/feeder-ansible
+    steps:
+      - run: "uname"
+      - run: "ls -al /"
+    # runs-on: ubuntu-latest
+    # steps:
+    #   - name: "Checkout"
+    #     uses: actions/checkout@v2
+        # with:
+        #   repository: 'dreikanter/feeder-ansible'
+        #   ref: 'master'
+        #   path: 'feeder-ansible'
+    #   - name: Setup tmate session
+    #     uses: mxschmitt/action-tmate@v3
