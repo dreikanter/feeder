@@ -2,6 +2,7 @@
 - name: "xkcd"
   url: "https://xkcd.com/rss.xml"
   processor: "rss"
+  after: "2021-01-04T12:00:00+00:00"
   refresh_interval: 600
 
 - name: "oglaf"
@@ -9,6 +10,7 @@
   processor: "rss"
   normalizer: "oglaf"
   refresh_interval: 1200
+  after: "2021-01-04T12:00:00+00:00"
   import_limit: 10
 
 - name: "phdcomics"
@@ -26,6 +28,7 @@
 - name: "dilbert"
   url: "https://dilbert.com/feed"
   processor: "atom"
+  after: "2021-01-04T12:00:00+00:00"
   refresh_interval: 1800
 
 - name: "rllivejournal"
