@@ -15,6 +15,8 @@ class Import
   attr_reader :started_at
 
   def generate_new_posts
+    logger.info("---> new posts: #{normalized_entities_count}; errors: #{errors_count}")
+
     normalized_entities.each do |normalized_entity|
       next unless normalized_entity
       logger.info("---> creating post; uid: [#{normalized_entity.uid}]")
@@ -41,11 +43,15 @@ class Import
     CreateDataPoint.call(
       :pull,
       feed_name: feed_name,
-      posts_count: normalized_entities.count,
+      posts_count: normalized_entities_count,
       errors_count: errors_count,
       duration: Time.current - started_at,
       status: UpdateStatus.success
     )
+  end
+
+  def normalized_entities_count
+    normalized_entities.count
   end
 
   def errors_count
