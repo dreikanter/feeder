@@ -14,12 +14,12 @@ class NormalizedEntity
     instance_values == other.instance_values
   end
 
-  def status
-    validation_errors.none? ? PostStatus.ready : PostStatus.ignored
+  def stale?
+    feed_after.present? && (published_at_or_default < feed_after)
   end
 
-  def ready?
-    status == PostStatus.ready
+  def status
+    validation_errors.none? ? PostStatus.ready : PostStatus.ignored
   end
 
   def find_or_create_post
@@ -41,12 +41,24 @@ class NormalizedEntity
       feed_id: feed_id,
       uid: uid,
       link: link,
-      published_at: published_at,
+      published_at: published_at_or_default,
       text: text,
       attachments: attachments,
       comments: comments,
       validation_errors: validation_errors,
       status: status
     )
+  end
+
+  def published_at_or_default
+    published_at.to_datetime || DateTime.now
+  end
+
+  def feed_after
+    feed.after
+  end
+
+  def feed
+    @feed ||= Feed.find(feed_id)
   end
 end

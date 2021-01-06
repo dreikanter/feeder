@@ -26,22 +26,10 @@
 class Post < ApplicationRecord
   belongs_to :feed, counter_cache: true
   enum status: PostStatus.options
-  validate :link, :presence
+  validate :uid, :link, :published_at, :presence
 
   RECENT_LIMIT = 50
 
   scope :recent, -> { order(created_at: :desc).limit(RECENT_LIMIT) }
   scope :queue, -> { ready.order(created_at: :desc) }
-  delegate :name, :after, to: :feed, prefix: :feed
-  before_save :sanitize_published_at
-
-  def stale?
-    feed_after.present? && (published_at < feed_after)
-  end
-
-  private
-
-  def sanitize_published_at
-    self.published_at ||= DateTime.now
-  end
 end
