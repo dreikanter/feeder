@@ -22,6 +22,13 @@ namespace :feeder do
     stale_feeds.each do |feed|
       # TODO: Exclude inactive feeds from stale scope
       Import.call(feed) if feed.active?
+    rescue StandardError => e
+      ErrorDumper.call(
+        exception: e,
+        message: 'Error importing feed',
+        target: feed
+      )
+      next
     end
   end
 end
