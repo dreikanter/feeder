@@ -49,7 +49,7 @@ class Import
   end
 
   def errors_count
-    normalized_entities.compact.count do |entity|
+    normalized_entities.count do |entity|
       entity.status != PostStatus.ready
     end
   end
