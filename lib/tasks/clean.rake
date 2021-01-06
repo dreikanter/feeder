@@ -3,5 +3,7 @@ namespace :feeder do
   task clean: :environment do
     count = PurgeDataPoints.call
     Rails.logger.info("#{count} old data points purged")
+    count = PurgeErrors.call
+    Rails.logger.info("#{count} old errors purged")
   end
 end
