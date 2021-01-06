@@ -41,7 +41,7 @@ class NormalizedEntity
       feed_id: feed_id,
       uid: uid,
       link: link,
-      published_at: published_at,
+      published_at: published_at.to_datetime,
       text: text,
       attachments: attachments,
       comments: comments,
