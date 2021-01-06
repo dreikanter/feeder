@@ -51,7 +51,7 @@ class NormalizedEntity
   end
 
   def published_at_or_default
-    published_at.to_datetime || DateTime.now
+    published_at ? published_at.to_datetime : DateTime.now
   end
 
   def feed_after
