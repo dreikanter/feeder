@@ -5,18 +5,23 @@ namespace :feeder do
     raise 'feed name is required' unless feed_name
     feed = Feed.active.find_by(name: feed_name)
     raise 'specified feed does not exist or inactive' unless feed
-    PullJob.perform_later(feed)
+    Import.call(feed)
   end
 
   desc 'Pull all feeds'
   task pull_all: :environment do
-    Feed.active.each do |feed|
-      PullJob.perform_later(feed)
-    end
+    Feed.active.each { |feed| Import.call(feed) }
   end
 
   desc 'Pull stale feeds'
   task pull_stale: :environment do
-    BatchPullJob.perform_later
+    stale_feeds = Feed.stale
+    logger.info("---> batch update: #{stale_feeds.count} feed(s)")
+    CreateDataPoint.call(:batch, feeds: stale_feeds.pluck(:name))
+
+    stale_feeds.each do |feed|
+      # TODO: Exclude inactive feeds from stale scope
+      Import.call(feed) if feed.active?
+    end
   end
 end

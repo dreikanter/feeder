@@ -21,8 +21,8 @@ class Import
       post = normalized_entity.find_or_create_post
       update_feed_timestamps
       next unless post.ready?
-      logger.info("---> scheduling post; uid: [#{post.uid}]")
-      PushJob.perform_later(post)
+      logger.info("---> publishing post; uid: [#{post.uid}]")
+      Push.call(post)
     end
   end
 
