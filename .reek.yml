@@ -130,6 +130,7 @@ detectors:
     - CreateErrors#change
     - CreateBlockedIps#change
   UtilityFunction:
+    public_methods_only: true
     exclude:
     - PullJob#perform
     - PushJob#perform
