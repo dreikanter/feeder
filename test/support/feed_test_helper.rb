@@ -4,6 +4,8 @@ module FeedTestHelper
   end
 
   def setup
+    Feed.delete_all
+
     stub_request(:get, feed_config.fetch(:url))
       .to_return(
         body: file_fixture(source_fixture_path).read,
@@ -11,14 +13,8 @@ module FeedTestHelper
       )
   end
 
-  def feed_defaults
-    {
-      id: 1
-    }
-  end
-
   def feed
-    @feed ||= build(:feed, feed_defaults.merge(feed_config))
+    @feed ||= create(:feed, feed_config)
   end
 
   def feed_config
