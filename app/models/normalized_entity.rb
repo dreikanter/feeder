@@ -11,7 +11,7 @@ class NormalizedEntity
   option :validation_errors, optional: true, default: -> { [] }
 
   def ==(other)
-    instance_values == other.instance_values
+    comparable_attributes(self) == comparable_attributes(other)
   end
 
   def stale?
@@ -60,5 +60,22 @@ class NormalizedEntity
 
   def feed
     @feed ||= Feed.find(feed_id)
+  end
+
+  COMPARABLE_ATTRIBUTES = %w[
+    feed_id
+    uid
+    link
+    published_at
+    text
+    attachments
+    comments
+    validation_errors
+  ].freeze
+
+  private_constant :COMPARABLE_ATTRIBUTES
+
+  def comparable_attributes(subject)
+    subject.instance_values.slice(*COMPARABLE_ATTRIBUTES)
   end
 end
