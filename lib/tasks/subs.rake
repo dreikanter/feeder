@@ -1,13 +1,13 @@
 namespace :feeder do
-  series_name = 'subs'.freeze
-  expiration_threshold = 2.hours.ago
-
-  # Limit for the amount of feeds to be updated in one batch. Updates frequency
-  # will depend on this setting and cron configuration for the current task.
-  throttling_limit = 5
-
   desc 'Update Freefeed subscriptions count'
   task subs: :environment do
+    series_name = 'subs'
+    expiration_threshold = 2.hours.ago
+
+    # Limit for the amount of feeds to be updated in one batch. Updates frequency
+    # will depend on this setting and cron configuration for the current task.
+    throttling_limit = 5
+
     # TODO: Move to a query class and test auto-rotation
     recently_updated_feed_names = DataPoint
       .for(series_name)
