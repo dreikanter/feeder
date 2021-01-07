@@ -55,4 +55,4 @@ jobs:
         bundle config set without 'test'
         bundle install --jobs 4 --retry 3
     - name: Run Reek
-      run: bundle exec reek
+      run: bundle exec reek --single-line .
