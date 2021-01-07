@@ -30,8 +30,6 @@ module Feeder
     config.hosts << 'feeder.local'
     config.hosts << 'frf.im'
 
-    config.active_job.queue_adapter = :delayed_job
-
     config.generators do |g|
       g.test_framework :minitest, spec: false, fixture: false
       g.controller_specs false
