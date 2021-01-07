@@ -15,6 +15,16 @@ class ImportTest < Minitest::Test
     Feed.delete_all
     Post.delete_all
     stub_feed_loader_request('feeds/test_feed.json')
+
+    stub_request(:post, 'https://candy.freefeed.net/v1/posts')
+      .to_return(
+        headers: { 'Content-Type' => 'application/json' },
+        body: {
+          posts: {
+            id: 1
+          }
+        }.to_json
+      )
   end
 
   FEED_URL = 'https://example.com/sample_feed'
@@ -37,17 +47,13 @@ class ImportTest < Minitest::Test
     stub_request(:get, FEED_URL).to_return(body: file_fixture(fixture_path))
   end
 
-  EXPECTED_JOBS_COUNT = 2
-  EXPECTED_POSTS_COUNT = 2
-  EXPECTED_ERRORS_COUNT = 1
+  EXPECTED_PUBLISHED_POSTS_COUNT = 2
+  EXPECTED_ERRORED_POSTS_COUNT = 1
 
   def test_call
-    assert_enqueued_jobs(EXPECTED_JOBS_COUNT, only: PushJob) do
-      subject.call(feed)
-    end
-
-    assert_equal(posts.ready.count, EXPECTED_POSTS_COUNT)
-    assert_equal(posts.ignored.count, EXPECTED_ERRORS_COUNT)
+    subject.call(feed)
+    assert_equal(EXPECTED_PUBLISHED_POSTS_COUNT, posts.published.count)
+    assert_equal(EXPECTED_ERRORED_POSTS_COUNT, posts.ignored.count)
   end
 
   def data_point
@@ -68,7 +74,7 @@ class ImportTest < Minitest::Test
   def test_create_data_point
     subject.call(feed)
     assert_equal(details['feed_name'], 'test')
-    assert_equal(details['posts_count'], EXPECTED_POSTS_COUNT + EXPECTED_ERRORS_COUNT)
-    assert_equal(details['errors_count'], EXPECTED_ERRORS_COUNT)
+    assert_equal(details['posts_count'], EXPECTED_PUBLISHED_POSTS_COUNT + EXPECTED_ERRORED_POSTS_COUNT)
+    assert_equal(details['errors_count'], EXPECTED_ERRORED_POSTS_COUNT)
   end
 end
