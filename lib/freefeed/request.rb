@@ -22,7 +22,7 @@ module Freefeed
     private
 
     def uri
-      Logger.new($stdout).info(client.base_url=="#{client.base_url} path==#{path}")
+      Logger.new($stdout).info("client.base_url==#{client.base_url} path==#{path}")
       @uri ||= URI.parse(client.base_url + path).to_s
     end
 
