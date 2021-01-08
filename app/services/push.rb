@@ -45,6 +45,9 @@ class Push
     )
 
     response.parse.dig('posts', 'id')
+  rescue => e
+    Logger.new($stdout).info(JSON.pretty_generate(e.backtrace))
+    raise
   end
 
   def create_comments(post_id)
