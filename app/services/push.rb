@@ -22,6 +22,18 @@ class Push
   end
 
   def create_post(attachment_ids)
+    logger.info(
+      JSON.pretty_generate(
+        post: {
+          body: post.text,
+          attachments: attachment_ids
+        },
+        meta: {
+          feeds: [post.feed.name]
+        }
+      )
+    )
+
     response = freefeed.create_post(
       post: {
         body: post.text,
