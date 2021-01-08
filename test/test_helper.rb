@@ -29,6 +29,7 @@ module Minitest
 
     # TODO: Replace with Rails transactional tests
     def setup
+      Feed.delete_all
       DatabaseCleaner.start
     end
 
