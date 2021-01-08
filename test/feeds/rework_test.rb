@@ -12,15 +12,11 @@ class ReworkTest < Minitest::Test
     }
   end
 
-  def expected_fixture_path
-    'entities/rework.json'
+  def source_fixture_path
+    'feeds/rework.xml'
   end
 
-  def setup
-    stub_request(:get, 'https://feeds.transistor.fm/rework')
-      .to_return(
-        body: file_fixture('feeds/rework.xml'),
-        headers: { 'Content-Type' => 'text/xml' }
-      )
+  def expected_fixture_path
+    'entities/rework.json'
   end
 end

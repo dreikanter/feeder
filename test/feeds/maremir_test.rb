@@ -12,12 +12,8 @@ class MaremirTest < Minitest::Test
     }
   end
 
-  def setup
-    stub_request(:get, 'http://maremir.org/feed/')
-      .to_return(
-        headers: { 'Content-Type' => 'text/xml' },
-        body: file_fixture('feeds/maremir.xml')
-      )
+  def source_fixture_path
+    'feeds/maremir.xml'
   end
 
   def expected_fixture_path

@@ -11,6 +11,8 @@ class DownloaderTest < Minitest::Test
   CONTENT_TYPE = 'image/png'
 
   def setup
+    super
+
     stub_request(:get, SAMPLE_URL)
       .to_return(
         body: file_fixture('1x1.png'),

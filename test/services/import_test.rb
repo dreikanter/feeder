@@ -12,8 +12,7 @@ class ImportTest < Minitest::Test
   end
 
   def setup
-    Feed.delete_all
-    Post.delete_all
+    super
     stub_feed_loader_request('feeds/test_feed.json')
 
     stub_request(:post, 'https://candy.freefeed.net/v1/posts')

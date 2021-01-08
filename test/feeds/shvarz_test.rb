@@ -12,12 +12,8 @@ class ShvarzTest < Minitest::Test
     }
   end
 
-  def setup
-    stub_request(:get, 'https://shvarz.livejournal.com/data/rss')
-      .to_return(
-        body: file_fixture('feeds/shvarz.xml'),
-        headers: { 'Content-Type' => 'text/xml' }
-      )
+  def source_fixture_path
+    'feeds/shvarz.xml'
   end
 
   def expected_fixture_path

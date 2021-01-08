@@ -12,12 +12,8 @@ class OatmealTest < Minitest::Test
     }
   end
 
-  def setup
-    stub_request(:get, 'https://feeds.feedburner.com/oatmealfeed')
-      .to_return(
-        headers: { 'Content-Type' => 'text/xml' },
-        body: file_fixture('feeds/oatmeal.xml')
-      )
+  def source_fixture_path
+    'feeds/oatmeal.xml'
   end
 
   def expected_fixture_path

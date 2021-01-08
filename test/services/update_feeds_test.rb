@@ -27,7 +27,7 @@ class UpdateFeedsTest < Minitest::Test
   end
 
   def setup
-    Feed.delete_all
+    super
   end
 
   def test_names_match_config

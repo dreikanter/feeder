@@ -4,8 +4,11 @@ module FeedTestHelper
   end
 
   def setup
-    Feed.delete_all
+    super
+    setup_stubs
+  end
 
+  def setup_stubs
     stub_request(:get, feed_config.fetch(:url))
       .to_return(
         body: file_fixture(source_fixture_path).read,

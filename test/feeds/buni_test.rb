@@ -3,6 +3,7 @@ require 'test_helper'
 class BuniTest < Minitest::Test
   include FeedTestHelper
 
+  # Compare the whole feed instead of the first entiry
   def subject
     Pull.call(feed)
   end

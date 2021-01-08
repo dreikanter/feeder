@@ -10,8 +10,7 @@ class PullTest < Minitest::Test
   end
 
   def setup
-    Feed.delete_all
-    Post.delete_all
+    super
   end
 
   FEED_URL = 'https://example.com/sample_feed'

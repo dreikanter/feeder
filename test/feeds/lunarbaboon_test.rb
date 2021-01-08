@@ -12,12 +12,8 @@ class LunarbaboonTest < Minitest::Test
     }
   end
 
-  def setup
-    stub_request(:get, 'http://www.lunarbaboon.com/comics/rss.xml')
-      .to_return(
-        body: file_fixture('feeds/lunarbaboon.xml'),
-        headers: { 'Content-Type' => 'text/xml' }
-      )
+  def source_fixture_path
+    'feeds/lunarbaboon.xml'
   end
 
   def expected_fixture_path
