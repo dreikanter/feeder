@@ -5,6 +5,12 @@ class UpdateFeedsTest < Minitest::Test
     UpdateFeeds
   end
 
+  def teardown
+    super
+    logger.info("FEEDS BEFORE TEARDOWN: #{Feed.count}")
+    Feed.delete_all
+  end
+
   SAMPLE_CONFIG_PATH =
     File.expand_path('../data/feeds.yml', __dir__).freeze
 
