@@ -19,6 +19,8 @@ require_relative './custom_assertions'
 require_relative './support/feed_test_helper'
 require_relative './support/normalizer_test_helper'
 
+require 'logger'
+
 DatabaseCleaner.strategy = :transaction
 WebMock.enable!
 
@@ -30,7 +32,7 @@ module Minitest
     # TODO: Replace with Rails transactional tests
     def setup
       DatabaseCleaner.start
-      ::Rails.logger.info("--> TEST SETUP: Feeds: #{Feed.count}")
+      Logger.new($stdout).info("--> TEST SETUP: Feeds: #{Feed.count}")
     end
 
     def teardown
