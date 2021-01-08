@@ -17,6 +17,7 @@ module FeedTestHelper
   end
 
   def feed
+    ::Rails.logger.info("FIND OR CREATE FEED: Feed.count == #{Feed.count}; feed_config == #{feed_config}")
     @feed ||= create(:feed, feed_config)
   end
 
@@ -49,7 +50,11 @@ module FeedTestHelper
   end
 
   def test_entity_normalization
-    assert_equal(expected, subject, error_message)
+    assert_equal(
+      expected,
+      subject,
+      error_message
+    )
   end
 
   def error_message
