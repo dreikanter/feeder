@@ -9,10 +9,6 @@ class PullTest < Minitest::Test
     Pull
   end
 
-  def setup
-    super
-  end
-
   FEED_URL = 'https://example.com/sample_feed'
 
   def feed
