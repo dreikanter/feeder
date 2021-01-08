@@ -22,7 +22,7 @@ class Push
   end
 
   def create_post(attachment_ids)
-    logger.info(
+    Logger.new($stdout).info(
       JSON.pretty_generate(
         post: {
           body: post.text,
