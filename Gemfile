@@ -39,12 +39,16 @@ gem 'dry-types', '~> 0.13.2'
 gem 'dry-validation', '~> 0.12.2'
 gem 'enu', '~> 0.1.2'
 gem 'feedjira', '~> 2.2'
-gem 'freefeed', '~> 0.5.4'
 gem 'honeybadger', '~> 4.0'
+gem 'http', '~> 3.3.0'
 gem 'js-routes', '~> 1.4', '>= 1.4.6'
 gem 'lograge', '~> 0.3.6'
+gem 'mimemagic', '>= 0.3.3'
 gem 'nokogiri', '~> 1.11'
 gem 'pg', '~> 1.1', '>= 1.1.3'
+
+# TODO: Replace with `http` gem
 gem 'rest-client', '~> 2.0'
+
 gem 'twitter', '~> 6.2'
 gem 'webpacker', '~> 4.0', '>= 4.0.2'

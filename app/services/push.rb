@@ -21,6 +21,7 @@ class Push
     raise
   end
 
+  # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   def create_post(attachment_ids)
     Logger.new($stdout).info(
       JSON.pretty_generate(
@@ -45,10 +46,11 @@ class Push
     )
 
     response.parse.dig('posts', 'id')
-  rescue => e
+  rescue StandardError => e
     Logger.new($stdout).info(JSON.pretty_generate(e.backtrace))
     raise
   end
+  # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 
   def create_comments(post_id)
     post.comments.each do |comment|

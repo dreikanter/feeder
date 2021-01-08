@@ -7,8 +7,6 @@ class UpdateFeedsTest < Minitest::Test
 
   def teardown
     super
-    logger.info("FEEDS BEFORE TEARDOWN: #{Feed.count}")
-    Feed.delete_all
   end
 
   SAMPLE_CONFIG_PATH =
