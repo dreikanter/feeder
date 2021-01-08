@@ -22,6 +22,7 @@ module Freefeed
     private
 
     def uri
+      Rails.logger.info(client.base_url=="#{client.base_url} path==#{path}")
       @uri ||= URI.parse(client.base_url + path).to_s
     end
 
