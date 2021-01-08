@@ -30,8 +30,7 @@ module Minitest
     # TODO: Replace with Rails transactional tests
     def setup
       DatabaseCleaner.start
-      Rails.logger.info('--> TEST SETUP')
-      Rails.logger.info("Feeds: #{Feed.count}")
+      ::Rails.logger.info("--> TEST SETUP: Feeds: #{Feed.count}")
     end
 
     def teardown
