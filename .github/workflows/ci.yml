@@ -117,7 +117,7 @@ jobs:
           WITH_COVERAGE: true
           DISABLE_SPRING: 1
         run: |
-          bundle exec rails db:drop db:setup
+          bundle exec rails db:reset
           bundle exec rails test
 
       - name: Upload code coverage
