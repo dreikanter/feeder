@@ -43,7 +43,6 @@ class UpdateSubscriptionsCountTest < Minitest::Test
   end
 
   def test_update_subscriptions_count
-    ::Rails.logger.info("feed.name == #{feed.name}")
     subject.call(feed.name)
     feed.reload
     assert_equal(SUBSCRIBERS_COUNT, feed.subscriptions_count)
