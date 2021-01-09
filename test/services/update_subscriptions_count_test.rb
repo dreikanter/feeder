@@ -42,11 +42,6 @@ class UpdateSubscriptionsCountTest < Minitest::Test
     Rails.application.credentials.freefeed_base_url
   end
 
-  # def test_perform
-  #   result = subject.call(feed.name)
-  #   assert_equal(SUBSCRIBERS_COUNT, result)
-  # end
-
   def test_update_subscriptions_count
     subject.call(feed.name)
     feed.reload

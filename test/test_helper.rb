@@ -8,6 +8,7 @@ require File.expand_path('../config/environment', __dir__)
 
 require 'rails/test_help'
 require 'database_cleaner'
+require 'logger'
 require 'minitest/rails'
 require 'minitest/pride'
 require 'minitest/spec'
@@ -48,6 +49,10 @@ module Minitest
       value = entity['published_at']
       entity['published_at'] = DateTime.parse(value) if value
       NormalizedEntity.new(entity.merge(attributes).symbolize_keys)
+    end
+
+    def logger
+      @logger ||= Logger.new($stdout)
     end
 
     private

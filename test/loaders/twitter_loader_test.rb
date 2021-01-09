@@ -18,6 +18,7 @@ class TwitterLoaderTest < Minitest::Test
 
   SAMPLE_RESULT = [].freeze
 
+  # TODO: Use WebMock
   def twitter_client_mock
     client = mock
     client.stubs(:user_timeline).returns(SAMPLE_RESULT)
