@@ -8,7 +8,6 @@ services:
   app:
     build: .
     environment:
-      RACK_ENV: development
       RAILS_ENV: development
       DATABASE_URL: postgresql://postgres:postgres@postgres:5432/feeder_development
       WEBPACKER_DEV_SERVER_HOST: webpack
@@ -39,7 +38,6 @@ services:
     build: .
     environment:
       NODE_ENV: development
-      RACK_ENV: development
       RAILS_ENV: development
       WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
       BUNDLE_PATH: /bundle
@@ -54,7 +52,6 @@ services:
   runner:
     build: .
     environment:
-      RACK_ENV: development
       RAILS_ENV: development
       DATABASE_URL: postgresql://postgres:postgres@postgres:5432/feeder_development?pool=5
       WEBPACKER_DEV_SERVER_HOST: webpack
