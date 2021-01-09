@@ -29,6 +29,8 @@ module Feeder
 
     config.hosts << 'feeder.local'
     config.hosts << 'frf.im'
+    config.hosts << 'localhost'
+    config.hosts << 'app'
 
     config.generators do |g|
       g.test_framework :minitest, spec: false, fixture: false
