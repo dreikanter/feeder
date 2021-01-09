@@ -45,12 +45,6 @@ module Feeder
       g.view_specs       false
     end
 
-    config.lograge.enabled = true
-    config.lograge.custom_options = lambda do |event|
-      params = event.payload[:params].except('controller', 'action')
-      { params: params } unless params.empty?
-    end
-
     # Turn off Rails Asset Pipeline
     # config.assets.enabled = false
   end
