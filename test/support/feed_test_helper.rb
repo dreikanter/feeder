@@ -17,7 +17,6 @@ module FeedTestHelper
   end
 
   def feed
-    logger.info("FIND OR CREATE FEED: Feed.count == #{Feed.count}; feed_config == #{feed_config}")
     @feed ||= create(:feed, feed_config)
   end
 
