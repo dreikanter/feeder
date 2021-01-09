@@ -13,11 +13,7 @@ class TomorrowsTest < Minitest::Test
   end
 
   def setup
-    stub_request(:get, 'http://365tomorrows.com/feed/')
-      .to_return(
-        body: file_fixture('feeds/tomorrows.xml'),
-        headers: { 'Content-Type' => 'text/xml' }
-      )
+    super
 
     stub_request(:get, %r{https://365tomorrows.com/\d+/.*})
       .to_return(
@@ -26,7 +22,11 @@ class TomorrowsTest < Minitest::Test
       )
   end
 
-  def fixture_path
+  def source_fixture_path
+    'feeds/tomorrows.xml'
+  end
+
+  def expected_fixture_path
     'entities/tomorrows.json'
   end
 end

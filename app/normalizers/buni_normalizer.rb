@@ -20,7 +20,7 @@ class BuniNormalizer < FeedjiraNormalizer
   private
 
   def title
-    image_title = image[:alt]
+    image_title = image.try(:[], :alt)
     image_title.blank? ? content.title : image_title
   end
 
@@ -48,7 +48,7 @@ class BuniNormalizer < FeedjiraNormalizer
   WEBTOONS_DOMAIN = /webtoons\.com/.freeze
 
   def webtoons?
-    @webtoons ||= URI.parse(first_url).hostname.to_s.match?(WEBTOONS_DOMAIN)
+    @webtoons ||= !!first_url && URI.parse(first_url).hostname.to_s.match?(WEBTOONS_DOMAIN)
   end
 
   def first_url

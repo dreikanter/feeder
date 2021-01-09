@@ -1,11 +1,14 @@
-require 'simplecov'
-SimpleCov.start('rails')
+if ENV['WITH_COVERAGE']
+  require 'simplecov'
+  SimpleCov.start('rails')
+end
 
 ENV['RAILS_ENV'] = 'test'
 require File.expand_path('../config/environment', __dir__)
 
 require 'rails/test_help'
 require 'database_cleaner'
+require 'logger'
 require 'minitest/rails'
 require 'minitest/pride'
 require 'minitest/spec'
@@ -40,12 +43,17 @@ module Minitest
     end
 
     # TODO: Move to a factory
+    # :reek:FeatureEnvy
     def normalized_entity_fixture(path, attributes = {})
       file = file_fixture(path, scope: 'normalized_entities')
       entity = JSON.parse(file.read)
       value = entity['published_at']
       entity['published_at'] = DateTime.parse(value) if value
       NormalizedEntity.new(entity.merge(attributes).symbolize_keys)
+    end
+
+    def logger
+      @logger ||= Logger.new($stdout)
     end
 
     private

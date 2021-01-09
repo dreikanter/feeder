@@ -8,6 +8,8 @@ class SmbcNormalizerTest < Minitest::Test
   end
 
   def setup
+    super
+
     stub_request(:get, 'https://www.smbc-comics.com/comic/back')
       .to_return(body: sample_post)
 

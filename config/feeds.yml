@@ -2,103 +2,103 @@
 - name: "xkcd"
   url: "https://xkcd.com/rss.xml"
   processor: "rss"
-  after: "2018-09-15T00:00:00+00:00"
+  after: "2021-01-04T12:00:00+00:00"
   refresh_interval: 600
 
 - name: "oglaf"
   url: "https://www.oglaf.com/feeds/rss/"
   processor: "rss"
   normalizer: "oglaf"
-  after: "2018-09-18T00:00:00+00:00"
   refresh_interval: 1200
+  after: "2021-01-04T12:00:00+00:00"
   import_limit: 10
 
 - name: "phdcomics"
   url: "https://feeds.feedburner.com/PhdComics"
   processor: "rss"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 86400
 
 - name: "commitstrip"
   url: "https://www.commitstrip.com/en/feed/"
   processor: "feedjira"
-  after: "2020-03-30T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 7200
 
 - name: "dilbert"
   url: "https://dilbert.com/feed"
   processor: "atom"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-04T12:00:00+00:00"
   refresh_interval: 1800
 
 - name: "rllivejournal"
   url: "https://r-l.livejournal.com/data/rss"
   processor: "rss"
   normalizer: "livejournal"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 3600
 
 # NOTE: Feed is inactive since 2017; HTTPS is not supported
 # - name: "nichtlustig-de"
 #   url: "http://static.nichtlustig.de/rss/nichtrss.rss"
 #   processor: "rss"
-#   after: "2018-09-18T00:00:00+00:00"
+#   after: "2021-01-06T12:00:00+00:00"
 #   refresh_interval: 86400
 
 - name: "oatmeal"
   url: "https://feeds.feedburner.com/oatmealfeed"
   processor: "rss"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 3600
 
 - name: "wumo"
   url: "https://wumo.com/wumo?view=rss"
   processor: "rss"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 3600
 
 - name: "kamillalinder-medium"
   url: "https://medium.com/feed/@kamillalinder"
   processor: "rss"
   normalizer: "medium"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 7200
 
 - name: "signalvnoise-medium"
   url: "https://m.signalvnoise.com/feed"
   processor: "rss"
   normalizer: "medium"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 3600
 
 - name: "github-blog"
   url: "https://github.com/blog/all.atom"
   processor: "atom"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 3600
 
 - name: "explosm-comics"
   url: "https://feeds.feedburner.com/Explosm"
   processor: "rss"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 3600
 
 - name: "the-atlantic-photos"
   url: "https://feeds.feedburner.com/theatlantic/infocus"
   processor: "rss"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 3600
 
 # - name: "esquire-photos"
 #   url: "https://feeds.feedburner.com/esquire-ru"
 #   processor: "rss"
-#   after: "2018-09-18T00:00:00+00:00"
+#   after: "2021-01-06T12:00:00+00:00"
 
 - name: "best-of-hacker-news"
   loader: "null"
   processor: "hacker_news"
   normalizer: "hacker_news"
-  after: "2018-09-18T20:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 600
   import_limit: 10
 
@@ -106,7 +106,7 @@
   url: "https://www.reddit.com/r/worldnews/.rss"
   processor: "reddit"
   normalizer: "reddit"
-  after: "2019-07-04T14:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 600
   import_limit: 10
 
@@ -114,14 +114,14 @@
 #   url: "https://tele.ga/avokado_fm/rss/"
 #   processor: "rss"
 #   normalizer: "telega"
-#   after: "2018-09-18T00:00:00+00:00"
+#   after: "2021-01-06T12:00:00+00:00"
 #   refresh_interval: 7200
 
 # - name: "ecologica"
 #   url: "https://vkrss.com/ecologicaspb?key=EW9tJd7ZI8iGBQyg"
 #   processor: "rss"
 #   normalizer: "vk_rss"
-#   after: "2018-09-18T00:00:00+00:00"
+#   after: "2021-01-06T12:00:00+00:00"
 #   refresh_interval: 1200
 
 - name: "f28a"
@@ -129,28 +129,28 @@
   url: https://feeds.feedburner.com/tumblr/bAzd
   processor: "rss"
   normalizer: "f28a"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 3600
 
 - name: "agavr-today"
   url: "https://tele.ga/agavr_today/rss/"
   processor: "rss"
   normalizer: "agavr_today"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 600
 
 - name: "vdud"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCMCgOm8GZkHp8zJ6l7_hIuA"
   processor: "youtube"
   normalizer: "vdud"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 600
 
 - name: "parfenon"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCbhMGG0ZievPtK8mzLH5jhQ"
   processor: "youtube"
   normalizer: "youtube"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 1200
 
 - name: "myjetpack"
@@ -158,14 +158,14 @@
   url: "https://feeds.feedburner.com/tumblr/uOke"
   processor: "rss"
   normalizer: "my_jetpack"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 1200
 
 - name: "codinghorror"
   url: "https://feeds.feedburner.com/codinghorror"
   processor: "rss"
   normalizer: "coding_horror"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 7200
 
 - name: "little-big-details"
@@ -173,28 +173,28 @@
   url: "https://feeds.feedburner.com/littlebigdetails/wJCD"
   processor: "rss"
   normalizer: "little_big_details"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 86400
 
 - name: "blitz-and-chips"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCRQEBFeG3lTMDEIUtQulzLg"
   processor: "youtube"
   normalizer: "youtube"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 7200
 
 - name: "jimmydiresta"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCiEk4xHBbz0hZNIBBpowdYQ"
   processor: "youtube"
   normalizer: "youtube"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 7200
 
 - name: "confreaks"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCWnPjmqvljcafA0z2U1fwKQ"
   processor: "youtube"
   normalizer: "youtube"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 3600
 
 - name: "theycantalk"
@@ -202,7 +202,7 @@
   url: "https://feeds.feedburner.com/theycantalk/xFcE"
   processor: "rss"
   normalizer: "theycantalk"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 600
 
 # NOTE: HTTPS is not supported
@@ -210,63 +210,63 @@
   url: "http://maremir.org/feed/"
   processor: "rss"
   normalizer: "maremir"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 86400
 
 - name: "sarahcandersen"
   url: "https://feeds.feedburner.com/sarahcandersen/koPM"
   processor: "rss"
   normalizer: "sarah_andersen"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 600
 
 - name: "newflux"
   url: "https://newflux.fr/feed/"
   processor: "feedjira"
   normalizer: "newflux"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 1200
 
 - name: "blogdummi"
   url: "https://blogdummi.fr/feed/"
   processor: "wordpress"
   normalizer: "blogdummi"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 86400
 
 - name: "waitbutwhy"
   url: "https://waitbutwhy.com/feed"
   processor: "wordpress"
   normalizer: "waitbutwhy"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 86400
 
 - name: "savagechickens"
   url: "https://www.savagechickens.com/feed"
   processor: "wordpress"
   normalizer: "savagechickens"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 300
 
 - name: "poorlydrawnlines"
   url: "https://feeds.feedburner.com/PoorlyDrawnLines"
   processor: "feedjira"
   normalizer: "poorlydrawnlines"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 300
 
 - name: "kimchicuddles"
   url: "https://kimchicuddles.com/rss"
   processor: "feedjira"
   normalizer: "tumblr_normalizer"
-  after: "2018-09-18T00:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 600
 
 # - name: "kimchicuddlesrus"
 #   url: "https://kimchicuddlesrus.com"
 #   processor: "kimchicuddlesrus"
 #   normalizer: "kimchicuddlesrus"
-#   after: "2018-09-18T00:00:00+00:00"
+#   after: "2021-01-06T12:00:00+00:00"
 
 - name: "aerostatica"
   url: "https://feeds.feedburner.com/aerostatica"
@@ -287,7 +287,7 @@
   normalizer: "twitter"
   refresh_interval: 86400
   import_limit: 5
-  after: "2020-09-06T12:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   options:
     twitter_user: "alg_testament"
     ignore_retweets: true
@@ -298,7 +298,7 @@
   normalizer: "twitter"
   refresh_interval: 1200
   import_limit: 5
-  after: "2020-09-06T12:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   options:
     twitter_user: "extrafabulous"
     only_with_attachments: true
@@ -310,7 +310,7 @@
   normalizer: "twitter"
   refresh_interval: 1200
   import_limit: 5
-  after: "2020-09-06T12:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   options:
     twitter_user: "bojackhorseman"
     ignore_retweets: true
@@ -321,6 +321,7 @@
   normalizer: "nextbigfuture"
   refresh_interval: 1800
   import_limit: 5
+  after: "2021-01-06T12:00:00+00:00"
 
 - name: "nepozner"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCNRYbltJXhf6DepS26-uSbQ"
@@ -328,6 +329,7 @@
   normalizer: "youtube"
   refresh_interval: 1800
   import_limit: 10
+  after: "2021-01-06T12:00:00+00:00"
 
 - name: "jakelikesonions"
   loader: "twitter"
@@ -335,7 +337,7 @@
   normalizer: "twitter"
   refresh_interval: 1200
   import_limit: 5
-  after: "2020-09-06T12:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   options:
     twitter_user: "jakelikesonions"
     only_with_attachments: true
@@ -347,7 +349,7 @@
   normalizer: "twitter"
   refresh_interval: 1200
   import_limit: 5
-  after: "2020-09-06T12:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   options:
     twitter_user: "CatsCafeComics"
     only_with_attachments: true
@@ -359,7 +361,7 @@
   normalizer: "twitter"
   refresh_interval: 1200
   import_limit: 5
-  after: "2020-09-06T12:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   options:
     twitter_user: "hackernewsonion"
     ignore_retweets: true
@@ -370,6 +372,7 @@
   normalizer: "bazar"
   refresh_interval: 1800
   import_limit: 5
+  after: "2021-01-06T12:00:00+00:00"
 
 - name: "rework"
   url: "https://feeds.transistor.fm/rework"
@@ -377,6 +380,7 @@
   normalizer: "rework"
   refresh_interval: 1800
   import_limit: 2
+  after: "2021-01-06T12:00:00+00:00"
 
 - name: "nathanwpyle"
   loader: "twitter"
@@ -384,7 +388,7 @@
   normalizer: "twitter"
   refresh_interval: 1200
   import_limit: 10
-  after: "2020-09-06T12:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   options:
     twitter_user: "nathanwpyle"
     only_with_attachments: true
@@ -396,6 +400,7 @@
   normalizer: "smbc"
   refresh_interval: 1800
   import_limit: 10
+  after: "2021-01-06T12:00:00+00:00"
 
 - name: "officetalk"
   url: "https://tele.ga/office_talk/rss/"
@@ -403,6 +408,7 @@
   normalizer: "telega_basic"
   refresh_interval: 1800
   import_limit: 10
+  after: "2021-01-06T12:00:00+00:00"
 
 - name: "infiniteimmortalbens"
   url: "https://infiniteimmortalbens.com/feed/"
@@ -410,6 +416,7 @@
   normalizer: "infiniteimmortalbens"
   refresh_interval: 600
   import_limit: 10
+  after: "2021-01-06T12:00:00+00:00"
 
 - name: "schneier"
   url: "https://www.schneier.com/blog/atom.xml"
@@ -417,6 +424,7 @@
   normalizer: "schneier"
   refresh_interval: 1200
   import_limit: 10
+  after: "2021-01-06T12:00:00+00:00"
 
 - name: "monkeyuser"
   url: "https://www.monkeyuser.com/feed.xml"
@@ -424,6 +432,7 @@
   normalizer: "monkeyuser"
   refresh_interval: 1200
   import_limit: 10
+  after: "2021-01-06T12:00:00+00:00"
 
 - name: "warandpeas"
   loader: "twitter"
@@ -431,7 +440,7 @@
   normalizer: "twitter"
   refresh_interval: 1200
   import_limit: 10
-  after: "2020-09-06T12:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   options:
     twitter_user: "warandpeass"
     only_with_attachments: true
@@ -455,6 +464,7 @@
   normalizer: "redakciya"
   refresh_interval: 3600
   import_limit: 10
+  after: "2021-01-06T12:00:00+00:00"
 
 - name: "safelyendangered"
   loader: "twitter"
@@ -462,7 +472,7 @@
   normalizer: "twitter"
   refresh_interval: 3600
   import_limit: 10
-  after: "2020-09-06T12:00:00+00:00"
+  after: "2021-01-06T12:00:00+00:00"
   options:
     twitter_user: "endangeredcomic"
     only_with_attachments: true
@@ -474,6 +484,8 @@
   normalizer: "kurzgesagt"
   refresh_interval: 3600
   import_limit: 10
+  after: "2021-01-06T12:00:00+00:00"
+
 
 # - name: "system32comics"
 #   loader: "instagram"
@@ -499,6 +511,7 @@
   normalizer: "buni"
   import_limit: 10
   refresh_interval: 3600
+  after: "2021-01-06T12:00:00+00:00"
 
 - name: "lunarbaboon"
   url: "http://www.lunarbaboon.com/comics/rss.xml"
@@ -506,33 +519,39 @@
   normalizer: "lunarbaboon"
   import_limit: 10
   refresh_interval: 3600
+  after: "2021-01-06T12:00:00+00:00"
 
 - name: "shvarz"
   url: "https://shvarz.livejournal.com/data/rss"
   processor: "rss"
   normalizer: "livejournal"
   refresh_interval: 3600
+  after: "2021-01-06T12:00:00+00:00"
 
 - name: "schooloflife"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UC7IcJI8PUf5Z3zKxnZvTBog"
   processor: "youtube"
   normalizer: "youtube"
   refresh_interval: 3600
+  after: "2021-01-06T12:00:00+00:00"
 
 - name: "365tomorrows"
   url: "https://365tomorrows.com/feed/"
   processor: "rss"
   normalizer: "tomorrows"
   refresh_interval: 3600
+  after: "2021-01-06T12:00:00+00:00"
 
 - name: "prof-afv"
   url: "https://prof-afv.livejournal.com/data/rss"
   processor: "rss"
   normalizer: "livejournal"
   refresh_interval: 3600
+  after: "2021-01-06T12:00:00+00:00"
 
 - name: "einzelganger"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCybBViio_TH_uiFFDJuz5tg"
   processor: "youtube"
   normalizer: "youtube"
   refresh_interval: 14400
+  after: "2021-01-06T12:00:00+00:00"

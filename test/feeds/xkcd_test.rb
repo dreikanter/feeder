@@ -12,15 +12,11 @@ class XkcdTest < Minitest::Test
     }
   end
 
-  def fixture_path
-    'entities/xkcd.json'
+  def source_fixture_path
+    'feeds/xkcd.xml'
   end
 
-  def setup
-    stub_request(:get, 'https://xkcd.com/rss.xml')
-      .to_return(
-        body: file_fixture('feeds/xkcd.xml').read,
-        headers: { 'Content-Type' => 'text/xml' }
-      )
+  def expected_fixture_path
+    'entities/xkcd.json'
   end
 end

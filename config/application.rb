@@ -30,8 +30,6 @@ module Feeder
     config.hosts << 'feeder.local'
     config.hosts << 'frf.im'
 
-    config.active_job.queue_adapter = :delayed_job
-
     config.generators do |g|
       g.test_framework :minitest, spec: false, fixture: false
       g.controller_specs false
@@ -53,12 +51,5 @@ module Feeder
 
     # Turn off Rails Asset Pipeline
     # config.assets.enabled = false
-
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins '*'
-        resource '*', headers: :any, methods: %i[get post put patch options]
-      end
-    end
   end
 end

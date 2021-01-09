@@ -26,10 +26,6 @@ class UpdateFeedsTest < Minitest::Test
       .map(&FeedSanitizer)
   end
 
-  def setup
-    Feed.delete_all
-  end
-
   def test_names_match_config
     subject.call(path: SAMPLE_CONFIG_PATH)
     actual_names = Feed.pluck(:name).to_set

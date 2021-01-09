@@ -14,11 +14,10 @@ class UpdateSubscriptionsCountTest < Minitest::Test
   end
 
   def setup
-    Feed.delete_all
-    DataPoint.delete_all
+    super
 
     stub_request(:get, "#{base_url}/v2/timelines/xkcd")
-      .with(headers: { 'Authorization' => "Bearer #{roken}" })
+      .with(headers: { 'Authorization' => "Bearer #{token}" })
       .to_return(
         body: response_body.to_json,
         headers: { 'Content-Type' => 'application/json' }
@@ -35,17 +34,12 @@ class UpdateSubscriptionsCountTest < Minitest::Test
     }
   end
 
-  def roken
+  def token
     Rails.application.credentials.freefeed_token
   end
 
   def base_url
     Rails.application.credentials.freefeed_base_url
-  end
-
-  def test_perform
-    result = subject.call(feed.name)
-    assert_equal(SUBSCRIBERS_COUNT, result)
   end
 
   def test_update_subscriptions_count

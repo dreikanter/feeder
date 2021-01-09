@@ -11,19 +11,23 @@ class NormalizedEntity
   option :validation_errors, optional: true, default: -> { [] }
 
   def ==(other)
-    instance_values == other.instance_values
+    comparable_attributes(self) == comparable_attributes(other)
+  end
+
+  def stale?
+    feed_after.present? && (published_at_or_default < feed_after)
   end
 
   def status
     validation_errors.none? ? PostStatus.ready : PostStatus.ignored
   end
 
-  def ready?
-    status == PostStatus.ready
-  end
-
   def find_or_create_post
     existing_post || create_post
+  end
+
+  def as_json
+    instance_values
   end
 
   private
@@ -37,12 +41,41 @@ class NormalizedEntity
       feed_id: feed_id,
       uid: uid,
       link: link,
-      published_at: published_at,
+      published_at: published_at_or_default,
       text: text,
       attachments: attachments,
       comments: comments,
       validation_errors: validation_errors,
       status: status
     )
+  end
+
+  def published_at_or_default
+    published_at ? published_at.to_datetime : DateTime.now
+  end
+
+  def feed_after
+    feed.after
+  end
+
+  def feed
+    @feed ||= Feed.find(feed_id)
+  end
+
+  COMPARABLE_ATTRIBUTES = %w[
+    feed_id
+    uid
+    link
+    published_at
+    text
+    attachments
+    comments
+    validation_errors
+  ].freeze
+
+  private_constant :COMPARABLE_ATTRIBUTES
+
+  def comparable_attributes(subject)
+    subject.instance_values.slice(*COMPARABLE_ATTRIBUTES)
   end
 end

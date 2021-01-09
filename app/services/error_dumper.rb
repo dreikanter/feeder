@@ -8,7 +8,7 @@ class ErrorDumper
   option :label, optional: true, default: -> { location.try(:label).to_s }
   option :line_number, optional: true, default: -> { extract_line_number }
   option :occured_at, optional: true, default: -> { DateTime.now }
-  option :target, optional: true, default: -> { nil }
+  option :target, optional: true, default: -> {}
   option :context, optional: true, default: -> { {} }
 
   option(
