@@ -49,6 +49,14 @@ Start dev environment bash console:
 
     docker-compose run runner bash
 
+Start Rails console:
+
+    docker-compose run runner bundle exec rails c
+
+Run test suite:
+
+    docker-compose run runner bundle exec rails test
+
 Stream logs:
 
     docker-compose logs -f app
@@ -66,4 +74,4 @@ Schedule Freefeed stats update:
 
 ## Communication
 
-If you have any questions or want to report a bug, please open an issue.
+If you have a question or want to report a bug, please open an issue.
