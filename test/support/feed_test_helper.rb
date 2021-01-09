@@ -49,11 +49,7 @@ module FeedTestHelper
   end
 
   def test_entity_normalization
-    assert_equal(
-      expected,
-      subject,
-      error_message
-    )
+    assert_equal(expected, subject, error_message)
   end
 
   def error_message
