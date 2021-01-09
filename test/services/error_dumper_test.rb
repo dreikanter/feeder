@@ -27,7 +27,6 @@ class ErrorDumperTest < Minitest::Test
   end
 
   def test_target
-    Feed.delete_all
     target = create(:feed)
     error = subject.call(target: target)
     assert_equal(target, error.target)
