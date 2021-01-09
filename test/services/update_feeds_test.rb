@@ -5,10 +5,6 @@ class UpdateFeedsTest < Minitest::Test
     UpdateFeeds
   end
 
-  def teardown
-    super
-  end
-
   SAMPLE_CONFIG_PATH =
     File.expand_path('../data/feeds.yml', __dir__).freeze
 
