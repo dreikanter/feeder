@@ -21,20 +21,7 @@ class Push
     raise
   end
 
-  # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   def create_post(attachment_ids)
-    Logger.new($stdout).info(
-      JSON.pretty_generate(
-        post: {
-          body: post.text,
-          attachments: attachment_ids
-        },
-        meta: {
-          feeds: [post.feed.name]
-        }
-      )
-    )
-
     response = freefeed.create_post(
       post: {
         body: post.text,
@@ -46,11 +33,7 @@ class Push
     )
 
     response.parse.dig('posts', 'id')
-  rescue StandardError => e
-    Logger.new($stdout).info(JSON.pretty_generate(e.backtrace))
-    raise
   end
-  # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 
   def create_comments(post_id)
     post.comments.each do |comment|
