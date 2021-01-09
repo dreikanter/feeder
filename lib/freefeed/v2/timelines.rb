@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :reek:DataClump
 module Freefeed
   module V2
     module Timelines
