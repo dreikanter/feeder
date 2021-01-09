@@ -10,7 +10,7 @@ services:
     environment:
       RACK_ENV: development
       RAILS_ENV: development
-      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/feeder_development?pool=5
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/feeder_development
       WEBPACKER_DEV_SERVER_HOST: webpack
       BUNDLE_PATH: /bundle
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails server -p 3000 -b 0.0.0.0"
