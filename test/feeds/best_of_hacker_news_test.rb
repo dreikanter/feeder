@@ -3,6 +3,10 @@ require 'test_helper'
 class BestOfHackerNewsTest < Minitest::Test
   include FeedTestHelper
 
+  def subject
+    Pull.call(feed)
+  end
+
   def feed_config
     {
       name: 'best-of-hacker-news',
@@ -43,8 +47,7 @@ class BestOfHackerNewsTest < Minitest::Test
     end
   end
 
-  def test_entity_normalization
-    data = subject
-    binding.pry
+  def expected_fixture_path
+    'entities/best_of_hacker_news.json'
   end
 end
