@@ -70,7 +70,7 @@ services:
       DATABASE_URL: postgresql://postgres:postgres@postgres:5432/feeder_test?pool=5
       BUNDLE_PATH: /bundle
       DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL: "true"
-    command: bash
+    command: bundle exec rails test
     depends_on:
       - postgres
     volumes:
