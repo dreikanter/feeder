@@ -98,7 +98,7 @@
   loader: "null"
   processor: "hacker_news"
   normalizer: "hacker_news"
-  after: "2021-01-06T12:00:00+00:00"
+  after: "2021-01-09T12:00:00+00:00"
   refresh_interval: 600
   import_limit: 10
 

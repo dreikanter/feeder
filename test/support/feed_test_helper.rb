@@ -5,15 +5,19 @@ module FeedTestHelper
 
   def setup
     super
-    setup_stubs
+    stub_feed_url if feed_url.present?
   end
 
-  def setup_stubs
-    stub_request(:get, feed_config.fetch(:url))
+  def stub_feed_url
+    stub_request(:get, feed_url)
       .to_return(
         body: file_fixture(source_fixture_path).read,
         headers: { 'Content-Type' => 'text/xml' }
       )
+  end
+
+  def feed_url
+    feed_config[:url]
   end
 
   def feed

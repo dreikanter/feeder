@@ -7,6 +7,7 @@ class LoaderResolver
   DEFAULT_LOADER = 'http'.freeze
 
   def call
+    return NullLoader unless feed.url
     matching_loader || raise("no matching loader for '#{feed.name}'")
   end
 
