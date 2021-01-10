@@ -4,11 +4,11 @@ require 'test_helper'
 require_relative '../support/test_processor'
 require_relative '../support/test_normalizer'
 
-class ImportTest < Minitest::Test
+class ProcessFeedTest < Minitest::Test
   include ActiveJob::TestHelper
 
   def subject
-    Import
+    ProcessFeed
   end
 
   def setup
