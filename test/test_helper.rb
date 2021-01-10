@@ -21,7 +21,6 @@ require_relative './support/feed_test_helper'
 require_relative './support/normalizer_test_helper'
 
 DatabaseCleaner.strategy = :transaction
-DatabaseCleaner.allow_remote_database_url = true
 WebMock.enable!
 
 module Minitest
