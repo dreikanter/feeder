@@ -49,20 +49,6 @@ services:
     ports:
       - 3035:3035
 
-  runner:
-    build: .
-    environment:
-      RAILS_ENV: development
-      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/feeder_development?pool=5
-      WEBPACKER_DEV_SERVER_HOST: webpack
-      BUNDLE_PATH: /bundle
-    command: bash
-    depends_on:
-      - postgres
-    volumes:
-      - .:/app
-      - bundle:/bundle
-
   test:
     build: .
     environment:

@@ -39,7 +39,7 @@ Build docker image:
 
 Install dependensies:
 
-    docker-compose run runner bin/setup
+    docker-compose run app bin/setup
 
 Start feeder web app:
 
@@ -47,15 +47,15 @@ Start feeder web app:
 
 Start dev environment bash console:
 
-    docker-compose run runner bash
+    docker-compose run app bash
 
 Start Rails console:
 
-    docker-compose run runner bundle exec rails c
+    docker-compose run app bundle exec rails c
 
 Run test suite:
 
-    docker-compose run runner bundle exec rails test
+    docker-compose run test
 
 Stream logs:
 
