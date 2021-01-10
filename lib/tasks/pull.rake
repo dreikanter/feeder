@@ -6,12 +6,12 @@ namespace :feeder do
     raise 'feed name is required' unless feed_name
     feed = Feed.active.find_by(name: feed_name)
     raise 'specified feed does not exist or inactive' unless feed
-    Import.call(feed)
+    ProcessFeed.call(feed)
   end
 
   desc 'Pull all feeds'
   task pull_all: :environment do
-    Feed.active.each { |feed| Import.call(feed) }
+    Feed.active.each { |feed| ProcessFeed.call(feed) }
   end
 
   desc 'Pull stale feeds'
@@ -31,11 +31,11 @@ namespace :feeder do
       CreateDataPoint.call(:batch, feeds: feeds.pluck(:name))
 
       feeds.each do |feed|
-        Import.call(feed) if feed.active?
+        ProcessFeed.call(feed) if feed.active?
       rescue StandardError => e
         ErrorDumper.call(
           exception: e,
-          message: 'Error importing feed',
+          message: 'Error processing feed',
           target: feed
         )
         next

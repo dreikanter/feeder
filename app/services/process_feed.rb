@@ -1,4 +1,4 @@
-class Import
+class ProcessFeed
   include Callee
 
   param :feed
