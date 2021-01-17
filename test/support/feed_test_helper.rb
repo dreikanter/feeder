@@ -53,6 +53,7 @@ module FeedTestHelper
   end
 
   def test_entity_normalization
+    # puts JSON.pretty_generate subject.as_json
     assert_equal(expected, subject, error_message)
   end
 

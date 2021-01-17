@@ -20,6 +20,9 @@ require_relative './custom_assertions'
 require_relative './support/feed_test_helper'
 require_relative './support/normalizer_test_helper'
 
+# NOTE: This line should be before #strategy definition
+# TODO: Get rid of DatabaseCleaner whenever possible
+DatabaseCleaner.allow_remote_database_url = true
 DatabaseCleaner.strategy = :transaction
 WebMock.enable!
 
@@ -28,7 +31,6 @@ module Minitest
     include ActiveSupport::Testing::TimeHelpers
     include FactoryBot::Syntax::Methods
 
-    # TODO: Replace with Rails transactional tests
     def setup
       DatabaseCleaner.start
     end

@@ -17,7 +17,7 @@ end
 
 group :development, :test do
   gem 'annotate', '~> 2.7', '>= 2.7.4'
-  gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
+  gem 'database_cleaner-active_record'
   gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
   gem 'listen', '~> 3.2'
   gem 'marginalia', '~> 1.5'

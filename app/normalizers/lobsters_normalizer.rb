@@ -14,6 +14,12 @@ class LobstersNormalizer < FeedjiraNormalizer
   end
 
   def comments
-    [content.content]
+    ["Comments: #{content.entry_id} #{tags}"]
+  end
+
+  private
+
+  def tags
+    content.categories.map { |category| "##{category}" }.join(' ')
   end
 end
