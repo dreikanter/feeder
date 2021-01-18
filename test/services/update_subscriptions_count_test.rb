@@ -16,6 +16,9 @@ class UpdateSubscriptionsCountTest < Minitest::Test
   def setup
     super
 
+    # TODO: Fix transactional tests
+    Feed.delete_all
+
     stub_request(:get, "#{base_url}/v2/timelines/xkcd")
       .with(headers: { 'Authorization' => "Bearer #{token}" })
       .to_return(
