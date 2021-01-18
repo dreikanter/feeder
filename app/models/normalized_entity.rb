@@ -14,6 +14,17 @@ class NormalizedEntity
     comparable_attributes(self) == comparable_attributes(other)
   end
 
+  def diff(expected_entity)
+    {}.tap do |result|
+      COMPARABLE_ATTRIBUTES.map do |attribute|
+        actual = send(attribute)
+        expected = expected_entity.send(attribute)
+        next if actual == expected
+        result[attribute] = { expected: expected, actual: actual }
+      end
+    end
+  end
+
   def stale?
     feed_after.present? && (published_at_or_default < feed_after)
   end
