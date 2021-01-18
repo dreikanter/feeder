@@ -5,6 +5,10 @@ module FeedTestHelper
 
   def setup
     super
+
+    # TODO: Fix transactional tests
+    Feed.delete_all
+
     stub_feed_url if feed_url.present?
   end
 
@@ -53,12 +57,16 @@ module FeedTestHelper
   end
 
   def test_entity_normalization
+    # puts JSON.pretty_generate subject.as_json
     assert_equal(expected, subject, error_message)
   end
 
   def error_message
-    expected_json = JSON.pretty_generate(expected.as_json)
-    actual_json = JSON.pretty_generate(subject.as_json)
-    "Expected:\n\n#{expected_json}\n\nActual:\n\n#{actual_json}\n"
+    JSON.pretty_generate(expectation_diff)
+  end
+
+  def expectation_diff
+    return subject.diff(expected).as_json unless subject.is_a?(Array)
+    subject.zip(expected).map { |actual, expected| actual.diff(expected).as_json }
   end
 end

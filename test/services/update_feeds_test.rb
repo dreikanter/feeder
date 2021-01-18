@@ -20,6 +20,13 @@ class UpdateFeedsTest < Minitest::Test
   NOT_ARRAY_CONFIG_PATH =
     File.expand_path('../data/feeds_not_array.yml', __dir__).freeze
 
+  def setup
+    super
+
+    # TODO: Fix transactional tests
+    Feed.delete_all
+  end
+
   def expected
     @expected ||= YAML.load_file(SAMPLE_CONFIG_PATH)
       .map(&:symbolize_keys)

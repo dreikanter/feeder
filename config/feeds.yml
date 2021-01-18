@@ -555,3 +555,9 @@
   normalizer: "youtube"
   refresh_interval: 14400
   after: "2021-01-06T12:00:00+00:00"
+
+- name: "lobsters-ruby"
+  url: "https://lobste.rs/t/ruby.rss"
+  processor: "lobsters"
+  normalizer: "lobsters"
+  refresh_interval: 3600
