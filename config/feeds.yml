@@ -558,6 +558,6 @@
 
 - name: "lobsters-ruby"
   url: "https://lobste.rs/t/ruby.rss"
-  processor: "feedjira"
+  processor: "lobsters"
   normalizer: "lobsters"
   refresh_interval: 3600
