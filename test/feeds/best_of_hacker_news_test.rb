@@ -10,6 +10,7 @@ class BestOfHackerNewsTest < Minitest::Test
   def feed_config
     {
       name: 'best-of-hacker-news',
+      loader: 'null',
       processor: 'hacker_news',
       normalizer: 'hacker_news',
       url: nil

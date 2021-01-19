@@ -1,34 +1,23 @@
 class LoaderResolver
   include Callee
 
+  Error = Class.new(StandardError)
+
   param :feed
   option :logger, optional: true, default: -> { Rails.logger }
 
-  DEFAULT_LOADER = 'http'.freeze
+  DEFAULT_LOADER = HttpLoader
 
   def call
-    return NullLoader unless feed.url
-    matching_loader || raise("no matching loader for '#{feed.name}'")
+    return DEFAULT_LOADER unless loader_name.present?
+    "#{loader_name}_loader".classify.constantize
+  rescue NameError
+    raise Error, name: loader_name
   end
 
   private
 
-  def matching_loader
-    available_names.each do |name|
-      safe_name = name.to_s.gsub(/-/, '_')
-      result = "#{safe_name}_loader".classify.constantize
-      logger.debug("loader resolved to [#{result}]")
-      return result
-    rescue StandardError
-      next
-    end
-  end
-
-  def available_names
-    [
-      feed.loader,
-      feed.name,
-      DEFAULT_LOADER
-    ]
+  def loader_name
+    feed.loader.to_s
   end
 end
