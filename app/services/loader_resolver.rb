@@ -9,10 +9,15 @@ class LoaderResolver
   DEFAULT_LOADER = HttpLoader
 
   def call
-    explicit_loader_name = feed.loader.to_s
-    return DEFAULT_LOADER unless explicit_loader_name.present?
-    "#{explicit_loader_name}_loader".classify.constantize
+    return DEFAULT_LOADER unless loader_name.present?
+    "#{loader_name}_loader".classify.constantize
   rescue NameError
-    raise Error, name: feed.loader
+    raise Error, name: loader_name
+  end
+
+  private
+
+  def loader_name
+    feed.loader.to_s
   end
 end
