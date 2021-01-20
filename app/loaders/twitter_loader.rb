@@ -7,6 +7,7 @@
 # during the class instance initialization.
 #
 # SEE: https://www.rubydoc.info/gems/twitter
+# SEE: https://developer.twitter.com/en/docs/twitter-api/v1/tweets/timelines/api-reference/get-statuses-user_timeline
 
 class TwitterLoader < BaseLoader
   option(
