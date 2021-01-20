@@ -5,6 +5,7 @@ class ProcessFeed
   option :logger, optional: true, default: -> { Rails.logger }
 
   def call
+    Honeybadger.context(feed_id: feed.try(:id), feed_name: feed.try(:name))
     @started_at = Time.current
     generate_new_posts
     create_data_point
