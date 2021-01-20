@@ -23,8 +23,6 @@ group :development, :test do
   gem 'marginalia', '~> 1.5'
   gem 'minitest-rails', '~> 6.0'
   gem 'mocha', '~> 1.9'
-  gem 'pry-byebug'
-  gem 'pry-rails', '~> 0.3.9'
   gem 'simplecov', '~> 0.21'
   gem 'webmock', '~> 3.11'
 end
@@ -46,6 +44,8 @@ gem 'lograge', '~> 0.3.6'
 gem 'mimemagic', '>= 0.3.3'
 gem 'nokogiri', '~> 1.11'
 gem 'pg', '~> 1.1', '>= 1.1.3'
+gem 'pry-byebug'
+gem 'pry-rails', '~> 0.3.9'
 
 # TODO: Replace with `http` gem
 gem 'rest-client', '~> 2.0'
