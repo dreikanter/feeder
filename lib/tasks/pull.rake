@@ -21,25 +21,22 @@ namespace :feeder do
 
     # TODO: Limit batch size after Feed#stale? is fixed
     # .limit(Defaults::MAX_FEEDS_PER_BATCH)
-    feeds_count = feeds.count
 
-    if feeds_count.zero?
-      Rails.logger.info('---> no stale feeds found, nothing to update')
-    else
-      feed_names = feeds.pluck(:name).join(', ')
-      Rails.logger.info("---> updating #{feeds.count} feed(s): #{feed_names}")
-      CreateDataPoint.call(:batch, feeds: feeds.pluck(:name))
+    feed_names = feeds.pluck(:name).join(', ')
+    Rails.logger.info("---> updating #{feeds.count} feed(s): #{feed_names}")
+    data_point = CreateDataPoint.call(:batch, feeds: feeds.pluck(:name))
 
-      feeds.each do |feed|
-        ProcessFeed.call(feed) if feed.active?
-      rescue StandardError => e
-        ErrorDumper.call(
-          exception: e,
-          message: 'Error processing feed',
-          target: feed
-        )
-        next
-      end
+    feeds.each do |feed|
+      ProcessFeed.call(feed)
+    rescue StandardError => e
+      ErrorDumper.call(
+        exception: e,
+        message: 'Error processing feed',
+        target: feed,
+        context: { batch_data_point: data_point.id }
+      )
+
+      next
     end
   end
 end
