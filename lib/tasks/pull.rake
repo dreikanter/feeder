@@ -33,7 +33,11 @@ namespace :feeder do
         exception: e,
         message: 'Error processing feed',
         target: feed,
-        context: { batch_data_point: data_point.id }
+        context: {
+          batch_data_point: data_point.id,
+          feed_id: feed.id,
+          feed_name: feed.name
+        }
       )
 
       next
