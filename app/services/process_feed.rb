@@ -19,15 +19,17 @@ class ProcessFeed
     logger.info("---> new posts: #{normalized_entities_count}; errors: #{errors_count}")
     feed.update(refreshed_at: started_at)
 
-    normalized_entities.each do |normalized_entity|
-      next unless normalized_entity
-      logger.info("---> creating post; uid: [#{normalized_entity.uid}]")
-      post = normalized_entity.find_or_create_post
-      feed.update(last_post_created_at: last_post_created_at)
-      next unless post.ready?
-      logger.info("---> publishing post; uid: [#{post.uid}]")
-      Push.call(post)
-    end
+    normalized_entities.each { |normalized_entity| push(normalized_entity) }
+  end
+
+  def push(normalized_entity)
+    next unless normalized_entity
+    logger.info("---> creating post; uid: [#{normalized_entity.uid}]")
+    post = normalized_entity.find_or_create_post
+    feed.update(last_post_created_at: last_post_created_at)
+    next unless post.ready?
+    logger.info("---> publishing post; uid: [#{post.uid}]")
+    Push.call(post)
   end
 
   def feed_id
