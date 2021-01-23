@@ -561,3 +561,13 @@
   processor: "lobsters"
   normalizer: "lobsters"
   refresh_interval: 3600
+
+- name: "neural-machine"
+  loader: "twitter"
+  processor: "twitter"
+  normalizer: "twitter"
+  refresh_interval: 86400
+  import_limit: 5
+  options:
+    twitter_user: "neural_machine"
+    ignore_retweets: true

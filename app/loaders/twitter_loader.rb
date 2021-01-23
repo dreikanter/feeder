@@ -33,7 +33,7 @@ class TwitterLoader < BaseLoader
 
   def perform
     validate_credentials!
-    client.user_timeline(twitter_user)
+    client.user_timeline(twitter_user, tweet_mode: 'extended')
   end
 
   private
