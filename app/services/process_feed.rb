@@ -23,11 +23,11 @@ class ProcessFeed
   end
 
   def push(normalized_entity)
-    next unless normalized_entity
+    return unless normalized_entity
     logger.info("---> creating post; uid: [#{normalized_entity.uid}]")
     post = normalized_entity.find_or_create_post
     feed.update(last_post_created_at: last_post_created_at)
-    next unless post.ready?
+    return unless post.ready?
     logger.info("---> publishing post; uid: [#{post.uid}]")
     Push.call(post)
   end
