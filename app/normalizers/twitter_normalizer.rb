@@ -24,7 +24,7 @@ class TwitterNormalizer < BaseNormalizer
   end
 
   def text
-    [content.fetch('text'), "!#{link}"].join(separator)
+    [tweet_text, "!#{link}"].join(separator)
   rescue KeyError
     nil
   end
@@ -59,5 +59,11 @@ class TwitterNormalizer < BaseNormalizer
 
   def violates_expected_structure?
     !link || !published_at || !text || !attachments
+  end
+
+  def tweet_text
+    content.fetch('text')
+  rescue KeyError
+    content.fetch('full_text')
   end
 end
