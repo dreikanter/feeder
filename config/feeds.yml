@@ -566,7 +566,7 @@
   loader: "twitter"
   processor: "twitter"
   normalizer: "twitter"
-  refresh_interval: 86400
+  refresh_interval: 7200
   import_limit: 5
   options:
     twitter_user: "neural_machine"
