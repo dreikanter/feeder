@@ -2,3 +2,13 @@ plugins:
   rubocop:
     enabled: true
     channel: rubocop-1-18-3
+  reek:
+    enabled: true
+  brakeman:
+    enabled: true
+  bundler-audit:
+    enabled: true
+  fixme:
+    enabled: true
+  shellcheck:
+    enabled: true
