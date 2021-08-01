@@ -385,9 +385,3 @@ DEPENDENCIES
   twitter (~> 6.2)
   webmock (~> 3.11)
   webpacker (~> 4.0, >= 4.0.2)
-
-RUBY VERSION
-   ruby 2.6.5p114
-
-BUNDLED WITH
-   2.1.4
