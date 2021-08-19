@@ -577,3 +577,9 @@
   processor: "wordpress"
   normalizer: "wordpress"
   refresh_interval: 600
+
+- name: "litterbox"
+  url: "https://www.litterboxcomics.com/feed/"
+  processor: "wordpress"
+  normalizer: "wordpress"
+  refresh_interval: 3600
