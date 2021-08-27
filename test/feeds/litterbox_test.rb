@@ -9,7 +9,7 @@ class LitterboxTest < Minitest::Test
     stub_request(:get, 'https://www.litterboxcomics.com/claw-machine/')
       .to_return(body: file_fixture('feeds/litterbox/post.html').read)
 
-    stub_request(:get, "https://www.litterboxcomics.com/claw-machine-bonus/")
+    stub_request(:get, 'https://www.litterboxcomics.com/claw-machine-bonus/')
       .to_return(body: file_fixture('feeds/litterbox/bonus_panel.html').read)
   end
 
