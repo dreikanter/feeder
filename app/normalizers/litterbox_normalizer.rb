@@ -34,12 +34,13 @@ class LitterboxNormalizer < WordpressNormalizer
 
   def bonus_panel_comment
     url = bonus_panel_image_url
+    raise 'bonus panel url not found' unless url
     "Bonus panel: #{url}" if url
   end
 
   def bonus_panel_image_url
     html = RestClient.get(bonus_panel_page_url).body
-    Nokogiri::HTML(html).css('article.post img.aligncenter.size-full').first['src']
+    Nokogiri::HTML(html).css('link[rel=image_src]').first['href']
   end
 
   def bonus_panel_page_url
