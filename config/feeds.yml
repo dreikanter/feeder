@@ -583,3 +583,4 @@
   processor: "wordpress"
   normalizer: "litterbox"
   refresh_interval: 3600
+  import_limit: 100
