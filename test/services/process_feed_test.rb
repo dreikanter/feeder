@@ -52,7 +52,7 @@ class ProcessFeedTest < Minitest::Test
   def test_call
     subject.call(feed)
     assert_equal(EXPECTED_PUBLISHED_POSTS_COUNT, posts.published.count)
-    assert_equal(EXPECTED_ERRORED_POSTS_COUNT, posts.ignored.count)
+    assert_equal(EXPECTED_ERRORED_POSTS_COUNT, posts.not_valid.count)
   end
 
   def data_point

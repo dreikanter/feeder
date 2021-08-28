@@ -30,7 +30,7 @@ class NormalizedEntity
   end
 
   def status
-    validation_errors.none? ? PostStatus.ready : PostStatus.ignored
+    validation_errors.none? ? PostStatus.ready : PostStatus.not_valid
   end
 
   def find_or_create_post
