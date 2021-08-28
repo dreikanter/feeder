@@ -3,5 +3,6 @@ class PostStatus < Enu
   option :ready
   option :published
   option :ignored
+  option :not_valid
   option :error
 end
