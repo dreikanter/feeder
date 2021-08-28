@@ -13,7 +13,7 @@ class LitterboxSlidesTest < Minitest::Test
     stub_request(:get, 'https://www.litterboxcomics.com/worlds-collide/')
       .to_return(body: file_fixture('feeds/litterbox/post_slides.html').read)
 
-    stub_request(:get, 'https://www.litterboxcomics.com/worlds-collide-bonus')
+    stub_request(:get, 'https://www.litterboxcomics.com/worlds-collide-bonus/')
       .to_return(body: file_fixture('feeds/litterbox/bonus_panel_slides.html').read)
   end
 
