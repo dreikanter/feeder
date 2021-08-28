@@ -15,6 +15,10 @@ class RedakciyaNormalizerTest < Minitest::Test
     'feed_redakciya.xml'
   end
 
+  def feed
+    build(:feed, options: { description: false })
+  end
+
   def expected
     entity = JSON.parse(file_fixture('feeds/redakciya/entity.json').read)
     value = entity['published_at']

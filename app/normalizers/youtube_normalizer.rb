@@ -14,6 +14,15 @@ class YoutubeNormalizer < BaseNormalizer
   end
 
   def comments
-    [Html.comment_excerpt(content.content)]
+    return [] unless description?
+    [description]
+  end
+
+  def description
+    Html.comment_excerpt(content.content)
+  end
+
+  def description?
+    options.key?('description') ? options['description'] : true
   end
 end
