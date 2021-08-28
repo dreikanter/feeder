@@ -60,4 +60,14 @@ class LitterboxNormalizer < WordpressNormalizer
   def bonus_panel_page_url
     page_html.css('h2.has-text-align-center a').first['href']
   end
+
+  def validation_errors
+    super.tap do |errors|
+      errors << 'bonus' if bonus?
+    end
+  end
+
+  def bonus?
+    content.url =~ /-bonus\/?$/
+  end
 end
