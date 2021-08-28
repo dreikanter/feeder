@@ -21,20 +21,20 @@ class BuniTest < Minitest::Test
   def setup
     super
 
-    webtoons_post = file_fixture('posts/buni_webtoons.html').read
+    webtoons_post = file_fixture('feeds/buni/post_webtoons.html').read
     stub_request(:get, 'http://www.bunicomic.com/2019/11/23/too-early/')
       .to_return(status: 200, body: webtoons_post)
 
-    sample_post = file_fixture('posts/buni.html').read
+    sample_post = file_fixture('feeds/buni/post.html').read
     stub_request(:get, %r{^http://www.bunicomic.com})
       .to_return(status: 200, body: sample_post)
   end
 
   def source_fixture_path
-    'feeds/buni.xml'
+    'feeds/buni/feed.xml'
   end
 
   def expected_fixture_path
-    'entities/buni.json'
+    'feeds/buni/entity.json'
   end
 end

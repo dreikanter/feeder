@@ -13,10 +13,10 @@ class BazarTest < Minitest::Test
   end
 
   def source_fixture_path
-    'feeds/bazar.xml'
+    'feeds/bazar/feed.xml'
   end
 
   def expected_fixture_path
-    'entities/bazar.json'
+    'feeds/bazar/entity.json'
   end
 end

@@ -13,10 +13,10 @@ class OatmealTest < Minitest::Test
   end
 
   def source_fixture_path
-    'feeds/oatmeal.xml'
+    'feeds/oatmeal/feed.xml'
   end
 
   def expected_fixture_path
-    'entities/oatmeal.json'
+    'feeds/oatmeal/entity.json'
   end
 end

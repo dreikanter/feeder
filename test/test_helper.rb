@@ -43,16 +43,6 @@ module Minitest
       File.new(file_fixture_path(path, scope: scope))
     end
 
-    # TODO: Move to a factory
-    # :reek:FeatureEnvy
-    def normalized_entity_fixture(path, attributes = {})
-      file = file_fixture(path, scope: 'normalized_entities')
-      entity = JSON.parse(file.read)
-      value = entity['published_at']
-      entity['published_at'] = DateTime.parse(value) if value
-      NormalizedEntity.new(entity.merge(attributes).symbolize_keys)
-    end
-
     def logger
       @logger ||= Logger.new($stdout)
     end

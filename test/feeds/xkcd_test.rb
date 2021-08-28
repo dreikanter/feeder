@@ -13,10 +13,10 @@ class XkcdTest < Minitest::Test
   end
 
   def source_fixture_path
-    'feeds/xkcd.xml'
+    'feeds/xkcd/feed.xml'
   end
 
   def expected_fixture_path
-    'entities/xkcd.json'
+    'feeds/xkcd/entity.json'
   end
 end

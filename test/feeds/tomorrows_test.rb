@@ -17,16 +17,16 @@ class TomorrowsTest < Minitest::Test
 
     stub_request(:get, %r{https://365tomorrows.com/\d+/.*})
       .to_return(
-        body: file_fixture('feeds/tomorrows_post.html'),
+        body: file_fixture('feeds/tomorrows/post.html'),
         headers: { 'Content-Type' => 'text/html' }
       )
   end
 
   def source_fixture_path
-    'feeds/tomorrows.xml'
+    'feeds/tomorrows/feed.xml'
   end
 
   def expected_fixture_path
-    'entities/tomorrows.json'
+    'feeds/tomorrows/entity.json'
   end
 end

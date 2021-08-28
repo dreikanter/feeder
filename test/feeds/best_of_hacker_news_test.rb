@@ -20,19 +20,19 @@ class BestOfHackerNewsTest < Minitest::Test
   REQUESTS = [
     {
       url: 'https://hacker-news.firebaseio.com/v0/beststories.json',
-      fixture_path: 'api/hacker_news/beststories.json'
+      fixture_path: 'feeds/best_of_hacker_news/beststories.json'
     },
     {
       url: 'https://hacker-news.firebaseio.com/v0/item/25662215.json',
-      fixture_path: 'api/hacker_news/25662215.json'
+      fixture_path: 'feeds/best_of_hacker_news/25662215.json'
     },
     {
       url: 'https://hacker-news.firebaseio.com/v0/item/25661474.json',
-      fixture_path: 'api/hacker_news/25661474.json'
+      fixture_path: 'feeds/best_of_hacker_news/25661474.json'
     },
     {
       url: 'https://hacker-news.firebaseio.com/v0/item/25691912.json',
-      fixture_path: 'api/hacker_news/25691912.json'
+      fixture_path: 'feeds/best_of_hacker_news/25691912.json'
     }
   ].freeze
 
@@ -49,6 +49,6 @@ class BestOfHackerNewsTest < Minitest::Test
   end
 
   def expected_fixture_path
-    'entities/best_of_hacker_news.json'
+    'feeds/best_of_hacker_news/entity.json'
   end
 end

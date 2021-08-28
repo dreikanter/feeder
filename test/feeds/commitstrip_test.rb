@@ -13,10 +13,10 @@ class CommitstripTest < Minitest::Test
   end
 
   def source_fixture_path
-    'feeds/commitstrip.xml'
+    'feeds/commitstrip/feed.xml'
   end
 
   def expected_fixture_path
-    'entities/commitstrip.json'
+    'feeds/commitstrip/entity.json'
   end
 end

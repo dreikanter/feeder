@@ -23,27 +23,7 @@ detectors:
     - UpdateFeedsTest#test_active_feeds_status
     - CreateBlockedIps#change
   FeatureEnvy:
-    exclude:
-    - BatchPullJob#perform
-    - PushJob#perform
-    - BaseNormalizer#sanitized_attachments
-    - ExplosmComicsNormalizer#normalized_image_uri
-    - GithubBlogNormalizer#safe_image_url
-    - MediumNormalizer#excerpt
-    - Updates::Index#updates
-    - Pull#new_entities
-    - UpdateFeeds#update_active_feeds
-    - CommitstripTest#expected_entity
-    - LunarbaboonTest#expected_entity
-    - ReworkTest#expected_entity
-    - ShvarzTest#expected_entity
-    - TomorrowsTest#expected_entity
-    - XkcdTest#expected_entity
-    - CreateFeeds#change
-    - CreatePosts#change
-    - CreateDataPoints#change
-    - CreateErrors#change
-    - CreateBlockedIps#change
+    enabled: false
   ManualDispatch:
     exclude:
     - RssNormalizer#published_at

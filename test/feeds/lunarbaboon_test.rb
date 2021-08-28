@@ -13,10 +13,10 @@ class LunarbaboonTest < Minitest::Test
   end
 
   def source_fixture_path
-    'feeds/lunarbaboon.xml'
+    'feeds/lunarbaboon/feed.xml'
   end
 
   def expected_fixture_path
-    'entities/lunarbaboon.json'
+    'feeds/lunarbaboon/entity.json'
   end
 end

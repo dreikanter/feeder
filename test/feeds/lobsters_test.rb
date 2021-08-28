@@ -13,10 +13,10 @@ class LobstersTest < Minitest::Test
   end
 
   def source_fixture_path
-    'feeds/lobsters.xml'
+    'feeds/lobsters/feed.xml'
   end
 
   def expected_fixture_path
-    'entities/lobsters.json'
+    'feeds/lobsters/entity.json'
   end
 end

@@ -13,10 +13,10 @@ class ShvarzTest < Minitest::Test
   end
 
   def source_fixture_path
-    'feeds/shvarz.xml'
+    'feeds/shvarz/feed.xml'
   end
 
   def expected_fixture_path
-    'entities/shvarz.json'
+    'feeds/shvarz/entity.json'
   end
 end
