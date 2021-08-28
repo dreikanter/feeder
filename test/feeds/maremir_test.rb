@@ -13,10 +13,10 @@ class MaremirTest < Minitest::Test
   end
 
   def source_fixture_path
-    'feeds/maremir.xml'
+    'feeds/maremir/feed.xml'
   end
 
   def expected_fixture_path
-    'entities/maremir.json'
+    'feeds/maremir/entity.json'
   end
 end

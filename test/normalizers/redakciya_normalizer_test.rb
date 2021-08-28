@@ -16,7 +16,10 @@ class RedakciyaNormalizerTest < Minitest::Test
   end
 
   def expected
-    normalized_entity_fixture('redakciya.json', feed_id: feed.id)
+    entity = JSON.parse(file_fixture('feeds/redakciya/entity.json').read)
+    value = entity['published_at']
+    entity['published_at'] = DateTime.parse(value) if value
+    NormalizedEntity.new(entity.symbolize_keys.merge(feed_id: feed.id))
   end
 
   def test_normalized_sample

@@ -67,7 +67,7 @@ class PullTest < Minitest::Test
   # rubocop:enable Metrics/MethodLength
 
   def test_call
-    stub_feed_loader_request('feeds/test_feed.json')
+    stub_feed_loader_request('feeds/test/feed.json')
     entities = subject.call(feed)
     assert_equal(test_feed_entities, entities)
   end
@@ -75,7 +75,7 @@ class PullTest < Minitest::Test
   # NOTE: Processor will fail due to the lack of the required 'link' field.
   # Processing error should stop the workflow.
   def test_processor_error
-    stub_feed_loader_request('feeds/test_processor_error.json')
+    stub_feed_loader_request('feeds/test/processor_error.json')
     assert_raises(KeyError) { subject.call(feed) }
   end
 
@@ -97,7 +97,7 @@ class PullTest < Minitest::Test
   # NOTE: Normalizer will fail due to the lack of the required 'text' field.
   # Normalizer error should not stop the workflow.
   def test_normalizer_error
-    stub_feed_loader_request('feeds/test_normalizer_error.json')
+    stub_feed_loader_request('feeds/test/normalizer_error.json')
     entities = subject.call(feed)
     assert_equal(expected, entities)
   end

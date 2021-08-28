@@ -13,10 +13,10 @@ class ReworkTest < Minitest::Test
   end
 
   def source_fixture_path
-    'feeds/rework.xml'
+    'feeds/rework/feed.xml'
   end
 
   def expected_fixture_path
-    'entities/rework.json'
+    'feeds/rework/entity.json'
   end
 end

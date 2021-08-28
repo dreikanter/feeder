@@ -22,10 +22,15 @@ class KimchicuddlesNormalizerTest < Minitest::Test
   end
 
   def expected
-    normalized_entity_fixture(
-      'kimchicuddles.json',
-      feed_id: feed.id,
-      attachments: [ATTACHMENT_URL]
+    entity = JSON.parse(file_fixture('feeds/kimchicuddles/entity.json').read)
+    value = entity['published_at']
+    entity['published_at'] = DateTime.parse(value) if value
+
+    NormalizedEntity.new(
+      entity.symbolize_keys.merge(
+        feed_id: feed.id,
+        attachments: [ATTACHMENT_URL]
+      )
     )
   end
 
