@@ -29,7 +29,7 @@ class LitterboxNormalizer < WordpressNormalizer
   end
 
   def page_html
-    @page_html ||= Nokogiri::HTML(RestClient.get(content.url).body)
+    @page_html ||= Nokogiri::HTML(RestClient.get(link).body)
   end
 
   def slides?
@@ -58,7 +58,9 @@ class LitterboxNormalizer < WordpressNormalizer
   end
 
   def bonus_panel_page_url
-    page_html.css('h2.has-text-align-center a').first['href']
+    Addressable::URI.parse(link).tap do |uri|
+      uri.path = uri.path.gsub(/\/+$/, '').gsub(/\/*$/, '-bonus/')
+    end.to_s
   end
 
   def validation_errors
@@ -68,6 +70,6 @@ class LitterboxNormalizer < WordpressNormalizer
   end
 
   def bonus?
-    content.url =~ /-bonus\/?$/
+    link =~ /-bonus\/?$/
   end
 end
