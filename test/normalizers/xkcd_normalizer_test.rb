@@ -6,7 +6,7 @@ class XkcdNormalizerTest < Minitest::Test
   def setup
     super
 
-    stub_request(:get, %r{^http://xkcd.com/\d+})
+    stub_request(:get, %r{//xkcd.com/\d+})
       .to_return(body: file_fixture('feeds/xkcd/post.html').read)
   end
 
