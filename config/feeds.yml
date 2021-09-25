@@ -586,3 +586,14 @@
   normalizer: "litterbox"
   refresh_interval: 3600
   import_limit: 100
+
+- name: "lizandmollie"
+  loader: "twitter"
+  processor: "twitter"
+  normalizer: "twitter"
+  refresh_interval: 3600
+  import_limit: 20
+  options:
+    twitter_user: "lizandmollie"
+    ignore_retweets: true
+    only_with_attachments: true
