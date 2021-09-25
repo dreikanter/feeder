@@ -24,7 +24,7 @@ class TwitterNormalizer < BaseNormalizer
   end
 
   def text
-    [tweet_text, "!#{link}"].join(separator)
+    [tweet_text, "!#{link}"].compact.join(separator)
   rescue KeyError
     nil
   end
@@ -62,8 +62,17 @@ class TwitterNormalizer < BaseNormalizer
   end
 
   def tweet_text
+    return nil if media_link?
     content.fetch('text')
   rescue KeyError
+    full_text
+  end
+
+  def full_text
     content.fetch('full_text')
+  end
+
+  def media_link?
+    content.dig('media', 0, 'url') == full_text
   end
 end
