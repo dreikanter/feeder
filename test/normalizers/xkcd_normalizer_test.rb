@@ -3,6 +3,13 @@ require 'test_helper'
 class XkcdNormalizerTest < Minitest::Test
   include NormalizerTestHelper
 
+  def setup
+    super
+
+    stub_request(:get, %r{^http://xkcd.com/\d+})
+      .to_return(body: file_fixture('feeds/xkcd/post.html').read)
+  end
+
   def subject
     XkcdNormalizer
   end
@@ -22,7 +29,7 @@ class XkcdNormalizerTest < Minitest::Test
       link: 'http://xkcd.com/1732/',
       published_at: DateTime.parse('2016-09-12 04:00:00 UTC'),
       text: 'Earth Temperature Timeline - http://xkcd.com/1732/',
-      attachments: ['http://imgs.xkcd.com/comics/earth_temperature_timeline.png'],
+      attachments: ['https://imgs.xkcd.com/comics/symbols_2x.png'],
       comments: ['[After setting your car on fire] Listen, your car\'s temperature has changed before.'],
       validation_errors: []
     )
