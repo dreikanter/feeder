@@ -24,7 +24,7 @@ class XkcdNormalizer < RssNormalizer
   end
 
   def fetch_og_image_url
-    html.css("meta[property=\"og:image\"]").first.attributes['content'].value
+    html.css('meta[property="og:image"]').first.attributes['content'].value
   end
 
   def html
