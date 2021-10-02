@@ -6,6 +6,6 @@ class FeedjiraProcessor < BaseProcessor
   end
 
   def parse_content
-    Feedjira::Feed.parse(content).entries
+    Feedjira.parse(content).entries
   end
 end
