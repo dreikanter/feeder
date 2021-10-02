@@ -1,9 +1,0 @@
-// Shared styling configuration
-
-// This will make Bootstrap variables available from the component stylesheets
-// SEE: https://github.com/twbs/bootstrap/blob/master/scss/_variables.scss
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
-
-$footer-height: $spacer * 5;
