@@ -51,4 +51,3 @@ gem 'pry-rails', '~> 0.3.9'
 gem 'rest-client', '~> 2.0'
 
 gem 'twitter', '~> 6.2'
-gem 'webpacker', '~> 4.0', '>= 4.0.2'
