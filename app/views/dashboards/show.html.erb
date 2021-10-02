@@ -1,0 +1,32 @@
+<h1 class="my-4">Freefeed Feeder</h1>
+
+<ul>
+  <li class="my-2">New feed announcements: <a href="https://freefeed.net/feeder">freefeed.net/feeder</a>.</li>
+  <li class="my-2">If you like to see a new blog imported to Freefeed, please post a message to <a href="https://freefeed.net/feeder-inbox">freefeed.net/feeder-inbox</a>, or <a href="https://github.com/dreikanter/feeder/issues/new">open an issue</a> on GitHub.</li>
+  <li class="my-2">GitHub project: <a href="https://github.com/dreikanter/feeder">github.com/dreikanter/feeder</a>.</li>
+  <li class="my-2">Last update: <b><%= last_update -%>.</b></li>
+  <li class="my-2">Last post created: <b><%= last_post_created_at -%>.</b></li>
+</ul>
+
+<table class="table table-bordered my-4">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Status</th>
+      <th scope="col">Posts</th>
+      <th scope="col">Refreshed at</th>
+      <th scope="col">Last post</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%- feeds.each do |feed| -%>
+      <tr>
+        <td><%= feed.name -%></td>
+        <td><%= feed.status -%></td>
+        <td><%= feed.posts_count -%></td>
+        <td><%= feed.refreshed_at -%></td>
+        <td><%= feed.last_post_created_at -%></td>
+      </tr>
+    <%- end -%>
+  </tbody>
+</table>
