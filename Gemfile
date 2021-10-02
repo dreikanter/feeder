@@ -36,7 +36,7 @@ gem 'dry-initializer', '~> 3.0', '>= 3.0.4'
 gem 'dry-types', '~> 1.5', '>= 1.5.1'
 gem 'dry-validation', '~> 1.7'
 gem 'enu', '~> 0.1.2'
-gem 'feedjira', '~> 2.2'
+gem 'feedjira', '~> 3.2'
 gem 'honeybadger', '~> 4.0'
 gem 'http', '~> 3.3.0'
 gem 'lograge', '~> 0.3.6'
@@ -50,3 +50,6 @@ gem 'pry-rails', '~> 0.3.9'
 gem 'rest-client', '~> 2.0'
 
 gem 'twitter', '~> 6.2'
+
+# NOTE: No direct dependency; remove after CVE-2018-8048 is fixed in HEAD
+gem 'loofah', '2.3.1'
