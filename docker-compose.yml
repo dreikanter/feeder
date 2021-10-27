@@ -10,14 +10,12 @@ services:
     environment:
       RAILS_ENV: development
       DATABASE_URL: postgresql://postgres:postgres@postgres:5432/feeder_development
-      WEBPACKER_DEV_SERVER_HOST: webpack
       BUNDLE_PATH: /bundle
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails server -p 3000 -b 0.0.0.0"
     ports:
       - 3000:3000
     depends_on:
       - postgres
-      - webpack
     volumes:
       - .:/app
       - bundle:/bundle
@@ -33,21 +31,6 @@ services:
       - 5432:5432
     volumes:
       - postgres:/var/lib/postgresql/data
-
-  webpack:
-    build: .
-    environment:
-      NODE_ENV: development
-      RAILS_ENV: development
-      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
-      BUNDLE_PATH: /bundle
-      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/feeder_development?pool=5
-    command: ./bin/webpack-dev-server
-    volumes:
-      - .:/app
-      - bundle:/bundle
-    ports:
-      - 3035:3035
 
   test:
     build: .
