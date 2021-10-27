@@ -21,7 +21,7 @@
   <tbody>
     <%- feeds.each do |feed| -%>
       <tr>
-        <td><%= feed.name -%></td>
+        <td><a href="https://freefeed.net/<%= feed.name -%>"><%= feed.name -%></a></td>
         <td><%= feed.status -%></td>
         <td><%= feed.posts_count -%></td>
         <td><%= feed.refreshed_at -%></td>
