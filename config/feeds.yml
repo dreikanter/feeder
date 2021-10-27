@@ -465,8 +465,6 @@
   refresh_interval: 3600
   import_limit: 10
   after: "2021-01-06T12:00:00+00:00"
-  options:
-    desription: false
 
 - name: "safelyendangered"
   loader: "twitter"
