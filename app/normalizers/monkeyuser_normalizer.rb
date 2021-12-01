@@ -22,7 +22,7 @@ class MonkeyuserNormalizer < FeedjiraNormalizer
   end
 
   def image_url
-    Html.first_image_url(content.summary)
+    first_image['src']
   end
 
   def validation_errors
