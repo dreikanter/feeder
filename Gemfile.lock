@@ -359,9 +359,3 @@ DEPENDENCIES
   spring
   twitter (~> 6.2)
   webmock (~> 3.11)
-
-RUBY VERSION
-   ruby 2.6.5p114
-
-BUNDLED WITH
-   2.1.4
