@@ -14,8 +14,8 @@ group :development do
 end
 
 group :development, :test do
-  gem 'annotate', '~> 2.7', '>= 2.7.4'
-  gem 'bundle-audit'
+  gem 'annotate', '~> 3.2'
+  gem 'bundler-audit'
   gem 'database_cleaner-active_record'
   gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
   gem 'listen', '~> 3.2'
@@ -40,7 +40,7 @@ gem 'honeybadger', '~> 4.0'
 gem 'http', '~> 3.3.0'
 gem 'lograge', '~> 0.3.6'
 gem 'mimemagic', '>= 0.4.3'
-gem 'nokogiri', '~> 1.11'
+gem 'nokogiri', '~> 1.13', '>= 1.13.3'
 gem 'pg', '~> 1.2', '>= 1.2.3'
 gem 'pry-byebug'
 gem 'pry-rails', '~> 0.3.9'
@@ -49,6 +49,3 @@ gem 'pry-rails', '~> 0.3.9'
 gem 'rest-client', '~> 2.0'
 
 gem 'twitter', '~> 6.2'
-
-# NOTE: No direct dependency; remove after CVE-2018-8048 is fixed in HEAD
-gem 'loofah', '2.3.1'
