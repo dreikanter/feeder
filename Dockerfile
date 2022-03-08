@@ -1,4 +1,4 @@
-FROM ruby:2.6.5
+FROM ruby:3
 
 RUN curl https://deb.nodesource.com/setup_12.x | bash \
   && curl --location https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
