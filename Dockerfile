@@ -1,11 +1,10 @@
 FROM ruby:2.6.5
 
-RUN curl https://deb.nodesource.com/setup_12.x | bash \
-  && curl --location https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
-  && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
-  && apt-get update --yes \
-  && apt-get install --yes --no-install-recommends apt-utils build-essential yarn \
-  && gem install bundler:'~> 2.1.4' \
+RUN apt-get update --yes \
+  && apt-get install --yes --no-install-recommends \
+    apt-utils \
+    build-essential \
+  && gem install bundler:'~> 2.3' \
   && rm -rf /var/lib/apt/lists/*
 
 ARG RAILS_ENV
