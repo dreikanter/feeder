@@ -333,7 +333,7 @@ DEPENDENCIES
   bundler-audit
   callee (~> 0.3)
   database_cleaner-active_record
-  dry-initializer (~> 3.0, < 3.1.1)
+  dry-initializer (~> 3.0, >= 3.0.4)
   dry-types (~> 1.5, >= 1.5.1)
   dry-validation (~> 1.7)
   enu (~> 0.1.2)
