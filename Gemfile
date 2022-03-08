@@ -10,7 +10,7 @@ group :development do
   gem 'reek', '~> 6.0'
   gem 'rubocop', '~> 1.7'
   gem 'rubocop-rails'
-  gem 'spring'
+  gem 'spring', '~> 3.1'
 end
 
 group :development, :test do
