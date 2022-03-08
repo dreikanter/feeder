@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '~> 2.6.5'
-
 gem 'puma', '~> 5'
 gem 'rails', '~> 6.0'
 
@@ -17,6 +15,7 @@ end
 
 group :development, :test do
   gem 'annotate', '~> 2.7', '>= 2.7.4'
+  gem 'bundle-audit'
   gem 'database_cleaner-active_record'
   gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
   gem 'listen', '~> 3.2'
