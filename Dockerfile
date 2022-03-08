@@ -1,4 +1,4 @@
-FROM ruby:2.6.5
+FROM ruby:2
 
 RUN apt-get update --yes \
   && apt-get install --yes --no-install-recommends \
