@@ -106,7 +106,7 @@ GEM
     dry-core (0.7.1)
       concurrent-ruby (~> 1.0)
     dry-inflector (0.2.1)
-    dry-initializer (3.1.1)
+    dry-initializer (3.1.0)
     dry-logic (1.2.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.5, >= 0.5)
@@ -333,7 +333,7 @@ DEPENDENCIES
   bundler-audit
   callee (~> 0.3)
   database_cleaner-active_record
-  dry-initializer (~> 3.0, >= 3.0.4)
+  dry-initializer (~> 3.0, < 3.1.1)
   dry-types (~> 1.5, >= 1.5.1)
   dry-validation (~> 1.7)
   enu (~> 0.1.2)
@@ -362,3 +362,6 @@ DEPENDENCIES
   spring (~> 3.1)
   twitter (~> 6.2)
   webmock (~> 3.11)
+
+BUNDLED WITH
+   2.3.8
