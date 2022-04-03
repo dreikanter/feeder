@@ -362,6 +362,3 @@ DEPENDENCIES
   spring
   twitter (~> 6.2)
   webmock (~> 3.11)
-
-BUNDLED WITH
-   2.3.4
