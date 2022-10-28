@@ -13,7 +13,7 @@ class TwitterLoaderTest < Minitest::Test
   ].freeze
 
   def sample_credentials
-    REQUIRED_OPTIONS.map { |option| [option, "#{option} value"] }.to_h
+    REQUIRED_OPTIONS.to_h { |option| [option, "#{option} value"] }
   end
 
   SAMPLE_RESULT = [].freeze
