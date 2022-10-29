@@ -38,11 +38,11 @@ class UpdateSubscriptionsCountTest < Minitest::Test
   end
 
   def token
-    Rails.application.credentials.freefeed_token
+    ENV['FREEFEED_TOKEN'] || Rails.application.credentials.freefeed_token
   end
 
   def base_url
-    Rails.application.credentials.freefeed_base_url
+    ENV['FREEFEED_BASE_URL'] || Rails.application.credentials.freefeed_base_url
   end
 
   def test_update_subscriptions_count

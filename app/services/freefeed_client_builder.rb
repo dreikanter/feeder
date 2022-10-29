@@ -3,8 +3,8 @@ class FreefeedClientBuilder
 
   def call
     Freefeed::Client.new(
-      token: Rails.application.credentials.freefeed_token,
-      base_url: Rails.application.credentials.freefeed_base_url
+      token: ENV['FREEFEED_TOKEN'] || Rails.application.credentials.freefeed_token,
+      base_url: ENV['FREEFEED_BASE_URL'] || Rails.application.credentials.freefeed_base_url
     )
   end
 end
