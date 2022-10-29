@@ -350,7 +350,6 @@ DEPENDENCIES
   listen (~> 3.2)
   lograge (~> 0.3.6)
   marginalia (~> 1.5)
-  method_source
   mimemagic (>= 0.4.3)
   minitest-rails (~> 6.0)
   mocha (~> 1.9)

@@ -6,7 +6,6 @@ gem 'rails', '~> 6.0'
 
 group :development do
   gem 'brakeman', '~> 4.3', '>= 4.3.1', require: false
-  gem 'method_source'
   gem 'reek', '~> 6.0'
   gem 'rubocop', '~> 1.7'
   gem 'rubocop-rails'
