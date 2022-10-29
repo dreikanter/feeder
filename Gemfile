@@ -6,7 +6,7 @@ gem 'rails', '~> 6.0'
 
 group :development do
   gem 'brakeman', '~> 4.3', '>= 4.3.1', require: false
-  gem 'method_source', '~> 0.9.2'
+  gem 'method_source'
   gem 'reek', '~> 6.0'
   gem 'rubocop', '~> 1.7'
   gem 'rubocop-rails'
@@ -42,6 +42,7 @@ gem 'lograge', '~> 0.3.6'
 gem 'mimemagic', '>= 0.4.3'
 gem 'nokogiri', '~> 1.13', '>= 1.13.3'
 gem 'pg', '~> 1.2', '>= 1.2.3'
+gem 'pry', '~> 0.14.1'
 gem 'pry-byebug'
 gem 'pry-rails', '~> 0.3.9'
 
