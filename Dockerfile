@@ -4,6 +4,7 @@ RUN apt-get update --yes \
   && apt-get install --yes --no-install-recommends \
     apt-utils \
     build-essential \
+    vim \
   && gem install bundler:'~> 2.3' \
   && rm -rf /var/lib/apt/lists/*
 

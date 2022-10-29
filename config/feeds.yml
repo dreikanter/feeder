@@ -227,12 +227,13 @@
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 1200
 
-- name: "blogdummi"
-  url: "https://blogdummi.fr/feed/"
-  processor: "wordpress"
-  normalizer: "blogdummi"
-  after: "2021-01-06T12:00:00+00:00"
-  refresh_interval: 86400
+# NOTE: Site is incative since 2022.10.28
+# - name: "blogdummi"
+#   url: "https://blogdummi.fr/feed/"
+#   processor: "wordpress"
+#   normalizer: "blogdummi"
+#   after: "2021-01-06T12:00:00+00:00"
+#   refresh_interval: 86400
 
 - name: "waitbutwhy"
   url: "https://waitbutwhy.com/feed"
