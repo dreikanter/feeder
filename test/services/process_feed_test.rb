@@ -15,7 +15,7 @@ class ProcessFeedTest < Minitest::Test
     super
     stub_feed_loader_request('feeds/test/feed.json')
 
-    stub_request(:post, 'https://candy.freefeed.net/v1/posts')
+    stub_request(:post, 'https://freefeed.net/v1/posts')
       .to_return(
         headers: { 'Content-Type' => 'application/json' },
         body: {
