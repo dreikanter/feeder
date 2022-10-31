@@ -596,3 +596,10 @@
     twitter_user: "lizandmollie"
     ignore_retweets: true
     only_with_attachments: true
+
+- name: "zippy"
+  url: "https://www.comicsrss.com/rss/zippy-the-pinhead.rss"
+  processor: "feedjira"
+  normalizer: "zippy"
+  refresh_interval: 3600
+  import_limit: 20
