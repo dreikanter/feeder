@@ -603,3 +603,14 @@
   normalizer: "zippy"
   refresh_interval: 3600
   import_limit: 20
+
+- name: "yesbut"
+  loader: "twitter"
+  processor: "twitter"
+  normalizer: "twitter"
+  refresh_interval: 86400
+  import_limit: 20
+  options:
+    twitter_user: "_yesbut_"
+    ignore_retweets: true
+    only_with_attachments: true
