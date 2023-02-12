@@ -607,7 +607,7 @@
 - name: "yesbut"
   loader: "twitter"
   processor: "twitter"
-  normalizer: "twitter"
+  normalizer: "yesbut"
   refresh_interval: 86400
   import_limit: 20
   options:
