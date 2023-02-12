@@ -1,5 +1,5 @@
 class YesbutNormalizer < TwitterNormalizer
   def text
-    [tweet_text, link].find { !_1.blank? }
+    [tweet_text, link].find(&:present?).to_s
   end
 end
