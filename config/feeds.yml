@@ -609,7 +609,7 @@
   processor: "twitter"
   normalizer: "yesbut"
   refresh_interval: 86400
-  import_limit: 20
+  import_limit: 5
   options:
     twitter_user: "_yesbut_"
     ignore_retweets: true
