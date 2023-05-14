@@ -591,7 +591,6 @@
   processor: "twitter"
   normalizer: "twitter"
   refresh_interval: 3600
-  import_limit: 20
   options:
     twitter_user: "lizandmollie"
     ignore_retweets: true
@@ -602,7 +601,6 @@
   processor: "feedjira"
   normalizer: "zippy"
   refresh_interval: 3600
-  import_limit: 20
 
 - name: "yesbut"
   loader: "twitter"
@@ -614,3 +612,17 @@
     twitter_user: "_yesbut_"
     ignore_retweets: true
     only_with_attachments: true
+
+- name: "hubermanlab"
+  url: "https://www.youtube.com/feeds/videos.xml?channel_id=UC2D2CMWXMOVWx7giW1n3LIg"
+  processor: "youtube"
+  normalizer: "hubermanlab"
+  refresh_interval: 1800
+  import_limit: 20
+
+- name: "veritasium"
+  url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCHnyfMqiRRG1u-2MsSQLbXA"
+  processor: "youtube"
+  normalizer: "veritasium"
+  refresh_interval: 1800
+  import_limit: 20
