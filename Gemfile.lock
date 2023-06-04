@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    aasm (5.5.0)
+      concurrent-ruby (~> 1.0)
     actioncable (6.1.7)
       actionpack (= 6.1.7)
       activesupport (= 6.1.7)
@@ -335,6 +337,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm (~> 5.5)
   active_model_serializers (~> 0.10.9)
   addressable (~> 2.8)
   amazing_print
