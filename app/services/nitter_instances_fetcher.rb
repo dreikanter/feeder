@@ -18,6 +18,7 @@ class NitterInstancesFetcher
 
   private_constant :CHECKMARK
 
+  # WARNING: Parsing non-semantic markup, magic-magic-magic
   def instance_url(row)
     cells = row.css('td')
     return unless cells.count > 4 && cells[1].text.include?(CHECKMARK)
