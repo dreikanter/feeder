@@ -296,7 +296,7 @@
 
 - name: "extrafabulous"
   loader: "nitter"
-  processor: "feedjira"
+  processor: "nitter"
   normalizer: "nitter"
   refresh_interval: 7200
   import_limit: 5
@@ -336,7 +336,7 @@
 
 # - name: "jakelikesonions"
 #   loader: "nitter"
-#   processor: "feedjira"
+#   processor: "nitter"
 #   normalizer: "nitter"
 #   refresh_interval: 7200
 #   import_limit: 5
@@ -348,7 +348,7 @@
 
 # - name: "catscafe"
 #   loader: "nitter"
-#   processor: "feedjira"
+#   processor: "nitter"
 #   normalizer: "nitter"
 #   refresh_interval: 7200
 #   import_limit: 5
@@ -360,7 +360,7 @@
 
 # - name: "hackernewsonion"
 #   loader: "nitter"
-#   processor: "feedjira"
+#   processor: "nitter"
 #   normalizer: "nitter"
 #   refresh_interval: 7200
 #   import_limit: 5
@@ -387,7 +387,7 @@
 
 # - name: "nathanwpyle"
 #   loader: "nitter"
-#   processor: "feedjira"
+#   processor: "nitter"
 #   normalizer: "nitter"
 #   refresh_interval: 7200
 #   import_limit: 5
@@ -439,7 +439,7 @@
 
 # - name: "warandpeas"
 #   loader: "nitter"
-#   processor: "feedjira"
+#   processor: "nitter"
 #   normalizer: "nitter"
 #   refresh_interval: 14400
 #   import_limit: 10
@@ -459,7 +459,7 @@
 
 # - name: "safelyendangered"
 #   loader: "nitter"
-#   processor: "feedjira"
+#   processor: "nitter"
 #   normalizer: "nitter"
 #   refresh_interval: 14400
 #   import_limit: 10
@@ -536,7 +536,7 @@
 
 # - name: "neural-machine"
 #   loader: "nitter"
-#   processor: "feedjira"
+#   processor: "nitter"
 #   normalizer: "nitter"
 #   refresh_interval: 14400
 #   import_limit: 5
@@ -559,7 +559,7 @@
 
 # - name: "lizandmollie"
 #   loader: "nitter"
-#   processor: "feedjira"
+#   processor: "nitter"
 #   normalizer: "nitter"
 #   refresh_interval: 14400
 #   options:
@@ -575,7 +575,7 @@
 
 # - name: "yesbut"
 #   loader: "nitter"
-#   processor: "feedjira"
+#   processor: "nitter"
 #   normalizer: "nitter"
 #   refresh_interval: 86400
 #   import_limit: 5
