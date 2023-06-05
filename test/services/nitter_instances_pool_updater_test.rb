@@ -1,11 +1,11 @@
-require "test_helper"
+require 'test_helper'
 
 class NitterInstancesPoolUpdaterTest < Minitest::Test
   extend Minitest::Spec::DSL
 
   let(:subject) { NitterInstancesPoolUpdater }
-  let(:content) { file_fixture("nitter_instances_wiki_page.html").read }
-  let(:expected) { JSON.parse(file_fixture("nitter_instances_wiki_page.json").read) }
+  let(:content) { file_fixture('nitter_instances_wiki_page.html').read }
+  let(:expected) { JSON.parse(file_fixture('nitter_instances_wiki_page.json').read) }
 
   def setup
     stub_request(:get, NitterInstancesFetcher::PUBLIC_INSTANCES_WIKI_PAGE_URL).to_return(body: content)

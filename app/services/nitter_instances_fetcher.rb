@@ -1,8 +1,8 @@
 class NitterInstancesFetcher
   include Callee
 
-  PUBLIC_INSTANCES_WIKI_PAGE_URL = "https://github.com/zedeus/nitter/wiki/Instances".freeze
-  WELL_KNOWN_INSTANCES = ["https://nitter.net"].freeze
+  PUBLIC_INSTANCES_WIKI_PAGE_URL = 'https://github.com/zedeus/nitter/wiki/Instances'.freeze
+  WELL_KNOWN_INSTANCES = ['https://nitter.net'].freeze
 
   def call
     WELL_KNOWN_INSTANCES.dup.concat(public_instance_urls).uniq
@@ -14,18 +14,18 @@ class NitterInstancesFetcher
     trs.filter_map { |tr| instance_url(tr) }
   end
 
-  CHECKMARK = "✅".freeze
+  CHECKMARK = '✅'.freeze
 
   private_constant :CHECKMARK
 
-  def instance_url(tr)
-    tds = tr.css("td")
+  def instance_url(row)
+    tds = row.css('td')
     return unless tds.count > 4 && tds[1].text.include?(CHECKMARK)
-    tds.first.css("a").attribute("href").value
+    tds.first.css('a').attribute('href').value
   end
 
   def trs
-    Nokogiri::HTML(content).css("a#user-content-public,table>tbody>tr")
+    Nokogiri::HTML(content).css('a#user-content-public,table>tbody>tr')
   end
 
   def content

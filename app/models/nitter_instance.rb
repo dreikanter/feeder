@@ -8,6 +8,7 @@ class NitterInstance < ApplicationRecord
   # - errored - there was an error during last request
   # - disabled - the instance is disabled due to the MAX_ERRORS sequential errors
   # - removed - the instance was removed from the public instances list
+  # rubocop:disable Metrics/BlockLength
   aasm :status do
     state :enabled, initial: true
     state :errored
@@ -37,4 +38,5 @@ class NitterInstance < ApplicationRecord
       transitions to: :removed
     end
   end
+  # rubocop:enable Metrics/BlockLength
 end
