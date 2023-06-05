@@ -282,22 +282,23 @@
 #   normalizer: "rkn_alerts"
 #   refresh_interval: 600
 
-- name: "algtestament"
-  loader: "twitter"
-  processor: "twitter"
-  normalizer: "twitter"
-  refresh_interval: 86400
-  import_limit: 5
-  after: "2021-01-06T12:00:00+00:00"
-  options:
-    twitter_user: "alg_testament"
-    ignore_retweets: true
+# NOTE: Inactive account
+# - name: "algtestament"
+#   loader: "twitter"
+#   processor: "twitter"
+#   normalizer: "twitter"
+#   refresh_interval: 86400
+#   import_limit: 5
+#   after: "2021-01-06T12:00:00+00:00"
+#   options:
+#     twitter_user: "alg_testament"
+#     ignore_retweets: true
 
 - name: "extrafabulous"
   loader: "nitter"
   processor: "feedjira"
   normalizer: "nitter"
-  refresh_interval: 3600
+  refresh_interval: 7200
   import_limit: 5
   after: "2021-01-06T12:00:00+00:00"
   options:
@@ -305,16 +306,17 @@
     only_with_attachments: true
     ignore_retweets: true
 
-- name: "bojackhorseman"
-  loader: "twitter"
-  processor: "twitter"
-  normalizer: "twitter"
-  refresh_interval: 1200
-  import_limit: 5
-  after: "2021-01-06T12:00:00+00:00"
-  options:
-    twitter_user: "bojackhorseman"
-    ignore_retweets: true
+# NOTE: Inactive account
+# - name: "bojackhorseman"
+#   loader: "twitter"
+#   processor: "twitter"
+#   normalizer: "twitter"
+#   refresh_interval: 1200
+#   import_limit: 5
+#   after: "2021-01-06T12:00:00+00:00"
+#   options:
+#     twitter_user: "bojackhorseman"
+#     ignore_retweets: true
 
 - name: "nextbigfuture"
   url: "https://www.nextbigfuture.com/feed"
@@ -329,14 +331,14 @@
   processor: "youtube"
   normalizer: "youtube"
   refresh_interval: 1800
-  import_limit: 10
+  import_limit: 5
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "jakelikesonions"
-  loader: "twitter"
-  processor: "twitter"
-  normalizer: "twitter"
-  refresh_interval: 1200
+  loader: "nitter"
+  processor: "feedjira"
+  normalizer: "nitter"
+  refresh_interval: 7200
   import_limit: 5
   after: "2021-01-06T12:00:00+00:00"
   options:
@@ -345,10 +347,10 @@
     ignore_retweets: true
 
 - name: "catscafe"
-  loader: "twitter"
-  processor: "twitter"
-  normalizer: "twitter"
-  refresh_interval: 1200
+  loader: "nitter"
+  processor: "feedjira"
+  normalizer: "nitter"
+  refresh_interval: 7200
   import_limit: 5
   after: "2021-01-06T12:00:00+00:00"
   options:
@@ -357,10 +359,10 @@
     ignore_retweets: true
 
 - name: "hackernewsonion"
-  loader: "twitter"
-  processor: "twitter"
-  normalizer: "twitter"
-  refresh_interval: 1200
+  loader: "nitter"
+  processor: "feedjira"
+  normalizer: "nitter"
+  refresh_interval: 7200
   import_limit: 5
   after: "2021-01-06T12:00:00+00:00"
   options:
@@ -384,11 +386,11 @@
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "nathanwpyle"
-  loader: "twitter"
-  processor: "twitter"
-  normalizer: "twitter"
-  refresh_interval: 1200
-  import_limit: 10
+  loader: "nitter"
+  processor: "feedjira"
+  normalizer: "nitter"
+  refresh_interval: 7200
+  import_limit: 5
   after: "2021-01-06T12:00:00+00:00"
   options:
     twitter_user: "nathanwpyle"
@@ -400,30 +402,30 @@
   processor: "rss"
   normalizer: "smbc"
   refresh_interval: 1800
-  import_limit: 10
+  import_limit: 5
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "officetalk"
   url: "https://tele.ga/office_talk/rss/"
   processor: "rss"
   normalizer: "telega_basic"
-  refresh_interval: 1800
-  import_limit: 10
+  refresh_interval: 86400
+  import_limit: 5
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "infiniteimmortalbens"
   url: "https://infiniteimmortalbens.com/feed/"
   processor: "rss"
   normalizer: "infiniteimmortalbens"
-  refresh_interval: 600
-  import_limit: 10
+  refresh_interval: 3600
+  import_limit: 5
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "schneier"
   url: "https://www.schneier.com/blog/atom.xml"
   processor: "atom"
   normalizer: "schneier"
-  refresh_interval: 1200
+  refresh_interval: 3600
   import_limit: 10
   after: "2021-01-06T12:00:00+00:00"
 
@@ -431,33 +433,21 @@
   url: "https://www.monkeyuser.com/feed.xml"
   processor: "feedjira"
   normalizer: "monkeyuser"
-  refresh_interval: 1200
+  refresh_interval: 3600
   import_limit: 10
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "warandpeas"
-  loader: "twitter"
-  processor: "twitter"
-  normalizer: "twitter"
-  refresh_interval: 1200
+  loader: "nitter"
+  processor: "feedjira"
+  normalizer: "nitter"
+  refresh_interval: 14400
   import_limit: 10
   after: "2021-01-06T12:00:00+00:00"
   options:
     twitter_user: "warandpeass"
     only_with_attachments: true
     ignore_retweets: true
-
-# NOTE: Twitter account was deleted
-# - name: "dailycattt"
-#   loader: "twitter"
-#   processor: "twitter"
-#   normalizer: "twitter"
-#   refresh_interval: 1100
-#   import_limit: 10
-#   options:
-#     twitter_user: "PoorlyFluff"
-#     only_with_attachments: true
-#     ignore_retweets: true
 
 - name: "redakciya"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UC1eFXmJNkjITxPFWTy6RsWg"
@@ -468,10 +458,10 @@
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "safelyendangered"
-  loader: "twitter"
-  processor: "twitter"
-  normalizer: "twitter"
-  refresh_interval: 3600
+  loader: "nitter"
+  processor: "feedjira"
+  normalizer: "nitter"
+  refresh_interval: 14400
   import_limit: 10
   after: "2021-01-06T12:00:00+00:00"
   options:
@@ -486,25 +476,6 @@
   refresh_interval: 3600
   import_limit: 10
   after: "2021-01-06T12:00:00+00:00"
-
-
-# - name: "system32comics"
-#   loader: "instagram"
-#   processor: "instagram"
-#   normalizer: "system32"
-#   refresh_interval: 3600
-#   import_limit: 10
-#   options:
-#     instagram_user: "system32comics"
-
-# - name: "feeder-sandbox"
-#   loader: "instagram"
-#   processor: "instagram"
-#   normalizer: "instagram"
-#   refresh_interval: 3600
-#   import_limit: 10
-#   options:
-#     instagram_user: "nathanwpyle"
 
 - name: "buni"
   url: "bunicomic.com/feed/"
@@ -564,10 +535,10 @@
   refresh_interval: 3600
 
 - name: "neural-machine"
-  loader: "twitter"
-  processor: "twitter"
-  normalizer: "twitter"
-  refresh_interval: 7200
+  loader: "nitter"
+  processor: "feedjira"
+  normalizer: "nitter"
+  refresh_interval: 14400
   import_limit: 5
   options:
     twitter_user: "neural_machine"
@@ -587,10 +558,10 @@
   import_limit: 100
 
 - name: "lizandmollie"
-  loader: "twitter"
-  processor: "twitter"
-  normalizer: "twitter"
-  refresh_interval: 3600
+  loader: "nitter"
+  processor: "feedjira"
+  normalizer: "nitter"
+  refresh_interval: 14400
   options:
     twitter_user: "lizandmollie"
     ignore_retweets: true
@@ -603,9 +574,9 @@
   refresh_interval: 3600
 
 - name: "yesbut"
-  loader: "twitter"
-  processor: "twitter"
-  normalizer: "yesbut"
+  loader: "nitter"
+  processor: "feedjira"
+  normalizer: "nitter"
   refresh_interval: 86400
   import_limit: 5
   options:
@@ -618,11 +589,11 @@
   processor: "youtube"
   normalizer: "hubermanlab"
   refresh_interval: 1800
-  import_limit: 20
+  import_limit: 5
 
 - name: "veritasium"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCHnyfMqiRRG1u-2MsSQLbXA"
   processor: "youtube"
   normalizer: "veritasium"
   refresh_interval: 1800
-  import_limit: 20
+  import_limit: 5
