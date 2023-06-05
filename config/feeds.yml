@@ -334,40 +334,40 @@
   import_limit: 5
   after: "2021-01-06T12:00:00+00:00"
 
-- name: "jakelikesonions"
-  loader: "nitter"
-  processor: "feedjira"
-  normalizer: "nitter"
-  refresh_interval: 7200
-  import_limit: 5
-  after: "2021-01-06T12:00:00+00:00"
-  options:
-    twitter_user: "jakelikesonions"
-    only_with_attachments: true
-    ignore_retweets: true
+# - name: "jakelikesonions"
+#   loader: "nitter"
+#   processor: "feedjira"
+#   normalizer: "nitter"
+#   refresh_interval: 7200
+#   import_limit: 5
+#   after: "2021-01-06T12:00:00+00:00"
+#   options:
+#     twitter_user: "jakelikesonions"
+#     only_with_attachments: true
+#     ignore_retweets: true
 
-- name: "catscafe"
-  loader: "nitter"
-  processor: "feedjira"
-  normalizer: "nitter"
-  refresh_interval: 7200
-  import_limit: 5
-  after: "2021-01-06T12:00:00+00:00"
-  options:
-    twitter_user: "CatsCafeComics"
-    only_with_attachments: true
-    ignore_retweets: true
+# - name: "catscafe"
+#   loader: "nitter"
+#   processor: "feedjira"
+#   normalizer: "nitter"
+#   refresh_interval: 7200
+#   import_limit: 5
+#   after: "2021-01-06T12:00:00+00:00"
+#   options:
+#     twitter_user: "CatsCafeComics"
+#     only_with_attachments: true
+#     ignore_retweets: true
 
-- name: "hackernewsonion"
-  loader: "nitter"
-  processor: "feedjira"
-  normalizer: "nitter"
-  refresh_interval: 7200
-  import_limit: 5
-  after: "2021-01-06T12:00:00+00:00"
-  options:
-    twitter_user: "hackernewsonion"
-    ignore_retweets: true
+# - name: "hackernewsonion"
+#   loader: "nitter"
+#   processor: "feedjira"
+#   normalizer: "nitter"
+#   refresh_interval: 7200
+#   import_limit: 5
+#   after: "2021-01-06T12:00:00+00:00"
+#   options:
+#     twitter_user: "hackernewsonion"
+#     ignore_retweets: true
 
 - name: "bazar"
   url: "https://meduza.io/rss/podcasts/knizhnyy-bazar"
@@ -385,17 +385,17 @@
   import_limit: 2
   after: "2021-01-06T12:00:00+00:00"
 
-- name: "nathanwpyle"
-  loader: "nitter"
-  processor: "feedjira"
-  normalizer: "nitter"
-  refresh_interval: 7200
-  import_limit: 5
-  after: "2021-01-06T12:00:00+00:00"
-  options:
-    twitter_user: "nathanwpyle"
-    only_with_attachments: true
-    ignore_retweets: true
+# - name: "nathanwpyle"
+#   loader: "nitter"
+#   processor: "feedjira"
+#   normalizer: "nitter"
+#   refresh_interval: 7200
+#   import_limit: 5
+#   after: "2021-01-06T12:00:00+00:00"
+#   options:
+#     twitter_user: "nathanwpyle"
+#     only_with_attachments: true
+#     ignore_retweets: true
 
 - name: "smbc"
   url: "https://www.smbc-comics.com/comic/rss"
@@ -437,17 +437,17 @@
   import_limit: 10
   after: "2021-01-06T12:00:00+00:00"
 
-- name: "warandpeas"
-  loader: "nitter"
-  processor: "feedjira"
-  normalizer: "nitter"
-  refresh_interval: 14400
-  import_limit: 10
-  after: "2021-01-06T12:00:00+00:00"
-  options:
-    twitter_user: "warandpeass"
-    only_with_attachments: true
-    ignore_retweets: true
+# - name: "warandpeas"
+#   loader: "nitter"
+#   processor: "feedjira"
+#   normalizer: "nitter"
+#   refresh_interval: 14400
+#   import_limit: 10
+#   after: "2021-01-06T12:00:00+00:00"
+#   options:
+#     twitter_user: "warandpeass"
+#     only_with_attachments: true
+#     ignore_retweets: true
 
 - name: "redakciya"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UC1eFXmJNkjITxPFWTy6RsWg"
@@ -457,17 +457,17 @@
   import_limit: 10
   after: "2021-01-06T12:00:00+00:00"
 
-- name: "safelyendangered"
-  loader: "nitter"
-  processor: "feedjira"
-  normalizer: "nitter"
-  refresh_interval: 14400
-  import_limit: 10
-  after: "2021-01-06T12:00:00+00:00"
-  options:
-    twitter_user: "endangeredcomic"
-    only_with_attachments: true
-    ignore_retweets: true
+# - name: "safelyendangered"
+#   loader: "nitter"
+#   processor: "feedjira"
+#   normalizer: "nitter"
+#   refresh_interval: 14400
+#   import_limit: 10
+#   after: "2021-01-06T12:00:00+00:00"
+#   options:
+#     twitter_user: "endangeredcomic"
+#     only_with_attachments: true
+#     ignore_retweets: true
 
 - name: "kurzgesagt"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCsXVk37bltHxD1rDPwtNM8Q"
@@ -534,15 +534,15 @@
   normalizer: "lobsters"
   refresh_interval: 3600
 
-- name: "neural-machine"
-  loader: "nitter"
-  processor: "feedjira"
-  normalizer: "nitter"
-  refresh_interval: 14400
-  import_limit: 5
-  options:
-    twitter_user: "neural_machine"
-    ignore_retweets: true
+# - name: "neural-machine"
+#   loader: "nitter"
+#   processor: "feedjira"
+#   normalizer: "nitter"
+#   refresh_interval: 14400
+#   import_limit: 5
+#   options:
+#     twitter_user: "neural_machine"
+#     ignore_retweets: true
 
 - name: "ru-tatireti"
   url: "https://tatireti.ru/?feed=rss2"
@@ -557,15 +557,15 @@
   refresh_interval: 3600
   import_limit: 100
 
-- name: "lizandmollie"
-  loader: "nitter"
-  processor: "feedjira"
-  normalizer: "nitter"
-  refresh_interval: 14400
-  options:
-    twitter_user: "lizandmollie"
-    ignore_retweets: true
-    only_with_attachments: true
+# - name: "lizandmollie"
+#   loader: "nitter"
+#   processor: "feedjira"
+#   normalizer: "nitter"
+#   refresh_interval: 14400
+#   options:
+#     twitter_user: "lizandmollie"
+#     ignore_retweets: true
+#     only_with_attachments: true
 
 - name: "zippy"
   url: "https://www.comicsrss.com/rss/zippy-the-pinhead.rss"
@@ -573,16 +573,16 @@
   normalizer: "zippy"
   refresh_interval: 3600
 
-- name: "yesbut"
-  loader: "nitter"
-  processor: "feedjira"
-  normalizer: "nitter"
-  refresh_interval: 86400
-  import_limit: 5
-  options:
-    twitter_user: "_yesbut_"
-    ignore_retweets: true
-    only_with_attachments: true
+# - name: "yesbut"
+#   loader: "nitter"
+#   processor: "feedjira"
+#   normalizer: "nitter"
+#   refresh_interval: 86400
+#   import_limit: 5
+#   options:
+#     twitter_user: "_yesbut_"
+#     ignore_retweets: true
+#     only_with_attachments: true
 
 - name: "hubermanlab"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UC2D2CMWXMOVWx7giW1n3LIg"
