@@ -6,6 +6,6 @@ class NitterPermalink
   TWITTER_HOST = 'twitter.com'.freeze
 
   def call
-    URI.parse(url).tap { _1.host = TWITTER_HOST }.to_s
+    URI.parse(url).tap { |uri| uri.host = TWITTER_HOST }.to_s
   end
 end

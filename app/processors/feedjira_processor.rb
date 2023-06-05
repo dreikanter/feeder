@@ -2,7 +2,7 @@ class FeedjiraProcessor < BaseProcessor
   protected
 
   def entities
-    parse_content.map { entity(_1.url, _1) }
+    parse_content.map { |item| entity(item.url, item) }
   end
 
   def parse_content
