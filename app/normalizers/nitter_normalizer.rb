@@ -35,7 +35,7 @@ class NitterNormalizer < BaseNormalizer
   end
 
   def images
-    @images ||= Nokogiri::HTML(content.summary).css('img').map { _1[:src] }.compact
+    @images ||= Nokogiri::HTML(content.summary).css('img').map { |element| element[:src] }.compact
   end
 
   def no_images?
