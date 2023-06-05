@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 2023_06_04_151916) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["errored_at"], name: "index_nitter_instances_on_errored_at"
     t.index ["status"], name: "index_nitter_instances_on_status"
+    t.index ["url"], name: "index_nitter_instances_on_url"
   end
 
   create_table "posts", id: :serial, force: :cascade do |t|
