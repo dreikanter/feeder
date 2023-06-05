@@ -1,11 +1,10 @@
 class NitterNormalizer < BaseNormalizer
-  TWITTER_HOST = "twitter.com".freeze
   RETWEET_PREFIX = "RT by".freeze
 
   protected
 
   def link
-    URI.parse(content.url).tap { _1.host = TWITTER_HOST }.to_s
+    NitterPermalink.call(content.url)
   end
 
   def published_at
