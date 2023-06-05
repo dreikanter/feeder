@@ -17,6 +17,7 @@ class NitterInstancesPoolUpdaterTest < Minitest::Test
     assert_equal expected.sort, imported_urls.sort
   end
 
+  # :reek:DuplicateMethodCall
   def test_should_be_idempotent
     subject.call
 
