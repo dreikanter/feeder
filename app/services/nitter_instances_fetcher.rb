@@ -11,7 +11,7 @@ class NitterInstancesFetcher
   private
 
   def public_instance_urls
-    trs.filter_map { |tr| instance_url(tr) }
+    trs.map { |tr| instance_url(tr) }.compact
   end
 
   CHECKMARK = '✅'.freeze
