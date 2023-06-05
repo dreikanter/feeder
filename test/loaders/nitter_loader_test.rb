@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 class NitterLoaderTest < Minitest::Test
   extend Minitest::Spec::DSL
@@ -9,12 +9,12 @@ class NitterLoaderTest < Minitest::Test
     build(
       :feed,
       url: nil,
-      name: "sample_twitter_feed",
-      options: { "twitter_user" => "username" }
+      name: 'sample_twitter_feed',
+      options: { 'twitter_user' => 'username' }
     )
   end
 
-  let(:body) { "CONTENT BODY" }
+  let(:body) { 'CONTENT BODY' }
   let(:nitter_url) { "#{NitterLoader::DEFAULT_NITTER_URL}/username/rss" }
 
   def test_fetches_nitter_url

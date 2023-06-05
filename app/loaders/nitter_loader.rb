@@ -1,5 +1,5 @@
 class NitterLoader < BaseLoader
-  DEFAULT_NITTER_URL = "https://nitter.net".freeze
+  DEFAULT_NITTER_URL = 'https://nitter.net'.freeze
 
   option(:nitter_url, optional: true, default: -> { DEFAULT_NITTER_URL })
 
@@ -16,6 +16,6 @@ class NitterLoader < BaseLoader
   end
 
   def twitter_user
-    feed.options.fetch("twitter_user")
+    feed.options.fetch('twitter_user')
   end
 end
