@@ -11,7 +11,7 @@ class NitterInstancesFetcher
   private
 
   def public_instance_urls
-    trs.map { |tr| instance_url(tr) }.compact
+    rows.map { |row| instance_url(row) }.compact
   end
 
   CHECKMARK = '✅'.freeze
@@ -19,12 +19,12 @@ class NitterInstancesFetcher
   private_constant :CHECKMARK
 
   def instance_url(row)
-    tds = row.css('td')
-    return unless tds.count > 4 && tds[1].text.include?(CHECKMARK)
-    tds.first.css('a').attribute('href').value
+    cells = row.css('td')
+    return unless cells.count > 4 && cells[1].text.include?(CHECKMARK)
+    cells.first.css('a').attribute('href').value
   end
 
-  def trs
+  def rows
     Nokogiri::HTML(content).css('a#user-content-public,table>tbody>tr')
   end
 
