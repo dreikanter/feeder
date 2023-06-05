@@ -25,6 +25,7 @@ group :development, :test do
   gem 'webmock', '~> 3.11'
 end
 
+gem 'aasm', '~> 5.5'
 gem 'active_model_serializers', '~> 0.10.9'
 gem 'addressable', '~> 2.8'
 gem 'amazing_print'
@@ -48,4 +49,5 @@ gem 'pry-rails', '~> 0.3.9'
 # TODO: Replace with `http` gem
 gem 'rest-client', '~> 2.0'
 
+# TODO: Drop this after Twitter API interaction is removed
 gem 'twitter', '~> 7.0'

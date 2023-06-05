@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_22_074055) do
+ActiveRecord::Schema.define(version: 2023_06_04_151916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,18 @@ ActiveRecord::Schema.define(version: 2019_08_22_074055) do
     t.integer "status", default: 0, null: false
     t.index ["name"], name: "index_feeds_on_name", unique: true
     t.index ["status"], name: "index_feeds_on_status"
+  end
+
+  create_table "nitter_instances", force: :cascade do |t|
+    t.string "status", null: false
+    t.string "url", null: false
+    t.datetime "errored_at"
+    t.integer "errors_count", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["errored_at"], name: "index_nitter_instances_on_errored_at"
+    t.index ["status"], name: "index_nitter_instances_on_status"
+    t.index ["url"], name: "index_nitter_instances_on_url"
   end
 
   create_table "posts", id: :serial, force: :cascade do |t|

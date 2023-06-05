@@ -28,6 +28,7 @@ WebMock.enable!
 
 module Minitest
   class Test
+    include ActiveSupport::Testing::Assertions
     include ActiveSupport::Testing::TimeHelpers
     include FactoryBot::Syntax::Methods
 
