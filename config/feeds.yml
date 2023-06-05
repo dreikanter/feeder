@@ -294,10 +294,10 @@
     ignore_retweets: true
 
 - name: "extrafabulous"
-  loader: "twitter"
-  processor: "twitter"
-  normalizer: "twitter"
-  refresh_interval: 1200
+  loader: "nitter"
+  processor: "feedjira"
+  normalizer: "nitter"
+  refresh_interval: 3600
   import_limit: 5
   after: "2021-01-06T12:00:00+00:00"
   options:
