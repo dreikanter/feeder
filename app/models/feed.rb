@@ -27,11 +27,32 @@
 #
 
 class Feed < ApplicationRecord
+  include AASM
+
   has_many :posts
 
   validates :name, presence: true
 
+  # TODO: Replace with #state
   enum status: FeedStatus.options
+
+  aasm :state do
+    state :enabled, initial: true
+    state :disabled
+    state :removed
+
+    event :disable do
+      transitions from: :enabled, to: :disabled
+    end
+
+    event :enable do
+      transitions from: %i[disabled removed], to: :enabled
+    end
+
+    event :remove do
+      transitions to: :removed
+    end
+  end
 
   scope :ordered_active, -> { active.order(FEEDS_ORDER) }
 
@@ -40,6 +61,7 @@ class Feed < ApplicationRecord
     (Time.now.utc.to_i - refreshed_at.to_i).abs > refresh_interval
   end
 
+  # TODO: Replace with a scope
   def self.stale
     where(refresh_interval: 0)
       .or(where(refreshed_at: nil))
