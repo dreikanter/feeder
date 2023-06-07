@@ -21,6 +21,7 @@ group :development, :test do
   gem 'marginalia', '~> 1.5'
   gem 'minitest-rails', '~> 6.0'
   gem 'mocha', '~> 1.9'
+  gem 'rspec-rails', '~> 6.0.0'
   gem 'simplecov', '~> 0.21'
   gem 'webmock', '~> 3.11'
 end
