@@ -26,37 +26,39 @@ RSpec.describe Feed do
     expect(described_class.new.import_limit).to be_nil
   end
 
-  it "should init treat new feed as stale" do
-    expect(described_class.new).to be_stale
-  end
+  describe "stale" do
+    it "should init treat new feed as stale" do
+      expect(described_class.new).to be_stale
+    end
 
-  it "should evaluate stale condition" do
-    refreshed_at = (one_day_in_seconds.succ).seconds.ago
-    feed = build(:feed, refresh_interval: one_day_in_seconds, refreshed_at: stale_timestampt)
-    expect(feed).to be_stale
-  end
+    it "should evaluate stale condition" do
+      refreshed_at = (one_day_in_seconds.succ).seconds.ago
+      feed = build(:feed, refresh_interval: one_day_in_seconds, refreshed_at: stale_timestampt)
+      expect(feed).to be_stale
+    end
 
-  it "should scope stale feeds" do
-    expect {
-      create(:feed, refresh_interval: one_day_in_seconds, refreshed_at: stale_timestampt)
-    }.to change { stale_feeds_scope.count }.by(1)
-  end
+    it "should scope stale feeds" do
+      expect {
+        create(:feed, refresh_interval: one_day_in_seconds, refreshed_at: stale_timestampt)
+      }.to change { stale_feeds_scope.count }.by(1)
+    end
 
-  it "should treat records with zero refresh interval as always stale" do
-    feed = create(:feed, refresh_interval: 0, refreshed_at: Time.current)
-    expect(feed).to be_stale
-    expect(stale_feeds_scope.where(id: feed.id)).to exist
-  end
+    it "should treat records with zero refresh interval as always stale" do
+      feed = create(:feed, refresh_interval: 0, refreshed_at: Time.current)
+      expect(feed).to be_stale
+      expect(stale_feeds_scope.where(id: feed.id)).to exist
+    end
 
-  it "should treat records with undefined refresh timestamp as stale" do
-    feed = create(:feed, refresh_interval: 0, refreshed_at: nil)
-    expect(feed).to be_stale
-    expect(stale_feeds_scope.where(id: feed.id)).to exist
-  end
+    it "should treat records with undefined refresh timestamp as stale" do
+      feed = create(:feed, refresh_interval: 0, refreshed_at: nil)
+      expect(feed).to be_stale
+      expect(stale_feeds_scope.where(id: feed.id)).to exist
+    end
 
-  it "should treat records with recent refresh timestamp as not stale" do
-    feed = create(:feed, refresh_interval: one_day_in_seconds, refreshed_at: recent_timestampt)
-    expect(feed).not_to be_stale
-    expect(stale_feeds_scope.where(id: feed.id)).not_to exist
+    it "should treat records with recent refresh timestamp as not stale" do
+      feed = create(:feed, refresh_interval: one_day_in_seconds, refreshed_at: recent_timestampt)
+      expect(feed).not_to be_stale
+      expect(stale_feeds_scope.where(id: feed.id)).not_to exist
+    end
   end
 end
