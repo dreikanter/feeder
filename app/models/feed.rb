@@ -54,24 +54,27 @@ class Feed < ApplicationRecord
     end
   end
 
-  scope :ordered_active, -> { active.order(FEEDS_ORDER) }
+  scope :ordered_active, -> {
+    active.order(Arel.sql("last_post_created_at IS NULL, last_post_created_at DESC"))
+  }
 
-  def stale?
-    return true if refresh_interval.zero? || !refreshed_at
-    (Time.now.utc.to_i - refreshed_at.to_i).abs > refresh_interval
-  end
-
-  # TODO: Replace with a scope
-  def self.stale
+  scope :stale, -> {
     where(refresh_interval: 0)
       .or(where(refreshed_at: nil))
-      .or(where("#{PG_AGE} > #{PG_THRESHOLD}"))
+      .or(where("age(now(), refreshed_at) > make_interval(secs => refresh_interval)"))
+  }
+
+  def stale?
+    refresh_interval.zero? || !refreshed_at || too_long_since_last_refresh?
   end
 
-  PG_AGE = 'age(now(), refreshed_at)'.freeze
-  PG_THRESHOLD = 'make_interval(secs => refresh_interval)'.freeze
-  ORDER_FIELD = 'last_post_created_at'.freeze
-  FEEDS_ORDER = Arel.sql("#{ORDER_FIELD} IS NULL, #{ORDER_FIELD} DESC")
+  private
 
-  private_constant :ORDER_FIELD, :FEEDS_ORDER, :PG_AGE, :PG_THRESHOLD
+  def too_long_since_last_refresh?
+    seconds_since_last_refresh > refresh_interval
+  end
+
+  def seconds_since_last_refresh
+    (Time.now.utc.to_i - refreshed_at.to_i).abs
+  end
 end
