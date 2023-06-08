@@ -107,8 +107,8 @@
   processor: "reddit"
   normalizer: "reddit"
   after: "2021-01-06T12:00:00+00:00"
-  refresh_interval: 7200
-  import_limit: 5
+  refresh_interval: 1200
+  import_limit: 2
 
 # - name: "avokado-fm"
 #   url: "https://tele.ga/avokado_fm/rss/"
