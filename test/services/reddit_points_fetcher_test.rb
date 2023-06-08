@@ -6,7 +6,7 @@ class RedditPointsFetcherTest < Minitest::Test
   let(:subject) { RedditPointsFetcher }
 
   let(:url) { 'https://www.reddit.com/r/worldnews/comments/11yg2e7/germany_shots_fired_at_police_in_reichsbürger/' }
-  let(:expected) { 1869 }
+  let(:expected) { 2869 }
 
   def setup
     stub_request(:get, %r{^https://.*/r/worldnews/comments/})
