@@ -10,6 +10,8 @@ class RedditProcessor < AtomProcessor
 
   private
 
+  # TODO: Consider extrating Reddit score evaluation to a service
+  # TODO: Use specialized model
   def enough_points?(link)
     reddit_points(link) >= POINTS_THRESHOLD
   end
@@ -23,20 +25,16 @@ class RedditProcessor < AtomProcessor
   end
 
   def cached_data_point(link)
-    logger.debug('attempting to load reddit points from cache')
     DataPoint.for(:reddit)
       .where('created_at > ?', CACHE_HISTORY_DEPTH.ago)
       .where("details->>'link' = ?", link).ordered.first
   end
 
   def create_data_point(link)
-    logger.debug('loading reddit points from reddit')
-
     CreateDataPoint.call(
       :reddit,
       link: link,
-      points: RedditPointsFetcher.call(link),
-      description: desc
+      points: RedditPointsFetcher.call(link)
     )
   end
 end
