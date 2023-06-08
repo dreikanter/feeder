@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 class RedditProcessorTest < Minitest::Test
   extend Minitest::Spec::DSL
@@ -33,7 +33,7 @@ class RedditProcessorTest < Minitest::Test
 
   def test_fetches_reddit_points
     entities = subject.call(content, feed: feed, import_limit: 0)
-    sample_uids = entities[0,3].map(&:uid)
+    sample_uids = entities[0, 3].map(&:uid)
     assert_equal expected_uids, sample_uids
   end
 end

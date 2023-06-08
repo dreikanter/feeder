@@ -10,6 +10,6 @@ class RedditSlugsChopper
   private
 
   def short_path(path)
-    path.gsub(/[^\/]*\/$/, "")
+    path.gsub(%r{[^/]*/$}, '')
   end
 end
