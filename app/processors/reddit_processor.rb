@@ -10,6 +10,8 @@ class RedditProcessor < AtomProcessor
 
   private
 
+  # TODO: Consider extrating Reddit score evaluation to a service
+  # TODO: Use specialized model
   def enough_points?(link)
     reddit_points(link) >= POINTS_THRESHOLD
   end
@@ -23,47 +25,16 @@ class RedditProcessor < AtomProcessor
   end
 
   def cached_data_point(link)
-    logger.debug('attempting to load reddit points from cache')
     DataPoint.for(:reddit)
       .where('created_at > ?', CACHE_HISTORY_DEPTH.ago)
       .where("details->>'link' = ?", link).ordered.first
   end
 
-  # TODO: Use Reddit API instead
   def create_data_point(link)
-    logger.debug('loading reddit points from reddit')
-    html = Nokogiri::HTML(page_content(link))
-    desc = html.at('meta[property="og:description"]').try(:[], :content).to_s
-    points = parse_points(desc)
-    raise 'error loading reddit points' unless points
-
     CreateDataPoint.call(
       :reddit,
       link: link,
-      points: points,
-      description: desc
+      points: RedditPointsFetcher.call(link)
     )
-  end
-
-  def parse_points(string)
-    Integer(string[/^[\d,]+/].gsub(',', ''))
-  rescue StandardError
-    nil
-  end
-
-  def page_content(link)
-    logger.debug("fetching [#{link}]")
-
-    # TODO: Figure out why sanitization is required here
-    # rubocop:disable Lint/UriEscapeUnescape
-    safe_link = URI.encode(URI.decode(link))
-    # rubocop:enable Lint/UriEscapeUnescape
-    CreateDataPoint.call(
-      :test_reddit_links,
-      link: link,
-      safe_link: safe_link
-    )
-
-    RestClient.get(safe_link).body
   end
 end
