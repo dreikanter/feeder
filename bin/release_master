@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+set -e
+
+cowsay Pushing master to release branch
+
 git checkout master
 git pull --rebase origin master
 git checkout release
