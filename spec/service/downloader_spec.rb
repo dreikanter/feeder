@@ -18,7 +18,7 @@ RSpec.describe Downloader do
   let(:redirect_url) { 'https://example.com/1x1.png' }
   let(:unparseable_urls) { [nil, '', '+&://WЯONG'] }
 
-  it 'should download stuff' do
+  it 'downloads stuff' do
     stub_request_with_image(url)
 
     service.call(url) do |io, content_type|
@@ -27,7 +27,7 @@ RSpec.describe Downloader do
     end
   end
 
-  it 'should accept non-ascii urls' do
+  it 'accepts non-ascii urls' do
     stub_request_with_image(non_ascii_url)
 
     service.call(non_ascii_url) do |io, content_type|
@@ -36,7 +36,7 @@ RSpec.describe Downloader do
     end
   end
 
-  it 'should follow redirects' do
+  it 'follows redirects' do
     stub_request(:get, url).to_return(status: 301, headers: { 'Location' => redirect_url })
     stub_request_with_image(redirect_url)
 
@@ -48,21 +48,21 @@ RSpec.describe Downloader do
     end
   end
 
-  it 'should not yield on error' do
+  it 'does not yield on error' do
     stub_request(:get, url).to_return(status: 404)
-    expect { |block| service.call(url, &block) }.to_not yield_control
+    expect { |block| service.call(url, &block) }.not_to yield_control
   end
 
-  it 'should not yield when too many redirects' do
+  it 'does not yield when too many redirects' do
     stub_request(:get, url).to_return(status: 301, headers: { 'Location' => 'http://example.com/1' })
     stub_request(:get, 'http://example.com/1').to_return(status: 301, headers: { 'Location' => 'https://example.com/2' })
     stub_request(:get, 'https://example.com/2').to_return(status: 301, headers: { 'Location' => url })
-    expect { |block| service.call(url, &block) }.to_not yield_control
+    expect { |block| service.call(url, &block) }.not_to yield_control
   end
 
-  it 'should not yield when bad URL' do
+  it 'does not yield when bad URL' do
     unparseable_urls.each do |unparseable_url|
-      expect { |block| service.call(unparseable_url, &block) }.to_not yield_control
+      expect { |block| service.call(unparseable_url, &block) }.not_to yield_control
     end
   end
 

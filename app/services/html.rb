@@ -62,7 +62,7 @@ class Html
   end
 
   def self.image_urls(html, selector: nil, attribute: 'src')
-    Nokogiri::HTML(html).css(selector || 'img').map { |e| e[attribute] }
+    Nokogiri::HTML(html).css(selector || 'img').pluck(attribute)
   end
 
   def self.first_image_url(html, selector: nil)
@@ -70,7 +70,7 @@ class Html
   end
 
   def self.link_urls(html, selector: nil)
-    Nokogiri::HTML(html).css(selector || 'a').map { |e| e['href'] }
+    Nokogiri::HTML(html).css(selector || 'a').pluck('href')
   end
 
   # rubocop:disable Metrics/CyclomaticComplexity, Metrics/AbcSize

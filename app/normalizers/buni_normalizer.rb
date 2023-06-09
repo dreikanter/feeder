@@ -21,7 +21,7 @@ class BuniNormalizer < FeedjiraNormalizer
 
   def title
     image_title = image.try(:[], :alt)
-    image_title.blank? ? content.title : image_title
+    (image_title.presence || content.title)
   end
 
   def image_url

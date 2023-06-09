@@ -25,9 +25,7 @@ class PullTest < Minitest::Test
     stub_request(:get, FEED_URL).to_return(body: file_fixture(fixture_path))
   end
 
-  def feed_id
-    feed.id
-  end
+  delegate :id, to: :feed, prefix: true
 
   # rubocop:disable Metrics/MethodLength
   def test_feed_entities

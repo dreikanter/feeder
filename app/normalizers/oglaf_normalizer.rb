@@ -6,7 +6,7 @@ class OglafNormalizer < RssNormalizer
   end
 
   def attachments
-    images.map { |image| image[:src] }.compact
+    images.pluck(:src).compact
   end
 
   def comments

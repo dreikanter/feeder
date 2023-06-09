@@ -25,7 +25,7 @@ class LitterboxNormalizer < WordpressNormalizer
   private
 
   def extract_slides
-    page_html.css('.swiper-wrapper img').map { |element| element['src'] }
+    page_html.css('.swiper-wrapper img').pluck('src')
   end
 
   def page_html

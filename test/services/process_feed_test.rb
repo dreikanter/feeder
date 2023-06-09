@@ -38,9 +38,7 @@ class ProcessFeedTest < Minitest::Test
     )
   end
 
-  def posts
-    feed.posts
-  end
+  delegate :posts, to: :feed
 
   def stub_feed_loader_request(fixture_path)
     stub_request(:get, FEED_URL).to_return(body: file_fixture(fixture_path))
@@ -59,9 +57,7 @@ class ProcessFeedTest < Minitest::Test
     DataPoint.for(:pull).last
   end
 
-  def details
-    data_point.details
-  end
+  delegate :details, to: :data_point
 
   def test_update_feed_timestamps
     freeze_time do

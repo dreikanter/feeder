@@ -11,7 +11,7 @@ class PurgeDataPointsTest < Minitest::Test
   def test_deletes_old_data_points
     data_point = create(:data_point, created_at: sample_threshold - 1)
     subject.call(threshold: SAMPLE_THRESHOLD)
-    refute(DataPoint.exists?(data_point.id))
+    assert_not(DataPoint.exists?(data_point.id))
   end
 
   def test_keep_recent_data_points

@@ -36,28 +36,28 @@ RSpec.describe ProcessFeed do
     )
   end
 
-  it 'should increment error counters when loader fails' do
+  it 'increments error counters when loader fails' do
     expect { service.call(feed_with_faulty_loader) }.to increment_error_counters(feed_with_faulty_loader)
   end
 
-  it 'should dump feed error when loader fails' do
+  it 'dumps feed error when loader fails' do
     expect { service.call(feed_with_faulty_processor) }.to change { errors_count(feed_with_faulty_processor) }.by(1)
   end
 
-  it 'should increment error counters when processor fails' do
+  it 'increments error counters when processor fails' do
     expect { service.call(feed_with_faulty_processor) }.to increment_error_counters(feed_with_faulty_processor)
   end
 
-  it 'should dump feed error when processor fails' do
+  it 'dumps feed error when processor fails' do
     expect { service.call(feed_with_faulty_processor) }.to change { errors_count(feed_with_faulty_processor) }.by(1)
   end
 
-  it 'should dump normalization errors' do
+  it 'dumps normalization errors' do
     expect { service.call(feed_with_faulty_normalizer) }.to change { errors_count(feed_with_faulty_normalizer) }.by(2)
   end
 
-  it 'should not create posts on normalization error' do
-    expect { service.call(feed_with_faulty_normalizer) }.not_to change { Post.count }
+  it 'does not create posts on normalization error' do
+    expect { service.call(feed_with_faulty_normalizer) }.not_to(change { Post.count })
   end
 
   def increment_error_counters(feed)

@@ -4,7 +4,7 @@ RSpec.describe DashboardsController do
   render_views
 
   describe 'GET show' do
-    it 'should OK' do
+    it 'is okay' do
       feed = create(:feed)
       get :show
       expect(response).to be_successful

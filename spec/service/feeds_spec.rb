@@ -33,7 +33,7 @@ RSpec.describe Feeds do
     ].freeze
   end
 
-  it 'should update existing feeds' do
+  it 'updates existing feeds' do
     expect { feeds }.to change { existing_feed.reload.attributes.slice(*configurable_attributes) }
       .from(
         {
@@ -63,7 +63,7 @@ RSpec.describe Feeds do
       )
   end
 
-  it 'should update removed feeds state' do
+  it 'updates removed feeds state' do
     expect { feeds }.to change { missing_feed.reload.state }.from('enabled').to('removed')
   end
 end
