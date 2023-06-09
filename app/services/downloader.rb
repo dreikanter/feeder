@@ -5,16 +5,28 @@ class Downloader
 
   def call
     Honeybadger.context(url: url)
-    io = StringIO.new
-    io.set_encoding(Encoding::BINARY)
-    io.write(response.body.to_s)
-    io.rewind
-    yield io, response.content_type.mime_type
+    response = fetch_url
+    return unless response&.status == 200
+    yield build_io_from(response), response.content_type.mime_type
   end
 
   private
 
-  def response
-    @response ||= HTTP.get(url)
+  def build_io_from(response)
+    StringIO.new.tap do |io|
+      io.set_encoding(Encoding::BINARY)
+      io.write(response.body.to_s)
+      io.rewind
+    end
+  end
+
+  MAX_HOPS = 3
+
+  private_constant :MAX_HOPS
+
+  def fetch_url
+    HTTP.follow(max_hops: MAX_HOPS).get(url)
+  rescue StandardError
+    nil
   end
 end
