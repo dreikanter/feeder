@@ -16,21 +16,34 @@ class Feeds
 
   private
 
-  def load_and_update_feeds
+  def update_and_load_feeds
     logger.info('updating feeds from configuration')
     remove_missing_feeds
-    update_existing_feeds
+    create_ot_update_existing_feeds
+    Feed.enabled
   end
 
   def remove_missing_feeds
-    # TODO
+    missing_feeds.update_all(state: :removed)
   end
 
-  def update_existing_feeds
-    # TODO
+  def missing_feeds
+    Feed.where.not(name: enabled_feed_names_from_configuration)
   end
 
-  def feeds
+  def create_ot_update_existing_feeds
+    feeds_configuration.each do |config|
+      feed = Feed.find_or_create_by(name: config[:name])
+      feed.update!(config.merge(status: FeedStatus.active))
+      feed.enable! if feed.may_enable?
+    end
+  end
+
+  def enabled_feed_names_from_configuration
+    feeds_configuration.map { |config| config[:name] }
+  end
+
+  def feeds_configuration
     @feeds ||= config_data.map(&:symbolize_keys).map(&FeedSanitizer)
   end
 
