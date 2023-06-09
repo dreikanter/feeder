@@ -7,14 +7,14 @@ class Downloader
     Honeybadger.context(url: url)
     io = StringIO.new
     io.set_encoding(Encoding::BINARY)
-    io.write(response.body)
+    io.write(response.body.to_s)
     io.rewind
-    yield io, response.headers[:content_type]
+    yield io, response.content_type.mime_type
   end
 
   private
 
   def response
-    @response ||= RestClient.get(url)
+    @response ||= HTTP.get(url)
   end
 end
