@@ -8,6 +8,6 @@ class AtomProcessor < BaseProcessor
   end
 
   def parse_content
-    RSS::Parser.parse(content, false).items
+    RSS::Parser.parse(content, false)&.items || []
   end
 end
