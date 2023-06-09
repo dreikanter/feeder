@@ -27,6 +27,5 @@
 #
 
 class Error < ApplicationRecord
-  enum status: ErrorStatus.options
   belongs_to :target, polymorphic: true, optional: true
 end
