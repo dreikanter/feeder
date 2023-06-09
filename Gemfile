@@ -9,6 +9,7 @@ group :development do
   gem 'reek', '~> 6.0'
   gem 'rubocop', '~> 1.7'
   gem 'rubocop-rails'
+  gem 'rubocop-rspec'
   gem 'spring'
 end
 
