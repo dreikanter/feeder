@@ -18,29 +18,8 @@ namespace :feeder do
   task pull_stale: :environment do
     # TODO: Move to a service
     feeds = Feed.stale.active
-
-    # TODO: Limit batch size after Feed#stale? is fixed
-    # .limit(Defaults::MAX_FEEDS_PER_BATCH)
-
     feed_names = feeds.pluck(:name).join(', ')
     Rails.logger.info("---> updating #{feeds.count} feed(s): #{feed_names}")
-    data_point = CreateDataPoint.call(:batch, feeds: feeds.pluck(:name))
-
-    feeds.each do |feed|
-      ProcessFeed.call(feed)
-    rescue StandardError => e
-      ErrorDumper.call(
-        exception: e,
-        message: 'Error processing feed',
-        target: feed,
-        context: {
-          batch_data_point: data_point.id,
-          feed_id: feed.id,
-          feed_name: feed.name
-        }
-      )
-
-      next
-    end
+    feeds.each { |feed| ProcessFeed.call(feed) }
   end
 end

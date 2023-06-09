@@ -5,28 +5,27 @@ class ProcessFeed
   option :logger, optional: true, default: -> { Rails.logger }
 
   def call
-    Honeybadger.context(feed_id: feed.try(:id), feed_name: feed.try(:name))
-    @started_at = Time.current
+    Honeybadger.context(feed_id: feed_id, feed_name: feed_name)
     generate_new_posts
-    create_data_point
   end
 
   private
 
-  attr_reader :started_at
-
   def generate_new_posts
     logger.info("---> new posts: #{normalized_entities_count}; errors: #{errors_count}")
-    feed.update(refreshed_at: started_at)
-
+    feed.touch(:refreshed_at)
     normalized_entities.each { |normalized_entity| push(normalized_entity) }
+    feed.update(errors_count: 0)
+  rescue StandardError => e
+    increment_feed_error_counters
+    dump_feed_error(e)
   end
 
   def push(normalized_entity)
     return unless normalized_entity
     logger.info("---> creating post; uid: [#{normalized_entity.uid}]")
     post = normalized_entity.find_or_create_post
-    feed.update(last_post_created_at: last_post_created_at)
+    update_last_post_created_at
     return unless post.ready?
     logger.info("---> publishing post; uid: [#{post.uid}]")
     Push.call(post)
@@ -38,19 +37,6 @@ class ProcessFeed
 
   def feed_name
     feed.name
-  end
-
-  # TODO: Create data point with error status on error
-  def create_data_point
-    logger.info("---> updating feed history [#{feed_name}]")
-
-    CreateDataPoint.call(
-      :pull,
-      feed_name: feed_name,
-      posts_count: normalized_entities_count,
-      errors_count: errors_count,
-      duration: Time.current - started_at
-    )
   end
 
   def normalized_entities_count
@@ -67,7 +53,23 @@ class ProcessFeed
     @normalized_entities ||= Pull.call(feed)
   end
 
-  def last_post_created_at
-    feed.posts.maximum(:created_at)
+  def update_last_post_created_at
+    feed.update(last_post_created_at: feed.posts.maximum(:created_at))
+  end
+
+  def increment_feed_error_counters
+    feed.update(
+      errors_count: feed.errors_count.succ,
+      total_errors_count: feed.total_errors_count.succ
+    )
+  end
+
+  def dump_feed_error(error)
+    ErrorDumper.call(
+      exception: error,
+      message: 'Error processing feed',
+      target: feed,
+      context: { feed_name: feed_name }
+    )
   end
 end
