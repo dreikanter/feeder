@@ -7,6 +7,7 @@ class Push
   def call
     raise 'post is not ready' unless post.ready?
     publish_post_content
+    sleep 1
   end
 
   private
