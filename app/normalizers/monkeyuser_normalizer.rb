@@ -6,15 +6,15 @@ class MonkeyuserNormalizer < FeedjiraNormalizer
   end
 
   def attachments
-    [image_url]
+    [image_url].compact
   end
 
   def comments
-    [image_title]
+    [image_title].compact
   end
 
   def image_title
-    first_image['title']
+    first_image['title'] if first_image
   end
 
   def first_image
@@ -22,7 +22,7 @@ class MonkeyuserNormalizer < FeedjiraNormalizer
   end
 
   def image_url
-    first_image['src']
+    first_image['src'] if first_image
   end
 
   def validation_errors
