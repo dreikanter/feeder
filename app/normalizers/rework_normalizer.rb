@@ -16,7 +16,7 @@ class ReworkNormalizer < BaseNormalizer
   end
 
   def comments
-    [description].reject(&:blank?)
+    [description].compact_blank
   end
 
   private

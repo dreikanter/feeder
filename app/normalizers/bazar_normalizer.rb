@@ -16,7 +16,7 @@ class BazarNormalizer < BaseNormalizer
   end
 
   def comments
-    [Html.comment_excerpt(content.content)].reject(&:blank?)
+    [Html.comment_excerpt(content.content)].compact_blank
   end
 
   private

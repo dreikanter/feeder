@@ -6,7 +6,7 @@ class TomorrowsNormalizer < RssNormalizer
   end
 
   def comments
-    [excerpt].reject(&:blank?)
+    [excerpt].compact_blank
   end
 
   private

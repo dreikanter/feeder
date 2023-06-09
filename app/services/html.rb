@@ -50,7 +50,7 @@ class Html
     opts = POST_EXCERPT_DEFAULTS.merge(options)
     limit = opts[:length] - opts[:link].length - opts[:separator].length
     result = excerpt(html, length: limit, omission: opts[:omission])
-    [result, opts[:link]].reject(&:blank?).join(opts[:separator])
+    [result, opts[:link]].compact_blank.join(opts[:separator])
   end
 
   def self.squeeze(text)
@@ -98,7 +98,7 @@ class Html
     result.css('a').each { |e| e.after(" (#{e['href']})") }
     # rubocop:enable Style/CombinableLoops
 
-    result.text.split(/\n/).reject(&:blank?)
+    result.text.split(/\n/).compact_blank
   end
   # rubocop:enable Metrics/CyclomaticComplexity, Metrics/AbcSize
 

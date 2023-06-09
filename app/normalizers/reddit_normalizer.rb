@@ -12,7 +12,7 @@ class RedditNormalizer < AtomNormalizer
   def comments
     return [] if source_url == discussion_url
     parts = [reddit_info, discussion_url]
-    [parts.reject(&:blank?).join(' - ')]
+    [parts.compact_blank.join(' - ')]
   end
 
   private

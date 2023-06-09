@@ -10,7 +10,7 @@ class HackerNewsNormalizer < BaseNormalizer
   end
 
   def text
-    [data['title'], data['url']].reject(&:blank?).join(separator)
+    [data['title'], data['url']].compact_blank.join(separator)
   end
 
   def link
@@ -18,7 +18,7 @@ class HackerNewsNormalizer < BaseNormalizer
   end
 
   def comments
-    [[score, link].reject(&:blank?).join(' / ')]
+    [[score, link].compact_blank.join(' / ')]
   end
 
   def published_at
