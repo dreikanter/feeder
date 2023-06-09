@@ -4,20 +4,6 @@ RSpec.describe Feeds do
   subject(:feeds) { Feeds.new(path: path).list }
 
   let(:path) { file_fixture('sample_feeds.yml') }
-  let(:expected_feed_names) { %w[oglaf phdcomics xkcd].sort }
-  let(:existing_feed) { create(:feed, name: 'xkcd', state: 'disabled') }
-  let(:missing_feed) { create(:feed, name: 'missing_from_the_configuration', state: 'enabled') }
-
-  before { Feed.delete_all }
-
-  it 'should return feeds array' do
-    expect(feeds.pluck(:name)).to contain_exactly(*expected_feed_names)
-    expect(feeds).to all be_a(Feed)
-  end
-
-  it 'should create new feeds' do
-    expect { feeds }.to change { Feed.enabled.pluck(:name).sort }.from([]).to(expected_feed_names)
-  end
 
   let(:configurable_attributes) do
     %w[
@@ -31,6 +17,21 @@ RSpec.describe Feeds do
       import_limit
       state
     ].freeze
+  end
+
+  let(:expected_feed_names) { %w[oglaf phdcomics xkcd].sort }
+  let(:existing_feed) { create(:feed, name: 'xkcd', state: 'disabled') }
+  let(:missing_feed) { create(:feed, name: 'missing_from_the_configuration', state: 'enabled') }
+
+  before { Feed.delete_all }
+
+  it 'returns feeds array' do
+    expect(feeds.pluck(:name)).to contain_exactly(*expected_feed_names)
+    expect(feeds).to all be_a(Feed)
+  end
+
+  it 'creates new feeds' do
+    expect { feeds }.to change { Feed.enabled.pluck(:name).sort }.from([]).to(expected_feed_names)
   end
 
   it 'updates existing feeds' do
