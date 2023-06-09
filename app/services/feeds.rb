@@ -3,12 +3,15 @@ class Feeds
 
   attr_reader :path
 
+  # @param :path [String, Pathname] path to the feeds configuration file
   def initialize(path:)
     @path = path
   end
 
+  # Synchronize Feeds records from the configuration file
+  # @return [Array<Feed>] array of enabled feeds
   def list
-    @list ||= load_and_update_feeds
+    @list ||= update_and_load_feeds
   end
 
   private

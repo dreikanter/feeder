@@ -23,6 +23,7 @@ class FeedSanitizer
     default: -> { 0 }
   )
 
+  # @return [Hash] sanitized feed configuration attributes
   def call
     option_names
       .map { |target| [target, send(target)] }
