@@ -11,7 +11,7 @@ class BazarNormalizer < BaseNormalizer
 
   def text
     result = [content.title, link].join(separator)
-    return result unless record_url.present?
+    return result if record_url.blank?
     "#{result}\n\nЗапись: #{record_url} #{formatted_duration}".strip
   end
 

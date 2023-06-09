@@ -1,3 +1,5 @@
+inherit_from: .rubocop_todo.yml
+
 require:
   - rubocop-rails
   - rubocop-rspec
@@ -65,3 +67,13 @@ Layout/FirstHashElementIndentation:
 
 Layout/LineLength:
   Max: 150
+
+#
+# Rails
+#
+
+Rails/SkipsModelValidations:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Max: 3

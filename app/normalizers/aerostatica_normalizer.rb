@@ -10,7 +10,7 @@ class AerostaticaNormalizer < BaseNormalizer
   def text
     result = [content.title, link].join(separator)
     record_url = fetch_record_url
-    return result unless record_url.present?
+    return result if record_url.blank?
     "#{result}\n\nЗапись эфира: #{record_url}"
   end
 

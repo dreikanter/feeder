@@ -73,7 +73,7 @@ class Html
     Nokogiri::HTML(html).css(selector || 'a').pluck('href')
   end
 
-  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/AbcSize
+  # rubocop:disable Metrics/AbcSize
   def self.paragraphs(html)
     result = Nokogiri::HTML(html)
 
@@ -100,7 +100,7 @@ class Html
 
     result.text.split(/\n/).compact_blank
   end
-  # rubocop:enable Metrics/CyclomaticComplexity, Metrics/AbcSize
+  # rubocop:enable Metrics/AbcSize
 
   def self.strip_emoji(text)
     text.force_encoding('utf-8').encode.gsub(EMOJI_PATTERN, '')

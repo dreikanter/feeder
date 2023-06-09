@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Feeds do
-  subject(:feeds) { Feeds.new(path: path).list }
+  subject(:feeds) { described_class.new(path: path).list }
 
   let(:path) { file_fixture('sample_feeds.yml') }
 
@@ -23,6 +23,34 @@ RSpec.describe Feeds do
   let(:existing_feed) { create(:feed, name: 'xkcd', state: 'disabled') }
   let(:missing_feed) { create(:feed, name: 'missing_from_the_configuration', state: 'enabled') }
 
+  let(:existing_feed_before_update) do
+    {
+      'after' => nil,
+      'import_limit' => nil,
+      'loader' => nil,
+      'normalizer' => nil,
+      'options' => {},
+      'processor' => nil,
+      'refresh_interval' => 0,
+      'state' => 'disabled',
+      'url' => 'https://example.com'
+    }
+  end
+
+  let(:existing_feed_after_update) do
+    {
+      'after' => Time.parse('2023-06-09 00:00:00.000000000 +0000'),
+      'import_limit' => nil,
+      'loader' => nil,
+      'normalizer' => nil,
+      'options' => {},
+      'processor' => 'rss',
+      'refresh_interval' => 0,
+      'state' => 'enabled',
+      'url' => 'http://xkcd.com/rss.xml'
+    }
+  end
+
   before { Feed.delete_all }
 
   it 'returns feeds array' do
@@ -36,32 +64,7 @@ RSpec.describe Feeds do
 
   it 'updates existing feeds' do
     expect { feeds }.to change { existing_feed.reload.attributes.slice(*configurable_attributes) }
-      .from(
-        {
-          'after' => nil,
-          'import_limit' => nil,
-          'loader' => nil,
-          'normalizer' => nil,
-          'options' => {},
-          'processor' => nil,
-          'refresh_interval' => 0,
-          'state' => 'disabled',
-          'url' => 'https://example.com'
-        }
-      )
-      .to(
-        {
-          'after' => Time.parse('2023-06-09 00:00:00.000000000 +0000'),
-          'import_limit' => nil,
-          'loader' => nil,
-          'normalizer' => nil,
-          'options' => {},
-          'processor' => 'rss',
-          'refresh_interval' => 0,
-          'state' => 'enabled',
-          'url' => 'http://xkcd.com/rss.xml'
-        }
-      )
+      .from(existing_feed_before_update).to(existing_feed_after_update)
   end
 
   it 'updates removed feeds state' do

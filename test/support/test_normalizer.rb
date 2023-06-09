@@ -11,8 +11,8 @@ class TestNormalizer < BaseNormalizer
 
   def validation_errors
     [].tap do |errors|
-      errors << 'empty_link' unless link.present?
-      errors << 'empty_text' unless text.present?
+      errors << 'empty_link' if link.blank?
+      errors << 'empty_text' if text.blank?
     end
   end
 end

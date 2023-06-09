@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Downloader do
-  subject(:service) { Downloader }
+  subject(:service) { described_class }
 
   let(:url) { 'https://placehold.it/1x1.png' }
   let(:expected_content_type) { 'image/png' }

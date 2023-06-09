@@ -9,7 +9,7 @@ class LoaderResolver
   DEFAULT_LOADER = HttpLoader
 
   def call
-    return DEFAULT_LOADER unless loader_name.present?
+    return DEFAULT_LOADER if loader_name.blank?
     "#{loader_name}_loader".classify.constantize
   rescue NameError
     raise Error, name: loader_name
