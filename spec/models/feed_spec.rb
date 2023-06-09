@@ -1,4 +1,4 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe Feed do
   let(:one_day_in_seconds) { 1.day.seconds.to_i }
