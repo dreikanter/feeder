@@ -49,8 +49,7 @@ class ProcessFeed
       feed_name: feed_name,
       posts_count: normalized_entities_count,
       errors_count: errors_count,
-      duration: Time.current - started_at,
-      status: UpdateStatus.success
+      duration: Time.current - started_at
     )
   end
 

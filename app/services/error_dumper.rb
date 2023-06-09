@@ -34,7 +34,6 @@ class ErrorDumper
       line_number: line_number,
       message: message,
       occured_at: occured_at,
-      status: ErrorStatus.pending,
       target: target
     )
   rescue StandardError => e

@@ -9,6 +9,8 @@ USER = 'feeder'.freeze
 
 posts_count = 0
 
+freefeed_token = ENV['FREEFEED_TOKEN'] || Rails.application.credentials.freefeed_token
+
 # rubocop:disable Metrics/BlockLength
 loop do
   puts 'loading posts'
@@ -17,7 +19,7 @@ loop do
     method: :get,
     url: 'https://candy.freefeed.net/v2/timelines/home?offset=0',
     headers: {
-      'X-Authentication-Token' => Rails.application.credentials.freefeed_token
+      'X-Authentication-Token' => freefeed_token
     }
   )
 
@@ -42,11 +44,14 @@ loop do
       method: :delete,
       url: "https://candy.freefeed.net/v1/posts/#{post_id}",
       headers: {
-        'X-Authentication-Token' => Rails.application.credentials.freefeed_token
+        'X-Authentication-Token' => freefeed_token
       }
     )
 
     posts_count += 1
+
+    # Prevent 429
+    sleep 1
   end
 end
 # rubocop:enable Metrics/BlockLength
