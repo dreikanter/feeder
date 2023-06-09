@@ -1,4 +1,10 @@
 require 'rails_helper'
+require_relative '../support/factory_bot'
+require_relative '../support/faulty_loader'
+require_relative '../support/faulty_normalizer'
+require_relative '../support/faulty_processor'
+require_relative '../support/test_processor'
+require_relative '../support/time_helpers'
 
 RSpec.describe ProcessFeed do
   subject(:service) { described_class }
@@ -28,33 +34,6 @@ RSpec.describe ProcessFeed do
       processor: 'test',
       normalizer: 'faulty'
     )
-  end
-
-  class FaultyLoader < BaseLoader
-    def perform
-      raise 'test error'
-    end
-  end
-
-  class FaultyProcessor < BaseProcessor
-    def entities
-      raise 'test error'
-    end
-  end
-
-  class TestProcessor < BaseProcessor
-    def entities
-      [
-        Entity.new(uid: '1', content: '', feed: Feed.new),
-        Entity.new(uid: '2', content: '', feed: Feed.new)
-      ]
-    end
-  end
-
-  class FaultyNormalizer < BaseNormalizer
-    def call
-      raise
-    end
   end
 
   it 'should increment error counters when loader fails' do
