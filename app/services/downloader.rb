@@ -5,7 +5,7 @@ class Downloader
 
   def call
     Honeybadger.context(url: url)
-    response = get_url
+    response = fetch_url
     return unless response&.status == 200
     yield build_io_from(response), response.content_type.mime_type
   end
@@ -24,7 +24,7 @@ class Downloader
 
   private_constant :MAX_HOPS
 
-  def get_url
+  def fetch_url
     HTTP.follow(max_hops: MAX_HOPS).get(url)
   rescue StandardError
     nil
