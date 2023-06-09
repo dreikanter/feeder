@@ -49,6 +49,9 @@ loop do
     )
 
     posts_count += 1
+
+    # Prevent 429
+    sleep 1
   end
 end
 # rubocop:enable Metrics/BlockLength
