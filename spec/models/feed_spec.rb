@@ -32,7 +32,6 @@ RSpec.describe Feed do
     end
 
     it 'should evaluate stale condition' do
-      refreshed_at = one_day_in_seconds.succ.seconds.ago
       feed = build(:feed, refresh_interval: one_day_in_seconds, refreshed_at: stale_timestampt)
       expect(feed).to be_stale
     end
