@@ -15,12 +15,3 @@ RSpec/ExampleLength:
 # Configuration parameters: AllowSubject.
 RSpec/MultipleMemoizedHelpers:
   Max: 7
-
-# Offense count: 2
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: strict, flexible
-# Rails/TimeZone:
-#   Exclude:
-    # - 'app/normalizers/oglaf_normalizer.rb'
-    # - 'app/normalizers/twitter_normalizer.rb'
