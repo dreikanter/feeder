@@ -100,7 +100,7 @@
   normalizer: "hacker_news"
   after: "2021-01-09T12:00:00+00:00"
   refresh_interval: 600
-  import_limit: 10
+  import_limit: 2
 
 - name: "reddit-worldnews"
   url: "https://www.reddit.com/r/worldnews/.rss"
@@ -299,7 +299,7 @@
   processor: "nitter"
   normalizer: "nitter"
   refresh_interval: 7200
-  import_limit: 5
+  import_limit: 2
   after: "2021-01-06T12:00:00+00:00"
   options:
     twitter_user: "extrafabulous"
@@ -323,7 +323,7 @@
   processor: "wordpress"
   normalizer: "nextbigfuture"
   refresh_interval: 1800
-  import_limit: 5
+  import_limit: 2
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "nepozner"
@@ -331,7 +331,7 @@
   processor: "youtube"
   normalizer: "youtube"
   refresh_interval: 1800
-  import_limit: 5
+  import_limit: 2
   after: "2021-01-06T12:00:00+00:00"
 
 # - name: "jakelikesonions"
@@ -373,15 +373,15 @@
   url: "https://meduza.io/rss/podcasts/knizhnyy-bazar"
   processor: "feedjira"
   normalizer: "bazar"
-  refresh_interval: 1800
-  import_limit: 5
+  refresh_interval: 7200
+  import_limit: 2
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "rework"
   url: "https://feeds.transistor.fm/rework"
   processor: "feedjira"
   normalizer: "rework"
-  refresh_interval: 1800
+  refresh_interval: 7200
   import_limit: 2
   after: "2021-01-06T12:00:00+00:00"
 
@@ -402,7 +402,7 @@
   processor: "rss"
   normalizer: "smbc"
   refresh_interval: 1800
-  import_limit: 5
+  import_limit: 2
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "officetalk"
@@ -418,7 +418,7 @@
   processor: "rss"
   normalizer: "infiniteimmortalbens"
   refresh_interval: 3600
-  import_limit: 5
+  import_limit: 2
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "schneier"
@@ -426,7 +426,7 @@
   processor: "atom"
   normalizer: "schneier"
   refresh_interval: 3600
-  import_limit: 10
+  import_limit: 2
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "monkeyuser"
@@ -434,7 +434,7 @@
   processor: "feedjira"
   normalizer: "monkeyuser"
   refresh_interval: 3600
-  import_limit: 10
+  import_limit: 2
   after: "2021-01-06T12:00:00+00:00"
 
 # - name: "warandpeas"
@@ -454,7 +454,7 @@
   processor: "youtube"
   normalizer: "redakciya"
   refresh_interval: 3600
-  import_limit: 10
+  import_limit: 2
   after: "2021-01-06T12:00:00+00:00"
 
 # - name: "safelyendangered"
@@ -474,22 +474,22 @@
   processor: "youtube"
   normalizer: "kurzgesagt"
   refresh_interval: 3600
-  import_limit: 10
+  import_limit: 2
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "buni"
   url: "bunicomic.com/feed/"
   processor: "feedjira"
   normalizer: "buni"
-  import_limit: 10
-  refresh_interval: 3600
+  import_limit: 2
+  refresh_interval: 7200
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "lunarbaboon"
   url: "http://www.lunarbaboon.com/comics/rss.xml"
   processor: "feedjira"
   normalizer: "lunarbaboon"
-  import_limit: 10
+  import_limit: 2
   refresh_interval: 3600
   after: "2021-01-06T12:00:00+00:00"
 
@@ -511,7 +511,7 @@
   url: "https://365tomorrows.com/feed/"
   processor: "rss"
   normalizer: "tomorrows"
-  refresh_interval: 3600
+  refresh_interval: 86400
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "prof-afv"
@@ -532,7 +532,7 @@
   url: "https://lobste.rs/t/ruby.rss"
   processor: "lobsters"
   normalizer: "lobsters"
-  refresh_interval: 3600
+  refresh_interval: 7200
 
 # - name: "neural-machine"
 #   loader: "nitter"
@@ -590,11 +590,11 @@
   processor: "youtube"
   normalizer: "hubermanlab"
   refresh_interval: 1800
-  import_limit: 5
+  import_limit: 2
 
 - name: "veritasium"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCHnyfMqiRRG1u-2MsSQLbXA"
   processor: "youtube"
   normalizer: "veritasium"
   refresh_interval: 1800
-  import_limit: 5
+  import_limit: 2
