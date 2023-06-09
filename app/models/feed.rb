@@ -29,7 +29,7 @@
 class Feed < ApplicationRecord
   include AASM
 
-  has_many :posts
+  has_many :posts, dependent: :delete_all
 
   validates :name, presence: true
 

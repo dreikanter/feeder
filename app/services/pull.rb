@@ -21,7 +21,7 @@ class Pull
   def new_entities
     uids = entities.map(&:uid)
     existing_uids = Post.where(feed: feed, uid: uids).pluck(:uid)
-    entities.filter { |entity| !existing_uids.include?(entity.uid) }
+    entities.filter { |entity| existing_uids.exclude?(entity.uid) }
   end
 
   def entities

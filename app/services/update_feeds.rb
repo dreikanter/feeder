@@ -1,7 +1,7 @@
 class UpdateFeeds
   include Callee
 
-  DEFAULT_PATH = Rails.root.join('config', 'feeds.yml')
+  DEFAULT_PATH = Rails.root.join('config/feeds.yml')
 
   option :path, optional: true, default: -> { DEFAULT_PATH }
   option :logger, optional: true, default: -> { Rails.logger }

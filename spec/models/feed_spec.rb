@@ -39,7 +39,7 @@ RSpec.describe Feed do
     it 'scopes stale feeds' do
       expect do
         create(:feed, refresh_interval: one_day_in_seconds, refreshed_at: stale_timestampt)
-      end.to change { stale_feeds_scope.count }.by(1)
+      end.to change(stale_feeds_scope, :count).by(1)
     end
 
     it 'treats records with zero refresh interval as always stale' do

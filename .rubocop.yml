@@ -1,5 +1,3 @@
-inherit_from: .rubocop_todo.yml
-
 require:
   - rubocop-rails
   - rubocop-rspec
@@ -77,3 +75,16 @@ Rails/SkipsModelValidations:
 
 RSpec/MultipleExpectations:
   Max: 3
+
+Rails/RakeEnvironment:
+  Enabled: false
+
+#
+# RSpec
+#
+
+RSpec/ExampleLength:
+  Max: 10
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 10

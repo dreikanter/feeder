@@ -28,7 +28,7 @@ class OglafNormalizer < RssNormalizer
   end
 
   def last_modified
-    Time.parse(response.headers[:last_modified])
+    Time.zone.parse(response.headers[:last_modified])
   rescue StandardError
     Time.now.utc
   end
