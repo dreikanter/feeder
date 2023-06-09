@@ -27,14 +27,14 @@
         <td>
           <%- if feed.refreshed_at -%>
             <time datetime="<%= feed.refreshed_at.rfc3339 %>">
-              <%= distance_of_time_in_words(feed.refreshed_at) -%>
+              <%= distance_of_time_in_words_to_now(feed.refreshed_at) -%> ago
             </time>
           <%- end -%>
         </td>
         <td>
           <%- if feed.last_post_created_at -%>
-            <time datetime="<%= feed.last_post_created_at %>">
-              <%= distance_of_time_in_words(feed.last_post_created_at) -%>
+            <time datetime="<%= feed.last_post_created_at.rfc3339 %>">
+              <%= distance_of_time_in_words_to_now(feed.last_post_created_at) -%> ago
             </time>
           <%- end -%>
         </td>
