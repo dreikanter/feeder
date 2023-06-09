@@ -18,7 +18,7 @@ class TwitterNormalizer < BaseNormalizer
   end
 
   def published_at
-    Time.parse(content.fetch('created_at'))
+    Time.zone.parse(content.fetch('created_at'))
   rescue ArgumentError, KeyError
     nil
   end

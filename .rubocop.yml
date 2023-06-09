@@ -77,3 +77,6 @@ Rails/SkipsModelValidations:
 
 RSpec/MultipleExpectations:
   Max: 3
+
+Rails/RakeEnvironment:
+  Enabled: false
