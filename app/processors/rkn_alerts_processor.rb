@@ -23,7 +23,7 @@ class RknAlertsProcessor < BaseProcessor
 
   def current_status
     @current_status ||=
-      freefeed_ips.to_h { |ip| [ip, ZapretFetcher.call(ip)] }
+      freefeed_ips.index_with { |ip| ZapretFetcher.call(ip) }
   end
 
   def freefeed_ips

@@ -11,7 +11,7 @@ class PurgeErrorsTest < Minitest::Test
   def test_deletes_old_errors
     error = create(:error, created_at: sample_threshold - 1)
     subject.call(threshold: SAMPLE_THRESHOLD)
-    refute(Error.exists?(error.id))
+    assert_not(Error.exists?(error.id))
   end
 
   def test_keep_recent_errors

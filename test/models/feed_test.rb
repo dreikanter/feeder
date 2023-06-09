@@ -40,7 +40,7 @@ class FeedTest < Minitest::Test
 
   def test_should_require_name
     feed = subject.new
-    refute(feed.valid?)
+    assert_not(feed.valid?)
     assert_includes(feed.errors, :name)
   end
 
@@ -105,8 +105,8 @@ class FeedTest < Minitest::Test
         refreshed_at: Time.current
       )
 
-      refute(feed.stale?)
-      refute(Feed.stale.exists?(feed.id))
+      assert_not(feed.stale?)
+      assert_not(Feed.stale.exists?(feed.id))
     end
   end
 

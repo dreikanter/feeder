@@ -50,7 +50,7 @@ class Html
     opts = POST_EXCERPT_DEFAULTS.merge(options)
     limit = opts[:length] - opts[:link].length - opts[:separator].length
     result = excerpt(html, length: limit, omission: opts[:omission])
-    [result, opts[:link]].reject(&:blank?).join(opts[:separator])
+    [result, opts[:link]].compact_blank.join(opts[:separator])
   end
 
   def self.squeeze(text)
@@ -62,7 +62,7 @@ class Html
   end
 
   def self.image_urls(html, selector: nil, attribute: 'src')
-    Nokogiri::HTML(html).css(selector || 'img').map { |e| e[attribute] }
+    Nokogiri::HTML(html).css(selector || 'img').pluck(attribute)
   end
 
   def self.first_image_url(html, selector: nil)
@@ -70,10 +70,10 @@ class Html
   end
 
   def self.link_urls(html, selector: nil)
-    Nokogiri::HTML(html).css(selector || 'a').map { |e| e['href'] }
+    Nokogiri::HTML(html).css(selector || 'a').pluck('href')
   end
 
-  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/AbcSize
+  # rubocop:disable Metrics/AbcSize
   def self.paragraphs(html)
     result = Nokogiri::HTML(html)
 
@@ -98,9 +98,9 @@ class Html
     result.css('a').each { |e| e.after(" (#{e['href']})") }
     # rubocop:enable Style/CombinableLoops
 
-    result.text.split(/\n/).reject(&:blank?)
+    result.text.split(/\n/).compact_blank
   end
-  # rubocop:enable Metrics/CyclomaticComplexity, Metrics/AbcSize
+  # rubocop:enable Metrics/AbcSize
 
   def self.strip_emoji(text)
     text.force_encoding('utf-8').encode.gsub(EMOJI_PATTERN, '')

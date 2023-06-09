@@ -2,7 +2,7 @@ class F28aNormalizer < TumblrNormalizer
   protected
 
   def text
-    [post_excerpt, link].reject(&:blank?).join(separator)
+    [post_excerpt, link].compact_blank.join(separator)
   end
 
   def attachments

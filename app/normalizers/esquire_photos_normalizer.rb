@@ -2,7 +2,7 @@ class EsquirePhotosNormalizer < RssNormalizer
   protected
 
   def text
-    [content.title, link].reject(&:blank?).join(separator)
+    [content.title, link].compact_blank.join(separator)
   end
 
   def published_at

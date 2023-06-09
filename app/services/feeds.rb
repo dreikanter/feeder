@@ -40,7 +40,7 @@ class Feeds
   end
 
   def enabled_feed_names_from_configuration
-    feeds_configuration.map { |config| config[:name] }
+    feeds_configuration.pluck(:name)
   end
 
   def feeds_configuration

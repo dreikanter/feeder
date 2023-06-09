@@ -2,7 +2,7 @@ class LivejournalNormalizer < RssNormalizer
   protected
 
   def text
-    [super, "!#{link}"].reject(&:blank?).join(separator)
+    [super, "!#{link}"].compact_blank.join(separator)
   end
 
   def comments

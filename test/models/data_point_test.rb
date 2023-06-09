@@ -38,7 +38,7 @@ class DataPointTest < Minitest::Test
     series = create(:data_point_series)
     dp = subject.create!(series: create(:data_point_series))
     ids = subject.for("different_from_#{series.name}").pluck(:id)
-    refute(ids.include?(dp.id))
+    assert_not(ids.include?(dp.id))
   end
 
   def test_series

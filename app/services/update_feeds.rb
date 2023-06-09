@@ -37,8 +37,8 @@ class UpdateFeeds
   end
 
   def missing_feeds
-    active_feeds = feeds.map { |feed| feed[:name] }
-    Feed.where('name NOT IN (?)', active_feeds)
+    active_feeds = feeds.pluck(:name)
+    Feed.where.not(name: active_feeds)
   end
 
   def feeds

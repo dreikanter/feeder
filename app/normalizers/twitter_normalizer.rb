@@ -30,7 +30,7 @@ class TwitterNormalizer < BaseNormalizer
   end
 
   def attachments
-    images.map { |image| image.fetch('media_url_https') }.reject(&:blank?)
+    images.map { |image| image.fetch('media_url_https') }.compact_blank
   rescue KeyError
     nil
   end

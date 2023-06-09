@@ -36,7 +36,7 @@ class UpdateFeedsTest < Minitest::Test
   def test_names_match_config
     subject.call(path: SAMPLE_CONFIG_PATH)
     actual_names = Feed.pluck(:name).to_set
-    expected_names = expected.map { |feed| feed[:name] }.to_set
+    expected_names = expected.pluck(:name).to_set
     assert(expected_names, actual_names)
   end
 
@@ -89,7 +89,7 @@ class UpdateFeedsTest < Minitest::Test
   end
 
   def test_non_existing_config
-    refute(File.exist?(NON_EXISTING_CONFIG_PATH))
+    assert_not(File.exist?(NON_EXISTING_CONFIG_PATH))
     assert_raises(Errno::ENOENT) do
       subject.call(path: NON_EXISTING_CONFIG_PATH)
     end

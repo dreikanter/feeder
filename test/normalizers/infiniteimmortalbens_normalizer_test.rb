@@ -17,7 +17,7 @@ class InfiniteimmortalbensNormalizerTest < Minitest::Test
 
   def test_text
     normalized.each do |entity|
-      refute(entity.text.empty?)
+      assert_not(entity.text.empty?)
     end
   end
 

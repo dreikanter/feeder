@@ -160,3 +160,5 @@ exclude_paths:
   - public
   - vendor
   - db
+  - test
+  - spec

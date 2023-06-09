@@ -1,0 +1,2 @@
+class NullNormalizer < BaseNormalizer
+end

@@ -16,7 +16,7 @@ class NormalizedEntityTest < Minitest::Test
   def test_not_stale
     published_at = import_threshold + 1.second
     normalized_entry = NormalizedEntity.new(feed_id: feed.id, published_at: published_at)
-    refute(normalized_entry.stale?)
+    assert_not(normalized_entry.stale?)
   end
 
   def test_stale
@@ -27,6 +27,6 @@ class NormalizedEntityTest < Minitest::Test
 
   def test_not_stale_with_default_published_at
     normalized_entry = NormalizedEntity.new(feed_id: feed.id)
-    refute(normalized_entry.stale?)
+    assert_not(normalized_entry.stale?)
   end
 end

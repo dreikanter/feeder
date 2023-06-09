@@ -14,11 +14,11 @@ class SmbcNormalizer < BaseNormalizer
   end
 
   def attachments
-    [image_url, hidden_image_url].reject(&:blank?)
+    [image_url, hidden_image_url].compact_blank
   end
 
   def comments
-    [description].reject(&:blank?)
+    [description].compact_blank
   end
 
   private

@@ -59,7 +59,7 @@ class BaseNormalizer
       published_at: published_at,
       text: text || '',
       attachments: sanitized_attachments,
-      comments: comments.reject(&:blank?),
+      comments: comments.compact_blank,
       validation_errors: validation_errors
     )
   end
@@ -68,7 +68,7 @@ class BaseNormalizer
 
   # TODO: Move to a service
   def sanitized_attachments
-    attachments.reject(&:blank?).map do |url|
+    attachments.compact_blank.map do |url|
       value = Addressable::URI.parse(url)
       value.scheme ||= DEFAULT_SCHEME
       value.to_s
