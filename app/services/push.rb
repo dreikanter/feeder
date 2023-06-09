@@ -61,7 +61,7 @@ class Push
   end
 
   def freefeed_permalink(post)
-    Addressable::URI.parse(FreefeedClientBuilder.call.base_url).join("/#{post.feed.name}/#{post.freefeed_post_id}").to_s
+    Addressable::URI.parse(freefeed.base_url).join("/#{post.feed.name}/#{post.freefeed_post_id}").to_s
   end
 
   def freefeed
