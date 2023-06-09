@@ -1,4 +1,5 @@
 class Push
+  include Logging
   include Callee
 
   param :post
@@ -16,6 +17,7 @@ class Push
     post.update(freefeed_post_id: post_id)
     create_comments(post_id)
     post.update(status: PostStatus.published)
+    logger.info("---> new post URL: #{freefeed_permalink(post)}")
   rescue StandardError
     post.update(status: PostStatus.error)
     raise
@@ -55,6 +57,10 @@ class Push
       response = freefeed.create_attachment(io, content_type: content_type)
       response.parse.fetch('attachments').fetch('id')
     end
+  end
+
+  def freefeed_permalink(post)
+    Addressable::URI.parse(FreefeedClientBuilder.call.base_url).join("/#{post.feed.name}/#{post.freefeed_post_id}").to_s
   end
 
   def freefeed
