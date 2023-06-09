@@ -54,14 +54,14 @@ class Feed < ApplicationRecord
     end
   end
 
-  scope :ordered_active, -> {
-    active.order(Arel.sql("last_post_created_at IS NULL, last_post_created_at DESC"))
+  scope :ordered_active, lambda {
+    active.order(Arel.sql('last_post_created_at IS NULL, last_post_created_at DESC'))
   }
 
-  scope :stale, -> {
+  scope :stale, lambda {
     where(refresh_interval: 0)
       .or(where(refreshed_at: nil))
-      .or(where("age(now(), refreshed_at) > make_interval(secs => refresh_interval)"))
+      .or(where('age(now(), refreshed_at) > make_interval(secs => refresh_interval)'))
   }
 
   def stale?
