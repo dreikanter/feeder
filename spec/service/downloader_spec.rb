@@ -14,7 +14,7 @@ RSpec.describe Downloader do
   end
 
   let(:binary_image_data) { file_fixture('1x1.png') }
-  let(:non_ascii_url) { 'https://www.reddit.com/r/worldnews/comments/11yg2e7/germany_shots_fired_at_police_in_reichsbürger/' }
+  let(:non_ascii_url) { 'https://example.com/bürger.png' }
 
   before do
     [url, non_ascii_url].each do |image_url|
