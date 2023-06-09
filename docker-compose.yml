@@ -29,6 +29,30 @@ services:
       - .:/app
       - bundle:/bundle
 
+  sh:
+    build: .
+    environment:
+      - RAILS_ENV=development
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/feeder_development
+      - BUNDLE_PATH=/bundle
+      - FREEFEED_TOKEN
+      - FREEFEED_BASE_URL
+      - DEFAULT_IMPORT_LIMIT
+      - SECRET_KEY_BASE
+      - HONEYBADGER_API_KEY
+      - TWITTER_CONSUMER_KEY
+      - TWITTER_CONSUMER_SECRET
+      - TWITTER_ACCESS_TOKEN
+      - TWITTER_ACCESS_TOKEN_SECRET
+    command: bash -c "bundle exec bash"
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres
+    volumes:
+      - .:/app
+      - bundle:/bundle
+
   postgres:
     image: postgres:10
     environment:
