@@ -12,7 +12,7 @@ class NitterNormalizer < BaseNormalizer
   end
 
   def text
-    [content.title, link].join(separator)
+    [content.title, "!#{link}"].join(separator)
   end
 
   def attachments
