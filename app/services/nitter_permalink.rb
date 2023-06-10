@@ -3,9 +3,10 @@ class NitterPermalink
 
   param :url
 
-  TWITTER_HOST = 'twitter.com'.freeze
-
   def call
-    URI.parse(url).tap { |uri| uri.host = TWITTER_HOST }.to_s
+    URI.parse(url).tap do |parsed|
+      parsed.host = 'twitter.com'
+      parsed.scheme = 'https'
+    end.to_s
   end
 end
