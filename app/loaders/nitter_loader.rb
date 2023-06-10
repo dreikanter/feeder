@@ -78,7 +78,7 @@ class NitterLoader < BaseLoader
     https://twt.funami.tech
   ].freeze
 
-  option(:nitter_url, optional: true, default: -> { NITTER_INSTANCES.sample })
+  option(:nitter_host, optional: true, default: -> { NITTER_INSTANCES.sample })
 
   protected
 
@@ -94,11 +94,11 @@ class NitterLoader < BaseLoader
   private
 
   def register_nitter_instance_error
-    NitterInstance.find_or_create_by(url: nitter_url).error!
+    NitterInstance.find_or_create_by(url: nitter_host).error!
   end
 
   def nitter_rss_url
-    URI.parse(nitter_url).merge("/#{twitter_user}/rss")
+    URI.parse(nitter_host).merge("/#{twitter_user}/rss")
   end
 
   def twitter_user
