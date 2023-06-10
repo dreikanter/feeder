@@ -10,13 +10,13 @@ RSpec.describe NitterInstance do
   it 'updates errored at' do
     freeze_time do
       nitter_instance.error!
-      assert_equal DateTime.now, nitter_instance.errored_at.to_datetime
+      expect(DateTime.now).to eq(nitter_instance.errored_at.to_datetime)
     end
   end
 
   it 'counts errors' do
     2.times { nitter_instance.error! }
-    assert_equal 2, nitter_instance.errors_count
+    expect(nitter_instance.errors_count).to eq(2)
   end
 
   it 'disables after max errors limit exceeded' do
