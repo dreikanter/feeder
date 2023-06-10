@@ -57,7 +57,7 @@ module FeedTestHelper
   end
 
   def test_entity_normalization
-    assert_equal(expected, subject, error_message)
+    assert expected.diff(subject).empty?
   end
 
   def error_message
