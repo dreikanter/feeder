@@ -9,17 +9,17 @@ RSpec.describe NitterLoader do
 
   it 'fetches nitter url' do
     stub_request(:get, nitter_url).to_return(body: body)
-    result = subject.call(feed)
+    result = loader.call(feed)
     expect(body).to eq(result)
   end
 
   it 'passes HTTP client error' do
     stub_request(:get, nitter_url).to_raise(StandardError)
-    assert_raises(StandardError) { subject.call(feed) }
+    assert_raises(StandardError) { loader.call(feed) }
   end
 
   it 'require Twitter user option' do
     feed.options = {}
-    assert_raises(KeyError) { subject.call(feed) }
+    assert_raises(KeyError) { loader.call(feed) }
   end
 end

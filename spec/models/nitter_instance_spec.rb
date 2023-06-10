@@ -4,7 +4,7 @@ RSpec.describe NitterInstance do
   subject(:nitter_instance) { create(:nitter_instance) }
 
   it 'defines initial state' do
-    assert nitter_instance.enabled?
+    expect(nitter_instance).to be_enabled
   end
 
   it 'updates errored at' do
@@ -22,6 +22,6 @@ RSpec.describe NitterInstance do
   it 'disables after max errors limit exceeded' do
     nitter_instance.update!(errors_count: NitterInstance::MAX_ERRORS.pred)
     nitter_instance.error!
-    assert nitter_instance.disabled?
+    expect(nitter_instance).to be_disabled
   end
 end
