@@ -42,7 +42,7 @@ class UpdateFeeds
   end
 
   def feeds
-    @feeds ||= load_feeds.map { FeedSanitizer.call(**_1.symbolize_keys) }
+    @feeds ||= load_feeds.map { |feed| FeedSanitizer.call(**feed.symbolize_keys) }
   end
 
   def load_feeds

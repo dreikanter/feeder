@@ -43,7 +43,7 @@ module FeedTestHelper
   def expected
     data = JSON.parse(file_fixture(expected_fixture_path).read)
     return normalize(**data) if data.is_a?(Hash)
-    data.map { normalize(**_1) }
+    data.map { |entity| normalize(**entity) }
   end
 
   # :reek:FeatureEnvy
