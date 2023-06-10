@@ -22,7 +22,7 @@
     <%- feeds.each do |feed| -%>
       <tr>
         <td><a href="https://freefeed.net/<%= feed.name -%>"><%= feed.name -%></a></td>
-        <td <%= "errors since last success: #{feed.errors_count}; total errors: #{feed.total_errors_count}" %>><%= feed.state -%></td>
+        <td title="<%= "errors since last success: #{feed.errors_count}; total errors: #{feed.total_errors_count}" %>"><%= feed.state -%></td>
         <td><%= feed.posts_count -%></td>
         <td>
           <%- if feed.refreshed_at -%>
