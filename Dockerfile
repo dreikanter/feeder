@@ -1,4 +1,4 @@
-FROM ruby:2
+FROM ruby:3
 
 RUN apt-get update --yes \
   && apt-get install --yes --no-install-recommends \
