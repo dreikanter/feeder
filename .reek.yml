@@ -117,8 +117,6 @@ detectors:
     - "Test"
     - UpdateSubscriptionsCountJob#perform
     - RedditNormalizer#cached_data_point
-    - RknAlertsNormalizer#link
-    - RknAlertsNormalizer#published_at
     - TheAtlanticPhotosNormalizer#kill_newlines
     - Batches::Index#batches
     - Feeds::Index#last_post_created_at

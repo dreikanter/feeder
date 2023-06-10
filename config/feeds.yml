@@ -275,13 +275,6 @@
   normalizer: "aerostatica_normalizer"
   refresh_interval: 7200
 
-# NOTE: Temporarily disabled
-# - name: "rknalerts"
-#   loader: "null"
-#   processor: "rkn_alerts"
-#   normalizer: "rkn_alerts"
-#   refresh_interval: 600
-
 # NOTE: Inactive account
 # - name: "algtestament"
 #   loader: "twitter"
