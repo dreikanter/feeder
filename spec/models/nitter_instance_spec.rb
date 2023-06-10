@@ -28,6 +28,6 @@ RSpec.describe NitterInstance do
   it 'calculates stats' do
     described_class.delete_all
     %w[enabled enabled errored].each { |state| create(:nitter_instance, status: state) }
-    expect(described_class.stats).to eq('errored: 1; enabled: 2')
+    expect(described_class.stats).to eq('enabled: 2; errored: 1')
   end
 end

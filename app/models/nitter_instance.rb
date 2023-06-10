@@ -41,7 +41,7 @@ class NitterInstance < ApplicationRecord
   # rubocop:enable Metrics/BlockLength
 
   def self.stats
-    groups = NitterInstance.all.select('status, COUNT(*) AS cnt').group(:status)
+    groups = NitterInstance.all.order(:status).select('status, COUNT(*) AS cnt').group(:status)
     groups.map { |group| "#{group.status}: #{group.cnt}" }.join('; ')
   end
 end
