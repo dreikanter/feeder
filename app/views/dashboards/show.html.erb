@@ -1,17 +1,25 @@
 <h1 class="my-4">Freefeed Feeder</h1>
 
-<ul>
-  <li class="my-2">New feed announcements: <a href="https://freefeed.net/feeder">freefeed.net/feeder</a>.</li>
-  <li class="my-2">If you like to see a new blog imported to Freefeed, please post a message to <a href="https://freefeed.net/feeder-inbox">freefeed.net/feeder-inbox</a>, or <a href="https://github.com/dreikanter/feeder/issues/new">open an issue</a> on GitHub.</li>
-  <li class="my-2">GitHub project: <a href="https://github.com/dreikanter/feeder">github.com/dreikanter/feeder</a>.</li>
-  <li class="my-2">Active feeds: <%- feeds.count -%></li>
-  <%- if last_update -%>
-    <li class="my-2">Last update: <b><%= last_update -%>.</b></li>
-  <%- end -%>
-  <%- if last_post_created_at -%>
-    <li class="my-2">Last post created: <b><%= last_post_created_at -%>.</b></li>
-  <%- end -%>
-</ul>
+<div class="row row-cols-auto">
+    <div class="col col-sm-12 col-md-6">
+      <p>Stats:</p>
+      <ul>
+        <li class="my-2">Active feeds: <b><%= number_with_delimiter feeds.count -%></b></li>
+        <li class="my-2">Last imported post: <b><%= ago(last_post_created_at).upcase_first -%></b></li>
+        <li class="my-2">Total imported posts: <b><%= number_with_delimiter Post.count -%></b></li>
+        <li class="my-2">Imported posts in last 24h: <b><%= number_with_delimiter Post.where('created_at > ?', 24.hours.ago).count -%></b></li>
+        <li class="my-2">Total non-unique subscriptions: <b><%= number_with_delimiter Feed.sum(:subscriptions_count) -%></b></li>
+      </ul>
+    </div>
+    <div class="col col-sm-12 col-md-6">
+      <p>Refs:</p>
+      <ul>
+        <li class="my-2">New feed announcements: <a href="https://freefeed.net/feeder">freefeed.net/feeder</a>.</li>
+        <li class="my-2">If you like to see a new blog imported to Freefeed, please post a message to&nbsp;the&nbsp;<a href="https://freefeed.net/feeder-inbox">inbox</a>, or <a href="https://github.com/dreikanter/feeder/issues/new">open an issue</a> on GitHub.</li>
+        <li class="my-2">GitHub project: <a href="https://github.com/dreikanter/feeder">github.com/dreikanter/feeder</a>.</li>
+      </ul>
+    </div>
+</div>
 
 <table class="table table-bordered my-4">
   <thead>
@@ -27,19 +35,19 @@
     <%- feeds.each do |feed| -%>
       <tr>
         <td><%= link_to feed.name, "https://freefeed.net/#{feed.name}" -%></td>
-        <td><%= tag.span(class: "hint--top", data: { hint: "errors since last success: #{feed.errors_count}; total errors: #{feed.total_errors_count}" }) { feed.state }%></td>
-        <td><%= feed.posts_count -%></td>
+        <td><%= format_feed_state(feed) -%></td>
+        <td><%= number_with_delimiter feed.posts_count -%></td>
         <td>
           <%- if feed.refreshed_at -%>
             <%= tag.time datetime: feed.refreshed_at.rfc3339 do -%>
-              <%= distance_of_time_in_words_to_now(feed.refreshed_at) -%> ago
+              <%= ago(feed.refreshed_at) -%>
             <%- end -%>
           <%- end -%>
         </td>
         <td>
           <%- if feed.last_post_created_at -%>
             <time datetime="<%= feed.last_post_created_at.rfc3339 %>">
-              <%= distance_of_time_in_words_to_now(feed.last_post_created_at) -%> ago
+              <%= ago(feed.last_post_created_at) -%>
             </time>
           <%- end -%>
         </td>
