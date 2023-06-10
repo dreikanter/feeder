@@ -1,5 +1,6 @@
 class NitterLoader < BaseLoader
   # TODO: Replace with dynamically updated list
+  # SEE: https://github.com/zedeus/nitter/wiki/Instances
   NITTER_INSTANCES = %w[
     https://nitter.net
     https://nitter.lacontrevoie.fr
@@ -95,11 +96,17 @@ class NitterLoader < BaseLoader
   def perform
     RestClient.get(nitter_rss_url.to_s).body
   rescue StandardError => e
+    # TODO: Do not treat 404 as instance availability issue
     ErrorDumper.call(exception: e, message: 'Nitter error', target: feed)
+    register_nitter_instance_error
     raise
   end
 
   private
+
+  def register_nitter_instance_error
+    NitterInstance.find_or_create_by(url: nitter_url).error!
+  end
 
   def nitter_rss_url
     URI.parse(nitter_url).merge("/#{twitter_user}/rss")
