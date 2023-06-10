@@ -45,8 +45,6 @@ services:
       - TWITTER_ACCESS_TOKEN
       - TWITTER_ACCESS_TOKEN_SECRET
     command: bash -c "bundle exec bash"
-    ports:
-      - 3000:3000
     depends_on:
       - postgres
     volumes:
