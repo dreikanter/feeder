@@ -1,4 +1,4 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe NitterPermalink do
   subject(:service) { described_class }
