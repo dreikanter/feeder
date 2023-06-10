@@ -7,7 +7,7 @@ class DashboardsController < ApplicationController
 
   def show_locals
     {
-      feeds: Feed.ordered_active,
+      feeds: Feed.ordered,
       last_post_created_at: last_post_created_at,
       last_update: last_update
     }
