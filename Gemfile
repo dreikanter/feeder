@@ -51,5 +51,7 @@ gem 'pry-rails', '~> 0.3.9'
 # TODO: Replace with `http` gem
 gem 'rest-client', '~> 2.0'
 
+gem 'rss', '~> 0.2.9'
+
 # TODO: Drop this after Twitter API interaction is removed
 gem 'twitter', '~> 7.0'
