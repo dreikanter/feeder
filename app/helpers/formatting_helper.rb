@@ -1,6 +1,6 @@
 module FormattingHelper
   def ago(time)
-    "#{distance_of_time_in_words_to_now(time).gsub('about ', '')} ago"
+    time ? "#{distance_of_time_in_words_to_now(time).gsub('about ', '')} ago" : ''
   end
 
   def format_feed_state(feed)
