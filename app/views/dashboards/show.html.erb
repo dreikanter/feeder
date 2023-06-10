@@ -4,8 +4,13 @@
   <li class="my-2">New feed announcements: <a href="https://freefeed.net/feeder">freefeed.net/feeder</a>.</li>
   <li class="my-2">If you like to see a new blog imported to Freefeed, please post a message to <a href="https://freefeed.net/feeder-inbox">freefeed.net/feeder-inbox</a>, or <a href="https://github.com/dreikanter/feeder/issues/new">open an issue</a> on GitHub.</li>
   <li class="my-2">GitHub project: <a href="https://github.com/dreikanter/feeder">github.com/dreikanter/feeder</a>.</li>
-  <li class="my-2">Last update: <b><%= last_update -%>.</b></li>
-  <li class="my-2">Last post created: <b><%= last_post_created_at -%>.</b></li>
+  <li class="my-2">Active feeds: <%- feeds.count -%></li>
+  <%- if last_update -%>
+    <li class="my-2">Last update: <b><%= last_update -%>.</b></li>
+  <%- end -%>
+  <%- if last_post_created_at -%>
+    <li class="my-2">Last post created: <b><%= last_post_created_at -%>.</b></li>
+  <%- end -%>
 </ul>
 
 <table class="table table-bordered my-4">
@@ -21,14 +26,14 @@
   <tbody>
     <%- feeds.each do |feed| -%>
       <tr>
-        <td><a href="https://freefeed.net/<%= feed.name -%>"><%= feed.name -%></a></td>
-        <td title="<%= "errors since last success: #{feed.errors_count}; total errors: #{feed.total_errors_count}" %>"><%= feed.state -%></td>
+        <td><%= link_to feed.name, "https://freefeed.net/#{feed.name}" -%></td>
+        <td><%= tag.span(class: "hint--top", data: { hint: "errors since last success: #{feed.errors_count}; total errors: #{feed.total_errors_count}" }) { feed.state }%></td>
         <td><%= feed.posts_count -%></td>
         <td>
           <%- if feed.refreshed_at -%>
-            <time datetime="<%= feed.refreshed_at.rfc3339 %>">
+            <%= tag.time datetime: feed.refreshed_at.rfc3339 do -%>
               <%= distance_of_time_in_words_to_now(feed.refreshed_at) -%> ago
-            </time>
+            <%- end -%>
           <%- end -%>
         </td>
         <td>
