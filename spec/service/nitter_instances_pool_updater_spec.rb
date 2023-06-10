@@ -18,6 +18,6 @@ RSpec.describe NitterInstancesPoolUpdater do
 
   it 'be idempotent' do
     service.call
-    expect { service.call }.not_to change { NitterInstance.pluck(:id, :url, :status) }
+    expect { service.call }.not_to(change { NitterInstance.pluck(:id, :url, :status) })
   end
 end
