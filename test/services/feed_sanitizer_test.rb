@@ -21,32 +21,32 @@ class FeedSanitizerTest < Minitest::Test
   }.freeze
 
   def test_return_hash
-    result = subject.call(SAMPLE_FEED)
+    result = subject.call(**SAMPLE_FEED)
     assert(result.is_a?(Hash))
   end
 
   def test_require_name
     feed = SAMPLE_FEED.except(:name)
-    assert_raises(KeyError) { subject.call(feed) }
+    assert_raises(KeyError) { subject.call(**feed) }
   end
 
   def test_minimal_configuration
-    subject.call(MINIMAL_FEED)
+    subject.call(**MINIMAL_FEED)
   end
 
   def test_parse_after
-    result = subject.call(SAMPLE_FEED)[:after]
+    result = subject.call(**SAMPLE_FEED)[:after]
     assert(result.is_a?(DateTime))
   end
 
   def test_parse_integers
-    result = subject.call(SAMPLE_FEED)
+    result = subject.call(**SAMPLE_FEED)
     assert(result[:import_limit].is_a?(Integer))
     assert(result[:refresh_interval].is_a?(Integer))
   end
 
   def test_omit_undefined_attrubutes
-    result = subject.call(MINIMAL_FEED)
+    result = subject.call(**MINIMAL_FEED)
     MINIMAL_FEED.each do |key, value|
       assert_equal(value, result[key])
     end

@@ -19,7 +19,7 @@ class SchneierNormalizerTest < Minitest::Test
     entity = JSON.parse(file_fixture('feeds/schneier/entity.json').read)
     value = entity['published_at']
     entity['published_at'] = DateTime.parse(value) if value
-    NormalizedEntity.new(entity.symbolize_keys.merge(feed_id: feed.id))
+    NormalizedEntity.new(**entity.symbolize_keys.merge(feed_id: feed.id))
   end
 
   def test_normalized_sample

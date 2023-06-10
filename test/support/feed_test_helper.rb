@@ -25,7 +25,7 @@ module FeedTestHelper
   end
 
   def feed
-    @feed ||= create(:feed, feed_config)
+    @feed ||= create(:feed, **feed_config)
   end
 
   def feed_config
@@ -42,18 +42,18 @@ module FeedTestHelper
 
   def expected
     data = JSON.parse(file_fixture(expected_fixture_path).read)
-    return normalize(data) if data.is_a?(Hash)
-    data.map { |item| normalize(item) }
+    return normalize(**data) if data.is_a?(Hash)
+    data.map { normalize(**_1) }
   end
 
   # :reek:FeatureEnvy
-  def normalize(item)
+  def normalize(hash)
     replacements = {
-      'published_at' => DateTime.parse(item.fetch('published_at')),
+      'published_at' => DateTime.parse(hash.fetch('published_at')),
       'feed_id' => feed.id
     }
 
-    NormalizedEntity.new(item.merge(replacements).symbolize_keys)
+    NormalizedEntity.new(**hash.merge(replacements).symbolize_keys)
   end
 
   def test_entity_normalization

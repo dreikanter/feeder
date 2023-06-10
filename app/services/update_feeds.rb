@@ -28,7 +28,7 @@ class UpdateFeeds
     feeds.each do |config|
       feed = Feed.find_or_create_by(name: config[:name])
       safe_config = config.slice(*ALLOWED_ATTRIBUTES)
-      feed.update(safe_config.merge(status: FeedStatus.active))
+      feed.update(**safe_config.merge(status: FeedStatus.active))
     end
   end
 
@@ -42,9 +42,7 @@ class UpdateFeeds
   end
 
   def feeds
-    @feeds ||= load_feeds
-      .map(&:symbolize_keys)
-      .map(&FeedSanitizer)
+    @feeds ||= load_feeds.map { FeedSanitizer.call(**_1.symbolize_keys) }
   end
 
   def load_feeds
