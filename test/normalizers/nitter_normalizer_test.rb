@@ -32,7 +32,7 @@ class NitterNormalizerTest < Minitest::Test
       'uid' => 'https://nitter.net/extrafabulous/status/1664634629456887813#m',
       'link' => 'https://twitter.com/extrafabulous/status/1664634629456887813#m',
       'published_at' => Time.parse('2023-06-02 14:06:37 UTC'),
-      'text' => 'Image - https://twitter.com/extrafabulous/status/1664634629456887813#m',
+      'text' => 'Image - !https://twitter.com/extrafabulous/status/1664634629456887813#m',
       'attachments' => ['https://nitter.net/pic/media%2FFxn4X5JWYAcPDCS.jpg'],
       'comments' => [],
       'validation_errors' => []
