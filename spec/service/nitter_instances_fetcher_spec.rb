@@ -6,8 +6,8 @@ RSpec.describe NitterInstancesFetcher do
   let(:content) { file_fixture('nitter_instances_wiki_page.html').read }
   let(:expected) { JSON.parse(file_fixture('nitter_instances_wiki_page.json').read) }
 
-  def test_fetches_expected_urls
+  it 'fetches expected urls' do
     stub_request(:get, service::PUBLIC_INSTANCES_WIKI_PAGE_URL).to_return(body: content)
-    expect(service.call).to contain_exactly(expected)
+    expect(service.call).to contain_exactly(*expected)
   end
 end
