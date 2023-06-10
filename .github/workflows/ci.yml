@@ -19,21 +19,22 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.6.5
+          ruby-version: 3.1.2
+          bundler-cache: true
 
-      - name: Cache gems
-        uses: actions/cache@v2
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
+      # - name: Cache gems
+      #   uses: actions/cache@v2
+      #   with:
+      #     path: vendor/bundle
+      #     key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-gems-
 
-      - name: Install gems
-        run: |
-          bundle config path vendor/bundle
-          bundle config set without 'test'
-          bundle install --jobs 4 --retry 3
+      # - name: Install gems
+      #   run: |
+      #     bundle config path vendor/bundle
+      #     bundle config set without 'test'
+      #     bundle install --jobs 4 --retry 3
 
       - name: Run RuboCop
         run: bundle exec rubocop --parallel
@@ -48,21 +49,22 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.6.5
+          ruby-version: 3.1.2
+          bundler-cache: true
 
-      - name: Cache gems
-        uses: actions/cache@v2
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
+      # - name: Cache gems
+      #   uses: actions/cache@v2
+      #   with:
+      #     path: vendor/bundle
+      #     key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-gems-
 
-      - name: Install gems
-        run: |
-          bundle config path vendor/bundle
-          bundle config set without 'test'
-          bundle install --jobs 4 --retry 3
+      # - name: Install gems
+      #   run: |
+      #     bundle config path vendor/bundle
+      #     bundle config set without 'test'
+      #     bundle install --jobs 4 --retry 3
 
       - name: Run Reek
         run: bundle exec reek --single-line .
@@ -91,20 +93,21 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.6.5
+          ruby-version: 3.1.2
+          bundler-cache: true
 
-      - name: Cache gems
-        uses: actions/cache@v2
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
+      # - name: Cache gems
+      #   uses: actions/cache@v2
+      #   with:
+      #     path: vendor/bundle
+      #     key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-gems-
 
-      - name: Install gems
-        run: |
-          bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 3
+      # - name: Install gems
+      #   run: |
+      #     bundle config path vendor/bundle
+      #     bundle install --jobs 4 --retry 3
 
       - name: Install PostgreSQL client
         run: |
