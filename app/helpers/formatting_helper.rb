@@ -12,14 +12,15 @@ module FormattingHelper
 
   private
 
+  FEED_STATE_CLASSES = {
+    'enabled' => 'text-success',
+    'disabled' => 'text-muted',
+    'removed' => 'text-muted'
+  }.freeze
+
+  private_constant :FEED_STATE_CLASSES
+
   def feed_state_class(state)
-    case state
-    when 'enabled'
-      'text-success'
-    when 'disabled'
-      'text-muted'
-    when 'removed'
-      'text-muted'
-    end
+    FEED_STATE_CLASSES[state]
   end
 end
