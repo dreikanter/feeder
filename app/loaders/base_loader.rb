@@ -1,8 +1,10 @@
 class BaseLoader
+  Error = Class.new(StandardError)
+
   include Callee
+  include Logging
 
   param :feed
-  option :logger, optional: true, default: -> { Rails.logger }
 
   def call
     logger.info("---> loading feed [#{feed&.name}]")
