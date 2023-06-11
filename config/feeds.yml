@@ -471,7 +471,7 @@
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "buni"
-  url: "bunicomic.com/feed/"
+  url: "http://bunicomic.com/feed/"
   processor: "feedjira"
   normalizer: "buni"
   import_limit: 2
