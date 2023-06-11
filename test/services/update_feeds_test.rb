@@ -28,8 +28,7 @@ class UpdateFeedsTest < Minitest::Test
   end
 
   def expected
-    @expected ||= YAML.load_file(SAMPLE_CONFIG_PATH)
-      .map { |feed_config_hash| FeedSanitizer.call(**feed_config_hash.symbolize_keys) }
+    @expected ||= YAML.load_file(SAMPLE_CONFIG_PATH).map { |config| FeedSanitizer.call(**config.symbolize_keys) }
   end
 
   def test_names_match_config
