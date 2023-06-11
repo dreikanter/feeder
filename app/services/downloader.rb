@@ -4,7 +4,7 @@ class Downloader
   param :url
 
   def call
-    Honeybadger.context(url: url)
+    Honeybadger.context(downloader: { url: url })
     response = fetch_url
     return unless response&.status == 200
     yield build_io_from(response), response.content_type.mime_type
