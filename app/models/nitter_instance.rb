@@ -18,14 +18,16 @@ class NitterInstance < ApplicationRecord
     event :error do
       after do
         update!(errored_at: Time.current, errors_count: errors_count.succ)
-        disable! if errors_count >= MAX_ERRORS
+        disable! if may_disable? && errors_count >= MAX_ERRORS
       end
 
       transitions from: %i[enabled errored], to: :errored
+      transitions from: :disabled, to: :disabled
+      transitions from: :removed, to: :removed
     end
 
     event :disable do
-      transitions from: :errored, to: :disabled
+      transitions from: %i[enabled errored], to: :disabled
     end
 
     event :enable do
