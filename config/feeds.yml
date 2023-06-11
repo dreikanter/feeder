@@ -3,7 +3,7 @@
   url: "https://xkcd.com/rss.xml"
   processor: "rss"
   after: "2021-01-04T12:00:00+00:00"
-  refresh_interval: 600
+  refresh_interval: 1200
 
 - name: "oglaf"
   url: "https://www.oglaf.com/feeds/rss/"
@@ -36,7 +36,7 @@
   processor: "rss"
   normalizer: "livejournal"
   after: "2021-01-06T12:00:00+00:00"
-  refresh_interval: 3600
+  refresh_interval: 7200
 
 # NOTE: Feed is inactive since 2017; HTTPS is not supported
 # - name: "nichtlustig-de"
@@ -62,14 +62,14 @@
   processor: "rss"
   normalizer: "medium"
   after: "2021-01-06T12:00:00+00:00"
-  refresh_interval: 7200
+  refresh_interval: 86400
 
 - name: "signalvnoise-medium"
   url: "https://m.signalvnoise.com/feed"
   processor: "rss"
   normalizer: "medium"
   after: "2021-01-06T12:00:00+00:00"
-  refresh_interval: 3600
+  refresh_interval: 7200
 
 - name: "github-blog"
   url: "https://github.com/blog/all.atom"
@@ -81,13 +81,13 @@
   url: "https://feeds.feedburner.com/Explosm"
   processor: "rss"
   after: "2021-01-06T12:00:00+00:00"
-  refresh_interval: 3600
+  refresh_interval: 86400
 
 - name: "the-atlantic-photos"
   url: "https://feeds.feedburner.com/theatlantic/infocus"
   processor: "rss"
   after: "2021-01-06T12:00:00+00:00"
-  refresh_interval: 3600
+  refresh_interval: 7200
 
 # - name: "esquire-photos"
 #   url: "https://feeds.feedburner.com/esquire-ru"
@@ -159,7 +159,7 @@
   processor: "rss"
   normalizer: "my_jetpack"
   after: "2021-01-06T12:00:00+00:00"
-  refresh_interval: 1200
+  refresh_interval: 3600
 
 - name: "codinghorror"
   url: "https://feeds.feedburner.com/codinghorror"
@@ -168,20 +168,21 @@
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 7200
 
-- name: "little-big-details"
-  # url: "http://littlebigdetails.com/rss"
-  url: "https://feeds.feedburner.com/littlebigdetails/wJCD"
-  processor: "rss"
-  normalizer: "little_big_details"
-  after: "2021-01-06T12:00:00+00:00"
-  refresh_interval: 86400
+# NOTE: inactive since 2019
+# - name: "little-big-details"
+#   # url: "http://littlebigdetails.com/rss"
+#   url: "https://feeds.feedburner.com/littlebigdetails/wJCD"
+#   processor: "rss"
+#   normalizer: "little_big_details"
+#   after: "2021-01-06T12:00:00+00:00"
+#   refresh_interval: 86400
 
 - name: "blitz-and-chips"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCRQEBFeG3lTMDEIUtQulzLg"
   processor: "youtube"
   normalizer: "youtube"
   after: "2021-01-06T12:00:00+00:00"
-  refresh_interval: 7200
+  refresh_interval: 14400
 
 - name: "jimmydiresta"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCiEk4xHBbz0hZNIBBpowdYQ"
@@ -195,7 +196,7 @@
   processor: "youtube"
   normalizer: "youtube"
   after: "2021-01-06T12:00:00+00:00"
-  refresh_interval: 3600
+  refresh_interval: 7200
 
 - name: "theycantalk"
   # url: "http://theycantalk.com/rss"
@@ -205,13 +206,14 @@
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 600
 
+# NOTE: Inactive since 2018
 # NOTE: HTTPS is not supported
-- name: "maremir"
-  url: "http://maremir.org/feed/"
-  processor: "rss"
-  normalizer: "maremir"
-  after: "2021-01-06T12:00:00+00:00"
-  refresh_interval: 86400
+# - name: "maremir"
+#   url: "http://maremir.org/feed/"
+#   processor: "rss"
+#   normalizer: "maremir"
+#   after: "2021-01-06T12:00:00+00:00"
+#   refresh_interval: 86400
 
 - name: "sarahcandersen"
   url: "https://feeds.feedburner.com/sarahcandersen/koPM"
@@ -240,21 +242,21 @@
   processor: "wordpress"
   normalizer: "waitbutwhy"
   after: "2021-01-06T12:00:00+00:00"
-  refresh_interval: 86400
+  refresh_interval: 7200
 
 - name: "savagechickens"
   url: "https://www.savagechickens.com/feed"
   processor: "wordpress"
   normalizer: "savagechickens"
   after: "2021-01-06T12:00:00+00:00"
-  refresh_interval: 300
+  refresh_interval: 600
 
 - name: "poorlydrawnlines"
   url: "https://feeds.feedburner.com/PoorlyDrawnLines"
   processor: "feedjira"
   normalizer: "poorlydrawnlines"
   after: "2021-01-06T12:00:00+00:00"
-  refresh_interval: 300
+  refresh_interval: 600
 
 - name: "kimchicuddles"
   url: "https://kimchicuddles.com/rss"
@@ -269,11 +271,13 @@
 #   normalizer: "kimchicuddlesrus"
 #   after: "2021-01-06T12:00:00+00:00"
 
-- name: "aerostatica"
-  url: "https://feeds.feedburner.com/aerostatica"
-  processor: "feedjira"
-  normalizer: "aerostatica_normalizer"
-  refresh_interval: 7200
+# NOTE: Inactive since 2019
+# TODO: Use alternative feed source
+# - name: "aerostatica"
+#   url: "https://feeds.feedburner.com/aerostatica"
+#   processor: "feedjira"
+#   normalizer: "aerostatica_normalizer"
+#   refresh_interval: 7200
 
 # NOTE: Inactive account
 # - name: "algtestament"
@@ -470,6 +474,7 @@
   import_limit: 2
   after: "2021-01-06T12:00:00+00:00"
 
+# NOTE: No certificate
 - name: "buni"
   url: "http://bunicomic.com/feed/"
   processor: "feedjira"
@@ -483,14 +488,14 @@
   processor: "feedjira"
   normalizer: "lunarbaboon"
   import_limit: 2
-  refresh_interval: 3600
+  refresh_interval: 14400
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "shvarz"
   url: "https://shvarz.livejournal.com/data/rss"
   processor: "rss"
   normalizer: "livejournal"
-  refresh_interval: 3600
+  refresh_interval: 14400
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "schooloflife"
@@ -549,7 +554,7 @@
   processor: "wordpress"
   normalizer: "litterbox"
   refresh_interval: 3600
-  import_limit: 100
+  import_limit: 2
 
 - name: "lizandmollie"
   loader: "nitter"
