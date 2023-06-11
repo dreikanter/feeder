@@ -40,9 +40,7 @@ RSpec.describe RedditProcessor do
 
   it 'waits cache expiration before repeating post score requests' do
     import_expected_data_points
-
-    # Will raise WebMock error score request attempt
-    expected_data_points
+    expect { expected_data_points }.not_to raise_error
   end
 
   it 'refreshes cached post scores' do
