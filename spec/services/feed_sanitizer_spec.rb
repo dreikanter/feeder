@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe FeedSanitizer do
-  subject(:service) { FeedSanitizer }
+  subject(:service) { described_class }
 
   let(:sample_config) do
     {
