@@ -19,8 +19,7 @@ class FeedSanitizer
   option(
     :refresh_interval,
     type: Dry::Types['strict.integer'],
-    optional: true,
-    default: -> { 0 }
+    optional: true
   )
 
   # @return [Hash] sanitized feed configuration attributes

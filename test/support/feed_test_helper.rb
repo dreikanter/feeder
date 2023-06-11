@@ -53,7 +53,7 @@ module FeedTestHelper
       'feed_id' => feed.id
     }
 
-    NormalizedEntity.new(item.merge(replacements).symbolize_keys)
+    NormalizedEntity.new(**item.merge(replacements).symbolize_keys)
   end
 
   def test_entity_normalization

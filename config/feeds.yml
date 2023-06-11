@@ -126,7 +126,7 @@
 
 - name: "f28a"
   # url: "http://floccinaucinihilipilificationa.tumblr.com/rss"
-  url: https://feeds.feedburner.com/tumblr/bAzd
+  url: "https://feeds.feedburner.com/tumblr/bAzd"
   processor: "rss"
   normalizer: "f28a"
   after: "2021-01-06T12:00:00+00:00"

@@ -13,7 +13,7 @@ class BuniTest < Minitest::Test
       name: 'buni',
       processor: 'feedjira',
       normalizer: 'buni',
-      url: 'bunicomic.com/feed/',
+      url: 'http://bunicomic.com/feed/',
       import_limit: 4
     }
   end

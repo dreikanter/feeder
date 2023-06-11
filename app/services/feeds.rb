@@ -44,7 +44,7 @@ class Feeds
   end
 
   def feeds_configuration
-    @feeds_configuration ||= config_data.map(&:symbolize_keys).map(&FeedSanitizer)
+    @feeds_configuration ||= config_data.map { |config| FeedSanitizer.call(**config.symbolize_keys) }
   end
 
   def config_data
