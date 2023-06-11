@@ -18,6 +18,11 @@ class RedditProcessor < AtomProcessor
 
   def reddit_points(link)
     data_point(link).details['points'].to_i
+  rescue StandardError => e
+    # NOTE: Individual post score fetching should not crash the processor
+    # TODO: Improve RedditPointsFetcher errors tracking
+    Honeybadger.notify(e)
+    0
   end
 
   def data_point(link)
@@ -33,8 +38,7 @@ class RedditProcessor < AtomProcessor
   def create_data_point(link)
     CreateDataPoint.call(
       :reddit,
-      link: link,
-      points: RedditPointsFetcher.call(link)
+      details: { link: link, points: RedditPointsFetcher.call(link) }
     )
   end
 end
