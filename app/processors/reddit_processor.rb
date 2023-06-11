@@ -38,8 +38,7 @@ class RedditProcessor < AtomProcessor
   def create_data_point(link)
     CreateDataPoint.call(
       :reddit,
-      link: link,
-      points: RedditPointsFetcher.call(link)
+      details: { link: link, points: RedditPointsFetcher.call(link) }
     )
   end
 end

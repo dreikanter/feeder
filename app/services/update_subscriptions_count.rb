@@ -14,7 +14,7 @@ class UpdateSubscriptionsCount
 
   def update_or_create_data_point
     return unless prev_count != current_count
-    CreateDataPoint.call(:subs, feed_name: feed_name, count: current_count)
+    CreateDataPoint.call(:subs, details: { feed_name: feed_name, count: current_count })
   end
 
   def prev_count
