@@ -15,8 +15,8 @@ RSpec.describe RedditProcessor do
     )
   end
 
-  let(:expected_uids) { expected_data_points.map { |details| details["link"] } }
-  let(:expected_data_points) { JSON.parse(file_fixture("feeds/reddit/expected_data_points.json").read) }
+  let(:expected_uids) { expected_data_points.pluck('link') }
+  let(:expected_data_points) { JSON.parse(file_fixture('feeds/reddit/expected_data_points.json').read) }
   let(:thread_url) { %r{^https://.*/r/worldnews/comments/} }
   let(:thread_contents) { file_fixture('feeds/reddit/libreddit_comments_page.html').read }
 
@@ -47,7 +47,7 @@ RSpec.describe RedditProcessor do
 
   it 'refreshes cached post scores' do
     freeze_time do
-      import_expected_data_points(created_at: 5.hours.ago, custom_details: { "points" => 0 })
+      import_expected_data_points(created_at: 5.hours.ago, custom_details: { 'points' => 0 })
       stub_request(:get, thread_url).to_return(body: thread_contents)
       call_processor
       expect(DataPoint.for(:reddit).where(created_at: Time.current).pluck(:details)).to eq(expected_data_points)
