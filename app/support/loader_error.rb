@@ -1,2 +1,0 @@
-class LoaderError < FeederError
-end
