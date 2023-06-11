@@ -27,7 +27,7 @@ class KimchicuddlesNormalizerTest < Minitest::Test
     entity['published_at'] = DateTime.parse(value) if value
 
     NormalizedEntity.new(
-      entity.symbolize_keys.merge(
+      **entity.symbolize_keys.merge(
         feed_id: feed.id,
         attachments: [ATTACHMENT_URL]
       )
