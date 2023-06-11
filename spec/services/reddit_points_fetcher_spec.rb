@@ -14,8 +14,13 @@ RSpec.describe RedditPointsFetcher do
     expect(subject.call(url)).to eq(expected)
   end
 
-  it 'passes errors' do
+  it 'raises on HTTP request errors' do
     stub_request(:get, thread_url).to_raise(arbitrary_error)
     expect { subject.call(url) }.to raise_error(arbitrary_error)
+  end
+
+  it 'raises on HTTP response errors' do
+    stub_request(:get, thread_url).to_return(status: 404)
+    expect { subject.call(url) }.to raise_error(described_class::Error)
   end
 end
