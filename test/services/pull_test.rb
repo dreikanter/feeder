@@ -77,6 +77,7 @@ class PullTest < Minitest::Test
     assert_raises(KeyError) { subject.call(feed) }
   end
 
+  # rubocop:disable Metrics/MethodLength
   def expected
     [
       NormalizedEntity.new(
@@ -91,6 +92,7 @@ class PullTest < Minitest::Test
       )
     ]
   end
+  # rubocop:enable Metrics/MethodLength
 
   # NOTE: Normalizer will fail due to the lack of the required 'text' field.
   # Normalizer error should not stop the workflow.

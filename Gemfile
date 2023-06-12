@@ -6,13 +6,14 @@ gem "rails", "~> 6.0"
 
 group :development do
   gem "brakeman", "~> 4.3", ">= 4.3.1", require: false
-  gem "reek", "~> 6.0"
-  gem "rubocop"
-  gem "rubocop-rails"
-  gem "rubocop-rspec"
+  gem "reek", "~> 6.0", require: false
+  gem "rubocop", require: false
+  gem "rubocop-factory_bot", require: false
+  gem "rubocop-rails", require: false
+  gem "rubocop-rspec", require: false
   gem "spring"
-  gem "standard"
-  gem "standard-performance"
+  gem "standard", ">= 1.0", require: false
+  gem "standard-performance", require: false
 end
 
 group :development, :test do
