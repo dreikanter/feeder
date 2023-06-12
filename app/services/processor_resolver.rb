@@ -6,7 +6,7 @@ class ProcessorResolver
 
   def call
     available_names_for.each do |name|
-      safe_name = name.to_s.gsub(/-/, '_')
+      safe_name = name.to_s.tr("-", "_")
       result = "#{safe_name}_processor".classify.constantize
       logger.debug("processor resolved to [#{result}]")
       return result
@@ -17,7 +17,7 @@ class ProcessorResolver
 
   private
 
-  FALLBACK_PROCESSOR = 'null'.freeze
+  FALLBACK_PROCESSOR = "null".freeze
 
   def available_names_for
     [

@@ -6,8 +6,8 @@ module Freefeed
       # @param [String, Pathname, IO] source could by a file path
       # or an IO object
       def create_attachment(source, content_type: nil)
-        options = { form: { file: file(source, content_type) } }
-        authenticated_request(:post, '/v1/attachments', options)
+        options = {form: {file: file(source, content_type)}}
+        authenticated_request(:post, "/v1/attachments", options)
       end
 
       private

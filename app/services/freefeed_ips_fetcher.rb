@@ -1,5 +1,5 @@
 class FreefeedIpsFetcher
-  DOMAIN = 'freefeed.net'.freeze
+  DOMAIN = "freefeed.net".freeze
 
   def self.call(fetcher: DnsRecordsFetcher, domain: DOMAIN)
     fetcher.call(domain).uniq

@@ -1,5 +1,5 @@
 class MaremirNormalizer < RssNormalizer
-  WORDPRESS_THUMBNAIL_SUFFIX = '-150x150.'.freeze
+  WORDPRESS_THUMBNAIL_SUFFIX = "-150x150.".freeze
 
   protected
 
@@ -15,11 +15,11 @@ class MaremirNormalizer < RssNormalizer
 
   def first_image_url
     url = Html.first_image_url(safe_content)
-    url.to_s.gsub(WORDPRESS_THUMBNAIL_SUFFIX, '.')
+    url.to_s.gsub(WORDPRESS_THUMBNAIL_SUFFIX, ".")
   end
 
   def safe_content
-    content.content_encoded || ''
+    content.content_encoded || ""
   end
 
   def description

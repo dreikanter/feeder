@@ -6,8 +6,8 @@ class DilbertNormalizer < AtomNormalizer
   end
 
   def published_at
-    DateTime.parse(link.split('/').last)
-  rescue StandardError
+    DateTime.parse(link.split("/").last)
+  rescue
     logger.error "error parsing date from url: #{link}"
     nil
   end
@@ -21,7 +21,7 @@ class DilbertNormalizer < AtomNormalizer
   end
 
   def image_url
-    page_body.css('img.img-comic:first').first[:src]
+    page_body.css("img.img-comic:first").first[:src]
   end
 
   def page_body

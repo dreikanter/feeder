@@ -7,19 +7,19 @@ class MediumNormalizer < RssNormalizer
 
   def attachments
     [image_url]
-  rescue StandardError
+  rescue
     []
   end
 
   def comments
     [excerpt]
-  rescue StandardError
+  rescue
     []
   end
 
   def image_url
     @image_url ||= description
-      .css('.medium-feed-image img:first').first['src']
+      .css(".medium-feed-image img:first").first["src"]
   end
 
   def description
@@ -28,14 +28,14 @@ class MediumNormalizer < RssNormalizer
 
   def excerpt
     result = page_body
-    result.css('br').each { |br| br.replace "\n" }
-    result.css('h1').each { |h1| h1.replace '' }
+    result.css("br").each { |br| br.replace "\n" }
+    result.css("h1").each { |h1| h1.replace "" }
     Html.comment_excerpt(Html.squeeze(result.text))
   end
 
   def page_body
     @page_body ||= Nokogiri::HTML(page_content)
-      .css('.section--body .section-content').first
+      .css(".section--body .section-content").first
   end
 
   def page_content

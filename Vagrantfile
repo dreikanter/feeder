@@ -1,25 +1,25 @@
 # frozen_string_literal: true
 
-VAGRANT_APP_NAME   = 'feeder'
-HOSTNAME           = 'feeder.local'
-HOSTNAME_ALIASES   = [].freeze
-VAGRANT_IP         = '192.168.99.101'
-VAGRANT_MEMORY_MB  = 8192
-VAGRANT_CPUS       = 2
-VAGRANT_BOX        = 'bento/ubuntu-18.04'
+VAGRANT_APP_NAME = "feeder"
+HOSTNAME = "feeder.local"
+HOSTNAME_ALIASES = [].freeze
+VAGRANT_IP = "192.168.99.101"
+VAGRANT_MEMORY_MB = 8192
+VAGRANT_CPUS = 2
+VAGRANT_BOX = "bento/ubuntu-18.04"
 
 VAGRANT_PORTS = {
-  puma: { guest: 3000, host: 3000 },
-  webpack_dev_server: { guest: 3035, host: 3035 },
-  postgres: { guest: 5432, host: 5432 },
-  webpack_bundle_analyzer: { guest: 8888, host: 8888 }
+  puma: {guest: 3000, host: 3000},
+  webpack_dev_server: {guest: 3035, host: 3035},
+  postgres: {guest: 5432, host: 5432},
+  webpack_bundle_analyzer: {guest: 8888, host: 8888}
 }.freeze
 
-Vagrant.require_version '>= 2.2'
+Vagrant.require_version ">= 2.2"
 
 REQUIRED_PLUGINS = [
-  ['vagrant-vbguest', '0.18.0'],
-  ['vagrant-hostmanager', '1.8.9']
+  ["vagrant-vbguest", "0.18.0"],
+  ["vagrant-hostmanager", "1.8.9"]
 ].freeze
 
 def require_plugins!(plugins)
@@ -28,26 +28,26 @@ def require_plugins!(plugins)
     next if Vagrant.has_plugin?(plugin)
     system(install_plugin_command(plugin, version)) || exit!
   end
-  exit system('vagrant', *ARGV) unless plugins.empty?
+  exit system("vagrant", *ARGV) unless plugins.empty?
 end
 
 def install_plugin_command(plugin, version = nil)
   [].tap do |a|
-    a << 'vagrant plugin install'
+    a << "vagrant plugin install"
     a << plugin
     a << "--plugin-version #{version}" if version
-  end.join(' ')
+  end.join(" ")
 end
 
 require_plugins!(REQUIRED_PLUGINS)
 
-Vagrant.configure('2') do |config|
+Vagrant.configure("2") do |config|
   config.vm.provider :virtualbox do |vb, _override|
     vb.memory = Integer(VAGRANT_MEMORY_MB)
     vb.cpus = Integer(VAGRANT_CPUS)
-    vb.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
-    vb.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
-    vb.customize ['guestproperty', 'set', :id, '--timesync-threshold', 10_000]
+    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+    vb.customize ["guestproperty", "set", :id, "--timesync-threshold", 10_000]
     vb.gui = false
   end
 
@@ -60,26 +60,26 @@ Vagrant.configure('2') do |config|
   config.hostmanager.include_offline = true
 
   config.vm.synced_folder(
-    '.',
-    '/app',
+    ".",
+    "/app",
     fsnotify: true,
-    exclude: ['.git/', 'node_modules/', 'tmp/', 'coverage/']
+    exclude: [".git/", "node_modules/", "tmp/", "coverage/"]
   )
 
-  config.vm.synced_folder '../feeder-ansible', '/ansible'
-  config.vm.synced_folder '../feeder-ansible-secrets', '/secrets'
+  config.vm.synced_folder "../feeder-ansible", "/ansible"
+  config.vm.synced_folder "../feeder-ansible-secrets", "/secrets"
 
   config.vm.define VAGRANT_APP_NAME do |machine|
     config.vm.box = VAGRANT_BOX
     machine.vm.hostname = HOSTNAME
 
     VAGRANT_PORTS.each_value do |ports|
-      machine.vm.network('forwarded_port', auto_correct: true, **ports)
+      machine.vm.network("forwarded_port", auto_correct: true, **ports)
     end
 
-    machine.vm.network 'private_network', ip: VAGRANT_IP
+    machine.vm.network "private_network", ip: VAGRANT_IP
     machine.hostmanager.aliases = HOSTNAME_ALIASES
-    config.vm.provision :shell, path: 'provision.sh', privileged: false
+    config.vm.provision :shell, path: "provision.sh", privileged: false
   end
 
   config.ssh.forward_agent = true

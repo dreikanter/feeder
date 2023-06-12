@@ -22,10 +22,10 @@ class NewfluxNormalizer < FeedjiraNormalizer
   def image_url
     image = Nokogiri::HTML(page_content).css(COVER_QUERY).first
     image[:content] if image
-  rescue StandardError => e
+  rescue => e
     ErrorDumper.call(
       exception: e,
-      message: 'Error fetching a post image',
+      message: "Error fetching a post image",
       target: feed
     )
     nil
@@ -33,7 +33,7 @@ class NewfluxNormalizer < FeedjiraNormalizer
 
   def page_content
     RestClient.get(link).body
-  rescue StandardError
+  rescue
     raise FetchError, link
   end
 end

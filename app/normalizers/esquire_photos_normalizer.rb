@@ -8,7 +8,7 @@ class EsquirePhotosNormalizer < RssNormalizer
   def published_at
     parts = /(\d\d)(\d\d)(\d\d\d\d)/.match(link)
     DateTime.new(Integer(parts[3]), Integer(parts[2]), Integer(parts[1]))
-  rescue StandardError
+  rescue
     super
   end
 
@@ -30,6 +30,6 @@ class EsquirePhotosNormalizer < RssNormalizer
 
   def description
     Html.comment_excerpt(Html.squeeze(content.description))
-      .gsub(READ_MORE_LINK, '')
+      .gsub(READ_MORE_LINK, "")
   end
 end

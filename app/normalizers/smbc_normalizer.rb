@@ -26,7 +26,7 @@ class SmbcNormalizer < BaseNormalizer
   TITLE_PREFIX = /^Saturday Morning Breakfast Cereal - /.freeze
 
   def title
-    content.title.gsub(TITLE_PREFIX, '')
+    content.title.gsub(TITLE_PREFIX, "")
   end
 
   def parsed_description
@@ -36,22 +36,22 @@ class SmbcNormalizer < BaseNormalizer
   DESCRIPTION_PREFIX = /^Hovertext:\s*/.freeze
 
   def description
-    first_paragraph = parsed_description.css('p').first.children.text
-    first_paragraph.gsub(DESCRIPTION_PREFIX, '')
-  rescue StandardError
+    first_paragraph = parsed_description.css("p").first.children.text
+    first_paragraph.gsub(DESCRIPTION_PREFIX, "")
+  rescue
     nil
   end
 
   def image_url
-    parsed_description.css('img').first.attributes['src'].value
-  rescue StandardError
+    parsed_description.css("img").first.attributes["src"].value
+  rescue
     nil
   end
 
   def hidden_image_url
     html = Nokogiri::HTML(page_content)
-    html.css('#aftercomic img').first.attributes['src'].value
-  rescue StandardError
+    html.css("#aftercomic img").first.attributes["src"].value
+  rescue
     nil
   end
 

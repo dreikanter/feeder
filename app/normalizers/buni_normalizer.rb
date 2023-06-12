@@ -14,7 +14,7 @@ class BuniNormalizer < FeedjiraNormalizer
   end
 
   def validation_errors
-    attachments.none? ? ['no images'] : super
+    attachments.none? ? ["no images"] : super
   end
 
   private
@@ -33,7 +33,7 @@ class BuniNormalizer < FeedjiraNormalizer
   end
 
   def image_selector
-    webtoons? ? '.entry img[srcset]' : '#comic img'
+    webtoons? ? ".entry img[srcset]" : "#comic img"
   end
 
   def page_content
@@ -56,6 +56,6 @@ class BuniNormalizer < FeedjiraNormalizer
   end
 
   def links
-    @links ||= Nokogiri::HTML(content.content).css('a')
+    @links ||= Nokogiri::HTML(content.content).css("a")
   end
 end

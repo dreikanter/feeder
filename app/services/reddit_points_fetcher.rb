@@ -6,7 +6,7 @@ class RedditPointsFetcher
   param :url
 
   def call
-    Integer(dom.css('.post_score').attribute('title').value)
+    Integer(dom.css(".post_score").attribute("title").value)
   end
 
   private

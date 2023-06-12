@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class ErrorDumperTest < Minitest::Test
   def subject
@@ -11,8 +11,8 @@ class ErrorDumperTest < Minitest::Test
   end
 
   def dump_sample_exception
-    raise 'sample exception'
-  rescue StandardError
+    raise "sample exception"
+  rescue
     subject.call(exception: $ERROR_INFO)
   end
 

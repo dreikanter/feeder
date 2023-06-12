@@ -18,6 +18,6 @@ class DashboardsController < ApplicationController
   end
 
   def last_update
-    DataPoint.ordered.for('pull').first.try(:created_at)
+    DataPoint.ordered.for("pull").first.try(:created_at)
   end
 end

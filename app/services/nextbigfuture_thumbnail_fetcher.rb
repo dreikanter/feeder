@@ -9,13 +9,13 @@ class NextbigfutureThumbnailFetcher
     default: -> { ->(url) { RestClient.get(url).body } }
   )
 
-  CSS_SELECTOR = '.featured-thumbnail img'.freeze
+  CSS_SELECTOR = ".featured-thumbnail img".freeze
 
   def call
     html = client.call(url)
     elements = Nokogiri::HTML(html).css(CSS_SELECTOR)
-    elements.first['src']
-  rescue StandardError
+    elements.first["src"]
+  rescue
     nil
   end
 end

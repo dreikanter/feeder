@@ -10,7 +10,7 @@ class TelegaBasicNormalizer < RssNormalizer
   end
 
   def sanitized_link
-    content.link.to_s.gsub(%r{^//}, 'https://')
+    content.link.to_s.gsub(%r{^//}, "https://")
   end
 
   def attachments
@@ -29,8 +29,8 @@ class TelegaBasicNormalizer < RssNormalizer
 
   def image_url
     html = Nokogiri::HTML(content.description)
-    html.css('img').first.attributes['src'].value
-  rescue StandardError
+    html.css("img").first.attributes["src"].value
+  rescue
     nil
   end
 end

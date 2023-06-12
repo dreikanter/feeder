@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class KimchicuddlesNormalizerTest < Minitest::Test
   include NormalizerTestHelper
@@ -12,19 +12,19 @@ class KimchicuddlesNormalizerTest < Minitest::Test
   end
 
   def sample_data_file
-    'feed_kimchicuddles.xml'
+    "feed_kimchicuddles.xml"
   end
 
-  ATTACHMENT_URL = 'https://example.com'.freeze
+  ATTACHMENT_URL = "https://example.com".freeze
 
   def options
-    { image_fetcher: ->(_) { ATTACHMENT_URL } }
+    {image_fetcher: ->(_) { ATTACHMENT_URL }}
   end
 
   def expected
-    entity = JSON.parse(file_fixture('feeds/kimchicuddles/entity.json').read)
-    value = entity['published_at']
-    entity['published_at'] = DateTime.parse(value) if value
+    entity = JSON.parse(file_fixture("feeds/kimchicuddles/entity.json").read)
+    value = entity["published_at"]
+    entity["published_at"] = DateTime.parse(value) if value
 
     NormalizedEntity.new(
       **entity.symbolize_keys.merge(

@@ -31,8 +31,8 @@ module Freefeed
 
     def headers
       {
-        accept: '*/*',
-        user_agent: 'feeder'
+        accept: "*/*",
+        user_agent: "feeder"
       }
     end
 

@@ -14,11 +14,11 @@ class UpdateSubscriptionsCount
 
   def update_or_create_data_point
     return unless prev_count != current_count
-    CreateDataPoint.call(:subs, details: { feed_name: feed_name, count: current_count })
+    CreateDataPoint.call(:subs, details: {feed_name: feed_name, count: current_count})
   end
 
   def prev_count
-    prev_data_point.try(:details).try(:[], 'count')
+    prev_data_point.try(:details).try(:[], "count")
   end
 
   def prev_data_point
@@ -36,7 +36,7 @@ class UpdateSubscriptionsCount
   def fetch_current_count
     Rails.logger.info("fetching group details: #{feed_name}")
     timeline = freefeed.timeline(feed_name)
-    subscribers = timeline.parse.dig('timelines', 'subscribers')
+    subscribers = timeline.parse.dig("timelines", "subscribers")
     subscribers.count
   end
 

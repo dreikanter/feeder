@@ -6,7 +6,7 @@ class CommitstripNormalizer < FeedjiraNormalizer
   end
 
   def attachments
-    [Nokogiri::HTML(content.content).css('img:first').first['src']]
+    [Nokogiri::HTML(content.content).css("img:first").first["src"]]
   end
 
   def comments

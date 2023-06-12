@@ -28,7 +28,7 @@ FactoryBot.define do
     association :feed
     link { "https://example.com/#{SecureRandom.uuid}" }
     published_at { Time.new.utc }
-    text { 'Sample post text' }
+    text { "Sample post text" }
     attachments { [] }
     comments { [] }
     freefeed_post_id { SecureRandom.uuid }

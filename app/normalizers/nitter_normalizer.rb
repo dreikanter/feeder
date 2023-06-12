@@ -1,5 +1,5 @@
 class NitterNormalizer < BaseNormalizer
-  RETWEET_PREFIX = 'RT by'.freeze
+  RETWEET_PREFIX = "RT by".freeze
 
   protected
 
@@ -21,21 +21,21 @@ class NitterNormalizer < BaseNormalizer
 
   def validation_errors
     super.tap do |errors|
-      errors << 'no images' if violates_no_images?
-      errors << 'retweet' if violates_retweet?
+      errors << "no images" if violates_no_images?
+      errors << "retweet" if violates_retweet?
     end
   end
 
   def violates_no_images?
-    options['only_with_attachments'] && no_images?
+    options["only_with_attachments"] && no_images?
   end
 
   def violates_retweet?
-    options['ignore_retweets'] && retweet?
+    options["ignore_retweets"] && retweet?
   end
 
   def images
-    @images ||= Nokogiri::HTML(content.summary).css('img').pluck(:src).compact
+    @images ||= Nokogiri::HTML(content.summary).css("img").pluck(:src).compact
   end
 
   def no_images?

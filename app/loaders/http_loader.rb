@@ -15,7 +15,7 @@ class HttpLoader < BaseLoader
   end
 
   def define_error_context
-    Honeybadger.context(http_loader: { http_response: response.as_json })
+    Honeybadger.context(http_loader: {http_response: response.as_json})
   end
 
   MAX_HOPS = 3

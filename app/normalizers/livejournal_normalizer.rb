@@ -11,7 +11,7 @@ class LivejournalNormalizer < RssNormalizer
 
   def attachments
     [first_image_url]
-  rescue StandardError
+  rescue
     []
   end
 

@@ -6,8 +6,8 @@ class WumoNormalizer < RssNormalizer
   end
 
   def published_at
-    DateTime.new(*link.split('/').slice(-3, 3).map(&:to_i))
-  rescue StandardError
+    DateTime.new(*link.split("/").slice(-3, 3).map(&:to_i))
+  rescue
     Rails.logger.error "error parsing date from url: #{link}"
     nil
   end
@@ -17,6 +17,6 @@ class WumoNormalizer < RssNormalizer
   end
 
   def image_url
-    Nokogiri::HTML(content.description).css('img:first').first[:src]
+    Nokogiri::HTML(content.description).css("img:first").first[:src]
   end
 end

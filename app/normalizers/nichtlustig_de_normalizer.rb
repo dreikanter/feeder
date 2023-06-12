@@ -7,11 +7,11 @@ class NichtlustigDeNormalizer < RssNormalizer
 
   def attachments
     [image_url]
-  rescue StandardError
+  rescue
     []
   end
 
   def image_url
-    Nokogiri::HTML(content.description).css('img')[1]['src']
+    Nokogiri::HTML(content.description).css("img")[1]["src"]
   end
 end

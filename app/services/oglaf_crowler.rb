@@ -1,6 +1,6 @@
 class OglafCrowler
-  HOST = 'www.oglaf.com'.freeze
-  SCHEME = 'https'.freeze
+  HOST = "www.oglaf.com".freeze
+  SCHEME = "https".freeze
 
   # Hard limit by Freefeed API
   MAX_ATTACHMENTS_COUNT = 20
@@ -20,10 +20,10 @@ class OglafCrowler
   end
 
   def self.next_page_url(html)
-    result = html.css('link[rel=next]')
+    result = html.css("link[rel=next]")
       .try(:first)
       .try(:attributes)
-      .try(:[], 'href')
+      .try(:[], "href")
       .try(:value)
 
     return nil if result.blank? || !result.match(%r{/\d+/$})

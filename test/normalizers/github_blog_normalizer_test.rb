@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class GithubBlogNormalizerTest < Minitest::Test
   include NormalizerTestHelper
@@ -12,7 +12,7 @@ class GithubBlogNormalizerTest < Minitest::Test
   end
 
   def sample_data_file
-    'feed_github_blog.xml'.freeze
+    "feed_github_blog.xml".freeze
   end
 
   def test_normalization

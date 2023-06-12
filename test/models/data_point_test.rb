@@ -12,7 +12,7 @@
 #  index_data_points_on_series_id  (series_id)
 #
 
-require 'test_helper'
+require "test_helper"
 
 class DataPointTest < Minitest::Test
   def subject
@@ -25,7 +25,7 @@ class DataPointTest < Minitest::Test
 
   SERIES_A = :a
   SERIES_B = :b
-  DETAILS = { key: :value }.freeze
+  DETAILS = {key: :value}.freeze
 
   def test_for_include
     series = create(:data_point_series)

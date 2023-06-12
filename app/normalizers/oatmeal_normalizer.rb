@@ -7,11 +7,11 @@ class OatmealNormalizer < RssNormalizer
 
   def attachments
     [image_url]
-  rescue StandardError
+  rescue
     []
   end
 
   def image_url
-    Nokogiri::HTML(content.description).css('img').first['src']
+    Nokogiri::HTML(content.description).css("img").first["src"]
   end
 end

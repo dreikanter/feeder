@@ -16,7 +16,7 @@ class TomorrowsNormalizer < RssNormalizer
   end
 
   def page_content
-    Nokogiri::HTML(page_body).css('.entry-content').text
+    Nokogiri::HTML(page_body).css(".entry-content").text
   end
 
   def page_body

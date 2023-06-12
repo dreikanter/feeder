@@ -6,7 +6,7 @@ class LunarbaboonNormalizer < FeedjiraNormalizer
   end
 
   def validation_errors
-    return ['image not present'] if attachments.blank?
+    return ["image not present"] if attachments.blank?
     super
   end
 end

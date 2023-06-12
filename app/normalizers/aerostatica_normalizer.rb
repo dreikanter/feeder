@@ -34,7 +34,7 @@ class AerostaticaNormalizer < BaseNormalizer
   def fetch_record_url
     content = RestClient.get(link).body
     AerostaticaRecordLinkExtractor.call(content)
-  rescue StandardError
+  rescue
     Rails.logger.error("error fetching record url from #{link}")
     nil
   end

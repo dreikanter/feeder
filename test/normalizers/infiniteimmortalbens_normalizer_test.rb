@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class InfiniteimmortalbensNormalizerTest < Minitest::Test
   include NormalizerTestHelper
@@ -12,7 +12,7 @@ class InfiniteimmortalbensNormalizerTest < Minitest::Test
   end
 
   def sample_data_file
-    'feed_infiniteimmortalbens.xml'.freeze
+    "feed_infiniteimmortalbens.xml".freeze
   end
 
   def test_text

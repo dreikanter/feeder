@@ -25,7 +25,7 @@ class LitterboxNormalizer < WordpressNormalizer
   private
 
   def extract_slides
-    page_html.css('.swiper-wrapper img').pluck('src')
+    page_html.css(".swiper-wrapper img").pluck("src")
   end
 
   def page_html
@@ -33,7 +33,7 @@ class LitterboxNormalizer < WordpressNormalizer
   end
 
   def slides?
-    page_html.css('.swiper-wrapper').present?
+    page_html.css(".swiper-wrapper").present?
   end
 
   def extract_single_image
@@ -52,21 +52,21 @@ class LitterboxNormalizer < WordpressNormalizer
 
   def bonus_panel_image_url
     html = RestClient.get(bonus_panel_page_url).body
-    Nokogiri::HTML(html).css('meta[property=og\:image]').first['content']
-  rescue StandardError
+    Nokogiri::HTML(html).css('meta[property=og\:image]').first["content"]
+  rescue
     nil
   end
 
   # :reek:FeatureEnvy
   def bonus_panel_page_url
     Addressable::URI.parse(link).tap do |uri|
-      uri.path = uri.path.gsub(%r{/$}, '').gsub(/$/, '-bonus/')
+      uri.path = uri.path.gsub(%r{/$}, "").gsub(/$/, "-bonus/")
     end.to_s
   end
 
   def validation_errors
     super.tap do |errors|
-      errors << 'bonus' if bonus?
+      errors << "bonus" if bonus?
     end
   end
 

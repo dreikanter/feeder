@@ -1,7 +1,7 @@
 class ErrorDumper
   include Callee
 
-  UNDEFINED_EXCEPTION = ''.freeze
+  UNDEFINED_EXCEPTION = "".freeze
 
   option :exception, optional: true, default: -> { UNDEFINED_EXCEPTION }
   option :file_name, optional: true, default: -> { extract_file_name }
@@ -36,8 +36,8 @@ class ErrorDumper
       occured_at: occured_at,
       target: target
     )
-  rescue StandardError => e
-    notify_honeybadger(e, 'Error saving an Error')
+  rescue => e
+    notify_honeybadger(e, "Error saving an Error")
   end
 
   def notify_honeybadger(error, error_message = nil)
@@ -69,7 +69,7 @@ class ErrorDumper
 
   def file_name_from_backtrace
     line = backtrace.first
-    line&.gsub(/:\d+:.*$/, '')
+    line&.gsub(/:\d+:.*$/, "")
   end
 
   def location

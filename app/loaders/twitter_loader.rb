@@ -33,14 +33,14 @@ class TwitterLoader < BaseLoader
 
   def perform
     validate_credentials!
-    client.user_timeline(twitter_user, tweet_mode: 'extended')
+    client.user_timeline(twitter_user, tweet_mode: "extended")
   end
 
   private
 
   def validate_credentials!
     return if missing_credentials.empty?
-    raise "missing credentials: #{missing_credentials.join(', ')}"
+    raise "missing credentials: #{missing_credentials.join(", ")}"
   end
 
   def missing_credentials
@@ -52,6 +52,6 @@ class TwitterLoader < BaseLoader
   end
 
   def twitter_user
-    feed.options.fetch('twitter_user')
+    feed.options.fetch("twitter_user")
   end
 end

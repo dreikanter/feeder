@@ -41,11 +41,11 @@ class TheAtlanticPhotosNormalizer < TumblrNormalizer
   end
 
   def photo_description
-    caption = Nokogiri::HTML(content.description).css('figure > figcaption')
-    caption.try(:first).try(:text) || ''
+    caption = Nokogiri::HTML(content.description).css("figure > figcaption")
+    caption.try(:first).try(:text) || ""
   end
 
   def kill_newlines(text)
-    text.to_s.gsub(/\s+/, ' ')
+    text.to_s.gsub(/\s+/, " ")
   end
 end

@@ -1,10 +1,10 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe DashboardsController do
   render_views
 
-  describe 'GET show' do
-    it 'is okay' do
+  describe "GET show" do
+    it "is okay" do
       feed = create(:feed)
       get :show
       expect(response).to be_successful

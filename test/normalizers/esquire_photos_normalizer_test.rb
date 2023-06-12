@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class EsquirePhotosNormalizerTest < Minitest::Test
   include NormalizerTestHelper
@@ -12,7 +12,7 @@ class EsquirePhotosNormalizerTest < Minitest::Test
   end
 
   def sample_data_file
-    'feed_esquire-photos.xml'.freeze
+    "feed_esquire-photos.xml".freeze
   end
 
   def test_have_sample_data
@@ -27,12 +27,12 @@ class EsquirePhotosNormalizerTest < Minitest::Test
   def expected
     NormalizedEntity.new(
       feed_id: feed.id,
-      uid: 'https://esquire.ru/escobar-netflix',
-      link: 'https://esquire.ru/escobar-netflix',
+      uid: "https://esquire.ru/escobar-netflix",
+      link: "https://esquire.ru/escobar-netflix",
       published_at: nil,
-      text: 'Брат Пабло Эскобара требует с Netflix миллиард долларов - https://esquire.ru/escobar-netflix',
-      attachments: ['https://images.esquire.ru/files/cache/images/f7/16/4572a4a1.crop1200x628x0x12-fit705x705.9f0ac3.TASS_23154406.jpg'],
-      comments: ['«Если мы не получим деньги, то прикроем их маленькое шоу».'],
+      text: "Брат Пабло Эскобара требует с Netflix миллиард долларов - https://esquire.ru/escobar-netflix",
+      attachments: ["https://images.esquire.ru/files/cache/images/f7/16/4572a4a1.crop1200x628x0x12-fit705x705.9f0ac3.TASS_23154406.jpg"],
+      comments: ["«Если мы не получим деньги, то прикроем их маленькое шоу»."],
       validation_errors: []
     )
   end

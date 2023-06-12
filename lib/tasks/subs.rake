@@ -1,7 +1,7 @@
 namespace :feeder do
-  desc 'Update Freefeed subscriptions count'
+  desc "Update Freefeed subscriptions count"
   task subs: :environment do
-    series_name = 'subs'
+    series_name = "subs"
     expiration_threshold = 2.hours.ago
 
     # Limit for the amount of feeds to be updated in one batch. Updates frequency
@@ -11,7 +11,7 @@ namespace :feeder do
     # TODO: Move to a query class and test auto-rotation
     recently_updated_feed_names = DataPoint
       .for(series_name)
-      .where('created_at > ?', expiration_threshold)
+      .where("created_at > ?", expiration_threshold)
       .select("details->'feed_name' as feed_name")
       .map(&:feed_name)
       .uniq

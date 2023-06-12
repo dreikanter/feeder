@@ -20,7 +20,7 @@ class NormalizedEntity
         actual = send(attribute)
         expected = expected_entity.send(attribute)
         next if actual == expected
-        result[attribute] = { expected: expected, actual: actual }
+        result[attribute] = {expected: expected, actual: actual}
       end
     end
   end

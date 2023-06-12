@@ -34,12 +34,12 @@ class Pull
 
   def normalize_entity(entity)
     normalizer.call(entity, logger: logger)
-  rescue StandardError => e
+  rescue => e
     ErrorDumper.call(
       exception: e,
-      message: 'Normalization error',
+      message: "Normalization error",
       target: feed,
-      context: { uid: entity.uid }
+      context: {uid: entity.uid}
     )
 
     nil

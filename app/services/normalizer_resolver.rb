@@ -18,7 +18,7 @@ class NormalizerResolver
   private
 
   def normalizer_class_name(name)
-    safe_name = name.to_s.gsub(/-/, '_')
+    safe_name = name.to_s.tr("-", "_")
     "#{safe_name}_normalizer".classify.constantize
   end
 

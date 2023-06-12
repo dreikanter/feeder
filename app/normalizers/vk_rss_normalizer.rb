@@ -25,7 +25,7 @@ class VkRssNormalizer < RssNormalizer
 
   def processed_comments
     (paragraphs[1..] || []).map do |paragraph|
-      result = Html.squeeze(paragraph.gsub(/^\s*🔗\s*/, ''))
+      result = Html.squeeze(paragraph.gsub(/^\s*🔗\s*/, ""))
       Html.comment_excerpt(result)
     end
   end

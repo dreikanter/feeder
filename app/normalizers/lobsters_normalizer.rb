@@ -20,6 +20,6 @@ class LobstersNormalizer < FeedjiraNormalizer
   private
 
   def tags
-    content.categories.map { |category| "##{category}" }.join(' ')
+    content.categories.map { |category| "##{category}" }.join(" ")
   end
 end

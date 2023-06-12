@@ -26,7 +26,7 @@
 #  index_feeds_on_status  (status)
 #
 
-require 'test_helper'
+require "test_helper"
 
 class FeedTest < Minitest::Test
   def subject
@@ -34,7 +34,7 @@ class FeedTest < Minitest::Test
   end
 
   def test_valid
-    feed = subject.new(name: 'sample')
+    feed = subject.new(name: "sample")
     assert(feed.valid?)
   end
 

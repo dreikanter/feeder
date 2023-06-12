@@ -5,7 +5,7 @@ class DnsRecordsFetcher
     end
 
     records.map { |record| record.address.to_s }
-  rescue StandardError => e
+  rescue => e
     raise "error fetching DNS records for '#{domain}': #{e.message}"
   end
 end
