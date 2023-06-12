@@ -7,8 +7,8 @@ RSpec.describe DataPoint do
   let(:series) { create(:data_point_series) }
   let(:random_timestampt) { [3.hours.ago, 1.hour.ago, 2.hours.ago] }
 
-  it "valid" do
-    assert(model.new(series: DataPointSeries.new).valid?)
+  it "is valid" do
+    expect(model.new(series: DataPointSeries.new)).to be_valid
   end
 
   it "loads records for series" do
@@ -17,8 +17,8 @@ RSpec.describe DataPoint do
 
   it "maintains chronological order scope" do
     freeze_time do
-      data_points = random_timestampt.map { |created_at| create(:data_point, series: series, created_at: created_at) }
-      ordered_timestamps = DataPoint.for(series.name).ordered_by_created_at.pluck(:created_at)
+      random_timestampt.map { |created_at| create(:data_point, series: series, created_at: created_at) }
+      ordered_timestamps = model.for(series.name).ordered_by_created_at.pluck(:created_at)
       expect(random_timestampt.sort.reverse).to eq(ordered_timestamps)
     end
   end

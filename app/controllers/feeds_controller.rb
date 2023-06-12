@@ -26,17 +26,17 @@ class FeedsController < ApplicationController
   end
 
   def last_update
-    DataPoint.ordered_by_created_at.for('pull').first.try(:created_at)
+    DataPoint.ordered_by_created_at.for("pull").first.try(:created_at)
   end
 
   def alt_order_direction
-    order == 'asc' ? 'desc' : order
+    (order == "asc") ? "desc" : order
   end
 
   def order_by
     @order_by ||= ParamSanitizer.call(
       params[:order_by],
-      default: 'status',
+      default: "status",
       available: %w[
         name
         status
@@ -50,7 +50,7 @@ class FeedsController < ApplicationController
   def order
     @order ||= ParamSanitizer.call(
       params[:order],
-      default: 'desc',
+      default: "desc",
       available: %w[asc desc]
     )
   end
