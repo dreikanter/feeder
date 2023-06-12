@@ -36,6 +36,6 @@ class RedditNormalizer < AtomNormalizer
   end
 
   def cached_data_point(link)
-    DataPoint.for(:reddit).where("details->>'link' = ?", link).ordered.first
+    DataPoint.for(:reddit).where("details->>'link' = ?", link).ordered_by_created_at.first
   end
 end

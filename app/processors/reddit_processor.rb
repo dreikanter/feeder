@@ -32,7 +32,7 @@ class RedditProcessor < AtomProcessor
   def cached_data_point(link)
     DataPoint.for(:reddit)
       .where("created_at > ?", CACHE_HISTORY_DEPTH.ago)
-      .where("details->>'link' = ?", link).ordered.first
+      .where("details->>'link' = ?", link).ordered_by_created_at.first
   end
 
   def create_data_point(link)

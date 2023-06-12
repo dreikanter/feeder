@@ -4,10 +4,10 @@
     <div class="col col-sm-12 col-md-6">
       <p>Stats:</p>
       <ul>
-        <li class="my-2">Active feeds: <b><%= number_with_delimiter feeds.count -%></b></li>
+        <li class="my-2">Active feeds: <b><%= number_with_delimiter Feed.active.count -%></b></li>
         <li class="my-2">Last imported post: <b><%= ago(last_post_created_at).upcase_first -%></b></li>
         <li class="my-2">Total imported posts: <b><%= number_with_delimiter Post.count -%></b></li>
-        <li class="my-2">Imported posts in last 24h: <b><%= number_with_delimiter Post.where('created_at > ?', 24.hours.ago).count -%></b></li>
+        <li class="my-2">Imported posts in last 24h: <b><%= number_with_delimiter Post.where("created_at > ?", 24.hours.ago).count -%></b></li>
         <li class="my-2">Total non-unique subscriptions: <b><%= number_with_delimiter Feed.sum(:subscriptions_count) -%></b></li>
       </ul>
     </div>
@@ -24,11 +24,11 @@
 <table class="table table-bordered my-4">
   <thead>
     <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Status</th>
-      <th scope="col">Posts</th>
-      <th scope="col">Refreshed at</th>
-      <th scope="col">Last post</th>
+      <th scope="col"><%= link_to "Name", feeds_path(order_by: "name", order_direction: alt_order_direction) -%></th>
+      <th scope="col"><%= link_to "Status", feeds_path(order_by: "status", order_direction: alt_order_direction) -%></th>
+      <th scope="col"><%= link_to "Posts", feeds_path(order_by: "posts_count", order_direction: alt_order_direction) -%></th>
+      <th scope="col"><%= link_to "Refreshed at", feeds_path(order_by: "refreshed_at", order_direction: alt_order_direction) -%></th>
+      <th scope="col"><%= link_to "Last post", feeds_path(order_by: "last_post_created_at", order_direction: alt_order_direction) -%></th>
     </tr>
   </thead>
   <tbody>

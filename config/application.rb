@@ -34,7 +34,7 @@ module Feeder
 
     config.generators do |g|
       g.test_framework :minitest, spec: false, fixture: false
-      g.controller_specs false
+      g.controller_specs true
       g.decorator false
       g.helper false
       g.helper_specs false
