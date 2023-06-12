@@ -13,11 +13,13 @@ AllCops:
   TargetRubyVersion: 3.2
   NewCops: enable
   DisplayCopNames: true
+AllCops:
   Exclude:
     - "bin/*"
     - "db/**/*"
     - "tmp/**/*"
     - "node_modules/**/*"
+    - "vendor/bundle/**/*"
 
 Style/RescueStandardError:
   EnforcedStyle: explicit
