@@ -8,7 +8,7 @@ unless Rails.env.test?
 
   begin
     UpdateFeeds.call
-  rescue => e
+  rescue StandardError => e
     Rails.logger.warn(e)
   end
 end

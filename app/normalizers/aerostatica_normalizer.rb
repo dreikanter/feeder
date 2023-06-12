@@ -24,7 +24,7 @@ class AerostaticaNormalizer < BaseNormalizer
     Html.first_image_url(content.content)
   end
 
-  LINE_BREAK = %r{\n+|<br\s*/?>}.freeze
+  LINE_BREAK = %r{\n+|<br\s*/?>}
 
   def description
     excerpt = Html.squeeze(content.content)
@@ -34,7 +34,7 @@ class AerostaticaNormalizer < BaseNormalizer
   def fetch_record_url
     content = RestClient.get(link).body
     AerostaticaRecordLinkExtractor.call(content)
-  rescue
+  rescue StandardError
     Rails.logger.error("error fetching record url from #{link}")
     nil
   end

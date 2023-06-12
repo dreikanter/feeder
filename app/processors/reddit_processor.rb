@@ -18,7 +18,7 @@ class RedditProcessor < AtomProcessor
 
   def reddit_points(link)
     data_point(link).details["points"].to_i
-  rescue => e
+  rescue StandardError => e
     # NOTE: Individual post score fetching should not crash the processor
     # TODO: Improve RedditPointsFetcher errors tracking
     Honeybadger.notify(e)

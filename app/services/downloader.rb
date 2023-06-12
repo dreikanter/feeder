@@ -26,7 +26,7 @@ class Downloader
 
   def fetch_url
     HTTP.follow(max_hops: MAX_HOPS).get(url)
-  rescue
+  rescue StandardError
     nil
   end
 end

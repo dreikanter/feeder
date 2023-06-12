@@ -7,7 +7,7 @@ class WumoNormalizer < RssNormalizer
 
   def published_at
     DateTime.new(*link.split("/").slice(-3, 3).map(&:to_i))
-  rescue
+  rescue StandardError
     Rails.logger.error "error parsing date from url: #{link}"
     nil
   end

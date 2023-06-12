@@ -16,7 +16,7 @@ class ProcessFeed
     feed.touch(:refreshed_at)
     normalized_entities.each { |normalized_entity| push(normalized_entity) }
     feed.update(errors_count: 0)
-  rescue => e
+  rescue StandardError => e
     increment_feed_error_counters
     dump_feed_error(e)
   end

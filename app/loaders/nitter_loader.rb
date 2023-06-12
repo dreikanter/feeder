@@ -84,7 +84,7 @@ class NitterLoader < BaseLoader
 
   def perform
     RestClient.get(nitter_rss_url.to_s).body
-  rescue => e
+  rescue StandardError => e
     # TODO: Do not treat 404 as instance availability
     ErrorDumper.call(exception: e, message: "Nitter error", target: feed)
     register_nitter_instance_error

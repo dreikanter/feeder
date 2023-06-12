@@ -30,7 +30,7 @@ class TelegaBasicNormalizer < RssNormalizer
   def image_url
     html = Nokogiri::HTML(content.description)
     html.css("img").first.attributes["src"].value
-  rescue
+  rescue StandardError
     nil
   end
 end

@@ -36,7 +36,7 @@ class ErrorDumper
       occured_at: occured_at,
       target: target
     )
-  rescue => e
+  rescue StandardError => e
     notify_honeybadger(e, "Error saving an Error")
   end
 

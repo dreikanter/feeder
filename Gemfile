@@ -7,10 +7,12 @@ gem "rails", "~> 6.0"
 group :development do
   gem "brakeman", "~> 4.3", ">= 4.3.1", require: false
   gem "reek", "~> 6.0"
-  gem "rubocop", "~> 1.7"
+  gem "rubocop"
   gem "rubocop-rails"
   gem "rubocop-rspec"
   gem "spring"
+  gem "standard"
+  gem "standard-performance"
 end
 
 group :development, :test do
@@ -24,7 +26,6 @@ group :development, :test do
   gem "mocha", "~> 1.9"
   gem "rspec-rails", "~> 6.0.0"
   gem "simplecov", "~> 0.21"
-  gem "standard", ">= 1.0", require: false
   gem "webmock", "~> 3.11"
 end
 

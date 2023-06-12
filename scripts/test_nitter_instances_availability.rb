@@ -8,7 +8,7 @@ NitterInstancesFetcher.call.each do |url|
   begin
     RestClient.get(rss_url).body
     puts url
-  rescue
+  rescue StandardError
     # ignore if not available
   end
 end

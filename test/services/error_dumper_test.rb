@@ -12,7 +12,7 @@ class ErrorDumperTest < Minitest::Test
 
   def dump_sample_exception
     raise "sample exception"
-  rescue
+  rescue StandardError
     subject.call(exception: $ERROR_INFO)
   end
 

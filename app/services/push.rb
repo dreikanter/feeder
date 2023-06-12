@@ -19,7 +19,7 @@ class Push
     create_comments(post_id)
     post.update(status: PostStatus.published)
     logger.info("---> new post URL: #{freefeed_permalink(post)}")
-  rescue
+  rescue StandardError
     post.update(status: PostStatus.error)
     raise
   end

@@ -19,7 +19,7 @@ class XkcdNormalizer < RssNormalizer
 
   def image_url
     fetch_og_image_url
-  rescue
+  rescue StandardError
     feed_entry_image_url
   end
 

@@ -45,7 +45,7 @@ class BuniNormalizer < FeedjiraNormalizer
     "Check out today's comic on Webtoons: #{first_url}"
   end
 
-  WEBTOONS_DOMAIN = /webtoons\.com/.freeze
+  WEBTOONS_DOMAIN = /webtoons\.com/
 
   def webtoons?
     @webtoons ||= !!first_url && URI.parse(first_url).hostname.to_s.match?(WEBTOONS_DOMAIN)

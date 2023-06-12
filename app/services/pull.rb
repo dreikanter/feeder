@@ -34,7 +34,7 @@ class Pull
 
   def normalize_entity(entity)
     normalizer.call(entity, logger: logger)
-  rescue => e
+  rescue StandardError => e
     ErrorDumper.call(
       exception: e,
       message: "Normalization error",

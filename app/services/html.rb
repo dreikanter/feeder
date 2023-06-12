@@ -18,7 +18,7 @@ class Html
     separator: ""
   }.freeze
 
-  HASHTAG_PATTERN = /(?:\s*|^)#[[:graph:]]+/.freeze
+  HASHTAG_PATTERN = /(?:\s*|^)#[[:graph:]]+/
 
   EMOJI_CHARS = [
     ['\u{1f600}', '\u{1f64f}'],

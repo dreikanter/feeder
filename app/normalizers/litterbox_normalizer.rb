@@ -53,7 +53,7 @@ class LitterboxNormalizer < WordpressNormalizer
   def bonus_panel_image_url
     html = RestClient.get(bonus_panel_page_url).body
     Nokogiri::HTML(html).css('meta[property=og\:image]').first["content"]
-  rescue
+  rescue StandardError
     nil
   end
 

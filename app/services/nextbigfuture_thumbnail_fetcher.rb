@@ -15,7 +15,7 @@ class NextbigfutureThumbnailFetcher
     html = client.call(url)
     elements = Nokogiri::HTML(html).css(CSS_SELECTOR)
     elements.first["src"]
-  rescue
+  rescue StandardError
     nil
   end
 end

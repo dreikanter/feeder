@@ -7,7 +7,7 @@ class NichtlustigDeNormalizer < RssNormalizer
 
   def attachments
     [image_url]
-  rescue
+  rescue StandardError
     []
   end
 
