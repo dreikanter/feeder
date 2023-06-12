@@ -5,10 +5,10 @@ RSpec.describe FeedsController do
 
   describe "GET index" do
     it "is okay" do
-      # feed = create(:feed)
+      feed = create(:feed)
       get :index
       expect(response).to be_successful
-      # expect(response.body).to include(feed.name)
+      expect(response.body).to include(feed.name)
     end
   end
 end
