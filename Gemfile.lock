@@ -403,7 +403,7 @@ DEPENDENCIES
   rest-client (~> 2.0)
   rspec-rails (~> 6.0.0)
   rss (~> 0.2.9)
-  rubocop (~> 1.7)
+  rubocop
   rubocop-rails
   rubocop-rspec
   simplecov (~> 0.21)
@@ -414,4 +414,4 @@ DEPENDENCIES
   webmock (~> 3.11)
 
 BUNDLED WITH
-   2.3.24
+   2.4.13
