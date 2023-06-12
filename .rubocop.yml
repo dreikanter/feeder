@@ -1,4 +1,9 @@
+inherit_mode:
+  merge:
+    - Exclude
+
 require:
+  - standard
   - rubocop-rails
   - rubocop-rspec
 
@@ -12,79 +17,3 @@ AllCops:
     - "coverage"
     - "tmp"
     - "vendor/bundle/**/*"
-
-Style/Documentation:
-  Enabled: false
-
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
-Style/DoubleNegation:
-  Enabled: false
-
-Metrics/ModuleLength:
-  Exclude:
-    - "config/routes.rb"
-
-Metrics/MethodLength:
-  Max: 15
-
-Metrics/BlockLength:
-  Max: 15
-  Exclude:
-    - "config/routes.rb"
-    - "**/*_schema.rb"
-    - "test/**/*"
-    - "Vagrantfile"
-    - "config/environments/*"
-    - "**/*.rake"
-    - "spec/**/*"
-
-Metrics/ClassLength:
-  Max: 300
-
-Layout/MultilineMethodCallIndentation:
-  EnforcedStyle: indented
-
-Layout/MultilineOperationIndentation:
-  EnforcedStyle: indented
-
-Layout/FirstArrayElementIndentation:
-  EnforcedStyle: consistent
-
-Layout/EmptyLineAfterGuardClause:
-  Enabled: false
-
-Style/StringLiterals:
-  Exclude:
-    - "bin/**/*"
-    - "db/migrations"
-
-Layout/FirstHashElementIndentation:
-  EnforcedStyle: consistent
-
-Layout/LineLength:
-  Max: 150
-
-#
-# Rails
-#
-
-Rails/SkipsModelValidations:
-  Enabled: false
-
-RSpec/MultipleExpectations:
-  Max: 3
-
-Rails/RakeEnvironment:
-  Enabled: false
-
-#
-# RSpec
-#
-
-RSpec/ExampleLength:
-  Max: 10
-
-RSpec/MultipleMemoizedHelpers:
-  Max: 10
