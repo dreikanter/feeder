@@ -1,4 +1,4 @@
-require 'rss'
+require "rss"
 
 class AtomProcessor < BaseProcessor
   protected

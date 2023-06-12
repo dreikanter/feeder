@@ -6,6 +6,6 @@ class PurgeDataPoints
   option :threshold, default: -> { DEFAULT_THRESHOLD }
 
   def call
-    DataPoint.where('created_at < ?', threshold.month.ago).delete_all
+    DataPoint.where("created_at < ?", threshold.month.ago).delete_all
   end
 end

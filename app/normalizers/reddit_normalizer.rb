@@ -6,13 +6,13 @@ class RedditNormalizer < AtomNormalizer
   end
 
   def text
-    [super.sub(/\.$/, ''), source_url].join(separator)
+    [super.sub(/\.$/, ""), source_url].join(separator)
   end
 
   def comments
     return [] if source_url == discussion_url
     parts = [reddit_info, discussion_url]
-    [parts.compact_blank.join(' - ')]
+    [parts.compact_blank.join(" - ")]
   end
 
   private
@@ -32,7 +32,7 @@ class RedditNormalizer < AtomNormalizer
   end
 
   def reddit_info
-    cached_data_point(discussion_url).details.try(:[], 'description')
+    cached_data_point(discussion_url).details.try(:[], "description")
   end
 
   def cached_data_point(link)

@@ -1,82 +1,34 @@
 require:
+  - standard
+  - rubocop-performance
   - rubocop-rails
   - rubocop-rspec
+  - rubocop-factory_bot
+
+inherit_gem:
+  standard: config/base.yml
+  standard-performance: config/base.yml
 
 AllCops:
+  TargetRubyVersion: 3.2
   NewCops: enable
   DisplayCopNames: true
+AllCops:
   Exclude:
     - "bin/*"
     - "db/**/*"
+    - "tmp/**/*"
     - "node_modules/**/*"
-    - "coverage"
-    - "tmp"
     - "vendor/bundle/**/*"
 
-Style/Documentation:
-  Enabled: false
-
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
-Style/DoubleNegation:
-  Enabled: false
-
-Metrics/ModuleLength:
-  Exclude:
-    - "config/routes.rb"
-
-Metrics/MethodLength:
-  Max: 15
-
-Metrics/BlockLength:
-  Max: 15
-  Exclude:
-    - "config/routes.rb"
-    - "**/*_schema.rb"
-    - "test/**/*"
-    - "Vagrantfile"
-    - "config/environments/*"
-    - "**/*.rake"
-    - "spec/**/*"
-
-Metrics/ClassLength:
-  Max: 300
-
-Layout/MultilineMethodCallIndentation:
-  EnforcedStyle: indented
-
-Layout/MultilineOperationIndentation:
-  EnforcedStyle: indented
-
-Layout/FirstArrayElementIndentation:
-  EnforcedStyle: consistent
-
-Layout/EmptyLineAfterGuardClause:
-  Enabled: false
-
-Style/StringLiterals:
-  Exclude:
-    - "bin/**/*"
-    - "db/migrations"
-
-Layout/FirstHashElementIndentation:
-  EnforcedStyle: consistent
-
-Layout/LineLength:
-  Max: 150
+Style/RescueStandardError:
+  EnforcedStyle: explicit
 
 #
 # Rails
 #
 
 Rails/SkipsModelValidations:
-  Enabled: false
-
-RSpec/MultipleExpectations:
-  Max: 3
-
-Rails/RakeEnvironment:
   Enabled: false
 
 #
@@ -88,3 +40,6 @@ RSpec/ExampleLength:
 
 RSpec/MultipleMemoizedHelpers:
   Max: 10
+
+RSpec/MultipleExpectations:
+  Max: 3

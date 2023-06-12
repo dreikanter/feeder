@@ -25,7 +25,7 @@ class NewfluxNormalizer < FeedjiraNormalizer
   rescue StandardError => e
     ErrorDumper.call(
       exception: e,
-      message: 'Error fetching a post image',
+      message: "Error fetching a post image",
       target: feed
     )
     nil

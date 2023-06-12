@@ -6,6 +6,6 @@ class FreefeedPostURL
       post_id
     ]
 
-    parts.join('/')
+    parts.join("/")
   end
 end

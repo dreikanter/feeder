@@ -10,7 +10,7 @@ class TelegaNormalizer < RssNormalizer
   end
 
   def sanitized_link
-    content.link.to_s.gsub(%r{^//}, 'https://')
+    content.link.to_s.gsub(%r{^//}, "https://")
   end
 
   def comments

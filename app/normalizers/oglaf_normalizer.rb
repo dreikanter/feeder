@@ -21,7 +21,7 @@ class OglafNormalizer < RssNormalizer
 
   def load_images
     images = OglafCrowler.call(link).map do |page|
-      page.css('img#strip:first').first
+      page.css("img#strip:first").first
     end
 
     images.compact

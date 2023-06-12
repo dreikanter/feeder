@@ -4,7 +4,7 @@ module Freefeed
   module V1
     module Comments
       def create_comment(comment)
-        authenticated_request(:post, '/v1/comments', json: comment)
+        authenticated_request(:post, "/v1/comments", json: comment)
       end
 
       def update_comment(id, comment)

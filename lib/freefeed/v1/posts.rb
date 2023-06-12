@@ -6,7 +6,7 @@ module Freefeed
       include Freefeed::Utils
 
       def create_post(post)
-        authenticated_request(:post, '/v1/posts', json: post)
+        authenticated_request(:post, "/v1/posts", json: post)
       end
 
       def update_post(id, post)

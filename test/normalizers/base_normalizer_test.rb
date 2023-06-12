@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require "test_helper"
 
 class BaseNormalizerTest < Minitest::Test
   include NormalizerTestHelper
@@ -13,7 +13,7 @@ class BaseNormalizerTest < Minitest::Test
   OPTIONS = {}.freeze
 
   def entity
-    Entity.new(uid: 'uid', content: 'content', feed: feed)
+    Entity.new(uid: "uid", content: "content", feed: feed)
   end
 
   def feed
@@ -30,7 +30,7 @@ class BaseNormalizerTest < Minitest::Test
     assert(result)
   end
 
-  SAMPLE_ERRORS = ['sample error'].freeze
+  SAMPLE_ERRORS = ["sample error"].freeze
 
   def test_validation_errors
     normalizer = Class.new(subject) do
@@ -46,7 +46,7 @@ class BaseNormalizerTest < Minitest::Test
     assert(result.is_a?(NormalizedEntity))
   end
 
-  INCOMPLETE_URL = '//example.com'
+  INCOMPLETE_URL = "//example.com"
 
   def test_sanitize_attachments
     normalizer = Class.new(subject) do
@@ -58,7 +58,7 @@ class BaseNormalizerTest < Minitest::Test
     assert(expected, result.attachments)
   end
 
-  NON_VALID_URL = ':'
+  NON_VALID_URL = ":"
 
   def test_require_valid_attachment_urls
     normalizer = Class.new(subject) do
@@ -78,7 +78,7 @@ class BaseNormalizerTest < Minitest::Test
 
   def test_drop_empty_attachment_urls
     normalizer = Class.new(subject) do
-      define_method(:attachments) { [nil, ''] }
+      define_method(:attachments) { [nil, ""] }
     end
 
     result = normalizer.call(entity)
@@ -95,7 +95,7 @@ class BaseNormalizerTest < Minitest::Test
 
   def test_drop_empty_comments
     normalizer = Class.new(subject) do
-      define_method(:comments) { [nil, ''] }
+      define_method(:comments) { [nil, ""] }
     end
 
     result = normalizer.call(entity)

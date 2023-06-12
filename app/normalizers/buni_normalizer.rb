@@ -14,7 +14,7 @@ class BuniNormalizer < FeedjiraNormalizer
   end
 
   def validation_errors
-    attachments.none? ? ['no images'] : super
+    attachments.none? ? ["no images"] : super
   end
 
   private
@@ -33,7 +33,7 @@ class BuniNormalizer < FeedjiraNormalizer
   end
 
   def image_selector
-    webtoons? ? '.entry img[srcset]' : '#comic img'
+    webtoons? ? ".entry img[srcset]" : "#comic img"
   end
 
   def page_content
@@ -45,7 +45,7 @@ class BuniNormalizer < FeedjiraNormalizer
     "Check out today's comic on Webtoons: #{first_url}"
   end
 
-  WEBTOONS_DOMAIN = /webtoons\.com/.freeze
+  WEBTOONS_DOMAIN = /webtoons\.com/
 
   def webtoons?
     @webtoons ||= !!first_url && URI.parse(first_url).hostname.to_s.match?(WEBTOONS_DOMAIN)
@@ -56,6 +56,6 @@ class BuniNormalizer < FeedjiraNormalizer
   end
 
   def links
-    @links ||= Nokogiri::HTML(content.content).css('a')
+    @links ||= Nokogiri::HTML(content.content).css("a")
   end
 end

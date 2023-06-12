@@ -33,7 +33,7 @@ class BaseNormalizer
     []
   end
 
-  SEPARATOR = ' - '.freeze
+  SEPARATOR = " - ".freeze
 
   def separator
     SEPARATOR
@@ -57,14 +57,14 @@ class BaseNormalizer
       uid: uid,
       link: link,
       published_at: published_at,
-      text: text || '',
+      text: text || "",
       attachments: sanitized_attachments,
       comments: comments.compact_blank,
       validation_errors: validation_errors
     )
   end
 
-  DEFAULT_SCHEME = 'https'.freeze
+  DEFAULT_SCHEME = "https".freeze
 
   # TODO: Move to a service
   def sanitized_attachments

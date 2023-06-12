@@ -5,6 +5,6 @@ class FreefeedFeedURL
       feed_name
     ]
 
-    parts.join('/')
+    parts.join("/")
   end
 end

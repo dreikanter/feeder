@@ -4,7 +4,7 @@ class CreatePosts < ActiveRecord::Migration[5.0]
       t.integer :feed_id, null: false
       t.string :link, null: false
       t.datetime :published_at, null: false
-      t.string :text, null: false, default: ''
+      t.string :text, null: false, default: ""
       t.string :attachments, null: false, array: true, default: []
       t.string :comments, null: false, array: true, default: []
       t.string :freefeed_post_id

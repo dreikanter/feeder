@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require "test_helper"
 
 class UpdateSubscriptionsCountTest < Minitest::Test
   def subject
     UpdateSubscriptionsCount
   end
 
-  FEED_NAME = 'xkcd'
+  FEED_NAME = "xkcd"
 
   def feed
     @feed ||= create(:feed, name: FEED_NAME, subscriptions_count: 0)
@@ -20,10 +20,10 @@ class UpdateSubscriptionsCountTest < Minitest::Test
     Feed.delete_all
 
     stub_request(:get, "#{base_url}/v2/timelines/xkcd")
-      .with(headers: { 'Authorization' => "Bearer #{token}" })
+      .with(headers: {"Authorization" => "Bearer #{token}"})
       .to_return(
         body: response_body.to_json,
-        headers: { 'Content-Type' => 'application/json' }
+        headers: {"Content-Type" => "application/json"}
       )
   end
 
@@ -38,11 +38,11 @@ class UpdateSubscriptionsCountTest < Minitest::Test
   end
 
   def token
-    ENV['FREEFEED_TOKEN'] || Rails.application.credentials.freefeed_token
+    ENV["FREEFEED_TOKEN"] || Rails.application.credentials.freefeed_token
   end
 
   def base_url
-    ENV['FREEFEED_BASE_URL'] || Rails.application.credentials.freefeed_base_url
+    ENV["FREEFEED_BASE_URL"] || Rails.application.credentials.freefeed_base_url
   end
 
   def test_update_subscriptions_count

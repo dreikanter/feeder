@@ -10,7 +10,7 @@ class XkcdNormalizer < RssNormalizer
   end
 
   def comments
-    alt = image['alt'].to_s
+    alt = image["alt"].to_s
     return [] if alt.empty?
     [Html.comment_excerpt(Html.squeeze(alt))]
   end
@@ -24,7 +24,7 @@ class XkcdNormalizer < RssNormalizer
   end
 
   def fetch_og_image_url
-    html.css('meta[property="og:image"]').first.attributes['content'].value
+    html.css('meta[property="og:image"]').first.attributes["content"].value
   end
 
   def html
@@ -36,10 +36,10 @@ class XkcdNormalizer < RssNormalizer
   end
 
   def feed_entry_image_url
-    image.first['src']
+    image.first["src"]
   end
 
   def image
-    @image ||= Nokogiri::HTML(content.description).css('img:first').first
+    @image ||= Nokogiri::HTML(content.description).css("img:first").first
   end
 end

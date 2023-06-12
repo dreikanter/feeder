@@ -5,12 +5,12 @@ class HackerNewsNormalizer < BaseNormalizer
 
   def validation_errors
     [].tap do |errors|
-      errors << 'insufficient score' if violates_score_threshold?
+      errors << "insufficient score" if violates_score_threshold?
     end
   end
 
   def text
-    [data['title'], data['url']].compact_blank.join(separator)
+    [data["title"], data["url"]].compact_blank.join(separator)
   end
 
   def link
@@ -18,18 +18,18 @@ class HackerNewsNormalizer < BaseNormalizer
   end
 
   def comments
-    [[score, link].compact_blank.join(' / ')]
+    [[score, link].compact_blank.join(" / ")]
   end
 
   def published_at
-    Time.zone.at(data['time'])
+    Time.zone.at(data["time"])
   end
 
   private
 
   def score
-    value = data['score'].to_i
-    "#{value} #{'point'.pluralize(value)}"
+    value = data["score"].to_i
+    "#{value} #{"point".pluralize(value)}"
   end
 
   def data
@@ -37,6 +37,6 @@ class HackerNewsNormalizer < BaseNormalizer
   end
 
   def violates_score_threshold?
-    data['score'].to_i <= MIN_SCORE
+    data["score"].to_i <= MIN_SCORE
   end
 end

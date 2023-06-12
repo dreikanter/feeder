@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class DilbertNormalizerTest < Minitest::Test
   include NormalizerTestHelper
@@ -12,12 +12,12 @@ class DilbertNormalizerTest < Minitest::Test
   end
 
   def sample_data_file
-    'feed_dilbert.xml'.freeze
+    "feed_dilbert.xml".freeze
   end
 
   def setup
     super
-    sample_post = sample_file('post_dilbert.html')
+    sample_post = sample_file("post_dilbert.html")
 
     stub_request(:get, %r{^https://dilbert.com/strip/[\d-]+$})
       .to_return(body: sample_post)
@@ -34,6 +34,6 @@ class DilbertNormalizerTest < Minitest::Test
 
   def test_text
     result = normalized.first.text
-    assert_equal('Garbage Man Breaks Fourth Wall - Comic for October 04, 2019', result)
+    assert_equal("Garbage Man Breaks Fourth Wall - Comic for October 04, 2019", result)
   end
 end

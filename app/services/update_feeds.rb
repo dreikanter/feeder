@@ -1,7 +1,7 @@
 class UpdateFeeds
   include Callee
 
-  DEFAULT_PATH = Rails.root.join('config/feeds.yml')
+  DEFAULT_PATH = Rails.root.join("config/feeds.yml")
 
   option :path, optional: true, default: -> { DEFAULT_PATH }
   option :logger, optional: true, default: -> { Rails.logger }
@@ -19,7 +19,7 @@ class UpdateFeeds
   ].freeze
 
   def call
-    logger.info('updating feeds from configuration')
+    logger.info("updating feeds from configuration")
     update_active_feeds
     deactivate_missing_feeds
   end
@@ -47,7 +47,7 @@ class UpdateFeeds
 
   def load_feeds
     feeds = YAML.load_file(path)
-    raise 'feeds configuration should define a list' unless feeds.is_a?(Array)
+    raise "feeds configuration should define a list" unless feeds.is_a?(Array)
     feeds
   end
 end

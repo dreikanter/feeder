@@ -6,7 +6,7 @@ class RssNormalizer < BaseNormalizer
   end
 
   def published_at
-    content.respond_to?(:pubDate) ? content.send('pubDate') : content.dc_date
+    content.respond_to?(:pubDate) ? content.send(:pubDate) : content.dc_date
   end
 
   def text

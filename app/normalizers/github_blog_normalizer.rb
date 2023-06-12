@@ -19,8 +19,8 @@ class GithubBlogNormalizer < AtomNormalizer
     Html.comment_excerpt(safe_content)
   end
 
-  DEFAULT_HOST = 'blog.github.com'.freeze
-  DEFAULT_SCHEME = 'https'.freeze
+  DEFAULT_HOST = "blog.github.com".freeze
+  DEFAULT_SCHEME = "https".freeze
 
   def safe_image_url
     value = Html.first_image_url(safe_content)
@@ -32,6 +32,6 @@ class GithubBlogNormalizer < AtomNormalizer
   end
 
   def safe_content
-    content.content.try(:content) || ''
+    content.content.try(:content) || ""
   end
 end

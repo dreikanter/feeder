@@ -6,7 +6,7 @@ module Freefeed
       include Freefeed::Utils
 
       def notifications
-        authenticated_request(:get, '/v2/notifications')
+        authenticated_request(:get, "/v2/notifications")
       end
     end
   end

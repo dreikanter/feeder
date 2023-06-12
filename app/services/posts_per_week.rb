@@ -15,7 +15,7 @@ class PostsPerWeek
   private
 
   def recent_posts
-    posts.where('published_at > ?', HISTORY_DEPTH.days.ago)
+    posts.where("published_at > ?", HISTORY_DEPTH.days.ago)
   end
 
   def posts

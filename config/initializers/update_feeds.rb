@@ -1,10 +1,10 @@
 # TODO: Consider calling UpdateFeeds from elsewhere and remove this check
 unless Rails.env.test?
-  require_relative '../../app/enums/feed_status'
-  require_relative '../../app/models/application_record'
-  require_relative '../../app/models/feed'
-  require_relative '../../app/services/feed_sanitizer'
-  require_relative '../../app/services/update_feeds'
+  require_relative "../../app/enums/feed_status"
+  require_relative "../../app/models/application_record"
+  require_relative "../../app/models/feed"
+  require_relative "../../app/services/feed_sanitizer"
+  require_relative "../../app/services/update_feeds"
 
   begin
     UpdateFeeds.call

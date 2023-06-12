@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root 'dashboards#show'
+  root "dashboards#show"
 end

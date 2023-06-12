@@ -17,7 +17,7 @@ class Feeds
   private
 
   def update_and_load_feeds
-    logger.info('updating feeds from configuration')
+    logger.info("updating feeds from configuration")
     remove_missing_feeds
     create_ot_update_existing_feeds
     Feed.enabled

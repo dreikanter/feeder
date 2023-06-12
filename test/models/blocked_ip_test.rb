@@ -12,7 +12,7 @@
 #  index_blocked_ips_on_ip  (ip) UNIQUE
 #
 
-require 'test_helper'
+require "test_helper"
 
 class BlockedIPTest < Minitest::Test
   def blocked_ip

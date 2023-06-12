@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class AerostaticaNormalizerTest < Minitest::Test
   include NormalizerTestHelper
@@ -8,7 +8,7 @@ class AerostaticaNormalizerTest < Minitest::Test
   end
 
   def sample_data_file
-    'feed_aerostatica.xml'
+    "feed_aerostatica.xml"
   end
 
   def processor
@@ -17,7 +17,7 @@ class AerostaticaNormalizerTest < Minitest::Test
 
   def setup
     super
-    sample_post = sample_file('post_aerostatica.html')
+    sample_post = sample_file("post_aerostatica.html")
 
     stub_request(:get, %r{^https://aerostatica.ru/\d+.*})
       .to_return(body: sample_post)

@@ -5,8 +5,8 @@ class NitterPermalink
 
   def call
     URI.parse(url).tap do |parsed|
-      parsed.host = 'twitter.com'
-      parsed.scheme = 'https'
+      parsed.host = "twitter.com"
+      parsed.scheme = "https"
     end.to_s
   end
 end

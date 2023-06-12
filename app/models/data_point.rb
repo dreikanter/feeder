@@ -13,7 +13,7 @@
 #
 
 class DataPoint < ApplicationRecord
-  belongs_to :series, class_name: 'DataPointSeries'
+  belongs_to :series, class_name: "DataPointSeries"
 
   # TODO: Consider moving configuration values to configuration
   RECENT_LIMIT = 50

@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class SmbcNormalizerTest < Minitest::Test
   include NormalizerTestHelper
@@ -10,10 +10,10 @@ class SmbcNormalizerTest < Minitest::Test
   def setup
     super
 
-    stub_request(:get, 'https://www.smbc-comics.com/comic/back')
+    stub_request(:get, "https://www.smbc-comics.com/comic/back")
       .to_return(body: sample_post)
 
-    stub_request(:get, 'https://www.smbc-comics.com/comic/kill')
+    stub_request(:get, "https://www.smbc-comics.com/comic/kill")
       .to_return(body: sample_post)
   end
 
@@ -22,25 +22,25 @@ class SmbcNormalizerTest < Minitest::Test
   end
 
   def sample_data_file
-    'feed_smbc.xml'
+    "feed_smbc.xml"
   end
 
   def sample_post_file
-    'post_smbc.html'
+    "post_smbc.html"
   end
 
   def expected
     NormalizedEntity.new(
       feed_id: feed.id,
-      uid: 'https://www.smbc-comics.com/comic/back',
-      link: 'https://www.smbc-comics.com/comic/back',
-      text: 'Back - https://www.smbc-comics.com/comic/back',
-      published_at: DateTime.parse('2019-08-16 08:40:18 -0400'),
+      uid: "https://www.smbc-comics.com/comic/back",
+      link: "https://www.smbc-comics.com/comic/back",
+      text: "Back - https://www.smbc-comics.com/comic/back",
+      published_at: DateTime.parse("2019-08-16 08:40:18 -0400"),
       attachments: [
-        'https://www.smbc-comics.com/comics/1565959235-20190816.png',
-        'https://www.smbc-comics.com/comics/156372243220190721after.png'
+        "https://www.smbc-comics.com/comics/1565959235-20190816.png",
+        "https://www.smbc-comics.com/comics/156372243220190721after.png"
       ],
-      comments: ['I mean, statistically, shouldn\'t this be the most common outcome?'],
+      comments: ["I mean, statistically, shouldn't this be the most common outcome?"],
       validation_errors: []
     )
   end

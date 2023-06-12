@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 # TODO: Freeze time
 class PurgeErrorsTest < Minitest::Test

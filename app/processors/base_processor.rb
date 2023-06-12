@@ -25,7 +25,7 @@ class BaseProcessor
   end
 
   def entities
-    raise 'not implemented'
+    raise "not implemented"
   end
 
   def limit

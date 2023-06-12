@@ -17,7 +17,7 @@ class RedditProcessor < AtomProcessor
   end
 
   def reddit_points(link)
-    data_point(link).details['points'].to_i
+    data_point(link).details["points"].to_i
   rescue StandardError => e
     # NOTE: Individual post score fetching should not crash the processor
     # TODO: Improve RedditPointsFetcher errors tracking
@@ -31,14 +31,14 @@ class RedditProcessor < AtomProcessor
 
   def cached_data_point(link)
     DataPoint.for(:reddit)
-      .where('created_at > ?', CACHE_HISTORY_DEPTH.ago)
+      .where("created_at > ?", CACHE_HISTORY_DEPTH.ago)
       .where("details->>'link' = ?", link).ordered.first
   end
 
   def create_data_point(link)
     CreateDataPoint.call(
       :reddit,
-      details: { link: link, points: RedditPointsFetcher.call(link) }
+      details: {link: link, points: RedditPointsFetcher.call(link)}
     )
   end
 end

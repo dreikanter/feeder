@@ -16,7 +16,7 @@ module FeedTestHelper
     stub_request(:get, feed_url)
       .to_return(
         body: file_fixture(source_fixture_path).read,
-        headers: { 'Content-Type' => 'text/xml' }
+        headers: {"Content-Type" => "text/xml"}
       )
   end
 
@@ -29,15 +29,15 @@ module FeedTestHelper
   end
 
   def feed_config
-    raise 'not implemented'
+    raise "not implemented"
   end
 
   def source_fixture_path
-    raise 'not implemented'
+    raise "not implemented"
   end
 
   def expected_fixture_path
-    raise 'not implemented'
+    raise "not implemented"
   end
 
   def expected
@@ -49,8 +49,8 @@ module FeedTestHelper
   # :reek:FeatureEnvy
   def normalize(item)
     replacements = {
-      'published_at' => DateTime.parse(item.fetch('published_at')),
-      'feed_id' => feed.id
+      "published_at" => DateTime.parse(item.fetch("published_at")),
+      "feed_id" => feed.id
     }
 
     NormalizedEntity.new(**item.merge(replacements).symbolize_keys)

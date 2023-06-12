@@ -1,6 +1,6 @@
 class HackerNewsProcessor < BaseProcessor
-  BASE_URL = 'https://news.ycombinator.com'.freeze
-  BASE_API_URL = 'https://hacker-news.firebaseio.com/v0'.freeze
+  BASE_URL = "https://news.ycombinator.com".freeze
+  BASE_API_URL = "https://hacker-news.firebaseio.com/v0".freeze
 
   protected
 
@@ -10,7 +10,7 @@ class HackerNewsProcessor < BaseProcessor
 
   def build_entity(id)
     link = thread_url(id)
-    content = { id: id, link: link, data_url: item_url(id) }
+    content = {id: id, link: link, data_url: item_url(id)}
     entity(link, content)
   end
 

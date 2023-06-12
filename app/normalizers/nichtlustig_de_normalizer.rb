@@ -12,6 +12,6 @@ class NichtlustigDeNormalizer < RssNormalizer
   end
 
   def image_url
-    Nokogiri::HTML(content.description).css('img')[1]['src']
+    Nokogiri::HTML(content.description).css("img")[1]["src"]
   end
 end

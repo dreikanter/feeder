@@ -1,4 +1,4 @@
-require 'minitest/assertions'
+require "minitest/assertions"
 
 module Minitest
   module Assertions

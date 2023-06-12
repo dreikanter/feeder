@@ -39,6 +39,6 @@ class KimchicuddlesNormalizer < BaseNormalizer
 
   def description
     result = Html.comment_excerpt(content.summary)
-    result.to_s.gsub(/\n+/, "\n")
+    result.to_s.squeeze("\n")
   end
 end

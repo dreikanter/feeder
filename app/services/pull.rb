@@ -37,9 +37,9 @@ class Pull
   rescue StandardError => e
     ErrorDumper.call(
       exception: e,
-      message: 'Normalization error',
+      message: "Normalization error",
       target: feed,
-      context: { uid: entity.uid }
+      context: {uid: entity.uid}
     )
 
     nil

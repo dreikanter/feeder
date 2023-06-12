@@ -5,7 +5,7 @@ class ProcessFeed
   option :logger, optional: true, default: -> { Rails.logger }
 
   def call
-    Honeybadger.context(process_feed: { feed_id: feed_id, feed_name: feed_name })
+    Honeybadger.context(process_feed: {feed_id: feed_id, feed_name: feed_name})
     generate_new_posts
   end
 
@@ -67,9 +67,9 @@ class ProcessFeed
   def dump_feed_error(error)
     ErrorDumper.call(
       exception: error,
-      message: 'Error processing feed',
+      message: "Error processing feed",
       target: feed,
-      context: { feed_name: feed_name }
+      context: {feed_name: feed_name}
     )
   end
 end

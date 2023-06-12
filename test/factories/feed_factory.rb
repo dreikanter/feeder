@@ -33,7 +33,7 @@ FactoryBot.define do
     refreshed_at { nil }
     created_at { Time.new.utc }
     updated_at { Time.new.utc }
-    url { 'https://example.com' }
+    url { "https://example.com" }
     processor { nil }
     normalizer { nil }
     after { nil }
@@ -46,11 +46,11 @@ FactoryBot.define do
     status { FeedStatus.active }
 
     trait :twitter do
-      name { 'sample-twitter' }
-      loader { 'twitter' }
-      processor { 'twitter' }
-      normalizer { 'twitter' }
-      options { { 'twitter_user' => 'dreikanter' } }
+      name { "sample-twitter" }
+      loader { "twitter" }
+      processor { "twitter" }
+      normalizer { "twitter" }
+      options { {"twitter_user" => "dreikanter"} }
     end
   end
 end

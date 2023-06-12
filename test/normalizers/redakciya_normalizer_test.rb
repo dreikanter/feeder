@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class RedakciyaNormalizerTest < Minitest::Test
   include NormalizerTestHelper
@@ -12,17 +12,17 @@ class RedakciyaNormalizerTest < Minitest::Test
   end
 
   def sample_data_file
-    'feed_redakciya.xml'
+    "feed_redakciya.xml"
   end
 
   def feed
-    build(:feed, options: { description: false })
+    build(:feed, options: {description: false})
   end
 
   def expected
-    entity = JSON.parse(file_fixture('feeds/redakciya/entity.json').read)
-    value = entity['published_at']
-    entity['published_at'] = DateTime.parse(value) if value
+    entity = JSON.parse(file_fixture("feeds/redakciya/entity.json").read)
+    value = entity["published_at"]
+    entity["published_at"] = DateTime.parse(value) if value
     NormalizedEntity.new(**entity.symbolize_keys.merge(feed_id: feed.id))
   end
 

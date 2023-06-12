@@ -31,6 +31,6 @@ class BazarNormalizer < BaseNormalizer
   end
 
   def duration
-    @duration ||= content.try(:itunes_duration).gsub(/^00:/, '')
+    @duration ||= content.try(:itunes_duration).gsub(/^00:/, "")
   end
 end

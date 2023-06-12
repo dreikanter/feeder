@@ -5,7 +5,7 @@ class Push
   param :post
 
   def call
-    raise 'post is not ready' unless post.ready?
+    raise "post is not ready" unless post.ready?
     publish_post_content
     sleep 1
   end
@@ -35,7 +35,7 @@ class Push
       }
     )
 
-    response.parse.dig('posts', 'id')
+    response.parse.dig("posts", "id")
   end
 
   def create_comments(post_id)
@@ -56,7 +56,7 @@ class Push
   def create_attachment(url)
     Downloader.call(url) do |io, content_type|
       response = freefeed.create_attachment(io, content_type: content_type)
-      response.parse.fetch('attachments').fetch('id')
+      response.parse.fetch("attachments").fetch("id")
     end
   end
 
