@@ -57,13 +57,12 @@
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 3600
 
-# NOTE: Inactive since 2019
-# - name: "kamillalinder-medium"
-#   url: "https://medium.com/feed/@kamillalinder"
-#   processor: "rss"
-#   normalizer: "medium"
-#   after: "2021-01-06T12:00:00+00:00"
-#   refresh_interval: 86400
+- name: "kamillalinder-medium"
+  url: "https://medium.com/feed/@kamillalinder"
+  processor: "rss"
+  normalizer: "medium"
+  after: "2021-01-06T12:00:00+00:00"
+  refresh_interval: 86400
 
 - name: "signalvnoise-medium"
   url: "https://m.signalvnoise.com/feed"
