@@ -172,7 +172,7 @@ GEM
     json (2.6.2)
     jsonapi-renderer (0.2.2)
     kwalify (0.7.2)
-    language_server-protocol (3.17.0.3)
+    lint_roller (1.0.0)
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -305,7 +305,7 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.23.0)
       parser (>= 3.1.1.0)
-    rubocop-performance (1.15.1)
+    rubocop-performance (1.18.0)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
     rubocop-rails (2.19.1)
@@ -331,10 +331,11 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    standard (1.20.0)
-      language_server-protocol (~> 3.17.0.2)
-      rubocop (= 1.40.0)
-      rubocop-performance (= 1.15.1)
+    standard (0.0.36.1)
+      rubocop (> 0.63)
+    standard-performance (1.1.0)
+      lint_roller (~> 1.0)
+      rubocop-performance (~> 1.18.0)
     thor (1.2.1)
     thread_safe (0.3.6)
     twitter (7.0.0)
@@ -407,7 +408,8 @@ DEPENDENCIES
   rubocop-rspec
   simplecov (~> 0.21)
   spring
-  standard (>= 1.0)
+  standard
+  standard-performance
   twitter (~> 7.0)
   webmock (~> 3.11)
 

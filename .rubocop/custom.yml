@@ -1,15 +1,4 @@
-require:
-  - standard
-  - rubocop-performance
-  - rubocop-rails
-  - rubocop-rspec
-
-inherit_gem:
-  standard: config/base.yml
-  standard-performance: config/base.yml
-
 AllCops:
-  TargetRubyVersion: 3.2
   NewCops: enable
   DisplayCopNames: true
   Exclude:
