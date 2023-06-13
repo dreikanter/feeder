@@ -5,12 +5,15 @@ module FeedsTableHelper
         FEED_TABLE_COLUMNS.each do |attribute, column|
           concat(
             tag.th do
-              alt_order = (order == "asc") ? "desc" : "asc"
-              column_order = (order_by == attribute) ? alt_order : column[:order]
+              asc_order = order == "asc"
+              current_attribute = order_by == attribute
+
+              alt_order = asc_order ? "desc" : "asc"
+              column_order = current_attribute ? alt_order : column[:order]
               concat(link_to(column[:caption], feeds_path(order_by: attribute, order: column_order)))
 
-              arrow = (order == "asc") ? " ↓" : " ↑"
-              concat((order_by == attribute) ? arrow : "")
+              arrow = asc_order ? " ↓" : " ↑"
+              concat(current_attribute ? arrow : "")
             end
           )
         end
