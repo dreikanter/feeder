@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  root "dashboards#show"
+  resources :feeds, only: :index
+
+  root "feeds#index"
 end
