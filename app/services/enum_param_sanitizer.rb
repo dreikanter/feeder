@@ -1,4 +1,4 @@
-class ParamSanitizer
+class EnumParamSanitizer
   include Callee
 
   param :value

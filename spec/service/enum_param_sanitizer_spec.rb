@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe ParamSanitizer do
+RSpec.describe EnumParamSanitizer do
   subject(:service) { described_class }
 
   it "returns valid value" do
