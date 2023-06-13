@@ -37,20 +37,23 @@ class Feed < ApplicationRecord
   enum status: FeedStatus.options
 
   aasm :state do
-    state :enabled, initial: true
+    state :pristine, initial: true
+    state :enabled
+    state :paused
     state :disabled
+
     state :removed
 
-    event :disable do
-      transitions from: :enabled, to: :disabled
-    end
-
     event :enable do
-      transitions from: %i[disabled removed], to: :enabled
+      transitions from: %i[pristine disabled removed], to: :enabled
     end
 
-    event :remove do
-      transitions to: :removed
+    event :pause do
+      transitions from: :enabled, to: :paused
+    end
+
+    event :disable do
+      transitions from: %i[pristine enabled paused], to: :disabled
     end
   end
 
