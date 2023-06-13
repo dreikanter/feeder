@@ -22,15 +22,7 @@
 </div>
 
 <table class="table table-bordered my-4">
-  <thead>
-    <tr>
-      <th scope="col"><%= link_to "Name", feeds_path(order_by: "name", order_direction: alt_order_direction) -%></th>
-      <th scope="col"><%= link_to "Status", feeds_path(order_by: "status", order_direction: alt_order_direction) -%></th>
-      <th scope="col"><%= link_to "Posts", feeds_path(order_by: "posts_count", order_direction: alt_order_direction) -%></th>
-      <th scope="col"><%= link_to "Refreshed at", feeds_path(order_by: "refreshed_at", order_direction: alt_order_direction) -%></th>
-      <th scope="col"><%= link_to "Last post", feeds_path(order_by: "last_post_created_at", order_direction: alt_order_direction) -%></th>
-    </tr>
-  </thead>
+  <%= feeds_table_header(order_by: order_by, order: order) -%>
   <tbody>
     <%- feeds.each do |feed| -%>
       <tr>
