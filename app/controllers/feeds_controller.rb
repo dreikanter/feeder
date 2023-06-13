@@ -17,7 +17,7 @@ class FeedsController < ApplicationController
   end
 
   def order_by
-    @order_by ||= ParamSanitizer.call(
+    @order_by ||= EnumParamSanitizer.call(
       params[:order_by],
       default: "state",
       available: %w[
@@ -31,7 +31,7 @@ class FeedsController < ApplicationController
   end
 
   def order
-    @order ||= ParamSanitizer.call(
+    @order ||= EnumParamSanitizer.call(
       params[:order],
       default: "desc",
       available: %w[asc desc]

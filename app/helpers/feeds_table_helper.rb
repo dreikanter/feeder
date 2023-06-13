@@ -5,9 +5,12 @@ module FeedsTableHelper
         FEED_TABLE_COLUMNS.each do |attribute, column|
           concat(
             tag.th do
-              column_order = order_direction(attribute: attribute, default: column[:order], current_order_by: order_by, current_order: order)
+              alt_order = (order == "asc") ? "desc" : "asc"
+              column_order = (order_by == attribute) ? alt_order : column[:order]
               concat(link_to(column[:caption], feeds_path(order_by: attribute, order: column_order)))
-              concat((order_by == attribute) ? ((order == "asc") ? " ↓" : " ↑") : "")
+
+              arrow = (order == "asc") ? " ↓" : " ↑"
+              concat((order_by == attribute) ? arrow : "")
             end
           )
         end
@@ -16,10 +19,6 @@ module FeedsTableHelper
   end
 
   private
-
-  def order_direction(attribute:, default:, current_order_by:, current_order:)
-    (current_order_by == attribute) ? ((current_order == "asc") ? "desc" : "asc") : default
-  end
 
   FEED_STATE_CLASSES = {
     "enabled" => "text-success",
