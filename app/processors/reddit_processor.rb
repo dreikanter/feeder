@@ -1,44 +1,37 @@
 class RedditProcessor < AtomProcessor
-  POINTS_THRESHOLD = 2000
-  CACHE_HISTORY_DEPTH = 4.hours
+  SCORE_THRESHOLD = 2000
+  POST_SCORE_CACHE_TTL = 4.hours
 
   protected
 
   def entities
-    super.select { |item| enough_points?(item.uid) }
+    super.select { |item| above_score_threshold?(item.uid) }
   end
 
   private
 
-  # TODO: Consider extrating Reddit score evaluation to a service
-  # TODO: Use specialized model
-  def enough_points?(link)
-    reddit_points(link) >= POINTS_THRESHOLD
+  def above_score_threshold?(link)
+    cached_score(link) >= SCORE_THRESHOLD
   end
 
-  def reddit_points(link)
-    data_point(link).details["points"].to_i
+  def cached_score(link)
+    Rails.cache.fetch(cache_key(link), expires_in: POST_SCORE_CACHE_TTL) { score(link) }
+  end
+
+  def score(link)
+    RedditPointsFetcher.call(link)
   rescue StandardError => e
-    # NOTE: Individual post score fetching should not crash the processor
-    # TODO: Improve RedditPointsFetcher errors tracking
+    # NOTE: Individual post score fetching should not crash the processor,
+    #  but they are getting reported to monitor Reddit availability
     Honeybadger.notify(e)
     0
   end
 
-  def data_point(link)
-    cached_data_point(link) || create_data_point(link)
+  def cache_key(link)
+    [cache_key_prefix, link].join(":")
   end
 
-  def cached_data_point(link)
-    DataPoint.for(:reddit)
-      .where("created_at > ?", CACHE_HISTORY_DEPTH.ago)
-      .where("details->>'link' = ?", link).ordered_by_created_at.first
-  end
-
-  def create_data_point(link)
-    CreateDataPoint.call(
-      :reddit,
-      details: {link: link, points: RedditPointsFetcher.call(link)}
-    )
+  def cache_key_prefix
+    @cache_key_prefix ||= self.class.name.underscore
   end
 end
