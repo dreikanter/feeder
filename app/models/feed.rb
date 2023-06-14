@@ -42,14 +42,16 @@ class Feed < ApplicationRecord
     state :paused
     state :disabled
 
-    state :removed
-
     event :enable do
-      transitions from: %i[pristine disabled removed], to: :enabled
+      transitions from: %i[pristine disabled], to: :enabled
     end
 
     event :pause do
       transitions from: :enabled, to: :paused
+    end
+
+    event :unpause do
+      transitions from: :paused, to: :enabled
     end
 
     event :disable do
