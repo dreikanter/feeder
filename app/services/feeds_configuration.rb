@@ -10,7 +10,6 @@ class FeedsConfiguration
 
   # Synchronize Feeds records from the configuration file
   def sync
-    binding.pry
     logger.info("updating feeds from configuration")
     disable_missing_feeds
     create_ot_update_existing_feeds
