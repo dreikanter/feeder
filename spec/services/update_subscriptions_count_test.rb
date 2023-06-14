@@ -11,7 +11,7 @@ RSpec.describe UpdateSubscriptionsCount do
 
     stub_request(:get, "https://candy.freefeed.net/v2/timelines/#{feed.name}")
       .to_return(
-        body: { timelines: { subscribers: expected_subscribers_count.times.map(&:to_s) } }.to_json,
+        body: {timelines: {subscribers: expected_subscribers_count.times.map(&:to_s)}}.to_json,
         headers: {"Content-Type" => "application/json"}
       )
   end
