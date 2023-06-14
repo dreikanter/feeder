@@ -34,7 +34,6 @@ class Feeds
   def create_ot_update_existing_feeds
     feeds_configuration.each do |config|
       feed = Feed.find_or_create_by(name: config[:name])
-      feed.update!(config.merge(status: FeedStatus.active))
       feed.enable! if feed.may_enable?
     end
   end
