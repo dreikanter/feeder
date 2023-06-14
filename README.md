@@ -37,6 +37,18 @@ Feeder-specific Rake commads:
     rails feeder:clean                                # Clean old data points
     rails feeder:import_nitter_instances              # Import public Nitter instances list
 
+## Development
+
+- Open a PR to inroduce any change to the `master` branch.
+- A PR should have a clear and detailed description.
+
+## Deployment
+
+- Head revision of the `release` branch should be deployed to production.
+- Merge `master` to `release` immediately before the deployment.
+- Use `./bin/release_master` script to push `master` to `release`.
+- Ansible playbooks for deployment and server provisioning: https://github.com/dreikanter/feeder-ansible
+
 ## Communication
 
 If you have a question or want to report a bug, please open an issue.
@@ -44,5 +56,4 @@ If you have a question or want to report a bug, please open an issue.
 ## References
 
 - Production instance (service status page): https://frf.im
-- Ansible playbooks for deployment and server provisioning: https://github.com/dreikanter/feeder-ansible
 - Project wiki: https://github.com/dreikanter/feeder/wiki
