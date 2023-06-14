@@ -49,6 +49,6 @@ class UpdateSubscriptionsCount
   end
 
   def feed
-    Feed.active.find_by(name: feed_name)
+    Feed.enabled.find_by(name: feed_name)
   end
 end

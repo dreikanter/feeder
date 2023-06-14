@@ -16,7 +16,7 @@ namespace :feeder do
       .map(&:feed_name)
       .uniq
 
-    feeds_to_update = Feed.active.pluck(:name) - recently_updated_feed_names
+    feeds_to_update = Feed.enabled.pluck(:name) - recently_updated_feed_names
 
     feeds_to_update.slice(0, throttling_limit).each do |feed_name|
       Rails.logger.info("---> updating subscriptions count for #{feed_name}")
