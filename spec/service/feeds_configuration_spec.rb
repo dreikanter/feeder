@@ -1,7 +1,7 @@
 require "rails_helper"
 
-RSpec.describe Feeds do
-  subject(:feeds) { described_class.new(path: path).list }
+RSpec.describe FeedsConfiguration do
+  subject(:service) { described_class.new(path: path) }
 
   let(:path) { file_fixture("sample_feeds.yml") }
 
@@ -54,20 +54,24 @@ RSpec.describe Feeds do
   before { Feed.delete_all }
 
   it "returns feeds array" do
-    expect(feeds.pluck(:name)).to contain_exactly(*expected_feed_names)
-    expect(feeds).to all be_a(Feed)
+    service.sync
+    expect(enabled_feed_names).to contain_exactly(*expected_feed_names)
   end
 
   it "creates new feeds" do
-    expect { feeds }.to change { Feed.enabled.pluck(:name).sort }.from([]).to(expected_feed_names)
+    expect { service.sync }.to change { enabled_feed_names }.from([]).to(expected_feed_names)
   end
 
   it "updates existing feeds" do
-    expect { feeds }.to change { existing_feed.reload.attributes.slice(*configurable_attributes) }
+    expect { service.sync }.to change { existing_feed.reload.attributes.slice(*configurable_attributes) }
       .from(existing_feed_before_update).to(existing_feed_after_update)
   end
 
-  it "updates removed feeds state" do
-    expect { feeds }.to change { missing_feed.reload.state }.from("enabled").to("disabled")
+  it "updates disabled feeds state" do
+    expect { service.sync }.to change { missing_feed.reload.state }.from("enabled").to("disabled")
+  end
+
+  def enabled_feed_names
+    Feed.enabled.pluck(:name).sort
   end
 end
