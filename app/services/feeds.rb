@@ -18,13 +18,13 @@ class Feeds
 
   def update_and_load_feeds
     logger.info("updating feeds from configuration")
-    remove_missing_feeds
+    disable_missing_feeds
     create_ot_update_existing_feeds
     Feed.enabled
   end
 
-  def remove_missing_feeds
-    missing_feeds.update_all(state: :removed)
+  def disable_missing_feeds
+    missing_feeds.update_all(state: :disabled)
   end
 
   def missing_feeds
