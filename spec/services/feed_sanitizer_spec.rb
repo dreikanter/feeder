@@ -32,7 +32,7 @@ RSpec.describe FeedSanitizer do
   end
 
   it "parses timestamp value" do
-    expect(service.call(**sample_config)[:after]).to be_a(DateTime)
+    expect(service.call(**sample_config)[:after]).to eq(DateTime.parse(sample_config[:after]))
   end
 
   it "parses integers" do

@@ -33,9 +33,6 @@ class Feed < ApplicationRecord
 
   validates :name, presence: true
 
-  # TODO: Replace with #state
-  enum status: FeedStatus.options
-
   aasm :state do
     state :pristine, initial: true
     state :enabled

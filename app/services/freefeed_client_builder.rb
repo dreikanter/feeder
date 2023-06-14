@@ -1,6 +1,7 @@
 class FreefeedClientBuilder
   include Callee
 
+  # :reek:UtilityFunction
   def call
     Freefeed::Client.new(
       token: ENV["FREEFEED_TOKEN"] || Rails.application.credentials.freefeed_token,

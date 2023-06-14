@@ -1,7 +1,13 @@
-class Feeds
+class FeedsConfiguration
   include Logging
 
   attr_reader :path
+
+  DEFAULT_PATH = "config/feeds.yml".freeze
+
+  def self.sync
+    new(path: Rails.root.join(DEFAULT_PATH)).sync
+  end
 
   # @param :path [String, Pathname] path to the feeds configuration file
   def initialize(path:)
@@ -9,42 +15,35 @@ class Feeds
   end
 
   # Synchronize Feeds records from the configuration file
-  # @return [Array<Feed>] array of enabled feeds
-  def list
-    @list ||= update_and_load_feeds
-  end
-
-  private
-
-  def update_and_load_feeds
+  def sync
     logger.info("updating feeds from configuration")
     disable_missing_feeds
     create_ot_update_existing_feeds
-    Feed.enabled
   end
+
+  private
 
   def disable_missing_feeds
     missing_feeds.update_all(state: :disabled)
   end
 
   def missing_feeds
-    Feed.where.not(name: enabled_feed_names_from_configuration)
+    Feed.where.not(name: feeds_configuration.keys)
   end
 
   def create_ot_update_existing_feeds
-    feeds_configuration.each do |config|
-      feed = Feed.find_or_create_by(name: config[:name])
-      feed.update!(config.merge(status: FeedStatus.active))
+    feeds_configuration.each do |feed_name, attributes|
+      feed = Feed.find_or_create_by(name: feed_name)
+      feed.update!(**attributes)
       feed.enable! if feed.may_enable?
     end
   end
 
-  def enabled_feed_names_from_configuration
-    feeds_configuration.pluck(:name)
-  end
-
   def feeds_configuration
-    @feeds_configuration ||= config_data.map { |config| FeedSanitizer.call(**config.symbolize_keys) }
+    @feeds_configuration ||= config_data.to_h do |config|
+      attributes = FeedSanitizer.call(**config.symbolize_keys)
+      [attributes[:name], attributes.except(:name)]
+    end
   end
 
   def config_data

@@ -32,17 +32,17 @@ module Feeder
     config.hosts << "localhost"
     config.hosts << "app"
 
-    config.generators do |g|
-      g.test_framework :minitest, spec: false, fixture: false
-      g.controller_specs true
-      g.decorator false
-      g.helper false
-      g.helper_specs false
-      g.javascripts false
-      g.routing_specs false
-      g.skip_routes true
-      g.stylesheets false
-      g.view_specs false
+    config.generators do |generate|
+      generate.test_framework :minitest, spec: false, fixture: false
+      generate.controller_specs true
+      generate.decorator false
+      generate.helper false
+      generate.helper_specs false
+      generate.javascripts false
+      generate.routing_specs false
+      generate.skip_routes true
+      generate.stylesheets false
+      generate.view_specs false
     end
 
     # Turn off Rails Asset Pipeline
