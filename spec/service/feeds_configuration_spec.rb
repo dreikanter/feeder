@@ -71,6 +71,11 @@ RSpec.describe FeedsConfiguration do
     expect { service.sync }.to change { missing_feed.reload.state }.from("enabled").to("disabled")
   end
 
+  it "knows default path to the production configuration" do
+    described_class.sync
+    expect(Feed.count).to be_positive
+  end
+
   def enabled_feed_names
     Feed.enabled.pluck(:name).sort
   end

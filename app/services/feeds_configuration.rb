@@ -3,6 +3,12 @@ class FeedsConfiguration
 
   attr_reader :path
 
+  DEFAULT_PATH = "config/feeds.yml".freeze
+
+  def self.sync
+    new(path: Rails.root.join(DEFAULT_PATH)).sync
+  end
+
   # @param :path [String, Pathname] path to the feeds configuration file
   def initialize(path:)
     @path = path
