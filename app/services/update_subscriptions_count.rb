@@ -2,6 +2,7 @@ class UpdateSubscriptionsCount
   include Callee
 
   param :feed_name
+  option :freefeed_client, optional: true, default: -> { FreefeedClientBuilder.call }
 
   SERIES_NAME = :subs
 
@@ -35,13 +36,9 @@ class UpdateSubscriptionsCount
 
   def fetch_current_count
     Rails.logger.info("fetching group details: #{feed_name}")
-    timeline = freefeed.timeline(feed_name)
+    timeline = freefeed_client.timeline(feed_name)
     subscribers = timeline.parse.dig("timelines", "subscribers")
     subscribers.count
-  end
-
-  def freefeed
-    FreefeedClientBuilder.call
   end
 
   def update_feed
@@ -49,6 +46,6 @@ class UpdateSubscriptionsCount
   end
 
   def feed
-    Feed.enabled.find_by(name: feed_name)
+    Feed.find_by(name: feed_name)
   end
 end
