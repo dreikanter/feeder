@@ -20,7 +20,6 @@ detectors:
     - DataPointTest#test_for_exclude
     - ErrorDumperTest#test_backtrace
     - PullTest#test_call
-    - UpdateFeedsTest#test_active_feeds_status
     - CreateBlockedIps#change
   FeatureEnvy:
     enabled: false
@@ -35,13 +34,9 @@ detectors:
     - TwitterLoader
   NestedIterators:
     exclude:
-    - UpdateFeedsTest#test_attributes_match_config
-    - UpdateFeedsTest#test_config_override_existind_records
   NilCheck:
     exclude:
     - ErrorDumperTest#test_no_target_by_default
-    - UpdateFeedsTest#test_attributes_match_config
-    - UpdateFeedsTest#test_config_override_existind_records
   TooManyConstants:
     enabled: false
   TooManyMethods:
@@ -78,8 +73,6 @@ detectors:
     - CheckSequenceRunnerTest#test_failure_when_some_checks_are_not_passed
     - CheckSequenceRunnerTest#test_return_failed_check_names
     - PostsPerWeekTest#test_calculates_posts_per_week
-    - UpdateFeedsTest#test_attributes_match_config
-    - UpdateFeedsTest#test_config_override_existind_records
     - CreateFeeds#change
     - CreatePosts#change
     - CreateDelayedJobs#self.up
@@ -139,7 +132,6 @@ detectors:
     - TelegaNormalizerTest#sample_data_file
     - TheAtlanticPhotosNormalizerTest#sample_data_file
     - PurgeDataPointsTest#sample_threshold
-    - UpdateFeedsTest#setup
     - UpdateSubscriptionsCountTest#base_url
     - UpdateSubscriptionsCountTest#response_body
     - UpdateSubscriptionsCountTest#roken
