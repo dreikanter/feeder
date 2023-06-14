@@ -32,7 +32,7 @@ RSpec.describe Feeds do
       "options" => {},
       "processor" => nil,
       "refresh_interval" => 0,
-      "state" => "enabled",
+      "state" => "disabled",
       "url" => "https://example.com"
     }
   end
