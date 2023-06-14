@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_09_145906) do
+ActiveRecord::Schema.define(version: 2023_06_13_121056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,9 +88,10 @@ ActiveRecord::Schema.define(version: 2023_06_09_145906) do
     t.datetime "last_post_created_at"
     t.integer "subscriptions_count", default: 0, null: false
     t.integer "status", default: 0, null: false
-    t.string "state", default: "enabled", null: false
+    t.string "state", default: "pristine", null: false
     t.integer "errors_count", default: 0, null: false
     t.integer "total_errors_count", default: 0, null: false
+    t.datetime "state_updated_at"
     t.index ["name"], name: "index_feeds_on_name", unique: true
     t.index ["status"], name: "index_feeds_on_status"
   end

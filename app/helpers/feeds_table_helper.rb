@@ -24,9 +24,10 @@ module FeedsTableHelper
   private
 
   FEED_STATE_CLASSES = {
+    "pristine" => "text-muted",
     "enabled" => "text-success",
-    "disabled" => "text-muted",
-    "removed" => "text-muted"
+    "paused" => "text-warning",
+    "disabled" => "text-muted"
   }.freeze
 
   private_constant :FEED_STATE_CLASSES

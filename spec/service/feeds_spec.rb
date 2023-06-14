@@ -68,6 +68,6 @@ RSpec.describe Feeds do
   end
 
   it "updates removed feeds state" do
-    expect { feeds }.to change { missing_feed.reload.state }.from("enabled").to("removed")
+    expect { feeds }.to change { missing_feed.reload.state }.from("enabled").to("disabled")
   end
 end
