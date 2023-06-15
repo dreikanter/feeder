@@ -28,7 +28,11 @@ class FeedSanitizer
   private
 
   def attributes
-    attribute_option_names.filter_map { |attribute| send(attribute).then { |value| [attribute, value] } }.to_h.compact
+    attribute_option_names.filter_map { |attribute| tuple(attribute) }.to_h.compact
+  end
+
+  def tuple(attribute)
+    send(attribute).then { |value| [attribute, value] }
   end
 
   def attribute_option_names
