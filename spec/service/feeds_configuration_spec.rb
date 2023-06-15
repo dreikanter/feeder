@@ -61,7 +61,7 @@ RSpec.describe FeedsConfiguration do
 
   before { Feed.delete_all }
 
-  it "returns feeds array" do
+  it "enable expected feeds" do
     service.sync
     expect(enabled_feed_names).to contain_exactly(*expected_feed_names)
   end

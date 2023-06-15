@@ -18,7 +18,7 @@ class FeedsConfiguration
   def sync
     logger.info("updating feeds from configuration")
     disable_missing_feeds
-    create_ot_update_existing_feeds
+    create_to_update_feeds
   end
 
   private
