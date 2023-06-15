@@ -1,3 +1,4 @@
+# Update Feed records from a configuration file
 class FeedsConfiguration
   include Logging
 

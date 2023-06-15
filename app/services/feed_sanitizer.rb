@@ -1,3 +1,4 @@
+# Sanitize feed configuration data
 class FeedSanitizer
   include Callee
 
