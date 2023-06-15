@@ -8,20 +8,11 @@ class FeedSanitizer
   option(:normalizer, type: Dry::Types["strict.string"], optional: true)
   option(:processor, type: Dry::Types["strict.string"], optional: true)
   option(:url, type: Dry::Types["strict.string"], optional: true)
+  option(:source, type: Dry::Types["strict.string"], optional: true)
+  option(:description, type: Dry::Types["strict.string"], optional: true)
   option(:disabling_reason, type: Dry::Types["strict.string"], optional: true)
-
-  option(
-    :options,
-    type: Dry::Types["strict.hash"],
-    optional: true,
-    default: -> { {} }
-  )
-
-  option(
-    :refresh_interval,
-    type: Dry::Types["strict.integer"],
-    optional: true
-  )
+  option(:options, type: Dry::Types["strict.hash"], optional: true, default: -> { {} })
+  option(:refresh_interval, type: Dry::Types["strict.integer"], optional: true)
 
   # @return [Hash] sanitized feed configuration attributes
   def call

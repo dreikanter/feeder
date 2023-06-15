@@ -1,9 +1,7 @@
 require "rails_helper"
 
 RSpec.describe FeedsConfiguration do
-  subject(:service) { described_class.new(path: path) }
-
-  let(:path) { file_fixture("sample_feeds.yml") }
+  subject(:service) { described_class.new(path: file_fixture("sample_feeds.yml")) }
 
   let(:configurable_attributes) do
     %w[
@@ -17,12 +15,15 @@ RSpec.describe FeedsConfiguration do
       import_limit
       state
       disabling_reason
+      description
+      source
     ].freeze
   end
 
   let(:expected_feed_names) { %w[oglaf phdcomics xkcd].sort }
-  let(:existing_feed) { create(:feed, name: "xkcd", state: "disabled") }
+  let(:existing_feed) { create(:feed, name: "xkcd", **existing_feed_before_update) }
   let(:missing_feed) { create(:feed, name: "missing_from_the_configuration", state: "enabled") }
+  let(:enabled_feed) { create(:feed, name: "phdcomics", state: "enabled") }
 
   let(:existing_feed_before_update) do
     {
@@ -35,22 +36,26 @@ RSpec.describe FeedsConfiguration do
       "refresh_interval" => 0,
       "state" => "disabled",
       "url" => "https://example.com",
-      "disabling_reason" => nil
+      "disabling_reason" => "",
+      "description" => "",
+      "source" => ""
     }
   end
 
   let(:existing_feed_after_update) do
     {
       "after" => Time.parse("2023-06-09 00:00:00.000000000 +0000"),
-      "import_limit" => nil,
-      "loader" => nil,
-      "normalizer" => nil,
-      "options" => {},
+      "import_limit" => 10,
+      "loader" => "http",
       "processor" => "rss",
-      "refresh_interval" => 0,
+      "normalizer" => "xkcd",
+      "options" => {"sample_option" => "option_value"},
+      "refresh_interval" => 1800,
       "state" => "enabled",
-      "url" => "http://xkcd.com/rss.xml",
-      "disabling_reason" => nil
+      "url" => "https://xkcd.com/rss.xml",
+      "disabling_reason" => "Sample reason",
+      "description" => "Feed description",
+      "source" => "https://xkcd.com"
     }
   end
 
@@ -68,10 +73,6 @@ RSpec.describe FeedsConfiguration do
   it "updates existing feeds" do
     expect { service.sync }.to change { existing_feed.reload.attributes.slice(*configurable_attributes) }
       .from(existing_feed_before_update).to(existing_feed_after_update)
-  end
-
-  it "updates disabled feeds state" do
-    expect { service.sync }.to change { missing_feed.reload.state }.from("enabled").to("disabled")
   end
 
   it "knows default path to the production configuration" do

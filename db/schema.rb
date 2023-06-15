@@ -92,7 +92,9 @@ ActiveRecord::Schema.define(version: 2023_06_15_035946) do
     t.integer "errors_count", default: 0, null: false
     t.integer "total_errors_count", default: 0, null: false
     t.datetime "state_updated_at"
-    t.string "disabling_reason"
+    t.string "source", default: "", null: false
+    t.string "description", default: "", null: false
+    t.string "disabling_reason", default: "", null: false
     t.index ["name"], name: "index_feeds_on_name", unique: true
     t.index ["status"], name: "index_feeds_on_status"
   end
