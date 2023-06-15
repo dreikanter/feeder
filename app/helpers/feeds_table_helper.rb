@@ -10,7 +10,7 @@ module FeedsTableHelper
 
               alt_order = asc_order ? "desc" : "asc"
               column_order = current_attribute ? alt_order : column[:order]
-              concat(link_to(column[:caption], feeds_path(order_by: attribute, order: column_order)))
+              concat(link_to(column[:caption], feeds_path(order_by: attribute, order: column_order), class: "text-body"))
 
               arrow = asc_order ? " ↓" : " ↑"
               concat(current_attribute ? arrow : "")
