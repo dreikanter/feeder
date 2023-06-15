@@ -18,7 +18,8 @@ RSpec.describe FeedSanitizer do
       refresh_interval: 1800,
       source: "https://xkcd.com",
       description: "Feed description",
-      disabling_reason: "Sample reason"
+      disabling_reason: "Sample reason",
+      enabled: true
     }
   end
 
@@ -37,6 +38,6 @@ RSpec.describe FeedSanitizer do
   end
 
   it "omits undefined attributes" do
-    expect(service.call(**minimal_config)).to eq(minimal_config)
+    expect(service.call(**minimal_config)).to eq(name: "dilbert")
   end
 end

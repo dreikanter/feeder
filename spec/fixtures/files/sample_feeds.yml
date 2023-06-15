@@ -1,5 +1,6 @@
 ---
 - name: "xkcd"
+  enabled: true
   url: "https://xkcd.com/rss.xml"
   loader: "http"
   processor: "rss"

@@ -32,18 +32,23 @@ class FeedsConfiguration
   end
 
   def create_ot_update_existing_feeds
-    feeds_configuration.each do |feed_name, attributes|
-      feed = Feed.find_or_create_by(name: feed_name)
-      feed.update!(**attributes)
+    feeds_configuration.each do |attributes|
+      feed = Feed.find_or_create_by(name: attributes.fetch(:name))
+      feed.update!(**attributes.except(:name, :enabled))
+      update_feed_state(feed, attributes.key?(:enabled) ? attributes[:enabled] : true)
+    end
+  end
+
+  def update_feed_state(feed, enabled)
+    if enabled
       feed.enable! if feed.may_enable?
+    else
+      feed.disable! if feed.may_disable?
     end
   end
 
   def feeds_configuration
-    @feeds_configuration ||= config_data.to_h do |config|
-      attributes = FeedSanitizer.call(**config.symbolize_keys)
-      [attributes[:name], attributes.except(:name)]
-    end
+    @feeds_configuration ||= config_data.to_h { |config| FeedSanitizer.call(**config.symbolize_keys) }
   end
 
   def config_data
