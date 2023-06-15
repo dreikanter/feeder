@@ -8,6 +8,7 @@ class FeedSanitizer
   option(:normalizer, type: Dry::Types["strict.string"], optional: true)
   option(:processor, type: Dry::Types["strict.string"], optional: true)
   option(:url, type: Dry::Types["strict.string"], optional: true)
+  option(:disabling_reason, type: Dry::Types["strict.string"], optional: true)
 
   option(
     :options,

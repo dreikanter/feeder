@@ -16,6 +16,7 @@ RSpec.describe FeedsConfiguration do
       options
       import_limit
       state
+      disabling_reason
     ].freeze
   end
 
@@ -33,7 +34,8 @@ RSpec.describe FeedsConfiguration do
       "processor" => nil,
       "refresh_interval" => 0,
       "state" => "disabled",
-      "url" => "https://example.com"
+      "url" => "https://example.com",
+      "disabling_reason" => nil
     }
   end
 
@@ -47,7 +49,8 @@ RSpec.describe FeedsConfiguration do
       "processor" => "rss",
       "refresh_interval" => 0,
       "state" => "enabled",
-      "url" => "http://xkcd.com/rss.xml"
+      "url" => "http://xkcd.com/rss.xml",
+      "disabling_reason" => nil
     }
   end
 

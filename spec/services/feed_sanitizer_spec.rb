@@ -12,7 +12,8 @@ RSpec.describe FeedSanitizer do
       options: {},
       processor: "xkcd",
       url: "http://xkcd.com/rss.xml",
-      refresh_interval: 1800
+      refresh_interval: 1800,
+      disabling_reason: "Sample reason"
     }
   end
 
