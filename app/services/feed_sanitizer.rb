@@ -31,7 +31,7 @@ class FeedSanitizer
   end
 
   def attribute_option_names
-    option_names.excluding(:name, :enabled)
+    option_names.intersection(Feed::CONFIGURABLE_ATTRIBUTES)
   end
 
   def option_names

@@ -29,6 +29,21 @@
 class Feed < ApplicationRecord
   include AASM
 
+  # Attribute names, eligible to be updated from the configuration file data
+  CONFIGURABLE_ATTRIBUTES = %i[
+    after
+    description
+    disabling_reason
+    import_limit
+    loader
+    normalizer
+    options
+    processor
+    refresh_interval
+    source
+    url
+  ].freeze
+
   has_many :posts, dependent: :delete_all
 
   validates :name, presence: true
