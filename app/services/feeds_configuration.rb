@@ -18,7 +18,7 @@ class FeedsConfiguration
   def sync
     logger.info("updating feeds from configuration")
     disable_missing_feeds
-    create_to_update_feeds
+    create_or_update_feeds
   end
 
   private
@@ -28,27 +28,19 @@ class FeedsConfiguration
   end
 
   def missing_feeds
-    Feed.where.not(name: feeds_configuration.keys)
+    Feed.where.not(name: feed_names)
   end
 
-  def create_ot_update_existing_feeds
-    feeds_configuration.each do |attributes|
-      feed = Feed.find_or_create_by(name: attributes.fetch(:name))
-      feed.update!(**attributes.except(:name, :enabled))
-      update_feed_state(feed, attributes.key?(:enabled) ? attributes[:enabled] : true)
-    end
+  def feed_names
+    feed_configurations.filter_map { |configuration| configuration[:name] }.uniq
   end
 
-  def update_feed_state(feed, enabled)
-    if enabled
-      feed.enable! if feed.may_enable?
-    else
-      feed.disable! if feed.may_disable?
-    end
+  def create_or_update_feeds
+    feed_configurations.each { |configuration| FeedUpdater.new(**configuration).create_or_update }
   end
 
-  def feeds_configuration
-    @feeds_configuration ||= config_data.to_h { |config| FeedSanitizer.call(**config.symbolize_keys) }
+  def feed_configurations
+    @feed_configurations ||= config_data.map { |config| FeedSanitizer.call(**config.symbolize_keys) }
   end
 
   def config_data

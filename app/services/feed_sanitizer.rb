@@ -19,7 +19,7 @@ class FeedSanitizer
   def call
     {
       name: name,
-      enabled: enabled,
+      enabled: !!enabled,
       attributes: attributes
     }
   end
