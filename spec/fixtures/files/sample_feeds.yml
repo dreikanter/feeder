@@ -1,16 +1,26 @@
 ---
 - name: "xkcd"
-  url: "http://xkcd.com/rss.xml"
+  url: "https://xkcd.com/rss.xml"
+  loader: "http"
   processor: "rss"
+  normalizer: "xkcd"
   after: "2023-06-09T00:00:00+00:00"
+  refresh_interval: 1800
+  import_limit: 10
+  source: "https://xkcd.com"
+  description: "Feed description"
+  disabling_reason: "Sample reason"
+  options:
+    sample_option: "option_value"
 
 - name: "oglaf"
-  url: "http://oglaf.com/feeds/rss/"
+  url: "https://oglaf.com/feeds/rss/"
   processor: "oglaf"
   normalizer: "oglaf"
   after: "2023-06-09T00:00:00+00:00"
 
 - name: "phdcomics"
-  url: "http://feeds.feedburner.com/PhdComics"
+  url: "https://feeds.feedburner.com/PhdComics"
   processor: "rss"
   after: "2023-06-09T00:00:00+00:00"
+  disabling_reason: "Sample reason"
