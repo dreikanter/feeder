@@ -1,3 +1,4 @@
+# Update Feed records from a configuration file
 class FeedsConfiguration
   include Logging
 
@@ -18,7 +19,7 @@ class FeedsConfiguration
   def sync
     logger.info("updating feeds from configuration")
     disable_missing_feeds
-    create_ot_update_existing_feeds
+    create_or_update_feeds
   end
 
   private
@@ -28,22 +29,19 @@ class FeedsConfiguration
   end
 
   def missing_feeds
-    Feed.where.not(name: feeds_configuration.keys)
+    Feed.where.not(name: feed_names)
   end
 
-  def create_ot_update_existing_feeds
-    feeds_configuration.each do |feed_name, attributes|
-      feed = Feed.find_or_create_by(name: feed_name)
-      feed.update!(**attributes)
-      feed.enable! if feed.may_enable?
-    end
+  def feed_names
+    feed_configurations.filter_map { |configuration| configuration[:name] }.uniq
   end
 
-  def feeds_configuration
-    @feeds_configuration ||= config_data.to_h do |config|
-      attributes = FeedSanitizer.call(**config.symbolize_keys)
-      [attributes[:name], attributes.except(:name)]
-    end
+  def create_or_update_feeds
+    feed_configurations.each { |configuration| FeedUpdater.new(**configuration).create_or_update }
+  end
+
+  def feed_configurations
+    @feed_configurations ||= config_data.map { |config| FeedSanitizer.call(**config.symbolize_keys) }
   end
 
   def config_data

@@ -1,3 +1,4 @@
+# Sanitize feed configuration data
 class FeedSanitizer
   include Callee
 
@@ -13,16 +14,30 @@ class FeedSanitizer
   option(:disabling_reason, type: Dry::Types["strict.string"], optional: true)
   option(:options, type: Dry::Types["strict.hash"], optional: true, default: -> { {} })
   option(:refresh_interval, type: Dry::Types["strict.integer"], optional: true)
+  option(:enabled, type: Dry::Types["params.bool"], optional: true, default: -> { true })
 
-  # @return [Hash] sanitized feed configuration attributes
+  # @return [Hash] sanitized feed configuration data
   def call
-    option_names
-      .map { |target| [target, send(target)] }
-      .filter { |_, value| value.present? }
-      .to_h
+    {
+      name: name,
+      enabled: !!enabled,
+      attributes: attributes
+    }
   end
 
   private
+
+  def attributes
+    attribute_option_names.filter_map { |attribute| tuple(attribute) }.to_h.compact
+  end
+
+  def tuple(attribute)
+    send(attribute).then { |value| [attribute, value] }
+  end
+
+  def attribute_option_names
+    option_names.intersection(Feed::CONFIGURABLE_ATTRIBUTES)
+  end
 
   def option_names
     self.class.dry_initializer.options.map(&:target)
