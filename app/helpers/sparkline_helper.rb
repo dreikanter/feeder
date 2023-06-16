@@ -2,7 +2,7 @@ module SparklineHelper
   def generate_feed_sparkline(feed)
     tag.span(class: "font-monospace") do
       feed.sparkline_points.each do |point|
-        concat(tag.span(title: sparkline_tooltip(point["date"], point["value"].to_i)) { point["sparky"] })
+        concat(tag.span(title: sparkline_tooltip(point["date"], point["value"].to_i)) { point["sparky"].presence || "&nbsp;".html_safe })
       end
     end
   end
