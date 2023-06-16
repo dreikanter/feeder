@@ -4,7 +4,7 @@ module FeedsTableHelper
       tag.tr do
         FEED_TABLE_COLUMNS.each do |attribute, column|
           concat(
-            tag.th do
+            tag.th(class: column[:classes]) do
               asc_order = order == "asc"
               current_attribute = order_by == attribute
 
@@ -54,8 +54,9 @@ module FeedsTableHelper
       order: "desc"
     },
     "last_post_created_at" => {
-      caption: "Last post",
-      order: "desc"
+      caption: "Daily imports",
+      order: "desc",
+      classes: "sparkline-column"
     }
   }.freeze
 
