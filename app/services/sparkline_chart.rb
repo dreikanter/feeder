@@ -1,16 +1,14 @@
 class SparklineChart
-  attr_reader :timeline, :start_date, :end_date
+  attr_reader :timeline
 
   SPARKIES = "▁▂▃▄▅▆▇█".freeze
   ZERO_SPARKY = " ".freeze
   SPARKS_RANGE = SPARKIES.length
   CENTER = SPARKS_RANGE / 2
 
-  # @params timeline [Hash] {DateTime => Integer}
-  def initialize(timeline:, start_date:, end_date:)
+  # @param :timeline [Hash] {DateTime => Integer}
+  def initialize(timeline)
     @timeline = timeline
-    @start_date = start_date
-    @end_date = end_date
   end
 
   def generate
@@ -67,6 +65,14 @@ class SparklineChart
   end
 
   def dates
-    start_date.to_date..end_date.to_date
+    timeline.empty? ? [] : start_date..end_date
+  end
+
+  def start_date
+    timeline.keys.min.to_date
+  end
+
+  def end_date
+    timeline.keys.max.to_date
   end
 end

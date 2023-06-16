@@ -1,24 +1,16 @@
 require "rails_helper"
 
 RSpec.describe SparklineChart do
-  subject(:sparkline) do
-    described_class.new(
-      timeline: timeline,
-      start_date: start_date,
-      end_date: end_date
-    ).generate
-  end
+  subject(:sparkline) { described_class.new(timeline).generate }
 
   let(:timeline) { {} }
-  let(:start_date) { timeline.keys.min }
-  let(:end_date) { timeline.keys.max }
 
   context "when on a happy path" do
     let(:timeline) do
       {
         Date.parse("2023-06-01") => 0,
         Date.parse("2023-06-02") => 1,
-        Date.parse("2023-06-03") => 55,
+        Date.parse("2023-06-03") => 42,
         Date.parse("2023-06-04") => 20,
         Date.parse("2023-06-05") => 77
       }
@@ -28,7 +20,7 @@ RSpec.describe SparklineChart do
       [
         {date: Date.parse("2023-06-01"), value: 0, bucket: 0, sparky: " "},
         {date: Date.parse("2023-06-02"), value: 1, bucket: 0, sparky: "▁"},
-        {date: Date.parse("2023-06-03"), value: 55, bucket: 5, sparky: "▆"},
+        {date: Date.parse("2023-06-03"), value: 42, bucket: 4, sparky: "▅"},
         {date: Date.parse("2023-06-04"), value: 20, bucket: 2, sparky: "▃"},
         {date: Date.parse("2023-06-05"), value: 77, bucket: 7, sparky: "█"}
       ]
@@ -43,7 +35,7 @@ RSpec.describe SparklineChart do
     let(:timeline) do
       {
         Date.parse("2023-06-01") => 0,
-        Date.parse("2023-06-03") => 55,
+        Date.parse("2023-06-03") => 42,
         Date.parse("2023-06-05") => 77
       }
     end
@@ -52,7 +44,7 @@ RSpec.describe SparklineChart do
       [
         {date: Date.parse("2023-06-01"), value: 0, bucket: 0, sparky: " "},
         {date: Date.parse("2023-06-02"), value: 0, bucket: 0, sparky: " "},
-        {date: Date.parse("2023-06-03"), value: 55, bucket: 5, sparky: "▆"},
+        {date: Date.parse("2023-06-03"), value: 42, bucket: 4, sparky: "▅"},
         {date: Date.parse("2023-06-04"), value: 0, bucket: 0, sparky: " "},
         {date: Date.parse("2023-06-05"), value: 77, bucket: 7, sparky: "█"}
       ]
@@ -63,49 +55,27 @@ RSpec.describe SparklineChart do
     end
   end
 
-  context "with empty dates range" do
-    let(:start_date) { Date.parse("2023-06-01") }
-    let(:end_date) { Date.parse("2023-06-05") }
-
-    let(:expected) do
-      [
-        {date: Date.parse("2023-06-01"), value: 0, bucket: 0, sparky: " "},
-        {date: Date.parse("2023-06-02"), value: 0, bucket: 0, sparky: " "},
-        {date: Date.parse("2023-06-03"), value: 0, bucket: 0, sparky: " "},
-        {date: Date.parse("2023-06-04"), value: 0, bucket: 0, sparky: " "},
-        {date: Date.parse("2023-06-05"), value: 0, bucket: 0, sparky: " "}
-      ]
-    end
-
-    it "generates blank chart" do
-      expect(sparkline).to eq(expected)
+  context "with empty timeline" do
+    it "generates empty chart" do
+      expect(sparkline).to be_empty
     end
   end
 
   context "with only one date" do
     let(:timeline) do
       {
-        Date.parse("2023-06-01") => 55
+        Date.parse("2023-06-01") => 42
       }
     end
 
     let(:expected) do
       [
-        {date: Date.parse("2023-06-01"), value: 55, bucket: 4, sparky: "▅"}
+        {date: Date.parse("2023-06-01"), value: 42, bucket: 4, sparky: "▅"}
       ]
     end
 
-    it "returns no data points" do
+    it "presents the value as an verage" do
       expect(sparkline).to eq(expected)
-    end
-  end
-
-  context "with incorrect dates range" do
-    let(:start_date) { Date.parse("2023-06-01") }
-    let(:end_date) { start_date - 1.day }
-
-    it "returns no data points" do
-      expect(sparkline).to be_empty
     end
   end
 
