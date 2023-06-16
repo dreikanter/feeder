@@ -54,7 +54,7 @@ RSpec.describe Feed do
 
     it "keeps null last during asc ordering" do
       feed_with_no_refreshed_at
-      last_feed_id = ordered_by_refreshed_at(:desc).pluck(:id).last
+      last_feed_id = ordered_by_refreshed_at(:asc).pluck(:id).last
       expect(last_feed_id).to eq(feed_with_no_refreshed_at.id)
     end
 
