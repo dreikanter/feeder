@@ -368,6 +368,8 @@
     ignore_retweets: true
 
 - name: "bazar"
+  enabled: false
+  disabling_reason: "No new episodes since 2022"
   url: "https://meduza.io/rss/podcasts/knizhnyy-bazar"
   processor: "feedjira"
   normalizer: "bazar"
