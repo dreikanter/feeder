@@ -45,6 +45,7 @@ class Feed < ApplicationRecord
   ].freeze
 
   has_many :posts, dependent: :delete_all
+  has_one :sparkline
 
   validates :name, presence: true
 

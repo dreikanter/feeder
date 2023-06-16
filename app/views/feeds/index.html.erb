@@ -36,13 +36,7 @@
             <%- end -%>
           <%- end -%>
         </td>
-        <td>
-          <%- if feed.last_post_created_at -%>
-            <time datetime="<%= feed.last_post_created_at.rfc3339 %>">
-              <%= ago(feed.last_post_created_at) -%>
-            </time>
-          <%- end -%>
-        </td>
+        <td><%= generate_sparkline(feed.sparkline) -%></td>
       </tr>
     <%- end -%>
   </tbody>
