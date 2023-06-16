@@ -55,7 +55,7 @@ class Feed < ApplicationRecord
     state :disabled
 
     event :enable do
-      transitions from: %i[pristine disabled], to: :enabled
+      transitions from: %i[pristine disabled], to: :enabled, guard: :touch_state_updated_at
     end
 
     event :pause do
@@ -67,7 +67,7 @@ class Feed < ApplicationRecord
     end
 
     event :disable do
-      transitions from: %i[pristine enabled paused], to: :disabled
+      transitions from: %i[pristine enabled paused], to: :disabled, guard: :touch_state_updated_at
     end
   end
 
@@ -91,5 +91,10 @@ class Feed < ApplicationRecord
 
   def seconds_since_last_refresh
     (Time.now.utc.to_i - refreshed_at.to_i).abs
+  end
+
+  def touch_state_updated_at
+    puts "UPDATING touch_state_updated_at"
+    touch(:state_updated_at)
   end
 end

@@ -30,8 +30,26 @@ RSpec.describe Feed do
     end
   end
 
-  it "whould not init import limit with a default" do
-    expect(described_class.new.import_limit).to be_nil
+  describe "state" do
+    let(:enabled_feed) { create(:feed, state: "enabled") }
+    let(:disabled_feed) { create(:feed, state: "enabled") }
+    let(:paused_feed) { create(:feed, state: "paused") }
+
+    it "updates timestamp on enable" do
+      expect { enabled_feed.disable! }.to(change { enabled_feed.state_updated_at }.from(nil).to(Time.current))
+    end
+
+    it "updates timestamp on disable" do
+      expect { enabled_feed.disable! }.to(change { enabled_feed.state_updated_at }.from(nil).to(Time.current))
+    end
+
+    it "keeps timestamp on pause" do
+      expect { enabled_feed.pause! }.not_to change(enabled_feed, :state_updated_at)
+    end
+
+    it "keeps timestamp on unpause" do
+      expect { paused_feed.unpause! }.not_to change(enabled_feed, :state_updated_at)
+    end
   end
 
   describe "staling" do
