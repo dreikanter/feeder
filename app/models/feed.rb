@@ -71,7 +71,7 @@ class Feed < ApplicationRecord
     end
   end
 
-  scope :ordered_by, ->(attribute, direction) { order(attribute => direction).order(Arel.sql("last_post_created_at IS NULL, last_post_created_at DESC")) }
+  scope :ordered_by, ->(attribute, direction) { order(sanitize_sql_for_order("#{attribute} #{direction} NULLS LAST")) }
 
   scope :stale, lambda {
     where(refresh_interval: 0)
