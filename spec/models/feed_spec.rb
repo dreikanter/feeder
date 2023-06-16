@@ -8,25 +8,33 @@ RSpec.describe Feed do
 
   around { |example| freeze_time { example.run } }
 
-  it "is valid" do
-    expect(build(:feed)).to be_valid
+  describe "validation" do
+    it "is valid" do
+      expect(build(:feed)).to be_valid
+    end
+
+    it "requires name" do
+      feed = build(:feed, name: nil)
+      expect(feed).not_to be_valid
+      expect(feed.errors).to include(:name)
+    end
   end
 
-  it "requires name" do
-    feed = build(:feed, name: nil)
-    expect(feed).not_to be_valid
-    expect(feed.errors).to include(:name)
-  end
+  describe "initialization" do
+    it "inits refresh interval with a default" do
+      expect(described_class.new.refresh_interval).to be_zero
+    end
 
-  it "inits refresh interval with a default" do
-    expect(described_class.new.refresh_interval).to be_zero
+    it "whould not init import limit with a default" do
+      expect(described_class.new.import_limit).to be_nil
+    end
   end
 
   it "whould not init import limit with a default" do
     expect(described_class.new.import_limit).to be_nil
   end
 
-  describe "stale" do
+  describe "staling" do
     it "inits treat new feed as stale" do
       expect(described_class.new).to be_stale
     end
