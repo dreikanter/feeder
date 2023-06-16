@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hint.css/1.2.1/hint.min.css" integrity="sha512-VgCRZpenEX+OZNOBG+yA2TWvWmIwe+gjSe9HmodkkOusP/pCF3zZCvg1RJc4eQ+pEhw9X1fU7ss9HmgzxBMOfQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title><%= content_for?(:title) ? yield(:title) : 'Feeder' -%></title>
     <link rel="icon" href="data:,">
+    <style>
+      .sparkline {
+        font-family: monospace;
+        color: lightgray;
+        border-bottom: 1px solid lightgray;
+      }
+    </style>
     <%= render(partial: 'partials/google_analytics') unless Rails.env.production? -%>
   </head>
   <body>
