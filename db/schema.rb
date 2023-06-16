@@ -137,5 +137,4 @@ ActiveRecord::Schema.define(version: 2023_06_16_143631) do
     t.index ["feed_id"], name: "index_sparklines_on_feed_id"
   end
 
-  add_foreign_key "sparklines", "feeds"
 end
