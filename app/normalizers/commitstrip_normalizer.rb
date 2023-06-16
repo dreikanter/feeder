@@ -1,6 +1,10 @@
 class CommitstripNormalizer < FeedjiraNormalizer
   protected
 
+  def text
+    [content.title, content.url].join(separator)
+  end
+
   def link
     content.url
   end
