@@ -54,7 +54,7 @@ module FeedsTableHelper
       order: "desc"
     },
     "last_post_created_at" => {
-      caption: "Last post",
+      caption: "Daily imports",
       order: "desc"
     }
   }.freeze
