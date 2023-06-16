@@ -57,7 +57,7 @@ class SparklineChart
   end
 
   def complemented_timeline
-    dates.to_h { |date| [date, normalized_value(timeline[date])] }
+    dates.index_with { |date| normalized_value(timeline[date]) }
   end
 
   def normalized_value(value)

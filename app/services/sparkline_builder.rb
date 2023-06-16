@@ -21,7 +21,7 @@ class SparklineBuilder
 
   # TODO: Optimize with grouping by date
   def timeline
-    dates.to_h { |date| [date, posts_count_at(date)] }
+    dates.index_with { |date| posts_count_at(date) }
   end
 
   def posts_count_at(date)
