@@ -32,15 +32,15 @@ RSpec.describe Feed do
 
   describe "state" do
     let(:enabled_feed) { create(:feed, state: "enabled") }
-    let(:disabled_feed) { create(:feed, state: "enabled") }
+    let(:disabled_feed) { create(:feed, state: "disabled") }
     let(:paused_feed) { create(:feed, state: "paused") }
 
     it "updates timestamp on enable" do
-      expect { enabled_feed.disable! }.to(change { enabled_feed.state_updated_at }.from(nil).to(Time.current))
+      expect { disabled_feed.enable! }.to(change(disabled_feed, :state_updated_at).from(nil).to(Time.current))
     end
 
     it "updates timestamp on disable" do
-      expect { enabled_feed.disable! }.to(change { enabled_feed.state_updated_at }.from(nil).to(Time.current))
+      expect { enabled_feed.disable! }.to(change(enabled_feed, :state_updated_at).from(nil).to(Time.current))
     end
 
     it "keeps timestamp on pause" do
@@ -48,7 +48,7 @@ RSpec.describe Feed do
     end
 
     it "keeps timestamp on unpause" do
-      expect { paused_feed.unpause! }.not_to change(enabled_feed, :state_updated_at)
+      expect { paused_feed.unpause! }.not_to change(paused_feed, :state_updated_at)
     end
   end
 

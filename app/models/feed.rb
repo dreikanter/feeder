@@ -94,7 +94,6 @@ class Feed < ApplicationRecord
   end
 
   def touch_state_updated_at
-    puts "UPDATING touch_state_updated_at"
     touch(:state_updated_at)
   end
 end
