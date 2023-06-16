@@ -26,6 +26,43 @@ RSpec.describe Feed do
     expect(described_class.new.import_limit).to be_nil
   end
 
+  describe "ordered_by" do
+    let(:sample_timestamps) do
+      [
+        DateTime.parse("2023-06-16 02:00:00 +0000"),
+        DateTime.parse("2023-06-16 01:00:00 +0000"),
+        DateTime.parse("2023-06-16 00:00:00 +0000")
+      ]
+    end
+
+    let(:feed_with_no_refreshed_at) { create(:feed, refreshed_at: nil) }
+
+    before do
+      sample_timestamps.each { |timestamp| create(:feed, refreshed_at: timestamp) }
+    end
+
+    it "orders records" do
+      timestamps = ordered_by_refreshed_at(:desc).pluck(:refreshed_at)
+      expect(timestamps).to eq(sample_timestamps.sort.reverse)
+    end
+
+    it "keeps null last during desc ordering" do
+      feed_with_no_refreshed_at
+      last_feed_id = ordered_by_refreshed_at(:desc).pluck(:id).last
+      expect(last_feed_id).to eq(feed_with_no_refreshed_at.id)
+    end
+
+    it "keeps null last during asc ordering" do
+      feed_with_no_refreshed_at
+      last_feed_id = ordered_by_refreshed_at(:desc).pluck(:id).last
+      expect(last_feed_id).to eq(feed_with_no_refreshed_at.id)
+    end
+
+    def ordered_by_refreshed_at(direction)
+      described_class.ordered_by(:refreshed_at, direction)
+    end
+  end
+
   describe "stale" do
     it "inits treat new feed as stale" do
       expect(described_class.new).to be_stale
