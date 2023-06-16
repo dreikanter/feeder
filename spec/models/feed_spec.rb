@@ -8,25 +8,51 @@ RSpec.describe Feed do
 
   around { |example| freeze_time { example.run } }
 
-  it "is valid" do
-    expect(build(:feed)).to be_valid
+  describe "validation" do
+    it "is valid" do
+      expect(build(:feed)).to be_valid
+    end
+
+    it "requires name" do
+      feed = build(:feed, name: nil)
+      expect(feed).not_to be_valid
+      expect(feed.errors).to include(:name)
+    end
   end
 
-  it "requires name" do
-    feed = build(:feed, name: nil)
-    expect(feed).not_to be_valid
-    expect(feed.errors).to include(:name)
+  describe "initialization" do
+    it "inits refresh interval with a default" do
+      expect(described_class.new.refresh_interval).to be_zero
+    end
+
+    it "whould not init import limit with a default" do
+      expect(described_class.new.import_limit).to be_nil
+    end
   end
 
-  it "inits refresh interval with a default" do
-    expect(described_class.new.refresh_interval).to be_zero
+  describe "state" do
+    let(:enabled_feed) { create(:feed, state: "enabled") }
+    let(:disabled_feed) { create(:feed, state: "disabled") }
+    let(:paused_feed) { create(:feed, state: "paused") }
+
+    it "updates timestamp on enable" do
+      expect { disabled_feed.enable! }.to(change(disabled_feed, :state_updated_at).from(nil).to(Time.current))
+    end
+
+    it "updates timestamp on disable" do
+      expect { enabled_feed.disable! }.to(change(enabled_feed, :state_updated_at).from(nil).to(Time.current))
+    end
+
+    it "keeps timestamp on pause" do
+      expect { enabled_feed.pause! }.not_to change(enabled_feed, :state_updated_at)
+    end
+
+    it "keeps timestamp on unpause" do
+      expect { paused_feed.unpause! }.not_to change(paused_feed, :state_updated_at)
+    end
   end
 
-  it "whould not init import limit with a default" do
-    expect(described_class.new.import_limit).to be_nil
-  end
-
-  describe "stale" do
+  describe "staling" do
     it "inits treat new feed as stale" do
       expect(described_class.new).to be_stale
     end
