@@ -84,6 +84,14 @@ class Feed < ApplicationRecord
     refresh_interval.zero? || !refreshed_at || too_long_since_last_refresh?
   end
 
+  def update_sparkline
+    SparklineBuilder.new(self, start_date: 1.month.ago, end_date: DateTime.now).create_or_update
+  end
+
+  def sparkline_points
+    sparkline&.points || []
+  end
+
   private
 
   def too_long_since_last_refresh?
