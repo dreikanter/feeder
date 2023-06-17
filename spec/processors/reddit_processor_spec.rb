@@ -20,49 +20,41 @@ RSpec.describe RedditProcessor do
   let(:thread_url) { %r{^https://.*/r/worldnews/comments/} }
   let(:thread_contents) { file_fixture("feeds/reddit/libreddit_comments_page.html").read }
 
-  before { DataPoint.for(:reddit).delete_all }
+  before { Rails.cache.clear }
 
   it "fetches reddit points" do
-    stub_request(:get, thread_url).to_return(body: thread_contents)
+    stub_posts_score_request
     expect(call_processor.map(&:uid)).to eq(expected_uids)
   end
 
-  it "creates data points to cache post score" do
-    stub_request(:get, thread_url).to_return(body: thread_contents)
-    expect { call_processor }.to(change { DataPoint.all.pluck(:details) }.from([]).to(expected_data_points))
+  it "caches posts score to prevent repeating HTTP requests too soon" do
+    stub = stub_posts_score_request
+    call_processor
+    remove_request_stub(stub)
+    expect { call_processor }.not_to raise_error
+  end
+
+  it "expires cache" do
+    travel_to(4.hours.ago) do
+      stub = stub_posts_score_request
+      call_processor
+      remove_request_stub(stub)
+    end
+
+    # NOTE: Attempt to fetch fresh data after cache expired
+    expect { call_processor }.to raise_error(WebMock::NetConnectNotAllowedError)
   end
 
   it "ignores posts on score service error" do
     stub_request(:get, thread_url).to_return(status: 404)
     expect(call_processor).to be_empty
-    expect(DataPoint.for(:reddit).pluck(:details)).to be_empty
-  end
-
-  it "waits cache expiration before repeating post score requests" do
-    import_expected_data_points
-    expect { expected_data_points }.not_to raise_error
-  end
-
-  it "refreshes cached post scores" do
-    freeze_time do
-      import_expected_data_points(created_at: 5.hours.ago, custom_details: {"points" => 0})
-      stub_request(:get, thread_url).to_return(body: thread_contents)
-      call_processor
-      expect(DataPoint.for(:reddit).where(created_at: Time.current).pluck(:details)).to eq(expected_data_points)
-    end
   end
 
   def call_processor
     processor.call(content, feed: feed, import_limit: 0)
   end
 
-  def import_expected_data_points(created_at: nil, custom_details: {})
-    expected_data_points.each do |details|
-      CreateDataPoint.call(
-        :reddit,
-        created_at: created_at,
-        details: details.merge(custom_details)
-      )
-    end
+  def stub_posts_score_request
+    stub_request(:get, thread_url).to_return(body: thread_contents)
   end
 end
