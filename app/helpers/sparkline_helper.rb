@@ -5,7 +5,8 @@ module SparklineHelper
         concat(
           tag.span(
             title: sparkline_tooltip(point["date"], point["value"].to_i),
-            class: "sparkline__item"
+            class: "sparkline__item",
+            data: {bs_toggle: "tooltip", bs_placement: "top"}
           ) { point["sparky"].presence || "&nbsp;".html_safe }
         )
       end

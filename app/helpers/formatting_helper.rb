@@ -11,8 +11,28 @@ module FormattingHelper
     state = feed.state
 
     tag.span(
-      class: ["hint--top", feed_state_class(state)].join(" "),
-      data: {hint: "errors since last success: #{feed.errors_count}; total errors: #{feed.total_errors_count}"}
+      class: feed_state_class(state),
+      title: format_feed_title(feed),
+      data: {bs_toggle: "tooltip", bs_placement: "top", bs_html: true}
     ) { state }
+  end
+
+  private
+
+  def format_feed_title(feed)
+    feed.disabled? ? feed.disabling_reason : ""
+  end
+
+  FEED_STATE_CLASSES = {
+    "pristine" => "text-muted",
+    "enabled" => "text-success",
+    "paused" => "text-warning",
+    "disabled" => "text-muted"
+  }.freeze
+
+  private_constant :FEED_STATE_CLASSES
+
+  def feed_state_class(state)
+    FEED_STATE_CLASSES[state]
   end
 end

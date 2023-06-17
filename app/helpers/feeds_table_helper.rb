@@ -23,19 +23,6 @@ module FeedsTableHelper
 
   private
 
-  FEED_STATE_CLASSES = {
-    "pristine" => "text-muted",
-    "enabled" => "text-success",
-    "paused" => "text-warning",
-    "disabled" => "text-muted"
-  }.freeze
-
-  private_constant :FEED_STATE_CLASSES
-
-  def feed_state_class(state)
-    FEED_STATE_CLASSES[state]
-  end
-
   FEED_TABLE_COLUMNS = {
     "name" => {
       caption: "Name",
