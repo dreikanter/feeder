@@ -1,6 +1,6 @@
 class RedditProcessor < AtomProcessor
   SCORE_THRESHOLD = 2000
-  POST_SCORE_CACHE_TTL = 4.hours
+  POST_SCORE_CACHE_TTL = 2.hours
 
   protected
 
