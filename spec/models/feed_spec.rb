@@ -8,22 +8,86 @@ RSpec.describe Feed do
 
   around { |example| freeze_time { example.run } }
 
-  it "is valid" do
-    expect(build(:feed)).to be_valid
+  describe "validation" do
+    it "is valid" do
+      expect(build(:feed)).to be_valid
+    end
+
+    it "requires name" do
+      feed = build(:feed, name: nil)
+      expect(feed).not_to be_valid
+      expect(feed.errors).to include(:name)
+    end
   end
 
-  it "requires name" do
-    feed = build(:feed, name: nil)
-    expect(feed).not_to be_valid
-    expect(feed.errors).to include(:name)
+  describe "initialization" do
+    it "inits refresh interval with a default" do
+      expect(described_class.new.refresh_interval).to be_zero
+    end
+
+    it "whould not init import limit with a default" do
+      expect(described_class.new.import_limit).to be_nil
+    end
   end
 
-  it "inits refresh interval with a default" do
-    expect(described_class.new.refresh_interval).to be_zero
+  describe "state" do
+    let(:enabled_feed) { create(:feed, state: "enabled") }
+    let(:disabled_feed) { create(:feed, state: "disabled") }
+    let(:paused_feed) { create(:feed, state: "paused") }
+
+    it "updates timestamp on enable" do
+      expect { disabled_feed.enable! }.to(change(disabled_feed, :state_updated_at).from(nil).to(Time.current))
+    end
+
+    it "updates timestamp on disable" do
+      expect { enabled_feed.disable! }.to(change(enabled_feed, :state_updated_at).from(nil).to(Time.current))
+    end
+
+    it "keeps timestamp on pause" do
+      expect { enabled_feed.pause! }.not_to change(enabled_feed, :state_updated_at)
+    end
+
+    it "keeps timestamp on unpause" do
+      expect { paused_feed.unpause! }.not_to change(paused_feed, :state_updated_at)
+    end
   end
 
-  it "whould not init import limit with a default" do
-    expect(described_class.new.import_limit).to be_nil
+  describe "ordered_by" do
+    let(:sample_timestamps) do
+      [
+        DateTime.parse("2023-06-16 02:00:00 +0000"),
+        DateTime.parse("2023-06-16 01:00:00 +0000"),
+        DateTime.parse("2023-06-16 00:00:00 +0000")
+      ]
+    end
+
+    let(:feed_with_no_refreshed_at) { create(:feed, refreshed_at: nil) }
+
+    before do
+      described_class.delete_all
+      sample_timestamps.each { |timestamp| create(:feed, refreshed_at: timestamp) }
+    end
+
+    it "orders records" do
+      timestamps = ordered_by_refreshed_at(:desc).pluck(:refreshed_at)
+      expect(timestamps).to eq(sample_timestamps.sort.reverse)
+    end
+
+    it "keeps null last during desc ordering" do
+      feed_with_no_refreshed_at
+      last_feed_id = ordered_by_refreshed_at(:desc).pluck(:id).last
+      expect(last_feed_id).to eq(feed_with_no_refreshed_at.id)
+    end
+
+    it "keeps null last during asc ordering" do
+      feed_with_no_refreshed_at
+      last_feed_id = ordered_by_refreshed_at(:asc).pluck(:id).last
+      expect(last_feed_id).to eq(feed_with_no_refreshed_at.id)
+    end
+
+    def ordered_by_refreshed_at(direction)
+      described_class.ordered_by(:refreshed_at, direction)
+    end
   end
 
   describe "stale" do

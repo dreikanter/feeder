@@ -3,6 +3,10 @@ module FormattingHelper
     time ? "#{distance_of_time_in_words_to_now(time).gsub("about ", "")} ago" : ""
   end
 
+  def compact_ago(time)
+    distance_of_time_in_words_to_now(time, compact: true, highest_measure_only: true)
+  end
+
   def format_feed_state(feed)
     state = feed.state
 

@@ -12,10 +12,11 @@ class ProcessFeed
   private
 
   def generate_new_posts
-    logger.info("---> new posts: #{normalized_entities_count}; errors: #{errors_count}")
     feed.touch(:refreshed_at)
+    logger.info("---> new posts: #{normalized_entities_count}; errors: #{errors_count}")
     normalized_entities.each { |normalized_entity| push(normalized_entity) }
     feed.update(errors_count: 0)
+    feed.update_sparkline
   rescue StandardError => e
     increment_feed_error_counters
     dump_feed_error(e)

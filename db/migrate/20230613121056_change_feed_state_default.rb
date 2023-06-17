@@ -1,5 +1,6 @@
 class ChangeFeedStateDefault < ActiveRecord::Migration[6.1]
   def change
-    change_column :feeds, :state, :string, null: false, default: "pristine"
+    add_column :feeds, :state_updated_at, :datetime
+    change_column_default :feeds, :state, from: "enabled", to: "pristine"
   end
 end

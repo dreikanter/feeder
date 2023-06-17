@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+  xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+  >
+
+<channel>
+  <title>CommitStrip</title>
+  <atom:link href="https://www.commitstrip.com/feed/?" rel="self" type="application/rss+xml" />
+  <link>https://www.commitstrip.com</link>
+  <description>The blog relating the daily life of web agency developers</description>
+  <lastBuildDate>Tue, 19 Sep 2017 16:42:52 +0000</lastBuildDate>
+  <language>en-US</language>
+  <sy:updatePeriod>hourly</sy:updatePeriod>
+  <sy:updateFrequency>1</sy:updateFrequency>
+  <generator>https://wordpress.org/?v=4.8.1</generator>
+  <item>
+    <title>The whole team’s working on it</title>
+    <link>https://www.commitstrip.com/2017/09/19/the-whole-teams-working-on-it/</link>
+    <pubDate>Tue, 19 Sep 2017 16:42:52 +0000</pubDate>
+    <dc:creator><![CDATA[CommitStrip]]></dc:creator>
+        <category><![CDATA[Coder]]></category>
+
+    <guid isPermaLink="false">http://www.commitstrip.com/?p=17981</guid>
+    <description><![CDATA[]]></description>
+        <content:encoded><![CDATA[<p><img src="https://www.commitstrip.com/wp-content/uploads/2017/09/Strip-La-super-équipe-de-maintenance-650-finalenglish.jpg" alt="" width="650" height="869" class="alignnone size-full wp-image-17985" /></p>
+]]></content:encoded>
+      </item>
+    <item>
+    <title>Childhood of a coder: Pirate all the things</title>
+    <link>https://www.commitstrip.com/2017/09/18/childhood-of-a-coder-pirate-all-the-things/</link>
+    <pubDate>Mon, 18 Sep 2017 16:26:44 +0000</pubDate>
+    <dc:creator><![CDATA[CommitStrip]]></dc:creator>
+        <category><![CDATA[Coder]]></category>
+
+    <guid isPermaLink="false">http://www.commitstrip.com/?p=17963</guid>
+    <description><![CDATA[]]></description>
+        <content:encoded><![CDATA[<p><img src="https://www.commitstrip.com/wp-content/uploads/2017/09/Strip-Lenfance-du-codeur-Le-piratage-650-finalenglish.jpg" alt="" width="650" height="614" class="alignnone size-full wp-image-17967" /></p>
+]]></content:encoded>
+      </item>
+    <item>
+    <title>Meanwhile on Mars #13 – Cassini ?</title>
+    <link>https://www.commitstrip.com/2017/09/15/meanwhile-on-mars-13-cassini/</link>
+    <pubDate>Fri, 15 Sep 2017 15:03:30 +0000</pubDate>
+    <dc:creator><![CDATA[CommitStrip]]></dc:creator>
+        <category><![CDATA[Coder]]></category>
+
+    <guid isPermaLink="false">http://www.commitstrip.com/?p=17953</guid>
+    <description><![CDATA[]]></description>
+        <content:encoded><![CDATA[<p><img src="https://www.commitstrip.com/wp-content/uploads/2017/09/Strip-Curiosity-13-Cassini-650-finalenglish.jpg" alt="" width="650" height="590" class="alignnone size-full wp-image-17957" /></p>
+]]></content:encoded>
+      </item>
+    <item>
+    <title>How long is a ‘super quick’ meeting?</title>
+    <link>https://www.commitstrip.com/2017/09/14/how-long-is-a-super-quick-meeting/</link>
+    <pubDate>Thu, 14 Sep 2017 16:44:06 +0000</pubDate>
+    <dc:creator><![CDATA[CommitStrip]]></dc:creator>
+        <category><![CDATA[Coder]]></category>
+
+    <guid isPermaLink="false">http://www.commitstrip.com/?p=17943</guid>
+    <description><![CDATA[]]></description>
+        <content:encoded><![CDATA[<p><img src="https://www.commitstrip.com/wp-content/uploads/2017/09/Strip-La-réunion-qui-fait-perdre-du-temps-english650-final.jpg" alt="" width="650" height="680" class="alignnone size-full wp-image-17947" /></p>
+]]></content:encoded>
+      </item>
+    <item>
+    <title>Apple iPhone X &#8211; Juste a small troll</title>
+    <link>https://www.commitstrip.com/2017/09/13/apple-iphone-x-juste-a-small-troll/</link>
+    <pubDate>Wed, 13 Sep 2017 19:56:57 +0000</pubDate>
+    <dc:creator><![CDATA[CommitStrip]]></dc:creator>
+        <category><![CDATA[Coder]]></category>
+
+    <guid isPermaLink="false">http://www.commitstrip.com/?p=17929</guid>
+    <description><![CDATA[]]></description>
+        <content:encoded><![CDATA[<p><img src="https://www.commitstrip.com/wp-content/uploads/2017/09/Strip-Keynote-iPhone-8-english650.jpg" alt="" width="650" height="605" class="alignnone size-full wp-image-17933" /></p>
+]]></content:encoded>
+      </item>
+    <item>
+    <title>Versioning is important</title>
+    <link>https://www.commitstrip.com/2017/09/12/versioning-is-important/</link>
+    <pubDate>Tue, 12 Sep 2017 15:28:16 +0000</pubDate>
+    <dc:creator><![CDATA[CommitStrip]]></dc:creator>
+        <category><![CDATA[Coder]]></category>
+
+    <guid isPermaLink="false">http://www.commitstrip.com/?p=17911</guid>
+    <description><![CDATA[]]></description>
+        <content:encoded><![CDATA[<p><img src="https://www.commitstrip.com/wp-content/uploads/2017/09/Strip-Cest-lhopital-qui-se-fout-englishfinal.jpg" alt="" width="650" height="609" class="alignnone size-full wp-image-17915" /></p>
+]]></content:encoded>
+      </item>
+    <item>
+    <title>Mr Sys Admin or Mr Admin Sys</title>
+    <link>https://www.commitstrip.com/2017/09/07/mr-sys-admin-or-mr-admin-sys/</link>
+    <pubDate>Thu, 07 Sep 2017 16:57:47 +0000</pubDate>
+    <dc:creator><![CDATA[CommitStrip]]></dc:creator>
+        <category><![CDATA[Coder]]></category>
+
+    <guid isPermaLink="false">http://www.commitstrip.com/?p=17899</guid>
+    <description><![CDATA[]]></description>
+        <content:encoded><![CDATA[<p><img src="https://www.commitstrip.com/wp-content/uploads/2017/09/Strip-Faire-croire-au-bug-english650-final.jpg" alt="" width="650" height="611" class="alignnone size-full wp-image-17905" /></p>
+]]></content:encoded>
+      </item>
+    <item>
+    <title>The biggest security challenge of all</title>
+    <link>https://www.commitstrip.com/2017/09/06/the-biggest-security-challenge-of-all/</link>
+    <pubDate>Wed, 06 Sep 2017 17:21:13 +0000</pubDate>
+    <dc:creator><![CDATA[CommitStrip]]></dc:creator>
+        <category><![CDATA[Coder]]></category>
+
+    <guid isPermaLink="false">http://www.commitstrip.com/?p=17863</guid>
+    <description><![CDATA[Today we’re welcoming a new sponsor to CommitStrip, the IT Security team for the online retailer Cdiscount! Talking to them we realised we always tend to underestimate how much security matters for online retailers. Every day they tackle interesting technical and security challenges, and they’re recruiting. Take a look at their career opportunities, located in the beautiful French city of Bordeaux!]]></description>
+        <content:encoded><![CDATA[<div style="max-width: 650px; margin: 0 auto; padding:20px;">Today we’re welcoming a new sponsor to CommitStrip, the IT Security team for the online retailer <a href="http://bit.ly/commitstrip_cdiscount" target="_blank"><strong>Cdiscount</strong></a>! Talking to them we realised we always tend to underestimate how much security matters for online retailers. Every day they tackle interesting technical and security challenges, and they’re recruiting. <a href="http://bit.ly/commitstrip_cdiscount" target="_blank">Take a look at their career opportunities, located in the beautiful French city of Bordeaux!</a>
+</div>
+<p><img src="https://www.commitstrip.com/wp-content/uploads/2017/09/Strip-Cdiscount-english650-final.jpg" alt="" width="650" height="894" class="alignnone size-full wp-image-17877" /><br />
+<a href="http://bit.ly/commitstrip_cdiscount" target="_blank"><img src="https://www.commitstrip.com/wp-content/uploads/2017/09/cdiscounten.jpg" alt="" width="650" height="80" class="alignnone size-full wp-image-17867" /></a></p>
+]]></content:encoded>
+      </item>
+    <item>
+    <title>The orphaned program</title>
+    <link>https://www.commitstrip.com/2017/09/05/the-orphaned-program/</link>
+    <pubDate>Tue, 05 Sep 2017 17:05:10 +0000</pubDate>
+    <dc:creator><![CDATA[CommitStrip]]></dc:creator>
+        <category><![CDATA[Coder]]></category>
+
+    <guid isPermaLink="false">http://www.commitstrip.com/?p=17847</guid>
+    <description><![CDATA[]]></description>
+        <content:encoded><![CDATA[<p><img src="https://www.commitstrip.com/wp-content/uploads/2017/09/Strip-Le-projet-abandonné-english650-final.jpg" alt="" width="650" height="604" class="alignnone size-full wp-image-17851" /></p>
+]]></content:encoded>
+      </item>
+    <item>
+    <title>A lot of noise</title>
+    <link>https://www.commitstrip.com/2017/08/11/a-lot-of-noise/</link>
+    <pubDate>Fri, 11 Aug 2017 07:45:41 +0000</pubDate>
+    <dc:creator><![CDATA[CommitStrip]]></dc:creator>
+        <category><![CDATA[Coder]]></category>
+
+    <guid isPermaLink="false">http://www.commitstrip.com/?p=17825</guid>
+    <description><![CDATA[]]></description>
+        <content:encoded><![CDATA[<p><img src="https://www.commitstrip.com/wp-content/uploads/2017/08/Strip-Larbre-qui-cache-la-forêt-english2.jpg" alt="" width="650" height="586" class="alignnone size-full wp-image-17841" /></p>
+]]></content:encoded>
+      </item>
+  </channel>
+</rss>
+
+<!-- Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+Object Caching 757/820 objects using disk
+Page Caching using disk: enhanced (SSL caching disabled)
+
+ Served from: www.commitstrip.com @ 2017-09-19 21:20:01 by W3 Total Cache -->

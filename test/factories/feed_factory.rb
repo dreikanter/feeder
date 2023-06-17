@@ -43,7 +43,6 @@ FactoryBot.define do
     import_limit { nil }
     last_post_created_at { nil }
     subscriptions_count { 0 }
-    status { FeedStatus.active }
 
     trait :twitter do
       name { "sample-twitter" }

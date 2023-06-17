@@ -7,8 +7,8 @@ class FeedsController < ApplicationController
 
   def locals
     {
-      feeds: Feed.ordered_by(order_by, order),
-      active_feeds_count: Feed.active.count,
+      feeds: Feed.includes(:sparkline).ordered_by(order_by, order),
+      enabled_feeds_count: Feed.enabled.count,
       last_post_created_at: Post.maximum(:created_at),
       last_update: Feed.maximum(:refreshed_at),
       order: order,

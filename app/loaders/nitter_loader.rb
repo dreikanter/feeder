@@ -6,7 +6,6 @@ class NitterLoader < BaseLoader
     https://nitter.lacontrevoie.fr
     https://nitter.fdn.fr
     https://nitter.1d4.us
-    https://nitter.kavin.rocks
     https://nitter.moomoo.me
     https://nitter.it
     https://twitter.owacon.moe
@@ -21,7 +20,6 @@ class NitterLoader < BaseLoader
     https://nitter.bird.froth.zone
     https://twitter.dr460nf1r3.org
     https://nitter.cz
-    https://nitter.privacydev.net
     https://tweet.lambda.dance
     https://nitter.kylrth.com
     https://unofficialbird.com
@@ -34,15 +32,12 @@ class NitterLoader < BaseLoader
     https://uk.unofficialbird.com
     https://read.whatever.social
     https://nitter.rawbit.ninja
-    https://nitter.privacytools.io
     https://nitter.sneed.network
     https://n.sneed.network
-    https://nitter.smnz.de
     https://nitter.twei.space
     https://nitter.inpt.fr
     https://nitter.d420.de
     https://nitter.caioalonso.com
-    https://nitter.at
     https://nitter.nicfab.eu
     https://bird.habedieeh.re
     https://nitter.hostux.net
@@ -53,7 +48,6 @@ class NitterLoader < BaseLoader
     https://t.com.sb
     https://nitter.kling.gg
     https://nitter.ktachibana.party
-    https://nitter.riverside.rocks
     https://ntr.odyssey346.dev
     https://nitter.lunar.icu
     https://twitter.moe.ngo
@@ -63,19 +57,13 @@ class NitterLoader < BaseLoader
     https://nitter.tux.pizza
     https://t.floss.media
     https://n.quadtr.ee
-    https://nitter.altgr.xyz
-    https://jote.lile.cl
     https://nitter.one
     https://nitter.io.lol
     https://nitter.no-logs.com
     https://nitter.fascinated.cc
-    https://nitter.kozmik.studio
-    https://tweet.whateveritworks.org
     https://t.uchun.net
     https://nitter.fediflix.org
-    https://nitter.nohost.network
     https://nitter.services.woodland.cafe
-    https://twt.funami.tech
   ].freeze
 
   option(:nitter_url, optional: true, default: -> { NITTER_INSTANCES.sample })

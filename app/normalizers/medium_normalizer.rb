@@ -28,8 +28,8 @@ class MediumNormalizer < RssNormalizer
 
   def excerpt
     result = page_body
-    result.css("br").each { |br| br.replace "\n" }
-    result.css("h1").each { |h1| h1.replace "" }
+    result.css("br").each { |element| element.replace "\n" }
+    result.css("h1").each { |element| element.replace "" }
     Html.comment_excerpt(Html.squeeze(result.text))
   end
 

@@ -3,16 +3,25 @@ require "rails_helper"
 RSpec.describe FeedSanitizer do
   subject(:service) { described_class }
 
-  let(:sample_config) do
+  let(:sample_feed_config) { YAML.load_file(file_fixture("sample_feeds.yml")).first.symbolize_keys }
+
+  let(:expected) do
     {
       name: "xkcd",
-      after: "Tue, 18 Sep 2018 00:00:00 +0000",
-      import_limit: 10,
-      normalizer: "xkcd",
-      options: {},
-      processor: "xkcd",
-      url: "http://xkcd.com/rss.xml",
-      refresh_interval: 1800
+      enabled: true,
+      attributes: {
+        after: DateTime.parse(sample_feed_config[:after]),
+        import_limit: 10,
+        loader: "http",
+        normalizer: "xkcd",
+        options: {"sample_option" => "option_value"},
+        processor: "rss",
+        url: "https://xkcd.com/rss.xml",
+        refresh_interval: 1800,
+        source: "https://xkcd.com",
+        description: "Feed description",
+        disabling_reason: "Sample reason"
+      }
     }
   end
 
@@ -22,25 +31,23 @@ RSpec.describe FeedSanitizer do
     }
   end
 
-  it "returns a Hash" do
-    result = service.call(**sample_config)
-    expect(result).to be_a(Hash)
+  let(:minimal_config_expected) do
+    {
+      name: "dilbert",
+      enabled: true,
+      attributes: {options: {}}
+    }
+  end
+
+  it "returns expected result" do
+    expect(service.call(**sample_feed_config)).to eq(expected)
   end
 
   it "requires name" do
-    expect { service.call(**sample_config.except(:name)) }.to raise_error(KeyError)
+    expect { service.call }.to raise_error(KeyError, /option 'name' is required/)
   end
 
-  it "parses timestamp value" do
-    expect(service.call(**sample_config)[:after]).to be_a(DateTime)
-  end
-
-  it "parses integers" do
-    values = service.call(**sample_config).slice(:import_limit, :refresh_interval).values
-    expect(values).to all be_a(Integer)
-  end
-
-  it "omits undefined attrubutes" do
-    expect(service.call(**minimal_config)).to eq(minimal_config)
+  it "omits undefined attributes" do
+    expect(service.call(**minimal_config)).to eq(minimal_config_expected)
   end
 end

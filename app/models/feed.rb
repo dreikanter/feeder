@@ -29,32 +29,50 @@
 class Feed < ApplicationRecord
   include AASM
 
+  # Attribute names, eligible to be updated from the configuration file data
+  CONFIGURABLE_ATTRIBUTES = %i[
+    after
+    description
+    disabling_reason
+    import_limit
+    loader
+    normalizer
+    options
+    processor
+    refresh_interval
+    source
+    url
+  ].freeze
+
   has_many :posts, dependent: :delete_all
+  has_one :sparkline, dependent: :delete
 
   validates :name, presence: true
 
-  # TODO: Replace with #state
-  enum status: FeedStatus.options
-
   aasm :state do
-    state :enabled, initial: true
+    state :pristine, initial: true
+    state :enabled
+    state :paused
     state :disabled
-    state :removed
-
-    event :disable do
-      transitions from: :enabled, to: :disabled
-    end
 
     event :enable do
-      transitions from: %i[disabled removed], to: :enabled
+      transitions from: %i[pristine disabled], to: :enabled, guard: :touch_state_updated_at
     end
 
-    event :remove do
-      transitions to: :removed
+    event :pause do
+      transitions from: :enabled, to: :paused
+    end
+
+    event :unpause do
+      transitions from: :paused, to: :enabled
+    end
+
+    event :disable do
+      transitions from: %i[pristine enabled paused], to: :disabled, guard: :touch_state_updated_at
     end
   end
 
-  scope :ordered_by, ->(attribute, direction) { order(attribute => direction).order(Arel.sql("last_post_created_at IS NULL, last_post_created_at DESC")) }
+  scope :ordered_by, ->(attribute, direction) { order(sanitize_sql_for_order("#{attribute} #{direction} NULLS LAST")) }
 
   scope :stale, lambda {
     where(refresh_interval: 0)
@@ -66,6 +84,14 @@ class Feed < ApplicationRecord
     refresh_interval.zero? || !refreshed_at || too_long_since_last_refresh?
   end
 
+  def update_sparkline
+    SparklineBuilder.new(self, start_date: 1.month.ago, end_date: DateTime.now).create_or_update
+  end
+
+  def sparkline_points
+    sparkline&.points || []
+  end
+
   private
 
   def too_long_since_last_refresh?
@@ -74,5 +100,9 @@ class Feed < ApplicationRecord
 
   def seconds_since_last_refresh
     (Time.now.utc.to_i - refreshed_at.to_i).abs
+  end
+
+  def touch_state_updated_at
+    touch(:state_updated_at)
   end
 end

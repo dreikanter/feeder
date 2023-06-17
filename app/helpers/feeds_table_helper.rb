@@ -4,13 +4,13 @@ module FeedsTableHelper
       tag.tr do
         FEED_TABLE_COLUMNS.each do |attribute, column|
           concat(
-            tag.th do
+            tag.th(class: column[:classes]) do
               asc_order = order == "asc"
               current_attribute = order_by == attribute
 
               alt_order = asc_order ? "desc" : "asc"
               column_order = current_attribute ? alt_order : column[:order]
-              concat(link_to(column[:caption], feeds_path(order_by: attribute, order: column_order)))
+              concat(link_to(column[:caption], feeds_path(order_by: attribute, order: column_order), class: "text-body"))
 
               arrow = asc_order ? " ↓" : " ↑"
               concat(current_attribute ? arrow : "")
@@ -24,9 +24,10 @@ module FeedsTableHelper
   private
 
   FEED_STATE_CLASSES = {
+    "pristine" => "text-muted",
     "enabled" => "text-success",
-    "disabled" => "text-muted",
-    "removed" => "text-muted"
+    "paused" => "text-warning",
+    "disabled" => "text-muted"
   }.freeze
 
   private_constant :FEED_STATE_CLASSES
@@ -49,12 +50,13 @@ module FeedsTableHelper
       order: "desc"
     },
     "refreshed_at" => {
-      caption: "Refreshed at",
+      caption: "Refreshed",
       order: "desc"
     },
     "last_post_created_at" => {
-      caption: "Last post",
-      order: "desc"
+      caption: "Imports",
+      order: "desc",
+      classes: "feeds-table__sparkline-column"
     }
   }.freeze
 
