@@ -60,6 +60,8 @@ RSpec.describe FeedUpdater do
     }
   end
 
+  before { Feed.delete_all }
+
   it "updates configurable attributes" do
     expect { call_service(pristine_feed.name, true, configuration) }
       .to(change { attrs(pristine_feed) }.from(feed_before_update).to(feed_after_update))

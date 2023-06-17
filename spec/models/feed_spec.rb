@@ -64,6 +64,7 @@ RSpec.describe Feed do
     let(:feed_with_no_refreshed_at) { create(:feed, refreshed_at: nil) }
 
     before do
+      described_class.delete_all
       sample_timestamps.each { |timestamp| create(:feed, refreshed_at: timestamp) }
     end
 
