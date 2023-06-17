@@ -100,6 +100,9 @@ GEM
     docile (1.4.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    dotiw (5.3.3)
+      activesupport
+      i18n
     dry-configurable (0.16.1)
       dry-core (~> 0.6)
       zeitwerk (~> 2.6)
@@ -388,6 +391,7 @@ DEPENDENCIES
   bundler-audit
   callee (~> 0.3)
   database_cleaner-active_record
+  dotiw (~> 5.3)
   dry-initializer (~> 3.0, >= 3.0.4)
   dry-types (~> 1.5, >= 1.5.1)
   dry-validation (~> 1.7)
@@ -425,4 +429,4 @@ DEPENDENCIES
   webmock (~> 3.11)
 
 BUNDLED WITH
-   2.4.13
+   2.3.24
