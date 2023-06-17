@@ -32,7 +32,7 @@
         <td>
           <%- if feed.refreshed_at -%>
             <%= tag.time datetime: feed.refreshed_at.rfc3339 do -%>
-              <%= ago(feed.refreshed_at) -%>
+              <%= compact_ago(feed.refreshed_at) -%>
             <%- end -%>
           <%- end -%>
         </td>
