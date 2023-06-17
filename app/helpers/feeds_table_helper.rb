@@ -56,7 +56,7 @@ module FeedsTableHelper
     "last_post_created_at" => {
       caption: "Daily imports",
       order: "desc",
-      classes: "sparkline-column"
+      classes: "feeds-table__sparkline-column"
     }
   }.freeze
 
