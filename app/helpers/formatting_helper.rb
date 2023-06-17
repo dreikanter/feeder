@@ -23,7 +23,6 @@ module FormattingHelper
     feed.disabled? ? feed.disabling_reason : ""
   end
 
-
   FEED_STATE_CLASSES = {
     "pristine" => "text-muted",
     "enabled" => "text-success",
