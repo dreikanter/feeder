@@ -51,6 +51,7 @@ gem "pg", "~> 1.2", ">= 1.2.3"
 gem "pry", "~> 0.14.1"
 gem "pry-byebug"
 gem "pry-rails", "~> 0.3.9"
+gem "redis", "~> 5.0"
 gem "rss", "~> 0.2.9"
 
 # TODO: Replace with `http` gem
