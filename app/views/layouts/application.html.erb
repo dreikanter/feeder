@@ -21,8 +21,10 @@
         border-bottom-color: hotpink;
       }
       .feeds-table__sparkline-column {
-        white-space: nowrap;
         width: 1%;
+      }
+      .feeds-table td {
+        white-space: nowrap;
       }
     </style>
     <%= render(partial: 'partials/google_analytics') unless Rails.env.production? -%>

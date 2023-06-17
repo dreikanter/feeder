@@ -50,11 +50,11 @@ module FeedsTableHelper
       order: "desc"
     },
     "refreshed_at" => {
-      caption: "Refreshed at",
+      caption: "Refreshed",
       order: "desc"
     },
     "last_post_created_at" => {
-      caption: "Daily imports",
+      caption: "Imports",
       order: "desc",
       classes: "feeds-table__sparkline-column"
     }
