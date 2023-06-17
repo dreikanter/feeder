@@ -25,11 +25,14 @@
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 7200
 
-# - name: "dilbert"
-#   url: "https://dilbert.com/feed"
-#   processor: "atom"
-#   after: "2021-01-04T12:00:00+00:00"
-#   refresh_interval: 1800
+- name: "dilbert"
+  enabled: false
+  disabling_reason: "Scott Adams discontinued comic publication since February 2023"
+  source: https://linktr.ee/scottadams
+  url: "https://dilbert.com/feed"
+  processor: "atom"
+  after: "2021-01-04T12:00:00+00:00"
+  refresh_interval: 1800
 
 - name: "rllivejournal"
   url: "https://r-l.livejournal.com/data/rss"
