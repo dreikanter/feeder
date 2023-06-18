@@ -1,30 +1,13 @@
 require "rails_helper"
+require "support/shared_hackernews_stubs"
 
 RSpec.describe HackernewsLoader do
+  include_examples "hackernews stubs"
+
   subject(:loader) { described_class }
 
   let(:feed) { create(:feed, loader: "hackernews") }
-
-  let(:stub_beststories_request) do
-    stub_request(:get, "https://hacker-news.firebaseio.com/v0/beststories.json")
-      .to_return(body: file_fixture("feeds/hackernews/beststories.json").read)
-  end
-
-  let(:stub_story_requests) do
-    stub_request(:get, %r{^https://hacker-news\.firebaseio\.com/v0/item/\d+\.json$})
-      .to_return do |request|
-        {
-          body: file_fixture(File.join("feeds/hackernews", File.basename(request.uri.path))).read
-        }
-      end
-  end
-
   let(:expected) { JSON.parse(file_fixture("feeds/hackernews/expected_loader_result.json").read) }
-
-  before do
-    stub_beststories_request
-    stub_story_requests
-  end
 
   it "fetches stories" do
     expect(loader.call(feed)).to eq(expected)

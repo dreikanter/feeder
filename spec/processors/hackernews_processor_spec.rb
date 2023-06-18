@@ -1,24 +1,15 @@
 require "rails_helper"
+require "support/shared_hackernews_stubs"
 
 RSpec.describe HackernewsProcessor do
+  include_examples "hackernews stubs"
+
   subject(:processor) { described_class }
 
   let(:entities) { processor.call(content, feed: feed, import_limit: 2) }
   let(:feed) { create(:feed, loader: "hackernews", processor: "hackernews") }
   let(:content) { HackernewsLoader.call(feed) }
   let(:expected_content) { JSON.parse(file_fixture("feeds/hackernews/expected_processor_result.json").read) }
-
-  before do
-    stub_request(:get, "https://hacker-news.firebaseio.com/v0/beststories.json")
-      .to_return(body: file_fixture("feeds/hackernews/beststories.json").read)
-
-    stub_request(:get, %r{^https://hacker-news\.firebaseio\.com/v0/item/\d+\.json$})
-      .to_return do |request|
-        {
-          body: file_fixture(File.join("feeds/hackernews", File.basename(request.uri.path))).read
-        }
-      end
-  end
 
   it "returns entities" do
     expect(entities).to all be_a(Entity)
