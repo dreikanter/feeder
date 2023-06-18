@@ -2,14 +2,14 @@ require "rails_helper"
 require "support/shared_hackernews_stubs"
 
 RSpec.describe HackernewsProcessor do
-  include_examples "hackernews stubs"
-
   subject(:processor) { described_class }
 
   let(:entities) { processor.call(content, feed: feed, import_limit: 2) }
   let(:feed) { create(:feed, loader: "hackernews", processor: "hackernews") }
   let(:content) { HackernewsLoader.call(feed) }
   let(:expected_content) { JSON.parse(file_fixture("feeds/hackernews/expected_processor_result.json").read) }
+
+  include_context "with hackernews stubs"
 
   it "returns entities" do
     expect(entities).to all be_a(Entity)

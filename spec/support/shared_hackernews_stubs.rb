@@ -1,4 +1,4 @@
-RSpec.shared_examples "hackernews stubs" do
+RSpec.shared_context "with hackernews stubs" do
   let(:stub_beststories_request) do
     stub_request(:get, "https://hacker-news.firebaseio.com/v0/beststories.json")
       .to_return(body: file_fixture("feeds/hackernews/beststories.json").read)

@@ -2,8 +2,6 @@ require "rails_helper"
 require "support/shared_hackernews_stubs"
 
 RSpec.describe HackernewsNormalizer do
-  include_examples "hackernews stubs"
-
   subject(:normalizer) { described_class }
 
   let(:feed) { create(:feed, loader: "hackernews", processor: "hackernews", normalizer: "hackernews") }
@@ -17,6 +15,8 @@ RSpec.describe HackernewsNormalizer do
       data.merge("feed_id" => feed.id, "published_at" => DateTime.parse(data["published_at"]))
     end
   end
+
+  include_context "with hackernews stubs"
 
   it "matches the expected result" do
     expect(result).to eq(expected)
