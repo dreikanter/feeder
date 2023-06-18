@@ -99,11 +99,11 @@
 #   after: "2021-01-06T12:00:00+00:00"
 
 - name: "best-of-hacker-news"
-  loader: "null"
-  processor: "hacker_news"
-  normalizer: "hacker_news"
+  loader: "hackernews"
+  processor: "hackernews"
+  normalizer: "hackernews"
   after: "2021-01-09T12:00:00+00:00"
-  refresh_interval: 600
+  refresh_interval: 1200
   import_limit: 2
 
 - name: "reddit-worldnews"

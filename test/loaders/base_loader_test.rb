@@ -13,7 +13,7 @@ class BaseLoaderTest < Minitest::Test
     expected = Object.new
 
     loader = Class.new(subject) do
-      define_method(:perform) { expected }
+      define_method(:call) { expected }
     end
 
     result = loader.call(feed)

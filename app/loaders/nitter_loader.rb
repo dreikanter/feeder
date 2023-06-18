@@ -68,9 +68,7 @@ class NitterLoader < BaseLoader
 
   option(:nitter_url, optional: true, default: -> { NITTER_INSTANCES.sample })
 
-  protected
-
-  def perform
+  def call
     RestClient.get(nitter_rss_url.to_s).body
   rescue StandardError => e
     # TODO: Do not treat 404 as instance availability

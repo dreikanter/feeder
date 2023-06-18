@@ -1,7 +1,5 @@
 class NullLoader < BaseLoader
-  protected
-
-  def perform
+  def call
     nil
   end
 end

@@ -10,9 +10,7 @@ class RedditNormalizer < AtomNormalizer
   end
 
   def comments
-    return [] if source_url == discussion_url
-    parts = [reddit_info, discussion_url]
-    [parts.compact_blank.join(" - ")]
+    (source_url == discussion_url) ? [] : [discussion_url]
   end
 
   private
@@ -29,13 +27,5 @@ class RedditNormalizer < AtomNormalizer
 
   def extract_content
     content.content.content
-  end
-
-  def reddit_info
-    cached_data_point(discussion_url).details.try(:[], "description")
-  end
-
-  def cached_data_point(link)
-    DataPoint.for(:reddit).where("details->>'link' = ?", link).ordered_by_created_at.first
   end
 end
