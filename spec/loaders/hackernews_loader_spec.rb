@@ -12,7 +12,11 @@ RSpec.describe HackernewsLoader do
       .to_return(body: file_fixture("feeds/hackernews/beststories.json").read)
 
     stub_request(:get, %r{^https://hacker-news\.firebaseio\.com/v0/item/\d+\.json$})
-      .to_return(body: file_fixture("feeds/hackernews/item.json").read)
+      .to_return do |request|
+        {
+          body: file_fixture(File.join("feeds/hackernews", File.basename(request.uri.path))).read
+        }
+      end
   end
 
   it "fetches data" do

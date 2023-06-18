@@ -10,7 +10,7 @@
       36353753
     ],
     "score": 1738,
-    "time": 1686887370,
+    "time": 1686887222,
     "title": "Sample title",
     "type": "story",
     "url": "https://example.com/"
@@ -18,7 +18,7 @@
   {
     "by": "username",
     "descendants": 1047,
-    "id": 36350938,
+    "id": 36346254,
     "kids":
     [
       36351647,
@@ -26,7 +26,7 @@
       36353753
     ],
     "score": 1738,
-    "time": 1686887370,
+    "time": 1686887333,
     "title": "Sample title",
     "type": "story",
     "url": "https://example.com/"
@@ -34,7 +34,7 @@
   {
     "by": "username",
     "descendants": 1047,
-    "id": 36350938,
+    "id": 36356876,
     "kids":
     [
       36351647,
@@ -42,7 +42,7 @@
       36353753
     ],
     "score": 1738,
-    "time": 1686887370,
+    "time": 1686887111,
     "title": "Sample title",
     "type": "story",
     "url": "https://example.com/"
