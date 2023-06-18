@@ -1,13 +1,23 @@
 class HackernewsLoader < BaseLoader
+  STORY_CACHE_TTL = 2.hours
+
   def call
-    load_story_ids.map { |id| load_story(id) }
+    load_story_ids.map { |id| cached_story(id) }
   end
 
   private
 
-  # TODO: Cache stories to load each 2h
+  def cached_story(id)
+    Rails.cache.fetch(story_cache_key(id), expires_in: STORY_CACHE_TTL) { load_story(id) }
+  end
+
   def load_story(id)
+    logger.info("---> loading hn story #{id}")
     load_json(Hackernews.item_url(id))
+  end
+
+  def story_cache_key(id)
+    "#{self.class.name.underscore}:story:#{id}"
   end
 
   def load_story_ids
