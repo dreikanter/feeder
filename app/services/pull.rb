@@ -29,6 +29,7 @@ class Pull
   end
 
   def content
+    logger.info("---> loading feed (name: #{feed.name}; id: #{feed.id}; loader: #{loader.name})")
     loader.call(feed, logger: logger)
   end
 

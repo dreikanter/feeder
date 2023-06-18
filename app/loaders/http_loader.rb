@@ -1,7 +1,5 @@
 class HttpLoader < BaseLoader
-  protected
-
-  def perform
+  def call
     ensure_successful_respone
     response.to_s
   end

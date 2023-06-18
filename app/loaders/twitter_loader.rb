@@ -29,9 +29,7 @@ class TwitterLoader < BaseLoader
     access_token_secret
   ].freeze
 
-  protected
-
-  def perform
+  def call
     validate_credentials!
     client.user_timeline(twitter_user, tweet_mode: "extended")
   end
