@@ -6,20 +6,7 @@ RSpec.describe HackernewsProcessor do
   let(:entities) { processor.call(content, feed: feed, import_limit: 2) }
   let(:feed) { create(:feed, loader: "hackernews", processor: "hackernews") }
   let(:content) { HackernewsLoader.call(feed) }
-
-  let(:expected_content) do
-    {
-      "by" => "username",
-      "descendants" => 1047,
-      "id" => 36346254,
-      "kids" => [36351647, 36351293, 36353753],
-      "score" => 1738,
-      "time" => 1686887333,
-      "title" => "Sample title",
-      "type" => "story",
-      "url" => "https://example.com/"
-    }
-  end
+  let(:expected_content) { JSON.parse(file_fixture("feeds/hackernews/expected_processor_result.json").read) }
 
   before do
     stub_request(:get, "https://hacker-news.firebaseio.com/v0/beststories.json")
@@ -37,15 +24,15 @@ RSpec.describe HackernewsProcessor do
     expect(entities).to all be_a(Entity)
   end
 
-  it "returns entity feed" do
-    expect(entities.first.feed).to eq(feed)
+  it "references the feed" do
+    expect(entities.map(&:feed)).to all eq(feed)
   end
 
-  it "returns most recent entity uids based" do
-    expect(entities.map(&:uid)).to eq([36346254, 36350938])
+  it "filters most recent entities" do
+    expect(entities.map(&:uid)).to eq([100005, 100003])
   end
 
-  it "processes content" do
-    expect(entities.first.content).to eq(expected_content)
+  it "returns expected content" do
+    expect(entities.map(&:content).as_json).to eq(expected_content)
   end
 end
