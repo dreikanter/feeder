@@ -2,14 +2,17 @@ class KotakuLoader < BaseLoader
   COMMENTS_COUNT_THRESHOLD = 100
   COMMENTS_COUNT_CACHE_TTL = 4.hours
 
+  # :reek:FeatureEnvy
   def call
     entries_above_threshold.each do |entry|
+      entry_url = entry.url
+
       Post.create_with(
         published_at: entry.published || Time.current,
-        link: entry.url,
+        link: entry_url,
         text: entry.title,
         status: PostStatus.ignored
-      ).find_or_create_by(feed: feed, uid: entry.url)
+      ).find_or_create_by(feed: feed, uid: entry_url)
     end
 
     # NOTE: Experimental loader
@@ -30,6 +33,7 @@ class KotakuLoader < BaseLoader
     "#{self.class.name.underscore}:comments_count:#{url}"
   end
 
+  # :reek:TooManyStatements
   def load_comments_count(url)
     html = load_url(url)
     element = Nokogiri::HTML(html).css("[data-replycount]").first
