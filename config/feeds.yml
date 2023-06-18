@@ -97,10 +97,13 @@
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 7200
 
-# - name: "esquire-photos"
-#   url: "https://feeds.feedburner.com/esquire-ru"
-#   processor: "rss"
-#   after: "2021-01-06T12:00:00+00:00"
+- name: "esquire-photos"
+  enabled: false
+  disabling_reason: "There is no more Esquire now"
+  source: "https://pravilamag.ru"
+  url: "https://feeds.feedburner.com/esquire-ru"
+  processor: "rss"
+  after: "2021-01-06T12:00:00+00:00"
 
 - name: "best-of-hacker-news"
   loader: "hackernews"
@@ -118,19 +121,25 @@
   refresh_interval: 1200
   import_limit: 2
 
-# - name: "avokado-fm"
-#   url: "https://tele.ga/avokado_fm/rss/"
-#   processor: "rss"
-#   normalizer: "telega"
-#   after: "2021-01-06T12:00:00+00:00"
-#   refresh_interval: 7200
+- name: "avokado-fm"
+  enabled: false
+  disabling_reason: "tele.ga feed is inactive"
+  source: "https://t.me/avokado_fm"
+  url: "https://tele.ga/avokado_fm/rss/"
+  processor: "rss"
+  normalizer: "telega"
+  after: "2021-01-06T12:00:00+00:00"
+  refresh_interval: 7200
 
-# - name: "ecologica"
-#   url: "https://vkrss.com/ecologicaspb?key=EW9tJd7ZI8iGBQyg"
-#   processor: "rss"
-#   normalizer: "vk_rss"
-#   after: "2021-01-06T12:00:00+00:00"
-#   refresh_interval: 1200
+- name: "ecologica"
+  enabled: false
+  disabling_reason: "vkrss.com service is down"
+  source: "https://vk.com/ecologicaspb"
+  url: "https://vkrss.com/ecologicaspb?key=EW9tJd7ZI8iGBQyg"
+  processor: "rss"
+  normalizer: "vk_rss"
+  after: "2021-01-06T12:00:00+00:00"
+  refresh_interval: 1200
 
 - name: "f28a"
   # url: "http://floccinaucinihilipilificationa.tumblr.com/rss"
@@ -278,11 +287,14 @@
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 600
 
-# - name: "kimchicuddlesrus"
-#   url: "https://kimchicuddlesrus.com"
-#   processor: "kimchicuddlesrus"
-#   normalizer: "kimchicuddlesrus"
-#   after: "2021-01-06T12:00:00+00:00"
+- name: "kimchicuddlesrus"
+  enabled: false
+  disabling_reason: "Inactive since 2019"
+  source: https://kimchicuddlesrus.com
+  url: "https://kimchicuddlesrus.com"
+  processor: "kimchicuddlesrus"
+  normalizer: "kimchicuddlesrus"
+  after: "2021-01-06T12:00:00+00:00"
 
 # TODO: Use alternative feed source
 - name: "aerostatica"
