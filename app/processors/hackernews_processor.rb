@@ -6,6 +6,6 @@ class HackernewsProcessor < BaseProcessor
   end
 
   def sorted_items
-    content.sort_by { |item| item.fetch("id") }.reverse
+    content.sort_by { |item| item.fetch("id") }
   end
 end
