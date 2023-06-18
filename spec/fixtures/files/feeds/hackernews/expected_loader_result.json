@@ -1,0 +1,50 @@
+[
+  {
+    "by": "username",
+    "descendants": 1047,
+    "id": 36350938,
+    "kids":
+    [
+      36351647,
+      36351293,
+      36353753
+    ],
+    "score": 1738,
+    "time": 1686887370,
+    "title": "Sample title",
+    "type": "story",
+    "url": "https://example.com/"
+  },
+  {
+    "by": "username",
+    "descendants": 1047,
+    "id": 36350938,
+    "kids":
+    [
+      36351647,
+      36351293,
+      36353753
+    ],
+    "score": 1738,
+    "time": 1686887370,
+    "title": "Sample title",
+    "type": "story",
+    "url": "https://example.com/"
+  },
+  {
+    "by": "username",
+    "descendants": 1047,
+    "id": 36350938,
+    "kids":
+    [
+      36351647,
+      36351293,
+      36353753
+    ],
+    "score": 1738,
+    "time": 1686887370,
+    "title": "Sample title",
+    "type": "story",
+    "url": "https://example.com/"
+  }
+]
