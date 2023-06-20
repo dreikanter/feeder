@@ -51,5 +51,15 @@ FactoryBot.define do
       normalizer { "twitter" }
       options { {"twitter_user" => "dreikanter"} }
     end
+
+    trait :kotaku do
+      url { "https://kotaku.com/rss" }
+      loader { "kotaku" }
+      processor { "kotaku" }
+      normalizer { "kotaku" }
+      source { "https://kotaku.com" }
+      refresh_interval { 86400 }
+      import_limit { 2 }
+    end
   end
 end
