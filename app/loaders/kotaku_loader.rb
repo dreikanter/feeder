@@ -2,13 +2,14 @@ class KotakuLoader < BaseLoader
   COMMENTS_COUNT_THRESHOLD = 100
   COMMENTS_COUNT_CACHE_TTL = 4.hours
 
+  # TODO: Remove tracking after the research
   # @return [Array<Feedjira::Parser::RSSEntry>]
+  # :reek:TooManyStatements
   def call
     yesterday_entries.sort_by { |entry| comments_count(entry.url) }.reverse.tap do |result|
       CreateDataPoint.call("kotaku", details: {"counters" => comment_counters.as_json.sort_by(&:second).reverse.to_h})
     end
   rescue StandardError => e
-    # TODO: Remove this after the research
     Honeybadger.notify(e)
     []
   end
