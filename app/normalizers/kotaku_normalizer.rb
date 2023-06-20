@@ -2,7 +2,7 @@ class KotakuNormalizer < BaseNormalizer
   protected
 
   def text
-    content.url
+    "#{content.title.strip} by #{content.author.strip} - #{content.url}"
   end
 
   def link
@@ -14,10 +14,18 @@ class KotakuNormalizer < BaseNormalizer
   end
 
   def attachments
-    [image_url]
+    [content.image].reject(&:blank?)
   end
 
   def comments
-    [description]
+    [summary].reject(&:blank?)
+  end
+
+  def summary
+    Html.text(content.summary)
+  end
+
+  def validation_errors
+    ["experimental"]
   end
 end

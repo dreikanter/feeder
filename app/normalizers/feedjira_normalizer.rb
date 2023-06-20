@@ -14,12 +14,6 @@ class FeedjiraNormalizer < BaseNormalizer
   end
 
   def comments
-    binding.pry
     [content.content]
-  end
-
-  # NOTE: Do't publish anything doring experimental stage
-  def validation_errors
-    ["experimental"]
   end
 end
