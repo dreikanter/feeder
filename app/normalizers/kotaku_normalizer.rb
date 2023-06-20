@@ -14,11 +14,11 @@ class KotakuNormalizer < BaseNormalizer
   end
 
   def attachments
-    [content.image].reject(&:blank?)
+    [content.image].compact_blank
   end
 
   def comments
-    [summary].reject(&:blank?)
+    [summary].compact_blank
   end
 
   def summary
