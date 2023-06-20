@@ -92,6 +92,18 @@ class Feed < ApplicationRecord
     sparkline&.points || []
   end
 
+  def loader_class
+    LoaderResolver.call(self)
+  end
+
+  def processor_class
+    ProcessorResolver.call(self)
+  end
+
+  def normalizer_class
+    NormalizerResolver.call(self)
+  end
+
   private
 
   def too_long_since_last_refresh?

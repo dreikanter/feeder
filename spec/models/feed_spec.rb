@@ -124,4 +124,46 @@ RSpec.describe Feed do
       expect(stale_feeds_scope.where(id: feed.id)).not_to exist
     end
   end
+
+  describe "#loader_class" do
+    it "resolves specified class" do
+      expect(build(:feed, loader: "null").loader_class).to eq(NullLoader)
+    end
+
+    it "resolves default class" do
+      expect(build(:feed, loader: nil).loader_class).to eq(HttpLoader)
+    end
+
+    it "raises when can't resolve the class" do
+      expect { build(:feed, loader: "missing").loader_class }.to raise_error(LoaderResolver::Error)
+    end
+  end
+
+  describe "#processor_class" do
+    it "resolves specified class" do
+      expect(build(:feed, processor: "rss").processor_class).to eq(RssProcessor)
+    end
+
+    it "fallbacks to default when processor is undefined" do
+      expect(build(:feed, processor: nil).processor_class).to eq(NullProcessor)
+    end
+
+    it "fallbacks to default when processor is missing" do
+      expect(build(:feed, processor: "missing").processor_class).to eq(NullProcessor)
+    end
+  end
+
+  describe "#normalizer_class" do
+    it "resolves specified class" do
+      expect(build(:feed, normalizer: "rss").normalizer_class).to eq(RssNormalizer)
+    end
+
+    it "raises when normalizer is not defined" do
+      expect { build(:feed, normalizer: nil).normalizer_class }.to raise_error(RuntimeError)
+    end
+
+    it "raises when can't resolve the class" do
+      expect { build(:feed, normalizer: "missing").normalizer_class }.to raise_error(RuntimeError)
+    end
+  end
 end
