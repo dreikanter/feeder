@@ -4,6 +4,7 @@ class ProcessorResolver
   param :feed
   option :logger, optional: true, default: -> { Rails.logger }
 
+  # TODO: Remove implicit fallback
   def call
     available_names_for.each do |name|
       safe_name = name.to_s.tr("-", "_")

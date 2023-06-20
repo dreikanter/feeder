@@ -635,6 +635,7 @@
   url: "https://kotaku.com/rss"
   source: "https://kotaku.com"
   loader: "kotaku"
-  processor: "null"
-  normalizer: "null"
-  refresh_interval: 3600
+  processor: "kotaku"
+  normalizer: "kotaku"
+  refresh_interval: 86400
+  import_limit: 2
