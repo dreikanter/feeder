@@ -27,6 +27,10 @@ RSpec.describe KotakuLoader do
       .to_return(body: file_fixture("feeds/kotaku/post.html").read)
   end
 
+  it "resolves" do
+    expect(feed.loader_class).to eq(described_class)
+  end
+
   it "returns entries" do
     expect(content).to all be_a(Feedjira::Parser::RSSEntry)
   end

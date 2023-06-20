@@ -92,6 +92,11 @@ class Feed < ApplicationRecord
     sparkline&.points || []
   end
 
+  # TODO: Consider returning an instance, initialized with self
+  # TODO: Use consistent class resolution logic with no implicit fallbacks
+  #   Resolver.new(self, scope: "loader").resolve
+  #   Resolver.new(self, scope: "processor").resolve
+  #   Resolver.new(self, scope: "normalizer").resolve
   def loader_class
     LoaderResolver.call(self)
   end

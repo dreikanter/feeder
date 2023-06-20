@@ -4,7 +4,7 @@ RSpec.describe KotakuProcessor do
   subject(:processor) { described_class }
 
   let(:feed) { create(:feed, :kotaku) }
-  let(:content) { KotakuLoader.call(feed) }
+  let(:content) { feed.loader_class.call(feed) }
   let(:entities) { processor.call(content, feed: feed) }
 
   let(:expected_uids) do
@@ -22,6 +22,10 @@ RSpec.describe KotakuProcessor do
 
     stub_request(:get, %r{^https://kotaku.com/.*-\d+$})
       .to_return(body: file_fixture("feeds/kotaku/post.html").read)
+  end
+
+  it "resolbves" do
+    expect(feed.processor_class).to eq(described_class)
   end
 
   it "maintains expected uids order" do
