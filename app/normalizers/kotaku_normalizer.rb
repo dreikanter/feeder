@@ -22,6 +22,6 @@ class KotakuNormalizer < BaseNormalizer
   end
 
   def summary
-    Html.text(content.summary)
+    Html.comment_excerpt(content.summary).gsub(/Read more\.\.\./, "").strip
   end
 end
