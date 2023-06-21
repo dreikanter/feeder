@@ -24,8 +24,4 @@ class KotakuNormalizer < BaseNormalizer
   def summary
     Html.text(content.summary)
   end
-
-  def validation_errors
-    ["experimental"]
-  end
 end

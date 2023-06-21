@@ -638,4 +638,4 @@
   processor: "kotaku"
   normalizer: "kotaku"
   refresh_interval: 86400
-  import_limit: 2
+  import_limit: 1

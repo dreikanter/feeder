@@ -34,8 +34,4 @@ RSpec.describe KotakuNormalizer do
   it "returns expected result" do
     expect(normalized_entries.as_json).to eq(expected)
   end
-
-  it "remains not valid during experimental stage" do
-    expect(normalized_entries.map(&:validation_errors)).to all eq(["experimental"])
-  end
 end
