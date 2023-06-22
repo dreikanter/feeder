@@ -1,11 +1,11 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-gem "puma", "~> 5"
+gem "puma", "~> 6.3"
 gem "rails", "~> 6.0"
 
 group :development do
-  gem "brakeman", "~> 4.3", ">= 4.3.1", require: false
+  gem "brakeman", "~> 6.0", require: false
   gem "reek", "~> 6.0", require: false
   gem "rubocop", require: false
   gem "rubocop-factory_bot", require: false
