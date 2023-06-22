@@ -6,7 +6,7 @@ RSpec.describe Feed do
   let(:recent_timestampt) { one_day_in_seconds.pred.seconds.ago }
   let(:stale_feeds_scope) { described_class.stale }
 
-  around { |example| freeze_time { example.run } }
+  before { freeze_time }
 
   describe "validation" do
     it "is valid" do
