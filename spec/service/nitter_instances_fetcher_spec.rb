@@ -8,6 +8,6 @@ RSpec.describe NitterInstancesFetcher do
 
   it "fetches expected urls" do
     stub_request(:get, service::PUBLIC_INSTANCES_WIKI_PAGE_URL).to_return(body: content)
-    expect(service.call).to contain_exactly(*expected)
+    expect(service.call).to match_array(expected)
   end
 end

@@ -16,7 +16,7 @@ RSpec.describe NitterInstancesPoolUpdater do
   end
 
   it "imports instances" do
-    expect(imported_urls).to contain_exactly(*expected)
+    expect(imported_urls).to match_array(expected)
   end
 
   it "stays idempotent" do

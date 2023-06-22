@@ -63,7 +63,7 @@ RSpec.describe FeedsConfiguration do
 
   it "enable expected feeds" do
     service.sync
-    expect(enabled_feed_names).to contain_exactly(*expected_feed_names)
+    expect(enabled_feed_names).to match_array(expected_feed_names)
   end
 
   it "creates new feeds" do
