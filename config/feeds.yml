@@ -634,8 +634,7 @@
 - name: "kotaku"
   url: "https://kotaku.com/rss"
   source: "https://kotaku.com"
-  loader: "kotaku"
-  processor: "kotaku"
-  normalizer: "kotaku"
-  refresh_interval: 86400
-  import_limit: 1
+  loader: "http"
+  processor: "kotaku_daily"
+  normalizer: "kotaku_daily"
+  refresh_interval: 0
