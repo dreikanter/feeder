@@ -21,4 +21,16 @@ RSpec.describe KotakuDailyProcessor do
   it "returns one entity" do
     expect(entities.count).to eq(1)
   end
+
+  it "includes parsed post to each entity" do
+    expect(entities.first.uid).to eq("https://kotaku.com/vinland-saga-season-2-thorfinn-netflix-crunchyroll-mapp-1850549053")
+  end
+
+  it "includes parsed post to each entity" do
+    expect(entities.first.content[:post]).to be_a(Feedjira::Parser::RSSEntry)
+  end
+
+  it "includes comments count to each entity" do
+    expect(entities.first.content[:comments_count]).to eq(237)
+  end
 end
