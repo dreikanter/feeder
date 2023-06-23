@@ -3,12 +3,14 @@
 # - Filters posts for the past date
 # - Fetches comments count for each post
 # - Order posts by comments count
-# - Generates one Entity with the list of post references
+# - Generates one Entity
+# - Assigns Entity uid with a serialized publication date
+# - Assigns Entity content with the ordered posts array
 class KotakuDailyProcessor < BaseProcessor
   protected
 
   def entities
-    ordered_posts.map { |post| complemented_entity(post.url, post) }
+    [entity(yesterday.rfc3339, ordered_posts)]
   rescue StandardError => e
     Honeybadger.notify(e)
     []
@@ -16,12 +18,12 @@ class KotakuDailyProcessor < BaseProcessor
 
   private
 
-  def complemented_entity(url, post)
-    entity(url, { post: post, comments_count: cached_comments_count(url) })
+  def ordered_posts
+    complemented_posts.sort_by { |post| post[:comments_count] }.reverse
   end
 
-  def ordered_posts
-    yesterday_posts.sort_by { |post| cached_comments_count(post.url) }.reverse
+  def complemented_posts
+    yesterday_posts.map { |post| {post: post, comments_count: comments_count(post.url)} }
   end
 
   def yesterday_posts
@@ -29,14 +31,18 @@ class KotakuDailyProcessor < BaseProcessor
   end
 
   def entries
-    @entries ||= Feedjira.parse(content).entries
+    Feedjira.parse(content).entries
   end
 
-  def cached_comments_count(url)
+  def comments_count(url)
     comment_counters[url] ||= KotakuCommentsCountLoader.new(url).comments_count
   end
 
   def comment_counters
     @comment_counters ||= {}
+  end
+
+  def yesterday
+    @yesterday ||= Date.yesterday
   end
 end

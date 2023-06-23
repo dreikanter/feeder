@@ -7,6 +7,9 @@ RSpec.describe KotakuDailyProcessor do
 
   let(:content) { feed.loader_class.call(feed) }
   let(:entities) { processor.call(content, feed: feed) }
+  let(:first_entity) { entities.first }
+  let(:expected_post_urls) { JSON.parse(file_fixture("feeds/kotaku_daily/expected_post_urls.json").read) }
+  let(:expected_comment_counts) { JSON.parse(file_fixture("feeds/kotaku_daily/expected_comment_counts.json").read) }
 
   before do
     travel_to(DateTime.parse("2023-06-17 01:00:00 +0000"))
@@ -23,14 +26,18 @@ RSpec.describe KotakuDailyProcessor do
   end
 
   it "includes parsed post to each entity" do
-    expect(entities.first.uid).to eq("https://kotaku.com/vinland-saga-season-2-thorfinn-netflix-crunchyroll-mapp-1850549053")
+    expect(entities.first.uid).to eq("2023-06-16T00:00:00+00:00")
   end
 
-  it "includes parsed post to each entity" do
-    expect(entities.first.content[:post]).to be_a(Feedjira::Parser::RSSEntry)
+  it "has content array" do
+    expect(first_entity.content).to be_a(Array)
   end
 
-  it "includes comments count to each entity" do
-    expect(entities.first.content[:comments_count]).to eq(237)
+  it "includes expected comments count" do
+    expect(first_entity.content.map { |item| item[:comments_count] }).to eq(expected_comment_counts)
+  end
+
+  it "includes expected posts" do
+    expect(first_entity.content.map { |item| item[:post].url }).to eq(expected_post_urls)
   end
 end
