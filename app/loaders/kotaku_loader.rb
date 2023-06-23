@@ -22,12 +22,6 @@ class KotakuLoader < BaseLoader
     @comment_counters ||= {}
   end
 
-  def load_comments_count(url)
-    html = load_url(url)
-    element = Nokogiri::HTML(html).css("[data-replycount]").first
-    Integer(element.attr("data-replycount"))
-  end
-
   def yesterday_entries
     entries.filter { |entry| entry.published.yesterday? }
   end
@@ -37,10 +31,10 @@ class KotakuLoader < BaseLoader
   end
 
   def content
-    load_url(feed.url)
+    HTTP.get(feed.url).to_s
   end
 
-  def load_url(url)
-    HTTP.get(url).to_s
+  def comments_count(post_url)
+    KotakuCommentsCountLoader.new(post_url).comments_count
   end
 end
