@@ -8,6 +8,7 @@ class BaseProcessor
 
   DEFAULT_LIMIT = 2
 
+  # @return [Array<Entity>] array of entities generated from the content
   def call
     logger.info("---> processing [#{feed.name}] with [#{self.class.name}]")
     actual_entities

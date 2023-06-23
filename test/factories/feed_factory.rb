@@ -61,5 +61,16 @@ FactoryBot.define do
       refresh_interval { 86400 }
       import_limit { 2 }
     end
+
+    trait :kotaku_daily do
+      url { "https://kotaku.com/rss" }
+      loader { "http" }
+      processor { "kotaku_daily" }
+      normalizer { "kotaku_daily" }
+      source { "https://kotaku.com" }
+      refresh_interval { 86400 }
+      import_limit { 1 }
+      options { {"max_posts_number" => 5} }
+    end
   end
 end
