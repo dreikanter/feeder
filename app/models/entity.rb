@@ -1,3 +1,5 @@
+# TODO: Rename to FeedEntry, to be less generic
+# TODO: Consider using ActiveModel::Attributes
 class Entity
   extend Dry::Initializer
 
