@@ -34,7 +34,7 @@ class KotakuLoader < BaseLoader
     HTTP.get(feed.url).to_s
   end
 
-  def comments_count(post_url)
+  def load_comments_count(post_url)
     KotakuCommentsCountLoader.new(post_url).comments_count
   end
 end
