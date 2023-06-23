@@ -6,9 +6,7 @@ class KotakuLoader < BaseLoader
   # @return [Array<Feedjira::Parser::RSSEntry>]
   # :reek:TooManyStatements
   def call
-    yesterday_entries.sort_by { |entry| comments_count(entry.url) }.reverse.tap do |result|
-      CreateDataPoint.call("kotaku", details: {"counters" => comment_counters.as_json.sort_by(&:second).reverse.to_h})
-    end
+    yesterday_entries.sort_by { |entry| comments_count(entry.url) }.reverse
   rescue StandardError => e
     Honeybadger.notify(e)
     []
