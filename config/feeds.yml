@@ -638,3 +638,5 @@
   processor: "kotaku_daily"
   normalizer: "kotaku_daily"
   refresh_interval: 0
+  options:
+    max_posts_number: 10

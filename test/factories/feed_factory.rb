@@ -70,6 +70,7 @@ FactoryBot.define do
       source { "https://kotaku.com" }
       refresh_interval { 86400 }
       import_limit { 1 }
+      options { {"max_posts_number" => 5} }
     end
   end
 end
