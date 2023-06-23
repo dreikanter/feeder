@@ -4,7 +4,7 @@ class KotakuDailyNormalizer < BaseNormalizer
   protected
 
   def text
-    "Kotaku top #{max_posts_number} posts for #{digest_date.strftime('%d %b %Y')} - #{link}"
+    "Kotaku top #{max_posts_number} posts for #{digest_date.strftime("%d %b %Y")} - #{link}"
   end
 
   def link
@@ -26,6 +26,7 @@ class KotakuDailyNormalizer < BaseNormalizer
     end
   end
 
+  # :reek:LongParameterList
   def build_comment(title, author, url, comments_count)
     "#{title} by #{author} - #{url} (#{comments_count} #{"comment".pluralize(comments_count)})"
   end

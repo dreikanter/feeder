@@ -34,7 +34,7 @@ RSpec.describe KotakuDailyProcessor do
   end
 
   it "includes expected comments count" do
-    expect(first_entity.content.map { |item| item[:comments_count] }).to eq(expected_comment_counts)
+    expect(first_entity.content.pluck(:comments_count)).to eq(expected_comment_counts)
   end
 
   it "includes expected posts" do
