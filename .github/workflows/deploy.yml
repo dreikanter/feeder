@@ -19,15 +19,13 @@ jobs:
         with:
           ref: master
           repository: dreikanter/feeder-ansible
-          path: feeder-ansible
+          # NOTE: Will be nested in the git working directory
+          path: ansible
 
-      - run: ls .
-      - run: ls ./ansible
-
-      # - name: Lint Ansible playbook
-      #   uses: ansible-community/ansible-lint-action@v6.0.2
-      #   with:
-      #     args: "ansible"
+      - name: Lint Ansible playbook
+        uses: ansible-community/ansible-lint-action@v6.0.2
+        with:
+          args: "ansible"
 
 
       # - name: Run Ansible playbook

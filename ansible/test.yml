@@ -1,5 +1,0 @@
-- name: test playbook
-  hosts: all
-  tasks:
-    - debug:
-        msg: This is a test
