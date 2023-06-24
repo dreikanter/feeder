@@ -3,6 +3,7 @@ name: release
 on:
   push:
     branches:
+      # TODO: Replace with release
       - chore/ansible
 
 jobs:
@@ -10,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          # TODO: Replace with release
+          ref: chore/ansible
 
       - run: |
           echo ${{ github.workspace }}
