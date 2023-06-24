@@ -31,7 +31,7 @@ jobs:
         uses: dawidd6/action-ansible-playbook@v2
         with:
           playbook: ./ansible/test.yml
-          directory: ./ansible
+          directory: ./
 
           # Optional, SSH private key
           # key: ${{secrets.SSH_PRIVATE_KEY}}
