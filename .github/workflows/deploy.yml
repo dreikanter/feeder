@@ -47,6 +47,7 @@ jobs:
 
           # Optional, additional flags to pass to ansible-playbook
           options: |
+            -u root
             --inventory ${{ vars.PRODUCTION_HOST }}
             --limit all
             --extra-vars hello=there
