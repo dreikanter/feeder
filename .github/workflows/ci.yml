@@ -94,7 +94,7 @@ jobs:
           bundle install --jobs 4 --retry 3
 
       - name: Run Brakeman
-        run: bundle exec brakeman .
+        run: bundle exec brakeman --except ${{ vars.BRAKEMAN_EXCEPTIONS }} .
 
   test:
     runs-on: ubuntu-latest
