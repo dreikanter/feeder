@@ -30,8 +30,8 @@ jobs:
       - name: Run Ansible playbook
         uses: dawidd6/action-ansible-playbook@v2
         with:
-          playbook: $GITHUB_WORKSPACE/ansible/test.yml
-          directory: $GITHUB_WORKSPACE/ansible
+          playbook: ./ansible/test.yml
+          directory: ./ansible
 
           # Optional, SSH private key
           # key: ${{secrets.SSH_PRIVATE_KEY}}
