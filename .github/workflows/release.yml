@@ -11,16 +11,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Run ansible-lint
+      - name: Lint Ansible playbook
         uses: ansible-community/ansible-lint-action@v6.0.2
         with:
           args: "ansible"
 
-      - name: Run playbook
+      - name: Run Ansible playbook
         uses: dawidd6/action-ansible-playbook@v2
         with:
-          playbook: ./feeder/ansible/test.yml
-          directory: ./feeder/ansible
+          playbook: ./ansible/test.yml
+          directory: ./ansible
 
           # Optional, SSH private key
           # key: ${{secrets.SSH_PRIVATE_KEY}}
