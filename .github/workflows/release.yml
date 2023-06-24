@@ -11,6 +11,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - run: |
+          echo ${{ github.workspace }}
+          echo $GITHUB_WORKSPACE
+          ls -al
+          ls -al $GITHUB_WORKSPACE
+          ls -al $GITHUB_WORKSPACE/ansible
+
       - name: Lint Ansible playbook
         uses: ansible-community/ansible-lint-action@v6.0.2
         with:
