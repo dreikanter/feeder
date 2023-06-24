@@ -15,13 +15,13 @@ jobs:
           # TODO: Replace with release
           ref: chore/ansible
 
-      - run: |
-          echo ${{ github.workspace }}
-          echo ${{ env.PRODUCTION_HOST }}
-          echo $GITHUB_WORKSPACE
-          ls -al
-          ls -al $GITHUB_WORKSPACE
-          ls -al $GITHUB_WORKSPACE/ansible
+      - run: echo ${{ github.workspace }}
+      - run: echo ${{ vars.PRODUCTION_HOST }}
+      - run: echo ${{ vars.PRODUCTION_HOST }}
+      - run: echo {{ github.workspace }}
+      - run: echo {{ vars.PRODUCTION_HOST }}
+      - run: echo {{ vars.PRODUCTION_HOST }}
+      - run: echo $GITHUB_WORKSPACE
 
       - name: Lint Ansible playbook
         uses: ansible-community/ansible-lint-action@v6.0.2
@@ -40,12 +40,12 @@ jobs:
           # Optional, literal inventory file contents
           inventory: |
             [all]
-            {{ env.PRODUCTION_HOST }}
+            {{ vars.PRODUCTION_HOST }}
 
           known_hosts: |
-            {{ env.PRODUCTION_HOST }} ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBKSNFUaFj5lPqrrdbqGGMUeUUHf/su6Iw7zzWCwXHPeSFlS+PPtaCkyzcNqH/gSMST4XBLVgXECEtY/ORyiE/zo=
-            {{ env.PRODUCTION_HOST }} ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCgl9mcdOj5UAuye2qvreM6u8rvt8QWPBwxpuQe5uxh5Kx0fxHjeuGY5i16v1qt7jqbesXavZ+hKzRttxk9mGpktgbm86TCZug74N3BpGPRZFADXyYCtUje29hj1Nqoea1D0If/c/e1q43X3zrG8bJdJ/PJUJNijjIntDjFLCm632QxRb6gbKxUhFpEdWvmim4t0q6BI6/Xx2oChA4r1T31ysaDYhg5k90W/+A78uqHLFucBiOv7xoxNkqJksEV4HtkDvPmrIK1Ah/wAg2LNGJMc3kNOX6KTdKt6FN5g8Iw+C4SZdl/xfZH7s7eAOHfs/khd1J+aPQJUtbMGW68WX7
-            {{ env.PRODUCTION_HOST }} ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILcWHJsIFihpt/BDehUvSgL4NdZH6riQ+RiSSJa0f2a5
+            {{ vars.PRODUCTION_HOST }} ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBKSNFUaFj5lPqrrdbqGGMUeUUHf/su6Iw7zzWCwXHPeSFlS+PPtaCkyzcNqH/gSMST4XBLVgXECEtY/ORyiE/zo=
+            {{ vars.PRODUCTION_HOST }} ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCgl9mcdOj5UAuye2qvreM6u8rvt8QWPBwxpuQe5uxh5Kx0fxHjeuGY5i16v1qt7jqbesXavZ+hKzRttxk9mGpktgbm86TCZug74N3BpGPRZFADXyYCtUje29hj1Nqoea1D0If/c/e1q43X3zrG8bJdJ/PJUJNijjIntDjFLCm632QxRb6gbKxUhFpEdWvmim4t0q6BI6/Xx2oChA4r1T31ysaDYhg5k90W/+A78uqHLFucBiOv7xoxNkqJksEV4HtkDvPmrIK1Ah/wAg2LNGJMc3kNOX6KTdKt6FN5g8Iw+C4SZdl/xfZH7s7eAOHfs/khd1J+aPQJUtbMGW68WX7
+            {{ vars.PRODUCTION_HOST }} ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILcWHJsIFihpt/BDehUvSgL4NdZH6riQ+RiSSJa0f2a5
 
           # Optional, encrypted vault password
           # vault_password: ${{secrets.VAULT_PASSWORD}}
