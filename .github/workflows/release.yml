@@ -17,6 +17,7 @@ jobs:
 
       - run: |
           echo ${{ github.workspace }}
+          echo ${{ env.PRODUCTION_HOST }}
           echo $GITHUB_WORKSPACE
           ls -al
           ls -al $GITHUB_WORKSPACE
@@ -54,7 +55,7 @@ jobs:
 
           # Optional, additional flags to pass to ansible-playbook
           options: |
-            --inventory .hosts
+            --inventory ${{ env.PRODUCTION_HOST }}
             --limit all
             --extra-vars hello=there
             --verbose
