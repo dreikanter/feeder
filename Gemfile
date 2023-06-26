@@ -14,6 +14,7 @@ group :development do
   gem "spring"
   gem "standard", ">= 1.0", require: false
   gem "standard-performance", require: false
+  gem "yaml-lint", "~> 0.1.2", require: false
 end
 
 group :development, :test do

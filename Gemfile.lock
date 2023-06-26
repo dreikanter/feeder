@@ -395,6 +395,7 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    yaml-lint (0.1.2)
     zeitwerk (2.6.8)
 
 PLATFORMS
@@ -448,6 +449,7 @@ DEPENDENCIES
   standard-performance
   twitter (~> 7.0)
   webmock (~> 3.11)
+  yaml-lint (~> 0.1.2)
 
 BUNDLED WITH
    2.4.13
