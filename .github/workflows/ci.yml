@@ -96,6 +96,35 @@ jobs:
       - name: Run Brakeman
         run: bundle exec brakeman --except ${{ vars.BRAKEMAN_EXCEPTIONS }} .
 
+  yaml-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+
+      - name: Cache gems
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+
+      - name: Install gems
+        run: |
+          bundle config path vendor/bundle
+          bundle config set without 'test'
+          bundle install --jobs 4 --retry 3
+
+      - name: Run yaml-lint
+        run: bundle exec yaml-lint ./**/*.yml ./.github/**/*.yml
+
   test:
     runs-on: ubuntu-latest
 
