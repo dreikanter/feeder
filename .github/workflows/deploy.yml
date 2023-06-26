@@ -27,6 +27,8 @@ jobs:
 
       # - name: Run Ansible playbook
       #   uses: dawidd6/action-ansible-playbook@v2
+      #   env:
+      #     FEEDER_CREDENTIALS_MASTER_KEY: ${{secrets.FEEDER_CREDENTIALS_MASTER_KEY}}
       #   with:
       #     playbook: ./ansible/test.yml
       #     directory: ./
