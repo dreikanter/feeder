@@ -3,9 +3,9 @@ require "rails_helper"
 RSpec.describe Feed do
   subject(:model) { described_class }
 
-  let(:one_day_in_seconds) { 1.day.seconds.to_i }
-  let(:stale_timestampt) { one_day_in_seconds.succ.seconds.ago }
-  let(:recent_timestampt) { one_day_in_seconds.pred.seconds.ago }
+  let(:one_day) { 1.day.seconds.to_i }
+  let(:stale_timestampt) { one_day.succ.seconds.ago }
+  let(:recent_timestampt) { one_day.pred.seconds.ago }
   let(:stale_feeds_scope) { described_class.stale }
 
   before { freeze_time }
@@ -98,13 +98,13 @@ RSpec.describe Feed do
     end
 
     it "evaluates stale condition" do
-      feed = build(:feed, refresh_interval: one_day_in_seconds, refreshed_at: stale_timestampt)
+      feed = build(:feed, refresh_interval: one_day, refreshed_at: stale_timestampt)
       expect(feed).to be_stale
     end
 
     it "scopes stale feeds" do
       expect do
-        create(:feed, refresh_interval: one_day_in_seconds, refreshed_at: stale_timestampt)
+        create(:feed, refresh_interval: one_day, refreshed_at: stale_timestampt)
       end.to change(stale_feeds_scope, :count).by(1)
     end
 
@@ -121,7 +121,7 @@ RSpec.describe Feed do
     end
 
     it "treats records with recent refresh timestamp as not stale" do
-      feed = create(:feed, refresh_interval: one_day_in_seconds, refreshed_at: recent_timestampt)
+      feed = create(:feed, refresh_interval: one_day, refreshed_at: recent_timestampt)
       expect(feed).not_to be_stale
       expect(stale_feeds_scope.where(id: feed.id)).not_to exist
     end

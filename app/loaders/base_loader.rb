@@ -7,6 +7,6 @@ class BaseLoader
   param :feed
 
   def call
-    raise NotImplementedError
+    raise "not implemented"
   end
 end
