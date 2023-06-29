@@ -15,8 +15,8 @@ RSpec.describe RedditProcessor do
     )
   end
 
-  let(:expected_uids) { expected_data_points.pluck("link") }
-  let(:expected_data_points) { JSON.parse(file_fixture("feeds/reddit/expected_data_points.json").read) }
+  let(:expected_uids) { expected_points.pluck("link") }
+  let(:expected_points) { JSON.parse(file_fixture("feeds/reddit/expected_points.json").read) }
   let(:thread_url) { %r{^https://.*/r/worldnews/comments/} }
   let(:thread_contents) { file_fixture("feeds/reddit/libreddit_comments_page.html").read }
 
