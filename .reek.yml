@@ -60,9 +60,6 @@ detectors:
   MissingSafeMethod:
     exclude:
     - TwitterLoader
-  NilCheck:
-    exclude:
-    - ErrorDumperTest#test_no_target_by_default
   TooManyStatements:
     exclude:
     - initialize
@@ -89,37 +86,3 @@ detectors:
     - BaseNormalizerTest#test_sanitize_attachments
     - TwitterProcessorTest#test_happy_path
     - PostsPerWeekTest#test_calculates_posts_per_week
-  # UtilityFunction:
-  #   exclude:
-  #   - FeedsTableHelper#feed_state_class
-  #   - NormalizedEntity#comparable_attributes
-  #   - RedditNormalizer#cached_data_point
-  #   - TheAtlanticPhotosNormalizer#kill_newlines
-  #   - RedditProcessor#cached_data_point
-  #   - RedditProcessor#create_data_point
-  #   - Downloader#build_io_from
-  #   - ErrorDumper#notify_honeybadger
-  #   - FreefeedClientBuilder#call
-  #   - NitterInstancesFetcher#content
-  #   - NitterInstancesFetcher#instance_url
-  #   - NormalizerResolver#normalizer_class_name
-  #   - RedditSlugsChopper#short_path
-  #   - UpdatePostStatuses#up
-  #   - Freefeed::V1::Attachments#detect_content_type
-  #   - enabled_feed_names
-  #   - errors_count
-  #   - TestProcessor#entities
-  #   - NormalizedEntityTest#import_threshold
-  #   - DilbertNormalizerTest#sample_data_file
-  #   - EsquirePhotosNormalizerTest#sample_data_file
-  #   - GithubBlogNormalizerTest#sample_data_file
-  #   - InfiniteimmortalbensNormalizerTest#sample_data_file
-  #   - TelegaNormalizerTest#sample_data_file
-  #   - TheAtlanticPhotosNormalizerTest#sample_data_file
-  #   - LoaderResolverTest#subject
-  #   - PurgeDataPointsTest#sample_threshold
-  #   - PurgeErrorsTest#sample_threshold
-  #   - NormalizerTestHelper#sample_file
-  #   - Minitest::Test#file_fixture_path
-  #   - Minitest::Test#setup
-  #   - Minitest::Test#teardown
