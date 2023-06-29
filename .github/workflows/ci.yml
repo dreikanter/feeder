@@ -170,7 +170,7 @@ jobs:
 
       - name: Run tests
         env:
-          RAILS_MASTER_KEY: "${{ secrets.RAILS_MASTER_KEY_TEST }}"
+          RAILS_MASTER_KEY: "${{ secrets.FEEDER_RAILS_MASTER_KEY_TEST }}"
           DATABASE_URL: "postgres://postgres:postgres@localhost:5432/feeder_test"
           RAILS_ENV: test
           WITH_COVERAGE: true
