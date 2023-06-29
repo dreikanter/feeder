@@ -10,23 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_29_142633) do
+ActiveRecord::Schema.define(version: 2023_06_29_170244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "data_point_series", id: :serial, force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.index ["name"], name: "index_data_point_series_on_name", unique: true
-  end
-
-  create_table "data_points", id: :serial, force: :cascade do |t|
-    t.integer "series_id"
-    t.json "details", default: {}, null: false
-    t.datetime "created_at", null: false
-    t.index ["series_id"], name: "index_data_points_on_series_id"
-  end
 
   create_table "delayed_jobs", id: :serial, force: :cascade do |t|
     t.integer "priority", default: 0, null: false
