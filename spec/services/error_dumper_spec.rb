@@ -6,7 +6,7 @@ RSpec.describe ErrorDumper do
   let(:target) { create(:feed) }
 
   it "creates a record" do
-    expect { subject.call }.to change { Error.count }.by(1)
+    expect { service.call }.to change(Error, :count).by(1)
   end
 
   it "returns error object" do
@@ -15,7 +15,7 @@ RSpec.describe ErrorDumper do
   end
 
   it "persists target reference" do
-    error = subject.call(target: target)
+    error = service.call(target: target)
     expect(error.target).to eq(target)
   end
 
@@ -27,6 +27,6 @@ RSpec.describe ErrorDumper do
   def dump_sample_exception
     raise "sample exception"
   rescue StandardError
-    subject.call(exception: $ERROR_INFO)
+    service.call(exception: $ERROR_INFO)
   end
 end

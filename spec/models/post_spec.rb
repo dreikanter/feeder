@@ -12,6 +12,6 @@ RSpec.describe Post do
 
   it "requires mandatory attributes presense" do
     expect(blank_post).not_to be_valid
-    expect(blank_post.errors.keys).to match_array(%i[feed uid link published_at])
+    expect(blank_post.errors.attribute_names).to match_array(%i[feed uid link published_at])
   end
 end

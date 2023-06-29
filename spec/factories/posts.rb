@@ -1,6 +1,6 @@
 FactoryBot.define do
-  factory :post, class: Post do
-    association :feed
+  factory :post, class: "Post" do
+    feed
     link { "https://example.com/#{SecureRandom.uuid}" }
     published_at { Time.new.utc }
     text { "Sample post text" }
