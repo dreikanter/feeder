@@ -6,7 +6,7 @@ gem "rails", "~> 6.0"
 
 group :development do
   gem "brakeman", "~> 6.0", require: false
-  gem "bundler-audit"
+  gem "bundler-audit", "~> 0.9.1"
   gem "reek", "~> 6.0", require: false
   gem "rubocop", require: false
   gem "rubocop-factory_bot", require: false
