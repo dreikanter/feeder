@@ -26,7 +26,7 @@
 class Post < ApplicationRecord
   belongs_to :feed, counter_cache: true
   enum status: PostStatus.options
-  validate :uid, :link, :published_at, :presence
+  validates :uid, :link, :published_at, presence: true
 
   RECENT_LIMIT = 50
 

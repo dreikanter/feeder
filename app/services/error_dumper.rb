@@ -10,12 +10,7 @@ class ErrorDumper
   option :occured_at, optional: true, default: -> { DateTime.now }
   option :target, optional: true, default: -> {}
   option :context, optional: true, default: -> { {} }
-
-  option(
-    :message,
-    optional: true,
-    default: -> { exception.try(:message) || exception.to_s }
-  )
+  option :message, optional: true, default: -> { exception.try(:message) || exception.to_s }
 
   def call
     notify_honeybadger(exception, message)

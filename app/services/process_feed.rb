@@ -13,7 +13,6 @@ class ProcessFeed
 
   def generate_new_posts
     feed.touch(:refreshed_at)
-    logger.info("---> new posts: #{normalized_entities_count}; errors: #{errors_count}")
     normalized_entities.each { |normalized_entity| push(normalized_entity) }
     feed.update(errors_count: 0)
     feed.update_sparkline
@@ -38,16 +37,6 @@ class ProcessFeed
 
   def feed_name
     feed.name
-  end
-
-  def normalized_entities_count
-    normalized_entities.count
-  end
-
-  def errors_count
-    normalized_entities.count do |entity|
-      entity.status != PostStatus.ready
-    end
   end
 
   def normalized_entities
