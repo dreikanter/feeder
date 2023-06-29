@@ -1,14 +1,27 @@
 class BaseNormalizer
-  include Callee
+  SEPARATOR = " - ".freeze
 
-  param :entity
-  option :logger, optional: true, default: -> { Rails.logger }
+  def self.call(entity)
+    new(entity).call
+  end
 
-  delegate :uid, :content, :feed, to: :entity
+  attr_reader :entity
+
+  def initialize(entity)
+    @entity = entity
+  end
 
   def call
-    logger.info("---> normalizing entity [#{uid}] with [#{self.class.name}]")
-    normalized_entity
+    NormalizedEntity.new(
+      feed_id: feed.id,
+      uid: uid,
+      link: link,
+      published_at: published_at,
+      text: text.to_s,
+      attachments: sanitized_attachments,
+      comments: comments.compact_blank,
+      validation_errors: validation_errors
+    )
   end
 
   protected
@@ -33,45 +46,24 @@ class BaseNormalizer
     []
   end
 
-  SEPARATOR = " - ".freeze
-
   def separator
     SEPARATOR
   end
 
-  def valid?
-    validation_errors.blank?
-  end
-
   def validation_errors
-    []
+    @validation_errors ||= []
   end
 
-  def options
-    feed.try(:options) || {}
+  def add_error(error)
+    validation_errors << error
   end
 
-  def normalized_entity
-    NormalizedEntity.new(
-      feed_id: feed.id,
-      uid: uid,
-      link: link,
-      published_at: published_at,
-      text: text || "",
-      attachments: sanitized_attachments,
-      comments: comments.compact_blank,
-      validation_errors: validation_errors
-    )
-  end
+  private
 
-  DEFAULT_SCHEME = "https".freeze
+  delegate :uid, :content, :feed, to: :entity
+  delegate :options, to: :feed
 
-  # TODO: Move to a service
   def sanitized_attachments
-    attachments.compact_blank.map do |url|
-      value = Addressable::URI.parse(url)
-      value.scheme ||= DEFAULT_SCHEME
-      value.to_s
-    end
+    attachments.compact_blank.map { UriSanitizer.new(_1).sanitize }
   end
 end
