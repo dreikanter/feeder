@@ -1,2 +1,0 @@
-class FeederError < StandardError
-end

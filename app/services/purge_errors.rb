@@ -1,11 +1,9 @@
 class PurgeErrors
   include Callee
 
-  DEFAULT_THRESHOLD = 3
-
-  option :threshold, default: -> { DEFAULT_THRESHOLD }
+  option :before
 
   def call
-    Error.where("created_at < ?", threshold.month.ago).delete_all
+    Error.where("created_at < ?", before).delete_all
   end
 end
