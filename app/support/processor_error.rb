@@ -1,2 +1,0 @@
-class ProcessorError < FeederError
-end

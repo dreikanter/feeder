@@ -1,2 +1,0 @@
-class NormalizerError < FeederError
-end
