@@ -6,6 +6,7 @@ gem "rails", "~> 6.0"
 
 group :development do
   gem "brakeman", "~> 6.0", require: false
+  gem "bundler-audit"
   gem "reek", "~> 6.0", require: false
   gem "rubocop", require: false
   gem "rubocop-factory_bot", require: false
@@ -19,7 +20,6 @@ end
 
 group :development, :test do
   gem "annotate", "~> 3.2"
-  gem "bundler-audit"
   gem "database_cleaner-active_record"
   gem "factory_bot_rails", "~> 4.8", ">= 4.8.2"
   gem "listen", "~> 3.2"
