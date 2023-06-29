@@ -94,7 +94,7 @@ jobs:
           bundle install --jobs 4 --retry 3
 
       - name: Run Brakeman
-        run: bundle exec brakeman --except ${{ vars.BRAKEMAN_EXCEPTIONS }} .
+        run: bundle exec brakeman --except "${{ vars.FEEDER_BRAKEMAN_EXCEPTIONS }}" .
 
   yaml-lint:
     runs-on: ubuntu-latest
