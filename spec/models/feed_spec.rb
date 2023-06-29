@@ -1,6 +1,8 @@
 require "rails_helper"
 
 RSpec.describe Feed do
+  subject(:model) { described_class }
+
   let(:one_day_in_seconds) { 1.day.seconds.to_i }
   let(:stale_timestampt) { one_day_in_seconds.succ.seconds.ago }
   let(:recent_timestampt) { one_day_in_seconds.pred.seconds.ago }

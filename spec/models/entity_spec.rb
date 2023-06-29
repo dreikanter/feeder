@@ -1,11 +1,9 @@
-require "test_helper"
+require "rails_helper"
 
-class EntityTest < Minitest::Test
-  def subject
-    Entity
-  end
+RSpec.describe EntityTest do
+  subject(:model) { described_class }
 
-  def test_initializer
+  it "initializes attributes" do
     entity = Entity.new(uid: "uid", content: "content", feed: "feed")
     assert_equal("uid", entity.uid)
     assert_equal("content", entity.content)
