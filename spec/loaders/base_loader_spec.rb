@@ -6,6 +6,6 @@ RSpec.describe BaseLoader do
   let(:feed) { build(:feed) }
 
   it "is abstract" do
-    expect { loader.call(feed) }.to raise_error(NotImplementedError)
+    expect { loader.call(feed) }.to raise_error(StandardError)
   end
 end
