@@ -32,7 +32,6 @@ detectors:
     - Html#self.paragraphs
     - Html#self.post_excerpt
     - TumblrImageFetcher#self.call
-    - CreateBlockedIps#change
     - ErrorDumperTest#test_backtrace
   FeatureEnvy:
     exclude:
@@ -48,7 +47,6 @@ detectors:
     - CreatePosts#change
     - CreateDataPoints#change
     - CreateErrors#change
-    - CreateBlockedIps#change
     - CreateNitterInstances#change
     - KimchicuddlesNormalizerTest#expected
     - RedakciyaNormalizerTest#expected
@@ -86,7 +84,6 @@ detectors:
     - CreatePosts#change
     - CreateDelayedJobs#self.up
     - CreateErrors#change
-    - CreateBlockedIps#change
     - CreateNitterInstances#change
     - BaseLoaderTest#test_success
     - BaseNormalizerTest#test_sanitize_attachments
