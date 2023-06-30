@@ -4,10 +4,10 @@ require "support/shared_hackernews_stubs"
 RSpec.describe HackernewsNormalizer do
   subject(:normalizer) { described_class }
 
-  let(:feed) { create(:feed, loader: "hackernews", processor: "hackernews", normalizer: "hackernews") }
+  let(:feed) { create(:feed, loader: "hackernews", processor: "hackernews", normalizer: "hackernews", import_limit: 2) }
 
   let(:result) { entities.map { |entity| normalizer.call(entity) }.as_json }
-  let(:entities) { HackernewsProcessor.call(content, feed: feed, import_limit: 2) }
+  let(:entities) { HackernewsProcessor.call(content: content, feed: feed) }
   let(:content) { HackernewsLoader.call(feed) }
 
   let(:expected) do

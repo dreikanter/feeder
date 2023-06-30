@@ -5,8 +5,8 @@ RSpec.describe KotakuDailyNormalizer do
 
   let(:feed) { create(:feed, :kotaku_daily) }
   let(:content) { feed.loader_class.call(feed) }
-  let(:entities) { feed.processor_class.call(content, feed: feed) }
-  let(:normalized_entries) { entities.map { |entity| normalizer.call(entity, feed: feed) } }
+  let(:entities) { feed.processor_class.call(content: content, feed: feed) }
+  let(:normalized_entries) { entities.map { |entity| normalizer.call(entity) } }
 
   let(:expected) do
     JSON.parse(file_fixture("feeds/kotaku_daily/normalized.json").read).map do |data|

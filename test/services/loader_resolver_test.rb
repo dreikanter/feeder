@@ -14,8 +14,8 @@ class LoaderResolverTest < Minitest::Test
   end
 
   def test_explicit_loader_name
-    attributes = {loader: "twitter"}
-    assert_equal(TwitterLoader, subject(attributes))
+    attributes = {loader: "http"}
+    assert_equal(HttpLoader, subject(attributes))
   end
 
   def test_null_loader

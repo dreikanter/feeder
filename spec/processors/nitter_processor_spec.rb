@@ -1,10 +1,10 @@
-require "test_helper"
+require "rails_helper"
 
-class NitterProcessorTest < Minitest::Test
-  extend Minitest::Spec::DSL
+RSpec.describe NitterProcessor do
+  subject(:processor) { described_class }
 
-  let(:subject) { NitterProcessor }
   let(:content) { file_fixture("feeds/nitter/rss.xml").read }
+  let(:entities) { subject.call(content: content, feed: feed) }
 
   let(:feed) do
     build(
@@ -12,6 +12,7 @@ class NitterProcessorTest < Minitest::Test
       loader: "nitter",
       processor: "nitter",
       normalizer: "nitter",
+      import_limit: 0,
       options: {
         "twitter_user" => "username",
         "only_with_attachments" => true,
@@ -28,8 +29,7 @@ class NitterProcessorTest < Minitest::Test
     ]
   end
 
-  def test_uids_should_be_twitter_url
-    entities = subject.call(content, feed: feed, import_limit: 0)
-    assert_equal expected_uids, entities.map(&:uid)
+  it "uses Twitter URL for uids" do
+    expect(entities.map(&:uid)).to eq(expected_uids)
   end
 end

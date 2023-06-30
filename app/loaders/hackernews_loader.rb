@@ -12,7 +12,6 @@ class HackernewsLoader < BaseLoader
   end
 
   def load_story(id)
-    logger.info("---> loading hn story #{id}")
     load_json(Hackernews.item_url(id))
   end
 

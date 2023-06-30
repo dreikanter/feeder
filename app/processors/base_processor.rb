@@ -1,25 +1,23 @@
 class BaseProcessor
-  include Callee
+  DEFAULT_IMPORT_LIMIT = 2
 
-  param :content
-  option :feed
-  option :import_limit, optional: true, default: -> {}
-  option :logger, optional: true, default: -> { Rails.logger }
+  def self.call(options = {})
+    new(**options).call
+  end
 
-  DEFAULT_LIMIT = 2
+  attr_reader :content, :feed
+
+  def initialize(content:, feed:)
+    @content = content
+    @feed = feed
+  end
 
   # @return [Array<Entity>] array of entities generated from the content
   def call
-    logger.info("---> processing [#{feed.name}] with [#{self.class.name}]")
-    actual_entities
+    import_limit.positive? ? entities.take(import_limit) : entities
   end
 
   protected
-
-  def actual_entities
-    return entities.take(limit) if limit.positive?
-    entities
-  end
 
   def entity(uid, entity_content)
     Entity.new(uid: uid, content: entity_content, feed: feed)
@@ -29,11 +27,9 @@ class BaseProcessor
     raise "not implemented"
   end
 
-  def limit
-    import_limit || feed.import_limit || DEFAULT_LIMIT
-  end
+  private
 
-  def feed_name
-    feed&.name
+  def import_limit
+    feed.import_limit || DEFAULT_IMPORT_LIMIT
   end
 end

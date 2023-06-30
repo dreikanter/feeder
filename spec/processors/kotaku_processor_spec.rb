@@ -5,7 +5,7 @@ RSpec.describe KotakuProcessor do
 
   let(:feed) { create(:feed, :kotaku) }
   let(:content) { feed.loader_class.call(feed) }
-  let(:entities) { processor.call(content, feed: feed) }
+  let(:entities) { processor.call(content: content, feed: feed) }
 
   let(:expected_uids) do
     [
