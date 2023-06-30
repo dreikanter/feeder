@@ -1,19 +1,32 @@
 class NextbigfutureThumbnailFetcher
-  include Callee
+  attr_reader :page_uri
 
-  param :url
+  def initialize(page_uri)
+    @page_uri = page_uri
+  end
 
-  option(
-    :client,
-    optional: true,
-    default: -> { ->(url) { RestClient.get(url).body } }
-  )
-
-  def call
-    html = client.call(url)
-    elements = Nokogiri::HTML(html).css(".featured-image img.attachment-full")
-    elements.first["src"]
+  def fetch
+    image_uri if http_uri?
   rescue StandardError
     nil
+  end
+
+  private
+
+  # Ensure this is not a data image
+  def http_uri?
+    Addressable::URI.parse(image_uri).scheme == "https"
+  end
+
+  def image_uri
+    @image_uri ||= image_element["src"]
+  end
+
+  def image_element
+    Nokogiri::HTML(page_content).css(".featured-image noscript img").first
+  end
+
+  def page_content
+    HTTP.get(page_uri).to_s
   end
 end

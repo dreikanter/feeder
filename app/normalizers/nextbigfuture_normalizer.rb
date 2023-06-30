@@ -24,7 +24,7 @@ class NextbigfutureNormalizer < BaseNormalizer
   private
 
   def image_url
-    @image_url ||= NextbigfutureThumbnailFetcher.call(content.url)
+    @image_url ||= NextbigfutureThumbnailFetcher.new(content.url).fetch
   end
 
   def description
