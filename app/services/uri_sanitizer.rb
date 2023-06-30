@@ -8,8 +8,6 @@ class UriSanitizer
   end
 
   def sanitize
-    value = Addressable::URI.parse(uri)
-    value.scheme ||= DEFAULT_SCHEME
-    value.to_s
+    Addressable::URI.parse(uri).tap { _1.scheme ||= DEFAULT_SCHEME }.to_s
   end
 end
