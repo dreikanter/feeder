@@ -37,27 +37,27 @@ RSpec.describe ProcessFeed do
   end
 
   it "increments error counters when loader fails" do
-    expect { service.call(feed_with_faulty_loader) }.to increment_error_counters(feed_with_faulty_loader)
+    expect { service.new(feed_with_faulty_loader).process }.to increment_error_counters(feed_with_faulty_loader)
   end
 
   it "dumps feed error when loader fails" do
-    expect { service.call(feed_with_faulty_loader) }.to change { errors_count(feed_with_faulty_loader) }.by(1)
+    expect { service.new(feed_with_faulty_loader).process }.to change { errors_count(feed_with_faulty_loader) }.by(1)
   end
 
   it "increments error counters when processor fails" do
-    expect { service.call(feed_with_faulty_processor) }.to increment_error_counters(feed_with_faulty_processor)
+    expect { service.new(feed_with_faulty_processor).process }.to increment_error_counters(feed_with_faulty_processor)
   end
 
   it "dumps feed error when processor fails" do
-    expect { service.call(feed_with_faulty_processor) }.to change { errors_count(feed_with_faulty_processor) }.by(1)
+    expect { service.new(feed_with_faulty_processor).process }.to change { errors_count(feed_with_faulty_processor) }.by(1)
   end
 
   it "dumps normalization errors" do
-    expect { service.call(feed_with_faulty_normalizer) }.to change { errors_count(feed_with_faulty_normalizer) }.by(2)
+    expect { service.new(feed_with_faulty_normalizer).process }.to change { errors_count(feed_with_faulty_normalizer) }.by(2)
   end
 
   it "does not create posts on normalization error" do
-    expect { service.call(feed_with_faulty_normalizer) }.not_to change(Post, :count)
+    expect { service.new(feed_with_faulty_normalizer).process }.not_to change(Post, :count)
   end
 
   def increment_error_counters(feed)
