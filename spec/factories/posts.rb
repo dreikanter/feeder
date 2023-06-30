@@ -7,7 +7,6 @@ FactoryBot.define do
     attachments { [] }
     comments { [] }
     freefeed_post_id { SecureRandom.uuid }
-    status { PostStatus.published }
     uid { SecureRandom.uuid }
   end
 end

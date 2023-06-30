@@ -24,12 +24,37 @@
 #
 
 class Post < ApplicationRecord
+  include AASM
+
   belongs_to :feed, counter_cache: true
-  enum status: PostStatus.options
+
+  aasm column: :state do
+    state :draft, initial: true
+    state :enqueued
+    state :rejected
+    state :published
+    state :failed
+
+    event :enqueue do
+      transitions from: :draft, to: :enqueued
+    end
+
+    event :reject do
+      transitions from: :draft, to: :rejected
+    end
+
+    event :success do
+      transitions from: :enqueued, to: :published
+    end
+
+    event :fail do
+      transitions from: :enqueued, to: :failed
+    end
+  end
+
   validates :uid, :link, :published_at, presence: true
 
-  RECENT_LIMIT = 50
-
-  scope :recent, -> { order(created_at: :desc).limit(RECENT_LIMIT) }
-  scope :queue, -> { ready.order(created_at: :desc) }
+  def validation_errors?
+    validation_errors.any?
+  end
 end

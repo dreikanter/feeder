@@ -7,13 +7,13 @@ namespace :feeder do
     FeedsConfiguration.sync
     feed = Feed.enabled.find_by(name: feed_name)
     raise "specified feed does not exist or enabled" unless feed
-    ProcessFeed.call(feed)
+    ProcessFeed.new(feed).process
   end
 
   desc "Pull all feeds"
   task pull_all: :environment do
     FeedsConfiguration.sync
-    Feed.enabled.each { |feed| ProcessFeed.call(feed) }
+    Feed.enabled.each { |feed| ProcessFeed.new(feed).process }
   end
 
   desc "Pull stale feeds"
@@ -23,6 +23,6 @@ namespace :feeder do
     feeds = Feed.enabled.stale
     feed_names = feeds.pluck(:name).join(", ")
     Rails.logger.info("---> updating #{feeds.count} feed(s): #{feed_names}")
-    feeds.each { |feed| ProcessFeed.call(feed) }
+    feeds.each { |feed| ProcessFeed.new(feed).process }
   end
 end
