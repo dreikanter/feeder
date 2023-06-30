@@ -6,7 +6,7 @@ RSpec.describe BaseProcessor do
   let(:feed) { build(:feed, import_limit: 3) }
 
   it "responds to #call" do
-    expect(processor.respond_to?(:call)).to be_truthy
+    expect(processor).to respond_to(:call)
   end
 
   it "is abstract" do

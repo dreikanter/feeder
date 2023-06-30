@@ -4,6 +4,12 @@ RSpec.describe NextbigfutureNormalizer do
   subject(:normalizer) { described_class }
 
   let(:feed) { create(:feed, :nextbigfuture) }
+  let(:expected_entity) do
+    JSON.parse(file_fixture("feeds/nextbigfuture/entity.json").read).tap do |data|
+      data["feed_id"] = feed.id
+      data["published_at"] = Time.zone.parse(data["published_at"])
+    end
+  end
   let(:content) { file_fixture("feeds/nextbigfuture/feed.xml").read }
   let(:entities) { feed.processor_class.call(content: content, feed: feed) }
   let(:normalized_entries) { entities.map { |entity| normalizer.call(entity) } }
@@ -22,13 +28,6 @@ RSpec.describe NextbigfutureNormalizer do
 
     stub_request(:get, %r{^https://www.nextbigfuture.com/.*.html$})
       .to_return(body: file_fixture("feeds/nextbigfuture/post.html").read)
-  end
-
-  let(:expected_entity) do
-    JSON.parse(file_fixture("feeds/nextbigfuture/entity.json").read).tap do |data|
-      data["feed_id"] = feed.id
-      data["published_at"] = Time.zone.parse(data["published_at"])
-    end
   end
 
   it "matches the expected result" do
