@@ -7,7 +7,7 @@ class ProcessFeed
     @feed = feed
   end
 
-  def call
+  def process
     Honeybadger.context(process_feed: {feed_id: feed_id, feed_name: feed_name})
     generate_new_posts
   end
