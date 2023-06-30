@@ -24,6 +24,7 @@ class ProcessFeed
     dump_feed_error(e)
   end
 
+  # :reek:FeatureEnvy
   def push(normalized_entity)
     return unless normalized_entity
     logger.info("---> creating post; uid: [#{normalized_entity.uid}]")
