@@ -1,9 +1,7 @@
-require "test_helper"
+require "rails_helper"
 
-class NitterNormalizerTest < Minitest::Test
-  extend Minitest::Spec::DSL
-
-  let(:subject) { NitterNormalizer }
+RSpec.describe NitterNormalizer do
+  subject(:normalizer) { described_class }
 
   let(:feed) do
     build(
@@ -21,7 +19,7 @@ class NitterNormalizerTest < Minitest::Test
   end
 
   let(:entities) { FeedjiraProcessor.call(content: content, feed: feed) }
-  let(:content) { File.read(file_fixture("feeds/nitter/rss.xml")) }
+  let(:content) { file_fixture("feeds/nitter/rss.xml").read }
 
   let(:tweet_with_image) { entities[0] }
   let(:tweet_with_no_image) { entities[1] }
@@ -40,20 +38,17 @@ class NitterNormalizerTest < Minitest::Test
     }
   end
 
-  def test_process_tweet_with_image
-    freeze_time do
-      normalized_entity = subject.call(tweet_with_image)
-      assert_equal expected, normalized_entity.as_json
-    end
+  before { freeze_time }
+
+  it "processes tweet with an image" do
+    expect(normalizer.call(tweet_with_image).as_json).to eq(expected)
   end
 
-  def test_process_tweet_with_no_image
-    normalized_entity = subject.call(tweet_with_no_image)
-    assert_includes normalized_entity.validation_errors, "no images"
+  it "processes tweet with no image" do
+    expect(normalizer.call(tweet_with_no_image).validation_errors).to include("no images")
   end
 
-  def test_process_retweet
-    normalized_entity = subject.call(tweet_retweet)
-    assert_includes normalized_entity.validation_errors, "retweet"
+  it "processes retweet" do
+    expect(normalizer.call(tweet_retweet).validation_errors).to include("retweet")
   end
 end
