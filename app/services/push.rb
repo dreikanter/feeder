@@ -5,6 +5,7 @@ class Push
   param :post
 
   def call
+    raise "incorrect post state" unless post.enqueued?
     publish_post_content
 
     # TODO: Use better way to limit API calls rate
