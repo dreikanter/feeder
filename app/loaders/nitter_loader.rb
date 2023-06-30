@@ -34,7 +34,6 @@ class NitterLoader < BaseLoader
     https://nitter.rawbit.ninja
     https://nitter.sneed.network
     https://n.sneed.network
-    https://nitter.twei.space
     https://nitter.inpt.fr
     https://nitter.d420.de
     https://nitter.caioalonso.com
@@ -48,20 +47,15 @@ class NitterLoader < BaseLoader
     https://t.com.sb
     https://nitter.kling.gg
     https://nitter.ktachibana.party
-    https://ntr.odyssey346.dev
     https://nitter.lunar.icu
     https://twitter.moe.ngo
     https://nitter.freedit.eu
     https://n.opnxng.com
     https://nitter.in.projectsegfau.lt
     https://nitter.tux.pizza
-    https://t.floss.media
-    https://n.quadtr.ee
-    https://nitter.one
     https://nitter.io.lol
     https://nitter.no-logs.com
     https://nitter.fascinated.cc
-    https://t.uchun.net
     https://nitter.fediflix.org
     https://nitter.services.woodland.cafe
   ].freeze
