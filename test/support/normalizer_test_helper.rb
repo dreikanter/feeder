@@ -48,12 +48,6 @@ module NormalizerTestHelper
   end
 
   def normalize_sample_data
-    processed.map do |entity|
-      subject.call(entity, **options)
-    end
-  end
-
-  def options
-    {}
+    processed.map { |entity| subject.call(entity) }
   end
 end
