@@ -57,9 +57,6 @@ detectors:
     - BaseProcessorTest#test_descendants_callable
     - NormalizerResolverTest#test_callable
     - ProcessorResolverTest#test_callable
-  MissingSafeMethod:
-    exclude:
-    - TwitterLoader
   TooManyStatements:
     exclude:
     - initialize
@@ -84,5 +81,4 @@ detectors:
     - CreateNitterInstances#change
     - BaseLoaderTest#test_success
     - BaseNormalizerTest#test_sanitize_attachments
-    - TwitterProcessorTest#test_happy_path
     - PostsPerWeekTest#test_calculates_posts_per_week

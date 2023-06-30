@@ -16,10 +16,6 @@ services:
       - FREEFEED_BASE_URL
       - SECRET_KEY_BASE
       - FEEDER_HONEYBADGER_API_KEY
-      - TWITTER_CONSUMER_KEY
-      - TWITTER_CONSUMER_SECRET
-      - TWITTER_ACCESS_TOKEN
-      - TWITTER_ACCESS_TOKEN_SECRET
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails server -p 3000 -b 0.0.0.0"
     ports:
       - 3000:3000
@@ -41,10 +37,6 @@ services:
       - FREEFEED_BASE_URL
       - SECRET_KEY_BASE
       - FEEDER_HONEYBADGER_API_KEY
-      - TWITTER_CONSUMER_KEY
-      - TWITTER_CONSUMER_SECRET
-      - TWITTER_ACCESS_TOKEN
-      - TWITTER_ACCESS_TOKEN_SECRET
     command: bash -c "bundle exec bash"
     depends_on:
       - postgres
