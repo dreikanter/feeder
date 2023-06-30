@@ -1,8 +1,11 @@
 class ProcessFeed
-  include Callee
+  include Logging
 
-  param :feed
-  option :logger, optional: true, default: -> { Rails.logger }
+  attr_reader :feed
+
+  def initialize(feed)
+    @feed = feed
+  end
 
   def call
     Honeybadger.context(process_feed: {feed_id: feed_id, feed_name: feed_name})
