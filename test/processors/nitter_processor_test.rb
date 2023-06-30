@@ -12,6 +12,7 @@ class NitterProcessorTest < Minitest::Test
       loader: "nitter",
       processor: "nitter",
       normalizer: "nitter",
+      import_limit: 0,
       options: {
         "twitter_user" => "username",
         "only_with_attachments" => true,
@@ -29,7 +30,7 @@ class NitterProcessorTest < Minitest::Test
   end
 
   def test_uids_should_be_twitter_url
-    entities = subject.call(content, feed: feed, import_limit: 0)
+    entities = subject.call(content, feed: feed)
     assert_equal expected_uids, entities.map(&:uid)
   end
 end

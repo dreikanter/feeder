@@ -11,7 +11,8 @@ RSpec.describe RedditProcessor do
       url: "https://www.reddit.com/r/worldnews/.rss",
       loader: "http",
       processor: "reddit",
-      normalizer: "reddit"
+      normalizer: "reddit",
+      import_limit: 0
     )
   end
 
@@ -51,7 +52,7 @@ RSpec.describe RedditProcessor do
   end
 
   def call_processor
-    processor.call(content, feed: feed, import_limit: 0)
+    processor.call(content: content, feed: feed)
   end
 
   def stub_posts_score_request

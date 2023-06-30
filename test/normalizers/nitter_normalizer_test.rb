@@ -11,6 +11,7 @@ class NitterNormalizerTest < Minitest::Test
       loader: "nitter",
       processor: "feedjira",
       normalizer: "nitter",
+      import_limit: 0,
       options: {
         "twitter_user" => "username",
         "only_with_attachments" => true,
@@ -19,7 +20,7 @@ class NitterNormalizerTest < Minitest::Test
     )
   end
 
-  let(:entities) { FeedjiraProcessor.call(content, feed: feed, import_limit: 0) }
+  let(:entities) { FeedjiraProcessor.call(content: content, feed: feed) }
   let(:content) { File.read(file_fixture("feeds/nitter/rss.xml")) }
 
   let(:tweet_with_image) { entities[0] }

@@ -3,9 +3,9 @@ require "rails_helper"
 RSpec.describe CommitstripNormalizer do
   subject(:normalizer) { described_class }
 
-  let(:feed) { build(:feed) }
+  let(:feed) { build(:feed, import_limit: 0) }
   let(:content) { file_fixture("feeds/commitstrip/feed.xml").read }
-  let(:entities) { FeedjiraProcessor.call(content, feed: feed, import_limit: 0) }
+  let(:entities) { FeedjiraProcessor.call(content: content, feed: feed) }
   let(:entity_with_html_entities) { entities[4] }
 
   let(:expected_entity) do

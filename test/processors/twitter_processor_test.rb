@@ -18,8 +18,8 @@ class TwitterProcessorTest < Minitest::Test
 
   def test_happy_path
     expected = data.map { |entity| entity["id"].to_s }.sort
-    feed = build(:feed, :twitter)
-    result = subject.call(data, feed: feed, import_limit: 0)
+    feed = build(:feed, :twitter, import_limit: 0)
+    result = subject.call(data, feed: feed)
     entities = result.map(&:uid).sort
     assert_equal(expected, entities)
   end
