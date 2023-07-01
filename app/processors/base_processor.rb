@@ -20,7 +20,7 @@ class BaseProcessor
   protected
 
   def entity(uid, entity_content)
-    Entity.new(uid: uid, content: entity_content, feed: feed)
+    FeedEntity.new(uid: uid, content: entity_content, feed: feed)
   end
 
   def entities

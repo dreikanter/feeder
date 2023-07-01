@@ -12,7 +12,7 @@ RSpec.describe HackernewsProcessor do
   include_context "with hackernews stubs"
 
   it "returns entities" do
-    expect(entities).to all be_a(Entity)
+    expect(entities).to all be_a(FeedEntity)
   end
 
   it "references the feed" do
