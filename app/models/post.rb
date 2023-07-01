@@ -57,4 +57,14 @@ class Post < ApplicationRecord
   def validation_errors?
     validation_errors.any?
   end
+
+  def permalink
+    base_url.join("/#{feed.name}/#{freefeed_post_id}").to_s
+  end
+
+  private
+
+  def base_url
+    Addressable::URI.parse(FreefeedClientBuilder.base_url)
+  end
 end

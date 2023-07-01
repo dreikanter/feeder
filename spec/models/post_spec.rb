@@ -15,7 +15,7 @@ RSpec.describe Post do
     expect(blank_post.errors.attribute_names).to match_array(%i[feed uid link published_at])
   end
 
-  describe "state" do
+  describe "#state" do
     let(:draft_post) { model.new(state: model::STATE_DRAFT) }
     let(:enqueued_post) { model.new(state: model::STATE_ENQUEUED) }
     let(:rejected_post) { model.new(state: model::STATE_REJECTED) }
@@ -32,5 +32,11 @@ RSpec.describe Post do
     it { expect(draft_post).to allow_transition_to(:rejected) }
     it { expect(enqueued_post).to allow_transition_to(:published) }
     it { expect(enqueued_post).to allow_transition_to(:failed) }
+  end
+
+  describe "#permalink" do
+    let(:expected) { "https://candy.freefeed.net/#{post.feed.name}/#{post.freefeed_post_id}" }
+
+    it { expect(post.permalink).to eq(expected) }
   end
 end
