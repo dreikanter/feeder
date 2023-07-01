@@ -3,14 +3,14 @@
 # - Filters posts for the past date
 # - Fetches comments count for each post
 # - Order posts by comments count
-# - Generates one Entity
-# - Assigns Entity uid with a serialized publication date
-# - Assigns Entity content with the ordered posts array
+# - Generates one FeedEntity
+# - Assigns FeedEntity uid with a serialized publication date
+# - Assigns FeedEntity content with the ordered posts array
 class KotakuDailyProcessor < BaseProcessor
   protected
 
   def entities
-    [entity(yesterday.rfc3339, ordered_posts)]
+    [build_entity(yesterday.rfc3339, ordered_posts)]
   rescue StandardError => e
     Honeybadger.notify(e)
     []

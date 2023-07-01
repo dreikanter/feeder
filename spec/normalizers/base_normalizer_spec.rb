@@ -4,7 +4,7 @@ RSpec.describe BaseNormalizer do
   subject(:normalizer) { described_class }
 
   let(:feed) { build(:feed) }
-  let(:entity) { Entity.new(uid: "UID", content: "CONTENT", feed: feed) }
+  let(:entity) { FeedEntity.new(uid: "UID", content: "CONTENT", feed: feed) }
   let(:sample_errors) { ["sample error"] }
 
   context "with basic concrete normalizer" do

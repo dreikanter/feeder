@@ -5,7 +5,6 @@ class Push
   param :post
 
   def call
-    raise "incorrect post state" unless post.enqueued?
     publish_post_content
 
     # TODO: Use better way to limit API calls rate
@@ -19,11 +18,11 @@ class Push
     post_id = create_post(attachment_ids)
     post.update(freefeed_post_id: post_id)
     create_comments(post_id)
-    post.success!
+    # TODO: post.success!
     logger.info("---> new post URL: #{post.permalink}")
-  rescue StandardError
-    post.fail!
-    raise
+    # rescue StandardError
+    #   post.fail!
+    #   raise
   end
 
   def create_post(attachment_ids)
