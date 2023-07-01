@@ -61,7 +61,6 @@ detectors:
     exclude:
     - initialize
     - FeedsTableHelper#feeds_table_header
-    - NormalizedEntity#diff
     - GithubBlogNormalizer#safe_image_url
     - MediumNormalizer#excerpt
     - DnsRecordsFetcher#self.call
