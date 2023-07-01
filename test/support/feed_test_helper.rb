@@ -57,15 +57,6 @@ module FeedTestHelper
   end
 
   def test_entity_normalization
-    assert_equal(expected, subject, error_message)
-  end
-
-  def error_message
-    JSON.pretty_generate(expectation_diff)
-  end
-
-  def expectation_diff
-    return subject.diff(expected).as_json unless subject.is_a?(Array)
-    subject.zip(expected).map { |actual, expected| actual.diff(expected).as_json }
+    assert_equal(expected, subject)
   end
 end
