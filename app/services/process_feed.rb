@@ -30,7 +30,8 @@ class ProcessFeed
     logger.info("---> creating post; uid: [#{normalized_entity.uid}]")
     post = normalized_entity.find_or_create_post
     return post.reject! if post.validation_errors?
-    post.enqueue!
+    # TODO: Update post state
+    # post.enqueue!
     update_last_post_created_at
     Push.call(post)
   end
