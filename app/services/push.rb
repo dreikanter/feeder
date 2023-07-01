@@ -20,7 +20,7 @@ class Push
     post.update(freefeed_post_id: post_id)
     create_comments(post_id)
     post.success!
-    logger.info("---> new post URL: #{freefeed_permalink(post)}")
+    logger.info("---> new post URL: #{post.permalink}")
   rescue StandardError
     post.fail!
     raise
@@ -60,10 +60,6 @@ class Push
       response = freefeed.create_attachment(io, content_type: content_type)
       response.parse.fetch("attachments").fetch("id")
     end
-  end
-
-  def freefeed_permalink(post)
-    Addressable::URI.parse(freefeed.base_url).join("/#{post.feed.name}/#{post.freefeed_post_id}").to_s
   end
 
   def freefeed
