@@ -29,14 +29,10 @@ class ProcessFeed
     return unless normalized_entity
     logger.info("---> creating post; uid: [#{normalized_entity.uid}]")
     post = normalized_entity.find_or_create_post
-
-    if post.validation_errors?
-      post.enqueue!
-      update_last_post_created_at
-      Push.call(post)
-    else
-      post.reject!
-    end
+    return post.reject! if post.validation_errors?
+    post.enqueue!
+    update_last_post_created_at
+    Push.call(post)
   end
 
   def feed_id
