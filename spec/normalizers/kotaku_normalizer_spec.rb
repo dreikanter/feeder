@@ -10,10 +10,7 @@ RSpec.describe KotakuNormalizer do
 
   let(:expected) do
     JSON.parse(file_fixture("feeds/kotaku/normalized.json").read).map do |data|
-      data.merge(
-        "feed_id" => feed.id,
-        "published_at" => DateTime.parse(data["published_at"])
-      )
+      data.merge("feed_id" => feed.id)
     end
   end
 

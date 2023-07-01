@@ -28,7 +28,9 @@ RSpec.describe NormalizedEntity do
   end
 
   describe "#==" do
-    it { expect(model.new).to eq(model.new) }
+    let(:instance) { model.new }
+
+    it { expect(instance).to eq(instance.dup) }
   end
 
   describe "#as_json" do
@@ -37,7 +39,7 @@ RSpec.describe NormalizedEntity do
         "feed_id" => "FEED_ID",
         "uid" => "UID",
         "link" => "LINK",
-        "published_at" => published_at.to_s,
+        "published_at" => published_at.to_time.to_s,
         "text" => "TEST",
         "attachments" => ["https://example.com/image.jpg"],
         "comments" => ["I'm a comment"],
@@ -50,7 +52,7 @@ RSpec.describe NormalizedEntity do
         feed_id: "FEED_ID",
         uid: "UID",
         link: "LINK",
-        published_at: published_at.to_s,
+        published_at: published_at,
         text: "TEST",
         attachments: ["https://example.com/image.jpg"],
         comments: ["I'm a comment"],

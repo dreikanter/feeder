@@ -11,7 +11,6 @@ RSpec.describe NextbigfutureNormalizer do
   let(:expected_entity) do
     JSON.parse(file_fixture("feeds/nextbigfuture/entity.json").read).tap do |data|
       data["feed_id"] = feed.id
-      data["published_at"] = Time.zone.parse(data["published_at"])
     end
   end
 

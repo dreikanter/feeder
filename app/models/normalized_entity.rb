@@ -1,6 +1,8 @@
+# :reek:TooManyInstanceVariables
 class NormalizedEntity
   attr_reader :feed_id, :uid, :link, :published_at, :text, :attachments, :comments, :validation_errors
 
+  # :reek:LongParameterList
   def initialize(
     feed_id: nil,
     uid: nil,
@@ -14,7 +16,7 @@ class NormalizedEntity
     @feed_id = feed_id
     @uid = uid
     @link = link
-    @published_at = published_at
+    @published_at = published_at&.to_datetime
     @text = text
     @attachments = attachments
     @comments = comments
@@ -38,7 +40,7 @@ class NormalizedEntity
       feed_id: feed_id,
       uid: uid,
       link: link,
-      published_at: published_at,
+      published_at: serialized_published_at,
       text: text,
       attachments: attachments,
       comments: comments,
@@ -47,6 +49,10 @@ class NormalizedEntity
   end
 
   private
+
+  def serialized_published_at
+    published_at&.to_time.to_s
+  end
 
   def existing_post
     Post.find_by(feed_id: feed_id, uid: uid)
