@@ -20,9 +20,9 @@ class Push
     create_comments(post_id)
     # TODO: post.success!
     logger.info("---> new post URL: #{post.permalink}")
-  rescue StandardError
-    # TODO: post.fail!
-    raise
+    # rescue StandardError
+    #   post.fail!
+    #   raise
   end
 
   def create_post(attachment_ids)
