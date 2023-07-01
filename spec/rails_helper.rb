@@ -6,6 +6,7 @@ require_relative "../config/environment"
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require "rspec/rails"
 # Add additional requires below this line. Rails is not loaded until this point!
+require "aasm/rspec"
 require "support/factory_bot"
 require "support/time_helpers"
 require "webmock/rspec"

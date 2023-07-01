@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_29_170244) do
+ActiveRecord::Schema.define(version: 2023_06_30_183347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 2023_06_29_170244) do
     t.integer "status", default: 0, null: false
     t.string "uid", null: false
     t.string "validation_errors", default: [], null: false, array: true
+    t.string "state", default: "draft", null: false
     t.index ["feed_id"], name: "index_posts_on_feed_id"
     t.index ["link"], name: "index_posts_on_link"
     t.index ["status"], name: "index_posts_on_status"

@@ -29,10 +29,6 @@ class NormalizedEntity
     feed_after.present? && (published_at_or_default < feed_after)
   end
 
-  def status
-    validation_errors.none? ? PostStatus.ready : PostStatus.not_valid
-  end
-
   def find_or_create_post
     existing_post || create_post
   end
@@ -56,8 +52,7 @@ class NormalizedEntity
       text: text,
       attachments: attachments,
       comments: comments,
-      validation_errors: validation_errors,
-      status: status
+      validation_errors: validation_errors
     )
   end
 

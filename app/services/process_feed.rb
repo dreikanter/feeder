@@ -1,10 +1,13 @@
 class ProcessFeed
-  include Callee
+  include Logging
 
-  param :feed
-  option :logger, optional: true, default: -> { Rails.logger }
+  attr_reader :feed
 
-  def call
+  def initialize(feed)
+    @feed = feed
+  end
+
+  def process
     Honeybadger.context(process_feed: {feed_id: feed_id, feed_name: feed_name})
     generate_new_posts
   end
@@ -21,13 +24,14 @@ class ProcessFeed
     dump_feed_error(e)
   end
 
+  # :reek:FeatureEnvy
   def push(normalized_entity)
     return unless normalized_entity
     logger.info("---> creating post; uid: [#{normalized_entity.uid}]")
     post = normalized_entity.find_or_create_post
+    return post.reject! if post.validation_errors?
+    post.enqueue!
     update_last_post_created_at
-    return unless post.ready?
-    logger.info("---> publishing post; uid: [#{post.uid}]")
     Push.call(post)
   end
 
