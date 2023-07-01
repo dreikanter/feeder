@@ -19,7 +19,7 @@ class BaseProcessor
 
   protected
 
-  def entity(uid, entity_content)
+  def build_entity(uid, entity_content)
     FeedEntity.new(uid: uid, content: entity_content, feed: feed)
   end
 

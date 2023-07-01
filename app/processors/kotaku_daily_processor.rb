@@ -10,7 +10,7 @@ class KotakuDailyProcessor < BaseProcessor
   protected
 
   def entities
-    [entity(yesterday.rfc3339, ordered_posts)]
+    [build_entity(yesterday.rfc3339, ordered_posts)]
   rescue StandardError => e
     Honeybadger.notify(e)
     []
