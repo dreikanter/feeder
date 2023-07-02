@@ -19,6 +19,7 @@ class BaseProcessor
 
   protected
 
+  # @return [FeedEntity] creates FeedEntity instance (with stringified uid)
   def build_entity(uid, entity_content)
     FeedEntity.new(uid: uid, content: entity_content, feed: feed)
   end
