@@ -4,7 +4,7 @@ class ServiceInstance < ApplicationRecord
   MAX_ERRORS = 3
 
   validates :service_type, :url, :errors_count, :total_errors_count, presence: true
-  validates :url, uniqueness: { scope: :service_type }
+  validates :url, uniqueness: {scope: :service_type}
 
   aasm column: :state, requires_lock: true do
     state :enabled, initial: true

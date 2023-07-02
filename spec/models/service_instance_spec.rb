@@ -31,12 +31,12 @@ RSpec.describe ServiceInstance do
     subject(:scope) { model.operational }
 
     let(:enabled_instance) { create(:service_instance, state: :enabled, used_at: 1.hour.ago) }
-    let(:failed_instance) { create(:service_instance, state: :failed, used_at: 2.hour.ago) }
+    let(:failed_instance) { create(:service_instance, state: :failed, used_at: 2.hours.ago) }
     let(:suspended_instance) { create(:service_instance, state: :suspended) }
     let(:disabled_instance) { create(:service_instance, state: :disabled) }
 
     before do
-      ServiceInstance.delete_all
+      model.delete_all
       enabled_instance
       failed_instance
       suspended_instance
