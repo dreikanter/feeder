@@ -120,7 +120,6 @@
   import_limit: 2
 
 - name: "best-of-hacker-news"
-  enabled: false
   loader: "hackernews"
   processor: "hackernews"
   normalizer: "hackernews"
