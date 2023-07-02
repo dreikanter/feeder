@@ -4,7 +4,7 @@ class HackernewsProcessor < BaseProcessor
   protected
 
   def entities
-    above_score_threshold.map { build_entity(_1.fetch("id").to_s, _1) }
+    above_score_threshold.map { build_entity(_1.fetch("id"), _1) }
   end
 
   def above_score_threshold
