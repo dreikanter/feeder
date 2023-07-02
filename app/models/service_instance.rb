@@ -36,6 +36,8 @@ class ServiceInstance < ApplicationRecord
     end
   end
 
+  scope :operational, -> { where(state: %w[enabled failed]).order(used_at: :asc) }
+
   private
 
   def update_error_counters
