@@ -4,7 +4,7 @@ class KotakuDailyNormalizer < BaseNormalizer
   protected
 
   def text
-    "Kotaku top #{max_posts_number} posts for #{digest_date.strftime("%d %b %Y")} - #{link}"
+    "Kotaku top publications for #{digest_date.strftime("%d %b %Y")} - #{link}"
   end
 
   def link
