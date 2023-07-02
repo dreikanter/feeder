@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_30_183347) do
+ActiveRecord::Schema.define(version: 2023_07_02_113522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -108,6 +108,20 @@ ActiveRecord::Schema.define(version: 2023_06_30_183347) do
     t.index ["feed_id"], name: "index_posts_on_feed_id"
     t.index ["link"], name: "index_posts_on_link"
     t.index ["status"], name: "index_posts_on_status"
+  end
+
+  create_table "service_instances", force: :cascade do |t|
+    t.string "service_type", null: false
+    t.string "state", null: false
+    t.string "url", null: false
+    t.integer "errors_count", default: 0, null: false
+    t.integer "total_errors_count", default: 0, null: false
+    t.datetime "used_at"
+    t.datetime "failed_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["service_type", "url"], name: "index_service_instances_on_service_type_and_url", unique: true
+    t.index ["state"], name: "index_service_instances_on_state"
   end
 
   create_table "sparklines", force: :cascade do |t|

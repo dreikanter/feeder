@@ -15,23 +15,15 @@ RSpec.describe Post do
     expect(blank_post.errors.attribute_names).to match_array(%i[feed uid link published_at])
   end
 
-  describe "#state" do
-    let(:draft_post) { model.new(state: model::STATE_DRAFT) }
-    let(:enqueued_post) { model.new(state: model::STATE_ENQUEUED) }
-    let(:rejected_post) { model.new(state: model::STATE_REJECTED) }
-    let(:published_post) { model.new(state: model::STATE_PUBLISHED) }
-    let(:failed_post) { model.new(state: model::STATE_FAILED) }
+  describe "state" do
+    it { expect(permitted_transitions_from(:draft)).to match_array(%i[enqueued rejected]) }
+    it { expect(permitted_transitions_from(:enqueued)).to match_array(%i[failed published]) }
+    it { expect(permitted_transitions_from(:published)).to be_empty }
+    it { expect(permitted_transitions_from(:failed)).to be_empty }
 
-    it { expect(draft_post).to be_draft }
-    it { expect(enqueued_post).to be_enqueued }
-    it { expect(rejected_post).to be_rejected }
-    it { expect(published_post).to be_published }
-    it { expect(failed_post).to be_failed }
-
-    it { expect(draft_post).to allow_transition_to(:enqueued) }
-    it { expect(draft_post).to allow_transition_to(:rejected) }
-    it { expect(enqueued_post).to allow_transition_to(:published) }
-    it { expect(enqueued_post).to allow_transition_to(:failed) }
+    def permitted_transitions_from(state)
+      model.new(state: state).aasm.states(permitted: true).map(&:name)
+    end
   end
 
   describe "#permalink" do
