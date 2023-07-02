@@ -5,7 +5,7 @@ RSpec.describe HackernewsProcessor do
   subject(:processor) { described_class }
 
   let(:entities) { processor.call(content: content, feed: feed) }
-  let(:feed) { create(:feed, loader: "hackernews", processor: "hackernews", import_limit: 2) }
+  let(:feed) { create(:feed, :hackernews) }
   let(:content) { HackernewsLoader.call(feed) }
   let(:expected_content) { JSON.parse(file_fixture("feeds/hackernews/expected_processor_result.json").read) }
 
