@@ -358,7 +358,7 @@
 
 - name: "extrafabulous"
   enabled: false
-  disabling_reason: "Twitter limited the number of tweets users can read, https://techcrunch.com/2023/06/30/twitter-now-requires-an-account-to-view-tweets/"
+  disabling_reason: "Twitter limited the number of tweets users can read, https://github.com/dreikanter/feeder/pull/471"
   loader: "nitter"
   processor: "nitter"
   normalizer: "nitter"
@@ -401,7 +401,7 @@
 
 - name: "jakelikesonions"
   enabled: false
-  disabling_reason: "Twitter limited the number of tweets users can read, https://techcrunch.com/2023/06/30/twitter-now-requires-an-account-to-view-tweets/"
+  disabling_reason: "Twitter limited the number of tweets users can read, https://github.com/dreikanter/feeder/pull/471"
   loader: "nitter"
   processor: "nitter"
   normalizer: "nitter"
@@ -415,7 +415,7 @@
 
 - name: "catscafe"
   enabled: false
-  disabling_reason: "Twitter limited the number of tweets users can read, https://techcrunch.com/2023/06/30/twitter-now-requires-an-account-to-view-tweets/"
+  disabling_reason: "Twitter limited the number of tweets users can read, https://github.com/dreikanter/feeder/pull/471"
   loader: "nitter"
   processor: "nitter"
   normalizer: "nitter"
@@ -429,7 +429,7 @@
 
 - name: "hackernewsonion"
   enabled: false
-  disabling_reason: "Twitter limited the number of tweets users can read, https://techcrunch.com/2023/06/30/twitter-now-requires-an-account-to-view-tweets/"
+  disabling_reason: "Twitter limited the number of tweets users can read, https://github.com/dreikanter/feeder/pull/471"
   loader: "nitter"
   processor: "nitter"
   normalizer: "nitter"
@@ -460,7 +460,7 @@
 
 - name: "nathanwpyle"
   enabled: false
-  disabling_reason: "Twitter limited the number of tweets users can read, https://techcrunch.com/2023/06/30/twitter-now-requires-an-account-to-view-tweets/"
+  disabling_reason: "Twitter limited the number of tweets users can read, https://github.com/dreikanter/feeder/pull/471"
   loader: "nitter"
   processor: "nitter"
   normalizer: "nitter"
@@ -514,7 +514,7 @@
 
 - name: "warandpeas"
   enabled: false
-  disabling_reason: "Twitter limited the number of tweets users can read, https://techcrunch.com/2023/06/30/twitter-now-requires-an-account-to-view-tweets/"
+  disabling_reason: "Twitter limited the number of tweets users can read, https://github.com/dreikanter/feeder/pull/471"
   loader: "nitter"
   processor: "nitter"
   normalizer: "nitter"
@@ -536,7 +536,7 @@
 
 - name: "safelyendangered"
   enabled: false
-  disabling_reason: "Twitter limited the number of tweets users can read, https://techcrunch.com/2023/06/30/twitter-now-requires-an-account-to-view-tweets/"
+  disabling_reason: "Twitter limited the number of tweets users can read, https://github.com/dreikanter/feeder/pull/471"
   loader: "nitter"
   processor: "nitter"
   normalizer: "nitter"
@@ -622,7 +622,7 @@
 
 - name: "neural-machine"
   enabled: false
-  disabling_reason: "Twitter limited the number of tweets users can read, https://techcrunch.com/2023/06/30/twitter-now-requires-an-account-to-view-tweets/"
+  disabling_reason: "Twitter limited the number of tweets users can read, https://github.com/dreikanter/feeder/pull/471"
   loader: "nitter"
   processor: "nitter"
   normalizer: "nitter"
@@ -651,7 +651,7 @@
 
 - name: "lizandmollie"
   enabled: false
-  disabling_reason: "Twitter limited the number of tweets users can read, https://techcrunch.com/2023/06/30/twitter-now-requires-an-account-to-view-tweets/"
+  disabling_reason: "Twitter limited the number of tweets users can read, https://github.com/dreikanter/feeder/pull/471"
   loader: "nitter"
   processor: "nitter"
   normalizer: "nitter"
@@ -671,7 +671,7 @@
 
 - name: "yesbut"
   enabled: false
-  disabling_reason: "Twitter limited the number of tweets users can read, https://techcrunch.com/2023/06/30/twitter-now-requires-an-account-to-view-tweets/"
+  disabling_reason: "Twitter limited the number of tweets users can read, https://github.com/dreikanter/feeder/pull/471"
   loader: "nitter"
   processor: "nitter"
   normalizer: "nitter"
