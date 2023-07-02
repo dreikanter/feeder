@@ -357,6 +357,8 @@
     ignore_retweets: true
 
 - name: "extrafabulous"
+  enabled: false
+  disabling_reason: "Twitter limited the number of tweets users can read, https://techcrunch.com/2023/06/30/twitter-now-requires-an-account-to-view-tweets/"
   loader: "nitter"
   processor: "nitter"
   normalizer: "nitter"
@@ -398,6 +400,8 @@
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "jakelikesonions"
+  enabled: false
+  disabling_reason: "Twitter limited the number of tweets users can read, https://techcrunch.com/2023/06/30/twitter-now-requires-an-account-to-view-tweets/"
   loader: "nitter"
   processor: "nitter"
   normalizer: "nitter"
@@ -410,6 +414,8 @@
     ignore_retweets: true
 
 - name: "catscafe"
+  enabled: false
+  disabling_reason: "Twitter limited the number of tweets users can read, https://techcrunch.com/2023/06/30/twitter-now-requires-an-account-to-view-tweets/"
   loader: "nitter"
   processor: "nitter"
   normalizer: "nitter"
@@ -422,6 +428,8 @@
     ignore_retweets: true
 
 - name: "hackernewsonion"
+  enabled: false
+  disabling_reason: "Twitter limited the number of tweets users can read, https://techcrunch.com/2023/06/30/twitter-now-requires-an-account-to-view-tweets/"
   loader: "nitter"
   processor: "nitter"
   normalizer: "nitter"
@@ -451,6 +459,8 @@
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "nathanwpyle"
+  enabled: false
+  disabling_reason: "Twitter limited the number of tweets users can read, https://techcrunch.com/2023/06/30/twitter-now-requires-an-account-to-view-tweets/"
   loader: "nitter"
   processor: "nitter"
   normalizer: "nitter"
@@ -503,6 +513,8 @@
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "warandpeas"
+  enabled: false
+  disabling_reason: "Twitter limited the number of tweets users can read, https://techcrunch.com/2023/06/30/twitter-now-requires-an-account-to-view-tweets/"
   loader: "nitter"
   processor: "nitter"
   normalizer: "nitter"
@@ -523,6 +535,8 @@
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "safelyendangered"
+  enabled: false
+  disabling_reason: "Twitter limited the number of tweets users can read, https://techcrunch.com/2023/06/30/twitter-now-requires-an-account-to-view-tweets/"
   loader: "nitter"
   processor: "nitter"
   normalizer: "nitter"
@@ -607,6 +621,8 @@
   import_limit: 2
 
 - name: "neural-machine"
+  enabled: false
+  disabling_reason: "Twitter limited the number of tweets users can read, https://techcrunch.com/2023/06/30/twitter-now-requires-an-account-to-view-tweets/"
   loader: "nitter"
   processor: "nitter"
   normalizer: "nitter"
@@ -634,6 +650,8 @@
   import_limit: 2
 
 - name: "lizandmollie"
+  enabled: false
+  disabling_reason: "Twitter limited the number of tweets users can read, https://techcrunch.com/2023/06/30/twitter-now-requires-an-account-to-view-tweets/"
   loader: "nitter"
   processor: "nitter"
   normalizer: "nitter"
@@ -652,6 +670,8 @@
   import_limit: 2
 
 - name: "yesbut"
+  enabled: false
+  disabling_reason: "Twitter limited the number of tweets users can read, https://techcrunch.com/2023/06/30/twitter-now-requires-an-account-to-view-tweets/"
   loader: "nitter"
   processor: "nitter"
   normalizer: "nitter"
