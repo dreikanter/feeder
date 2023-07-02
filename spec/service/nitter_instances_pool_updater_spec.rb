@@ -4,10 +4,10 @@ RSpec.describe NitterInstancesPoolUpdater do
   subject(:service) { described_class }
 
   let(:expected) { JSON.parse(file_fixture("nitter_instances_wiki_page.json").read) }
-  let(:imported_urls) { NitterInstance.where(status: :enabled).pluck(:url) }
+  let(:imported_urls) { ServiceInstance.where(state: :enabled).pluck(:url) }
 
   before do
-    NitterInstance.delete_all
+    ServiceInstance.delete_all
 
     stub_request(:get, NitterInstancesFetcher::PUBLIC_INSTANCES_WIKI_PAGE_URL)
       .to_return(body: file_fixture("nitter_instances_wiki_page.html").read)
@@ -20,6 +20,6 @@ RSpec.describe NitterInstancesPoolUpdater do
   end
 
   it "stays idempotent" do
-    expect { service.call }.not_to(change { NitterInstance.pluck(:id, :url, :status) })
+    expect { service.call }.not_to(change { ServiceInstance.pluck(:id, :service_type, :url, :state) })
   end
 end

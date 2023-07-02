@@ -36,6 +36,7 @@ RSpec.describe ServiceInstance do
     let(:disabled_instance) { create(:service_instance, state: :disabled) }
 
     before do
+      ServiceInstance.delete_all
       enabled_instance
       failed_instance
       suspended_instance
