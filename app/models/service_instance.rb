@@ -36,7 +36,14 @@ class ServiceInstance < ApplicationRecord
     end
   end
 
-  scope :operational, -> { where(state: %w[enabled failed]).order(used_at: :asc) }
+  scope :operational, -> { where(state: %w[enabled failed]).less_used }
+  scope :less_used, -> { order(arel_table[:used_at].asc.nulls_first) }
+
+  # @return [ServiceInstance] less used service instance of the specified type.
+  #  Usage is determined by the min used_at timestamp.
+  def self.pick_url(required_type, default: nil)
+    operational.where(service_type: required_type).first&.url || default
+  end
 
   private
 
