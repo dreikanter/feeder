@@ -13,18 +13,18 @@ class NitterLoader < BaseLoader
   private
 
   def register_nitter_instance_error
-    NitterInstance.find_or_create_by(url: nitter_url).error!
+    service_instance.fail! if service_instance.persisted? && service_instance.may_fail?
   end
 
   def nitter_rss_url
-    URI.parse(nitter_url).merge("/#{twitter_user}/rss")
+    URI.parse(service_instance.url).merge("/#{twitter_user}/rss")
   end
 
   def twitter_user
     feed.options.fetch("twitter_user")
   end
 
-  def nitter_url
-    ServiceInstance.pick_url("nitter", default: DEFAULT_INSTANCE)
+  def service_instance
+    @service_instance ||= ServiceInstance.pick("nitter") || ServiceInstance.new(url: DEFAULT_INSTANCE)
   end
 end
