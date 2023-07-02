@@ -120,9 +120,8 @@ ActiveRecord::Schema.define(version: 2023_07_02_113522) do
     t.datetime "failed_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["service_type"], name: "index_service_instances_on_service_type"
+    t.index ["service_type", "url"], name: "index_service_instances_on_service_type_and_url", unique: true
     t.index ["state"], name: "index_service_instances_on_state"
-    t.index ["url"], name: "index_service_instances_on_url"
   end
 
   create_table "sparklines", force: :cascade do |t|
