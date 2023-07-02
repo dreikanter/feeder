@@ -24,7 +24,7 @@ RSpec.describe NitterLoader do
     expect { loader.call(feed) }.to raise_error(KeyError)
   end
 
-  context "on error" do
+  context "when error" do
     it "dumps HTTP client error" do
       expect_failed_loader_to change(Error, :count).by(1)
     end
