@@ -35,7 +35,7 @@ class InfiniteimmortalbensNormalizerTest < Minitest::Test
 
   def test_published_at
     normalized.each do |entity|
-      assert(entity.published_at.is_a?(Time))
+      assert(entity.published_at.is_a?(DateTime))
     end
   end
 

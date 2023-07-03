@@ -12,7 +12,7 @@ RSpec.describe HackernewsNormalizer do
 
   let(:expected) do
     JSON.parse(file_fixture("feeds/hackernews/expected_normalizer_result.json").read).map do |data|
-      data.merge("feed_id" => feed.id, "published_at" => DateTime.parse(data["published_at"]))
+      data.merge("feed_id" => feed.id)
     end
   end
 

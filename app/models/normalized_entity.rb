@@ -1,17 +1,30 @@
+# :reek:TooManyInstanceVariables
 class NormalizedEntity
-  extend Dry::Initializer
+  attr_reader :feed_id, :uid, :link, :published_at, :text, :attachments, :comments, :validation_errors
 
-  option :feed_id, optional: true
-  option :uid, optional: true
-  option :link, optional: true
-  option :published_at, optional: true
-  option :text, optional: true
-  option :attachments, optional: true
-  option :comments, optional: true
-  option :validation_errors, optional: true, default: -> { [] }
+  # :reek:LongParameterList
+  def initialize(
+    feed_id: nil,
+    uid: nil,
+    link: "",
+    published_at: nil,
+    text: "",
+    attachments: [],
+    comments: [],
+    validation_errors: []
+  )
+    @feed_id = feed_id
+    @uid = uid
+    @link = link
+    @published_at = published_at&.to_datetime
+    @text = text
+    @attachments = attachments
+    @comments = comments
+    @validation_errors = validation_errors
+  end
 
   def ==(other)
-    comparable_attributes(self) == comparable_attributes(other)
+    as_json == other.as_json
   end
 
   # @return [true, false] true if the entity is older than feed import threshold ("after")
@@ -24,7 +37,16 @@ class NormalizedEntity
   end
 
   def as_json
-    instance_values
+    {
+      "feed_id" => feed_id,
+      "uid" => uid,
+      "link" => link,
+      "published_at" => published_at&.to_time.to_s,
+      "text" => text,
+      "attachments" => attachments,
+      "comments" => comments,
+      "validation_errors" => validation_errors
+    }
   end
 
   private
@@ -56,22 +78,5 @@ class NormalizedEntity
 
   def feed
     @feed ||= Feed.find(feed_id)
-  end
-
-  COMPARABLE_ATTRIBUTES = %w[
-    feed_id
-    uid
-    link
-    published_at
-    text
-    attachments
-    comments
-    validation_errors
-  ].freeze
-
-  private_constant :COMPARABLE_ATTRIBUTES
-
-  def comparable_attributes(subject)
-    subject.instance_values.slice(*COMPARABLE_ATTRIBUTES)
   end
 end
