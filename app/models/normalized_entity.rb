@@ -38,22 +38,18 @@ class NormalizedEntity
 
   def as_json
     {
-      feed_id: feed_id,
-      uid: uid,
-      link: link,
-      published_at: serialized_published_at,
-      text: text,
-      attachments: attachments,
-      comments: comments,
-      validation_errors: validation_errors
-    }.as_json
+      "feed_id" => feed_id,
+      "uid" => uid,
+      "link" => link,
+      "published_at" => published_at&.to_time.to_s,
+      "text" => text,
+      "attachments" => attachments,
+      "comments" => comments,
+      "validation_errors" => validation_errors
+    }
   end
 
   private
-
-  def serialized_published_at
-    published_at&.to_time.to_s
-  end
 
   def existing_post
     Post.find_by(feed_id: feed_id, uid: uid)
