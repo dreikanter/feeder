@@ -82,5 +82,12 @@ FactoryBot.define do
       refresh_interval { 86400 }
       import_limit { 2 }
     end
+
+    trait :hackernews do
+      loader { "hackernews" }
+      processor { "hackernews" }
+      normalizer { "hackernews" }
+      import_limit { 2 }
+    end
   end
 end

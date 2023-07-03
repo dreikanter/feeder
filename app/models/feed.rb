@@ -80,6 +80,7 @@ class Feed < ApplicationRecord
       .or(where("age(now(), refreshed_at) > make_interval(secs => refresh_interval)"))
   }
 
+  # @return [true, false] true when the feed needs a refresh
   def stale?
     refresh_interval.zero? || !refreshed_at || too_long_since_last_refresh?
   end

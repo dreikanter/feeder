@@ -27,6 +27,7 @@ class NormalizedEntity
     as_json == other.as_json
   end
 
+  # @return [true, false] true if the entity is older than feed import threshold ("after")
   def stale?
     feed_after.present? && (published_at_or_default < feed_after)
   end

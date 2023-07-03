@@ -1,7 +1,7 @@
 [
   {
     "feed_id": 182,
-    "uid": 100005,
+    "uid": "100005",
     "link": "https://news.ycombinator.com/item?id=100005",
     "published_at": "2023-06-16 03:44:10 +0000",
     "text": "Sample title - https://example.com/",
@@ -16,7 +16,7 @@
   },
   {
     "feed_id": 182,
-    "uid": 100003,
+    "uid": "100003",
     "link": "https://news.ycombinator.com/item?id=100003",
     "published_at": "2023-06-16 03:43:50 +0000",
     "text": "Sample title - https://example.com/",

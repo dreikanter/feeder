@@ -2,24 +2,22 @@ class NitterInstancesPoolUpdater
   include Callee
 
   def call
-    remove_delisted_instances
+    disable_delisted_instances
     import_listed_instances
   end
 
   private
 
   def import_listed_instances
-    instance_urls.each do |instance_url|
-      NitterInstance.find_or_create_by(url: instance_url)
-    end
+    instance_urls.each { ServiceInstance.find_or_create_by(service_type: "nitter", url: _1) }
   end
 
-  def remove_delisted_instances
-    delisted_instances.update_all(status: :removed)
+  def disable_delisted_instances
+    delisted_instances.update_all(state: :disabled)
   end
 
   def delisted_instances
-    NitterInstance.where.not(url: instance_urls)
+    ServiceInstance.where(service_type: "nitter").where.not(url: instance_urls)
   end
 
   def instance_urls
