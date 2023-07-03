@@ -16,7 +16,7 @@ class ProcessFeed
 
   def generate_new_posts
     feed.touch(:refreshed_at)
-    normalized_entities.each { |normalized_entity| push(normalized_entity) }
+    normalized_entities.reverse.each { |normalized_entity| push(normalized_entity) }
     feed.update(errors_count: 0)
     feed.update_sparkline
   rescue StandardError => e
