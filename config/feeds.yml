@@ -317,7 +317,7 @@
 - name: "kimchicuddles"
   url: "https://kimchicuddles.com/rss"
   processor: "feedjira"
-  normalizer: "tumblr_normalizer"
+  normalizer: "tumblr"
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 600
   import_limit: 2
@@ -332,16 +332,24 @@
   after: "2021-01-06T12:00:00+00:00"
   import_limit: 2
 
-# TODO: Use alternative feed source
 - name: "aerostatica"
   enabled: false
-  disabling_reason: "Inactive since 2019"
+  disabling_reason: "Inactive since 2019, check out the new feed at https://freefeed.net/aerostat"
   source: "https://aerostatica.ru"
   url: "https://feeds.feedburner.com/aerostatica"
   processor: "feedjira"
-  normalizer: "aerostatica_normalizer"
+  normalizer: "aerostatica"
   refresh_interval: 7200
   import_limit: 2
+
+- name: "aerostat"
+  url: "https://aerostatbg.ru/rss.xml"
+  source: "https://aerostatbg.ru"
+  loader: "http"
+  processor: "feedjira"
+  normalizer: "aerostat"
+  refresh_interval: 86400
+  import_limit: 20
 
 - name: "algtestament"
   enabled: false
