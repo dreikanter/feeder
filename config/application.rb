@@ -14,7 +14,7 @@ require "active_job/railtie"
 # require 'action_mailbox/engine'
 # require 'action_text/engine'
 require "rails/test_unit/railtie"
-require "sprockets/railtie"
+# require "sprockets/railtie"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -22,10 +22,11 @@ Bundler.require(*Rails.groups)
 
 module Feeder
   class Application < Rails::Application
-    config.load_defaults 6.0
+    config.load_defaults 7.0
     config.autoload_paths += %w[app lib].map { |path| config.root.join(path) }
     config.add_autoload_paths_to_load_path = false
-    config.read_encrypted_secrets = true
+    # config.read_encrypted_secrets = true
+    config.active_support.cache_format_version = 6.1
 
     config.hosts << "feeder.local"
     config.hosts << "frf.im"
