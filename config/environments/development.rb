@@ -17,7 +17,7 @@ Rails.application.configure do
   config.consider_all_requests_local = true
 
   config.action_controller.perform_caching = false
-  config.cache_store = :redis_cache_store, {url: ENV["REDIS_URL"]}
+  config.cache_store = :redis_cache_store, {url: ENV.fetch("REDIS_URL")}
 
   # Don't care if the mailer can't send.
   # config.action_mailer.raise_delivery_errors = false

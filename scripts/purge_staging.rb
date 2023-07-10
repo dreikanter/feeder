@@ -9,7 +9,7 @@ USER = "feeder".freeze
 
 posts_count = 0
 
-freefeed_token = ENV["FREEFEED_TOKEN"]
+freefeed_token = ENV.fetch("FREEFEED_TOKEN")
 
 # rubocop:disable Metrics/BlockLength
 loop do
