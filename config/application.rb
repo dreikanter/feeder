@@ -25,7 +25,6 @@ module Feeder
     config.load_defaults 7.0
     config.autoload_paths += %w[app lib].map { |path| config.root.join(path) }
     config.add_autoload_paths_to_load_path = false
-    # config.read_encrypted_secrets = true
     config.active_support.cache_format_version = 6.1
 
     config.hosts << "feeder.local"
@@ -34,7 +33,7 @@ module Feeder
     config.hosts << "app"
 
     config.generators do |generate|
-      generate.test_framework :minitest, spec: false, fixture: false
+      generate.test_framework :rspec, fixture: false
       generate.controller_specs true
       generate.decorator false
       generate.helper false
@@ -45,8 +44,5 @@ module Feeder
       generate.stylesheets false
       generate.view_specs false
     end
-
-    # Turn off Rails Asset Pipeline
-    # config.assets.enabled = false
   end
 end
