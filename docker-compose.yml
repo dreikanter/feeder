@@ -8,14 +8,15 @@ services:
   app:
     build: .
     environment:
-      - RAILS_ENV=development
-      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/feeder_development
-      - REDIS_URL=redis://redis:6379/0
       - BUNDLE_PATH=/bundle
-      - FREEFEED_TOKEN
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/feeder_development
       - FREEFEED_BASE_URL
+      - FREEFEED_TOKEN
+      - HONEYBADGER_API_KEY=$FEEDER_HONEYBADGER_API_KEY
+      - RAILS_ENV=development
+      - RAILS_MASTER_KEY=$FEEDER_RAILS_MASTER_KEY
+      - REDIS_URL=redis://redis:6379/0
       - SECRET_KEY_BASE
-      - FEEDER_HONEYBADGER_API_KEY
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails server -p 3000 -b 0.0.0.0"
     ports:
       - 3000:3000
@@ -29,14 +30,15 @@ services:
   sh:
     build: .
     environment:
-      - RAILS_ENV=development
-      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/feeder_development
-      - REDIS_URL=redis://redis:6379/0
       - BUNDLE_PATH=/bundle
-      - FREEFEED_TOKEN
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/feeder_development
       - FREEFEED_BASE_URL
+      - FREEFEED_TOKEN
+      - HONEYBADGER_API_KEY=$FEEDER_HONEYBADGER_API_KEY
+      - RAILS_ENV=development
+      - RAILS_MASTER_KEY=$FEEDER_RAILS_MASTER_KEY
+      - REDIS_URL=redis://redis:6379/0
       - SECRET_KEY_BASE
-      - FEEDER_HONEYBADGER_API_KEY
     command: bash -c "bundle exec bash"
     depends_on:
       - postgres
