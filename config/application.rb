@@ -30,5 +30,34 @@ module Feeder
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    #
+    # Custom configuration
+    #
+
+    config.active_support.cache_format_version = 6.1
+
+    # config.autoload_paths += config.root.join('lib')
+    # config.eager_load_paths += config.root.join('lib')
+
+    config.hosts << "feeder.local"
+    config.hosts << "frf.im"
+    config.hosts << "localhost"
+
+    config.generators do |generate|
+      generate.test_framework :rspec, fixture: false
+      generate.controller_specs true
+      generate.decorator false
+      generate.helper false
+      generate.helper_specs false
+      generate.javascripts false
+      generate.routing_specs false
+      generate.skip_routes true
+      generate.stylesheets false
+      generate.view_specs false
+    end
+
+    # Use Redis cache store on all environments (see docker-compose.yml)
+    config.cache_store = :redis_cache_store, {url: ENV.fetch("REDIS_URL")}
   end
 end
