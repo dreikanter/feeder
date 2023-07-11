@@ -170,6 +170,13 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+      redis:
+        image: redis
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
       - name: Checkout sources
@@ -201,9 +208,9 @@ jobs:
         env:
           RAILS_MASTER_KEY: "${{ secrets.FEEDER_RAILS_MASTER_KEY_TEST }}"
           DATABASE_URL: "postgres://postgres:postgres@localhost:5432/feeder_test"
+          REDIS_URL: "redis://redis:6379/0"
           RAILS_ENV: test
           WITH_COVERAGE: true
-          DISABLE_SPRING: 1
         run: |
           bundle exec rails db:reset
           bundle exec rails test
