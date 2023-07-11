@@ -1,7 +1,7 @@
-if ENV["WITH_COVERAGE"]
-  require "simplecov"
-  SimpleCov.start("rails")
-end
+# if ENV["WITH_COVERAGE"]
+#   require "simplecov"
+#   SimpleCov.start("rails")
+# end
 
 ENV["RAILS_ENV"] = "test"
 require File.expand_path("../config/environment", __dir__)
