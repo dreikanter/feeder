@@ -9,12 +9,13 @@ USER = "feeder".freeze
 
 posts_count = 0
 
-freefeed_token = ENV["FREEFEED_TOKEN"] || Rails.application.credentials.freefeed_token
+freefeed_token = ENV.fetch("FREEFEED_TOKEN")
 
 # rubocop:disable Metrics/BlockLength
 loop do
   puts "loading posts"
 
+  # Freefeed API URL is hardcoded for safety
   result = RestClient::Request.execute(
     method: :get,
     url: "https://candy.freefeed.net/v2/timelines/home?offset=0",

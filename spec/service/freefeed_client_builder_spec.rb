@@ -3,12 +3,12 @@ require "rails_helper"
 RSpec.describe FreefeedClientBuilder do
   subject(:service) { described_class }
 
-  let(:expected_base_url) { "http://candy.freefeed.net" }
+  let(:expected_base_url) { "https://candy.freefeed.net" }
   let(:expected_token) { "TOKEN" }
 
   before do
-    allow(ENV).to receive(:[]).with("FREEFEED_BASE_URL").and_return(expected_base_url)
-    allow(ENV).to receive(:[]).with("FREEFEED_TOKEN").and_return(expected_token)
+    allow(ENV).to receive(:fetch).with("FREEFEED_BASE_URL").and_return(expected_base_url)
+    allow(ENV).to receive(:fetch).with("FREEFEED_TOKEN").and_return(expected_token)
   end
 
   describe ".call" do

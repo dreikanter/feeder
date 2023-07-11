@@ -53,6 +53,15 @@ How it works:
 - Merge `master` to `release` immediately before the deployment.
 - `./bin/release_master` script pushes head from `master` to `release`.
 
+Required configuration:
+
+- `DATABASE_URL` - PostgreSQL DB URL.
+- `RAILS_ENV` - Rails env name (`development`, `test`, `production`).
+- `REDIS_URL` - Redis instance URL (for example, `redis://1.1.1.1:6379/0`).
+- `HONEYBADGER_API_KEY` - Honeybadger API key for errors reporting (Project → Settings → API keys).
+- `FREEFEED_BASE_URL` - Freefeed instance API root URL (i.e. `https://freefeed.net`).
+- `FREEFEED_TOKEN` - Freefeed auth token.
+
 Ansible playbooks for deployment and server provisioning:
 
 - https://github.com/dreikanter/feeder-ansible
