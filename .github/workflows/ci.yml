@@ -211,7 +211,7 @@ jobs:
         env:
           RAILS_MASTER_KEY: "${{ secrets.FEEDER_RAILS_MASTER_KEY_TEST }}"
           DATABASE_URL: "postgres://postgres:postgres@localhost:5432/feeder_test"
-          REDIS_URL: "redis://redis:6379/0"
+          REDIS_URL: "redis://localhost:6379/0"
           RAILS_ENV: test
           HONEYBADGER_API_KEY: "${{ secrets.FEEDER_HONEYBADGER_API_KEY }}"
           FREEFEED_TOKEN: "TEST_TOKEN"
