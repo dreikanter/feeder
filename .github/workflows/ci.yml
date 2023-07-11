@@ -210,7 +210,8 @@ jobs:
           DATABASE_URL: "postgres://postgres:postgres@localhost:5432/feeder_test"
           REDIS_URL: "redis://redis:6379/0"
           RAILS_ENV: test
-          WITH_COVERAGE: true
+          # WITH_COVERAGE: true
+          HONEYBADGER_API_KEY: "${{ secrets.FEEDER_HONEYBADGER_API_KEY }}"
         run: |
           bundle exec rails db:reset
           bundle exec rails test
