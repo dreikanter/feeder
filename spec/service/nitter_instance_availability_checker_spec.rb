@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe NitterInstanceAvailabilityChecker do
   subject(:update_state) { described_class.new(service_instance).update_state }
 
-  let(:service_instance) {  create(:service_instance, state: :enabled) }
+  let(:service_instance) { create(:service_instance, state: :enabled) }
 
   context "when instance is available" do
     before do

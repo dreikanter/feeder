@@ -1,6 +1,7 @@
 class NitterLoader < BaseLoader
   DEFAULT_INSTANCE = "https://nitter.net".freeze
 
+  # :reek:TooManyStatements
   def call
     response = HTTP.timeout(5).get(nitter_rss_url.to_s)
     raise unless response.code == 200
