@@ -2,7 +2,7 @@
 
 puts "Available Nitter instances:\n\n"
 
-NitterInstancesFetcher.call.each do |url|
+NitterInstancesFetcher.new.call.each do |url|
   rss_url = URI.parse(url).merge("/_yesbut_/rss").to_s
 
   begin

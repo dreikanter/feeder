@@ -1,6 +1,4 @@
 class NitterInstancesPoolUpdater
-  include Callee
-
   def call
     disable_delisted_instances
     import_listed_instances
@@ -21,6 +19,6 @@ class NitterInstancesPoolUpdater
   end
 
   def instance_urls
-    @instance_urls ||= NitterInstancesFetcher.call
+    @instance_urls ||= NitterInstancesFetcher.new.call
   end
 end

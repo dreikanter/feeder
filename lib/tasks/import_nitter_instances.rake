@@ -4,7 +4,7 @@ namespace :feeder do
     Rails.logger.info("---> importing nitter instances...")
     stats = -> { NitterInstance.all.select("status, COUNT(*) AS cnt").group(:status).map { "#{_1.status}: #{_1.cnt}" }.join("; ") }
     Rails.logger.info("---> initial state: #{stats.call}")
-    NitterInstancesPoolUpdater.call
+    NitterInstancesPoolUpdater.new.call
     Rails.logger.info("---> updated state: #{stats.call}")
   end
 end
