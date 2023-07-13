@@ -12,7 +12,7 @@ class NitterInstanceAvailabilityChecker
   private
 
   def available?
-    HTTP.get(sample_rss_url).code == 200
+    HTTP.timeout(5).get(sample_rss_url).code == 200
   rescue StandardError
     false
   end
