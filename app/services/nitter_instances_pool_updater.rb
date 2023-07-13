@@ -7,7 +7,13 @@ class NitterInstancesPoolUpdater
   private
 
   def import_listed_instances
-    instance_urls.each { ServiceInstance.find_or_create_by(service_type: "nitter", url: _1) }
+    instance_urls.each { find_or_create(_1) }
+  end
+
+  def find_or_create(instance_url)
+    ServiceInstance.find_or_create_by(service_type: "nitter", url: instance_url).tap do |service_instance|
+      NitterInstanceAvailabilityChecker.new(service_instance).update_state
+    end
   end
 
   def disable_delisted_instances

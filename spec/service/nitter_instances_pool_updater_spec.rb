@@ -12,6 +12,7 @@ RSpec.describe NitterInstancesPoolUpdater do
     stub_request(:get, NitterInstancesFetcher::PUBLIC_INSTANCES_WIKI_PAGE_URL)
       .to_return(body: file_fixture("nitter_instances_wiki_page.html").read)
 
+    stub_request(:get, %r{/rss$}).to_return(status: 200)
     service_call
   end
 
