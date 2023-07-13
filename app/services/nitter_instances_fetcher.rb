@@ -1,6 +1,4 @@
 class NitterInstancesFetcher
-  include Callee
-
   PUBLIC_INSTANCES_WIKI_PAGE_URL = "https://github.com/zedeus/nitter/wiki/Instances".freeze
   WELL_KNOWN_INSTANCES = ["https://nitter.net"].freeze
 

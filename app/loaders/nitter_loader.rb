@@ -1,11 +1,13 @@
 class NitterLoader < BaseLoader
   DEFAULT_INSTANCE = "https://nitter.net".freeze
 
+  # :reek:TooManyStatements
   def call
-    RestClient.get(nitter_rss_url.to_s).body
+    response = HTTP.timeout(5).get(nitter_rss_url.to_s)
+    raise unless response.code == 200
+    response.to_s
   rescue StandardError => e
-    # TODO: Do not treat 404 as instance availability
-    ErrorDumper.call(exception: e, message: "Nitter error", target: feed)
+    ErrorDumper.call(exception: e, message: "Nitter error", target: feed, context: {response: response.as_json})
     register_nitter_instance_error
     raise
   end
