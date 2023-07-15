@@ -1,3 +1,5 @@
+# Fetch the list of service URLs, check each instance availability, and update
+# related ServiceInstance records
 class ServiceInstancesPoolUpdater
   include Logging
 
@@ -11,14 +13,17 @@ class ServiceInstancesPoolUpdater
 
   protected
 
+  # @return [String] service type name (lowcase, underscore)
   def service_type
     raise AbstractMethodError
   end
 
+  # @return [ServiceInstanceAvailabilityChecker]
   def availability_checker
     raise AbstractMethodError
   end
 
+  # @return [ServiceInstancesFetcher]
   def instances_fetcher
     raise AbstractMethodError
   end
