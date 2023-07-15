@@ -1,9 +1,9 @@
 require "rails_helper"
 
-RSpec.describe NitterInstanceAvailabilityChecker do
+RSpec.describe LibredditInstanceAvailabilityChecker do
   subject(:update_state) { described_class.new(service_instance).update_state }
 
-  let(:service_instance) { create(:service_instance, service_type: "nitter", state: :enabled) }
+  let(:service_instance) { create(:service_instance, service_type: "libreddit", state: :enabled) }
 
   context "when instance is available" do
     before do
@@ -14,7 +14,7 @@ RSpec.describe NitterInstanceAvailabilityChecker do
     it { expect(service_instance.reload).to be_enabled }
   end
 
-  context "when instance does not support RSS" do
+  context "when instance respond with a request error" do
     before do
       stub_instance_request.to_return(status: 404)
       update_state
@@ -33,6 +33,6 @@ RSpec.describe NitterInstanceAvailabilityChecker do
   end
 
   def stub_instance_request
-    stub_request(:get, "#{service_instance.url}_yesbut_/rss")
+    stub_request(:get, "#{service_instance.url}r/adventuretime")
   end
 end

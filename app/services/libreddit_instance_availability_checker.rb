@@ -1,4 +1,4 @@
-class NitterInstanceAvailabilityChecker < ServiceInstanceAvailabilityChecker
+class LibredditInstanceAvailabilityChecker < ServiceInstanceAvailabilityChecker
   protected
 
   def available?
@@ -8,6 +8,6 @@ class NitterInstanceAvailabilityChecker < ServiceInstanceAvailabilityChecker
   end
 
   def sample_rss_url
-    URI.join(service_instance.url, "_yesbut_/rss").to_s
+    URI.join(service_instance.url, "r/adventuretime").to_s
   end
 end
