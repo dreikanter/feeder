@@ -8,54 +8,28 @@ class RedditPointsFetcher
   end
 
   def points
-    Integer(dom.css(".post_score").attribute("title").value)
+    Integer(extract_post_score)
   end
 
   private
 
-  def dom
-    Nokogiri::HTML(page_content)
+  def extract_post_score
+    Nokogiri::HTML(page_content).css(".post_score").attribute("title").value
   end
 
+  # :reek:TooManyStatements
   def page_content
-    ensure_successful_respone
+    response = HTTP.timeout(5).follow(max_hops: 3).get(libreddit_url)
+    raise unless response.code == 200
     response.to_s
+  rescue StandardError
+    register_service_instance_error
+    Honeybadger.context(reddit_points_fetcher: {response: response&.as_json, service_instance: service_instance.as_json, libreddit_url: libreddit_url})
+    raise
   end
 
-  def ensure_successful_respone
-    return if response.status == 200
-    define_error_context
-    raise Error
-  end
-
-  def define_error_context
-    Honeybadger.context(
-      reddit_points_fetcher: {
-        libreddit_host: libreddit_host,
-        short_url: short_url,
-        libreddit_url: libreddit_url
-      }
-    )
-  end
-
-  LIBREDDIT_HOSTS = %w[
-    safereddit.com
-    libreddit.kavin.rocks
-    lr.riverside.rocks
-    reddit.baby
-    libreddit.de
-    libreddit.hu
-    libreddit.nl
-  ].freeze
-
-  private_constant :LIBREDDIT_HOSTS
-
-  MAX_HOPS = 3
-
-  private_constant :MAX_HOPS
-
-  def response
-    @response ||= HTTP.follow(max_hops: MAX_HOPS).get(libreddit_url)
+  def register_service_instance_error
+    service_instance.fail! if service_instance.persisted? && service_instance.may_fail?
   end
 
   def libreddit_url
@@ -63,7 +37,7 @@ class RedditPointsFetcher
   end
 
   def libreddit_host
-    @libreddit_host ||= LIBREDDIT_HOSTS.sample
+    URI.parse(service_instance.url).host
   end
 
   def short_url
