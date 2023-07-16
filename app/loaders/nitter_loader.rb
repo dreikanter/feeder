@@ -1,6 +1,4 @@
 class NitterLoader < BaseLoader
-  DEFAULT_INSTANCE = "https://nitter.net".freeze
-
   # :reek:TooManyStatements
   def call
     response = HTTP.timeout(5).follow(max_hops: 3).get(nitter_rss_url.to_s)
@@ -27,6 +25,6 @@ class NitterLoader < BaseLoader
   end
 
   def service_instance
-    @service_instance ||= ServiceInstance.pick("nitter") || ServiceInstance.new(url: DEFAULT_INSTANCE)
+    @service_instance ||= ServiceInstance.pick!("nitter")
   end
 end

@@ -44,11 +44,7 @@ class RedditPointsFetcher
     RedditSlugsChopper.call(url)
   end
 
-  DEFAULT_INSTANCE = "https://safereddit.com"
-
-  private_constant :DEFAULT_INSTANCE
-
   def service_instance
-    @service_instance ||= ServiceInstance.pick("libreddit") || ServiceInstance.new(url: DEFAULT_INSTANCE)
+    @service_instance ||= ServiceInstance.pick!("libreddit")
   end
 end
