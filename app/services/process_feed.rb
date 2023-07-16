@@ -27,7 +27,7 @@ class ProcessFeed
   # :reek:FeatureEnvy
   def push(normalized_entity)
     return unless normalized_entity
-    logger.info("---> creating post; uid: [#{normalized_entity.uid}]")
+    log_info("---> creating post; uid: [#{normalized_entity.uid}]")
     post = normalized_entity.find_or_create_post
     return post.reject! if post.validation_errors?
     # TODO: Update post state

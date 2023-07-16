@@ -4,11 +4,11 @@ class ServiceInstancesPoolUpdater
   include Logging
 
   def call
-    logger.info("#{self.class.name}: importing public instances list")
-    logger.info("initial instances state: #{instances_stats}")
+    log_info("#{self.class.name}: importing public instances list")
+    log_info("initial instances state: #{instances_stats}")
     disable_delisted_instances
     import_listed_instances
-    logger.info("updated instances state: #{instances_stats}")
+    log_info("updated instances state: #{instances_stats}")
   end
 
   protected
@@ -42,7 +42,7 @@ class ServiceInstancesPoolUpdater
   end
 
   def actual_state(service_instance)
-    logger.info("checking #{service_instance.url} availability")
+    log_info("checking #{service_instance.url} availability")
     availability_checker.new(service_instance).available? ? ServiceInstance::STATE_ENABLED : ServiceInstance::STATE_DISABLED
   end
 
