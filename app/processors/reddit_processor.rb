@@ -19,7 +19,7 @@ class RedditProcessor < AtomProcessor
   end
 
   def score(link)
-    RedditPointsFetcher.call(link)
+    RedditPointsFetcher.new(link).points
   rescue StandardError => e
     # NOTE: Individual post score fetching should not crash the processor,
     #  but they are getting reported to monitor Reddit availability

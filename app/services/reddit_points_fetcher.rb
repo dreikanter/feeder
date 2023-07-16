@@ -1,11 +1,13 @@
 class RedditPointsFetcher
   Error = Class.new(StandardError)
 
-  include Callee
+  attr_reader :url
 
-  param :url
+  def initialize(url)
+    @url = url
+  end
 
-  def call
+  def points
     Integer(dom.css(".post_score").attribute("title").value)
   end
 
@@ -66,5 +68,13 @@ class RedditPointsFetcher
 
   def short_url
     RedditSlugsChopper.call(url)
+  end
+
+  DEFAULT_INSTANCE = "https://safereddit.com"
+
+  private_constant :DEFAULT_INSTANCE
+
+  def service_instance
+    @service_instance ||= ServiceInstance.pick("libreddit") || ServiceInstance.new(url: DEFAULT_INSTANCE)
   end
 end
