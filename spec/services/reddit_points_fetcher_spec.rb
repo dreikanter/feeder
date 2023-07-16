@@ -7,14 +7,22 @@ RSpec.describe RedditPointsFetcher do
   let(:content) { file_fixture("feeds/reddit/libreddit_comments_page.html").read }
   let(:expected) { 2869 }
   let(:thread_url) { %r{^https://.*/r/worldnews/comments/} }
+  let(:service_instance) { create(:service_instance, service_type: "libreddit", url: "https://example.com") }
 
   before do
-    create(:service_instance, service_type: "libreddit", url: "https://example.com")
+    freeze_time
+    ServiceInstance.delete_all
+    service_instance
   end
 
   it "fetches post score" do
     stub_request(:get, thread_url).to_return(body: content)
     expect(result).to eq(expected)
+  end
+
+  it "updates service instance last usage timestamp" do
+    stub_request(:get, thread_url).to_return(body: content)
+    expect { result }.to(change { service_instance.reload.used_at }.from(nil).to(Time.current))
   end
 
   it "raises on HTTP request errors" do

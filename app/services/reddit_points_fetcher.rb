@@ -17,6 +17,7 @@ class RedditPointsFetcher
 
   # :reek:TooManyStatements
   def page_content
+    service_instance.touch(:used_at)
     response = HTTP.timeout(5).follow(max_hops: 3).get(libreddit_url)
     raise unless response.code == 200
     response.to_s
