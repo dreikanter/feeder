@@ -1,15 +1,15 @@
 module Logging
-  CLEAR   = "\e[0m"
-  BOLD    = "\e[1m"
+  CLEAR = "\e[0m"
+  BOLD = "\e[1m"
 
-  BLACK   = "\e[30m"
-  RED     = "\e[31m"
-  GREEN   = "\e[32m"
-  YELLOW  = "\e[33m"
-  BLUE    = "\e[34m"
+  BLACK = "\e[30m"
+  RED = "\e[31m"
+  GREEN = "\e[32m"
+  YELLOW = "\e[33m"
+  BLUE = "\e[34m"
   MAGENTA = "\e[35m"
-  CYAN    = "\e[36m"
-  WHITE   = "\e[37m"
+  CYAN = "\e[36m"
+  WHITE = "\e[37m"
 
   # :reek:UtilityFunction
   def logger
