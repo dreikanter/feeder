@@ -31,14 +31,19 @@ class ServiceInstancesPoolUpdater
   private
 
   def import_listed_instances
-    instance_urls.each { find_or_create(_1) }
+    instance_urls.each do |url|
+      service_instance = find_or_create(url)
+      service_instance.update!(state: actual_state(service_instance))
+    end
   end
 
   def find_or_create(instance_url)
-    ServiceInstance.find_or_create_by(service_type: service_type, url: instance_url).tap do |service_instance|
-      logger.info("checking #{instance_url} availability")
-      availability_checker.new(service_instance).update_state
-    end
+    ServiceInstance.find_or_create_by(service_type: service_type, url: instance_url)
+  end
+
+  def actual_state(service_instance)
+    logger.info("checking #{service_instance.url} availability")
+    availability_checker.new(service_instance).available? ? ServiceInstance::STATE_ENABLED : ServiceInstance::STATE_DISABLED
   end
 
   def disable_delisted_instances
