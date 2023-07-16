@@ -1,6 +1,4 @@
 class RedditPointsFetcher
-  Error = Class.new(StandardError)
-
   attr_reader :url
 
   def initialize(url)
@@ -23,13 +21,9 @@ class RedditPointsFetcher
     raise unless response.code == 200
     response.to_s
   rescue StandardError
-    register_service_instance_error
-    Honeybadger.context(reddit_points_fetcher: {response: response&.as_json, service_instance: service_instance.as_json, libreddit_url: libreddit_url})
+    service_instance.register_error
+    Honeybadger.context(reddit_points_fetcher: {response: response.as_json, service_instance: service_instance.as_json, libreddit_url: libreddit_url})
     raise
-  end
-
-  def register_service_instance_error
-    service_instance.fail! if service_instance.persisted? && service_instance.may_fail?
   end
 
   def libreddit_url

@@ -46,6 +46,10 @@ class ServiceInstance < ApplicationRecord
     operational.where(service_type: required_type).first!
   end
 
+  def register_error
+    fail! if may_fail?
+  end
+
   private
 
   def update_error_counters

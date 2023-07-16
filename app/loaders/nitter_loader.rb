@@ -5,16 +5,12 @@ class NitterLoader < BaseLoader
     raise unless response.code == 200
     response.to_s
   rescue StandardError
-    Honeybadger.context(nitter_loader: {response: response&.as_json, service_instance: service_instance.as_json})
-    register_service_instance_error
+    Honeybadger.context(nitter_loader: {response: response.as_json, service_instance: service_instance.as_json})
+    service_instance.register_error
     raise
   end
 
   private
-
-  def register_service_instance_error
-    service_instance.fail! if service_instance.persisted? && service_instance.may_fail?
-  end
 
   def nitter_rss_url
     URI.parse(service_instance.url).merge("/#{twitter_user}/rss")
