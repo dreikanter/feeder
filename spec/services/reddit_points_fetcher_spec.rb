@@ -7,7 +7,7 @@ RSpec.describe RedditPointsFetcher do
   let(:content) { file_fixture("feeds/reddit/libreddit_comments_page.html").read }
   let(:expected) { 2869 }
   let(:thread_url) { %r{^https://.*/r/worldnews/comments/} }
-  let(:service_instance) { FactoryBot.create(:service_instance, service_type: "libreddit", url: "https://example.com") }
+  let(:service_instance) { create(:service_instance, service_type: "libreddit", url: "https://example.com") }
 
   before do
     freeze_time
