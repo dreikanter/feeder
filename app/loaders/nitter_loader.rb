@@ -1,22 +1,16 @@
 class NitterLoader < BaseLoader
-  DEFAULT_INSTANCE = "https://nitter.net".freeze
-
   # :reek:TooManyStatements
   def call
-    response = HTTP.timeout(5).get(nitter_rss_url.to_s)
+    response = HTTP.timeout(5).follow(max_hops: 3).get(nitter_rss_url.to_s)
     raise unless response.code == 200
     response.to_s
-  rescue StandardError => e
-    ErrorDumper.call(exception: e, message: "Nitter error", target: feed, context: {response: response.as_json})
-    register_nitter_instance_error
+  rescue StandardError
+    Honeybadger.context(nitter_loader: {response: response.as_json, service_instance: service_instance.as_json})
+    service_instance.register_error
     raise
   end
 
   private
-
-  def register_nitter_instance_error
-    service_instance.fail! if service_instance.persisted? && service_instance.may_fail?
-  end
 
   def nitter_rss_url
     URI.parse(service_instance.url).merge("/#{twitter_user}/rss")
@@ -27,6 +21,6 @@ class NitterLoader < BaseLoader
   end
 
   def service_instance
-    @service_instance ||= ServiceInstance.pick("nitter") || ServiceInstance.new(url: DEFAULT_INSTANCE)
+    @service_instance ||= ServiceInstance.pick!("nitter")
   end
 end

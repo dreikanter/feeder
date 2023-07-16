@@ -45,4 +45,17 @@ RSpec.describe ServiceInstance do
 
     it { expect(scope).to eq([failed_instance, enabled_instance]) }
   end
+
+  describe "#register_error" do
+    let(:enabled_instance) { create(:service_instance, state: :enabled) }
+    let(:disabled_instance) { create(:service_instance, state: :disabled) }
+
+    it "fails when possible" do
+      expect { enabled_instance.register_error }.to(change { enabled_instance.reload.state }.from("enabled").to("failed"))
+    end
+
+    it "not fails when impossible" do
+      expect { disabled_instance.register_error }.not_to(change { disabled_instance.reload.state })
+    end
+  end
 end

@@ -25,10 +25,6 @@ RSpec.describe NitterLoader do
   end
 
   context "when error" do
-    it "dumps HTTP client error" do
-      expect_failed_loader_to change(Error, :count).by(1)
-    end
-
     it "updates service instance state" do
       expect_failed_loader_to change { service_instance.reload.state }.from("enabled").to("failed")
     end

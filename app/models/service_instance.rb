@@ -42,8 +42,12 @@ class ServiceInstance < ApplicationRecord
   # @return [ServiceInstance] least used operational service instance of
   #   the specified type. Instance usage is determined by the min used_at
   #   timestamp. "Operational" means not disabled or suspended.
-  def self.pick(required_type)
-    operational.where(service_type: required_type).first
+  def self.pick!(required_type)
+    operational.where(service_type: required_type).first!
+  end
+
+  def register_error
+    fail! if may_fail?
   end
 
   private

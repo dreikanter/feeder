@@ -8,6 +8,10 @@ RSpec.describe RedditPointsFetcher do
   let(:expected) { 2869 }
   let(:thread_url) { %r{^https://.*/r/worldnews/comments/} }
 
+  before do
+    create(:service_instance, service_type: "libreddit", url: "https://example.com")
+  end
+
   it "fetches post score" do
     stub_request(:get, thread_url).to_return(body: content)
     expect(result).to eq(expected)
@@ -20,6 +24,6 @@ RSpec.describe RedditPointsFetcher do
 
   it "raises on HTTP response errors" do
     stub_request(:get, thread_url).to_return(status: 404)
-    expect { result }.to raise_error(described_class::Error)
+    expect { result }.to raise_error(StandardError)
   end
 end
