@@ -21,7 +21,11 @@ RSpec.describe RedditProcessor do
   let(:thread_url) { %r{^https://.*/r/worldnews/comments/} }
   let(:thread_contents) { file_fixture("feeds/reddit/libreddit_comments_page.html").read }
 
-  before { Rails.cache.clear }
+  before do
+    Rails.cache.clear
+    ServiceInstance.delete_all
+    create(:service_instance, service_type: "libreddit")
+  end
 
   it "fetches reddit points" do
     stub_posts_score_request
