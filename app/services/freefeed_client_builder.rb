@@ -8,6 +8,7 @@ class FreefeedClientBuilder
       )
     end
 
+    # TODO: Extract this configuration accessor
     def base_url
       ENV.fetch("FREEFEED_BASE_URL")
     end

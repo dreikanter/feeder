@@ -23,11 +23,7 @@ class NewfluxNormalizer < FeedjiraNormalizer
     image = Nokogiri::HTML(page_content).css(COVER_QUERY).first
     image[:content] if image
   rescue StandardError => e
-    ErrorDumper.call(
-      exception: e,
-      message: "Error fetching a post image",
-      target: feed
-    )
+    Honeybadger.notify(e)
     nil
   end
 

@@ -6,7 +6,7 @@
       <ul>
         <li class="my-2">Active feeds: <b><%= number_with_delimiter enabled_feeds_count -%></b></li>
         <li class="my-2">Last imported post: <b><%= ago(last_post_created_at).upcase_first -%></b></li>
-        <li class="my-2">Total imported posts: <b><%= number_with_delimiter Post.count -%></b></li>
+        <li class="my-2">Total imported posts: <b><a href="https://freefeed.net/search?q=from%3Afeeder"><%= number_with_delimiter Post.count -%></a></b></li>
         <li class="my-2">Imported within the last 24h: <b><%= number_with_delimiter Post.where("created_at > ?", 24.hours.ago).count -%></b></li>
         <li class="my-2">Total non-unique subscriptions: <b><%= number_with_delimiter Feed.sum(:subscriptions_count) -%></b></li>
       </ul>
