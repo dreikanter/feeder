@@ -1,3 +1,4 @@
+# :reek:TooManyStatements
 class OglafCrowler
   HOST = "www.oglaf.com".freeze
   SCHEME = "https".freeze

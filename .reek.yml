@@ -66,8 +66,6 @@ detectors:
     - DnsRecordsFetcher#self.call
     - Html#self.paragraphs
     - NormalizerResolver#call
-    - OglafCrowler#self.call
-    - OglafCrowler#self.next_page_url
     - ProcessFeed#generate_new_posts
     - ProcessFeed#push
     - ProcessorResolver#call
