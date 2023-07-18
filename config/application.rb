@@ -18,6 +18,9 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# TODO: Use autoload
+require_relative "../app/support/http/features/request_tracking"
+
 module Feeder
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
