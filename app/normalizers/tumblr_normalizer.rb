@@ -2,7 +2,7 @@ class TumblrNormalizer < RssNormalizer
   protected
 
   def text
-    [super, link].join(separator)
+    [super, link].compact.join(separator)
   end
 
   def attachments

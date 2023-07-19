@@ -1,2 +1,0 @@
-class AListApartBlogNormalizer < RssNormalizer
-end

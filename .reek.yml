@@ -31,7 +31,6 @@ detectors:
     - FreefeedClientBuilder#call
     - Html#self.paragraphs
     - Html#self.post_excerpt
-    - TumblrImageFetcher#self.call
     - ErrorDumperTest#test_backtrace
   FeatureEnvy:
     exclude:
@@ -71,7 +70,6 @@ detectors:
     - ProcessorResolver#call
     - Push#publish_post_content
     - TumblrImageFetcher#self.call
-    - CreateFeeds#change
     - CreatePosts#change
     - CreateDelayedJobs#self.up
     - CreateErrors#change
