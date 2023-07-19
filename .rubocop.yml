@@ -42,3 +42,6 @@ RSpec/MultipleMemoizedHelpers:
 
 RSpec/MultipleExpectations:
   Max: 3
+
+RSpec/MessageSpies:
+  Enabled: false

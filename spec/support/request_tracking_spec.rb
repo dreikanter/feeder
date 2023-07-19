@@ -58,10 +58,10 @@ RSpec.describe RequestTracking do
   end
 
   # TODO: WebMock is not compatible with HTTP errors tracking, need a fix
-  skip "handle errors" do
-    stub_request(:get, uri).to_raise(HTTP::ConnectionError)
-    expect(Honeybadger).to receive(:add_breadcrumb).with(*expected_request_breadcrumb)
-    expect(Honeybadger).to receive(:add_breadcrumb).with(*["HTTP Request Error"])
-    expect { HTTP.use(:request_tracking).get("https://test") }.to raise_error(HTTP::ConnectionError)
-  end
+  # it "handle errors" do
+  #   stub_request(:get, uri).to_raise(HTTP::ConnectionError)
+  #   expect(Honeybadger).to receive(:add_breadcrumb).with(*expected_request_breadcrumb)
+  #   expect(Honeybadger).to receive(:add_breadcrumb).with("HTTP Request Error")
+  #   expect { HTTP.use(:request_tracking).get("https://test") }.to raise_error(HTTP::ConnectionError)
+  # end
 end
