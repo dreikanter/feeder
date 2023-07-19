@@ -24,6 +24,6 @@ class HackernewsLoader < BaseLoader
   end
 
   def load_json(url)
-    JSON.parse(HTTP.get(url).to_s)
+    JSON.parse(HTTP.use(:request_tracking).get(url).to_s)
   end
 end

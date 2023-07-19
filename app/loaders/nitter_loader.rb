@@ -2,7 +2,7 @@ class NitterLoader < BaseLoader
   # :reek:TooManyStatements
   def call
     service_instance.touch(:used_at)
-    response = HTTP.timeout(5).follow(max_hops: 3).get(nitter_rss_url.to_s)
+    response = HTTP.use(:request_tracking).timeout(5).follow(max_hops: 3).get(nitter_rss_url.to_s)
     raise unless response.status.success?
     response.to_s
   rescue StandardError

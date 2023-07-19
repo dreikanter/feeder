@@ -27,6 +27,6 @@ class NextbigfutureThumbnailFetcher
   end
 
   def page_content
-    HTTP.get(page_uri).to_s
+    HTTP.use(:request_tracking).get(page_uri).to_s
   end
 end

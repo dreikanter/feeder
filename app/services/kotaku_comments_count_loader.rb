@@ -16,6 +16,6 @@ class KotakuCommentsCountLoader
   end
 
   def html
-    HTTP.get(post_url).to_s
+    HTTP.use(:request_tracking).get(post_url).to_s
   end
 end

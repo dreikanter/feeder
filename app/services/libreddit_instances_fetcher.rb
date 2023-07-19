@@ -15,6 +15,6 @@ class LibredditInstancesFetcher < ServiceInstancesFetcher
   end
 
   def data
-    HTTP.get(SOURCE_URL).to_s
+    HTTP.use(:request_tracking).get(SOURCE_URL).to_s
   end
 end

@@ -25,7 +25,7 @@ class Downloader
   private_constant :MAX_HOPS
 
   def fetch_url
-    HTTP.follow(max_hops: MAX_HOPS).get(url)
+    HTTP.use(:request_tracking).follow(max_hops: MAX_HOPS).get(url)
   rescue StandardError
     nil
   end

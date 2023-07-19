@@ -31,6 +31,6 @@ class KotakuLoader < BaseLoader
   end
 
   def content
-    HTTP.get(feed.url).to_s
+    HTTP.use(:request_tracking).get(feed.url).to_s
   end
 end

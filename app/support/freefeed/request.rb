@@ -39,7 +39,7 @@ module Freefeed
     # TODO: Timeout setting
     # TODO: Proxy setting
     def http_client
-      HTTP.use(client.http_features)
+      HTTP.use(:request_tracking).use(client.http_features)
     end
   end
 end
