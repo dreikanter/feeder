@@ -7,7 +7,7 @@ class HttpLoader < BaseLoader
   private
 
   def ensure_successful_respone
-    return if response.status == 200
+    return if response.status.success?
     define_error_context
     raise Error
   end

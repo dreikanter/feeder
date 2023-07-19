@@ -31,7 +31,7 @@ RSpec.describe RedditPointsFetcher do
   end
 
   it "raises on HTTP response errors" do
-    stub_request(:get, thread_url).to_return(status: 404)
+    stub_request(:get, thread_url).to_return(status: 404, body: "non-empty body", headers: {"Content-Type" => "text/plain"})
     expect { result }.to raise_error(StandardError)
   end
 end
