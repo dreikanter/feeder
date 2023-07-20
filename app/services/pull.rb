@@ -12,7 +12,7 @@ class Pull
   delegate :loader_class, :processor_class, :normalizer_class, to: :feed
 
   def normalized_entities
-    new_entities.map { normalize_entity(_1) }.compact
+    new_entities.filter_map { normalize_entity(_1) }
   end
 
   def new_entities
