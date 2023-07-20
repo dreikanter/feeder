@@ -89,11 +89,5 @@ FactoryBot.define do
       normalizer { "hackernews" }
       import_limit { 2 }
     end
-
-    trait :tumblr do
-      loader { "http" }
-      processor { "rss" }
-      normalizer { "tumblr" }
-    end
   end
 end
