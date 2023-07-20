@@ -1,6 +1,5 @@
 class Pull
   include Callee
-  include Logging
 
   param :feed
 
@@ -25,12 +24,7 @@ class Pull
   end
 
   def entities
-    @entities ||= processor_class.call(content: content, feed: feed)
-  end
-
-  def content
-    logger.info("---> loading feed (name: #{feed.name}; id: #{feed.id}; loader: #{loader_class})")
-    loader_class.call(feed, logger: logger)
+    @entities ||= processor_class.call(content: loader_class.call(feed), feed: feed)
   end
 
   def normalize_entity(entity)
