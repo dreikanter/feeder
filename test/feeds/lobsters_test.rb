@@ -6,6 +6,7 @@ class LobstersTest < Minitest::Test
   def feed_config
     {
       name: "lobsters-ruby",
+      loader: "http",
       processor: "lobsters",
       normalizer: "lobsters",
       url: "https://lobste.rs/t/ruby.rss"

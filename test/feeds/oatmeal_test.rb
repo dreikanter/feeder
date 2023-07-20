@@ -6,6 +6,7 @@ class OatmealTest < Minitest::Test
   def feed_config
     {
       name: "oatmeal",
+      loader: "http",
       processor: "rss",
       normalizer: "oatmeal",
       url: "https://feeds.feedburner.com/oatmealfeed"

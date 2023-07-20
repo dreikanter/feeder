@@ -13,6 +13,7 @@ class XkcdTest < Minitest::Test
   def feed_config
     {
       name: "xkcd",
+      loader: "http",
       processor: "rss",
       normalizer: "xkcd",
       url: "https://xkcd.com/rss.xml"

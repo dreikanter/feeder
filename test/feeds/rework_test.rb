@@ -6,6 +6,7 @@ class ReworkTest < Minitest::Test
   def feed_config
     {
       name: "rework",
+      loader: "http",
       processor: "feedjira",
       normalizer: "rework",
       url: "https://feeds.transistor.fm/rework"

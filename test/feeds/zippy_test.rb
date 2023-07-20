@@ -6,6 +6,7 @@ class ZippyTest < Minitest::Test
   def feed_config
     {
       name: "zippy",
+      loader: "http",
       processor: "feedjira",
       normalizer: "zippy",
       url: "https://www.comicsrss.com/rss/zippy-the-pinhead.rss"

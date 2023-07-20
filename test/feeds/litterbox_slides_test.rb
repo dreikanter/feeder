@@ -20,6 +20,7 @@ class LitterboxSlidesTest < Minitest::Test
   def feed_config
     {
       name: "litterbox",
+      loader: "http",
       processor: "wordpress",
       normalizer: "litterbox",
       url: "https://www.litterboxcomics.com/feed/"

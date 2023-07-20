@@ -11,6 +11,7 @@ class BuniTest < Minitest::Test
   def feed_config
     {
       name: "buni",
+      loader: "http",
       processor: "feedjira",
       normalizer: "buni",
       url: "http://bunicomic.com/feed/",

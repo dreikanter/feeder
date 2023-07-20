@@ -6,6 +6,7 @@ class LunarbaboonTest < Minitest::Test
   def feed_config
     {
       name: "lunarbaboon",
+      loader: "http",
       processor: "feedjira",
       normalizer: "lunarbaboon",
       url: "http://www.lunarbaboon.com/comics/rss.xml"

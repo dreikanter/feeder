@@ -14,8 +14,10 @@ class PullTest < Minitest::Test
   def feed
     @feed ||= create(
       :feed,
-      name: :test,
-      loader: :http,
+      name: "test",
+      loader: "http",
+      processor: "test",
+      normalizer: "test",
       import_limit: 0,
       url: FEED_URL
     )
