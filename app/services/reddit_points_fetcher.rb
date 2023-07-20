@@ -1,4 +1,6 @@
 class RedditPointsFetcher
+  include HttpClient
+
   attr_reader :url
 
   def initialize(url)
@@ -18,12 +20,11 @@ class RedditPointsFetcher
   # :reek:TooManyStatements
   def page_content
     service_instance.touch(:used_at)
-    response = HTTP.timeout(5).follow(max_hops: 3).get(libreddit_url)
-    raise unless response.code == 200
+    response = http.timeout(5).follow(max_hops: 3).get(libreddit_url)
+    raise unless response.status.success?
     response.to_s
   rescue StandardError
     service_instance.register_error
-    Honeybadger.context(reddit_points_fetcher: {response: response.as_json, service_instance: service_instance.as_json, libreddit_url: libreddit_url})
     raise
   end
 

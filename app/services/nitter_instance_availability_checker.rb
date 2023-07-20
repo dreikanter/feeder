@@ -1,6 +1,8 @@
 class NitterInstanceAvailabilityChecker < ServiceInstanceAvailabilityChecker
+  include HttpClient
+
   def available?
-    HTTP.timeout(5).get(sample_rss_url).code == 200
+    http.timeout(5).get(sample_rss_url).status.success?
   rescue StandardError
     false
   end

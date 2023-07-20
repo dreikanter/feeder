@@ -1,4 +1,6 @@
 class LibredditInstancesFetcher < ServiceInstancesFetcher
+  include HttpClient
+
   # SEE: https://github.com/libreddit/libreddit-instances/tree/master
   SOURCE_URL = "https://raw.githubusercontent.com/libreddit/libreddit-instances/master/instances.json"
 
@@ -15,6 +17,6 @@ class LibredditInstancesFetcher < ServiceInstancesFetcher
   end
 
   def data
-    HTTP.get(SOURCE_URL).to_s
+    http.get(SOURCE_URL).to_s
   end
 end

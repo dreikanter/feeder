@@ -1,4 +1,6 @@
 class HttpLoader < BaseLoader
+  include HttpClient
+
   def call
     ensure_successful_respone
     response.to_s
@@ -7,7 +9,7 @@ class HttpLoader < BaseLoader
   private
 
   def ensure_successful_respone
-    return if response.status == 200
+    return if response.status.success?
     define_error_context
     raise Error
   end
@@ -21,6 +23,6 @@ class HttpLoader < BaseLoader
   private_constant :MAX_HOPS
 
   def response
-    @response ||= HTTP.follow(max_hops: MAX_HOPS).get(feed.url)
+    @response ||= http.follow(max_hops: MAX_HOPS).get(feed.url)
   end
 end

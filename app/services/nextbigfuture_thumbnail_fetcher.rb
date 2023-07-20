@@ -1,4 +1,6 @@
 class NextbigfutureThumbnailFetcher
+  include HttpClient
+
   attr_reader :page_uri
 
   def initialize(page_uri)
@@ -27,6 +29,6 @@ class NextbigfutureThumbnailFetcher
   end
 
   def page_content
-    HTTP.get(page_uri).to_s
+    http.get(page_uri).to_s
   end
 end

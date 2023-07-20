@@ -14,6 +14,5 @@ module Freefeed
 
     option :token
     option :base_url, default: -> { Freefeed::BASE_URL }
-    option :http_features, default: -> { {} }
   end
 end

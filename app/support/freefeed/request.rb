@@ -2,6 +2,7 @@
 
 module Freefeed
   class Request
+    include HttpClient
     extend Dry::Initializer
 
     param :client
@@ -10,10 +11,7 @@ module Freefeed
     param :options, optional: true, default: -> { {} }
 
     def call
-      response = http_client
-        .headers(headers)
-        .public_send(request_method, uri, **request_params)
-
+      response = http.headers(headers).public_send(request_method, uri, **request_params)
       error = Freefeed::Error.for(response)
       raise(error) if error
       response
@@ -34,12 +32,6 @@ module Freefeed
         accept: "*/*",
         user_agent: "feeder"
       }
-    end
-
-    # TODO: Timeout setting
-    # TODO: Proxy setting
-    def http_client
-      HTTP.use(client.http_features)
     end
   end
 end

@@ -1,4 +1,6 @@
 class KotakuCommentsCountLoader
+  include HttpClient
+
   attr_reader :post_url
 
   def initialize(post_url)
@@ -16,6 +18,6 @@ class KotakuCommentsCountLoader
   end
 
   def html
-    HTTP.get(post_url).to_s
+    http.get(post_url).to_s
   end
 end

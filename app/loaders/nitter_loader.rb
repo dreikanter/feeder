@@ -1,9 +1,11 @@
 class NitterLoader < BaseLoader
+  include HttpClient
+
   # :reek:TooManyStatements
   def call
     service_instance.touch(:used_at)
-    response = HTTP.timeout(5).follow(max_hops: 3).get(nitter_rss_url.to_s)
-    raise unless response.code == 200
+    response = http.timeout(5).follow(max_hops: 3).get(nitter_rss_url.to_s)
+    raise unless response.status.success?
     response.to_s
   rescue StandardError
     Honeybadger.context(nitter_loader: {response: response.as_json, service_instance: service_instance.as_json})

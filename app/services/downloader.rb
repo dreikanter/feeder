@@ -1,4 +1,5 @@
 class Downloader
+  include HttpClient
   include Callee
 
   param :url
@@ -6,7 +7,7 @@ class Downloader
   def call
     Honeybadger.context(downloader: {url: url})
     response = fetch_url
-    return unless response&.status == 200
+    return unless response&.status&.success?
     yield build_io_from(response), response.content_type.mime_type
   end
 
@@ -25,7 +26,7 @@ class Downloader
   private_constant :MAX_HOPS
 
   def fetch_url
-    HTTP.follow(max_hops: MAX_HOPS).get(url)
+    http.follow(max_hops: MAX_HOPS).get(url)
   rescue StandardError
     nil
   end
