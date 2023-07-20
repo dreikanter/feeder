@@ -54,8 +54,6 @@ detectors:
     exclude:
     - RssNormalizer#published_at
     - BaseProcessorTest#test_descendants_callable
-    - NormalizerResolverTest#test_callable
-    - ProcessorResolverTest#test_callable
   TooManyStatements:
     exclude:
     - initialize
@@ -64,10 +62,8 @@ detectors:
     - MediumNormalizer#excerpt
     - DnsRecordsFetcher#self.call
     - Html#self.paragraphs
-    - NormalizerResolver#call
     - ProcessFeed#generate_new_posts
     - ProcessFeed#push
-    - ProcessorResolver#call
     - Push#publish_post_content
     - TumblrImageFetcher#self.call
     - CreatePosts#change

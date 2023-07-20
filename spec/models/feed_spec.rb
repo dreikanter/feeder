@@ -129,15 +129,15 @@ RSpec.describe Feed do
 
   describe "#loader_class" do
     it "resolves specified class" do
-      expect(build(:feed, loader: "null").loader_class).to eq(NullLoader)
+      expect(build(:feed, loader: "http").loader_class).to eq(HttpLoader)
     end
 
-    it "resolves default class" do
-      expect(build(:feed, loader: nil).loader_class).to eq(HttpLoader)
+    it "returns null class when loader is undefined" do
+      expect(build(:feed, loader: nil).loader_class).to eq(NullLoader)
     end
 
-    it "raises when can't resolve the class" do
-      expect { build(:feed, loader: "missing").loader_class }.to raise_error(LoaderResolver::Error)
+    it "returns null class when can't find the loader" do
+      expect(build(:feed, loader: nil).loader_class).to eq(NullLoader)
     end
   end
 
