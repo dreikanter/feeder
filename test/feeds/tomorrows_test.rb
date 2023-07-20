@@ -6,6 +6,7 @@ class TomorrowsTest < Minitest::Test
   def feed_config
     {
       name: "365tomorrows",
+      loader: "http",
       processor: "rss",
       normalizer: "tomorrows",
       url: "http://365tomorrows.com/feed/"

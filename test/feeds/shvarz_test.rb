@@ -6,6 +6,7 @@ class ShvarzTest < Minitest::Test
   def feed_config
     {
       name: "shvarz",
+      loader: "http",
       processor: "rss",
       normalizer: "livejournal",
       url: "https://shvarz.livejournal.com/data/rss"

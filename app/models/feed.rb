@@ -94,20 +94,16 @@ class Feed < ApplicationRecord
   end
 
   # TODO: Consider returning an instance, initialized with self
-  # TODO: Use consistent class resolution logic with no implicit fallbacks
-  #   Resolver.new(self, scope: "loader").resolve
-  #   Resolver.new(self, scope: "processor").resolve
-  #   Resolver.new(self, scope: "normalizer").resolve
   def loader_class
-    LoaderResolver.call(self)
+    ClassResolver.new(loader, suffix: "loader", fallback: NullLoader).resolve
   end
 
   def processor_class
-    ProcessorResolver.call(self)
+    ClassResolver.new(processor, suffix: "processor", fallback: NullProcessor).resolve
   end
 
   def normalizer_class
-    NormalizerResolver.call(self)
+    ClassResolver.new(normalizer, suffix: "normalizer", fallback: NullNormalizer).resolve
   end
 
   private

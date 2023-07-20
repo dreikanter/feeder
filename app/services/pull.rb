@@ -2,10 +2,6 @@ class Pull
   include Callee
 
   param :feed
-  option :logger, optional: true, default: -> { Rails.logger }
-  option :loader, optional: true, default: -> { LoaderResolver.call(feed, logger: logger) }
-  option :processor, optional: true, default: -> { ProcessorResolver.call(feed, logger: logger) }
-  option :normalizer, optional: true, default: -> { NormalizerResolver.call(feed, logger: logger) }
 
   def call
     normalized_entities.reject(&:stale?)
@@ -13,28 +9,26 @@ class Pull
 
   private
 
+  delegate :loader_class, :processor_class, :normalizer_class, to: :feed
+
   def normalized_entities
-    new_entities.map { |entity| normalize_entity(entity) }.compact
+    new_entities.filter_map { normalize_entity(_1) }
   end
 
-  # TODO: Optimize this
   def new_entities
-    uids = entities.map(&:uid)
-    existing_uids = Post.where(feed: feed, uid: uids).pluck(:uid)
-    entities.filter { |entity| existing_uids.exclude?(entity.uid) }
+    entities.filter { existing_uids.exclude?(_1.uid) }
+  end
+
+  def existing_uids
+    @existing_uids ||= Post.where(feed: feed, uid: entities.map(&:uid)).pluck(:uid)
   end
 
   def entities
-    @entities ||= processor.call(content: content, feed: feed)
-  end
-
-  def content
-    logger.info("---> loading feed (name: #{feed.name}; id: #{feed.id}; loader: #{loader.name})")
-    loader.call(feed, logger: logger)
+    @entities ||= processor_class.call(content: loader_class.call(feed), feed: feed)
   end
 
   def normalize_entity(entity)
-    normalizer.call(entity)
+    normalizer_class.call(entity)
   rescue StandardError => e
     ErrorDumper.call(
       exception: e,

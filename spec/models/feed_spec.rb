@@ -129,15 +129,15 @@ RSpec.describe Feed do
 
   describe "#loader_class" do
     it "resolves specified class" do
-      expect(build(:feed, loader: "null").loader_class).to eq(NullLoader)
+      expect(build(:feed, loader: "http").loader_class).to eq(HttpLoader)
     end
 
-    it "resolves default class" do
-      expect(build(:feed, loader: nil).loader_class).to eq(HttpLoader)
+    it "returns null class when loader is undefined" do
+      expect(build(:feed, loader: nil).loader_class).to eq(NullLoader)
     end
 
-    it "raises when can't resolve the class" do
-      expect { build(:feed, loader: "missing").loader_class }.to raise_error(LoaderResolver::Error)
+    it "returns null class when can't find the loader" do
+      expect(build(:feed, loader: "missing").loader_class).to eq(NullLoader)
     end
   end
 
@@ -146,11 +146,11 @@ RSpec.describe Feed do
       expect(build(:feed, processor: "rss").processor_class).to eq(RssProcessor)
     end
 
-    it "fallbacks to default when processor is undefined" do
+    it "returns null class when processor is undefined" do
       expect(build(:feed, processor: nil).processor_class).to eq(NullProcessor)
     end
 
-    it "fallbacks to default when processor is missing" do
+    it "returns null class when can't find the processor" do
       expect(build(:feed, processor: "missing").processor_class).to eq(NullProcessor)
     end
   end
@@ -160,12 +160,12 @@ RSpec.describe Feed do
       expect(build(:feed, normalizer: "rss").normalizer_class).to eq(RssNormalizer)
     end
 
-    it "raises when normalizer is not defined" do
-      expect { build(:feed, normalizer: nil).normalizer_class }.to raise_error(RuntimeError)
+    it "returns null class when normalizer is undefined" do
+      expect(build(:feed, normalizer: nil).normalizer_class).to eq(NullNormalizer)
     end
 
-    it "raises when can't resolve the class" do
-      expect { build(:feed, normalizer: "missing").normalizer_class }.to raise_error(RuntimeError)
+    it "returns null class when can't find the normalizer" do
+      expect(build(:feed, normalizer: "missing").normalizer_class).to eq(NullNormalizer)
     end
   end
 end
