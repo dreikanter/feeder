@@ -1,4 +1,5 @@
 class Downloader
+  include HttpClient
   include Callee
 
   param :url
@@ -25,7 +26,7 @@ class Downloader
   private_constant :MAX_HOPS
 
   def fetch_url
-    HTTP.use(:request_tracking).follow(max_hops: MAX_HOPS).get(url)
+    http.follow(max_hops: MAX_HOPS).get(url)
   rescue StandardError
     nil
   end

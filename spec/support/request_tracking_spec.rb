@@ -14,7 +14,6 @@ RSpec.describe RequestTracking do
           request: {
             "verb" => "get",
             "uri" => uri,
-            "body_size" => 0,
             "headers" => {
               "Connection" => "close",
               "Host" => "example.com",
@@ -35,7 +34,6 @@ RSpec.describe RequestTracking do
           response: {
             "status" => 200,
             "headers" => {"Content-Type" => "application/json"},
-            "body" => ["{}"],
             "proxy_headers" => [],
             "version" => "1.1"
           }

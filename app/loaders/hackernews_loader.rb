@@ -1,4 +1,6 @@
 class HackernewsLoader < BaseLoader
+  include HttpClient
+
   STORY_CACHE_TTL = 2.hours
 
   def call
@@ -24,6 +26,6 @@ class HackernewsLoader < BaseLoader
   end
 
   def load_json(url)
-    JSON.parse(HTTP.use(:request_tracking).get(url).to_s)
+    JSON.parse(http.get(url).to_s)
   end
 end

@@ -26,18 +26,22 @@ class RequestTracking < HTTP::Feature
     Honeybadger.add_breadcrumb(message, metadata: metadata, category: "request")
   end
 
+  # SEE: https://github.com/httprb/http/blob/main/lib/http/request.rb
   def request_data(request)
     {
       verb: request.verb,
       uri: request.uri.to_s,
-      headers: request.headers.to_h,
-      body_size: request.body.size
+      headers: request.headers.to_h
     }.as_json
   end
 
+  # SEE: https://github.com/httprb/http/blob/main/lib/http/response.rb
   def response_data(response)
-    response.as_json.except("request").tap do |data|
-      data["headers"] = data["headers"].to_h
-    end
+    {
+      status: response.status,
+      headers: response.headers.to_h,
+      version: response.version,
+      proxy_headers: response.proxy_headers
+    }.as_json
   end
 end

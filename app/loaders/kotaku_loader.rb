@@ -1,4 +1,6 @@
 class KotakuLoader < BaseLoader
+  include HttpClient
+
   COMMENTS_COUNT_THRESHOLD = 100
   COMMENTS_COUNT_CACHE_TTL = 4.hours
 
@@ -31,6 +33,6 @@ class KotakuLoader < BaseLoader
   end
 
   def content
-    HTTP.use(:request_tracking).get(feed.url).to_s
+    http.get(feed.url).to_s
   end
 end

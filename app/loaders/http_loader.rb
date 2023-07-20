@@ -1,4 +1,6 @@
 class HttpLoader < BaseLoader
+  include HttpClient
+
   def call
     ensure_successful_respone
     response.to_s
@@ -21,6 +23,6 @@ class HttpLoader < BaseLoader
   private_constant :MAX_HOPS
 
   def response
-    @response ||= HTTP.use(:request_tracking).follow(max_hops: MAX_HOPS).get(feed.url)
+    @response ||= http.follow(max_hops: MAX_HOPS).get(feed.url)
   end
 end
