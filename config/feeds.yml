@@ -3,6 +3,7 @@
   url: "https://xkcd.com/rss.xml"
   loader: "http"
   processor: "rss"
+  normalizer: "xkcd"
   after: "2021-01-04T12:00:00+00:00"
   refresh_interval: 1200
   import_limit: 2
@@ -20,6 +21,7 @@
   url: "https://feeds.feedburner.com/PhdComics"
   loader: "http"
   processor: "rss"
+  normalizer: "rss"
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 86400
   import_limit: 2
@@ -28,6 +30,7 @@
   url: "https://www.commitstrip.com/en/feed/"
   loader: "http"
   processor: "feedjira"
+  normalizer: "feedjira"
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 7200
   import_limit: 2
@@ -39,6 +42,7 @@
   url: "https://dilbert.com/feed"
   loader: "http"
   processor: "atom"
+  normalizer: "dilbert"
   after: "2021-01-04T12:00:00+00:00"
   refresh_interval: 1800
   import_limit: 2
@@ -59,6 +63,7 @@
   url: "http://static.nichtlustig.de/rss/nichtrss.rss"
   loader: "http"
   processor: "rss"
+  normalizer: "rss"
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 86400
   import_limit: 2
@@ -67,6 +72,7 @@
   url: "https://feeds.feedburner.com/oatmealfeed"
   loader: "http"
   processor: "rss"
+  normalizer: "rss"
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 3600
   import_limit: 2
@@ -75,6 +81,7 @@
   url: "https://wumo.com/wumo?view=rss"
   loader: "http"
   processor: "rss"
+  normalizer: "rss"
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 3600
   import_limit: 2
@@ -104,6 +111,7 @@
   url: "https://github.com/blog/all.atom"
   loader: "http"
   processor: "atom"
+  normalizer: "atom"
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 3600
   import_limit: 2
@@ -112,6 +120,7 @@
   url: "https://feeds.feedburner.com/Explosm"
   loader: "http"
   processor: "rss"
+  normalizer: "rss"
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 86400
   import_limit: 2
@@ -120,6 +129,7 @@
   url: "https://feeds.feedburner.com/theatlantic/infocus"
   loader: "http"
   processor: "rss"
+  normalizer: "rss"
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 7200
   import_limit: 2
@@ -131,6 +141,7 @@
   url: "https://feeds.feedburner.com/esquire-ru"
   loader: "http"
   processor: "rss"
+  normalizer: "rss"
   after: "2021-01-06T12:00:00+00:00"
   import_limit: 2
 
