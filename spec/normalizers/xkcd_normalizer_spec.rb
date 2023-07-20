@@ -1,41 +1,27 @@
-require "test_helper"
+require "rails_helper"
+require "support/shared_examples_a_normalizer"
 
-class XkcdNormalizerTest < Minitest::Test
-  include NormalizerTestHelper
+RSpec.describe XkcdNormalizer do
+  subject(:subject_name) { described_class }
 
-  def setup
-    super
+  it_behaves_like "a normalizer" do
+    let(:feed) do
+      create(
+        :feed,
+        name: "xkcd",
+        loader: "http",
+        processor: "rss",
+        normalizer: "xkcd",
+        url: "https://xkcd.com/rss.xml"
+      )
+    end
 
-    stub_request(:get, %r{//xkcd.com/\d+})
-      .to_return(body: file_fixture("feeds/xkcd/post.html").read)
-  end
+    let(:feed_fixture) { "feeds/xkcd/feed.xml" }
+    let(:normalized_fixture) { "feeds/xkcd/normalized.json" }
 
-  def subject
-    XkcdNormalizer
-  end
-
-  def processor
-    RssProcessor
-  end
-
-  def sample_data_file
-    "feed_xkcd.xml"
-  end
-
-  def expected
-    NormalizedEntity.new(
-      feed_id: feed.id,
-      uid: "http://xkcd.com/1732/",
-      link: "http://xkcd.com/1732/",
-      published_at: DateTime.parse("2016-09-12 04:00:00 UTC"),
-      text: "Earth Temperature Timeline - http://xkcd.com/1732/",
-      attachments: ["https://imgs.xkcd.com/comics/symbols_2x.png"],
-      comments: ["[After setting your car on fire] Listen, your car's temperature has changed before."],
-      validation_errors: []
-    )
-  end
-
-  def test_normalized_sample
-    assert_equal(expected, normalized.first)
+    before do
+      stub_request(:get, %r{//xkcd.com/\d+})
+        .to_return(body: file_fixture("feeds/xkcd/post.html").read)
+    end
   end
 end
