@@ -15,8 +15,5 @@ RSpec.describe LunarbaboonNormalizer do
         url: "http://www.lunarbaboon.com/comics/rss.xml"
       )
     end
-
-    let(:feed_fixture) { "feeds/lunarbaboon/feed.xml" }
-    let(:normalized_fixture) { "feeds/lunarbaboon/normalized.json" }
   end
 end

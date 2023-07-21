@@ -15,8 +15,5 @@ RSpec.describe AgavrTodayNormalizer do
         url: "https://tele.ga/agavr_today/rss/"
       )
     end
-
-    let(:feed_fixture) { "feeds/agavr_today/feed.xml" }
-    let(:normalized_fixture) { "feeds/agavr_today/normalized.json" }
   end
 end

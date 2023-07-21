@@ -16,8 +16,5 @@ RSpec.describe InfiniteimmortalbensNormalizer do
         import_limit: 2
       )
     end
-
-    let(:feed_fixture) { "feeds/infiniteimmortalbens/feed.xml" }
-    let(:normalized_fixture) { "feeds/infiniteimmortalbens/normalized.json" }
   end
 end

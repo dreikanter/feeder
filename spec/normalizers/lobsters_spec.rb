@@ -8,15 +8,12 @@ RSpec.describe LobstersNormalizer do
     let(:feed) do
       create(
         :feed,
-        name: "lobsters-ruby",
+        name: "lobsters",
         loader: "http",
         processor: "lobsters",
         normalizer: "lobsters",
         url: "https://lobste.rs/t/ruby.rss"
       )
     end
-
-    let(:feed_fixture) { "feeds/lobsters/feed.xml" }
-    let(:normalized_fixture) { "feeds/lobsters/normalized.json" }
   end
 end
