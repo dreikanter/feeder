@@ -9,18 +9,8 @@ class HttpLoader < BaseLoader
   private
 
   def ensure_successful_respone
-    return if response.status.success?
-    define_error_context
-    raise Error
+    raise Error unless response.status.success?
   end
-
-  def define_error_context
-    Honeybadger.context(http_loader: {http_response: response.as_json})
-  end
-
-  MAX_HOPS = 3
-
-  private_constant :MAX_HOPS
 
   def response
     @response ||= http.get(feed.url)
