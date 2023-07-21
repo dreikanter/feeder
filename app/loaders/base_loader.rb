@@ -1,9 +1,15 @@
 class BaseLoader
   Error = Class.new(StandardError)
 
-  include Callee
+  def self.call(feed)
+    new(feed).call
+  end
 
-  param :feed
+  attr_reader :feed
+
+  def initialize(feed)
+    @feed = feed
+  end
 
   def call
     raise "not implemented"
