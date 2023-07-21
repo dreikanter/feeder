@@ -1,9 +1,8 @@
 [
   {
-    "feed_id": 1,
     "uid": "http://www.bunicomic.com/comic/buni-1315/",
     "link": "http://www.bunicomic.com/comic/buni-1315/",
-    "published_at": "2019-11-25 06:00:09 UTC",
+    "published_at": "2019-11-25 06:00:09 +0000",
     "text": "De-Metamorphosis - http://www.bunicomic.com/comic/buni-1315/",
     "attachments": [
       "http://www.bunicomic.com/wp-content/uploads/2019/11/2019-11-25-Buni.jpg"
@@ -16,10 +15,9 @@
     ]
   },
   {
-    "feed_id": 1,
     "uid": "http://www.bunicomic.com/2019/11/23/too-early/",
     "link": "http://www.bunicomic.com/2019/11/23/too-early/",
-    "published_at": "2019-11-24 02:10:46 UTC",
+    "published_at": "2019-11-24 02:10:46 +0000",
     "text": "Too Early - http://www.bunicomic.com/2019/11/23/too-early/",
     "attachments": [
 
@@ -32,10 +30,9 @@
     ]
   },
   {
-    "feed_id": 1,
     "uid": "http://www.bunicomic.com/comic/buni-1314/",
     "link": "http://www.bunicomic.com/comic/buni-1314/",
-    "published_at": "2019-11-20 06:07:58 UTC",
+    "published_at": "2019-11-20 06:07:58 +0000",
     "text": "De-Metamorphosis - http://www.bunicomic.com/comic/buni-1314/",
     "attachments": [
       "http://www.bunicomic.com/wp-content/uploads/2019/11/2019-11-25-Buni.jpg"
@@ -48,10 +45,9 @@
     ]
   },
   {
-    "feed_id": 1,
     "uid": "http://www.bunicomic.com/comic/buni-1313/",
     "link": "http://www.bunicomic.com/comic/buni-1313/",
-    "published_at": "2019-11-18 06:22:14 UTC",
+    "published_at": "2019-11-18 06:22:14 +0000",
     "text": "De-Metamorphosis - http://www.bunicomic.com/comic/buni-1313/",
     "attachments": [
       "http://www.bunicomic.com/wp-content/uploads/2019/11/2019-11-25-Buni.jpg"
