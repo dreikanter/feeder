@@ -23,6 +23,6 @@ class HttpLoader < BaseLoader
   private_constant :MAX_HOPS
 
   def response
-    @response ||= http.follow(max_hops: MAX_HOPS).get(feed.url)
+    @response ||= http.get(feed.url)
   end
 end

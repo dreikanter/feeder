@@ -3,7 +3,7 @@ class LibredditInstanceAvailabilityChecker < ServiceInstanceAvailabilityChecker
   include Logging
 
   def available?
-    http.timeout(5).get(sample_rss_url).status.success?
+    http.get(sample_rss_url).status.success?
   rescue StandardError => e
     log_error("availability check error: #{e}")
     false
