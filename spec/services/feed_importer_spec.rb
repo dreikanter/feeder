@@ -6,7 +6,7 @@ require_relative "../support/faulty_processor"
 require_relative "../support/test_processor"
 require_relative "../support/time_helpers"
 
-RSpec.describe ProcessFeed do
+RSpec.describe FeedImporter do
   subject(:service) { described_class }
 
   let(:feed_with_faulty_loader) do
