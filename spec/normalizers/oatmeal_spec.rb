@@ -1,24 +1,20 @@
 require "rails_helper"
 require "support/shared_examples_a_normalizer"
 
-# class OatmealTest < Minitest::Test
-#   include FeedTestHelper
+RSpec.describe OatmealNormalizer do
+  subject(:subject_name) { described_class }
 
-#   def feed_config
-#     {
-#       name: "oatmeal",
-#       loader: "http",
-#       processor: "rss",
-#       normalizer: "oatmeal",
-#       url: "https://feeds.feedburner.com/oatmealfeed"
-#     }
-#   end
-
-#   def source_fixture_path
-#     "feeds/oatmeal/feed.xml"
-#   end
-
-#   def expected_fixture_path
-#     "feeds/oatmeal/entity.json"
-#   end
-# end
+  it_behaves_like "a normalizer" do
+    let(:feed) do
+      create(
+        :feed,
+        name: "oatmeal",
+        loader: "http",
+        processor: "rss",
+        normalizer: "oatmeal",
+        url: "https://feeds.feedburner.com/oatmealfeed",
+        import_limit: 2
+      )
+    end
+  end
+end
