@@ -1,24 +1,22 @@
 require "rails_helper"
 require "support/shared_examples_a_normalizer"
 
-# class LobstersTest < Minitest::Test
-#   include FeedTestHelper
+RSpec.describe LobstersNormalizer do
+  subject(:subject_name) { described_class }
 
-#   def feed_config
-#     {
-#       name: "lobsters-ruby",
-#       loader: "http",
-#       processor: "lobsters",
-#       normalizer: "lobsters",
-#       url: "https://lobste.rs/t/ruby.rss"
-#     }
-#   end
+  it_behaves_like "a normalizer" do
+    let(:feed) do
+      create(
+        :feed,
+        name: "lobsters-ruby",
+        loader: "http",
+        processor: "lobsters",
+        normalizer: "lobsters",
+        url: "https://lobste.rs/t/ruby.rss"
+      )
+    end
 
-#   def source_fixture_path
-#     "feeds/lobsters/feed.xml"
-#   end
-
-#   def expected_fixture_path
-#     "feeds/lobsters/entity.json"
-#   end
-# end
+    let(:feed_fixture) { "feeds/lobsters/feed.xml" }
+    let(:normalized_fixture) { "feeds/lobsters/normalized.json" }
+  end
+end
