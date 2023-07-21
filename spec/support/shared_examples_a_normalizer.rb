@@ -2,8 +2,8 @@ RSpec.shared_examples "a normalizer" do
   subject(:normalizer) { described_class }
 
   let(:feed) { raise "undefined" }
-  let(:feed_fixture) { raise "undefined" }
-  let(:normalized_fixture) { raise "undefined" }
+  let(:feed_fixture) { "feeds/#{feed.name}/feed.xml" }
+  let(:normalized_fixture) { "feeds/#{feed.name}/normalized.json" }
   let(:normalized_entries) { Pull.call(feed) }
 
   let(:expected_normalized_entries) do
