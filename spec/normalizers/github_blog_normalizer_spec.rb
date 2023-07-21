@@ -4,33 +4,20 @@ require "support/shared_examples_a_normalizer"
 RSpec.describe GithubBlogNormalizer do
   subject(:subject_name) { described_class }
 
-  # TBD
+  it_behaves_like "a normalizer" do
+    let(:feed) do
+      create(
+        :feed,
+        name: "github-blog",
+        loader: "http",
+        processor: "atom",
+        normalizer: "github_blog",
+        url: "http://bunicomic.com/feed/",
+        import_limit: 2
+      )
+    end
+
+    let(:feed_fixture) { "feeds/github_blog/feed.xml" }
+    let(:normalized_fixture) { "feeds/github_blog/normalized.json" }
+  end
 end
-
-# class GithubBlogNormalizerTest < Minitest::Test
-#   include NormalizerTestHelper
-
-#   def subject
-#     GithubBlogNormalizer
-#   end
-
-#   def processor
-#     AtomProcessor
-#   end
-
-#   def sample_data_file
-#     "feed_github_blog.xml".freeze
-#   end
-
-#   def test_normalization
-#     assert(normalized.any?)
-#   end
-
-#   def test_all_attachment_urls_should_be_absolute
-#     attachments = normalized.map(&:attachments).flatten.compact
-
-#     attachments.each do |uri|
-#       assert(Addressable::URI.parse(uri).absolute?)
-#     end
-#   end
-# end
