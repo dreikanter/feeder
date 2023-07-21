@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe FeedUpdater do
+RSpec.describe FeedConfigurationUpdater do
   subject(:service) { described_class }
 
   let(:pristine_feed) { create(:feed, name: "xkcd", state: "pristine") }

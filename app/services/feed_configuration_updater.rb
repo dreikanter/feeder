@@ -1,5 +1,5 @@
 # Create or update a Feed record using FeedSanitizer data
-class FeedUpdater
+class FeedConfigurationUpdater
   attr_reader :name, :enabled, :updatable_attributes
 
   def initialize(name:, enabled:, attributes:)

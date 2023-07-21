@@ -37,7 +37,7 @@ class FeedsConfiguration
   end
 
   def create_or_update_feeds
-    feed_configurations.each { |configuration| FeedUpdater.new(**configuration).create_or_update }
+    feed_configurations.each { |configuration| FeedConfigurationUpdater.new(**configuration).create_or_update }
   end
 
   def feed_configurations
