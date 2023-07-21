@@ -34,7 +34,7 @@ RSpec.describe RequestTracking do
             request: {
               "verb" => "get",
               "uri" => uri,
-              "headers" => {"Content-Type": "application/json", "Host": "example.com", "User-Agent": "http.rb/5.1.1"}.to_json
+              "headers" => {"Content-Type" => "application/json", "Host" => "example.com", "User-Agent" => "http.rb/5.1.1"}.to_json
             }
           }
         }
@@ -56,7 +56,7 @@ RSpec.describe RequestTracking do
           metadata: {
             response: {
               "status" => 200,
-              "headers" => {"Content-Type": "application/json", "Host": "example.com", "User-Agent": "http.rb/5.1.1"}.to_json,
+              "headers" => {"Content-Type" => "application/json", "Host" => "example.com", "User-Agent" => "http.rb/5.1.1"}.to_json,
               "proxy_headers" => [].to_json,
               "version" => "1.1"
             }
@@ -82,7 +82,7 @@ RSpec.describe RequestTracking do
             request: {
               "verb" => "get",
               "uri" => uri,
-              "headers" => {"Content-Type": "application/json", "Host": "example.com", "User-Agent": "http.rb/5.1.1"}.to_json
+              "headers" => {"Content-Type" => "application/json", "Host" => "example.com", "User-Agent" => "http.rb/5.1.1"}.to_json
             }
           }
         }
