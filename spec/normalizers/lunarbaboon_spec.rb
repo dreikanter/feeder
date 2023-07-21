@@ -1,24 +1,22 @@
 require "rails_helper"
 require "support/shared_examples_a_normalizer"
 
-# class LunarbaboonTest < Minitest::Test
-#   include FeedTestHelper
+RSpec.describe LunarbaboonNormalizer do
+  subject(:subject_name) { described_class }
 
-#   def feed_config
-#     {
-#       name: "lunarbaboon",
-#       loader: "http",
-#       processor: "feedjira",
-#       normalizer: "lunarbaboon",
-#       url: "http://www.lunarbaboon.com/comics/rss.xml"
-#     }
-#   end
+  it_behaves_like "a normalizer" do
+    let(:feed) do
+      create(
+        :feed,
+        name: "lunarbaboon",
+        loader: "http",
+        processor: "feedjira",
+        normalizer: "lunarbaboon",
+        url: "http://www.lunarbaboon.com/comics/rss.xml"
+      )
+    end
 
-#   def source_fixture_path
-#     "feeds/lunarbaboon/feed.xml"
-#   end
-
-#   def expected_fixture_path
-#     "feeds/lunarbaboon/entity.json"
-#   end
-# end
+    let(:feed_fixture) { "feeds/lunarbaboon/feed.xml" }
+    let(:normalized_fixture) { "feeds/lunarbaboon/normalized.json" }
+  end
+end
