@@ -1,0 +1,34 @@
+[
+  {
+    "feed_id": 8393,
+    "uid": "https://lobste.rs/s/ay6ouz",
+    "link": "https://medium.com/doctolib/stop-worrying-about-postgresql-locks-in-your-rails-migrations-3426027e9cc9",
+    "published_at": "2021-01-15 17:16:43 +0000",
+    "text": "Stop worrying about PostgreSQL locks in your Rails migrations - https://medium.com/doctolib/stop-worrying-about-postgresql-locks-in-your-rails-migrations-3426027e9cc9",
+    "attachments": [
+
+    ],
+    "comments": [
+      "Comments: https://lobste.rs/s/ay6ouz #ruby #databases"
+    ],
+    "validation_errors": [
+
+    ]
+  },
+  {
+    "feed_id": 8393,
+    "uid": "https://lobste.rs/s/mkegqq",
+    "link": "https://dev.to/baweaver/ruby-3-pattern-matching-applied-poker-4b9d",
+    "published_at": "2021-01-13 17:55:32 +0000",
+    "text": "Ruby 3 Pattern Matching Applied: Poker - https://dev.to/baweaver/ruby-3-pattern-matching-applied-poker-4b9d",
+    "attachments": [
+
+    ],
+    "comments": [
+      "Comments: https://lobste.rs/s/mkegqq #ruby"
+    ],
+    "validation_errors": [
+
+    ]
+  }
+]
