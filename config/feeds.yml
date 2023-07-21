@@ -534,6 +534,8 @@
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "officetalk"
+  enabled: false
+  disabling_reason: "Inactive feed"
   url: "https://tele.ga/office_talk/rss/"
   loader: "http"
   processor: "rss"
