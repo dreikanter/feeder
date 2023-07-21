@@ -5,61 +5,93 @@ RSpec.describe RequestTracking do
 
   let(:uri) { "https://example.com/" }
 
-  let(:expected_request_breadcrumb) do
-    [
-      "HTTP Request",
-      {
-        category: "request",
-        metadata: {
-          request: {
-            "verb" => "get",
-            "uri" => uri,
-            "headers" => {
-              "Connection" => "close",
-              "Host" => "example.com",
-              "User-Agent" => "http.rb/5.1.1"
+  let(:request) do
+    HTTP::Request.new(
+      verb: "GET",
+      uri: uri,
+      headers: {"Content-Type" => "application/json"},
+      version: "1.1"
+    )
+  end
+
+  let(:response) do
+    HTTP::Response.new(
+      connection: nil,
+      request: request,
+      status: 200,
+      headers: request.headers,
+      version: "1.1"
+    )
+  end
+
+  describe "request processing" do
+    let(:expected_request_breadcrumb) do
+      [
+        "HTTP Request",
+        {
+          category: "request",
+          metadata: {
+            request: {
+              "verb" => "get",
+              "uri" => uri,
+              "headers" => {"Content-Type" => "application/json", "Host" => "example.com", "User-Agent" => "http.rb/5.1.1"}.to_json
             }
           }
         }
-      }
-    ]
+      ]
+    end
+
+    it "creates breadcrumb on request" do
+      expect(Honeybadger).to receive(:add_breadcrumb).with(*expected_request_breadcrumb)
+      expect(feature.new.wrap_request(request)).to eq(request)
+    end
   end
 
-  let(:expected_response_breadcrumb) do
-    [
-      "HTTP Response",
-      {
-        category: "request",
-        metadata: {
-          response: {
-            "status" => 200,
-            "headers" => {"Content-Type" => "application/json"},
-            "proxy_headers" => [],
-            "version" => "1.1"
+  describe "Response processing" do
+    let(:expected_response_breadcrumb) do
+      [
+        "HTTP Response",
+        {
+          category: "request",
+          metadata: {
+            response: {
+              "status" => 200,
+              "headers" => {"Content-Type" => "application/json", "Host" => "example.com", "User-Agent" => "http.rb/5.1.1"}.to_json,
+              "proxy_headers" => [].to_json,
+              "version" => "1.1"
+            }
           }
         }
-      }
-    ]
+      ]
+    end
+
+    it "creates breadcrumb on response" do
+      expect(Honeybadger).to receive(:add_breadcrumb).with(*expected_response_breadcrumb)
+      expect(feature.new.wrap_response(response)).to eq(response)
+    end
   end
 
-  it "creates breadcrumbs" do
-    stub_request(:get, uri)
-      .to_return(
-        status: 200,
-        body: "{}",
-        headers: {"Content-Type" => "application/json"}
-      )
+  describe "errors processing" do
+    let(:expected_error_breadcrumb) do
+      [
+        "HTTP Request Error",
+        {
+          category: "request",
+          metadata: {
+            error: "#<StandardError: sample error>",
+            request: {
+              "verb" => "get",
+              "uri" => uri,
+              "headers" => {"Content-Type" => "application/json", "Host" => "example.com", "User-Agent" => "http.rb/5.1.1"}.to_json
+            }
+          }
+        }
+      ]
+    end
 
-    expect(Honeybadger).to receive(:add_breadcrumb).with(*expected_request_breadcrumb)
-    expect(Honeybadger).to receive(:add_breadcrumb).with(*expected_response_breadcrumb)
-    HTTP.use(:request_tracking).get(uri)
+    it "handle errors" do
+      expect(Honeybadger).to receive(:add_breadcrumb).with(*expected_error_breadcrumb)
+      feature.new.on_error(request, StandardError.new("sample error"))
+    end
   end
-
-  # TODO: WebMock is not compatible with HTTP errors tracking, need a fix
-  # it "handle errors" do
-  #   stub_request(:get, uri).to_raise(HTTP::ConnectionError)
-  #   expect(Honeybadger).to receive(:add_breadcrumb).with(*expected_request_breadcrumb)
-  #   expect(Honeybadger).to receive(:add_breadcrumb).with("HTTP Request Error")
-  #   expect { HTTP.use(:request_tracking).get("https://test") }.to raise_error(HTTP::ConnectionError)
-  # end
 end

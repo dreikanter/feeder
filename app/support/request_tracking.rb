@@ -6,7 +6,7 @@ class RequestTracking < HTTP::Feature
   HTTP::Options.register_feature(:request_tracking, self)
 
   def wrap_request(request)
-    breadcrumb("HTTP Request", request: request_data(request))
+    breadcrumb("HTTP Request", request: flatten_request_data(request))
     request
   end
 
@@ -15,9 +15,8 @@ class RequestTracking < HTTP::Feature
     response
   end
 
-  # TODO: Figure out why HTTP ignores this method
   def on_error(request, error)
-    breadcrumb("HTTP Request Error", request: request_data(request), error: error.as_json)
+    breadcrumb("HTTP Request Error", request: flatten_request_data(request), error: error.inspect)
   end
 
   private
@@ -27,11 +26,11 @@ class RequestTracking < HTTP::Feature
   end
 
   # SEE: https://github.com/httprb/http/blob/main/lib/http/request.rb
-  def request_data(request)
+  def flatten_request_data(request)
     {
       verb: request.verb,
       uri: request.uri.to_s,
-      headers: request.headers.to_h
+      headers: request.headers.to_h.to_json
     }.as_json
   end
 
@@ -39,9 +38,9 @@ class RequestTracking < HTTP::Feature
   def response_data(response)
     {
       status: response.status,
-      headers: response.headers.to_h,
+      headers: response.headers.to_h.to_json,
       version: response.version,
-      proxy_headers: response.proxy_headers
+      proxy_headers: response.proxy_headers.to_json
     }.as_json
   end
 end
