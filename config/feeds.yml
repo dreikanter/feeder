@@ -129,7 +129,7 @@
   url: "https://feeds.feedburner.com/theatlantic/infocus"
   loader: "http"
   processor: "rss"
-  normalizer: "rss"
+  normalizer: "the_atlantic_photos"
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 7200
   import_limit: 2
