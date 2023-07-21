@@ -28,6 +28,5 @@
 
 FactoryBot.define do
   factory :error, class: "Error" do
-    context { {} } # rubocop:disable RSpec/EmptyExampleGroup
   end
 end
