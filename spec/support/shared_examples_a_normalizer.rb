@@ -25,10 +25,5 @@ RSpec.shared_examples "a normalizer" do
   end
 
   it { expect(feed.normalizer_class).to eq(described_class) }
-  it {
-    puts
-    puts JSON.pretty_generate(normalized_entries.as_json)
-    puts
-
-    expect(normalized_entries.as_json).to eq(expected_normalized_entries) }
+  it { expect(normalized_entries.as_json).to eq(expected_normalized_entries) }
 end
