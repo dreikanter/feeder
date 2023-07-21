@@ -27,7 +27,7 @@
 #
 
 FactoryBot.define do
-  factory :feed, class: Feed do
+  factory :feed, class: "Feed" do
     name { SecureRandom.uuid }
     posts_count { 0 }
     refreshed_at { nil }
@@ -37,6 +37,7 @@ FactoryBot.define do
     processor { nil }
     normalizer { nil }
     after { nil }
+
     refresh_interval { 0 }
     options { {} }
     loader { nil }
