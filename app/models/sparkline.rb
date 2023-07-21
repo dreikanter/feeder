@@ -4,13 +4,8 @@ class Sparkline < ApplicationRecord
   validates :data, presence: true
 
   def points
-    (data["points"] || []).map { |point| with_parsed_date(point) }
-  end
-
-  private
-
-  def with_parsed_date(point)
-    point["date"] = Date.parse(point["date"])
-    point
+    (data["points"] || []).map do |point|
+      point.merge("date" => Date.parse(point["date"]))
+    end
   end
 end
