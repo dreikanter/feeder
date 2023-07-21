@@ -1,3 +1,9 @@
+# Usage:
+#
+# - Create spec/fixtures/feeds/[FEED_NAME]/feed.xml
+# - Create spec/fixtures/feeds/[FEED_NAME]/normalized.xml
+# - Define `let(:feed)` configuration
+#
 RSpec.shared_examples "a normalizer" do
   subject(:normalizer) { described_class }
 
@@ -19,5 +25,10 @@ RSpec.shared_examples "a normalizer" do
   end
 
   it { expect(feed.normalizer_class).to eq(described_class) }
-  it { expect(normalized_entries.as_json).to eq(expected_normalized_entries) }
+  it {
+    puts
+    puts JSON.pretty_generate(normalized_entries.as_json)
+    puts
+
+    expect(normalized_entries.as_json).to eq(expected_normalized_entries) }
 end
