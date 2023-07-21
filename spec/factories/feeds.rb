@@ -28,7 +28,7 @@
 
 FactoryBot.define do
   factory :feed, class: "Feed" do
-    name { SecureRandom.uuid }
+    name { SecureRandom.hex }
     posts_count { 0 }
     refreshed_at { nil }
     created_at { Time.new.utc }

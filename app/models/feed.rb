@@ -47,7 +47,13 @@ class Feed < ApplicationRecord
   has_many :posts, dependent: :delete_all
   has_one :sparkline, dependent: :delete
 
-  validates :name, presence: true
+  # SEE: https://github.com/FreeFeed/freefeed-server/blob/7c95e5852e05a6f9787c46b06a09e0d3c5ed313c/app/models/group.js#L41C29-L41C61
+  validates(
+    :name,
+    presence: true,
+    format: { with: /\A[A-Za-z0-9]+(-[a-zA-Z0-9]+)*\z/ },
+    length: { in: 3..35 }
+  )
 
   aasm :state do
     state :pristine, initial: true

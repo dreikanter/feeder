@@ -11,14 +11,46 @@ RSpec.describe Feed do
   before { freeze_time }
 
   describe "validation" do
-    it "is valid" do
-      expect(build(:feed)).to be_valid
+    context "with unacceptable name" do
+      let(:feed_names) do
+        [
+          nil,
+          "",
+          "aaa b",
+          "aaa;b",
+          "a_a",
+          "-aaa",
+          "aaa-",
+          "a--a",
+          "ååå",
+          "aaa💩",
+          "aa",
+          "a" * 36
+        ]
+      end
+
+      it "validates name format" do
+        feed_names.each do |feed_name|
+          feed = build(:feed, name: feed_name)
+          expect(feed).not_to be_valid
+          expect(feed.errors).to include(:name)
+        end
+      end
     end
 
-    it "requires name" do
-      feed = build(:feed, name: nil)
-      expect(feed).not_to be_valid
-      expect(feed.errors).to include(:name)
+    context "with acceptable name" do
+      let(:feed_names) do
+        [
+          "aaa",
+          "a" * 35,
+          "a-a",
+          "a-a-a",
+        ]
+      end
+
+      it "validates name format" do
+        expect(feed_names.map { build(:feed, name: _1) }).to all be_valid
+      end
     end
   end
 
