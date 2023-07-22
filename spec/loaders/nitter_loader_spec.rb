@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe NitterLoader do
-  subject(:loader_call) { described_class.call(feed) }
+  subject(:load_content) { described_class.new(feed).content }
 
   let(:feed) { build(:feed, options: {"twitter_user" => "username"}) }
   let(:body) { "CONTENT BODY" }
@@ -16,17 +16,17 @@ RSpec.describe NitterLoader do
 
   it "fetches nitter url" do
     stub_request(:get, nitter_url).to_return(body: body)
-    expect(body).to eq(loader_call)
+    expect(body).to eq(load_content)
   end
 
   it "require Twitter user option" do
     feed.options = {}
-    expect { loader_call }.to raise_error(KeyError)
+    expect { load_content }.to raise_error(KeyError)
   end
 
   it "updates service instance last usage timestamp" do
     stub_request(:get, nitter_url).to_return(body: body)
-    expect { loader_call }.to(change { service_instance.reload.used_at }.from(nil).to(Time.current))
+    expect { load_content }.to(change { service_instance.reload.used_at }.from(nil).to(Time.current))
   end
 
   context "when error" do
@@ -45,7 +45,7 @@ RSpec.describe NitterLoader do
 
     def expect_failed_loader_to(do_things)
       stub_request(:get, nitter_url).to_return(status: 404)
-      expect { loader_call }.to raise_error(StandardError).and(do_things)
+      expect { load_content }.to raise_error(StandardError).and(do_things)
     end
   end
 end

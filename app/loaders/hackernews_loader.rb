@@ -3,7 +3,7 @@ class HackernewsLoader < BaseLoader
 
   STORY_CACHE_TTL = 2.hours
 
-  def call
+  def content
     load_story_ids.map { |id| cached_story(id) }
   end
 

@@ -6,7 +6,7 @@ RSpec.describe HackernewsProcessor do
 
   let(:entities) { processor.call(content: content, feed: feed) }
   let(:feed) { create(:feed, :hackernews) }
-  let(:content) { HackernewsLoader.call(feed) }
+  let(:content) { HackernewsLoader.new(feed).content }
   let(:expected_content) { JSON.parse(file_fixture("feeds/hackernews/expected_processor_result.json").read) }
 
   include_context "with hackernews stubs"

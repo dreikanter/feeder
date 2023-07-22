@@ -7,7 +7,7 @@ class KotakuLoader < BaseLoader
   # TODO: Remove tracking after the research
   # @return [Array<Feedjira::Parser::RSSEntry>]
   # :reek:TooManyStatements
-  def call
+  def content
     yesterday_entries.sort_by { |entry| comments_count(entry.url) }.reverse
   rescue StandardError => e
     Honeybadger.notify(e)
@@ -29,10 +29,10 @@ class KotakuLoader < BaseLoader
   end
 
   def entries
-    @entries ||= Feedjira.parse(content).entries
+    @entries ||= Feedjira.parse(load_content).entries
   end
 
-  def content
+  def load_content
     http.get(feed.url).to_s
   end
 end
