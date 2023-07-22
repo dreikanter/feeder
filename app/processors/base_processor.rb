@@ -15,6 +15,6 @@ class BaseProcessor
 
   # @return [FeedEntity] creates FeedEntity instance
   def build_entity(uid, entity_content)
-    FeedEntity.new(uid: uid, content: entity_content, feed: feed)
+    FeedEntity.new(uid: uid.to_s, content: entity_content, feed: feed)
   end
 end
