@@ -328,7 +328,7 @@
   source: "https://blogdummi.fr"
   url: "https://blogdummi.fr/feed/"
   loader: "http"
-  processor: "wordpress"
+  processor: "feedjira"
   normalizer: "blogdummi"
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 86400
@@ -337,7 +337,7 @@
 - name: "waitbutwhy"
   url: "https://waitbutwhy.com/feed"
   loader: "http"
-  processor: "wordpress"
+  processor: "feedjira"
   normalizer: "waitbutwhy"
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 7200
@@ -346,7 +346,7 @@
 - name: "savagechickens"
   url: "https://www.savagechickens.com/feed"
   loader: "http"
-  processor: "wordpress"
+  processor: "feedjira"
   normalizer: "savagechickens"
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 600
@@ -442,7 +442,7 @@
 - name: "nextbigfuture"
   url: "https://www.nextbigfuture.com/feed"
   loader: "http"
-  processor: "wordpress"
+  processor: "feedjira"
   normalizer: "nextbigfuture"
   refresh_interval: 1800
   import_limit: 2
@@ -701,7 +701,7 @@
   source: "https://tatireti.ru"
   url: "https://tatireti.ru/?feed=rss2"
   loader: "http"
-  processor: "wordpress"
+  processor: "feedjira"
   normalizer: "wordpress"
   refresh_interval: 600
   import_limit: 2
@@ -709,7 +709,7 @@
 - name: "litterbox"
   url: "https://www.litterboxcomics.com/feed/"
   loader: "http"
-  processor: "wordpress"
+  processor: "feedjira"
   normalizer: "litterbox"
   refresh_interval: 3600
   import_limit: 2
