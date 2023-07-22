@@ -1,6 +1,4 @@
 class TestNormalizer < BaseNormalizer
-  protected
-
   def link
     content.fetch("link")
   end

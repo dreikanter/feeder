@@ -1,6 +1,4 @@
 class ZippyNormalizer < FeedjiraNormalizer
-  protected
-
   def attachments
     [image_url]
   end
@@ -8,11 +6,7 @@ class ZippyNormalizer < FeedjiraNormalizer
   private
 
   def image_url
-    image["src"]
-  end
-
-  def image
-    @image ||= html.css("img:first").first
+    html.css("img:first").first["src"]
   end
 
   def html

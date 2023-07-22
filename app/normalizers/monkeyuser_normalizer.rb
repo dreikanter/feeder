@@ -1,6 +1,4 @@
 class MonkeyuserNormalizer < FeedjiraNormalizer
-  protected
-
   def text
     [super, link].join(separator)
   end
@@ -12,6 +10,8 @@ class MonkeyuserNormalizer < FeedjiraNormalizer
   def comments
     [image_title].compact
   end
+
+  private
 
   def image_title
     first_image["title"] if first_image

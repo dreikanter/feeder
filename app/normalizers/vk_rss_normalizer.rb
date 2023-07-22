@@ -1,9 +1,5 @@
 class VkRssNormalizer < RssNormalizer
-  protected
-
-  def link
-    content.link
-  end
+  delegate :link, to: :content
 
   def text
     Html.post_excerpt(

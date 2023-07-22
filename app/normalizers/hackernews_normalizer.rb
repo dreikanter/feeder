@@ -1,8 +1,6 @@
 class HackernewsNormalizer < BaseNormalizer
   MIN_SCORE = 300
 
-  protected
-
   def text
     [content["title"], content["url"]].compact_blank.join(separator)
   end

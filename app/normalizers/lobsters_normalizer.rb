@@ -1,6 +1,4 @@
 class LobstersNormalizer < FeedjiraNormalizer
-  protected
-
   def link
     content.url
   end

@@ -1,6 +1,4 @@
 class TomorrowsNormalizer < RssNormalizer
-  protected
-
   def text
     [content.title, link].join(separator)
   end

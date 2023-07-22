@@ -1,6 +1,4 @@
 class TheAtlanticPhotosNormalizer < TumblrNormalizer
-  protected
-
   def text
     [description, direct_link].compact_blank.join(separator)
   end

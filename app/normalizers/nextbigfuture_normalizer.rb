@@ -1,6 +1,4 @@
 class NextbigfutureNormalizer < BaseNormalizer
-  protected
-
   def link
     content.url
   end

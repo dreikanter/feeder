@@ -1,6 +1,4 @@
 class OglafNormalizer < RssNormalizer
-  protected
-
   def text
     [super, link].join(separator)
   end
@@ -13,11 +11,11 @@ class OglafNormalizer < RssNormalizer
     titles.compact
   end
 
-  private
-
   def images
     @images ||= load_images
   end
+
+  private
 
   def load_images
     images = OglafCrowler.call(link).map do |page|

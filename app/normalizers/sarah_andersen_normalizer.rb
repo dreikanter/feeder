@@ -1,6 +1,4 @@
 class SarahAndersenNormalizer < TumblrNormalizer
-  protected
-
   def text
     [post_excerpt, link].compact_blank.join(separator)
   end

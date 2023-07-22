@@ -1,6 +1,4 @@
 class LitterboxNormalizer < WordpressNormalizer
-  protected
-
   def link
     content.url
   end

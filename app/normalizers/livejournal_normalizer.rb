@@ -1,6 +1,4 @@
 class LivejournalNormalizer < RssNormalizer
-  protected
-
   def text
     [super, "!#{link}"].compact_blank.join(separator)
   end
@@ -14,6 +12,8 @@ class LivejournalNormalizer < RssNormalizer
   rescue StandardError
     []
   end
+
+  private
 
   def first_image_url
     @first_image_url ||= Html.first_image_url(content.description)

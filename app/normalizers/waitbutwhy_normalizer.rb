@@ -1,6 +1,4 @@
 class WaitbutwhyNormalizer < BaseNormalizer
-  protected
-
   def link
     content.url
   end

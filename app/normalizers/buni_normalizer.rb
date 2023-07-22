@@ -1,6 +1,4 @@
 class BuniNormalizer < FeedjiraNormalizer
-  protected
-
   def text
     [title, content.url].join(separator)
   end

@@ -1,4 +1,5 @@
 class Pull
+  include Logging
   include Callee
 
   param :feed
@@ -32,6 +33,8 @@ class Pull
   def normalize_entity(entity)
     normalizer_class.call(entity)
   rescue StandardError => e
+    log_error("normalization_error: #{e}")
+
     ErrorDumper.call(
       exception: e,
       message: "Normalization error",

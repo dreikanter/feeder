@@ -1,6 +1,4 @@
 class AtomNormalizer < BaseNormalizer
-  protected
-
   def link
     content.link.try(:href)
   end

@@ -1,6 +1,4 @@
 class GithubBlogNormalizer < AtomNormalizer
-  protected
-
   def text
     [super, "!#{link}"].join(separator)
   end

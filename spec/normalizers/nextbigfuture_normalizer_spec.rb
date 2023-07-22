@@ -3,15 +3,23 @@ require "rails_helper"
 RSpec.describe NextbigfutureNormalizer do
   subject(:normalizer) { described_class }
 
-  let(:feed) { create(:feed, :nextbigfuture) }
+  let(:feed) do
+    create(
+      :feed,
+      url: "https://www.nextbigfuture.com/feed",
+      loader: "http",
+      processor: "feedjira",
+      normalizer: "nextbigfuture",
+      import_limit: 2
+    )
+  end
+
   let(:content) { file_fixture("feeds/nextbigfuture/feed.xml").read }
   let(:entities) { feed.processor_class.new(content: content, feed: feed).entities }
-  let(:normalized_entries) { entities.map { |entity| normalizer.call(entity) } }
+  let(:normalized_entries) { entities.map { normalizer.call(_1) } }
 
   let(:expected_entity) do
-    JSON.parse(file_fixture("feeds/nextbigfuture/entity.json").read).tap do |data|
-      data["feed_id"] = feed.id
-    end
+    JSON.parse(file_fixture("feeds/nextbigfuture/entity.json").read).merge("feed_id" => feed.id)
   end
 
   before do

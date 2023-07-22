@@ -9,7 +9,7 @@ RSpec.describe LitterboxNormalizer do
           :feed,
           name: "litterbox",
           loader: "http",
-          processor: "wordpress",
+          processor: "feedjira",
           normalizer: "litterbox",
           url: "https://www.litterboxcomics.com/feed/"
         )
@@ -35,7 +35,7 @@ RSpec.describe LitterboxNormalizer do
           :feed,
           name: "litterbox",
           loader: "http",
-          processor: "wordpress",
+          processor: "feedjira",
           normalizer: "litterbox",
           url: "https://www.litterboxcomics.com/feed/"
         )

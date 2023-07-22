@@ -1,6 +1,4 @@
 class CommitstripNormalizer < FeedjiraNormalizer
-  protected
-
   def link
     content.url
   end

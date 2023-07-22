@@ -1,8 +1,6 @@
 class NitterNormalizer < BaseNormalizer
   RETWEET_PREFIX = "RT by".freeze
 
-  protected
-
   def link
     NitterPermalink.call(content.url)
   end
@@ -25,6 +23,8 @@ class NitterNormalizer < BaseNormalizer
       errors << "retweet" if violates_retweet?
     end
   end
+
+  private
 
   def violates_no_images?
     options["only_with_attachments"] && no_images?

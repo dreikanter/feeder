@@ -24,8 +24,6 @@ class BaseNormalizer
     )
   end
 
-  protected
-
   def link
     nil
   end
@@ -54,16 +52,16 @@ class BaseNormalizer
     @validation_errors ||= []
   end
 
+  private
+
   def add_error(error)
     validation_errors << error
   end
 
-  private
-
-  delegate :uid, :content, :feed, to: :entity
-  delegate :options, to: :feed
-
   def sanitized_attachments
     attachments.compact_blank.map { UriSanitizer.new(_1).sanitize }
   end
+
+  delegate :uid, :content, :feed, to: :entity
+  delegate :options, to: :feed
 end

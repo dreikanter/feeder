@@ -1,6 +1,4 @@
 class NichtlustigDeNormalizer < RssNormalizer
-  protected
-
   def text
     [super, "!#{link}"].join(separator)
   end
@@ -10,6 +8,8 @@ class NichtlustigDeNormalizer < RssNormalizer
   rescue StandardError
     []
   end
+
+  private
 
   def image_url
     Nokogiri::HTML(content.description).css("img")[1]["src"]

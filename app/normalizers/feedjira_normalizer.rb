@@ -1,6 +1,4 @@
 class FeedjiraNormalizer < BaseNormalizer
-  protected
-
   def link
     content.url
   end
