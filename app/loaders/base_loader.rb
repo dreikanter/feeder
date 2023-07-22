@@ -1,6 +1,4 @@
 class BaseLoader
-  Error = Class.new(StandardError)
-
   def self.call(feed)
     new(feed).call
   end
