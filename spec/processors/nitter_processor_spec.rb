@@ -4,7 +4,7 @@ RSpec.describe NitterProcessor do
   subject(:processor) { described_class }
 
   let(:content) { file_fixture("feeds/nitter/rss.xml").read }
-  let(:entities) { subject.call(content: content, feed: feed) }
+  let(:entities) { processor.new(content: content, feed: feed).entities }
 
   let(:feed) do
     build(

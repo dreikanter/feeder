@@ -7,8 +7,6 @@
 # - Assigns FeedEntity uid with a serialized publication date
 # - Assigns FeedEntity content with the ordered posts array
 class KotakuDailyProcessor < BaseProcessor
-  protected
-
   def entities
     [build_entity(yesterday.rfc3339, ordered_posts)]
   rescue StandardError => e

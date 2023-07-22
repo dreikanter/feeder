@@ -2,8 +2,6 @@ class RedditProcessor < AtomProcessor
   SCORE_THRESHOLD = 2000
   POST_SCORE_CACHE_TTL = 2.hours
 
-  protected
-
   def entities
     super.select { |item| above_score_threshold?(item.uid) }
   end

@@ -44,10 +44,13 @@ class Feed < ApplicationRecord
     url
   ].freeze
 
+  DEFAULT_IMPORT_LIMIT = 2
+
   has_many :posts, dependent: :delete_all
   has_one :sparkline, dependent: :delete
 
   validates :name, presence: true
+  validates :import_limit, numericality: {greater_or_equal_that: 0, allow_nil: true}
 
   aasm :state do
     state :pristine, initial: true
@@ -104,6 +107,10 @@ class Feed < ApplicationRecord
 
   def normalizer_class
     ClassResolver.new(normalizer, suffix: "normalizer", fallback: NullNormalizer).resolve
+  end
+
+  def import_limit_or_default
+    import_limit || DEFAULT_IMPORT_LIMIT
   end
 
   private

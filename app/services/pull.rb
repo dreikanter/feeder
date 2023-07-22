@@ -9,7 +9,7 @@ class Pull
 
   private
 
-  delegate :loader_class, :processor_class, :normalizer_class, to: :feed
+  delegate :loader_class, :processor_class, :normalizer_class, :import_limit_or_default, to: :feed
 
   def normalized_entities
     new_entities.filter_map { normalize_entity(_1) }
@@ -24,7 +24,9 @@ class Pull
   end
 
   def entities
-    @entities ||= processor_class.call(content: loader_class.new(feed).content, feed: feed)
+    all_entities = processor_class.new(content: loader_class.new(feed).content, feed: feed).entities
+    return all_entities.take(import_limit_or_default) if import_limit_or_default.positive?
+    all_entities
   end
 
   def normalize_entity(entity)

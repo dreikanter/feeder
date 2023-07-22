@@ -18,7 +18,7 @@ RSpec.describe NitterNormalizer do
     )
   end
 
-  let(:entities) { FeedjiraProcessor.call(content: content, feed: feed) }
+  let(:entities) { FeedjiraProcessor.new(content: content, feed: feed).entities }
   let(:content) { file_fixture("feeds/nitter/rss.xml").read }
 
   let(:tweet_with_image) { entities[0] }
