@@ -11,7 +11,7 @@ class ServiceInstancesPoolUpdater
     log_info("updated instances state: #{instances_stats}")
   end
 
-  protected
+  private
 
   # @return [String] service type name (lowcase, underscore)
   def service_type
@@ -27,8 +27,6 @@ class ServiceInstancesPoolUpdater
   def instances_fetcher
     raise AbstractMethodError
   end
-
-  private
 
   def import_listed_instances
     instance_urls.each do |url|

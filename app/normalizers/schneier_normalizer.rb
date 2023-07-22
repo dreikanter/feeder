@@ -1,6 +1,4 @@
 class SchneierNormalizer < AtomNormalizer
-  protected
-
   def text
     [super, link].join(separator)
   end
@@ -8,6 +6,8 @@ class SchneierNormalizer < AtomNormalizer
   def comments
     [excerpt]
   end
+
+  private
 
   def excerpt
     Html.comment_excerpt(content.content.content)

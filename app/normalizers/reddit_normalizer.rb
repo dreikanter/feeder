@@ -1,6 +1,4 @@
 class RedditNormalizer < AtomNormalizer
-  protected
-
   def link
     discussion_url
   end

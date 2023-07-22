@@ -1,5 +1,5 @@
 class NitterInstancesPoolUpdater < ServiceInstancesPoolUpdater
-  protected
+  private
 
   def service_type
     "nitter"

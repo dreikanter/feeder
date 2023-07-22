@@ -1,5 +1,5 @@
 class LibredditInstancesPoolUpdater < ServiceInstancesPoolUpdater
-  protected
+  private
 
   def service_type
     "libreddit"

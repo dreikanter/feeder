@@ -1,6 +1,4 @@
 class ReworkNormalizer < BaseNormalizer
-  protected
-
   # NOTE: Sometimes RSS items don't have <content:encoded> element
 
   def link

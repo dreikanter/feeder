@@ -1,6 +1,4 @@
 class YoutubeNormalizer < BaseNormalizer
-  protected
-
   def link
     content.url
   end
@@ -17,6 +15,8 @@ class YoutubeNormalizer < BaseNormalizer
     return [] unless description?
     [description]
   end
+
+  private
 
   def description
     Html.comment_excerpt(content.content)

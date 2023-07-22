@@ -1,8 +1,6 @@
 class KotakuDailyNormalizer < BaseNormalizer
   DEFAULT_MAX_POSTS_NUMBER = 10
 
-  protected
-
   def text
     "Kotaku top publications for #{digest_date.strftime("%d %b %Y")} - #{link}"
   end
@@ -26,12 +24,12 @@ class KotakuDailyNormalizer < BaseNormalizer
     end
   end
 
+  private
+
   # :reek:LongParameterList
   def build_comment(title, author, url, comments_count)
     "#{title} by #{author} - #{url} (#{comments_count} #{"comment".pluralize(comments_count)})"
   end
-
-  private
 
   def digest_unixtime
     digest_date.end_of_day.strftime("%Q")

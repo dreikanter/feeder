@@ -1,6 +1,4 @@
 class WordpressNormalizer < BaseNormalizer
-  protected
-
   def link
     content.url
   end

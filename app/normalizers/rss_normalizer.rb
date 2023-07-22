@@ -1,6 +1,4 @@
 class RssNormalizer < BaseNormalizer
-  protected
-
   def link
     content.link
   end

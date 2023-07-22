@@ -1,8 +1,4 @@
 class NewfluxNormalizer < FeedjiraNormalizer
-  class FetchError < StandardError; end
-
-  protected
-
   def comments
     [summary]
   end
@@ -17,10 +13,8 @@ class NewfluxNormalizer < FeedjiraNormalizer
     Html.comment_excerpt(content.summary)
   end
 
-  COVER_QUERY = 'meta[name="twitter:image"]'.freeze
-
   def image_url
-    image = Nokogiri::HTML(page_content).css(COVER_QUERY).first
+    image = Nokogiri::HTML(page_content).css('meta[name="twitter:image"]').first
     image[:content] if image
   rescue StandardError => e
     Honeybadger.notify(e)
@@ -29,7 +23,5 @@ class NewfluxNormalizer < FeedjiraNormalizer
 
   def page_content
     RestClient.get(link).body
-  rescue StandardError
-    raise FetchError, link
   end
 end

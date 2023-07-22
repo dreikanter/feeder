@@ -1,6 +1,4 @@
 class TumblrNormalizer < RssNormalizer
-  protected
-
   def text
     [super, link].compact.join(separator)
   end

@@ -1,6 +1,4 @@
 class SmbcNormalizer < BaseNormalizer
-  protected
-
   def link
     content.link
   end
@@ -21,13 +19,13 @@ class SmbcNormalizer < BaseNormalizer
     [description].compact_blank
   end
 
-  private
-
   TITLE_PREFIX = /^Saturday Morning Breakfast Cereal - /
 
   def title
     content.title.gsub(TITLE_PREFIX, "")
   end
+
+  private
 
   def parsed_description
     @parsed_description ||= Nokogiri::HTML(content.description)

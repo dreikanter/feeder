@@ -1,6 +1,4 @@
 class BazarNormalizer < BaseNormalizer
-  protected
-
   def link
     content.url
   end

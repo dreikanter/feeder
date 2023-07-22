@@ -1,6 +1,4 @@
 class SavagechickensNormalizer < BaseNormalizer
-  protected
-
   def link
     content.url
   end

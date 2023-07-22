@@ -11,7 +11,7 @@ class BaseProcessor
     raise AbstractMethodError
   end
 
-  protected
+  private
 
   # @return [FeedEntity] creates FeedEntity instance
   def build_entity(uid, entity_content)

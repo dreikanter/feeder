@@ -1,6 +1,4 @@
 class PhdcomicsNormalizer < RssNormalizer
-  protected
-
   def text
     [super, link].join(separator)
   end

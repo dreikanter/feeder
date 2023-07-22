@@ -1,6 +1,4 @@
 class MediumNormalizer < RssNormalizer
-  protected
-
   def text
     [super, "!#{link}"].compact_blank.join(separator)
   end
@@ -16,6 +14,8 @@ class MediumNormalizer < RssNormalizer
   rescue StandardError
     []
   end
+
+  private
 
   def image_url
     @image_url ||= description

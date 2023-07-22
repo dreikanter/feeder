@@ -1,6 +1,4 @@
 class VkRssNormalizer < RssNormalizer
-  protected
-
   def link
     content.link
   end

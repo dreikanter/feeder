@@ -1,6 +1,4 @@
 class ExplosmComicsNormalizer < RssNormalizer
-  protected
-
   def text
     [super, link].join(separator)
   end

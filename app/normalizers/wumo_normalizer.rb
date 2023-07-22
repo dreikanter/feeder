@@ -1,6 +1,4 @@
 class WumoNormalizer < RssNormalizer
-  protected
-
   def text
     [super, link].join(separator)
   end
@@ -15,6 +13,8 @@ class WumoNormalizer < RssNormalizer
   def attachments
     [image_url]
   end
+
+  private
 
   def image_url
     Nokogiri::HTML(content.description).css("img:first").first[:src]
