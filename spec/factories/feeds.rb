@@ -74,16 +74,6 @@ FactoryBot.define do
       options { {"max_posts_number" => 5} }
     end
 
-    trait :nextbigfuture do
-      url { "https://www.nextbigfuture.com/feed" }
-      loader { "http" }
-      processor { "wordpress" }
-      normalizer { "nextbigfuture" }
-      source { "https://kotaku.com" }
-      refresh_interval { 86400 }
-      import_limit { 2 }
-    end
-
     trait :hackernews do
       loader { "hackernews" }
       processor { "hackernews" }
