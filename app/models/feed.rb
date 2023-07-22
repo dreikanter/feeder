@@ -50,7 +50,7 @@ class Feed < ApplicationRecord
   has_one :sparkline, dependent: :delete
 
   validates :name, presence: true
-  validates :import_limit, numericality: { greater_or_equal_that: 0, allow_nil: true }
+  validates :import_limit, numericality: {greater_or_equal_that: 0, allow_nil: true}
 
   aasm :state do
     state :pristine, initial: true
