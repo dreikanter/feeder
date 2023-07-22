@@ -21,12 +21,8 @@ class Downloader
     end
   end
 
-  MAX_HOPS = 3
-
-  private_constant :MAX_HOPS
-
   def fetch_url
-    http.follow(max_hops: MAX_HOPS).get(url)
+    http.get(url)
   rescue StandardError
     nil
   end

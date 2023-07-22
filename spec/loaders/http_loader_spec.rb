@@ -25,7 +25,7 @@ RSpec.describe HttpLoader do
 
   it "raises on error response" do
     stub_request(:get, feed.url).to_return(status: 404)
-    expect { loader.call(feed) }.to raise_error(BaseLoader::Error)
+    expect { loader.call(feed) }.to raise_error(StandardError)
   end
 
   it "passes request execution errors" do
