@@ -1,11 +1,9 @@
 require "rails_helper"
 
 RSpec.describe BaseLoader do
-  subject(:loader) { described_class }
+  subject(:load_content) { described_class.new(feed).content }
 
   let(:feed) { build(:feed) }
 
-  it "is abstract" do
-    expect { loader.call(feed) }.to raise_error(StandardError)
-  end
+  it { expect { load_content }.to raise_error(AbstractMethodError) }
 end

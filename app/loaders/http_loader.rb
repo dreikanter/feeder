@@ -3,7 +3,7 @@ class HttpLoader < BaseLoader
 
   Error = Class.new(StandardError)
 
-  def call
+  def content
     return response.to_s if response.status.success?
     raise Error, "HTTP request failed"
   end

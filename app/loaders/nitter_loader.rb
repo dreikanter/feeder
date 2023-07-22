@@ -2,7 +2,7 @@ class NitterLoader < BaseLoader
   include HttpClient
 
   # :reek:TooManyStatements
-  def call
+  def content
     service_instance.touch(:used_at)
     response = http.get(nitter_rss_url.to_s)
     raise unless response.status.success?

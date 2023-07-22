@@ -24,7 +24,7 @@ class Pull
   end
 
   def entities
-    @entities ||= processor_class.call(content: loader_class.call(feed), feed: feed)
+    @entities ||= processor_class.call(content: loader_class.new(feed).content, feed: feed)
   end
 
   def normalize_entity(entity)

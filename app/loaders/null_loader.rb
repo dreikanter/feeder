@@ -1,5 +1,5 @@
 class NullLoader < BaseLoader
-  def call
+  def content
     nil
   end
 end
