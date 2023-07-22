@@ -17,7 +17,6 @@ require "minitest/mock"
 require "mocha/minitest"
 require "webmock/minitest"
 require_relative "./support/feed_test_helper"
-require_relative "./support/normalizer_test_helper"
 require_relative "../app/support/request_tracking"
 
 # NOTE: This line should be before #strategy definition
