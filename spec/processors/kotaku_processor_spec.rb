@@ -10,7 +10,11 @@ RSpec.describe KotakuProcessor do
   let(:expected_uids) do
     [
       "https://kotaku.com/vinland-saga-season-2-thorfinn-netflix-crunchyroll-mapp-1850549053",
-      "https://kotaku.com/nintendo-switch-eshop-hidden-gems-sale-pride-queer-1850549209"
+      "https://kotaku.com/nintendo-switch-eshop-hidden-gems-sale-pride-queer-1850549209",
+      "https://kotaku.com/diablo-iv-secret-cow-level-hidden-mysterious-portal-1850549258",
+      "https://kotaku.com/diablo-4-iv-street-fighter-6-final-fantasy-15-xvi-1850549073",
+      "https://kotaku.com/diablo-4-gem-bag-inventory-filled-update-season-2-1850549357",
+      "https://kotaku.com/xqc-to-kick-twitch-twitter-reddit-adept-deal-contract-1850549551"
     ]
   end
 

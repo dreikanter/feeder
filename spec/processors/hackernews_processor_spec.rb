@@ -24,6 +24,6 @@ RSpec.describe HackernewsProcessor do
   end
 
   it "returns expected content" do
-    expect(entities.map(&:content).as_json).to eq(9000)
+    expect(entities.map(&:content).as_json).to eq(expected_content)
   end
 end
