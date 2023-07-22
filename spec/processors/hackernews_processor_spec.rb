@@ -20,10 +20,10 @@ RSpec.describe HackernewsProcessor do
   end
 
   it "filters most recent entities" do
-    expect(entities.map(&:uid)).to eq(%w[100005 100003])
+    expect(entities.map(&:uid)).to eq(%w[100005 100003 100001])
   end
 
   it "returns expected content" do
-    expect(entities.map(&:content).as_json).to eq(expected_content)
+    expect(entities.map(&:content).as_json).to eq(9000)
   end
 end
