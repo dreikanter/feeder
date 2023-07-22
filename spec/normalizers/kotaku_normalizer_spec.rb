@@ -5,7 +5,7 @@ RSpec.describe KotakuNormalizer do
 
   let(:feed) { create(:feed, :kotaku) }
   let(:content) { feed.loader_class.new(feed).content }
-  let(:entities) { feed.processor_class.call(content: content, feed: feed) }
+  let(:entities) { feed.processor_class.new(content: content, feed: feed).entities }
   let(:normalized_entries) { entities.map { |entity| normalizer.call(entity) } }
 
   let(:expected) do
