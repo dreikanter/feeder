@@ -1,7 +1,5 @@
 class SmbcNormalizer < BaseNormalizer
-  def link
-    content.link
-  end
+  delegate :link, to: :content
 
   def published_at
     content.pubDate

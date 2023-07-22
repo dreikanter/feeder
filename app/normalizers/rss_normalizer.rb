@@ -1,7 +1,5 @@
 class RssNormalizer < BaseNormalizer
-  def link
-    content.link
-  end
+  delegate :link, to: :content
 
   def published_at
     content.respond_to?(:pubDate) ? content.send(:pubDate) : content.dc_date
