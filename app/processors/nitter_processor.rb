@@ -1,7 +1,5 @@
 class NitterProcessor < FeedjiraProcessor
-  protected
-
-  def build_entity(uid, entity_content)
-    super(NitterPermalink.call(uid), entity_content)
+  def entities
+    parse_content.map { build_entity(NitterPermalink.call(_1.url), _1) }
   end
 end
