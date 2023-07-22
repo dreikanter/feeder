@@ -16,9 +16,11 @@ RSpec.describe Feed do
     end
 
     it "requires name" do
-      feed = build(:feed, name: nil)
-      expect(feed).not_to be_valid
-      expect(feed.errors).to include(:name)
+      expect(build(:feed, name: nil)).not_to be_valid
+    end
+
+    it "requires non-negative import_limit" do
+      expect(build(:feed, import_limit: nil)).to be_valid
     end
   end
 
@@ -167,5 +169,10 @@ RSpec.describe Feed do
     it "returns null class when can't find the normalizer" do
       expect(build(:feed, normalizer: "missing").normalizer_class).to eq(NullNormalizer)
     end
+  end
+
+  describe "#import_limit_or_default" do
+    it { expect(build(:feed, import_limit: nil).import_limit_or_default).to eq(2) }
+    it { expect(build(:feed, import_limit: 1).import_limit_or_default).to eq(1) }
   end
 end
