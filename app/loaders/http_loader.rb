@@ -4,15 +4,11 @@ class HttpLoader < BaseLoader
   Error = Class.new(StandardError)
 
   def call
-    ensure_successful_respone
-    response.to_s
+    return response.to_s if response.status.success?
+    raise Error, "HTTP request failed"
   end
 
   private
-
-  def ensure_successful_respone
-    raise Error, "HTTP request failed" unless response.status.success?
-  end
 
   def response
     @response ||= http.get(feed.url)
