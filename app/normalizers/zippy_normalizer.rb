@@ -5,7 +5,7 @@ class ZippyNormalizer < FeedjiraNormalizer
 
   private
 
-  def image
+  def image_url
     html.css("img:first").first["src"]
   end
 
