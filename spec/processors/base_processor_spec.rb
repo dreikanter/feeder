@@ -10,7 +10,7 @@ RSpec.describe BaseProcessor do
   end
 
   it "is abstract" do
-    expect { processor.call(content: nil, feed: feed) }.to raise_error(StandardError)
+    expect { processor.new(content: nil, feed: feed).entities }.to raise_error(StandardError)
   end
 
   context "when descendant overrides #entities method" do
@@ -21,7 +21,7 @@ RSpec.describe BaseProcessor do
     end
 
     it "pass #entities result" do
-      expect(concrete_processor.call(content: nil, feed: feed)).to eq(%w[SAMPLE_ENTITY])
+      expect(concrete_processor.new(content: nil, feed: feed).entities).to eq(%w[SAMPLE_ENTITY])
     end
   end
 
@@ -33,7 +33,7 @@ RSpec.describe BaseProcessor do
     end
 
     it "returns limited amount of entities" do
-      expect(concrete_processor.call(content: nil, feed: feed)).to eq(%w[1 2 3])
+      expect(concrete_processor.new(content: nil, feed: feed).entities).to eq(%w[1 2 3])
     end
   end
 
@@ -47,7 +47,7 @@ RSpec.describe BaseProcessor do
     let(:feed) { build(:feed, import_limit: nil) }
 
     it "fallbacks to the default limit" do
-      expect(concrete_processor.call(content: nil, feed: feed)).to eq(%w[1 2])
+      expect(concrete_processor.new(content: nil, feed: feed).entities).to eq(%w[1 2])
     end
   end
 end

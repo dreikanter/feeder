@@ -5,7 +5,7 @@ RSpec.describe AerostatNormalizer do
 
   let(:feed) { build(:feed, import_limit: 0) }
   let(:content) { file_fixture("feeds/aerostat/feed.xml").read }
-  let(:entities) { FeedjiraProcessor.call(content: content, feed: feed) }
+  let(:entities) { FeedjiraProcessor.new(content: content, feed: feed).entities }
 
   let(:expected) do
     JSON.parse(file_fixture("feeds/aerostat/normalized.json").read).tap do |data|

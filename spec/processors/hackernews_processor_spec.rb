@@ -4,7 +4,7 @@ require "support/shared_hackernews_stubs"
 RSpec.describe HackernewsProcessor do
   subject(:processor) { described_class }
 
-  let(:entities) { processor.call(content: content, feed: feed) }
+  let(:entities) { processor.new(content: content, feed: feed).entities }
   let(:feed) { create(:feed, :hackernews) }
   let(:content) { HackernewsLoader.new(feed).content }
   let(:expected_content) { JSON.parse(file_fixture("feeds/hackernews/expected_processor_result.json").read) }

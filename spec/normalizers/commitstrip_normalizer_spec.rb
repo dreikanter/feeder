@@ -5,7 +5,7 @@ RSpec.describe CommitstripNormalizer do
 
   let(:feed) { build(:feed, import_limit: 0) }
   let(:content) { file_fixture("feeds/commitstrip/feed.xml").read }
-  let(:entities) { FeedjiraProcessor.call(content: content, feed: feed) }
+  let(:entities) { FeedjiraProcessor.new(content: content, feed: feed).entities }
   let(:entity_with_html_entities) { entities[4] }
 
   let(:expected_entity) do
