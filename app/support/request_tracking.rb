@@ -6,17 +6,17 @@ class RequestTracking < HTTP::Feature
   HTTP::Options.register_feature(:request_tracking, self)
 
   def wrap_request(request)
-    breadcrumb("HTTP Request", request: flatten_request_data(request))
+    breadcrumb("HTTP Request", request_metadata(request))
     request
   end
 
   def wrap_response(response)
-    breadcrumb("HTTP Response", response: response_data(response))
+    breadcrumb("HTTP Response", response_metadata(response))
     response
   end
 
   def on_error(request, error)
-    breadcrumb("HTTP Request Error", request: flatten_request_data(request), error: error.inspect)
+    breadcrumb("HTTP Request Error", request_metadata(request).merge(error: error.inspect))
   end
 
   private
@@ -26,7 +26,7 @@ class RequestTracking < HTTP::Feature
   end
 
   # SEE: https://github.com/httprb/http/blob/main/lib/http/request.rb
-  def flatten_request_data(request)
+  def request_metadata(request)
     {
       verb: request.verb,
       uri: request.uri.to_s,
@@ -35,7 +35,7 @@ class RequestTracking < HTTP::Feature
   end
 
   # SEE: https://github.com/httprb/http/blob/main/lib/http/response.rb
-  def response_data(response)
+  def response_metadata(response)
     {
       status: response.status,
       headers: response.headers.to_h.to_json,
