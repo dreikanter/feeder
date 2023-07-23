@@ -16,7 +16,7 @@ class RequestTracking < HTTP::Feature
   end
 
   def on_error(request, error)
-    breadcrumb("HTTP Request Error", request_metadata(request).merge("error"  => error.inspect))
+    breadcrumb("HTTP Request Error", request_metadata(request).merge("error" => error.inspect))
   end
 
   private
