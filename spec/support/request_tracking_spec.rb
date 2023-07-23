@@ -74,7 +74,7 @@ RSpec.describe RequestTracking do
         {
           category: "request",
           metadata: {
-            error: "#<StandardError: sample error>",
+            "error" => "#<StandardError: sample error>",
             "verb" => "get",
             "uri" => uri,
             "headers" => {"Content-Type" => "application/json", "Host" => "example.com", "User-Agent" => "http.rb/5.1.1"}.to_json
