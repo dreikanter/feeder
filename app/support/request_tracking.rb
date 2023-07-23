@@ -16,13 +16,13 @@ class RequestTracking < HTTP::Feature
   end
 
   def on_error(request, error)
-    breadcrumb("HTTP Request Error", request_metadata(request).merge(error: error.inspect))
+    breadcrumb("HTTP Request Error", request_metadata(request).merge("error"  => error.inspect))
   end
 
   private
 
   def breadcrumb(message, metadata = {})
-    Honeybadger.add_breadcrumb(message, metadata: metadata, category: "request")
+    Honeybadger.add_breadcrumb(message, metadata: metadata.stringify_keys, category: "request")
   end
 
   # SEE: https://github.com/httprb/http/blob/main/lib/http/request.rb
