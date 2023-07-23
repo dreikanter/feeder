@@ -24,7 +24,7 @@ class PostsImporter
   private
 
   def create_post_from(feed_entity)
-    Post.create_with(normalize(feed_entity).to_h).find_or_create_by(feed: feed, uid: feed_enity.uid))
+    Post.create_with(normalize(feed_entity).to_h).find_or_create_by(feed: feed, uid: feed_enity.uid)
   rescue StandardError => e
     Honeybadger.notify(e)
   end
