@@ -13,7 +13,6 @@ class BaseNormalizer
 
   def call
     NormalizedEntity.new(
-      feed_id: feed.id,
       uid: uid,
       link: link,
       published_at: published_at,
@@ -28,8 +27,10 @@ class BaseNormalizer
     nil
   end
 
+  # @return [DateTime] (guaranteed) post creation timestamp with a fallsback
+  #   to the current time
   def published_at
-    nil
+    DateTime.now
   end
 
   def text
@@ -49,10 +50,19 @@ class BaseNormalizer
   end
 
   def validation_errors
-    @validation_errors ||= []
+    @validation_errors ||= base_validation_errors
   end
 
   private
+
+  def base_validation_errors
+    stale? ? ["stale"] : []
+  end
+
+  # @return [true, false] true if the entity is older than the import threshold
+  def stale?
+    feed_after && feed_after > published_at
+  end
 
   def add_error(error)
     validation_errors << error
@@ -63,5 +73,5 @@ class BaseNormalizer
   end
 
   delegate :uid, :content, :feed, to: :entity
-  delegate :options, to: :feed
+  delegate :options, :after, to: :feed, prefix: :feed
 end
