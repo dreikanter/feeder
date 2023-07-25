@@ -40,4 +40,12 @@ RSpec.describe KotakuDailyProcessor do
   it "includes expected posts" do
     expect(first_entity.content.map { |item| item[:post].url }).to eq(expected_post_urls)
   end
+
+  context "when no posts during the day" do
+    before do
+      travel_to(DateTime.parse("2023-06-30 01:00:00 +0000"))
+    end
+
+    it { expect(entities).to be_empty }
+  end
 end
