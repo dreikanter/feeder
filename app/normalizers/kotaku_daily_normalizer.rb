@@ -14,7 +14,7 @@ class KotakuDailyNormalizer < BaseNormalizer
   end
 
   def attachments
-    [content.first.fetch(:post).image].compact_blank
+    [first_post_image].compact_blank
   end
 
   def comments
@@ -25,6 +25,10 @@ class KotakuDailyNormalizer < BaseNormalizer
   end
 
   private
+
+  def first_post_image
+    content.first&.fetch(:post)&.image
+  end
 
   # :reek:LongParameterList
   def build_comment(title, author, url, comments_count)

@@ -8,10 +8,8 @@
 # - Assigns FeedEntity content with the ordered posts array
 class KotakuDailyProcessor < BaseProcessor
   def entities
+    return [] if yesterday_posts.none?
     [build_entity(yesterday.rfc3339, ordered_posts)]
-  rescue StandardError => e
-    Honeybadger.notify(e)
-    []
   end
 
   private
@@ -25,7 +23,7 @@ class KotakuDailyProcessor < BaseProcessor
   end
 
   def yesterday_posts
-    entries.filter { |post| post.published.yesterday? }
+    @yesterday_posts ||= entries.filter { |post| post.published.yesterday? }
   end
 
   def entries
