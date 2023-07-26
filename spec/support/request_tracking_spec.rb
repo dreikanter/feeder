@@ -31,9 +31,9 @@ RSpec.describe RequestTracking do
         {
           category: "request",
           metadata: {
-            "verb" => "get",
-            "uri" => uri,
-            "headers" => {"Content-Type" => "application/json", "Host" => "example.com", "User-Agent" => "http.rb/5.1.1"}.to_json
+            verb: "get",
+            uri: uri,
+            headers: JSON.pretty_generate({"Content-Type" => "application/json", "Host" => "example.com", "User-Agent" => "http.rb/5.1.1"})
           }
         }
       ]
@@ -52,10 +52,10 @@ RSpec.describe RequestTracking do
         {
           category: "request",
           metadata: {
-            "status" => "200",
-            "headers" => {"Content-Type" => "application/json", "Host" => "example.com", "User-Agent" => "http.rb/5.1.1"}.to_json,
-            "proxy_headers" => [].to_json,
-            "version" => "1.1"
+            code: 200,
+            headers: JSON.pretty_generate({"Content-Type" => "application/json", "Host" => "example.com", "User-Agent" => "http.rb/5.1.1"}),
+            proxy_headers: JSON.pretty_generate({}),
+            version: "1.1"
           }
         }
       ]
@@ -74,10 +74,10 @@ RSpec.describe RequestTracking do
         {
           category: "request",
           metadata: {
-            "error" => "#<StandardError: sample error>",
-            "verb" => "get",
-            "uri" => uri,
-            "headers" => {"Content-Type" => "application/json", "Host" => "example.com", "User-Agent" => "http.rb/5.1.1"}.to_json
+            error: "#<StandardError: sample error>",
+            verb: "get",
+            uri: uri,
+            headers: JSON.pretty_generate({"Content-Type" => "application/json", "Host" => "example.com", "User-Agent" => "http.rb/5.1.1"})
           }
         }
       ]
