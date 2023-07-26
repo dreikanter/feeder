@@ -22,7 +22,11 @@ class RequestTracking < HTTP::Feature
   private
 
   def breadcrumb(message, metadata = {})
-    Honeybadger.add_breadcrumb(message, metadata: metadata.stringify_keys, category: "request")
+    Honeybadger.add_breadcrumb(message, metadata: ensure_primitive_values(metadata), category: "request")
+  end
+
+  def ensure_primitive_values(metadata)
+    metadata.to_h { [_1.to_s, _2.to_s] }
   end
 
   # SEE: https://github.com/httprb/http/blob/main/lib/http/request.rb
