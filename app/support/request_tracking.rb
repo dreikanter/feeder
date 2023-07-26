@@ -9,20 +9,24 @@ class RequestTracking < HTTP::Feature
   HTTP::Options.register_feature(:request_tracking, self)
 
   def wrap_request(request)
-    Honeybadger.add_breadcrumb("HTTP Request", category: "request", metadata: request_metadata(request))
+    breadcrumb("HTTP Request", request_metadata(request))
     request
   end
 
   def wrap_response(response)
-    Honeybadger.add_breadcrumb("HTTP Response", category: "request", metadata: response_metadata(response))
+    breadcrumb("HTTP Response", response_metadata(response))
     response
   end
 
   def on_error(request, error)
-    Honeybadger.add_breadcrumb("HTTP Request Error", category: "request", metadata: request_metadata(request).merge(error: error.inspect))
+    breadcrumb("HTTP Request Error", request_metadata(request).merge(error: error.inspect))
   end
 
   private
+
+  def breadcrumb(message, metadata)
+    Honeybadger.add_breadcrumb(message, category: "request", metadata: metadata)
+  end
 
   def request_metadata(request)
     {
