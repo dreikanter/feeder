@@ -12,7 +12,7 @@ RSpec.describe GithubBlogNormalizer do
         loader: "http",
         processor: "atom",
         normalizer: "github_blog",
-        url: "http://bunicomic.com/feed/",
+        url: "https://github.com/blog/all.atom",
         import_limit: 2
       )
     end
