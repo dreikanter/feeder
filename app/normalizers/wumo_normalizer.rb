@@ -11,12 +11,22 @@ class WumoNormalizer < RssNormalizer
   end
 
   def attachments
-    [image_url]
+    first_image_url ? [first_image_url] : []
+  end
+
+  def validation_errors
+    super.tap do |errors|
+      errors << "missing image" unless first_image_url
+    end
   end
 
   private
 
-  def image_url
-    Nokogiri::HTML(content.description).css("img:first").first[:src]
+  def first_image_url
+    @first_image_url ||= first_image.try(:[], :src)
+  end
+
+  def first_image
+    Nokogiri::HTML(content.description).css("img:first").first
   end
 end
