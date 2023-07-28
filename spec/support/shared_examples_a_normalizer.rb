@@ -24,6 +24,19 @@ RSpec.shared_examples "a normalizer" do
     stub_request(:get, feed.url).to_return(body: file_fixture(feed_fixture).read)
   end
 
-  it { expect(feed.normalizer_class).to eq(described_class) }
-  it { expect(normalized_entries.as_json).to eq(expected_normalized_entries) }
+  it "resolves" do
+    expect(feed.normalizer_class).to eq(described_class)
+  end
+
+  it "matches the expected result" do
+    print_actual_data_if_no_match
+    expect(normalized_entries.as_json).to eq(expected_normalized_entries)
+  end
+
+  def print_actual_data_if_no_match
+    if normalized_entries.as_json != expected_normalized_entries
+      hr = "\n#{"-" * 20}\n"
+      puts hr + JSON.pretty_generate(normalized_entries.as_json) + hr
+    end
+  end
 end
