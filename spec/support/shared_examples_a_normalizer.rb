@@ -10,7 +10,7 @@ RSpec.shared_examples "a normalizer" do
   let(:feed) { raise "undefined" }
   let(:feed_fixture) { "feeds/#{feed.name}/feed.xml" }
   let(:normalized_fixture) { "feeds/#{feed.name}/normalized.json" }
-  let(:normalized_entries) { Pull.call(feed) }
+  let(:normalized_entries) { PublicationQueueProcessor.new(feed).process_queue }
 
   let(:expected_normalized_entries) do
     JSON.parse(file_fixture(normalized_fixture).read).map do |data|
