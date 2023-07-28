@@ -21,7 +21,7 @@
   url: "https://feeds.feedburner.com/PhdComics"
   loader: "http"
   processor: "rss"
-  normalizer: "rss"
+  normalizer: "phdcomics"
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 86400
   import_limit: 2
@@ -30,7 +30,7 @@
   url: "https://www.commitstrip.com/en/feed/"
   loader: "http"
   processor: "feedjira"
-  normalizer: "feedjira"
+  normalizer: "commitstrip"
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 7200
   import_limit: 2
@@ -72,7 +72,7 @@
   url: "https://feeds.feedburner.com/oatmealfeed"
   loader: "http"
   processor: "rss"
-  normalizer: "rss"
+  normalizer: "oatmeal"
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 3600
   import_limit: 2
@@ -81,7 +81,7 @@
   url: "https://wumo.com/wumo?view=rss"
   loader: "http"
   processor: "rss"
-  normalizer: "rss"
+  normalizer: "wumo"
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 3600
   import_limit: 2
@@ -111,7 +111,7 @@
   url: "https://github.com/blog/all.atom"
   loader: "http"
   processor: "atom"
-  normalizer: "atom"
+  normalizer: "github_blog"
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 3600
   import_limit: 2
@@ -120,7 +120,7 @@
   url: "https://feeds.feedburner.com/Explosm"
   loader: "http"
   processor: "rss"
-  normalizer: "rss"
+  normalizer: "explosm_comics"
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 86400
   import_limit: 2
@@ -608,7 +608,7 @@
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCsXVk37bltHxD1rDPwtNM8Q"
   loader: "http"
   processor: "youtube"
-  normalizer: "kurzgesagt"
+  normalizer: "youtube"
   refresh_interval: 3600
   import_limit: 2
   after: "2021-01-06T12:00:00+00:00"
@@ -748,7 +748,7 @@
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UC2D2CMWXMOVWx7giW1n3LIg"
   loader: "http"
   processor: "youtube"
-  normalizer: "hubermanlab"
+  normalizer: "youtube"
   refresh_interval: 1800
   import_limit: 2
 
@@ -756,7 +756,7 @@
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCHnyfMqiRRG1u-2MsSQLbXA"
   loader: "http"
   processor: "youtube"
-  normalizer: "veritasium"
+  normalizer: "youtube"
   refresh_interval: 1800
   import_limit: 2
 
