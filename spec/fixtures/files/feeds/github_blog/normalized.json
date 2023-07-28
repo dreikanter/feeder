@@ -1,31 +1,31 @@
 [
   {
-    "feed_id": 8367,
-    "uid": "https://blog.github.com/2018-11-14-github-at-aws-re-invent/",
-    "link": "https://blog.github.com/2018-11-14-github-at-aws-re-invent/",
-    "published_at": "2018-11-14 11:45:00 +0000",
-    "text": "GitHub at AWS re:Invent - !https://blog.github.com/2018-11-14-github-at-aws-re-invent/",
+    "feed_id": 17677,
+    "uid": "https://github.blog/2023-07-28-closing-vulnerabilities-in-decidim-a-ruby-based-citizen-participation-platform/",
+    "link": "https://github.blog/2023-07-28-closing-vulnerabilities-in-decidim-a-ruby-based-citizen-participation-platform/",
+    "published_at": "2023-07-28 13:00:59 +0000",
+    "text": "Closing vulnerabilities in Decidim, a Ruby-based citizen participation platform - !https://github.blog/2023-07-28-closing-vulnerabilities-in-decidim-a-ruby-based-citizen-participation-platform/",
     "attachments": [
-      "https://user-images.githubusercontent.com/7321362/48455470-26510f00-e770-11e8-986a-fd19ee2f53c5.png"
+
     ],
     "comments": [
-      "GitHub will be at AWS re:Invent from November 26-30 in Las Vegas, Nevada. We canâ€™t wait to see you there.\n\nGitHub and AWS\nGitHub works alongside AWS, so your team can collaborate quickly and securely with the tools they already use. With GitHub and AWS, you can integrate existing workflows and save time to focus on whatâ€™s important: your code. At AWS re:Invent, weâ€™re hosting events throughout the week to help you learn how GitHub and AWS work together. Join us to see whatâ€™s new!\n\nCheck out our booth\nFind us at booth #807 near the entrance of the Expo at the Venetian. Be sure to save your seat and stop by for one of several booth sessions, including:\n\nDeploy to Lambda with GitHub and Jenkins\n\nYour first GitHub Action: Deploying to AWS\n\nAWS Security Automation Orchestration (SAO) and GitHub\n\nRise of the Machines: How GitHub Uses Machine Learning to Improve Software Development\n\nMeet with GitHub Engineers\nSchedule 1:1 meetings with GitHub Solutions Engineers to ask for advice and get in-depth information on how GitHub works for businesses.\n\nLearn about GitHub Enterprise on AWS\nIn a featured session, Cox Automotive will share their experience running GitHub Enterprise on AWS. Theyâ€™ll discuss their GitHub Enterprise environment and share how theyâ€™ve improved their processes for managing GitHub Enterprise on AWS with Terraform.\n\nTo attend this session, join us on Monday, November 26 at 4:45 pm PT at the Venetian, Level 2, Titian 2205-T2. Look for session... (continued)"
+      "Content"
     ],
     "validation_errors": [
 
     ]
   },
   {
-    "feed_id": 8367,
-    "uid": "https://blog.github.com/2018-11-14-github-desktop-1-5/",
-    "link": "https://blog.github.com/2018-11-14-github-desktop-1-5/",
-    "published_at": "2018-11-14 00:00:00 +0000",
-    "text": "GitHub Desktop 1.5 available today - !https://blog.github.com/2018-11-14-github-desktop-1-5/",
+    "feed_id": 17677,
+    "uid": "https://github.blog/2023-07-27-scaling-merge-ort-across-github/",
+    "link": "https://github.blog/2023-07-27-scaling-merge-ort-across-github/",
+    "published_at": "2023-07-27 16:00:54 +0000",
+    "text": "Scaling merge-ort across GitHub - !https://github.blog/2023-07-27-scaling-merge-ort-across-github/",
     "attachments": [
-      "https://user-images.githubusercontent.com/1174461/48432565-95574500-e729-11e8-8f8b-cc73cd9209a3.gif"
+
     ],
     "comments": [
-      "Since launching the new GitHub Desktop in 2017, weâ€™ve focused on improving collaboration in the app, laying the foundation how you can work with Desktop today.\n\nEarlier this year, we launched Desktop 1.2 and 1.3, providing you with the ability to compare branches and get notified when the default branch has updates to pull into your branch.\n\nLast month, we released 1.4, providing information about whether or not youâ€™ll encounter conflicts before merging.\n\nToday, weâ€™re releasing GitHub Desktop 1.5, representing a culmination of the work weâ€™ve been doing this past year. This release completes the merge collaboration cycle by providing a way to initiate a merge in the branch dropdown, guiding you through resolving merge conflicts, and informing you when a merge is complete. It also includes our first step toward improving onboarding onto GitHub Desktop with the option to clone and add new repositories in the repository dropdown.\n\nMerge conflict resolution\n\nWith todayâ€™s GitHub Desktop release, you can merge with confidence knowing that even if conflicts occur, weâ€™ll help you through it so you can keep shipping. Merge conflicts can be intimidating for new developers, especially those working in teams. In our usability tests, the audible â€œNOOOOOâ€ when encountering a conflict became predictable.\n\nIn our previous release, we reduced some of that anxiety by informing you whether or not you would encounter merge conflicts before merging, but you still... (continued)"
+      "Content"
     ],
     "validation_errors": [
 
