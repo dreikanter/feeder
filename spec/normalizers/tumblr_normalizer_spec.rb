@@ -10,7 +10,7 @@ RSpec.describe TumblrNormalizer do
         loader: "http",
         processor: "rss",
         normalizer: "tumblr",
-        url: "https://kimchicuddles.com/rss"
+        url: "https://example.com/rss"
       )
     end
 
