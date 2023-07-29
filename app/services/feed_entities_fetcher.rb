@@ -6,7 +6,7 @@ class FeedEntitiesFetcher
   end
 
   # @return [Array<FeedEntity>] array of processed feed entities
-  # @raise [StandardError] pass feed loader and processor exceptions
+  # @raise [StandardError] pass loader and processor exceptions
   def fetch
     process(load_content)
   end
