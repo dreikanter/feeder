@@ -47,9 +47,12 @@ class PostsImporter
     @existing_uids ||= Post.where(feed: feed, uid: feed_entities.map(&:uid))
   end
 
-  # @return [NormalizedEntity]
+  # @return [NormalizedEntity, nil]
   def normalize(feed_entity)
     normalizer.new(feed_entity).call
+  rescue StandardError => e
+    Honeybadger.notify(error)
+    nil
   end
 
   def normalizer
