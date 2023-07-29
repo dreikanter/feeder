@@ -59,14 +59,14 @@ RSpec.describe FeedProcessor do
   context "when loading error" do
     let(:feed) { create(:feed, loader: "faulty", processor: "test", normalizer: "test") }
 
-    it { expect { service_call }.to(change { feed.errors_count }.from(0).to(1)) }
-    it { expect { service_call }.to(change { feed.total_errors_count }.from(0).to(1)) }
+    it { expect { service_call }.to(change(feed, :errors_count).from(0).to(1)) }
+    it { expect { service_call }.to(change(feed, :total_errors_count).from(0).to(1)) }
   end
 
   context "when processing error" do
     let(:feed) { create(:feed, loader: "test", processor: "faulty", normalizer: "test") }
 
-    it { expect { service_call }.to(change { feed.errors_count }.from(0).to(1)) }
-    it { expect { service_call }.to(change { feed.total_errors_count }.from(0).to(1)) }
+    it { expect { service_call }.to(change(feed, :errors_count).from(0).to(1)) }
+    it { expect { service_call }.to(change(feed, :total_errors_count).from(0).to(1)) }
   end
 end

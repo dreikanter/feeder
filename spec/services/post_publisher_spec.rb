@@ -27,7 +27,7 @@ RSpec.describe PostPublisher do
     end
 
     it "skips draft posts" do
-      expect { service.new(rejected_post).publish }.not_to(change(rejected_post, :reload))
+      expect { service.new(draft_post).publish }.not_to(change(draft_post, :reload))
     end
 
     it "skips rejected posts" do
@@ -35,11 +35,11 @@ RSpec.describe PostPublisher do
     end
 
     it "skips published posts" do
-      expect { service.new(published_post).publish }.not_to(change { published_post.reload })
+      expect { service.new(published_post).publish }.not_to(change(published_post, :reload))
     end
 
     it "skips failed posts" do
-      expect { service.new(failed_post).publish }.not_to(change { failed_post.reload })
+      expect { service.new(failed_post).publish }.not_to(change(failed_post, :reload))
     end
   end
 

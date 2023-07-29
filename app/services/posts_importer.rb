@@ -27,16 +27,17 @@ class PostsImporter
   def create_posts
     new_feed_entities.filter_map do |feed_entity|
       normalized_entity = normalize(feed_entity) or next
-      update_post_status(post_for(normalized_entity))
-      normalized_entity.uid
+      uid = normalized_entity.uid
+      update_post_status(post_for(uid, normalized_entity.to_h))
+      uid
     end
   end
 
   # Create new post or find an existing one
   # @return [Post]
-  def post_for(normalized_entity)
+  def post_for(uid, attributes)
     Post.transaction do
-      Post.create_with(normalized_entity.to_h).find_or_create_by(feed: feed, uid: normalized_entity.uid)
+      Post.create_with(attributes).find_or_create_by(feed: feed, uid: uid)
     end
   end
 
