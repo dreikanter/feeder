@@ -18,6 +18,6 @@ class FeedEntitiesFetcher
   end
 
   def process(content)
-    feed.processor_class.new(feed, content).entities
+    feed.processor_class.new(feed: feed, content: content).entities
   end
 end
