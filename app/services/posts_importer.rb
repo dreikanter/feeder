@@ -18,21 +18,26 @@ class PostsImporter
   end
 
   def import
-    new_feed_entities.each { create_post_from(_1) }
+    new_feed_entities.each do |feed_enity|
+      normalized_entity = normalize(feed_entity) or next
+      update_post_status(post_for(normalized_entity))
+    end
   end
 
   private
 
-  # TODO: Set post state to rejected if validation_errors?
-
-  def create_post_from(feed_entity)
-    Post.create_with(normalize(feed_entity).to_h).find_or_create_by(feed: feed, uid: feed_enity.uid)
-  rescue StandardError => e
-    handle_normalizer_error(e)
+  # Create new post or find an existing one
+  # @return [Post]
+  def post_for(normalized_entity)
+    Post.transaction do
+      Post.create_with(normalized_entity.to_h).find_or_create_by(feed: feed, uid: feed_enity.uid)
+    end
   end
 
-  def handle_normalizer_error(error)
-    Honeybadger.notify(error)
+  def update_post_status(post)
+    return unless post.draft?
+    post.reject! if post.validation_errors?
+    post.enqueue!
   end
 
   def new_feed_entities
