@@ -1,9 +1,10 @@
 [
   {
-    "uid": "http://www.bunicomic.com/comic/buni-1315/",
-    "link": "http://www.bunicomic.com/comic/buni-1315/",
-    "published_at": "2019-11-25 06:00:09 +0000",
-    "text": "De-Metamorphosis - http://www.bunicomic.com/comic/buni-1315/",
+    "uid": "http://www.bunicomic.com/comic/buni-1309/",
+    "state": "enqueued",
+    "link": "http://www.bunicomic.com/comic/buni-1309/",
+    "published_at": "2019-11-04T06:06:16.000Z",
+    "text": "De-Metamorphosis - http://www.bunicomic.com/comic/buni-1309/",
     "attachments": [
       "http://www.bunicomic.com/wp-content/uploads/2019/11/2019-11-25-Buni.jpg"
     ],
@@ -15,24 +16,106 @@
     ]
   },
   {
-    "uid": "http://www.bunicomic.com/2019/11/23/too-early/",
-    "link": "http://www.bunicomic.com/2019/11/23/too-early/",
-    "published_at": "2019-11-24 02:10:46 +0000",
-    "text": "Too Early - http://www.bunicomic.com/2019/11/23/too-early/",
+    "uid": "http://www.bunicomic.com/comic/buni-1310/",
+    "state": "enqueued",
+    "link": "http://www.bunicomic.com/comic/buni-1310/",
+    "published_at": "2019-11-06T06:00:19.000Z",
+    "text": "De-Metamorphosis - http://www.bunicomic.com/comic/buni-1310/",
+    "attachments": [
+      "http://www.bunicomic.com/wp-content/uploads/2019/11/2019-11-25-Buni.jpg"
+    ],
+    "comments": [
+
+    ],
+    "validation_errors": [
+
+    ]
+  },
+  {
+    "uid": "http://www.bunicomic.com/2019/11/09/obsolete/",
+    "state": "rejected",
+    "link": "http://www.bunicomic.com/2019/11/09/obsolete/",
+    "published_at": "2019-11-10T02:10:07.000Z",
+    "text": "Obsolete - http://www.bunicomic.com/2019/11/09/obsolete/",
     "attachments": [
 
     ],
     "comments": [
-      "Check out today's comic on Webtoons: https://www.webtoons.com/en/comedy/hapi-buni/ep-260/viewer?title_no=362&episode_no=260"
+      "Check out today's comic on Webtoons: https://www.webtoons.com/en/comedy/hapi-buni/ep-258/viewer?title_no=362&episode_no=258"
     ],
     "validation_errors": [
       "no images"
     ]
   },
   {
+    "uid": "http://www.bunicomic.com/comic/buni-1311/",
+    "state": "enqueued",
+    "link": "http://www.bunicomic.com/comic/buni-1311/",
+    "published_at": "2019-11-11T06:00:59.000Z",
+    "text": "De-Metamorphosis - http://www.bunicomic.com/comic/buni-1311/",
+    "attachments": [
+      "http://www.bunicomic.com/wp-content/uploads/2019/11/2019-11-25-Buni.jpg"
+    ],
+    "comments": [
+
+    ],
+    "validation_errors": [
+
+    ]
+  },
+  {
+    "uid": "http://www.bunicomic.com/comic/buni-1312/",
+    "state": "enqueued",
+    "link": "http://www.bunicomic.com/comic/buni-1312/",
+    "published_at": "2019-11-13T06:06:50.000Z",
+    "text": "De-Metamorphosis - http://www.bunicomic.com/comic/buni-1312/",
+    "attachments": [
+      "http://www.bunicomic.com/wp-content/uploads/2019/11/2019-11-25-Buni.jpg"
+    ],
+    "comments": [
+
+    ],
+    "validation_errors": [
+
+    ]
+  },
+  {
+    "uid": "http://www.bunicomic.com/2019/11/16/light-up-my-life/",
+    "state": "rejected",
+    "link": "http://www.bunicomic.com/2019/11/16/light-up-my-life/",
+    "published_at": "2019-11-17T02:10:28.000Z",
+    "text": "Light Up My Life - http://www.bunicomic.com/2019/11/16/light-up-my-life/",
+    "attachments": [
+
+    ],
+    "comments": [
+      "Check out today's comic on Webtoons: https://www.webtoons.com/en/comedy/hapi-buni/ep-259/viewer?title_no=362&episode_no=259"
+    ],
+    "validation_errors": [
+      "no images"
+    ]
+  },
+  {
+    "uid": "http://www.bunicomic.com/comic/buni-1313/",
+    "state": "enqueued",
+    "link": "http://www.bunicomic.com/comic/buni-1313/",
+    "published_at": "2019-11-18T06:22:14.000Z",
+    "text": "De-Metamorphosis - http://www.bunicomic.com/comic/buni-1313/",
+    "attachments": [
+      "http://www.bunicomic.com/wp-content/uploads/2019/11/2019-11-25-Buni.jpg"
+    ],
+    "comments": [
+
+    ],
+    "validation_errors": [
+
+    ]
+  },
+  {
     "uid": "http://www.bunicomic.com/comic/buni-1314/",
+    "state": "enqueued",
     "link": "http://www.bunicomic.com/comic/buni-1314/",
-    "published_at": "2019-11-20 06:07:58 +0000",
+    "published_at": "2019-11-20T06:07:58.000Z",
     "text": "De-Metamorphosis - http://www.bunicomic.com/comic/buni-1314/",
     "attachments": [
       "http://www.bunicomic.com/wp-content/uploads/2019/11/2019-11-25-Buni.jpg"
@@ -45,10 +128,27 @@
     ]
   },
   {
-    "uid": "http://www.bunicomic.com/comic/buni-1313/",
-    "link": "http://www.bunicomic.com/comic/buni-1313/",
-    "published_at": "2019-11-18 06:22:14 +0000",
-    "text": "De-Metamorphosis - http://www.bunicomic.com/comic/buni-1313/",
+    "uid": "http://www.bunicomic.com/2019/11/23/too-early/",
+    "state": "rejected",
+    "link": "http://www.bunicomic.com/2019/11/23/too-early/",
+    "published_at": "2019-11-24T02:10:46.000Z",
+    "text": "Too Early - http://www.bunicomic.com/2019/11/23/too-early/",
+    "attachments": [
+
+    ],
+    "comments": [
+      "Check out today's comic on Webtoons: https://www.webtoons.com/en/comedy/hapi-buni/ep-260/viewer?title_no=362&episode_no=260"
+    ],
+    "validation_errors": [
+      "no images"
+    ]
+  },
+  {
+    "uid": "http://www.bunicomic.com/comic/buni-1315/",
+    "state": "enqueued",
+    "link": "http://www.bunicomic.com/comic/buni-1315/",
+    "published_at": "2019-11-25T06:00:09.000Z",
+    "text": "De-Metamorphosis - http://www.bunicomic.com/comic/buni-1315/",
     "attachments": [
       "http://www.bunicomic.com/wp-content/uploads/2019/11/2019-11-25-Buni.jpg"
     ],

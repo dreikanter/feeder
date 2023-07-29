@@ -17,9 +17,6 @@ RSpec.describe BuniNormalizer do
       )
     end
 
-    let(:feed_fixture) { "feeds/buni/feed.xml" }
-    let(:normalized_fixture) { "feeds/buni/normalized.json" }
-
     before do
       webtoons_post = file_fixture("feeds/buni/post_webtoons.html").read
       stub_request(:get, "http://www.bunicomic.com/2019/11/23/too-early/")
