@@ -1,0 +1,34 @@
+[
+  {
+    "uid": "https://github.blog/2023-07-27-scaling-merge-ort-across-github/",
+    "state": "enqueued",
+    "link": "https://github.blog/2023-07-27-scaling-merge-ort-across-github/",
+    "published_at": "2023-07-27T16:00:54.000Z",
+    "text": "Scaling merge-ort across GitHub - !https://github.blog/2023-07-27-scaling-merge-ort-across-github/",
+    "attachments": [
+
+    ],
+    "comments": [
+      "Content"
+    ],
+    "validation_errors": [
+
+    ]
+  },
+  {
+    "uid": "https://github.blog/2023-07-28-closing-vulnerabilities-in-decidim-a-ruby-based-citizen-participation-platform/",
+    "state": "enqueued",
+    "link": "https://github.blog/2023-07-28-closing-vulnerabilities-in-decidim-a-ruby-based-citizen-participation-platform/",
+    "published_at": "2023-07-28T13:00:59.000Z",
+    "text": "Closing vulnerabilities in Decidim, a Ruby-based citizen participation platform - !https://github.blog/2023-07-28-closing-vulnerabilities-in-decidim-a-ruby-based-citizen-participation-platform/",
+    "attachments": [
+
+    ],
+    "comments": [
+      "Content"
+    ],
+    "validation_errors": [
+
+    ]
+  }
+]
