@@ -4,14 +4,16 @@ RSpec.describe BaseNormalizer do
   subject(:normalizer) { described_class }
 
   let(:feed) { build(:feed) }
-  let(:entity) { FeedEntity.new(uid: "UID", content: "CONTENT", feed: feed) }
+  let(:feed_entity) { FeedEntity.new(uid: "UID", content: "CONTENT", feed: feed) }
   let(:sample_errors) { ["sample error"] }
+
+  before { freeze_time }
 
   context "with basic concrete normalizer" do
     let(:concrete_normalizer) { Class.new(subject) }
 
     it "returns normalized entity" do
-      expect(concrete_normalizer.call(entity)).to be_a(NormalizedEntity)
+      expect(concrete_normalizer.call(feed_entity)).to be_a(NormalizedEntity)
     end
   end
 
@@ -23,7 +25,7 @@ RSpec.describe BaseNormalizer do
     end
 
     it "returns normalized entity with validation errors" do
-      expect(concrete_normalizer.call(entity).validation_errors).to eq(["ERROR"])
+      expect(concrete_normalizer.call(feed_entity).validation_errors).to eq(["ERROR"])
     end
   end
 
@@ -35,7 +37,7 @@ RSpec.describe BaseNormalizer do
     end
 
     it "sanitizes attachment URLs" do
-      expect(concrete_normalizer.call(entity).attachments).to eq(["https://example.com"])
+      expect(concrete_normalizer.call(feed_entity).attachments).to eq(["https://example.com"])
     end
   end
 
@@ -47,7 +49,7 @@ RSpec.describe BaseNormalizer do
     end
 
     it "raises an error" do
-      expect { concrete_normalizer.call(entity) }.to raise_error(StandardError)
+      expect { concrete_normalizer.call(feed_entity) }.to raise_error(StandardError)
     end
   end
 
@@ -59,7 +61,7 @@ RSpec.describe BaseNormalizer do
     end
 
     it "raises an error" do
-      expect { concrete_normalizer.call(entity) }.to raise_error(StandardError)
+      expect { concrete_normalizer.call(feed_entity) }.to raise_error(StandardError)
     end
   end
 
@@ -71,7 +73,7 @@ RSpec.describe BaseNormalizer do
     end
 
     it "raises an error" do
-      expect { concrete_normalizer.call(entity) }.to raise_error(StandardError)
+      expect { concrete_normalizer.call(feed_entity) }.to raise_error(StandardError)
     end
   end
 
@@ -83,7 +85,17 @@ RSpec.describe BaseNormalizer do
     end
 
     it "skips blank comments" do
-      expect(concrete_normalizer.call(entity).comments).to be_blank
+      expect(concrete_normalizer.call(feed_entity).comments).to be_blank
+    end
+  end
+
+  context "with stale entities" do
+    let(:concrete_normalizer) { Class.new(subject) }
+
+    before { feed.after = 1.second.from_now }
+
+    it "adds tlate validation error" do
+      expect(concrete_normalizer.new(feed_entity).validation_errors).to eq(["stale"])
     end
   end
 end
