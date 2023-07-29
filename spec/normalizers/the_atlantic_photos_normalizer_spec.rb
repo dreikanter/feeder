@@ -12,8 +12,7 @@ RSpec.describe TheAtlanticPhotosNormalizer do
         url: "https://feeds.feedburner.com/theatlantic/infocus",
         loader: "http",
         processor: "rss",
-        normalizer: "the_atlantic_photos",
-        import_limit: 2
+        normalizer: "the_atlantic_photos"
       )
     end
 

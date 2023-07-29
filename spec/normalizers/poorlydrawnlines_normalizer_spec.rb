@@ -12,8 +12,7 @@ RSpec.describe PoorlydrawnlinesNormalizer do
         url: "https://feeds.feedburner.com/PoorlyDrawnLines",
         loader: "http",
         processor: "feedjira",
-        normalizer: "poorlydrawnlines",
-        import_limit: 2
+        normalizer: "poorlydrawnlines"
       )
     end
   end

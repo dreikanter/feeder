@@ -12,8 +12,7 @@ RSpec.describe MonkeyuserNormalizer do
         url: "https://www.monkeyuser.com/feed.xml",
         loader: "http",
         processor: "feedjira",
-        normalizer: "monkeyuser",
-        import_limit: 2
+        normalizer: "monkeyuser"
       )
     end
   end

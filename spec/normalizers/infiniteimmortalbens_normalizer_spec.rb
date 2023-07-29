@@ -12,8 +12,7 @@ RSpec.describe InfiniteimmortalbensNormalizer do
         loader: "http",
         processor: "rss",
         normalizer: "infiniteimmortalbens",
-        url: "https://infiniteimmortalbens.com/feed/",
-        import_limit: 2
+        url: "https://infiniteimmortalbens.com/feed/"
       )
     end
   end

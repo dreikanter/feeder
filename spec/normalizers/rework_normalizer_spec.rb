@@ -12,8 +12,7 @@ RSpec.describe ReworkNormalizer do
         loader: "http",
         processor: "feedjira",
         normalizer: "rework",
-        url: "https://feeds.transistor.fm/rework",
-        import_limit: 2
+        url: "https://feeds.transistor.fm/rework"
       )
     end
   end

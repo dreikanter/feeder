@@ -12,8 +12,7 @@ RSpec.describe SchneierNormalizer do
         url: "https://www.schneier.com/blog/atom.xml",
         loader: "http",
         processor: "atom",
-        normalizer: "schneier",
-        import_limit: 2
+        normalizer: "schneier"
       )
     end
   end

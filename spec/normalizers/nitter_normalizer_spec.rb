@@ -9,7 +9,6 @@ RSpec.describe NitterNormalizer do
       loader: "nitter",
       processor: "feedjira",
       normalizer: "nitter",
-      import_limit: 0,
       options: {
         "twitter_user" => "username",
         "only_with_attachments" => true,

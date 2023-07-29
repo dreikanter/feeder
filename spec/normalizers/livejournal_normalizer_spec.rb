@@ -12,8 +12,7 @@ RSpec.describe LivejournalNormalizer do
         loader: "http",
         processor: "rss",
         normalizer: "livejournal",
-        url: "https://shvarz.livejournal.com/data/rss",
-        import_limit: 2
+        url: "https://shvarz.livejournal.com/data/rss"
       )
     end
   end

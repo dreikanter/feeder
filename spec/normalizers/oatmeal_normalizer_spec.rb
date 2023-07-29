@@ -12,8 +12,7 @@ RSpec.describe OatmealNormalizer do
         loader: "http",
         processor: "rss",
         normalizer: "oatmeal",
-        url: "https://feeds.feedburner.com/oatmealfeed",
-        import_limit: 2
+        url: "https://feeds.feedburner.com/oatmealfeed"
       )
     end
   end

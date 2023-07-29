@@ -13,7 +13,6 @@ RSpec.describe HackernewsNormalizer do
         loader: "hackernews",
         processor: "hackernews",
         normalizer: "hackernews",
-        import_limit: 2,
         url: "http://example.com"
       )
     end

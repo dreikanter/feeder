@@ -10,8 +10,7 @@ RSpec.describe CommitstripNormalizer do
         url: "https://www.commitstrip.com/en/feed/",
         loader: "http",
         processor: "feedjira",
-        normalizer: "commitstrip",
-        import_limit: 2
+        normalizer: "commitstrip"
       )
     end
   end

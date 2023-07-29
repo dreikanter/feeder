@@ -12,8 +12,7 @@ RSpec.describe OglafNormalizer do
         loader: "http",
         processor: "rss",
         normalizer: "oglaf",
-        url: "https://feeds.feedburner.com/oatmealfeed",
-        import_limit: 2
+        url: "https://feeds.feedburner.com/oatmealfeed"
       )
     end
 

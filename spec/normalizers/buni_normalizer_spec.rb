@@ -12,8 +12,7 @@ RSpec.describe BuniNormalizer do
         loader: "http",
         processor: "feedjira",
         normalizer: "buni",
-        url: "http://bunicomic.com/feed/",
-        import_limit: 4
+        url: "http://bunicomic.com/feed/"
       )
     end
 

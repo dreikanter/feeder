@@ -9,8 +9,7 @@ RSpec.describe NextbigfutureNormalizer do
       url: "https://www.nextbigfuture.com/feed",
       loader: "http",
       processor: "feedjira",
-      normalizer: "nextbigfuture",
-      import_limit: 2
+      normalizer: "nextbigfuture"
     )
   end
 

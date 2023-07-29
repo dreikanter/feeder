@@ -12,8 +12,7 @@ RSpec.describe SmbcNormalizer do
         url: "https://www.smbc-comics.com/comic/rss",
         loader: "http",
         processor: "rss",
-        normalizer: "smbc",
-        import_limit: 2
+        normalizer: "smbc"
       )
     end
 

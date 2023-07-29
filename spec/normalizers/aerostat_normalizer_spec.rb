@@ -10,8 +10,7 @@ RSpec.describe AerostatNormalizer do
         loader: "http",
         processor: "feedjira",
         normalizer: "aerostat",
-        url: "http://example.com",
-        import_limit: 0
+        url: "http://example.com"
       )
     end
   end
