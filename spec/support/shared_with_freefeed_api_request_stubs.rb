@@ -1,4 +1,4 @@
-RSpec.shared_context "freefeed api request stubs" do
+RSpec.shared_context "with freefeed api request stubs" do
   let(:freefeed_post_id) { "f102b70e-0d7a-425a-aca9-68d4462cdea4" }
   let(:attachment_id) { "f102b70e-0d7a-425a-aca9-68d4462cdea5" }
   let(:comment_id) { "f102b70e-0d7a-425a-aca9-68d4462cdea6" }

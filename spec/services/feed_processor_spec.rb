@@ -2,7 +2,7 @@ require "rails_helper"
 require "support/shared_test_loaders"
 require "support/shared_test_processors"
 require "support/shared_test_normalizers"
-require "support/shared_freefeed_api_request_stubs"
+require "support/shared_with_freefeed_api_request_stubs"
 
 RSpec.describe FeedProcessor do
   subject(:service_call) { described_class.new(feed).process }
