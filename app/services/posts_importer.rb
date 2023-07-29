@@ -25,9 +25,10 @@ class PostsImporter
   private
 
   def create_posts
-    new_feed_entities.each do |feed_entity|
+    new_feed_entities.filter_map do |feed_entity|
       normalized_entity = normalize(feed_entity) or next
       update_post_status(post_for(normalized_entity))
+      normalized_entity.uid
     end
   end
 
