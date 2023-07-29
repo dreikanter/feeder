@@ -11,6 +11,8 @@
 # - Normalizer exceptions are being reported, but not interrupt the flow.
 #
 class PostsImporter
+  include Logging
+
   attr_reader :feed
 
   def initialize(feed)
@@ -60,8 +62,10 @@ class PostsImporter
 
   # @return [NormalizedEntity, nil]
   def normalize(feed_entity)
+    log_info("#{self.class}: normalizing feed entity; feed: #{feed.name}; uid: #{feed_entity.uid}")
     normalizer.new(feed_entity).call
   rescue StandardError => e
+    log_error("#{self.class}: normalizer error: #{e}")
     Honeybadger.notify(e)
     nil
   end

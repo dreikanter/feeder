@@ -1,5 +1,7 @@
 # Uses Freefeed API for post publication and updates `Post` record state
 class PostPublisher
+  include Logging
+
   attr_reader :post
 
   def initialize(post)
@@ -10,6 +12,7 @@ class PostPublisher
   #   and never raises exceptions
   def publish
     return unless post.ready_for_publication?
+    log_info("#{self.class}: publishing new post: uid: #{post.uid}; feed_name: #{feed_name}")
     post_id = create_post_with_attachments
     register_succeeded_publication(post_id)
   rescue StandardError => e
@@ -30,11 +33,13 @@ class PostPublisher
 
   def register_succeeded_publication(post_id)
     post.update!(freefeed_post_id: post_id)
+    log_success("#{self.class}: success; new post uri: #{post.permalink}")
     post.success!
     feed.update!(last_post_created_at: last_post_created_at)
   end
 
   def register_failed_publication(error)
+    log_error("#{self.class}: publication error: #{error}")
     post.fail!
     Honeybadger.notify(error)
   end

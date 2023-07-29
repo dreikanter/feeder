@@ -4,7 +4,7 @@ class ServiceInstancesPoolUpdater
   include Logging
 
   def call
-    log_info("#{self.class.name}: importing public instances list")
+    log_info("#{self.class}: importing public instances list")
     log_info("initial instances state: #{instances_stats}")
     disable_delisted_instances
     import_listed_instances
