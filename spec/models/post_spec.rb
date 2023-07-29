@@ -63,9 +63,9 @@ RSpec.describe Post do
       expect(post).not_to be_ready_for_publication
     end
 
-    it "accepts valid draft records" do
+    it "rejects draft records" do
       post.state = "draft"
-      expect(post).to be_ready_for_publication
+      expect(post).not_to be_ready_for_publication
     end
 
     it "accepts valid enqueued records" do
