@@ -1,214 +1,76 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:wfw="http://wellformedweb.org/CommentAPI/"
   xmlns:dc="http://purl.org/dc/elements/1.1/"
   xmlns:atom="http://www.w3.org/2005/Atom"
   xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
   xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
-
   xmlns:georss="http://www.georss.org/georss"
   xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
   >
-
-<channel>
-  <title>365tomorrows</title>
-  <atom:link href="https://365tomorrows.com/feed/" rel="self" type="application/rss+xml" />
-  <link>https://365tomorrows.com</link>
-  <description>A New Flash of Science Fiction Every Day</description>
-  <lastBuildDate>Fri, 14 Aug 2020 05:54:24 +0000</lastBuildDate>
-  <language>en-US</language>
-  <sy:updatePeriod>
+  <channel>
+    <title>365tomorrows</title>
+    <atom:link href="https://365tomorrows.com/feed/" rel="self" type="application/rss+xml" />
+    <link>https://365tomorrows.com</link>
+    <description>A New Flash of Science Fiction Every Day</description>
+    <lastBuildDate>Fri, 14 Aug 2020 05:54:24 +0000</lastBuildDate>
+    <language>en-US</language>
+    <sy:updatePeriod>
   hourly  </sy:updatePeriod>
-  <sy:updateFrequency>
+    <sy:updateFrequency>
   1 </sy:updateFrequency>
-
-
-<image>
-  <url>https://i0.wp.com/365tomorrows.com/wp-content/uploads/2016/05/cropped-365_Eclipse_Square_600x600-e1462241653845.jpg?fit=32%2C32&#038;ssl=1</url>
-  <title>365tomorrows</title>
-  <link>https://365tomorrows.com</link>
-  <width>32</width>
-  <height>32</height>
-</image>
-<site xmlns="com-wordpress:feed-additions:1">97746426</site>  <item>
-    <title>The Ascension</title>
-    <link>https://365tomorrows.com/2020/08/16/the-ascension/</link>
-          <comments>https://365tomorrows.com/2020/08/16/the-ascension/#respond</comments>
-
-    <dc:creator><![CDATA[submission]]></dc:creator>
-    <pubDate>Sun, 16 Aug 2020 04:03:50 +0000</pubDate>
-        <category><![CDATA[Story]]></category>
-    <guid isPermaLink="false">https://365tomorrows.com/?p=208894</guid>
-
-          <description><![CDATA[Author: Ilya Tolchinsky Oleg was playing his mod of the classic Asteroids game. Instead of triggering the usual pain that put Oleg on disability for the last two years, the gameplay soothed his damaged wrist. It was as if the FeelGlove controller was expertly massaging his forearm. After an hour, his hand felt like it [&#8230;]]]></description>
-
-          <wfw:commentRss>https://365tomorrows.com/2020/08/16/the-ascension/feed/</wfw:commentRss>
+    <image>
+      <url>https://i0.wp.com/365tomorrows.com/wp-content/uploads/2016/05/cropped-365_Eclipse_Square_600x600-e1462241653845.jpg?fit=32%2C32&#038;ssl=1</url>
+      <title>365tomorrows</title>
+      <link>https://365tomorrows.com</link>
+      <width>32</width>
+      <height>32</height>
+    </image>
+    <site
+      xmlns="com-wordpress:feed-additions:1">97746426
+    </site>
+    <item>
+      <title>The Ascension</title>
+      <link>https://365tomorrows.com/2020/08/16/the-ascension/</link>
+      <comments>https://365tomorrows.com/2020/08/16/the-ascension/#respond</comments>
+      <dc:creator>
+        <![CDATA[submission]]>
+      </dc:creator>
+      <pubDate>Sun, 16 Aug 2020 04:03:50 +0000</pubDate>
+      <category>
+        <![CDATA[Story]]>
+      </category>
+      <guid isPermaLink="false">https://365tomorrows.com/?p=208894</guid>
+      <description>
+        <![CDATA[Author: Ilya Tolchinsky Oleg was playing his mod of the classic Asteroids game. Instead of triggering the usual pain that put Oleg on disability for the last two years, the gameplay soothed his damaged wrist. It was as if the FeelGlove controller was expertly massaging his forearm. After an hour, his hand felt like it [&#8230;]]]>
+      </description>
+      <wfw:commentRss>https://365tomorrows.com/2020/08/16/the-ascension/feed/</wfw:commentRss>
       <slash:comments>0</slash:comments>
-
-
-    <post-id xmlns="com-wordpress:feed-additions:1">208894</post-id>  </item>
+      <post-id
+        xmlns="com-wordpress:feed-additions:1">208894
+      </post-id>
+    </item>
     <item>
-    <title>Take Me in your Arms and Let me Cry</title>
-    <link>https://365tomorrows.com/2020/08/15/take-me-in-your-arms-and-let-me-cry/</link>
-          <comments>https://365tomorrows.com/2020/08/15/take-me-in-your-arms-and-let-me-cry/#respond</comments>
-
-    <dc:creator><![CDATA[submission]]></dc:creator>
-    <pubDate>Sat, 15 Aug 2020 04:03:54 +0000</pubDate>
-        <category><![CDATA[Story]]></category>
-    <guid isPermaLink="false">https://365tomorrows.com/?p=208900</guid>
-
-          <description><![CDATA[Author: Arkapravo Bhaumik It was on the insistence of Tom that I agreed to that silly piece of imitation. James died a frightful death, his cancer gnawed through him in less than ten months, and ever since I have not been able to clear out the lump in my heart. He is not coming back [&#8230;]]]></description>
-
-          <wfw:commentRss>https://365tomorrows.com/2020/08/15/take-me-in-your-arms-and-let-me-cry/feed/</wfw:commentRss>
+      <title>Take Me in your Arms and Let me Cry</title>
+      <link>https://365tomorrows.com/2020/08/15/take-me-in-your-arms-and-let-me-cry/</link>
+      <comments>https://365tomorrows.com/2020/08/15/take-me-in-your-arms-and-let-me-cry/#respond</comments>
+      <dc:creator>
+        <![CDATA[submission]]>
+      </dc:creator>
+      <pubDate>Sat, 15 Aug 2020 04:03:54 +0000</pubDate>
+      <category>
+        <![CDATA[Story]]>
+      </category>
+      <guid isPermaLink="false">https://365tomorrows.com/?p=208900</guid>
+      <description>
+        <![CDATA[Author: Arkapravo Bhaumik It was on the insistence of Tom that I agreed to that silly piece of imitation. James died a frightful death, his cancer gnawed through him in less than ten months, and ever since I have not been able to clear out the lump in my heart. He is not coming back [&#8230;]]]>
+      </description>
+      <wfw:commentRss>https://365tomorrows.com/2020/08/15/take-me-in-your-arms-and-let-me-cry/feed/</wfw:commentRss>
       <slash:comments>0</slash:comments>
-
-
-    <post-id xmlns="com-wordpress:feed-additions:1">208900</post-id>  </item>
-    <item>
-    <title>Trapped</title>
-    <link>https://365tomorrows.com/2020/08/14/trapped-2/</link>
-          <comments>https://365tomorrows.com/2020/08/14/trapped-2/#respond</comments>
-
-    <dc:creator><![CDATA[submission]]></dc:creator>
-    <pubDate>Fri, 14 Aug 2020 05:50:55 +0000</pubDate>
-        <category><![CDATA[Story]]></category>
-    <guid isPermaLink="false">https://365tomorrows.com/?p=208905</guid>
-
-          <description><![CDATA[Author: Marina Barakatt You don’t know where you are or how you got there. You figure that it’s technically a prison, but nicer than anything you’ve ever paid money for. The bedroom alone is as big as your apartment. There’s a King bed and a hammock on the patio. The patio of your dreams. There’s [&#8230;]]]></description>
-
-          <wfw:commentRss>https://365tomorrows.com/2020/08/14/trapped-2/feed/</wfw:commentRss>
-      <slash:comments>0</slash:comments>
-
-
-    <post-id xmlns="com-wordpress:feed-additions:1">208905</post-id>  </item>
-    <item>
-    <title>Incident at Area 52</title>
-    <link>https://365tomorrows.com/2020/08/13/incident-at-area-52/</link>
-          <comments>https://365tomorrows.com/2020/08/13/incident-at-area-52/#comments</comments>
-
-    <dc:creator><![CDATA[submission]]></dc:creator>
-    <pubDate>Thu, 13 Aug 2020 07:02:10 +0000</pubDate>
-        <category><![CDATA[Story]]></category>
-    <guid isPermaLink="false">https://365tomorrows.com/?p=207901</guid>
-
-          <description><![CDATA[Author: David C. Nutt “What’s the emergency Lieutenant?” “Sir, the alien device in locker 433 has activated itself.” “Contact protocols?” “In place. The Contact team is in the staging area waiting for you sir.” “Excellent. Security?” “In place.” “Chamber area?” “Sterilized and ready for contact.” “Outstanding. Give me the vitals on the object activity on [&#8230;]]]></description>
-
-          <wfw:commentRss>https://365tomorrows.com/2020/08/13/incident-at-area-52/feed/</wfw:commentRss>
-      <slash:comments>3</slash:comments>
-
-
-    <post-id xmlns="com-wordpress:feed-additions:1">207901</post-id>  </item>
-    <item>
-    <title>Sip sip</title>
-    <link>https://365tomorrows.com/2020/08/12/sip-sip/</link>
-          <comments>https://365tomorrows.com/2020/08/12/sip-sip/#comments</comments>
-
-    <dc:creator><![CDATA[submission]]></dc:creator>
-    <pubDate>Wed, 12 Aug 2020 06:47:50 +0000</pubDate>
-        <category><![CDATA[Story]]></category>
-    <guid isPermaLink="false">https://365tomorrows.com/?p=208889</guid>
-
-          <description><![CDATA[Author: J. P. Roquard The city stretches out below me; a sweeping view, buildings pressed close, the old city being devoured by the new. This is my home. This is where I have always lived. This is the view I’ve sold my soul to see, sip, sip. “Your friends are out there, aren’t they?” says [&#8230;]]]></description>
-
-          <wfw:commentRss>https://365tomorrows.com/2020/08/12/sip-sip/feed/</wfw:commentRss>
-      <slash:comments>1</slash:comments>
-
-
-    <post-id xmlns="com-wordpress:feed-additions:1">208889</post-id>  </item>
-    <item>
-    <title>Eigengrau</title>
-    <link>https://365tomorrows.com/2020/08/11/eigengrau/</link>
-          <comments>https://365tomorrows.com/2020/08/11/eigengrau/#respond</comments>
-
-    <dc:creator><![CDATA[submission]]></dc:creator>
-    <pubDate>Tue, 11 Aug 2020 04:03:09 +0000</pubDate>
-        <category><![CDATA[Story]]></category>
-    <guid isPermaLink="false">https://365tomorrows.com/?p=208896</guid>
-
-          <description><![CDATA[Author: Morrow Brady &#8220;What do you see?&#8221; She whispered into the darkness. He widened his eyes and held his breath. &#8220;Nothing. Just pitch black&#8221; Her next lesson would be her last. &#8220;Not black. Eigengrau. A dark, dark grey. Perfect for&#8230;.&#8221; And then it all kicked off. It was over in minutes. In the stillness, when [&#8230;]]]></description>
-
-          <wfw:commentRss>https://365tomorrows.com/2020/08/11/eigengrau/feed/</wfw:commentRss>
-      <slash:comments>0</slash:comments>
-
-
-    <post-id xmlns="com-wordpress:feed-additions:1">208896</post-id>  </item>
-    <item>
-    <title>Use a Human</title>
-    <link>https://365tomorrows.com/2020/08/10/use-a-human/</link>
-          <comments>https://365tomorrows.com/2020/08/10/use-a-human/#comments</comments>
-
-    <dc:creator><![CDATA[Jae Miles]]></dc:creator>
-    <pubDate>Mon, 10 Aug 2020 04:03:16 +0000</pubDate>
-        <category><![CDATA[Story]]></category>
-    <guid isPermaLink="false">https://365tomorrows.com/?p=208851</guid>
-
-          <description><![CDATA[Author: Jae Miles, Staff Writer Nine years ago today, I think, is when my fervent wish came true: my mundane life was transformed into a thing of wonder. Wonder&#8230; Plus confusion, pain, fear, grief, longing and, right now: abject terror. The cause of that is crouching next to where I lie in the torn ruts [&#8230;]]]></description>
-
-          <wfw:commentRss>https://365tomorrows.com/2020/08/10/use-a-human/feed/</wfw:commentRss>
-      <slash:comments>2</slash:comments>
-
-
-    <post-id xmlns="com-wordpress:feed-additions:1">208851</post-id>  </item>
-    <item>
-    <title>Pop&#8217;s Time Machine</title>
-    <link>https://365tomorrows.com/2020/08/09/pops-time-machine/</link>
-          <comments>https://365tomorrows.com/2020/08/09/pops-time-machine/#comments</comments>
-
-    <dc:creator><![CDATA[submission]]></dc:creator>
-    <pubDate>Sun, 09 Aug 2020 06:49:25 +0000</pubDate>
-        <category><![CDATA[Story]]></category>
-    <guid isPermaLink="false">https://365tomorrows.com/?p=208487</guid>
-
-          <description><![CDATA[Author: Warren Benedetto When I was eleven years old, I told my dad I wanted to invent a time machine. He told me he already had one. I asked him where it was. “Right here,” he said. He tapped his forehead and smiled. “All I have to do is close my eyes, and I can [&#8230;]]]></description>
-
-          <wfw:commentRss>https://365tomorrows.com/2020/08/09/pops-time-machine/feed/</wfw:commentRss>
-      <slash:comments>4</slash:comments>
-
-
-    <post-id xmlns="com-wordpress:feed-additions:1">208487</post-id>  </item>
-    <item>
-    <title>Illegal</title>
-    <link>https://365tomorrows.com/2020/08/08/illegal/</link>
-          <comments>https://365tomorrows.com/2020/08/08/illegal/#respond</comments>
-
-    <dc:creator><![CDATA[submission]]></dc:creator>
-    <pubDate>Sat, 08 Aug 2020 07:06:51 +0000</pubDate>
-        <category><![CDATA[Story]]></category>
-    <guid isPermaLink="false">https://365tomorrows.com/?p=208883</guid>
-
-          <description><![CDATA[Author: George Morales I woke up early to make breakfast for my daughter and my wife. It was going to be a grinding day at work. Even though everybody denied it, it sure felt like there were quotas to fill up the cells. The immigrants had been in those cells before the current occupants. But [&#8230;]]]></description>
-
-          <wfw:commentRss>https://365tomorrows.com/2020/08/08/illegal/feed/</wfw:commentRss>
-      <slash:comments>0</slash:comments>
-
-
-    <post-id xmlns="com-wordpress:feed-additions:1">208883</post-id>  </item>
-    <item>
-    <title>At Last:  Earth Colony Finally Takes Hold On Naria 5!</title>
-    <link>https://365tomorrows.com/2020/08/07/at-last-earth-colony-finally-takes-hold-on-naria-5/</link>
-          <comments>https://365tomorrows.com/2020/08/07/at-last-earth-colony-finally-takes-hold-on-naria-5/#respond</comments>
-
-    <dc:creator><![CDATA[submission]]></dc:creator>
-    <pubDate>Fri, 07 Aug 2020 06:11:59 +0000</pubDate>
-        <category><![CDATA[Story]]></category>
-    <guid isPermaLink="false">https://365tomorrows.com/?p=208877</guid>
-
-          <description><![CDATA[Author: Ken Poyner We used to eat whole herds of ballan, letting them first graze a while to get used to the slightly thinner atmosphere, adjust to the new gravity. Company issued, company raised, they were better having fed a few cycles on the native grass, taken in some unprocessed air, gotten foot-steady with their [&#8230;]]]></description>
-
-          <wfw:commentRss>https://365tomorrows.com/2020/08/07/at-last-earth-colony-finally-takes-hold-on-naria-5/feed/</wfw:commentRss>
-      <slash:comments>0</slash:comments>
-
-
-    <post-id xmlns="com-wordpress:feed-additions:1">208877</post-id>  </item>
+      <post-id
+        xmlns="com-wordpress:feed-additions:1">208900
+      </post-id>
+    </item>
   </channel>
 </rss>
-
-<!--
-Performance optimized by W3 Total Cache. Learn more: https://www.boldgrid.com/w3-total-cache/
-
-Object Caching 86/89 objects using disk
-Page Caching using disk: enhanced (Page is feed)
-Minified using disk
-
-Served from: 365tomorrows.com @ 2020-08-16 06:25:17 by W3 Total Cache
--->
