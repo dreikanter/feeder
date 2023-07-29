@@ -1,25 +1,9 @@
 [
   {
-    "feed_id": 17434,
-    "uid": "http://wumo.com/wumo/2023/07/28",
-    "link": "http://wumo.com/wumo/2023/07/28",
-    "published_at": "2023-07-28 00:00:00 +0000",
-    "text": "Wumo 28. Jul 2023 - http://wumo.com/wumo/2023/07/28",
-    "attachments": [
-      "http://wumo.com/img/wumo/2023/07/wumo64abf9be2497a4.68979190.jpg"
-    ],
-    "comments": [
-
-    ],
-    "validation_errors": [
-
-    ]
-  },
-  {
-    "feed_id": 17434,
     "uid": "http://wumo.com/wumo/2023/07/27",
+    "state": "rejected",
     "link": "http://wumo.com/wumo/2023/07/27",
-    "published_at": "2023-07-27 00:00:00 +0000",
+    "published_at": "2023-07-27T00:00:00.000Z",
     "text": "Wumo 27. Jul 2023 - http://wumo.com/wumo/2023/07/27",
     "attachments": [
 
@@ -29,6 +13,22 @@
     ],
     "validation_errors": [
       "missing image"
+    ]
+  },
+  {
+    "uid": "http://wumo.com/wumo/2023/07/28",
+    "state": "enqueued",
+    "link": "http://wumo.com/wumo/2023/07/28",
+    "published_at": "2023-07-28T00:00:00.000Z",
+    "text": "Wumo 28. Jul 2023 - http://wumo.com/wumo/2023/07/28",
+    "attachments": [
+      "http://wumo.com/img/wumo/2023/07/wumo64abf9be2497a4.68979190.jpg"
+    ],
+    "comments": [
+
+    ],
+    "validation_errors": [
+
     ]
   }
 ]
