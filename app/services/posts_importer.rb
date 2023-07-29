@@ -7,8 +7,8 @@
 # Errors handling:
 #
 # - Feed loader and processor exceptions interrupt the flow.
-# - Normalizer exceptions cause problematic feed entities to be ignored.
-# - Normalizer exceptions are reported.
+# - Normalizer exception cause a feed entity to be ignored.
+# - Normalizer exceptions are being reported, but not interrupt the flow.
 #
 class PostsImporter
   attr_reader :feed
@@ -28,11 +28,15 @@ class PostsImporter
   def create_post_from(feed_entity)
     Post.create_with(normalize(feed_entity).to_h).find_or_create_by(feed: feed, uid: feed_enity.uid)
   rescue StandardError => e
-    Honeybadger.notify(e)
+    handle_normalizer_error(e)
+  end
+
+  def handle_normalizer_error(error)
+    Honeybadger.notify(error)
   end
 
   def new_feed_entities
-    @new_feed_entities ||= feed_entities.filter { existing_uids.exclude?(_1["uid"]) }.map.lazy { normalize(_1) }
+    feed_entities.filter { existing_uids.exclude?(_1["uid"]) }.lazy
   end
 
   def feed_entities
@@ -45,6 +49,10 @@ class PostsImporter
 
   # @return [NormalizedEntity]
   def normalize(feed_entity)
-    feed.normalize_class.new(feed_entity).call
+    normalizer.new(feed_entity).call
+  end
+
+  def normalizer
+    @normalizer ||= feed.normalizer_class
   end
 end

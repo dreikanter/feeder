@@ -23,19 +23,22 @@ class PublicationQueueProcessor
   end
 
   def publish_enqueued_posts
-    return unless publication_queue.any?
     publication_queue.each { PostPublisher.new(_1).publish }
     feed.update_sparkline
-  rescue StandardError => e
-    # publication errors go here
-    Honeybadger.notify(e)
   end
 
   def publication_queue
-    Post.where(feed: feed).enqueued.order(published_at: :asc)
+    Post.where(feed: feed).enqueued.order(published_at: :asc).limit(feed.import_limit_or_default)
+  end
+
+  def increment_feed_error_counters
+    feed.update!(
+      errors_count: feed.errors_count.succ,
+      total_errors_count: feed.total_errors_count.succ
+    )
   end
 
   def reset_errors_count
-    feed.update(errors_count: 0)
+    feed.update!(errors_count: 0)
   end
 end

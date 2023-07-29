@@ -5,7 +5,8 @@ class PostPublisher
     @post = post
   end
 
-  # TODO: Consider removing `enqueued` state
+  # @raise This method updates post resords status on error,
+  #   and never raises exceptions
   def publish
     return unless post.ready_for_publication?
     post_id = create_post_with_attachments
