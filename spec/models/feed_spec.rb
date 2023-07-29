@@ -142,11 +142,11 @@ RSpec.describe Feed do
     end
 
     it "raises when loader is undefined" do
-      expect { build(:feed, loader: nil).loader_class }.to raise_error(NameError)
+      expect { build(:feed, loader: nil).loader_class }.to raise_error(ClassResolver::Error)
     end
 
     it "raises when can't find the loader" do
-      expect { build(:feed, loader: "missing").loader_class }.to raise_error(NameError)
+      expect { build(:feed, loader: "missing").loader_class }.to raise_error(ClassResolver::Error)
     end
   end
 
@@ -156,11 +156,11 @@ RSpec.describe Feed do
     end
 
     it "raises when processor is undefined" do
-      expect { build(:feed, processor: nil).processor_class }.to raise_error(NameError)
+      expect { build(:feed, processor: nil).processor_class }.to raise_error(ClassResolver::Error)
     end
 
     it "raises when can't find the processor" do
-      expect { build(:feed, processor: "missing").loader_class }.to raise_error(NameError)
+      expect { build(:feed, processor: "missing").loader_class }.to raise_error(ClassResolver::Error)
     end
   end
 
@@ -170,11 +170,11 @@ RSpec.describe Feed do
     end
 
     it "raises when normalizer is undefined" do
-      expect { build(:feed, normalizer: nil).normalizer_class }.to raise_error(NameError)
+      expect { build(:feed, normalizer: nil).normalizer_class }.to raise_error(ClassResolver::Error)
     end
 
     it "raises when can't find the normalizer" do
-      expect { build(:feed, normalizer: "missing").loader_class }.to raise_error(NameError)
+      expect { build(:feed, normalizer: "missing").loader_class }.to raise_error(ClassResolver::Error)
     end
   end
 
@@ -182,19 +182,19 @@ RSpec.describe Feed do
     context "with missing loader" do
       let(:feed) { build(:feed, loader: "missing", processor: "test", normalizer: "test") }
 
-      it { expect { feed.ensure_supported }.to raise_error(NameError) }
+      it { expect { feed.ensure_supported }.to raise_error(ClassResolver::Error) }
     end
 
     context "with missing processor" do
       let(:feed) { build(:feed, loader: "test", processor: "missing", normalizer: "test") }
 
-      it { expect { feed.ensure_supported }.to raise_error(NameError) }
+      it { expect { feed.ensure_supported }.to raise_error(ClassResolver::Error) }
     end
 
     context "with missing normalizer" do
       let(:feed) { build(:feed, loader: "test", processor: "test", normalizer: "missing") }
 
-      it { expect { feed.ensure_supported }.to raise_error(NameError) }
+      it { expect { feed.ensure_supported }.to raise_error(ClassResolver::Error) }
     end
 
     context "with existing processing classes" do

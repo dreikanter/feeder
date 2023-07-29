@@ -8,6 +8,6 @@ RSpec.describe ClassResolver do
   end
 
   it "raises when class not found" do
-    expect { service.new("missing", suffix: "loader").resolve }.to raise_error(NameError)
+    expect { service.new("missing", suffix: "loader").resolve }.to raise_error(described_class::Error)
   end
 end

@@ -11,13 +11,13 @@ RSpec.describe FeedEntitiesFetcher do
   context "with missing loader" do
     let(:feed) { build(:feed, loader: "missing") }
 
-    it { expect { service_call }.to raise_error(NameError) }
+    it { expect { service_call }.to raise_error(ClassResolver::Error) }
   end
 
   context "with missing processor" do
     let(:feed) { build(:feed, loader: "test", processor: "missing") }
 
-    it { expect { service_call }.to raise_error(NameError) }
+    it { expect { service_call }.to raise_error(ClassResolver::Error) }
   end
 
   context "when on a happy path" do
