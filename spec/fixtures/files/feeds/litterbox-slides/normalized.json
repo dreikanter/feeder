@@ -1,9 +1,9 @@
 [
   {
-    "feed_id": 8383,
     "uid": "https://www.litterboxcomics.com/worlds-collide/",
+    "state": "enqueued",
     "link": "https://www.litterboxcomics.com/worlds-collide/",
-    "published_at": "2021-07-30 16:02:15 +0000",
+    "published_at": "2021-07-30T16:02:15.000Z",
     "text": "Worlds Collide - https://www.litterboxcomics.com/worlds-collide/",
     "attachments": [
       "https://i0.wp.com/www.litterboxcomics.com/wp-content/uploads/2021/07/xover1-1.png?resize=600%2C600&ssl=1",
