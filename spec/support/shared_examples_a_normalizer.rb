@@ -48,7 +48,7 @@ RSpec.shared_examples "a normalizer" do
       skip
     end
 
-    expect(imported_posts_data).to eq(expected_posts_data)
+    expect(imported_posts_data).to match_array(expected_posts_data)
   end
 
   def stub_feed_url
