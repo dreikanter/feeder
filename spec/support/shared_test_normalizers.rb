@@ -15,7 +15,7 @@ RSpec.shared_context "with test normalizers" do
     end
   end
 
-  let(:validation_errors_normalizers) do
+  let(:validation_errors_normalizer) do
     Class.new(BaseNormalizer) do
       def call
         NormalizedEntity.new(
@@ -41,7 +41,7 @@ RSpec.shared_context "with test normalizers" do
 
   before do
     stub_const("TestNormalizer", test_normalizer)
-    stub_const("ValidationErrorsNormalizer", validation_errors_normalizers)
+    stub_const("ValidationErrorsNormalizer", validation_errors_normalizer)
     stub_const("FaultyNormalizer", faulty_normalizer)
   end
 end

@@ -1,11 +1,11 @@
-class PublicationQueueProcessor
+class FeedProcessor
   attr_reader :feed
 
   def initialize(feed)
     @feed = feed
   end
 
-  def process_queue
+  def process
     feed.touch(:refreshed_at)
     import_new_posts
     publish_enqueued_posts
@@ -17,7 +17,6 @@ class PublicationQueueProcessor
     PostsImporter.new(feed).import
     reset_errors_count
   rescue StandardError => e
-    # loader and processor errors go here
     Honeybadger.notify(e)
     increment_feed_error_counters
   end
@@ -28,7 +27,7 @@ class PublicationQueueProcessor
   end
 
   def publication_queue
-    Post.where(feed: feed).enqueued.order(published_at: :asc).limit(feed.import_limit_or_default)
+    Post.where(feed: feed).enqueued.order(published_at: :asc).limit(import_limit_or_default)
   end
 
   def increment_feed_error_counters
@@ -41,4 +40,6 @@ class PublicationQueueProcessor
   def reset_errors_count
     feed.update!(errors_count: 0)
   end
+
+  delegate :import_limit_or_default, to: :feed
 end

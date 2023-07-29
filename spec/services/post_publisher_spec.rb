@@ -46,6 +46,7 @@ RSpec.describe PostPublisher do
   context "with a post ready for publication" do
     let(:freefeed_post_id) { "f102b70e-0d7a-425a-aca9-68d4462cdea4" }
     let(:attachment_id) { "f102b70e-0d7a-425a-aca9-68d4462cdea5" }
+    let(:comment_id) { "f102b70e-0d7a-425a-aca9-68d4462cdea6" }
 
     let(:post) do
       create(
@@ -79,7 +80,7 @@ RSpec.describe PostPublisher do
       stub_request(:post, "https://candy.freefeed.net/v1/comments")
         .to_return(
           headers: {"Content-Type" => "application/json"},
-          body: {"comments" => {"id" => attachment_id}}.to_json
+          body: {"comments" => {"id" => comment_id}}.to_json
         )
 
       service.new(post).publish

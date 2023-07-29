@@ -11,6 +11,6 @@ class ScopedFeedsProcessor
   end
 
   def process
-    feeds_scope.each { PublicationQueueProcessor.new(_1).process_queue }
+    feeds_scope.each { FeedProcessor.new(_1).process }
   end
 end
