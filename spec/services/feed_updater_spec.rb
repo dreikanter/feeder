@@ -4,11 +4,11 @@ require "support/shared_test_processors"
 require "support/shared_test_normalizers"
 
 RSpec.describe FeedUpdater do
+  subject(:service) { described_class }
+
   include_context "with test loaders"
   include_context "with test processors"
   include_context "with test normalizers"
-
-  subject(:service) { described_class }
 
   let(:pristine_feed) { create(:feed, name: "xkcd", state: "pristine", loader: "test", processor: "test", normalizer: "test") }
   let(:enabled_feed) { create(:feed, name: "xkcd", state: "enabled", loader: "test", processor: "test", normalizer: "test") }

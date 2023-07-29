@@ -15,5 +15,5 @@ RSpec.describe NormalizedEntity do
     }
   end
 
-  it { expect(model.new(**attributes)).to be_kind_of(Data) }
+  it { expect(model.new(**attributes)).to be_a(Data) }
 end

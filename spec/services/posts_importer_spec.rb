@@ -4,13 +4,13 @@ require "support/shared_test_processors"
 require "support/shared_test_normalizers"
 
 RSpec.describe PostsImporter do
-  include_context "with test loaders"
-  include_context "with test processors"
-  include_context "with test normalizers"
-
   # NOTE: Test processor return a single FeedEntity with uid "1"
 
   subject(:service_call) { described_class.new(feed).import }
+
+  include_context "with test loaders"
+  include_context "with test processors"
+  include_context "with test normalizers"
 
   context "with unsupported feed" do
     context "with missing loader" do

@@ -4,11 +4,11 @@ require "support/shared_test_processors"
 require "support/shared_test_normalizers"
 
 RSpec.describe Feed do
+  subject(:model) { described_class }
+
   include_context "with test loaders"
   include_context "with test processors"
   include_context "with test normalizers"
-
-  subject(:model) { described_class }
 
   let(:one_day) { 1.day.seconds.to_i }
   let(:stale_timestampt) { one_day.succ.seconds.ago }

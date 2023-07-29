@@ -5,12 +5,12 @@ require "support/shared_test_normalizers"
 require "support/shared_freefeed_api_request_stubs"
 
 RSpec.describe FeedProcessor do
+  subject(:service_call) { described_class.new(feed).process }
+
   include_context "with test loaders"
   include_context "with test processors"
   include_context "with test normalizers"
   include_context "freefeed api request stubs"
-
-  subject(:service_call) { described_class.new(feed).process }
 
   before { freeze_time }
 
@@ -25,9 +25,9 @@ RSpec.describe FeedProcessor do
     end
 
     it { expect { service_call }.to(change { expected_post_imported? }.from(false).to(true)) }
-    it { expect { service_call }.to(change { feed.refreshed_at }.from(nil).to(Time.current)) }
-    it { expect { service_call }.to(change { feed.errors_count }.from(1).to(0)) }
-    it { expect { service_call }.to(change { feed.sparkline.present? }.from(false).to(true)) }
+    it { expect { service_call }.to(change(feed, :refreshed_at).from(nil).to(Time.current)) }
+    it { expect { service_call }.to(change(feed, :errors_count).from(1).to(0)) }
+    it { expect { service_call }.to(change { !!feed.sparkline }.from(false).to(true)) }
 
     def expected_post_imported?
       Post.exists?(

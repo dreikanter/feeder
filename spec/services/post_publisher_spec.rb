@@ -22,16 +22,16 @@ RSpec.describe PostPublisher do
       )
     end
 
-    it "should reject post with validation errors" do
-      expect { service.new(post_with_validation_errors).publish }.not_to(change { rejected_post.reload })
+    it "rejects post with validation errors" do
+      expect { service.new(post_with_validation_errors).publish }.not_to(change(rejected_post, :reload))
     end
 
     it "skips draft posts" do
-      expect { service.new(rejected_post).publish }.not_to(change { rejected_post.reload })
+      expect { service.new(rejected_post).publish }.not_to(change(rejected_post, :reload))
     end
 
     it "skips rejected posts" do
-      expect { service.new(rejected_post).publish }.not_to(change { rejected_post.reload })
+      expect { service.new(rejected_post).publish }.not_to(change(rejected_post, :reload))
     end
 
     it "skips published posts" do
