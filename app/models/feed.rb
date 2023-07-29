@@ -109,6 +109,10 @@ class Feed < ApplicationRecord
     ClassResolver.new(normalizer, suffix: "normalizer").resolve
   end
 
+  def ensure_supported
+    loader_class && processor_class && normalizer_class
+  end
+
   def import_limit_or_default
     import_limit || DEFAULT_IMPORT_LIMIT
   end

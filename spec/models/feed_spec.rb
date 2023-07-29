@@ -1,6 +1,13 @@
 require "rails_helper"
+require "support/shared_test_loaders"
+require "support/shared_test_processors"
+require "support/shared_test_normalizers"
 
 RSpec.describe Feed do
+  include_context "with test loaders"
+  include_context "with test processors"
+  include_context "with test normalizers"
+
   subject(:model) { described_class }
 
   let(:one_day) { 1.day.seconds.to_i }
@@ -168,6 +175,32 @@ RSpec.describe Feed do
 
     it "raises when can't find the normalizer" do
       expect { build(:feed, normalizer: "missing").loader_class }.to raise_error(NameError)
+    end
+  end
+
+  describe "#ensure_supported" do
+    context "with missing loader" do
+      let(:feed) { build(:feed, loader: "missing", processor: "test", normalizer: "test") }
+
+      it { expect { feed.ensure_supported }.to raise_error(NameError) }
+    end
+
+    context "with missing processor" do
+      let(:feed) { build(:feed, loader: "test", processor: "missing", normalizer: "test") }
+
+      it { expect { feed.ensure_supported }.to raise_error(NameError) }
+    end
+
+    context "with missing normalizer" do
+      let(:feed) { build(:feed, loader: "test", processor: "test", normalizer: "missing") }
+
+      it { expect { feed.ensure_supported }.to raise_error(NameError) }
+    end
+
+    context "with existing processing classes" do
+      let(:feed) { build(:feed, loader: "test", processor: "test", normalizer: "test") }
+
+      it { expect(feed.ensure_supported).to be_truthy }
     end
   end
 
