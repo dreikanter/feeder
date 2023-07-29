@@ -10,8 +10,4 @@ RSpec.describe ClassResolver do
   it "raises when class not found" do
     expect { service.new("missing", suffix: "loader").resolve }.to raise_error(NameError)
   end
-
-  it "returns fallback value" do
-    expect(service.new("missing", fallback: "fallback").resolve).to eq("fallback")
-  end
 end

@@ -98,15 +98,15 @@ class Feed < ApplicationRecord
 
   # TODO: Consider returning an instance, initialized with self
   def loader_class
-    ClassResolver.new(loader, suffix: "loader", fallback: NullLoader).resolve
+    ClassResolver.new(loader, suffix: "loader").resolve
   end
 
   def processor_class
-    ClassResolver.new(processor, suffix: "processor", fallback: NullProcessor).resolve
+    ClassResolver.new(processor, suffix: "processor").resolve
   end
 
   def normalizer_class
-    ClassResolver.new(normalizer, suffix: "normalizer", fallback: NullNormalizer).resolve
+    ClassResolver.new(normalizer, suffix: "normalizer").resolve
   end
 
   def import_limit_or_default
