@@ -10,7 +10,7 @@ RSpec.describe FeedProcessor do
   include_context "with test loaders"
   include_context "with test processors"
   include_context "with test normalizers"
-  include_context "freefeed api request stubs"
+  include_context "with freefeed api request stubs"
 
   before { freeze_time }
 
