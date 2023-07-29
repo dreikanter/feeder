@@ -43,6 +43,11 @@ RSpec.describe Post do
       expect(post).not_to be_ready_for_publication
     end
 
+    it "rejects draft records" do
+      post.state = "draft"
+      expect(post).not_to be_ready_for_publication
+    end
+
     it "rejects published records" do
       post.state = "published"
       expect(post).not_to be_ready_for_publication

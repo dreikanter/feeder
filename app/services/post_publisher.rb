@@ -7,11 +7,11 @@ class PostPublisher
 
   # TODO: Consider removing `enqueued` state
   def publish
-    return unless post.draft? || post.enqueued?
+    return unless post.ready_for_publication?
     post_id = create_post_with_attachments
     register_succeeded_publication(post_id)
-  # rescue StandardError => e
-  #   register_failed_publication(e)
+  rescue StandardError => e
+    register_failed_publication(e)
   end
 
   private
@@ -28,8 +28,8 @@ class PostPublisher
 
   def register_succeeded_publication(post_id)
     post.update!(freefeed_post_id: post_id)
-    post.published!
-    update_last_post_created_at
+    post.success!
+    feed.update!(last_post_created_at: last_post_created_at)
   end
 
   def register_failed_publication(error)
@@ -52,7 +52,7 @@ class PostPublisher
     @freefeed ||= FreefeedClientBuilder.call
   end
 
-  def update_last_post_created_at
-    feed.update(last_post_created_at: feed.posts.published.maximum(:created_at))
+  def last_post_created_at
+    feed.posts.published.maximum(:created_at)
   end
 end

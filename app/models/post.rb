@@ -59,7 +59,7 @@ class Post < ApplicationRecord
   end
 
   def ready_for_publication?
-    valid? && !validation_errors? && (draft? || enqueued?)
+    valid? && !validation_errors? && enqueued?
   end
 
   def permalink

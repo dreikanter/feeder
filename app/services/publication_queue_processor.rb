@@ -32,7 +32,7 @@ class PublicationQueueProcessor
   end
 
   def publication_queue
-    Post.enqueued.order(published_at: :asc)
+    Post.where(feed: feed).enqueued.order(published_at: :asc)
   end
 
   def reset_errors_count
