@@ -1,3 +1,4 @@
+# Uses Freefeed API for post publication and updates `Post` record state
 class PostPublisher
   attr_reader :post
 

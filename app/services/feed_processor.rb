@@ -1,3 +1,4 @@
+# Imports new posts with `PostsImporter` and publishes enqueued posts with `PostPublisher`
 class FeedProcessor
   attr_reader :feed
 

@@ -1,3 +1,4 @@
+# Executes `FeedProcessor` for each feed in the specified scope
 class ScopedFeedsProcessor
   attr_reader :feeds_scope
 

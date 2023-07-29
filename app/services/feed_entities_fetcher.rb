@@ -1,3 +1,4 @@
+# Uses loader and processor to fetch `FeedEntity` list for a feed
 class FeedEntitiesFetcher
   attr_reader :feed
 
