@@ -11,6 +11,7 @@ class FeedUpdater
   def create_or_update
     Feed.transaction do
       feed.update!(updatable_attributes)
+      feed.ensure_supported
       update_feed_state
     end
   end

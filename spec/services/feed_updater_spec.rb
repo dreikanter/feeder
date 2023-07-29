@@ -1,12 +1,19 @@
 require "rails_helper"
+require "support/shared_test_loaders"
+require "support/shared_test_processors"
+require "support/shared_test_normalizers"
 
 RSpec.describe FeedUpdater do
+  include_context "with test loaders"
+  include_context "with test processors"
+  include_context "with test normalizers"
+
   subject(:service) { described_class }
 
-  let(:pristine_feed) { create(:feed, name: "xkcd", state: "pristine") }
-  let(:enabled_feed) { create(:feed, name: "xkcd", state: "enabled") }
-  let(:paused_feed) { create(:feed, name: "xkcd", state: "paused") }
-  let(:disabled_feed) { create(:feed, name: "xkcd", state: "disabled") }
+  let(:pristine_feed) { create(:feed, name: "xkcd", state: "pristine", loader: "test", processor: "test", normalizer: "test") }
+  let(:enabled_feed) { create(:feed, name: "xkcd", state: "enabled", loader: "test", processor: "test", normalizer: "test") }
+  let(:paused_feed) { create(:feed, name: "xkcd", state: "paused", loader: "test", processor: "test", normalizer: "test") }
+  let(:disabled_feed) { create(:feed, name: "xkcd", state: "disabled", loader: "test", processor: "test", normalizer: "test") }
 
   let(:configuration) do
     {
@@ -32,10 +39,10 @@ RSpec.describe FeedUpdater do
       "description" => "",
       "disabling_reason" => "",
       "import_limit" => nil,
-      "loader" => nil,
-      "normalizer" => nil,
+      "loader" => "test",
+      "normalizer" => "test",
       "options" => {},
-      "processor" => nil,
+      "processor" => "test",
       "refresh_interval" => 0,
       "source" => "",
       "state" => "pristine",
@@ -68,12 +75,12 @@ RSpec.describe FeedUpdater do
   end
 
   it "ignores non-configurable attributes" do
-    expect { call_service(enabled_feed.name, true, {state: "UNSUPPORTED"}) }
+    expect { call_service(enabled_feed.name, true, {state: "draft"}) }
       .not_to(change { enabled_feed.reload.state })
   end
 
   it "ignores unknown attributes" do
-    expect { call_service(enabled_feed.name, true, {banana: "MISSING"}) }
+    expect { call_service(enabled_feed.name, true, {unsupported: "mysterious value"}) }
       .not_to(change { enabled_feed.reload.state })
   end
 
