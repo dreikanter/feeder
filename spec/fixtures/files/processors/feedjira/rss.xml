@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0" xml:base="http://www.nasa.gov/"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>NASA Image of the Day</title>
+    <description>The latest NASA &quot;Image of the Day&quot; image.</description>
+    <link>http://www.nasa.gov/</link>
+    <atom:link rel="self" href="http://www.nasa.gov/rss/dyn/lg_image_of_the_day.rss" />
+    <language>en-us</language>
+    <managingEditor>brian.dunbar@nasa.gov</managingEditor>
+    <webMaster>brian.dunbar@nasa.gov</webMaster>
+    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+    <item>
+      <title>Hubble Peers at a Tranquil Galaxy</title>
+      <link>http://www.nasa.gov/image-feature/goddard/2023/hubble-peers-at-a-tranquil-galaxy</link>
+      <description>The tranquil spiral galaxy UGC 12295 basks leisurely in this image from the NASA/ESA Hubble Space Telescope.</description>
+      <enclosure url="http://www.nasa.gov/sites/default/files/thumbnails/image/hubble_ugc12295_potw2330a.jpg" length="2523547" type="image/jpeg" />
+      <guid isPermaLink="false">http://www.nasa.gov/image-feature/goddard/2023/hubble-peers-at-a-tranquil-galaxy</guid>
+      <pubDate>Fri, 28 Jul 2023 07:00 EDT</pubDate>
+      <source url="http://www.nasa.gov/rss/dyn/lg_image_of_the_day.rss">NASA Image of the Day</source>
+    </item>
+    <item>
+      <title>Interns Flying High</title>
+      <link>http://www.nasa.gov/image-feature/interns-flying-high</link>
+      <description>NASA Student Airborne Research Program (SARP) interns Dorothy Sue Grimmer and Victoria Tran pose for a photo in front of the Dynamic Aviation B200 ahead of their morning research flight on Tuesday, June 13, 2023.</description>
+      <enclosure url="http://www.nasa.gov/sites/default/files/thumbnails/image/53070888088_8e4826ee89_o.jpg" length="1759746" type="image/jpeg" />
+      <guid isPermaLink="false">http://www.nasa.gov/image-feature/interns-flying-high</guid>
+      <pubDate>Thu, 27 Jul 2023 10:39 EDT</pubDate>
+      <source url="http://www.nasa.gov/rss/dyn/lg_image_of_the_day.rss">NASA Image of the Day</source>
+    </item>
+    <item>
+      <title>Laguna Verde’s Turquoise Waters</title>
+      <link>http://www.nasa.gov/image-feature/laguna-verde-s-turquoise-waters</link>
+      <description>Woody Hoburg took this photo of Laguna Verde’s inviting waters as the International Space Station orbited 264 miles (425 km) over South America on July 7, 2023.</description>
+      <enclosure url="http://www.nasa.gov/sites/default/files/thumbnails/image/iss069e030011orig.jpg" length="4166916" type="image/jpeg" />
+      <guid isPermaLink="false">http://www.nasa.gov/image-feature/laguna-verde-s-turquoise-waters</guid>
+      <pubDate>Wed, 26 Jul 2023 12:06 EDT</pubDate>
+      <source url="http://www.nasa.gov/rss/dyn/lg_image_of_the_day.rss">NASA Image of the Day</source>
+    </item>
+  </channel>
+</rss>

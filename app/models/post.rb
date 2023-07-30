@@ -52,7 +52,8 @@ class Post < ApplicationRecord
     end
   end
 
-  validates :uid, :link, :published_at, presence: true
+  validates :uid, :published_at, presence: true
+  validates :link, presence: {allow_blank: true}
 
   def validation_errors?
     validation_errors.any?
