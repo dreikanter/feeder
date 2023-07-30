@@ -399,7 +399,7 @@
   processor: "feedjira"
   normalizer: "aerostat"
   refresh_interval: 86400
-  import_limit: 20
+  import_limit: 2
 
 - name: "algtestament"
   enabled: false
