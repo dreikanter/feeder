@@ -97,12 +97,22 @@ class Feed < ApplicationRecord
   end
 
   # TODO: Consider returning an instance, initialized with self
+  #   BaseProcessor: move content argument from constructor to #process
+
   def loader_class
     ClassResolver.new(loader, suffix: "loader").resolve
   end
 
+  def loader_instance
+    loader_class.new(self)
+  end
+
   def processor_class
     ClassResolver.new(processor, suffix: "processor").resolve
+  end
+
+  def processor_instance
+    processor_class.new(self)
   end
 
   def normalizer_class

@@ -10,45 +10,88 @@ RSpec.describe PostsImporter do
   include_context "with test loaders"
   include_context "with test processors"
 
+  before { freeze_time }
+
   context "with unsupported feed" do
     context "with missing loader" do
-      let(:feed) { build(:feed, loader: "missing") }
+      let(:feed) { create(:feed, loader: "missing") }
 
       it { expect { service_call }.to raise_error(ClassResolver::Error) }
     end
 
     context "with missing processor" do
-      let(:feed) { build(:feed, loader: "test", processor: "missing") }
+      let(:feed) { create(:feed, loader: "test", processor: "missing") }
 
       it { expect { service_call }.to raise_error(ClassResolver::Error) }
     end
   end
 
   context "with loader error" do
-    let(:feed) { build(:feed, loader: "faulty", processor: "test") }
+    let(:feed) { create(:feed, loader: "faulty", processor: "test") }
 
-    it { expect { service_call }.to raise_error("loader error") }
+    it "updates counters and raises" do
+      expect { service_call }.to raise_error("loader error")
+        .and(change { feed.reload.errors_count }.by(1))
+        .and(change { feed.reload.total_errors_count }.by(1))
+        .and(change { feed.reload.refreshed_at }.from(nil).to(Time.current))
+    end
   end
 
   context "with processor error" do
-    let(:feed) { build(:feed, loader: "test", processor: "faulty") }
+    let(:feed) { create(:feed, loader: "test", processor: "faulty") }
 
-    it { expect { service_call }.to raise_error("processor error") }
+    it "updates counters and raises" do
+      expect { service_call }.to raise_error("processor error")
+        .and(change { feed.reload.errors_count }.by(1))
+        .and(change { feed.reload.total_errors_count }.by(1))
+        .and(change { feed.reload.refreshed_at }.from(nil).to(Time.current))
+    end
   end
 
   context "with existing posts" do
-    let(:feed) { build(:feed, loader: "test", processor: "test") }
+    let(:feed) do
+      create(
+        :feed,
+        loader: "test",
+        processor: "test",
+        errors_count: 1,
+        refreshed_at: nil
+      )
+    end
 
-    before { create(:post, feed: feed, uid: "1") }
+    before do
+      create(:post, feed: feed, uid: "1")
+      service_call
+      feed.reload
+    end
 
-    it "never calls normalizer and skips existing entities" do
-      expect { service_call }.not_to(change { feed.posts.count })
+    it "skips posts creation" do
+      expect(feed.posts.count).to eq(1)
+      expect(feed.reload.errors_count).to be_zero
+      expect(feed.reload.refreshed_at).to eq(Time.current)
     end
   end
 
   context "with new posts" do
-    let(:feed) { build(:feed, loader: "test", processor: "test") }
+    let(:feed) do
+      create(
+        :feed,
+        loader: "test",
+        processor: "test",
+        errors_count: 1,
+        refreshed_at: nil
+      )
+    end
 
-    it { expect { service_call }.to(change { Post.exists?(feed: feed, uid: "1", state: "draft") }.from(false).to(true)) }
+    before do
+      service_call
+      feed.reload
+    end
+
+    it "creates new posts" do
+      expect(Post.where(feed: feed, uid: "1", state: "draft")).to exist
+      expect(feed.errors_count).to be_zero
+      expect(feed.refreshed_at).to eq(Time.current)
+    end
   end
 end

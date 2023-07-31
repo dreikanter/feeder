@@ -1,21 +1,20 @@
 # Eats an arbitrary content object (parsed RSS, JSON, etc).
 # Poops draft posts for each entity in the content.
 class BaseProcessor
-  attr_reader :content, :feed
+  attr_reader :feed
 
-  # @param :content [Object] arbitrary data object from the Loader
   # @param :feed [Feed] current feed reference
-  def initialize(content:, feed:)
-    @content = content
+  def initialize(feed)
     @feed = feed
   end
 
   # Creates a Post record for each entity from the `content`. Skips already
   # imported entities.
   #
+  # @param :content [Object] arbitrary data object from the Loader
   # @return [Array<Post>] array of newly created draft posts
   # @raise [StandardError] raises exception if content is not processible
-  def process
+  def process(content)
     created_posts
   end
 

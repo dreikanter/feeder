@@ -11,16 +11,25 @@ class PostsImporter
   end
 
   # @return [Array<String>] array of newly created posts
-  # @raise [StandardError] will interrupt the flow and pass any loader
-  #   and processor errors; also will raise if the feed does not have
-  #   a resolvable loader of processor
+  # @raise [StandardError] will interrupt the flow on any loader or processor error
   def import
-    feed.processor_class.new(feed: feed, content: load_content).process
+    feed.touch(:refreshed_at)
+    processor_instance.process(loader_instance.content)
+    reset_feed_errors_count
+  rescue StandardError => e
+    increment_feed_error_count
+    raise
   end
 
   private
 
-  def load_content
-    feed.loader_class.new(feed).content
+  def reset_feed_errors_count
+    feed.update!(errors_count: 0)
   end
+
+  def increment_feed_error_count
+    feed.update!(errors_count: errors_count.succ, total_errors_count: total_errors_count.succ)
+  end
+
+  delegate :loader_instance, :processor_instance, :errors_count, :total_errors_count, to: :feed
 end
