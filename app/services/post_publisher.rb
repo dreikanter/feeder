@@ -1,4 +1,4 @@
-# Uses Freefeed API for post publication and updates `Post` record state
+# Uses Freefeed API for post publication and updates `Post` record state.
 class PostPublisher
   include Logging
 
@@ -11,7 +11,6 @@ class PostPublisher
   # @raise This method updates post resords status on error,
   #   and never raises exceptions
   def publish
-    return unless post.ready_for_publication?
     log_info("#{self.class}: publishing new post: uid: #{post.uid}; feed_name: #{feed_name}")
     post_id = create_post_with_attachments
     register_succeeded_publication(post_id)

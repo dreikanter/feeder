@@ -59,10 +59,6 @@ class Post < ApplicationRecord
     validation_errors.any?
   end
 
-  def ready_for_publication?
-    valid? && !validation_errors? && enqueued?
-  end
-
   def permalink
     base_url.join("/#{feed.name}/#{freefeed_post_id}").to_s
   end
