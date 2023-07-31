@@ -1,15 +1,22 @@
 RSpec.shared_context "with test processors" do
   let(:test_processor) do
     Class.new(BaseProcessor) do
-      def entities
-        [FeedEntity.new(uid: "1", content: "banana", feed: feed)]
+      def process
+        [
+          Post.create!(
+            uid: "1",
+            source_content: "banana",
+            published_at: Time.current,
+            feed: feed
+          )
+        ]
       end
     end
   end
 
   let(:faulty_processor) do
     Class.new(BaseProcessor) do
-      def entities
+      def process
         raise "processor error"
       end
     end

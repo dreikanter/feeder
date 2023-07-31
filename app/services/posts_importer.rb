@@ -1,14 +1,5 @@
-# Posts import flow:
-#
-# - Fetch and process feed entities with FeedEntitiesFetcher.
-# - Normalize each new entity.
-# - Save normalized data to Post records with draft state.
-#
-# Errors handling:
-#
-# - Feed loader and processor exceptions interrupt the flow.
-# - Normalizer exception cause a feed entity to be ignored.
-# - Normalizer exceptions are being reported, but not interrupt the flow.
+# Uses a loader to fetch content, and feeds the content to a processor.
+# Execution result is draft Post records with newly imported content.
 #
 class PostsImporter
   include Logging
@@ -19,58 +10,17 @@ class PostsImporter
     @feed = feed
   end
 
+  # @return [Array<String>] array of newly created posts
+  # @raise [StandardError] will interrupt the flow and pass any loader
+  #   and processor errors; also will raise if the feed does not have
+  #   a resolvable loader of processor
   def import
-    feed.ensure_supported
-    create_posts
+    feed.processor_class.new(feed: feed, content: load_content).process
   end
 
   private
 
-  def create_posts
-    new_feed_entities.filter_map do |feed_entity|
-      normalized_entity = normalize(feed_entity) or next
-      uid = normalized_entity.uid
-      update_post_status(post_for(uid, normalized_entity.to_h))
-      uid
-    end
-  end
-
-  # Create new post or find an existing one
-  # @return [Post]
-  def post_for(uid, attributes)
-    Post.transaction do
-      Post.create_with(attributes).find_or_create_by(feed: feed, uid: uid)
-    end
-  end
-
-  def update_post_status(post)
-    return unless post.draft?
-    post.validation_errors? ? post.reject! : post.enqueue!
-  end
-
-  def new_feed_entities
-    feed_entities.filter { existing_uids.exclude?(_1.uid) }
-  end
-
-  def feed_entities
-    @feed_entities ||= FeedEntitiesFetcher.new(feed).fetch
-  end
-
-  def existing_uids
-    @existing_uids ||= Post.where(feed: feed, uid: feed_entities.map(&:uid)).pluck(:uid)
-  end
-
-  # @return [NormalizedEntity, nil]
-  def normalize(feed_entity)
-    log_info("#{self.class}: normalizing feed entity; feed: #{feed.name}; uid: #{feed_entity.uid}")
-    normalizer.new(feed_entity).call
-  rescue StandardError => e
-    log_error("#{self.class}: normalizer error: #{e}")
-    Honeybadger.notify(e)
-    nil
-  end
-
-  def normalizer
-    @normalizer ||= feed.normalizer_class
+  def load_content
+    feed.loader_class.new(feed).content
   end
 end

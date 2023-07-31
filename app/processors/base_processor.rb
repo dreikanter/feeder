@@ -1,3 +1,5 @@
+# Eats an arbitrary content object (parsed RSS, JSON, etc).
+# Poops draft posts for each entity in the content.
 class BaseProcessor
   attr_reader :content, :feed
 
@@ -14,7 +16,7 @@ class BaseProcessor
   # @return [Array<Post>] array of newly created draft posts
   # @raise [StandardError] raises exception if content is not processible
   def process
-    raise AbstractMethodError
+    created_posts
   end
 
   private
@@ -34,7 +36,11 @@ class BaseProcessor
         state: "draft",
         source_content: source_content.as_json,
         published_at: published_at
-      ).find_or_create_by!(feed: feed, uid: uid)
+      ).find_or_create_by!(feed: feed, uid: uid) { created_posts << _1 }
     end
+  end
+
+  def created_posts
+    @created_posts ||= []
   end
 end
