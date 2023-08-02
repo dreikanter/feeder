@@ -50,7 +50,7 @@ class ServiceInstancesPoolUpdater
   end
 
   def delisted_instances
-    ServiceInstance.where(service_type: "nitter").where.not(url: instance_urls)
+    scope.where.not(url: instance_urls)
   end
 
   def instance_urls
@@ -58,6 +58,10 @@ class ServiceInstancesPoolUpdater
   end
 
   def instances_stats
-    ServiceInstance.all.select("state, COUNT(*) AS cnt").group(:state).map { "#{_1.state}: #{_1.cnt}" }.join("; ")
+    scope.select("state, COUNT(*) AS cnt").group(:state).map { "#{_1.state}: #{_1.cnt}" }.join("; ")
+  end
+
+  def scope
+    ServiceInstance.where(service_type: "service_type")
   end
 end
