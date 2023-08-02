@@ -21,7 +21,10 @@ RSpec.shared_examples "a normalizer" do
   before do
     Feed.delete_all
     travel_to(DateTime.parse("2023-06-17 01:00:00 +0000"))
-    stub_request(:get, feed.url).to_return(body: file_fixture(feed_fixture).read)
+
+    stub_request(:get, feed.url)
+      .to_return(body: file_fixture(feed_fixture).read)
+      .times(1).then.to_raise("repeated loader call")
   end
 
   it "resolves" do

@@ -25,6 +25,10 @@ class Pull
   end
 
   def entities
+    @entities ||= load_entities
+  end
+
+  def load_entities
     all_entities = processor_class.new(content: loader_class.new(feed).content, feed: feed).entities
     return all_entities.take(import_limit_or_default) if import_limit_or_default.positive?
     all_entities

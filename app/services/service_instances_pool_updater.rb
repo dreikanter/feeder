@@ -41,7 +41,8 @@ class ServiceInstancesPoolUpdater
 
   def actual_state(service_instance)
     log_info("checking #{service_instance.url} availability")
-    availability_checker.new(service_instance).available? ? ServiceInstance::STATE_ENABLED : ServiceInstance::STATE_DISABLED
+    result = availability_checker.new(service_instance).available? ? ServiceInstance::STATE_ENABLED : ServiceInstance::STATE_DISABLED
+    result.tap { _1 ? log_info("OK") : log_error("not available") }
   end
 
   def disable_delisted_instances
