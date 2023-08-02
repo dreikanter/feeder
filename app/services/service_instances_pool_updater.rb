@@ -63,6 +63,6 @@ class ServiceInstancesPoolUpdater
   end
 
   def scope
-    ServiceInstance.where(service_type: "service_type")
+    ServiceInstance.where(service_type: service_type)
   end
 end
