@@ -1,0 +1,39 @@
+<h1 class="my-4"><a href="/" class="text-body text-decoration-none">Freefeed Feeder</a></h1>
+
+<% @grouped_service_instances.each do |service_type, service_instances| %>
+  <h2><%= service_type %></h2>
+  <table class="table table-bordered my-4 feeds-table">
+    <thead>
+      <th>state</th>
+      <th>url</th>
+      <th>errors</th>
+      <th>total_errors</th>
+      <th>used_at</th>
+      <th>failed_at</th>
+    </thead>
+    <tbody>
+      <%- service_instances.each do |service_instance| -%>
+        <tr>
+          <td><%= format_service_instance_state(service_instance) %></td>
+          <td><a href="<%= service_instance.url %>"><%= service_instance.url %></a></td>
+          <td><%= service_instance.errors_count %></td>
+          <td><%= service_instance.total_errors_count %></td>
+          <td>
+            <%- if service_instance.used_at -%>
+              <%= tag.time datetime: service_instance.used_at.rfc3339 do -%>
+                <%= compact_ago(service_instance.used_at) -%>
+              <%- end -%>
+            <%- end -%>
+          </td>
+          <td>
+            <%- if service_instance.failed_at -%>
+              <%= tag.time datetime: service_instance.failed_at.rfc3339 do -%>
+                <%= compact_ago(service_instance.failed_at) -%>
+              <%- end -%>
+            <%- end -%>
+          </td>
+        </tr>
+      <%- end -%>
+    </tbody>
+  </table>
+<% end %>
