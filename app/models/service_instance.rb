@@ -36,8 +36,8 @@ class ServiceInstance < ApplicationRecord
     end
   end
 
-  scope :operational, -> { where(state: %w[enabled failed]).less_used }
-  scope :less_used, -> { order(arel_table[:used_at].asc.nulls_first) }
+  scope :operational, -> { where(state: %w[enabled failed]).least_used }
+  scope :least_used, -> { order(arel_table[:used_at].asc.nulls_first) }
 
   # @return [ServiceInstance] least used operational service instance of
   #   the specified type. Instance usage is determined by the min used_at
