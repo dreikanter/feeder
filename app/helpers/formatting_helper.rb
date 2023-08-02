@@ -17,6 +17,15 @@ module FormattingHelper
     ) { state }
   end
 
+  def format_service_instance_state(service_instance)
+    state = service_instance.state
+
+    tag.span(
+      class: service_instance_state_class(state),
+      data: {bs_toggle: "tooltip", bs_placement: "top", bs_html: true}
+    ) { state }
+  end
+
   private
 
   def format_feed_title(feed)
@@ -34,5 +43,18 @@ module FormattingHelper
 
   def feed_state_class(state)
     FEED_STATE_CLASSES[state]
+  end
+
+  SERVICE_INSTANCE_STATE_CLASSES = {
+    "enabled" => "text-success",
+    "failed" => "text-warning",
+    "suspended" => "text-muted",
+    "disabled" => "text-danger"
+  }.freeze
+
+  private_constant :SERVICE_INSTANCE_STATE_CLASSES
+
+  def service_instance_state_class(state)
+    SERVICE_INSTANCE_STATE_CLASSES[state]
   end
 end
