@@ -12,19 +12,25 @@ module Freefeed
 
     def call
       response = http.headers(headers).public_send(request_method, uri, **request_params)
-      error = Freefeed::Error.for(response)
-      raise(error) if error
+      ensure_successful_response(response)
       response
     end
 
     private
+
+    def ensure_successful_response(response)
+      error = Freefeed::Error.for(response)
+      return unless error
+      Honeybadger.content(failed_request_params: request_params)
+      raise(error)
+    end
 
     def uri
       @uri ||= URI.parse(client.base_url + path).to_s
     end
 
     def request_params
-      options.slice(:json, :form, :params, :body)
+      @request_params ||= options.slice(:json, :form, :params, :body)
     end
 
     def headers
