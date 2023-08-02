@@ -26,6 +26,7 @@ class FeedsConfiguration
 
   def disable_missing_feeds
     missing_feeds.update_all(state: :disabled)
+    Sparkline.where(feed: missing_feeds).delete_all
   end
 
   def missing_feeds
