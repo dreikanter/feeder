@@ -57,6 +57,7 @@ class ServiceInstancesPoolUpdater
     @instance_urls ||= instances_fetcher.new.call
   end
 
+  # :reek:FeatureEnvy
   def instances_stats
     scope.select("state, COUNT(*) AS cnt").group(:state).map { "#{_1.state}: #{_1.cnt}" }.join("; ")
   end
