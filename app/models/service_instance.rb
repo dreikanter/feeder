@@ -39,6 +39,10 @@ class ServiceInstance < ApplicationRecord
   scope :operational, -> { where(state: %w[enabled failed]).least_used }
   scope :least_used, -> { order(arel_table[:used_at].asc.nulls_first) }
 
+  scope :ordered_by_state, -> {
+    order(Arel.sql("array_position(ARRAY['enabled', 'failed', 'suspended', 'disabled'], service_instances.state::text)"))
+  }
+
   # @return [ServiceInstance] least used operational service instance of
   #   the specified type. Instance usage is determined by the min used_at
   #   timestamp. "Operational" means not disabled or suspended.
