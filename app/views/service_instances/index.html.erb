@@ -2,6 +2,9 @@
 
 <% @grouped_service_instances.each do |service_type, service_instances| %>
   <h2><%= service_type %></h2>
+  <p>
+    <%= ServiceInstance.aasm.states.map {_1.name.to_s }.map { |state| "#{state.capitalize}: #{service_instances.count { _1.state == state } }" }.join(", ") %>
+  </p>
   <table class="table table-bordered my-4 feeds-table">
     <thead>
       <th>state</th>
