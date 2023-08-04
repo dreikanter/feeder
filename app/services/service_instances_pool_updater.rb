@@ -32,6 +32,7 @@ class ServiceInstancesPoolUpdater
     instance_urls.each do |url|
       service_instance = find_or_create(url)
       service_instance.update!(state: actual_state(service_instance))
+      service_instance.update!(errors_count: 0) if service_instance.enabled?
     end
   end
 

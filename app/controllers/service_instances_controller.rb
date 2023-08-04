@@ -7,7 +7,7 @@ class ServiceInstancesController < ApplicationController
 
   def grouped_service_instances
     {}.tap do |result|
-      ServiceInstance.least_used.each do |service_instance|
+      ServiceInstance.least_used.ordered_by_state.each do |service_instance|
         (result[service_instance.service_type] ||= []) << service_instance
       end
     end

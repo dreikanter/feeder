@@ -27,23 +27,55 @@ RSpec.describe ServiceInstance do
     end
   end
 
-  describe "#operational" do
+  describe ".least_used" do
+    subject(:used_at_values) { model.least_used.pluck(:used_at) }
+
+    let(:never_used_instance) { create(:service_instance, used_at: nil) }
+    let(:recently_used_instance) { create(:service_instance, used_at: 1.second.ago) }
+    let(:not_used_for_a_long_time_instance) { create(:service_instance, used_at: 2.days.ago) }
+
+    before do
+      model.delete_all
+
+      not_used_for_a_long_time_instance
+      recently_used_instance
+      never_used_instance
+    end
+
+    it { expect(used_at_values).to eq([nil, 2.days.ago, 1.second.ago]) }
+  end
+
+  describe ".ordered_by_state" do
+    subject(:ordered_state_values) { model.ordered_by_state.pluck(:state) }
+
+    before do
+      model.delete_all
+      %w[disabled suspended failed enabled].each { create(:service_instance, state: _1) }
+    end
+
+    it { expect(ordered_state_values).to eq(%w[enabled failed suspended disabled]) }
+  end
+
+  describe ".operational" do
     subject(:scope) { model.operational }
 
     let(:enabled_instance) { create(:service_instance, state: :enabled, used_at: 1.hour.ago) }
+    let(:unused_enabled_instance) { create(:service_instance, state: :enabled, used_at: nil) }
     let(:failed_instance) { create(:service_instance, state: :failed, used_at: 2.hours.ago) }
     let(:suspended_instance) { create(:service_instance, state: :suspended) }
     let(:disabled_instance) { create(:service_instance, state: :disabled) }
 
     before do
       model.delete_all
+
       enabled_instance
+      unused_enabled_instance
       failed_instance
       suspended_instance
       disabled_instance
     end
 
-    it { expect(scope).to eq([failed_instance, enabled_instance]) }
+    it { expect(scope).to eq([unused_enabled_instance, failed_instance, enabled_instance]) }
   end
 
   describe "#register_error" do
