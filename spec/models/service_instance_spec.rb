@@ -57,25 +57,36 @@ RSpec.describe ServiceInstance do
   end
 
   describe ".operational" do
-    subject(:scope) { model.operational }
+    subject(:scope) { model.operational.pluck(:state, :used_at) }
 
-    let(:enabled_instance) { create(:service_instance, state: :enabled, used_at: 1.hour.ago) }
-    let(:unused_enabled_instance) { create(:service_instance, state: :enabled, used_at: nil) }
-    let(:failed_instance) { create(:service_instance, state: :failed, used_at: 2.hours.ago) }
-    let(:suspended_instance) { create(:service_instance, state: :suspended) }
-    let(:disabled_instance) { create(:service_instance, state: :disabled) }
+    let(:instances) do
+      [
+        {state: :enabled, used_at: 1.hour.ago},
+        {state: :enabled, used_at: 2.hours.ago},
+        {state: :enabled, used_at: nil},
+        {state: :failed, used_at: 1.hour.ago},
+        {state: :failed, used_at: 2.hours.ago},
+        {state: :suspended},
+        {state: :disabled}
+      ]
+    end
+
+    let(:expected_order) do
+      [
+        ["enabled", nil],
+        ["enabled", 2.hours.ago],
+        ["enabled", 1.hour.ago],
+        ["failed", 2.hours.ago],
+        ["failed", 1.hour.ago]
+      ]
+    end
 
     before do
       model.delete_all
-
-      enabled_instance
-      unused_enabled_instance
-      failed_instance
-      suspended_instance
-      disabled_instance
+      instances.each { create(:service_instance, **_1) }
     end
 
-    it { expect(scope).to eq([unused_enabled_instance, failed_instance, enabled_instance]) }
+    it { expect(scope).to eq(expected_order) }
   end
 
   describe "#register_error" do
