@@ -36,7 +36,7 @@ class ServiceInstance < ApplicationRecord
     end
   end
 
-  scope :operational, -> { where(state: %w[enabled failed]).least_used }
+  scope :operational, -> { where(state: %w[enabled failed]).ordered_by_state.least_used }
   scope :least_used, -> { order(arel_table[:used_at].asc.nulls_first) }
 
   scope :ordered_by_state, -> {
