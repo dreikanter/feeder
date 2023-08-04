@@ -3,7 +3,7 @@ class NitterLoader < BaseLoader
 
   # :reek:TooManyStatements
   def content
-    service_instance.touch(:used_at)
+    service_instance.update!(used_at: Time.current, usages_count: service_instance.usages_count.succ)
     response = http.get(nitter_rss_url.to_s)
     raise unless response.status.success?
     response.to_s
