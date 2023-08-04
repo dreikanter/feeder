@@ -26,7 +26,7 @@ class ServiceInstance < ApplicationRecord
     end
 
     event :enable do
-      after { update!(errors_count: 0) }
+      after { update!(errors_count: 0, usages_count: 0) }
 
       transitions from: %i[failed suspended disabled], to: :enabled
     end

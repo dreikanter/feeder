@@ -5,7 +5,7 @@ RSpec.describe NitterLoader do
 
   let(:feed) { build(:feed, options: {"twitter_user" => "username"}) }
   let(:body) { "CONTENT BODY" }
-  let(:service_instance) { create(:service_instance, service_type: "nitter", state: "enabled", url: "https://example.com") }
+  let(:service_instance) { create(:service_instance, service_type: "nitter", state: "enabled", url: "https://example.com", usages_count: 0) }
   let(:nitter_url) { "https://example.com/username/rss" }
 
   before do
@@ -22,6 +22,11 @@ RSpec.describe NitterLoader do
   it "require Twitter user option" do
     feed.options = {}
     expect { load_content }.to raise_error(KeyError)
+  end
+
+  it "increment service instance usages counter" do
+    stub_request(:get, nitter_url).to_return(body: body)
+    expect { load_content }.to(change { service_instance.reload.usages_count }.from(0).to(1))
   end
 
   it "updates service instance last usage timestamp" do

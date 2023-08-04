@@ -2,10 +2,14 @@
 
 <% @grouped_service_instances.each do |service_type, service_instances| %>
   <h2><%= service_type %></h2>
+  <p>
+    <%= ServiceInstance.aasm.states.map {_1.name.to_s }.map { |state| "#{state.capitalize}: #{service_instances.count { _1.state == state } }" }.join(", ") %>
+  </p>
   <table class="table table-bordered my-4 feeds-table">
     <thead>
       <th>state</th>
       <th>url</th>
+      <th>usages</th>
       <th>errors</th>
       <th>total_errors</th>
       <th>used_at</th>
@@ -16,6 +20,7 @@
         <tr>
           <td><%= format_service_instance_state(service_instance) %></td>
           <td><a href="<%= service_instance.url %>"><%= service_instance.url %></a></td>
+          <td><%= service_instance.usages_count %></td>
           <td><%= service_instance.errors_count %></td>
           <td><%= service_instance.total_errors_count %></td>
           <td>
