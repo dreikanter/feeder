@@ -74,7 +74,7 @@ RSpec.describe ServiceInstance do
     let(:expected_order) do
       [
         ["enabled", nil],
-        ["enabled", 2.hour.ago],
+        ["enabled", 2.hours.ago],
         ["enabled", 1.hour.ago],
         ["failed", 2.hours.ago],
         ["failed", 1.hour.ago]
