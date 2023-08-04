@@ -21,7 +21,7 @@ module Freefeed
     def ensure_successful_response(response)
       error = Freefeed::Error.for(response)
       return unless error
-      Honeybadger.content(failed_request_params: request_params)
+      Honeybadger.context(failed_request_params: request_params)
       raise(error)
     end
 
