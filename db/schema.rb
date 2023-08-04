@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[6.1].define(version: 2023_07_02_113522) do
-
+ActiveRecord::Schema[7.0].define(version: 2023_08_04_133646) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,13 +19,13 @@ ActiveRecord::Schema[6.1].define(version: 2023_07_02_113522) do
     t.integer "attempts", default: 0, null: false
     t.text "handler", null: false
     t.text "last_error"
-    t.datetime "run_at"
-    t.datetime "locked_at"
-    t.datetime "failed_at"
+    t.datetime "run_at", precision: nil
+    t.datetime "locked_at", precision: nil
+    t.datetime "failed_at", precision: nil
     t.string "locked_by"
     t.string "queue"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
@@ -39,9 +38,9 @@ ActiveRecord::Schema[6.1].define(version: 2023_07_02_113522) do
     t.string "message", default: "", null: false
     t.string "backtrace", default: [], null: false, array: true
     t.json "context", default: {}, null: false
-    t.datetime "occured_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "occured_at", precision: nil, default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "target_type"
     t.bigint "target_id"
     t.index ["exception"], name: "index_errors_on_exception"
@@ -54,24 +53,24 @@ ActiveRecord::Schema[6.1].define(version: 2023_07_02_113522) do
   create_table "feeds", id: :serial, force: :cascade do |t|
     t.string "name", null: false
     t.integer "posts_count", default: 0, null: false
-    t.datetime "refreshed_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "refreshed_at", precision: nil
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "url"
     t.string "processor"
     t.string "normalizer"
-    t.datetime "after"
+    t.datetime "after", precision: nil
     t.integer "refresh_interval", default: 0, null: false
     t.json "options", default: {}, null: false
     t.string "loader"
     t.integer "import_limit"
-    t.datetime "last_post_created_at"
+    t.datetime "last_post_created_at", precision: nil
     t.integer "subscriptions_count", default: 0, null: false
     t.integer "status", default: 0, null: false
     t.string "state", default: "pristine", null: false
     t.integer "errors_count", default: 0, null: false
     t.integer "total_errors_count", default: 0, null: false
-    t.datetime "state_updated_at"
+    t.datetime "state_updated_at", precision: nil
     t.string "source", default: "", null: false
     t.string "description", default: "", null: false
     t.string "disabling_reason", default: "", null: false
@@ -82,10 +81,10 @@ ActiveRecord::Schema[6.1].define(version: 2023_07_02_113522) do
   create_table "nitter_instances", force: :cascade do |t|
     t.string "status", null: false
     t.string "url", null: false
-    t.datetime "errored_at"
+    t.datetime "errored_at", precision: nil
     t.integer "errors_count", default: 0, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["errored_at"], name: "index_nitter_instances_on_errored_at"
     t.index ["status"], name: "index_nitter_instances_on_status"
     t.index ["url"], name: "index_nitter_instances_on_url"
@@ -94,13 +93,13 @@ ActiveRecord::Schema[6.1].define(version: 2023_07_02_113522) do
   create_table "posts", id: :serial, force: :cascade do |t|
     t.integer "feed_id", null: false
     t.string "link", null: false
-    t.datetime "published_at", null: false
+    t.datetime "published_at", precision: nil, null: false
     t.string "text", default: "", null: false
     t.string "attachments", default: [], null: false, array: true
     t.string "comments", default: [], null: false, array: true
     t.string "freefeed_post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.integer "status", default: 0, null: false
     t.string "uid", null: false
     t.string "validation_errors", default: [], null: false, array: true
@@ -116,10 +115,11 @@ ActiveRecord::Schema[6.1].define(version: 2023_07_02_113522) do
     t.string "url", null: false
     t.integer "errors_count", default: 0, null: false
     t.integer "total_errors_count", default: 0, null: false
-    t.datetime "used_at"
-    t.datetime "failed_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "used_at", precision: nil
+    t.datetime "failed_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "usages_count", default: 0, null: false
     t.index ["service_type", "url"], name: "index_service_instances_on_service_type_and_url", unique: true
     t.index ["state"], name: "index_service_instances_on_state"
   end
@@ -127,8 +127,8 @@ ActiveRecord::Schema[6.1].define(version: 2023_07_02_113522) do
   create_table "sparklines", force: :cascade do |t|
     t.bigint "feed_id"
     t.jsonb "data", default: {}, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["feed_id"], name: "index_sparklines_on_feed_id"
   end
 
