@@ -34,15 +34,15 @@ class FeedsConfiguration
   end
 
   def feed_names
-    feed_configurations.filter_map { |configuration| configuration[:name] }.uniq
+    feed_configurations.filter_map { _1[:name] }.uniq
   end
 
   def create_or_update_feeds
-    feed_configurations.each { |configuration| FeedUpdater.new(**configuration).create_or_update }
+    feed_configurations.each { FeedUpdater.new(**_1).create_or_update }
   end
 
   def feed_configurations
-    @feed_configurations ||= config_data.map { |config| FeedSanitizer.call(**config.symbolize_keys) }
+    @feed_configurations ||= config_data.map { FeedSanitizer.call(**_1.symbolize_keys) }
   end
 
   def config_data

@@ -1,4 +1,6 @@
 class SparklineBuilder
+  include Logging
+
   attr_reader :feed, :start_date, :end_date
 
   def initialize(feed, start_date:, end_date:)
@@ -8,6 +10,8 @@ class SparklineBuilder
   end
 
   def create_or_update
+    log_info("#{self.class}: building sparkline for [#{feed.name}] feed")
+
     Sparkline.find_or_create_by(feed: feed).tap do |sparkline|
       sparkline.update!(data: {points: points})
     end
