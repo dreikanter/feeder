@@ -27,11 +27,11 @@ class NitterNormalizer < BaseNormalizer
   private
 
   def violates_no_images?
-    options["only_with_attachments"] && no_images?
+    feed_options["only_with_attachments"] && no_images?
   end
 
   def violates_retweet?
-    options["ignore_retweets"] && retweet?
+    feed_options["ignore_retweets"] && retweet?
   end
 
   def images

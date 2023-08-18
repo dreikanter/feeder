@@ -42,7 +42,7 @@
   url: "https://dilbert.com/feed"
   loader: "http"
   processor: "atom"
-  normalizer: "dilbert"
+  normalizer: "null"
   after: "2021-01-04T12:00:00+00:00"
   refresh_interval: 1800
   import_limit: 2
@@ -169,7 +169,7 @@
   url: "https://tele.ga/avokado_fm/rss/"
   loader: "http"
   processor: "rss"
-  normalizer: "telega"
+  normalizer: "null"
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 7200
   import_limit: 2
@@ -200,7 +200,7 @@
   url: "https://tele.ga/agavr_today/rss/"
   loader: "http"
   processor: "rss"
-  normalizer: "agavr_today"
+  normalizer: "null"
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 600
   import_limit: 2
@@ -299,7 +299,7 @@
   url: "http://maremir.org/feed/"
   loader: "http"
   processor: "rss"
-  normalizer: "maremir"
+  normalizer: "null"
   after: "2021-01-06T12:00:00+00:00"
   refresh_interval: 86400
   import_limit: 2
@@ -376,8 +376,8 @@
   source: https://kimchicuddlesrus.com
   url: "https://kimchicuddlesrus.com"
   loader: "http"
-  processor: "kimchicuddlesrus"
-  normalizer: "kimchicuddlesrus"
+  processor: "null"
+  normalizer: "null"
   after: "2021-01-06T12:00:00+00:00"
   import_limit: 2
 
@@ -388,7 +388,7 @@
   url: "https://feeds.feedburner.com/aerostatica"
   loader: "http"
   processor: "feedjira"
-  normalizer: "aerostatica"
+  normalizer: "null"
   refresh_interval: 7200
   import_limit: 2
 
@@ -399,14 +399,14 @@
   processor: "feedjira"
   normalizer: "aerostat"
   refresh_interval: 86400
-  import_limit: 20
+  import_limit: 2
 
 - name: "algtestament"
   enabled: false
   disabling_reason: "Inactive account"
-  loader: "twitter"
-  processor: "twitter"
-  normalizer: "twitter"
+  loader: "null"
+  processor: "null"
+  normalizer: "null"
   refresh_interval: 86400
   import_limit: 2
   after: "2021-01-06T12:00:00+00:00"
@@ -429,9 +429,9 @@
 - name: "bojackhorseman"
   enabled: false
   disabling_reason: "Inactive account"
-  loader: "twitter"
-  processor: "twitter"
-  normalizer: "twitter"
+  loader: "null"
+  processor: "null"
+  normalizer: "null"
   refresh_interval: 1200
   import_limit: 2
   after: "2021-01-06T12:00:00+00:00"
@@ -539,7 +539,7 @@
   url: "https://tele.ga/office_talk/rss/"
   loader: "http"
   processor: "rss"
-  normalizer: "telega_basic"
+  normalizer: "null"
   refresh_interval: 86400
   import_limit: 2
   after: "2021-01-06T12:00:00+00:00"

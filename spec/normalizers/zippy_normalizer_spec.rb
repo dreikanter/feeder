@@ -13,8 +13,5 @@ RSpec.describe ZippyNormalizer do
         url: "https://www.comicsrss.com/rss/zippy-the-pinhead.rss"
       )
     end
-
-    let(:feed_fixture) { "feeds/zippy/feed.xml" }
-    let(:normalized_fixture) { "feeds/zippy/normalized.json" }
   end
 end

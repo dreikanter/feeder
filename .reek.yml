@@ -62,8 +62,6 @@ detectors:
     - MediumNormalizer#excerpt
     - DnsRecordsFetcher#self.call
     - Html#self.paragraphs
-    - ProcessFeed#generate_new_posts
-    - ProcessFeed#push
     - Push#publish_post_content
     - TumblrImageFetcher#self.call
     - CreatePosts#change

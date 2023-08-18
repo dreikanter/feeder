@@ -2,8 +2,6 @@ require "rails_helper"
 require "support/shared_examples_a_normalizer"
 
 RSpec.describe MonkeyuserNormalizer do
-  subject(:subject_name) { described_class }
-
   it_behaves_like "a normalizer" do
     let(:feed) do
       create(
@@ -12,8 +10,7 @@ RSpec.describe MonkeyuserNormalizer do
         url: "https://www.monkeyuser.com/feed.xml",
         loader: "http",
         processor: "feedjira",
-        normalizer: "monkeyuser",
-        import_limit: 2
+        normalizer: "monkeyuser"
       )
     end
   end

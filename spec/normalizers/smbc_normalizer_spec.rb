@@ -2,8 +2,6 @@ require "rails_helper"
 require "support/shared_examples_a_normalizer"
 
 RSpec.describe SmbcNormalizer do
-  subject(:subject_name) { described_class }
-
   it_behaves_like "a normalizer" do
     let(:feed) do
       create(
@@ -12,8 +10,7 @@ RSpec.describe SmbcNormalizer do
         url: "https://www.smbc-comics.com/comic/rss",
         loader: "http",
         processor: "rss",
-        normalizer: "smbc",
-        import_limit: 2
+        normalizer: "smbc"
       )
     end
 

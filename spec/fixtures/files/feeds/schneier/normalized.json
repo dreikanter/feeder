@@ -1,31 +1,31 @@
 [
   {
-    "feed_id": 8663,
-    "uid": "https://www.schneier.com/blog/archives/2019/08/google_finds_20.html",
-    "link": "https://www.schneier.com/blog/archives/2019/08/google_finds_20.html",
-    "published_at": "2019-08-21 11:46:38 +0000",
-    "text": "Google Finds 20-Year-Old Microsoft Windows Vulnerability - https://www.schneier.com/blog/archives/2019/08/google_finds_20.html",
-    "attachments": [
-
-    ],
-    "comments": [
-      "There's no indication that this vulnerability was ever used in the wild, but the code it was discovered in -- Microsoft's Text Services Framework -- has been around since Windows XP."
-    ],
-    "validation_errors": [
-
-    ]
-  },
-  {
-    "feed_id": 8663,
     "uid": "https://www.schneier.com/blog/archives/2019/08/surveillance_as_2.html",
+    "state": "enqueued",
     "link": "https://www.schneier.com/blog/archives/2019/08/surveillance_as_2.html",
-    "published_at": "2019-08-20 11:45:41 +0000",
+    "published_at": "2019-08-20T11:45:41.000Z",
     "text": "Surveillance as a Condition for Humanitarian Aid - https://www.schneier.com/blog/archives/2019/08/surveillance_as_2.html",
     "attachments": [
 
     ],
     "comments": [
       "Excellent op-ed on the growing trend to tie humanitarian aid to surveillance.\n\nDespite the best intentions, the decision to deploy technology like biometrics is built on a number of unproven assumptions, such as, technology solutions can fix deeply embedded political problems. And that auditing for fraud requires entire populations to be tracked using their personal data. And that experimental technologies will work as planned in a chaotic conflict setting. And last, that the ethics of consent don't apply for people who are starving."
+    ],
+    "validation_errors": [
+
+    ]
+  },
+  {
+    "uid": "https://www.schneier.com/blog/archives/2019/08/google_finds_20.html",
+    "state": "enqueued",
+    "link": "https://www.schneier.com/blog/archives/2019/08/google_finds_20.html",
+    "published_at": "2019-08-21T11:46:38.000Z",
+    "text": "Google Finds 20-Year-Old Microsoft Windows Vulnerability - https://www.schneier.com/blog/archives/2019/08/google_finds_20.html",
+    "attachments": [
+
+    ],
+    "comments": [
+      "There's no indication that this vulnerability was ever used in the wild, but the code it was discovered in -- Microsoft's Text Services Framework -- has been around since Windows XP."
     ],
     "validation_errors": [
 

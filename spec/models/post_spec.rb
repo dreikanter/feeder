@@ -6,13 +6,13 @@ RSpec.describe Post do
   let(:post) { create(:post) }
   let(:blank_post) { model.new }
 
-  it "validates" do
-    expect(post).to be_valid
-  end
+  describe "validations" do
+    it { expect(post).to be_valid }
 
-  it "requires mandatory attributes presense" do
-    expect(blank_post).not_to be_valid
-    expect(blank_post.errors.attribute_names).to match_array(%i[feed uid link published_at])
+    it "requires mandatory attributes presense" do
+      expect(blank_post).not_to be_valid
+      expect(blank_post.errors.attribute_names).to match_array(%i[feed uid link published_at])
+    end
   end
 
   describe "state" do

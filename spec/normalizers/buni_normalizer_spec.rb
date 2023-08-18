@@ -12,13 +12,9 @@ RSpec.describe BuniNormalizer do
         loader: "http",
         processor: "feedjira",
         normalizer: "buni",
-        url: "http://bunicomic.com/feed/",
-        import_limit: 4
+        url: "http://bunicomic.com/feed/"
       )
     end
-
-    let(:feed_fixture) { "feeds/buni/feed.xml" }
-    let(:normalized_fixture) { "feeds/buni/normalized.json" }
 
     before do
       webtoons_post = file_fixture("feeds/buni/post_webtoons.html").read
