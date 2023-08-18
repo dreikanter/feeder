@@ -96,17 +96,24 @@ class Feed < ApplicationRecord
     sparkline&.points || []
   end
 
-  # TODO: Consider returning an instance, initialized with self
   def loader_class
-    ClassResolver.new(loader, suffix: "loader", fallback: NullLoader).resolve
+    ClassResolver.new(loader, suffix: "loader").resolve
+  end
+
+  def loader_instance
+    loader_class.new(self)
   end
 
   def processor_class
-    ClassResolver.new(processor, suffix: "processor", fallback: NullProcessor).resolve
+    ClassResolver.new(processor, suffix: "processor").resolve
   end
 
   def normalizer_class
-    ClassResolver.new(normalizer, suffix: "normalizer", fallback: NullNormalizer).resolve
+    ClassResolver.new(normalizer, suffix: "normalizer").resolve
+  end
+
+  def ensure_supported
+    loader_class && processor_class && normalizer_class
   end
 
   def import_limit_or_default
