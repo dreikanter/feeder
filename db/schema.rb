@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_04_133646) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_18_131932) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -92,7 +92,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_04_133646) do
 
   create_table "posts", id: :serial, force: :cascade do |t|
     t.integer "feed_id", null: false
-    t.string "link", null: false
+    t.string "link", default: "", null: false
     t.datetime "published_at", precision: nil, null: false
     t.string "text", default: "", null: false
     t.string "attachments", default: [], null: false, array: true
@@ -104,6 +104,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_04_133646) do
     t.string "uid", null: false
     t.string "validation_errors", default: [], null: false, array: true
     t.string "state", default: "draft", null: false
+    t.jsonb "source_content", default: {}, null: false
     t.index ["feed_id"], name: "index_posts_on_feed_id"
     t.index ["link"], name: "index_posts_on_link"
     t.index ["status"], name: "index_posts_on_status"
