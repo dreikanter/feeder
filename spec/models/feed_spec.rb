@@ -134,12 +134,18 @@ RSpec.describe Feed do
       expect(build(:feed, loader: "http").loader_class).to eq(HttpLoader)
     end
 
-    it "returns null class when loader is undefined" do
-      expect(build(:feed, loader: nil).loader_class).to eq(NullLoader)
+    it "raises when loader is undefined" do
+      expect { build(:feed, loader: nil).loader_class }.to raise_error(NameError)
     end
 
-    it "returns null class when can't find the loader" do
-      expect(build(:feed, loader: "missing").loader_class).to eq(NullLoader)
+    it "raises when can't find the loader" do
+      expect { build(:feed, loader: "missing").loader_class }.to raise_error(NameError)
+    end
+  end
+
+  describe "#loader_instance" do
+    it "resolves specified class" do
+      expect(build(:feed, loader: "http").loader_class).to eq(HttpLoader)
     end
   end
 
@@ -148,12 +154,12 @@ RSpec.describe Feed do
       expect(build(:feed, processor: "rss").processor_class).to eq(RssProcessor)
     end
 
-    it "returns null class when processor is undefined" do
-      expect(build(:feed, processor: nil).processor_class).to eq(NullProcessor)
+    it "raises when processor is undefined" do
+      expect { build(:feed, processor: nil).processor_class }.to raise_error(NameError)
     end
 
-    it "returns null class when can't find the processor" do
-      expect(build(:feed, processor: "missing").processor_class).to eq(NullProcessor)
+    it "raises when can't find the processor" do
+      expect { build(:feed, processor: "missing").processor_class }.to raise_error(NameError)
     end
   end
 
@@ -162,12 +168,26 @@ RSpec.describe Feed do
       expect(build(:feed, normalizer: "rss").normalizer_class).to eq(RssNormalizer)
     end
 
-    it "returns null class when normalizer is undefined" do
-      expect(build(:feed, normalizer: nil).normalizer_class).to eq(NullNormalizer)
+    it "raises when normalizer is undefined" do
+      expect { build(:feed, normalizer: nil).normalizer_class }.to raise_error(NameError)
     end
 
-    it "returns null class when can't find the normalizer" do
-      expect(build(:feed, normalizer: "missing").normalizer_class).to eq(NullNormalizer)
+    it "raises when can't find the normalizer" do
+      expect { build(:feed, normalizer: "missing").normalizer_class }.to raise_error(NameError)
+    end
+  end
+
+  describe "#ensure_supported" do
+    context "with missing loader" do
+      let(:feed) { build(:feed, loader: "missing", processor: "test", normalizer: "test") }
+
+      it { expect { feed.ensure_supported }.to raise_error(NameError) }
+    end
+
+    context "with missing processor" do
+      let(:feed) { build(:feed, loader: "test", processor: "missing", normalizer: "test") }
+
+      it { expect { feed.ensure_supported }.to raise_error(NameError) }
     end
   end
 

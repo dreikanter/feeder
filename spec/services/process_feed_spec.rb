@@ -3,7 +3,9 @@ require_relative "../support/factory_bot"
 require_relative "../support/faulty_loader"
 require_relative "../support/faulty_normalizer"
 require_relative "../support/faulty_processor"
+require_relative "../support/test_loader"
 require_relative "../support/test_processor"
+require_relative "../support/test_normalizer"
 require_relative "../support/time_helpers"
 
 RSpec.describe ProcessFeed do
@@ -13,24 +15,24 @@ RSpec.describe ProcessFeed do
     create(
       :feed,
       loader: "faulty",
-      processor: "null",
-      normalizer: "null"
+      processor: "test",
+      normalizer: "test"
     )
   end
 
   let(:feed_with_faulty_processor) do
     create(
       :feed,
-      loader: "null",
+      loader: "test",
       processor: "faulty",
-      normalizer: "null"
+      normalizer: "test"
     )
   end
 
   let(:feed_with_faulty_normalizer) do
     create(
       :feed,
-      loader: "null",
+      loader: "test",
       processor: "test",
       normalizer: "faulty"
     )
