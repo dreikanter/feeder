@@ -3,16 +3,13 @@ require "rails_helper"
 RSpec.describe Post do
   subject(:model) { described_class }
 
-  let(:post) { create(:post) }
-  let(:blank_post) { model.new }
+  describe "validations" do
+    let(:blank_post) { model.new.tap { _1.validate } }
 
   describe "validations" do
-    it { expect(post).to be_valid }
-
-    it "requires mandatory attributes presense" do
-      expect(blank_post).not_to be_valid
-      expect(blank_post.errors.attribute_names).to match_array(%i[feed uid link published_at])
-    end
+    it { expect(build(:post)).to be_valid }
+    it { expect(build(:post, link: "")).to be_valid }
+    it { expect(blank_post.errors.attribute_names).to match_array(%i[feed uid published_at]) }
   end
 
   describe "state" do
@@ -27,6 +24,8 @@ RSpec.describe Post do
   end
 
   describe "#permalink" do
+    let(:post) { build(:post, feed: feed) }
+    let(:feed) { build(:feed) }
     let(:expected) { "https://candy.freefeed.net/#{post.feed.name}/#{post.freefeed_post_id}" }
 
     it { expect(post.permalink).to eq(expected) }
