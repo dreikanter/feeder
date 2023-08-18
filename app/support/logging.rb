@@ -32,6 +32,10 @@ module Logging
     logger.error(format_message(message, RED))
   end
 
+  def log_success(message)
+    logger.info(format_message(message, GREEN))
+  end
+
   private
 
   def format_message(message, color)
