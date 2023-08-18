@@ -13,8 +13,5 @@ RSpec.describe WumoNormalizer do
         normalizer: "wumo"
       )
     end
-
-    let(:feed_fixture) { "feeds/wumo/feed.xml" }
-    let(:normalized_fixture) { "feeds/wumo/normalized.json" }
   end
 end

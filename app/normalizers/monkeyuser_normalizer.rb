@@ -1,8 +1,4 @@
 class MonkeyuserNormalizer < FeedjiraNormalizer
-  def text
-    [super, link].join(separator)
-  end
-
   def attachments
     [image_url].compact
   end

@@ -5,12 +5,5 @@ RSpec.describe BaseProcessor do
 
   let(:feed) { build(:feed) }
 
-  let(:concrete_processor) do
-    Class.new(processor) do
-      define_method(:entities) { %w[SAMPLE_ENTITY] }
-    end
-  end
-
-  it { expect { processor.new(content: nil, feed: feed).entities }.to raise_error(StandardError) }
-  it { expect(concrete_processor.new(content: nil, feed: feed).entities).to eq(%w[SAMPLE_ENTITY]) }
+  it { expect { processor.new(content: nil, feed: feed).process }.to raise_error(AbstractMethodError) }
 end

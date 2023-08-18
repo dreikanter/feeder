@@ -15,9 +15,6 @@ RSpec.describe LitterboxNormalizer do
         )
       end
 
-      let(:feed_fixture) { "feeds/litterbox/feed.xml" }
-      let(:normalized_fixture) { "feeds/litterbox/normalized.json" }
-
       before do
         stub_request(:get, "https://www.litterboxcomics.com/claw-machine/")
           .to_return(body: file_fixture("feeds/litterbox/post.html").read)
@@ -33,7 +30,7 @@ RSpec.describe LitterboxNormalizer do
       let(:feed) do
         create(
           :feed,
-          name: "litterbox",
+          name: "litterbox-slides",
           loader: "http",
           processor: "feedjira",
           normalizer: "litterbox",
@@ -41,15 +38,12 @@ RSpec.describe LitterboxNormalizer do
         )
       end
 
-      let(:feed_fixture) { "feeds/litterbox/slides/feed.xml" }
-      let(:normalized_fixture) { "feeds/litterbox/slides/normalized.json" }
-
       before do
         stub_request(:get, "https://www.litterboxcomics.com/worlds-collide/")
-          .to_return(body: file_fixture("feeds/litterbox/slides/post.html").read)
+          .to_return(body: file_fixture("feeds/litterbox-slides/post.html").read)
 
         stub_request(:get, "https://www.litterboxcomics.com/worlds-collide-bonus/")
-          .to_return(body: file_fixture("feeds/litterbox/slides/bonus_panel.html").read)
+          .to_return(body: file_fixture("feeds/litterbox-slides/bonus_panel.html").read)
       end
     end
   end

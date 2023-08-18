@@ -1,6 +1,12 @@
 class FeedjiraProcessor < BaseProcessor
-  def entities
-    parse_content.map { build_entity(_1.url, _1) }
+  def process
+    parse_content.map do |entity|
+      build_post(
+        uid: entity.url,
+        source_content: entity.to_h.as_json,
+        published_at: Time.current
+      )
+    end
   end
 
   private

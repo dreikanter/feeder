@@ -1,31 +1,63 @@
 [
   {
-    "feed_id": 8157,
-    "uid": "http://xkcd.com/1732/",
-    "link": "http://xkcd.com/1732/",
-    "published_at": "2016-09-12 04:00:00 +0000",
-    "text": "Earth Temperature Timeline - http://xkcd.com/1732/",
+    "uid": "http://xkcd.com/1729/",
+    "state": "enqueued",
+    "link": "http://xkcd.com/1729/",
+    "published_at": "2016-09-05T04:00:00.000Z",
+    "text": "Migrating Geese - http://xkcd.com/1729/",
     "attachments": [
       "https://imgs.xkcd.com/comics/symbols_2x.png"
     ],
     "comments": [
-      "[After setting your car on fire] Listen, your car's temperature has changed before."
+      "\"Hey guys! I have a great idea for a migration!\" \"Dammit, Kevin.\""
     ],
     "validation_errors": [
 
     ]
   },
   {
-    "feed_id": 8157,
+    "uid": "http://xkcd.com/1730/",
+    "state": "enqueued",
+    "link": "http://xkcd.com/1730/",
+    "published_at": "2016-09-07T04:00:00.000Z",
+    "text": "Starshade - http://xkcd.com/1730/",
+    "attachments": [
+      "https://imgs.xkcd.com/comics/symbols_2x.png"
+    ],
+    "comments": [
+      "The New Worlds Mission is already trying to get funding for this, but NASA sponsored their proposal, so it will be hard to catch the telescope people by surprise with it."
+    ],
+    "validation_errors": [
+
+    ]
+  },
+  {
     "uid": "http://xkcd.com/1731/",
+    "state": "enqueued",
     "link": "http://xkcd.com/1731/",
-    "published_at": "2016-09-09 04:00:00 +0000",
+    "published_at": "2016-09-09T04:00:00.000Z",
     "text": "Wrong - http://xkcd.com/1731/",
     "attachments": [
       "https://imgs.xkcd.com/comics/symbols_2x.png"
     ],
     "comments": [
       "Hang on, I just remembered another thing I'm right about. See..."
+    ],
+    "validation_errors": [
+
+    ]
+  },
+  {
+    "uid": "http://xkcd.com/1732/",
+    "state": "enqueued",
+    "link": "http://xkcd.com/1732/",
+    "published_at": "2016-09-12T04:00:00.000Z",
+    "text": "Earth Temperature Timeline - http://xkcd.com/1732/",
+    "attachments": [
+      "https://imgs.xkcd.com/comics/symbols_2x.png"
+    ],
+    "comments": [
+      "[After setting your car on fire] Listen, your car's temperature has changed before."
     ],
     "validation_errors": [
 

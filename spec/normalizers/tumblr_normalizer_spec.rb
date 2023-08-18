@@ -6,15 +6,12 @@ RSpec.describe TumblrNormalizer do
     let(:feed) do
       create(
         :feed,
-        name: "zippy",
+        name: "tumblr",
         loader: "http",
         processor: "rss",
         normalizer: "tumblr",
         url: "https://example.com/rss"
       )
     end
-
-    let(:feed_fixture) { "feeds/tumblr/feed.xml" }
-    let(:normalized_fixture) { "feeds/tumblr/entity.json" }
   end
 end

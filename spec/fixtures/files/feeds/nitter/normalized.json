@@ -1,0 +1,50 @@
+[
+  {
+    "uid": "https://nitter.net/PervisTime/status/1664280381473058817#m",
+    "state": "rejected",
+    "link": "https://twitter.com/PervisTime/status/1664280381473058817#m",
+    "published_at": "2023-06-01T14:38:58.000Z",
+    "text": "RT by @extrafabulous:  - !https://twitter.com/PervisTime/status/1664280381473058817#m",
+    "attachments": [
+      "https://nitter.net/pic/media%2FFxi2L6_aIAQ8cYn.jpg"
+    ],
+    "comments": [
+
+    ],
+    "validation_errors": [
+      "retweet"
+    ]
+  },
+  {
+    "uid": "https://nitter.net/extrafabulous/status/1664067666162728960#m",
+    "state": "rejected",
+    "link": "https://twitter.com/extrafabulous/status/1664067666162728960#m",
+    "published_at": "2023-06-01T00:33:43.000Z",
+    "text": "streamin http://www.twitch.tv/extrafabulous - !https://twitter.com/extrafabulous/status/1664067666162728960#m",
+    "attachments": [
+
+    ],
+    "comments": [
+
+    ],
+    "validation_errors": [
+      "no images"
+    ]
+  },
+  {
+    "uid": "https://nitter.net/extrafabulous/status/1664634629456887813#m",
+    "state": "enqueued",
+    "link": "https://twitter.com/extrafabulous/status/1664634629456887813#m",
+    "published_at": "2023-06-02T14:06:37.000Z",
+    "text": "Image - !https://twitter.com/extrafabulous/status/1664634629456887813#m",
+    "attachments": [
+      "https://nitter.net/pic/media%2FFxn4X5JWYAcPDCS.jpg"
+    ],
+    "comments": [
+
+    ],
+    "validation_errors": [
+
+    ]
+  }
+]

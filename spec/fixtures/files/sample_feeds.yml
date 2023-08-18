@@ -16,12 +16,15 @@
 
 - name: "oglaf"
   url: "https://oglaf.com/feeds/rss/"
-  processor: "oglaf"
+  loader: "http"
+  processor: "rss"
   normalizer: "oglaf"
   after: "2023-06-09T00:00:00+00:00"
 
 - name: "phdcomics"
   url: "https://feeds.feedburner.com/PhdComics"
+  loader: "http"
   processor: "rss"
+  normalizer: "phdcomics"
   after: "2023-06-09T00:00:00+00:00"
   disabling_reason: "Sample reason"

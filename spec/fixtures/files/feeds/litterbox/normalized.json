@@ -1,9 +1,9 @@
 [
   {
-    "feed_id": 8375,
     "uid": "https://www.litterboxcomics.com/claw-machine/",
+    "state": "enqueued",
     "link": "https://www.litterboxcomics.com/claw-machine/",
-    "published_at": "2021-08-19 15:57:52 +0000",
+    "published_at": "2021-08-19T15:57:52.000Z",
     "text": "Claw Machine (remastered) - https://www.litterboxcomics.com/claw-machine/",
     "attachments": [
       "https://i2.wp.com/www.litterboxcomics.com/wp-content/uploads/2021/08/claw-machine-GIF.gif?resize=800%2C999&ssl=1"

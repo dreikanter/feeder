@@ -1,20 +1,17 @@
 require "rails_helper"
+require "support/shared_examples_a_normalizer"
 
 RSpec.describe AerostatNormalizer do
-  subject(:normalizer) { described_class }
-
-  let(:feed) { build(:feed, import_limit: 0) }
-  let(:content) { file_fixture("feeds/aerostat/feed.xml").read }
-  let(:entities) { FeedjiraProcessor.new(content: content, feed: feed).entities }
-
-  let(:expected) do
-    JSON.parse(file_fixture("feeds/aerostat/normalized.json").read).tap do |data|
-      data["feed_id"] = feed.id
+  it_behaves_like "a normalizer" do
+    let(:feed) do
+      create(
+        :feed,
+        name: "aerostat",
+        loader: "http",
+        processor: "feedjira",
+        normalizer: "aerostat",
+        url: "http://example.com"
+      )
     end
-  end
-
-  it "matches the expected result" do
-    result = normalizer.call(entities.first).as_json
-    expect(result).to eq(expected)
   end
 end

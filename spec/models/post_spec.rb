@@ -6,6 +6,7 @@ RSpec.describe Post do
   describe "validations" do
     let(:blank_post) { model.new.tap { _1.validate } }
 
+  describe "validations" do
     it { expect(build(:post)).to be_valid }
     it { expect(build(:post, link: "")).to be_valid }
     it { expect(blank_post.errors.attribute_names).to match_array(%i[feed uid published_at]) }

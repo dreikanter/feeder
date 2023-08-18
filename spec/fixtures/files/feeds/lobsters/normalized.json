@@ -1,31 +1,47 @@
 [
   {
-    "feed_id": 8393,
-    "uid": "https://lobste.rs/s/ay6ouz",
-    "link": "https://medium.com/doctolib/stop-worrying-about-postgresql-locks-in-your-rails-migrations-3426027e9cc9",
-    "published_at": "2021-01-15 17:16:43 +0000",
-    "text": "Stop worrying about PostgreSQL locks in your Rails migrations - https://medium.com/doctolib/stop-worrying-about-postgresql-locks-in-your-rails-migrations-3426027e9cc9",
+    "uid": "https://lobste.rs/s/pqx5cp",
+    "state": "enqueued",
+    "link": "https://schneems.com/2021/01/13/migrating-a-ruby-library-from-travisci-to-circleci/",
+    "published_at": "2021-01-13T15:41:05.000Z",
+    "text": "Migrating a Ruby Library from TravisCI to CircleCI - https://schneems.com/2021/01/13/migrating-a-ruby-library-from-travisci-to-circleci/",
     "attachments": [
 
     ],
     "comments": [
-      "Comments: https://lobste.rs/s/ay6ouz #ruby #databases"
+      "Comments: https://lobste.rs/s/pqx5cp #ruby #testing"
     ],
     "validation_errors": [
 
     ]
   },
   {
-    "feed_id": 8393,
     "uid": "https://lobste.rs/s/mkegqq",
+    "state": "enqueued",
     "link": "https://dev.to/baweaver/ruby-3-pattern-matching-applied-poker-4b9d",
-    "published_at": "2021-01-13 17:55:32 +0000",
+    "published_at": "2021-01-13T17:55:32.000Z",
     "text": "Ruby 3 Pattern Matching Applied: Poker - https://dev.to/baweaver/ruby-3-pattern-matching-applied-poker-4b9d",
     "attachments": [
 
     ],
     "comments": [
       "Comments: https://lobste.rs/s/mkegqq #ruby"
+    ],
+    "validation_errors": [
+
+    ]
+  },
+  {
+    "uid": "https://lobste.rs/s/ay6ouz",
+    "state": "enqueued",
+    "link": "https://medium.com/doctolib/stop-worrying-about-postgresql-locks-in-your-rails-migrations-3426027e9cc9",
+    "published_at": "2021-01-15T17:16:43.000Z",
+    "text": "Stop worrying about PostgreSQL locks in your Rails migrations - https://medium.com/doctolib/stop-worrying-about-postgresql-locks-in-your-rails-migrations-3426027e9cc9",
+    "attachments": [
+
+    ],
+    "comments": [
+      "Comments: https://lobste.rs/s/ay6ouz #ruby #databases"
     ],
     "validation_errors": [
 

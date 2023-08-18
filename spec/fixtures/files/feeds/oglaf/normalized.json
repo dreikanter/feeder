@@ -1,10 +1,10 @@
 [
   {
-    "feed_id": 8607,
-    "uid": "https://www.oglaf.com/thesitter/",
-    "link": "https://www.oglaf.com/thesitter/",
-    "published_at": "2019-08-18 00:00:00 +0000",
-    "text": "Legend of the Sitter - https://www.oglaf.com/thesitter/",
+    "uid": "https://www.oglaf.com/dead-wood/",
+    "state": "enqueued",
+    "link": "https://www.oglaf.com/dead-wood/",
+    "published_at": "2019-08-11T00:00:00.000Z",
+    "text": "Dead wood - https://www.oglaf.com/dead-wood/",
     "attachments": [
       "https://media.oglaf.com/comic/thesitter.jpg"
     ],
@@ -16,11 +16,11 @@
     ]
   },
   {
-    "feed_id": 8607,
-    "uid": "https://www.oglaf.com/dead-wood/",
-    "link": "https://www.oglaf.com/dead-wood/",
-    "published_at": "2019-08-11 00:00:00 +0000",
-    "text": "Dead wood - https://www.oglaf.com/dead-wood/",
+    "uid": "https://www.oglaf.com/thesitter/",
+    "state": "enqueued",
+    "link": "https://www.oglaf.com/thesitter/",
+    "published_at": "2019-08-18T00:00:00.000Z",
+    "text": "Legend of the Sitter - https://www.oglaf.com/thesitter/",
     "attachments": [
       "https://media.oglaf.com/comic/thesitter.jpg"
     ],

@@ -1,31 +1,31 @@
 [
   {
-    "feed_id": 8659,
-    "uid": "https://share.transistor.fm/s/10c5186c",
-    "link": "https://share.transistor.fm/s/10c5186c",
-    "published_at": "2020-09-01 12:00:00 +0000",
-    "text": "Apps Without Code\nhttps://media.transistor.fm/031df0ec.mp3 (26:10)",
-    "attachments": [
-
-    ],
-    "comments": [
-      "Tara Reed started a tech company without knowing how to code and now teaches others to do the same."
-    ],
-    "validation_errors": [
-
-    ]
-  },
-  {
-    "feed_id": 8659,
     "uid": "https://share.transistor.fm/s/4ed14171",
+    "state": "enqueued",
     "link": "https://share.transistor.fm/s/4ed14171",
-    "published_at": "2020-08-25 12:00:00 +0000",
+    "published_at": "2020-08-25T12:00:00.000Z",
     "text": "Rerun - Breaking the Black Box\nhttps://media.transistor.fm/1dd56075.mp3 (56:49)",
     "attachments": [
 
     ],
     "comments": [
       "Basecamp co-founder David Heinemeier Hansson sparked a national controversy this week when he posted a series of livid tweets about how his wife received a much lower credit limit than he did on their Apple Cards, despite applying with the same financial information. What began as a rant against opaque algorithms turned into a regulatory investigation and more. In this episode, Dr. Ruha Benjamin of Princeton University and entrepreneur Mara Zepeda, co-founder of the XXcelerate Fund and Zebras Unite, talk about how the tech and financial sectors perpetuate systemic inequalities and how to start repairing the damage—or building something more equitable and inclusive from the ground up."
+    ],
+    "validation_errors": [
+
+    ]
+  },
+  {
+    "uid": "https://share.transistor.fm/s/10c5186c",
+    "state": "enqueued",
+    "link": "https://share.transistor.fm/s/10c5186c",
+    "published_at": "2020-09-01T12:00:00.000Z",
+    "text": "Apps Without Code\nhttps://media.transistor.fm/031df0ec.mp3 (26:10)",
+    "attachments": [
+
+    ],
+    "comments": [
+      "Tara Reed started a tech company without knowing how to code and now teaches others to do the same."
     ],
     "validation_errors": [
 

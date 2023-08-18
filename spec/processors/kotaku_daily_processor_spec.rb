@@ -15,10 +15,10 @@ RSpec.describe KotakuDailyProcessor do
     travel_to(DateTime.parse("2023-06-17 01:00:00 +0000"))
 
     stub_request(:get, feed.url)
-      .to_return(body: file_fixture("feeds/kotaku/rss.xml").read)
+      .to_return(body: file_fixture("feeds/kotaku_daily/feed.xml").read)
 
     stub_request(:get, %r{^https://kotaku.com/.*-\d+$})
-      .to_return(body: file_fixture("feeds/kotaku/post.html").read)
+      .to_return(body: file_fixture("feeds/kotaku_daily/post.html").read)
   end
 
   it "returns one entity" do

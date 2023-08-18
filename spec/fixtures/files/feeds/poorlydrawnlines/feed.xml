@@ -1,155 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2full.xsl"?><?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?><rss xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/" xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" version="2.0">
-
-<channel>
-  <title>Poorly Drawn Lines</title>
-
-  <link>http://www.poorlydrawnlines.com</link>
-  <description>A Comic</description>
-  <lastBuildDate>Mon, 22 Oct 2018 16:03:51 +0000</lastBuildDate>
-  <language>en-US</language>
-  <sy:updatePeriod>hourly</sy:updatePeriod>
-  <sy:updateFrequency>1</sy:updateFrequency>
-  <generator>https://wordpress.org/?v=4.9.8</generator>
-  <atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="http://feeds.feedburner.com/PoorlyDrawnLines" /><feedburner:info uri="poorlydrawnlines" /><atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" /><feedburner:feedFlare href="https://add.my.yahoo.com/rss?url=http%3A%2F%2Ffeeds.feedburner.com%2FPoorlyDrawnLines" src="http://us.i1.yimg.com/us.yimg.com/i/us/my/addtomyyahoo4.gif">Subscribe with My Yahoo!</feedburner:feedFlare><feedburner:feedFlare href="http://www.newsgator.com/ngs/subscriber/subext.aspx?url=http%3A%2F%2Ffeeds.feedburner.com%2FPoorlyDrawnLines" src="http://www.newsgator.com/images/ngsub1.gif">Subscribe with NewsGator</feedburner:feedFlare><feedburner:feedFlare href="http://feeds.my.aol.com/add.jsp?url=http%3A%2F%2Ffeeds.feedburner.com%2FPoorlyDrawnLines" src="http://o.aolcdn.com/favorites.my.aol.com/webmaster/ffclient/webroot/locale/en-US/images/myAOLButtonSmall.gif">Subscribe with My AOL</feedburner:feedFlare><feedburner:feedFlare href="http://www.bloglines.com/sub/http://feeds.feedburner.com/PoorlyDrawnLines" src="http://www.bloglines.com/images/sub_modern11.gif">Subscribe with Bloglines</feedburner:feedFlare><feedburner:feedFlare href="http://www.netvibes.com/subscribe.php?url=http%3A%2F%2Ffeeds.feedburner.com%2FPoorlyDrawnLines" src="//www.netvibes.com/img/add2netvibes.gif">Subscribe with Netvibes</feedburner:feedFlare><feedburner:feedFlare href="http://fusion.google.com/add?feedurl=http%3A%2F%2Ffeeds.feedburner.com%2FPoorlyDrawnLines" src="http://buttons.googlesyndication.com/fusion/add.gif">Subscribe with Google</feedburner:feedFlare><feedburner:feedFlare href="http://www.pageflakes.com/subscribe.aspx?url=http%3A%2F%2Ffeeds.feedburner.com%2FPoorlyDrawnLines" src="http://www.pageflakes.com/ImageFile.ashx?instanceId=Static_4&amp;fileName=ATP_blu_91x17.gif">Subscribe with Pageflakes</feedburner:feedFlare><feedburner:feedFlare href="http://www.plusmo.com/add?url=http%3A%2F%2Ffeeds.feedburner.com%2FPoorlyDrawnLines" src="http://plusmo.com/res/graphics/fbplusmo.gif">Subscribe with Plusmo</feedburner:feedFlare><feedburner:feedFlare href="http://www.thefreedictionary.com/_/hp/AddRSS.aspx?http%3A%2F%2Ffeeds.feedburner.com%2FPoorlyDrawnLines" src="http://img.tfd.com/hp/addToTheFreeDictionary.gif">Subscribe with The Free Dictionary</feedburner:feedFlare><feedburner:feedFlare href="http://www.bitty.com/manual/?contenttype=rssfeed&amp;contentvalue=http%3A%2F%2Ffeeds.feedburner.com%2FPoorlyDrawnLines" src="http://www.bitty.com/img/bittychicklet_91x17.gif">Subscribe with Bitty Browser</feedburner:feedFlare><feedburner:feedFlare href="http://www.live.com/?add=http%3A%2F%2Ffeeds.feedburner.com%2FPoorlyDrawnLines" src="http://tkfiles.storage.msn.com/x1piYkpqHC_35nIp1gLE68-wvzLZO8iXl_JMledmJQXP-XTBOLfmQv4zhj4MhcWEJh_GtoBIiAl1Mjh-ndp9k47If7hTaFno0mxW9_i3p_5qQw">Subscribe with Live.com</feedburner:feedFlare><feedburner:feedFlare href="http://mix.excite.eu/add?feedurl=http%3A%2F%2Ffeeds.feedburner.com%2FPoorlyDrawnLines" src="http://image.excite.co.uk/mix/addtomix.gif">Subscribe with Excite MIX</feedburner:feedFlare><feedburner:feedFlare href="http://www.webwag.com/wwgthis.php?url=http%3A%2F%2Ffeeds.feedburner.com%2FPoorlyDrawnLines" src="http://www.webwag.com/images/wwgthis.gif">Subscribe with Webwag</feedburner:feedFlare><feedburner:feedFlare href="http://www.podcastready.com/oneclick_bookmark.php?url=http%3A%2F%2Ffeeds.feedburner.com%2FPoorlyDrawnLines" src="http://www.podcastready.com/images/podcastready_button.gif">Subscribe with Podcast Ready</feedburner:feedFlare><feedburner:feedFlare href="http://www.wikio.com/subscribe?url=http%3A%2F%2Ffeeds.feedburner.com%2FPoorlyDrawnLines" src="http://www.wikio.com/shared/img/add2wikio.gif">Subscribe with Wikio</feedburner:feedFlare><feedburner:feedFlare href="http://www.dailyrotation.com/index.php?feed=http%3A%2F%2Ffeeds.feedburner.com%2FPoorlyDrawnLines" src="http://www.dailyrotation.com/rss-dr2.gif">Subscribe with Daily Rotation</feedburner:feedFlare><item>
-    <title>Hello</title>
-    <link>http://feedproxy.google.com/~r/PoorlyDrawnLines/~3/Sl2E9l6pVYI/</link>
-    <pubDate>Mon, 22 Oct 2018 16:03:51 +0000</pubDate>
-    <dc:creator><![CDATA[Reza]]></dc:creator>
-        <category><![CDATA[Comic]]></category>
-
-    <guid isPermaLink="false">http://www.poorlydrawnlines.com/?p=6971</guid>
-    <description />
-        <content:encoded><![CDATA[<p><img class="alignnone size-full wp-image-6972" src="http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/hello.png" alt="" width="700" height="400" srcset="http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/hello.png 700w, http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/hello-300x171.png 300w" sizes="(max-width: 700px) 100vw, 700px" /></p>
-<div class="feedflare">
-<a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=Sl2E9l6pVYI:Xy0hui3-QI8:yIl2AUoC8zA"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?d=yIl2AUoC8zA" border="0"></img></a> <a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=Sl2E9l6pVYI:Xy0hui3-QI8:qj6IDK7rITs"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?d=qj6IDK7rITs" border="0"></img></a> <a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=Sl2E9l6pVYI:Xy0hui3-QI8:gIN9vFwOqvQ"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?i=Sl2E9l6pVYI:Xy0hui3-QI8:gIN9vFwOqvQ" border="0"></img></a>
-</div><img src="http://feeds.feedburner.com/~r/PoorlyDrawnLines/~4/Sl2E9l6pVYI" height="1" width="1" alt=""/>]]></content:encoded>
-      <feedburner:origLink>http://www.poorlydrawnlines.com/comic/hello/</feedburner:origLink></item>
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+  xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+  >
+  <channel>
+    <title>Poorly Drawn Lines</title>
+    <atom:link href="https://poorlydrawnlines.com/feed/" rel="self" type="application/rss+xml" />
+    <link>https://poorlydrawnlines.com</link>
+    <description>A Comic</description>
+    <lastBuildDate>Wed, 26 Jul 2023 15:03:19 +0000</lastBuildDate>
+    <language>en-US</language>
+    <sy:updatePeriod>
+  hourly  </sy:updatePeriod>
+    <sy:updateFrequency>
+  1 </sy:updateFrequency>
+    <generator>https://wordpress.org/?v=6.2.2</generator>
     <item>
-    <title>House</title>
-    <link>http://feedproxy.google.com/~r/PoorlyDrawnLines/~3/lC_piMc8l0U/</link>
-    <pubDate>Fri, 19 Oct 2018 15:57:30 +0000</pubDate>
-    <dc:creator><![CDATA[Reza]]></dc:creator>
-        <category><![CDATA[Comic]]></category>
-
-    <guid isPermaLink="false">http://www.poorlydrawnlines.com/?p=6968</guid>
-    <description />
-        <content:encoded><![CDATA[<p><img class="alignnone size-full wp-image-6969" src="http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/house.png" alt="" width="700" height="900" srcset="http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/house.png 700w, http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/house-233x300.png 233w" sizes="(max-width: 700px) 100vw, 700px" /></p>
-<div class="feedflare">
-<a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=lC_piMc8l0U:xvesfnXxvUM:yIl2AUoC8zA"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?d=yIl2AUoC8zA" border="0"></img></a> <a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=lC_piMc8l0U:xvesfnXxvUM:qj6IDK7rITs"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?d=qj6IDK7rITs" border="0"></img></a> <a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=lC_piMc8l0U:xvesfnXxvUM:gIN9vFwOqvQ"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?i=lC_piMc8l0U:xvesfnXxvUM:gIN9vFwOqvQ" border="0"></img></a>
-</div><img src="http://feeds.feedburner.com/~r/PoorlyDrawnLines/~4/lC_piMc8l0U" height="1" width="1" alt=""/>]]></content:encoded>
-      <feedburner:origLink>http://www.poorlydrawnlines.com/comic/house/</feedburner:origLink></item>
+      <title>Sad</title>
+      <link>https://poorlydrawnlines.com/comic/sad/</link>
+      <dc:creator>
+        <![CDATA[Reza]]>
+      </dc:creator>
+      <pubDate>Wed, 26 Jul 2023 15:03:18 +0000</pubDate>
+      <category>
+        <![CDATA[Comic]]>
+      </category>
+      <guid isPermaLink="false">https://poorlydrawnlines.com/?p=8939</guid>
+      <description>
+        <![CDATA[]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<div class="wp-block-image"><figure class="aligncenter size-large"><a href="https://poorlydrawnlines.com/wp-content/uploads/2023/07/sad.png"><img decoding="async" width="1024" height="890" src="https://poorlydrawnlines.com/wp-content/uploads/2023/07/sad-1024x890.png" alt="" class="wp-image-8940" srcset="https://poorlydrawnlines.com/wp-content/uploads/2023/07/sad-1024x890.png 1024w, https://poorlydrawnlines.com/wp-content/uploads/2023/07/sad-300x261.png 300w, https://poorlydrawnlines.com/wp-content/uploads/2023/07/sad-768x668.png 768w, https://poorlydrawnlines.com/wp-content/uploads/2023/07/sad.png 1080w" sizes="(max-width: 1024px) 100vw, 1024px" /></a></figure></div>]]>
+      </content:encoded>
+    </item>
     <item>
-    <title>Wrong</title>
-    <link>http://feedproxy.google.com/~r/PoorlyDrawnLines/~3/m6U-Cyj8-3M/</link>
-    <pubDate>Wed, 17 Oct 2018 19:07:10 +0000</pubDate>
-    <dc:creator><![CDATA[Reza]]></dc:creator>
-        <category><![CDATA[Comic]]></category>
-
-    <guid isPermaLink="false">http://www.poorlydrawnlines.com/?p=6965</guid>
-    <description />
-        <content:encoded><![CDATA[<p><img class="alignnone size-full wp-image-6966" src="http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/wrong.png" alt="" width="700" height="400" srcset="http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/wrong.png 700w, http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/wrong-300x171.png 300w" sizes="(max-width: 700px) 100vw, 700px" /></p>
-<div class="feedflare">
-<a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=m6U-Cyj8-3M:2ZGHCFdTNc8:yIl2AUoC8zA"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?d=yIl2AUoC8zA" border="0"></img></a> <a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=m6U-Cyj8-3M:2ZGHCFdTNc8:qj6IDK7rITs"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?d=qj6IDK7rITs" border="0"></img></a> <a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=m6U-Cyj8-3M:2ZGHCFdTNc8:gIN9vFwOqvQ"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?i=m6U-Cyj8-3M:2ZGHCFdTNc8:gIN9vFwOqvQ" border="0"></img></a>
-</div><img src="http://feeds.feedburner.com/~r/PoorlyDrawnLines/~4/m6U-Cyj8-3M" height="1" width="1" alt=""/>]]></content:encoded>
-      <feedburner:origLink>http://www.poorlydrawnlines.com/comic/wrong/</feedburner:origLink></item>
-    <item>
-    <title>New Stick</title>
-    <link>http://feedproxy.google.com/~r/PoorlyDrawnLines/~3/Fta8LD_rY2U/</link>
-    <pubDate>Fri, 12 Oct 2018 16:33:59 +0000</pubDate>
-    <dc:creator><![CDATA[Reza]]></dc:creator>
-        <category><![CDATA[Comic]]></category>
-
-    <guid isPermaLink="false">http://www.poorlydrawnlines.com/?p=6961</guid>
-    <description />
-        <content:encoded><![CDATA[<p><img class="alignnone size-full wp-image-6962" src="http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/new-stick.png" alt="" width="700" height="400" srcset="http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/new-stick.png 700w, http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/new-stick-300x171.png 300w" sizes="(max-width: 700px) 100vw, 700px" /></p>
-<div class="feedflare">
-<a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=Fta8LD_rY2U:MF4r9ZU0KcU:yIl2AUoC8zA"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?d=yIl2AUoC8zA" border="0"></img></a> <a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=Fta8LD_rY2U:MF4r9ZU0KcU:qj6IDK7rITs"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?d=qj6IDK7rITs" border="0"></img></a> <a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=Fta8LD_rY2U:MF4r9ZU0KcU:gIN9vFwOqvQ"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?i=Fta8LD_rY2U:MF4r9ZU0KcU:gIN9vFwOqvQ" border="0"></img></a>
-</div><img src="http://feeds.feedburner.com/~r/PoorlyDrawnLines/~4/Fta8LD_rY2U" height="1" width="1" alt=""/>]]></content:encoded>
-      <feedburner:origLink>http://www.poorlydrawnlines.com/comic/new-stick/</feedburner:origLink></item>
-    <item>
-    <title>Scares</title>
-    <link>http://feedproxy.google.com/~r/PoorlyDrawnLines/~3/LmUTfhmO9jc/</link>
-    <pubDate>Wed, 10 Oct 2018 16:03:01 +0000</pubDate>
-    <dc:creator><![CDATA[Reza]]></dc:creator>
-        <category><![CDATA[Comic]]></category>
-
-    <guid isPermaLink="false">http://www.poorlydrawnlines.com/?p=6954</guid>
-    <description />
-        <content:encoded><![CDATA[<p><img class="alignnone size-full wp-image-6959" src="http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/scares_2.png" alt="" width="700" height="900" srcset="http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/scares_2.png 700w, http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/scares_2-233x300.png 233w" sizes="(max-width: 700px) 100vw, 700px" /></p>
-<div class="feedflare">
-<a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=LmUTfhmO9jc:3kmxak6WbAo:yIl2AUoC8zA"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?d=yIl2AUoC8zA" border="0"></img></a> <a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=LmUTfhmO9jc:3kmxak6WbAo:qj6IDK7rITs"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?d=qj6IDK7rITs" border="0"></img></a> <a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=LmUTfhmO9jc:3kmxak6WbAo:gIN9vFwOqvQ"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?i=LmUTfhmO9jc:3kmxak6WbAo:gIN9vFwOqvQ" border="0"></img></a>
-</div><img src="http://feeds.feedburner.com/~r/PoorlyDrawnLines/~4/LmUTfhmO9jc" height="1" width="1" alt=""/>]]></content:encoded>
-      <feedburner:origLink>http://www.poorlydrawnlines.com/comic/scares/</feedburner:origLink></item>
-    <item>
-    <title>The Loop</title>
-    <link>http://feedproxy.google.com/~r/PoorlyDrawnLines/~3/HqSgBIhYt-0/</link>
-    <pubDate>Mon, 08 Oct 2018 17:40:15 +0000</pubDate>
-    <dc:creator><![CDATA[Reza]]></dc:creator>
-        <category><![CDATA[Comic]]></category>
-
-    <guid isPermaLink="false">http://www.poorlydrawnlines.com/?p=6951</guid>
-    <description />
-        <content:encoded><![CDATA[<p><img class="alignnone size-full wp-image-6952" src="http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/the-loop.png" alt="" width="700" height="615" srcset="http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/the-loop.png 700w, http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/the-loop-300x264.png 300w" sizes="(max-width: 700px) 100vw, 700px" /></p>
-<div class="feedflare">
-<a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=HqSgBIhYt-0:gSJ7gvdb2eY:yIl2AUoC8zA"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?d=yIl2AUoC8zA" border="0"></img></a> <a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=HqSgBIhYt-0:gSJ7gvdb2eY:qj6IDK7rITs"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?d=qj6IDK7rITs" border="0"></img></a> <a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=HqSgBIhYt-0:gSJ7gvdb2eY:gIN9vFwOqvQ"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?i=HqSgBIhYt-0:gSJ7gvdb2eY:gIN9vFwOqvQ" border="0"></img></a>
-</div><img src="http://feeds.feedburner.com/~r/PoorlyDrawnLines/~4/HqSgBIhYt-0" height="1" width="1" alt=""/>]]></content:encoded>
-      <feedburner:origLink>http://www.poorlydrawnlines.com/comic/the-loop/</feedburner:origLink></item>
-    <item>
-    <title>Haunt</title>
-    <link>http://feedproxy.google.com/~r/PoorlyDrawnLines/~3/tFBTUhX53No/</link>
-    <pubDate>Wed, 03 Oct 2018 16:00:02 +0000</pubDate>
-    <dc:creator><![CDATA[Reza]]></dc:creator>
-        <category><![CDATA[Comic]]></category>
-
-    <guid isPermaLink="false">http://www.poorlydrawnlines.com/?p=6947</guid>
-    <description />
-        <content:encoded><![CDATA[<p><img class="alignnone size-full wp-image-6948" src="http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/haunt.png" alt="" width="700" height="673" srcset="http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/haunt.png 700w, http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/haunt-300x288.png 300w" sizes="(max-width: 700px) 100vw, 700px" /></p>
-<div class="feedflare">
-<a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=tFBTUhX53No:HPVa61h8a4Y:yIl2AUoC8zA"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?d=yIl2AUoC8zA" border="0"></img></a> <a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=tFBTUhX53No:HPVa61h8a4Y:qj6IDK7rITs"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?d=qj6IDK7rITs" border="0"></img></a> <a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=tFBTUhX53No:HPVa61h8a4Y:gIN9vFwOqvQ"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?i=tFBTUhX53No:HPVa61h8a4Y:gIN9vFwOqvQ" border="0"></img></a>
-</div><img src="http://feeds.feedburner.com/~r/PoorlyDrawnLines/~4/tFBTUhX53No" height="1" width="1" alt=""/>]]></content:encoded>
-      <feedburner:origLink>http://www.poorlydrawnlines.com/comic/haunt/</feedburner:origLink></item>
-    <item>
-    <title>All Mad</title>
-    <link>http://feedproxy.google.com/~r/PoorlyDrawnLines/~3/WArA2mI67I8/</link>
-    <pubDate>Mon, 01 Oct 2018 16:00:31 +0000</pubDate>
-    <dc:creator><![CDATA[Reza]]></dc:creator>
-        <category><![CDATA[Comic]]></category>
-
-    <guid isPermaLink="false">http://www.poorlydrawnlines.com/?p=6944</guid>
-    <description />
-        <content:encoded><![CDATA[<p><img class="alignnone size-full wp-image-6945" src="http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/all-mad.png" alt="" width="700" height="890" srcset="http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/all-mad.png 700w, http://www.poorlydrawnlines.com/wp-content/uploads/2018/10/all-mad-236x300.png 236w" sizes="(max-width: 700px) 100vw, 700px" /></p>
-<div class="feedflare">
-<a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=WArA2mI67I8:SslGoTHv4yI:yIl2AUoC8zA"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?d=yIl2AUoC8zA" border="0"></img></a> <a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=WArA2mI67I8:SslGoTHv4yI:qj6IDK7rITs"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?d=qj6IDK7rITs" border="0"></img></a> <a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=WArA2mI67I8:SslGoTHv4yI:gIN9vFwOqvQ"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?i=WArA2mI67I8:SslGoTHv4yI:gIN9vFwOqvQ" border="0"></img></a>
-</div><img src="http://feeds.feedburner.com/~r/PoorlyDrawnLines/~4/WArA2mI67I8" height="1" width="1" alt=""/>]]></content:encoded>
-      <feedburner:origLink>http://www.poorlydrawnlines.com/comic/all-mad/</feedburner:origLink></item>
-    <item>
-    <title>Season</title>
-    <link>http://feedproxy.google.com/~r/PoorlyDrawnLines/~3/Q_aZ1li4XhE/</link>
-    <pubDate>Fri, 28 Sep 2018 17:09:44 +0000</pubDate>
-    <dc:creator><![CDATA[Reza]]></dc:creator>
-        <category><![CDATA[Comic]]></category>
-
-    <guid isPermaLink="false">http://www.poorlydrawnlines.com/?p=6941</guid>
-    <description />
-        <content:encoded><![CDATA[<p><img class="alignnone size-full wp-image-6942" src="http://www.poorlydrawnlines.com/wp-content/uploads/2018/09/season.png" alt="" width="700" height="890" srcset="http://www.poorlydrawnlines.com/wp-content/uploads/2018/09/season.png 700w, http://www.poorlydrawnlines.com/wp-content/uploads/2018/09/season-236x300.png 236w" sizes="(max-width: 700px) 100vw, 700px" /></p>
-<div class="feedflare">
-<a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=Q_aZ1li4XhE:f7hTUpTgxOc:yIl2AUoC8zA"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?d=yIl2AUoC8zA" border="0"></img></a> <a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=Q_aZ1li4XhE:f7hTUpTgxOc:qj6IDK7rITs"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?d=qj6IDK7rITs" border="0"></img></a> <a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=Q_aZ1li4XhE:f7hTUpTgxOc:gIN9vFwOqvQ"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?i=Q_aZ1li4XhE:f7hTUpTgxOc:gIN9vFwOqvQ" border="0"></img></a>
-</div><img src="http://feeds.feedburner.com/~r/PoorlyDrawnLines/~4/Q_aZ1li4XhE" height="1" width="1" alt=""/>]]></content:encoded>
-      <feedburner:origLink>http://www.poorlydrawnlines.com/comic/season/</feedburner:origLink></item>
-    <item>
-    <title>Good or Bad</title>
-    <link>http://feedproxy.google.com/~r/PoorlyDrawnLines/~3/u0Sa95Iz_4c/</link>
-    <pubDate>Wed, 26 Sep 2018 16:01:54 +0000</pubDate>
-    <dc:creator><![CDATA[Reza]]></dc:creator>
-        <category><![CDATA[Comic]]></category>
-
-    <guid isPermaLink="false">http://www.poorlydrawnlines.com/?p=6938</guid>
-    <description />
-        <content:encoded><![CDATA[<p><img class="alignnone size-full wp-image-6939" src="http://www.poorlydrawnlines.com/wp-content/uploads/2018/09/good-or-bad.png" alt="" width="700" height="400" srcset="http://www.poorlydrawnlines.com/wp-content/uploads/2018/09/good-or-bad.png 700w, http://www.poorlydrawnlines.com/wp-content/uploads/2018/09/good-or-bad-300x171.png 300w" sizes="(max-width: 700px) 100vw, 700px" /></p>
-<div class="feedflare">
-<a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=u0Sa95Iz_4c:vtYdSMJ_TJA:yIl2AUoC8zA"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?d=yIl2AUoC8zA" border="0"></img></a> <a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=u0Sa95Iz_4c:vtYdSMJ_TJA:qj6IDK7rITs"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?d=qj6IDK7rITs" border="0"></img></a> <a href="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?a=u0Sa95Iz_4c:vtYdSMJ_TJA:gIN9vFwOqvQ"><img src="http://feeds.feedburner.com/~ff/PoorlyDrawnLines?i=u0Sa95Iz_4c:vtYdSMJ_TJA:gIN9vFwOqvQ" border="0"></img></a>
-</div><img src="http://feeds.feedburner.com/~r/PoorlyDrawnLines/~4/u0Sa95Iz_4c" height="1" width="1" alt=""/>]]></content:encoded>
-      <feedburner:origLink>http://www.poorlydrawnlines.com/comic/good-or-bad/</feedburner:origLink></item>
+      <title>Hates Me</title>
+      <link>https://poorlydrawnlines.com/comic/hates-me/</link>
+      <dc:creator>
+        <![CDATA[Reza]]>
+      </dc:creator>
+      <pubDate>Mon, 24 Jul 2023 19:05:37 +0000</pubDate>
+      <category>
+        <![CDATA[Comic]]>
+      </category>
+      <guid isPermaLink="false">https://poorlydrawnlines.com/?p=8936</guid>
+      <description>
+        <![CDATA[]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<div class="wp-block-image"><figure class="aligncenter size-large"><a href="https://poorlydrawnlines.com/wp-content/uploads/2023/07/hates_me.png"><img decoding="async" loading="lazy" width="1024" height="890" src="https://poorlydrawnlines.com/wp-content/uploads/2023/07/hates_me-1024x890.png" alt="" class="wp-image-8937" srcset="https://poorlydrawnlines.com/wp-content/uploads/2023/07/hates_me-1024x890.png 1024w, https://poorlydrawnlines.com/wp-content/uploads/2023/07/hates_me-300x261.png 300w, https://poorlydrawnlines.com/wp-content/uploads/2023/07/hates_me-768x668.png 768w, https://poorlydrawnlines.com/wp-content/uploads/2023/07/hates_me.png 1080w" sizes="(max-width: 1024px) 100vw, 1024px" /></a></figure></div>]]>
+      </content:encoded>
+    </item>
   </channel>
 </rss>

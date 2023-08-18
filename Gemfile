@@ -35,6 +35,7 @@ gem "addressable", "~> 2.8"
 gem "amazing_print"
 gem "bootsnap", "~> 1.16", require: false
 gem "callee", "~> 0.3"
+gem "debug"
 gem "dotiw", "~> 5.3"
 gem "dry-initializer", "~> 3.0", ">= 3.0.4"
 gem "dry-types", "~> 1.5", ">= 1.5.1"
