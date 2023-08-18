@@ -189,6 +189,18 @@ RSpec.describe Feed do
 
       it { expect { feed.ensure_supported }.to raise_error(NameError) }
     end
+
+    context "with missing normalizer" do
+      let(:feed) { build(:feed, loader: "test", processor: "test", normalizer: "missing") }
+
+      it { expect { feed.ensure_supported }.to raise_error(NameError) }
+    end
+
+    context "with existing processing classes" do
+      let(:feed) { build(:feed, loader: "test", processor: "test", normalizer: "test") }
+
+      it { expect(feed.ensure_supported).to be_truthy }
+    end
   end
 
   describe "#import_limit_or_default" do
