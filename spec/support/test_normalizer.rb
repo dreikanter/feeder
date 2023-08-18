@@ -1,3 +1,2 @@
 class TestNormalizer < BaseNormalizer
-
 end
