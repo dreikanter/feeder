@@ -18,6 +18,8 @@ class OglafNormalizer < RssNormalizer
   private
 
   def load_images
+    log_info("#{self.class}: loading post images: #{link}")
+
     images = OglafCrowler.call(link).map do |page|
       page.css("img#strip:first").first
     end

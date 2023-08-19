@@ -1,4 +1,6 @@
 class BaseNormalizer
+  include Logging
+
   SEPARATOR = " - ".freeze
 
   def self.call(entity)
@@ -28,8 +30,11 @@ class BaseNormalizer
     nil
   end
 
+  # @return [DateTime] (guaranteed) post creation timestamp with a fallsback
+  #   to the current time
+  # :reek:UtilityFunction
   def published_at
-    nil
+    DateTime.now
   end
 
   def text
@@ -63,5 +68,5 @@ class BaseNormalizer
   end
 
   delegate :uid, :content, :feed, to: :entity
-  delegate :options, to: :feed
+  delegate :options, to: :feed, prefix: :feed
 end

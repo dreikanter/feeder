@@ -44,6 +44,6 @@ class KotakuDailyNormalizer < BaseNormalizer
   end
 
   def max_posts_number
-    feed.options["max_posts_number"] || DEFAULT_MAX_POSTS_NUMBER
+    feed_options["max_posts_number"] || DEFAULT_MAX_POSTS_NUMBER
   end
 end
