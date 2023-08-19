@@ -19,11 +19,8 @@ end
 
 group :development, :test do
   gem "annotate", "~> 3.2"
-  gem "database_cleaner-active_record"
   gem "factory_bot_rails", "~> 6.2"
-  gem "listen", "~> 3.2"
   gem "marginalia", "~> 1.5"
-  gem "mocha", "~> 2.0"
   gem "rspec-rails", "~> 6.0"
   gem "simplecov", "~> 0.21"
   gem "webmock", "~> 3.18"
