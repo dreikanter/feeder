@@ -23,6 +23,6 @@ class YoutubeNormalizer < BaseNormalizer
   end
 
   def description?
-    options.key?("description") ? options["description"] : false
+    feed_options.key?("description") ? feed_options["description"] : false
   end
 end

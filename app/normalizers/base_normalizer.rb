@@ -63,5 +63,5 @@ class BaseNormalizer
   end
 
   delegate :uid, :content, :feed, to: :entity
-  delegate :options, to: :feed
+  delegate :options, to: :feed, prefix: :feed
 end
