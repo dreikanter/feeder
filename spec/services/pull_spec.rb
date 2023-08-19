@@ -24,7 +24,7 @@ class TestNormalizer < BaseNormalizer
 end
 
 RSpec.describe Pull do
-  subject(:subject) { described_class }
+  subject(:service) { described_class }
 
   let(:feed_url) { "https://example.com/sample_feed" }
 
@@ -139,22 +139,21 @@ RSpec.describe Pull do
 
   it "do the call" do
     stub_feed_loader_request(feed_content)
-    expect(feed_entities).to eq(subject.call(feed))
+    expect(feed_entities).to eq(service.call(feed))
   end
 
   # NOTE: Processor will fail due to the lack of the required 'link' field.
   # Processing error should stop the workflow.
   it "handles processor error" do
     stub_feed_loader_request(processor_error_content)
-    assert_raises(KeyError) { subject.call(feed) }
+    assert_raises(KeyError) { service.call(feed) }
   end
 
   # NOTE: Normalizer will fail due to the lack of the required 'text' field.
   # Normalizer error should not stop the workflow.
   it "handles normalizer error" do
     stub_feed_loader_request(normalizer_error_content)
-    entities = subject.call(feed)
-    assert_equal(expected, entities)
+    expect(service.call(feed)).to eq(expected)
   end
 
   def stub_feed_loader_request(content)

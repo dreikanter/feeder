@@ -54,10 +54,6 @@ RSpec.describe ProcessFeed do
     expect { service.new(feed_with_faulty_processor).process }.to change { errors_count(feed_with_faulty_processor) }.by(1)
   end
 
-  skip "dumps normalization errors" do
-    expect { service.new(feed_with_faulty_normalizer).process }.to change { errors_count(feed_with_faulty_normalizer) }.by(2)
-  end
-
   it "does not create posts on normalization error" do
     expect { service.new(feed_with_faulty_normalizer).process }.not_to change(Post, :count)
   end
