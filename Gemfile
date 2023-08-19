@@ -23,7 +23,6 @@ group :development, :test do
   gem "factory_bot_rails", "~> 6.2"
   gem "listen", "~> 3.2"
   gem "marginalia", "~> 1.5"
-  gem "minitest-rails", "~> 7.0"
   gem "mocha", "~> 2.0"
   gem "rspec-rails", "~> 6.0"
   gem "simplecov", "~> 0.21"
