@@ -46,7 +46,7 @@ RSpec.describe Pull do
         feed_id: feed.id,
         uid: "https://example.com/0",
         link: "https://example.com/0",
-        published_at: nil,
+        published_at: DateTime.now,
         text: "Sample entity",
         attachments: [],
         comments: [],
@@ -61,7 +61,7 @@ RSpec.describe Pull do
         feed_id: feed.id,
         uid: "https://example.com/0",
         link: "https://example.com/0",
-        published_at: nil,
+        published_at: DateTime.now,
         text: "Sample entity",
         attachments: [],
         comments: [],
@@ -71,7 +71,7 @@ RSpec.describe Pull do
         feed_id: feed.id,
         uid: "https://example.com/1",
         link: "https://example.com/1",
-        published_at: nil,
+        published_at: DateTime.now,
         text: "Sample entity",
         attachments: [],
         comments: [],
@@ -81,7 +81,7 @@ RSpec.describe Pull do
         feed_id: feed.id,
         uid: "https://example.com/2",
         link: "https://example.com/2",
-        published_at: nil,
+        published_at: DateTime.now,
         text: "",
         attachments: [],
         comments: [],
@@ -136,6 +136,8 @@ RSpec.describe Pull do
       ]
     JSON
   end
+
+  before { freeze_time }
 
   it "do the call" do
     stub_feed_loader_request(feed_content)
