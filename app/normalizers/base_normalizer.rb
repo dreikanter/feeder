@@ -1,4 +1,6 @@
 class BaseNormalizer
+  include Logging
+
   SEPARATOR = " - ".freeze
 
   def self.call(entity)
