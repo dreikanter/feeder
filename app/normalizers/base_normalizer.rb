@@ -28,8 +28,11 @@ class BaseNormalizer
     nil
   end
 
+  # @return [DateTime] (guaranteed) post creation timestamp with a fallsback
+  #   to the current time
+  # :reek:UtilityFunction
   def published_at
-    nil
+    DateTime.now
   end
 
   def text
