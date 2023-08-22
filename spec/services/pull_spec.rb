@@ -1,7 +1,7 @@
 require "rails_helper"
 
 class TestProcessor < BaseProcessor
-  def entities
+  def process
     JSON.parse(content).map { build_entity(_1.fetch("link"), _1) }
   end
 end

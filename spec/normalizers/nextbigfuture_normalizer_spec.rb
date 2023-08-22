@@ -15,7 +15,7 @@ RSpec.describe NextbigfutureNormalizer do
   end
 
   let(:content) { file_fixture("feeds/nextbigfuture/feed.xml").read }
-  let(:entities) { feed.processor_class.new(content: content, feed: feed).entities }
+  let(:entities) { feed.processor_class.new(content: content, feed: feed).process }
   let(:normalized_entries) { entities.map { normalizer.call(_1) } }
 
   let(:expected_entity) do

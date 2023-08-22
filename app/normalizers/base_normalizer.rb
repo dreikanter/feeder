@@ -54,10 +54,19 @@ class BaseNormalizer
   end
 
   def validation_errors
-    @validation_errors ||= []
+    @validation_errors ||= base_validation_errors
   end
 
   private
+
+  def base_validation_errors
+    stale? ? ["stale"] : []
+  end
+
+  # @return [true, false] true if the entity is older than the import threshold
+  def stale?
+    feed_after && feed_after > published_at
+  end
 
   def add_error(error)
     validation_errors << error
@@ -68,5 +77,5 @@ class BaseNormalizer
   end
 
   delegate :uid, :content, :feed, to: :entity
-  delegate :options, to: :feed, prefix: :feed
+  delegate :options, :after, to: :feed, prefix: :feed
 end

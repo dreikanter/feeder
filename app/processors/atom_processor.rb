@@ -1,7 +1,7 @@
 require "rss"
 
 class AtomProcessor < BaseProcessor
-  def entities
+  def process
     parse_content.map { build_entity(_1.link.href, _1) }
   end
 

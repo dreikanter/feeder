@@ -29,7 +29,7 @@ class Pull
   end
 
   def load_entities
-    all_entities = processor_class.new(content: loader_class.new(feed).content, feed: feed).entities
+    all_entities = processor_class.new(content: loader_class.new(feed).content, feed: feed).process
     return all_entities.take(import_limit_or_default) if import_limit_or_default.positive?
     all_entities
   end

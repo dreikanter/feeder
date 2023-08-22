@@ -6,7 +6,7 @@ RSpec.describe KotakuDailyProcessor do
   let(:feed) { create(:feed, :kotaku_daily) }
 
   let(:content) { feed.loader_class.new(feed).content }
-  let(:entities) { processor.new(content: content, feed: feed).entities }
+  let(:entities) { processor.new(content: content, feed: feed).process }
   let(:first_entity) { entities.first }
   let(:expected_post_urls) { JSON.parse(file_fixture("feeds/kotaku_daily/expected_post_urls.json").read) }
   let(:expected_comment_counts) { JSON.parse(file_fixture("feeds/kotaku_daily/expected_comment_counts.json").read) }
