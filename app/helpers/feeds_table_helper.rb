@@ -1,4 +1,5 @@
 module FeedsTableHelper
+  # :reek:TooManyStatements
   def feeds_table_header(order_by:, order:)
     tag.thead do
       tag.tr do

@@ -20,6 +20,7 @@ class GithubBlogNormalizer < AtomNormalizer
   DEFAULT_HOST = "blog.github.com".freeze
   DEFAULT_SCHEME = "https".freeze
 
+  # :reek:TooManyStatements
   def safe_image_url
     value = Html.first_image_url(safe_content)
     return unless value

@@ -1,5 +1,6 @@
-# frozen_string_literal: true
-
+# TODO: Refactor this
+# :reek:DuplicateMethodCall
+# :reek:ControlParameter
 class Html
   MAX_POST_LENGTH = 1500
   MAX_COMMENT_LENGTH = 1500
@@ -74,6 +75,7 @@ class Html
   end
 
   # rubocop:disable Metrics/AbcSize
+  # :reek:TooManyStatements
   def self.paragraphs(html)
     result = Nokogiri::HTML(html)
 
