@@ -1,3 +1,5 @@
+# TODO: Drop this class
+# :reek:TooManyStatements
 class Push
   include Logging
   include Callee

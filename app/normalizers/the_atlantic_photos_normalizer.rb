@@ -3,10 +3,13 @@ class TheAtlanticPhotosNormalizer < TumblrNormalizer
     [description, direct_link].compact_blank.join(separator)
   end
 
+  # :reek:FeatureEnvy
   def direct_link
-    RestClient.get(content.link) do |response, _request, _result|
+    link = content.link
+
+    RestClient.get(link) do |response, _request, _result|
       redirecting = [301, 302, 307].include?(response.code)
-      redirecting ? response.headers[:location] : content.link
+      redirecting ? response.headers[:location] : link
     end
   end
 

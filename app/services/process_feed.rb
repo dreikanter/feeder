@@ -14,6 +14,7 @@ class ProcessFeed
 
   private
 
+  # :reek:TooManyStatements
   def generate_new_posts
     feed.touch(:refreshed_at)
     normalized_entities.reverse_each { |normalized_entity| push(normalized_entity) }
@@ -24,7 +25,7 @@ class ProcessFeed
     dump_feed_error(e)
   end
 
-  # :reek:FeatureEnvy
+  # :reek:TooManyStatements
   def push(normalized_entity)
     return unless normalized_entity
     log_info("---> creating post; uid: [#{normalized_entity.uid}]")

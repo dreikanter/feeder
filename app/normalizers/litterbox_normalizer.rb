@@ -55,7 +55,6 @@ class LitterboxNormalizer < WordpressNormalizer
     nil
   end
 
-  # :reek:FeatureEnvy
   def bonus_panel_page_url
     Addressable::URI.parse(link).tap do |uri|
       uri.path = uri.path.gsub(%r{/$}, "").gsub(/$/, "-bonus/")

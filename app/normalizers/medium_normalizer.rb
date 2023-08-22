@@ -26,6 +26,7 @@ class MediumNormalizer < RssNormalizer
     Nokogiri::HTML(content.description)
   end
 
+  # :reek:TooManyStatements
   def excerpt
     result = page_body
     result.css("br").each { |element| element.replace "\n" }

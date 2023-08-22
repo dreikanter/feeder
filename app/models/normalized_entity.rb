@@ -3,6 +3,7 @@ class NormalizedEntity
   attr_reader :feed_id, :uid, :link, :published_at, :text, :attachments, :comments, :validation_errors
 
   # :reek:LongParameterList
+  # :reek:TooManyStatements
   def initialize(
     feed_id: nil,
     uid: nil,
