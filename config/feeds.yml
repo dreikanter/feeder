@@ -158,7 +158,7 @@
   loader: "http"
   processor: "reddit"
   normalizer: "reddit"
-  after: "2021-01-06T12:00:00+00:00"
+  after: "2023-09-02T00:00:00+00:00"
   refresh_interval: 0
   import_limit: 2
 
