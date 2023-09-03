@@ -48,6 +48,8 @@ class ServiceInstance < ApplicationRecord
   #   timestamp. "Operational" means not disabled or suspended.
   def self.pick!(required_type)
     operational.where(service_type: required_type).first!
+  rescue ActiveRecord::RecordNotFound
+    raise "no available service instances of #{required_type} type"
   end
 
   def register_error
