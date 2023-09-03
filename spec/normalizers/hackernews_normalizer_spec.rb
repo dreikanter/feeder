@@ -7,7 +7,7 @@ RSpec.describe HackernewsNormalizer do
   let(:feed) { create(:feed, :hackernews) }
 
   let(:result) { entities.map { |entity| normalizer.call(entity) }.as_json }
-  let(:entities) { HackernewsProcessor.new(content: content, feed: feed).entities }
+  let(:entities) { HackernewsProcessor.new(content: content, feed: feed).process }
   let(:content) { HackernewsLoader.new(feed).content }
 
   let(:expected) do

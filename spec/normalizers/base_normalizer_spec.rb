@@ -86,4 +86,14 @@ RSpec.describe BaseNormalizer do
       expect(concrete_normalizer.call(feed_entity).comments).to be_blank
     end
   end
+
+  context "with stale entities" do
+    let(:concrete_normalizer) { Class.new(subject) }
+
+    before { feed.after = 1.second.from_now }
+
+    it "adds stale validation error" do
+      expect(concrete_normalizer.new(feed_entity).validation_errors).to eq(["stale"])
+    end
+  end
 end

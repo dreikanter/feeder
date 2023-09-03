@@ -2,7 +2,7 @@ class RedditProcessor < BaseProcessor
   SCORE_THRESHOLD = 2000
   POST_SCORE_CACHE_TTL = 2.hours
 
-  def entities
+  def process
     atom_feed_entries.select { above_score_threshold?(_1.uid) }
   end
 

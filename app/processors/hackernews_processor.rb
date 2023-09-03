@@ -1,7 +1,7 @@
 class HackernewsProcessor < BaseProcessor
   SCORE_THRESHOLD = 300
 
-  def entities
+  def process
     above_score_threshold.map { build_entity(_1.fetch("id"), _1) }
   end
 

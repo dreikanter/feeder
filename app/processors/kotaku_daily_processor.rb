@@ -7,7 +7,7 @@
 # - Assigns FeedEntity uid with a serialized publication date
 # - Assigns FeedEntity content with the ordered posts array
 class KotakuDailyProcessor < BaseProcessor
-  def entities
+  def process
     return [] if yesterday_posts.none?
     [build_entity(yesterday.rfc3339, ordered_posts)]
   end

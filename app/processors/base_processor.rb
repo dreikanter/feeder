@@ -7,7 +7,7 @@ class BaseProcessor
   end
 
   # @return [Array<FeedEntity>] array of entities generated from the content
-  def entities
+  def process
     raise AbstractMethodError
   end
 

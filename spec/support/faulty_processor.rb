@@ -1,5 +1,5 @@
 class FaultyProcessor < BaseProcessor
-  def entities
+  def process
     raise "test error"
   end
 end

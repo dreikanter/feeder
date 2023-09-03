@@ -1,5 +1,5 @@
 class FeedjiraProcessor < BaseProcessor
-  def entities
+  def process
     parse_content.map { build_entity(_1.url, _1) }
   end
 
