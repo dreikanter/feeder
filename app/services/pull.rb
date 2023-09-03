@@ -5,16 +5,12 @@ class Pull
   param :feed
 
   def call
-    normalized_entities.reject(&:stale?)
+    new_entities.filter_map { normalize_entity(_1) }
   end
 
   private
 
   delegate :loader_class, :processor_class, :normalizer_class, :import_limit_or_default, to: :feed
-
-  def normalized_entities
-    new_entities.filter_map { normalize_entity(_1) }
-  end
 
   def new_entities
     entities.filter { existing_uids.exclude?(_1.uid) }
