@@ -20,6 +20,7 @@ class FeedsConfiguration
     log_info("updating feeds from configuration")
     disable_missing_feeds
     create_or_update_feeds
+    log_success("configuration update complete")
   end
 
   private

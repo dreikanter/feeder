@@ -5,36 +5,67 @@ RSpec.describe NitterLoader do
 
   let(:feed) { build(:feed, options: {"twitter_user" => "username"}) }
   let(:body) { "CONTENT BODY" }
-  let(:service_instance) { create(:service_instance, service_type: "nitter", state: "enabled", url: "https://example.com", usages_count: 0) }
+
+  let(:service_instance) do
+    create(
+      :service_instance,
+      service_type: "nitter",
+      state: "enabled",
+      url: "https://example.com",
+      usages_count: 0
+    )
+  end
+
+  let(:disabled_service_instance) do
+    create(
+      :service_instance,
+      service_type: "nitter",
+      state: "disabled",
+      url: "https://example.com",
+      usages_count: 0
+    )
+  end
+
   let(:nitter_url) { "https://example.com/username/rss" }
 
   before do
     freeze_time
     ServiceInstance.delete_all
-    service_instance
   end
 
-  it "fetches nitter url" do
-    stub_request(:get, nitter_url).to_return(body: body)
-    expect(body).to eq(load_content)
+  context "with existing service instance" do
+    before { service_instance }
+
+    it "fetches nitter url" do
+      stub_request(:get, nitter_url).to_return(body: body)
+      expect(body).to eq(load_content)
+    end
+
+    it "require Twitter user option" do
+      feed.options = {}
+      expect { load_content }.to raise_error(KeyError)
+    end
+
+    it "increment service instance usages counter" do
+      stub_request(:get, nitter_url).to_return(body: body)
+      expect { load_content }.to(change { service_instance.reload.usages_count }.from(0).to(1))
+    end
+
+    it "updates service instance last usage timestamp" do
+      stub_request(:get, nitter_url).to_return(body: body)
+      expect { load_content }.to(change { service_instance.reload.used_at }.from(nil).to(Time.current))
+    end
   end
 
-  it "require Twitter user option" do
-    feed.options = {}
-    expect { load_content }.to raise_error(KeyError)
+  context "with no available service instances" do
+    before { disabled_service_instance }
+
+    it { expect { load_content }.to raise_error(StandardError) }
   end
 
-  it "increment service instance usages counter" do
-    stub_request(:get, nitter_url).to_return(body: body)
-    expect { load_content }.to(change { service_instance.reload.usages_count }.from(0).to(1))
-  end
+  context "when loading error" do
+    before { service_instance }
 
-  it "updates service instance last usage timestamp" do
-    stub_request(:get, nitter_url).to_return(body: body)
-    expect { load_content }.to(change { service_instance.reload.used_at }.from(nil).to(Time.current))
-  end
-
-  context "when error" do
     it "updates service instance state" do
       expect_failed_loader_to change { service_instance.reload.state }.from("enabled").to("failed")
     end
