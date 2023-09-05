@@ -10,7 +10,7 @@ class RedditNormalizer < BaseNormalizer
   def text
     source_url = extract_source_url
     source_reference = source_url.present? ? "#{separator}#{source_url}" : ""
-    "#{title}#{source_reference}\nThread: #{link}"
+    "#{title}#{source_reference}\n\nThread: #{link}"
   end
 
   private
