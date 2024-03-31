@@ -13,6 +13,7 @@ RSpec.describe HackernewsLoader do
     expect(loader.content).to eq(expected)
   end
 
+  # rubocop:disable RSpec/NoExpectationExample
   it "caches stories" do
     freeze_time do
       # The first load caches the sories
@@ -24,5 +25,6 @@ RSpec.describe HackernewsLoader do
       # causing WebMock to raise after the stub removal
       loader.content
     end
+    # rubocop:enable RSpec/NoExpectationExample
   end
 end
