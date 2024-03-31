@@ -2,7 +2,7 @@ require "rails_helper"
 require "support/shared_hackernews_stubs"
 
 RSpec.describe HackernewsLoader do
-  subject(:load_content) { described_class.new(feed).content }
+  subject(:loader) { described_class.new(feed) }
 
   let(:feed) { create(:feed, loader: "hackernews") }
   let(:expected) { JSON.parse(file_fixture("feeds/hackernews/expected_loader_result.json").read) }
@@ -10,19 +10,21 @@ RSpec.describe HackernewsLoader do
   include_context "with hackernews stubs"
 
   it "fetches stories" do
-    expect(load_content).to eq(expected)
+    expect(loader.content).to eq(expected)
   end
 
+  # rubocop:disable RSpec/NoExpectationExample
   it "caches stories" do
     freeze_time do
       # The first load caches the sories
-      load_content
+      loader.content
 
       remove_request_stub(stub_story_requests)
 
       # Repeating load to see if it will attempt to repeat loading sories,
       # causing WebMock to raise after the stub removal
-      expect { load_content }.not_to raise_error
+      loader.content
     end
+    # rubocop:enable RSpec/NoExpectationExample
   end
 end
