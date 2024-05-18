@@ -4,6 +4,6 @@ class PurgeErrors
   option :before
 
   def call
-    Error.where("created_at < ?", before).delete_all
+    Error.where(created_at: ...before).delete_all
   end
 end
