@@ -15,14 +15,25 @@ class PluralisticNormalizer < RssNormalizer
 
   def extract_direct_image_url(url)
     parsed_uri = URI.parse(url)
-    return url unless parsed_uri.host =~ /^i\d+\.wp\.com$/.freeze
 
+    if PHOTON_HOST_PATTERN.match? parsed_uri.host
+      replace_host_name(parsed_uri)
+    else
+      url
+    end
+  end
+
+  PHOTON_HOST_PATTERN = /^i\d+\.wp\.com$/
+
+  private_constant :PHOTON_HOST_PATTERN
+
+  # :reek:TooManyStatements
+  def replace_host_name(parsed_uri)
     original_path = parsed_uri.path
     original_query = parsed_uri.query
     original_host = original_path.split("/")[1]
-
-    original_url = "https://#{original_host}#{original_path.sub("/#{original_host}", '')}"
-    original_query ? "#{original_url}?#{original_query}" : original_url
+    direct_url = "https://#{original_host}#{original_path}"
+    original_query ? "#{direct_url}?#{original_query}" : direct_url
   end
 
   def cover_image
