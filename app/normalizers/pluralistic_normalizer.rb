@@ -1,10 +1,6 @@
 class PluralisticNormalizer < RssNormalizer
   include HttpClient
 
-  def published_at
-    DateTime.now
-  end
-
   def text
     [super, link].join(separator)
   end
