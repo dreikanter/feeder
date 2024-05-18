@@ -16,7 +16,7 @@ class PluralisticNormalizer < RssNormalizer
   def extract_direct_image_url(url)
     parsed_uri = URI.parse(url)
 
-    if PHOTON_HOST_PATTERN.match? parsed_uri.host
+    if PHOTON_HOST_PATTERN.match?(parsed_uri.host)
       replace_host_name(parsed_uri)
     else
       url
@@ -32,7 +32,7 @@ class PluralisticNormalizer < RssNormalizer
     original_path = parsed_uri.path
     original_query = parsed_uri.query
     original_host = original_path.split("/")[1]
-    direct_url = "https://#{original_host}#{original_path}"
+    direct_url = "https://#{original_host}#{original_path.sub("/#{original_host}", "")}"
     original_query ? "#{direct_url}?#{original_query}" : direct_url
   end
 
