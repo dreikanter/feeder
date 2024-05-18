@@ -1,32 +1,23 @@
-class PluralisticNoralizer < RssNormalizer
-  def link
-    nil
-  end
+class PluralisticNormalizer < RssNormalizer
+  include HttpClient
 
-  # @return [DateTime] (guaranteed) post creation timestamp with a fallsback
-  #   to the current time
-  # :reek:UtilityFunction
   def published_at
     DateTime.now
   end
 
   def text
-    nil
+    content.title
   end
 
   def attachments
-    []
+    [cover_image]
   end
 
-  def comments
-    []
-  end
+  private
 
-  def separator
-    SEPARATOR
-  end
-
-  def validation_errors
-    @validation_errors ||= base_validation_errors
+  def cover_image
+    Html.first_image_url(http.get(content.link).to_s)
+  rescue StandardError
+    nil
   end
 end
