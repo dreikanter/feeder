@@ -57,5 +57,7 @@ module Feeder
 
     # Use Redis cache store on all environments (see docker-compose.yml)
     config.cache_store = :redis_cache_store, {url: ENV.fetch("REDIS_URL")}
+
+    config.ssl_options = {hsts: {subdomains: true}}
   end
 end
