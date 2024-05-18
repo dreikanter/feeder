@@ -770,3 +770,11 @@
   import_limit: 2
   options:
     max_posts_number: 10
+
+- name: pluralistic
+  url: "https://pluralistic.net/feed/"
+  loader: "http"
+  processor: "rss"
+  normalizer: "pluralistic"
+  refresh_interval: 7200
+  import_limit: 10
