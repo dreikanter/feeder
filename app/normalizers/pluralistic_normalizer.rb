@@ -6,7 +6,7 @@ class PluralisticNormalizer < RssNormalizer
   end
 
   def text
-    content.title
+    [super, link].join(separator)
   end
 
   def attachments
