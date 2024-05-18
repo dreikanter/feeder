@@ -35,8 +35,6 @@ module Feeder
     # Custom configuration
     #
 
-    config.active_support.cache_format_version = 6.1
-
     # config.autoload_paths += config.root.join('lib')
     # config.eager_load_paths += config.root.join('lib')
 
