@@ -39,3 +39,9 @@ yarn-debug.log*
 /config/credentials/production.key
 
 .env
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+
+/app/assets/builds/*
+!/app/assets/builds/.keep
