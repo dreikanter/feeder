@@ -5,7 +5,7 @@ RUN apt-get update --yes \
     apt-utils \
     build-essential \
     vim \
-  && gem install bundler:'~> 2.4' \
+  && gem install bundler:'~> 2.5' \
   && rm -rf /var/lib/apt/lists/*
 
 ARG RAILS_ENV
