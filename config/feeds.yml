@@ -778,3 +778,19 @@
   normalizer: "pluralistic"
   refresh_interval: 7200
   import_limit: 10
+
+- name: elementy
+  url: "https://elementy.ru/rss/news"
+  loader: "http"
+  processor: "feedjira"
+  normalizer: "elementy"
+  refresh_interval: 3600
+  import_limit: 10
+
+- name: elementy-kartinka-dnya
+  url: "https://elementy.ru/rss/kartinka_dnya"
+  loader: "http"
+  processor: "feedjira"
+  normalizer: "elementy"
+  refresh_interval: 3600
+  import_limit: 10
