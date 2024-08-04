@@ -17,13 +17,13 @@ RSpec.describe ElementyNormalizer do
   let(:feed_entities) { feed.processor_class.new(content: feed_content, feed: feed).process }
   let(:post_content) { file_fixture("feeds/#{feed.name}/post.html").read }
 
-  before do
-    stub_request(:get, %r{^https://elementy.ru/}).to_return(body: post_content)
-  end
-
   let(:expected) do
     json = file_fixture("feeds/#{feed.name}/normalized.json").read
     JSON.parse(json).map { _1.merge("feed_id" => feed.id) }
+  end
+
+  before do
+    stub_request(:get, %r{^https://elementy.ru/}).to_return(body: post_content)
   end
 
   it "resolves normalizer class" do

@@ -23,7 +23,7 @@ class ElementyNormalizer < FeedjiraNormalizer
   def cover_image_path
     post_content = http.get(content.url).to_s
     elements = Nokogiri::HTML(post_content).css(".ill_block img")
-    elements.first[:src] unless elements.blank?
+    elements.first[:src] if elements.present?
   end
 
   def base_url
