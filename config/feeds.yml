@@ -784,13 +784,21 @@
   loader: "http"
   processor: "feedjira"
   normalizer: "elementy"
-  refresh_interval: 3600
-  import_limit: 10
+  refresh_interval: 7200
+  import_limit: 2
 
 - name: elementy-kartinka-dnya
   url: "https://elementy.ru/rss/kartinka_dnya"
   loader: "http"
   processor: "feedjira"
   normalizer: "elementy"
-  refresh_interval: 3600
+  refresh_interval: 7200
+  import_limit: 2
+
+- name: melodymae
+  url: "https://www.melodymae.co.uk/feed/"
+  loader: "http"
+  processor: "feedjira"
+  normalizer: "melodymae"
+  refresh_interval: 14400
   import_limit: 10
