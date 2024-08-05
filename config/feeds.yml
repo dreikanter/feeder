@@ -800,5 +800,5 @@
   loader: "http"
   processor: "feedjira"
   normalizer: "melodymae"
-  refresh_interval: 7200
+  refresh_interval: 14400
   import_limit: 10
