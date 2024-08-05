@@ -26,6 +26,9 @@ RSpec.describe MelodymaeNormalizer do
   end
 
   it "matches the expected result" do
+    stub_request(:head, %r{^https://www.melodymae.co.uk/wp-content/})
+      .to_return(status: 200)
+
     result = feed_entities.map { normalizer.call(_1).as_json }
 
     expect(result).to eq(expected)
