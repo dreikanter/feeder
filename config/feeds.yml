@@ -99,6 +99,8 @@
   import_limit: 2
 
 - name: "signalvnoise-medium"
+  enabled: false
+  disabling_reason: "Signal v. Noise was closed in 2021"
   url: "https://m.signalvnoise.com/feed"
   loader: "http"
   processor: "rss"
@@ -761,6 +763,8 @@
   import_limit: 2
 
 - name: "kotaku"
+  enabled: false
+  disabling_reason: "Kotaku disabled the comments, naking impossible to figure out the most popular posts based on the amount of replies"
   url: "https://kotaku.com/rss"
   source: "https://kotaku.com"
   loader: "http"
