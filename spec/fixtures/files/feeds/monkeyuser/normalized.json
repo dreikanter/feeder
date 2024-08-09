@@ -1,34 +1,44 @@
 [
   {
-    "feed_id": 8410,
-    "uid": "https://www.monkeyuser.com/2019/platypuscorn/",
-    "link": "https://www.monkeyuser.com/2019/platypuscorn/",
-    "published_at": "2019-08-20 00:00:00 +0000",
-    "text": "Platypuscorn - https://www.monkeyuser.com/2019/platypuscorn/",
+    "feed_id": null,
+    "uid": "https://www.monkeyuser.com/2024/sacrifice/",
+    "link": "https://www.monkeyuser.com/2024/sacrifice/",
+    "published_at": "2024-02-19 00:00:00 +0000",
+    "text": "Sacrifice - https://www.monkeyuser.com/2024/sacrifice/",
     "attachments": [
-      "https://www.monkeyuser.com/assets/images/2019/145-platypuscorn.png"
+      "https://www.monkeyuser.com/2024/sacrifice/273-sacrifice.jpg"
     ],
     "comments": [
-      "It's available now pre alpha"
+      "Deprecation is like a polite warning saying, `Hey, this function had its glory days, but now it's heading towards retirement.` But don't worry, it's not like it'll stop working immediately. No, no, it'll just linger around, potentially causing future headaches, gently nudging you to change your ways before it finally breaks your entire project in the next big update."
     ],
-    "validation_errors": [
-
-    ]
+    "validation_errors": []
   },
   {
-    "feed_id": 8410,
-    "uid": "https://www.monkeyuser.com/2019/brittle/",
-    "link": "https://www.monkeyuser.com/2019/brittle/",
-    "published_at": "2019-08-13 00:00:00 +0000",
-    "text": "Brittle - https://www.monkeyuser.com/2019/brittle/",
+    "feed_id": null,
+    "uid": "https://www.monkeyuser.com/2024/milestone-passing-problem/",
+    "link": "https://www.monkeyuser.com/2024/milestone-passing-problem/",
+    "published_at": "2024-02-06 00:00:00 +0000",
+    "text": "Milestone Passing Problem - https://www.monkeyuser.com/2024/milestone-passing-problem/",
     "attachments": [
-      "https://www.monkeyuser.com/assets/images/2019/144-brittle.png"
+      "https://www.monkeyuser.com/2024/sacrifice/273-sacrifice.jpg"
     ],
     "comments": [
-      "All we need now is to automate the script updating."
+      "Deprecation is like a polite warning saying, `Hey, this function had its glory days, but now it's heading towards retirement.` But don't worry, it's not like it'll stop working immediately. No, no, it'll just linger around, potentially causing future headaches, gently nudging you to change your ways before it finally breaks your entire project in the next big update."
     ],
-    "validation_errors": [
-
-    ]
+    "validation_errors": []
+  },
+  {
+    "feed_id": null,
+    "uid": "https://www.monkeyuser.com/2024/ramifications/",
+    "link": "https://www.monkeyuser.com/2024/ramifications/",
+    "published_at": "2024-01-30 00:00:00 +0000",
+    "text": "Ramifications - https://www.monkeyuser.com/2024/ramifications/",
+    "attachments": [
+      "https://www.monkeyuser.com/2024/sacrifice/273-sacrifice.jpg"
+    ],
+    "comments": [
+      "Deprecation is like a polite warning saying, `Hey, this function had its glory days, but now it's heading towards retirement.` But don't worry, it's not like it'll stop working immediately. No, no, it'll just linger around, potentially causing future headaches, gently nudging you to change your ways before it finally breaks your entire project in the next big update."
+    ],
+    "validation_errors": []
   }
 ]

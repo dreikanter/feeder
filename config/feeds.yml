@@ -565,13 +565,13 @@
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "monkeyuser"
-  url: "https://www.monkeyuser.com/feed.xml"
+  url: "https://www.monkeyuser.com/index.xml"
   loader: "http"
   processor: "feedjira"
   normalizer: "monkeyuser"
-  refresh_interval: 3600
-  import_limit: 2
-  after: "2021-01-06T12:00:00+00:00"
+  refresh_interval: 14400
+  import_limit: 1
+  after: "2023-09-01T00:00:00+00:00"
 
 - name: "warandpeas"
   loader: "nitter"
