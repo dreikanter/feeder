@@ -99,6 +99,8 @@
   import_limit: 2
 
 - name: "signalvnoise-medium"
+  enabled: false
+  disabling_reason: "Signal v. Noise was closed in 2021"
   url: "https://m.signalvnoise.com/feed"
   loader: "http"
   processor: "rss"
@@ -563,13 +565,13 @@
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "monkeyuser"
-  url: "https://www.monkeyuser.com/feed.xml"
+  url: "https://www.monkeyuser.com/index.xml"
   loader: "http"
   processor: "feedjira"
   normalizer: "monkeyuser"
-  refresh_interval: 3600
-  import_limit: 2
-  after: "2021-01-06T12:00:00+00:00"
+  refresh_interval: 14400
+  import_limit: 1
+  after: "2023-09-01T00:00:00+00:00"
 
 - name: "warandpeas"
   loader: "nitter"
@@ -761,6 +763,8 @@
   import_limit: 2
 
 - name: "kotaku"
+  enabled: false
+  disabling_reason: "Kotaku disabled the comments, naking impossible to figure out the most popular posts based on the amount of replies"
   url: "https://kotaku.com/rss"
   source: "https://kotaku.com"
   loader: "http"
