@@ -10,6 +10,8 @@ class ProcessFeed
   def process
     Honeybadger.context(process_feed: {feed_id: feed_id, feed_name: feed_name})
     generate_new_posts
+  ensure
+    feed.update_sparkline
   end
 
   private
@@ -19,7 +21,6 @@ class ProcessFeed
     feed.touch(:refreshed_at)
     normalized_entities.reverse_each { |normalized_entity| push(normalized_entity) }
     feed.update(errors_count: 0)
-    feed.update_sparkline
   rescue StandardError => e
     increment_feed_error_counters
     dump_feed_error(e)

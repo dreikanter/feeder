@@ -23,16 +23,19 @@ class SparklineBuilder
     SparklineChart.new(timeline).generate
   end
 
-  # TODO: Optimize with grouping by date
   def timeline
-    dates.index_with { |date| posts_count_at(date) }
+    dates.index_with { posts_count_by_date[_1] || 0 }
   end
 
-  def posts_count_at(date)
-    Post.where(feed: feed, created_at: date.all_day).count
+  def posts_count_by_date
+    @posts_count_by_date ||= Post.where(feed: feed, created_at: period).group("DATE(created_at)").count
   end
 
   def dates
-    start_date.to_date..end_date.to_date
+    (start_date.to_date..end_date.to_date).to_a
+  end
+
+  def period
+    start_date.beginning_of_day..end_date.end_of_day
   end
 end
