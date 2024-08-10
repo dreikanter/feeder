@@ -10,6 +10,7 @@ class ProcessFeed
   def process
     Honeybadger.context(process_feed: {feed_id: feed_id, feed_name: feed_name})
     generate_new_posts
+  ensure
     feed.update_sparkline
   end
 
