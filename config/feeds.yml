@@ -506,6 +506,7 @@
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "rework"
+  enabled: false
   url: "https://feeds.transistor.fm/rework"
   loader: "http"
   processor: "feedjira"
