@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 ruby "3.3.4"
 
+gem "aasm", "~> 5.5"
 gem "amazing_print"
 gem "bootsnap", require: false
 gem "jsbundling-rails"
