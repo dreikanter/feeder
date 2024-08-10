@@ -4,50 +4,45 @@ volumes:
   postgres:
   bundle:
 
+x-common-environment: &common-environment
+  BUNDLE_PATH: /bundle
+  COLOR_LOGS: 1
+  DATABASE_URL: postgresql://postgres:postgres@postgres:5432/feeder_development
+  FREEFEED_BASE_URL: ${FREEFEED_BASE_URL}
+  FREEFEED_TOKEN: ${FREEFEED_TOKEN}
+  GEM_HOME: /bundle
+  GEM_PATH: /bundle
+  HONEYBADGER_API_KEY: ${FEEDER_HONEYBADGER_API_KEY}
+  PATH: /bundle/bin:/app/bin:$PATH
+  RAILS_ENV: development
+  RAILS_MASTER_KEY: ${FEEDER_RAILS_MASTER_KEY_DEVELOPMENT}
+  REDIS_URL: redis://redis:6379/0
+  SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+
+x-common-volumes: &common-volumes
+  - .:/app
+  - bundle:/bundle
+
 services:
   app:
     build: .
-    environment:
-      - BUNDLE_PATH=/bundle
-      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/feeder_development
-      - FREEFEED_BASE_URL
-      - FREEFEED_TOKEN
-      - HONEYBADGER_API_KEY=$FEEDER_HONEYBADGER_API_KEY
-      - RAILS_ENV=development
-      - RAILS_MASTER_KEY=$FEEDER_RAILS_MASTER_KEY_DEVELOPMENT
-      - REDIS_URL=redis://redis:6379/0
-      - SECRET_KEY_BASE
-      - COLOR_LOGS=1
+    environment: *common-environment
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails server -p 3000 -b 0.0.0.0"
     ports:
       - 3000:3000
     depends_on:
       - postgres
       - redis
-    volumes:
-      - .:/app
-      - bundle:/bundle
+    volumes: *common-volumes
 
   sh:
     build: .
-    environment:
-      - BUNDLE_PATH=/bundle
-      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/feeder_development
-      - FREEFEED_BASE_URL
-      - FREEFEED_TOKEN
-      - HONEYBADGER_API_KEY=$FEEDER_HONEYBADGER_API_KEY
-      - RAILS_ENV=development
-      - RAILS_MASTER_KEY=$FEEDER_RAILS_MASTER_KEY_DEVELOPMENT
-      - REDIS_URL=redis://redis:6379/0
-      - SECRET_KEY_BASE
-      - COLOR_LOGS=1
-    command: bash -c "bundle exec bash"
+    environment: *common-environment
+    command: bash
     depends_on:
       - postgres
       - redis
-    volumes:
-      - .:/app
-      - bundle:/bundle
+    volumes: *common-volumes
 
   postgres:
     image: postgres:10
