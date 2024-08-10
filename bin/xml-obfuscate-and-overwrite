@@ -1,0 +1,66 @@
+#!/usr/bin/env ruby
+
+require 'nokogiri'
+require 'securerandom'
+
+# List of elements whose content should be replaced with random URLs
+URL_ELEMENTS = %w[
+  url
+  link
+].freeze
+
+# List of elements whose content should not be obfuscated
+PRESERVE_ELEMENTS = %w[
+  width
+  height
+  lastBuildDate
+  pubDate
+].freeze
+
+def obfuscate_text(text)
+  text.gsub(/[[:print:]]/) { _1 == ' ' ? ' ' : SecureRandom.alphanumeric(1) }
+end
+
+def process_node(node)
+  if node.element?
+    node.children.each { |child| process_node(child) }
+    return
+  end
+
+  return unless node.text?
+
+  # Do not obfuscate content of preserved elements
+  if URL_ELEMENTS.include?(node.parent.name)
+    node.content = random_url
+    return
+  end
+
+  return if PRESERVE_ELEMENTS.include?(node.parent.name)
+
+  original_text = node.content
+  obfuscated_text = obfuscate_text(original_text)
+  node.content = obfuscated_text
+end
+
+def random_url
+  "https://#{SecureRandom.hex(8)}.example.com/#{SecureRandom.hex(4)}"
+end
+
+# Read the XML file
+xml_file_path = ARGV[0]
+abort("Usage: #{__FILE__} file.xml") if xml_file_path.nil?
+xml_content = File.read(xml_file_path)
+
+# Parse the XML
+doc = Nokogiri::XML(xml_content) do |config|
+  config.noblanks
+end
+
+# Process the document
+doc.root.children.each { |child| process_node(child) }
+
+xml = doc.to_xml
+File.write(xml_file_path, xml)
+
+puts "Original file size: #{xml_content.length}"
+puts "Obfuscated file size: #{xml.length}"
