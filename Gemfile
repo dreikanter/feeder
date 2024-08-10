@@ -13,6 +13,7 @@ gem "pry-byebug"
 gem "pry-rails", "~> 0.3.9"
 gem "puma", "~> 6.4"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"
+gem "rexml", ">= 3.3.4"  # No direct dependency; added to mitigate a CVE
 gem "stimulus-rails"
 gem "turbo-rails"
 gem "tzinfo-data"
