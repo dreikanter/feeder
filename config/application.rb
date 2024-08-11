@@ -39,5 +39,18 @@ module Feeder
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    #
+    # Manually added to the originally generated configuration
+    #
+
+    config.hosts << "feeder.local"
+    config.hosts << "frf.im"
+    config.hosts << "localhost"
+
+    # Use Redis cache store on all environments (see docker-compose.yml)
+    config.cache_store = :redis_cache_store, {url: ENV.fetch("REDIS_URL")}
+
+    config.ssl_options = {hsts: {subdomains: true}}
   end
 end
