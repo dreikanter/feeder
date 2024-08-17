@@ -1,0 +1,2 @@
+class FeedConfigurationError < StandardError
+end
