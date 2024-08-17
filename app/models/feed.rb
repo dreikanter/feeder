@@ -1,6 +1,11 @@
 class Feed < ApplicationRecord
-  def supported?
-    !!(loader_class && processor_class && normalizer_class)
+  def readable_id
+    [self.class.name.underscore, id, name].compact_blank.join("-")
+  end
+
+  def ensure_supported!
+    return if loader_class && processor_class && normalizer_class
+    raise FeedConfigurationError
   end
 
   def service_classes

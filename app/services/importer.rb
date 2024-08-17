@@ -1,7 +1,7 @@
 # Load content and generate posts for the specified feed. Raises an error
 # in case feed processing is not possible.
 #
-class FeedImporter
+class Importer
   include Logging
 
   attr_reader :feed
@@ -11,9 +11,11 @@ class FeedImporter
     @feed = feed
   end
 
+  # Import feed content and persist new posts. Will raise an error if the feed
+  # processing workflow should be interrupted.
   # @raise [FeedConfigurationError] if the feed is missing related classes
-  def perform
-    log_info("importing feed ##{feed.id} (#{feed.name})")
+  def import
+    logger.info("importing #{feed.readable_id}")
     ensure_services_resolved
     feed_content = load_content(feed)
     entities = process_feed_content(feed_content)
@@ -23,9 +25,9 @@ class FeedImporter
   private
 
   def ensure_services_resolved
-    return if feed.supported?
-    track_feed_error(category: "configuration")
-    raise FeedConfigurationError
+    feed.ensure_supported!
+  rescue StandardError => e
+    track_feed_error(error: e, category: "configuration")
   end
 
   # @return [FeedContent]
@@ -33,7 +35,7 @@ class FeedImporter
   def load_content(feed)
     feed.loader_instance.load
   rescue StandardError => e
-    track_feed_error(error: e, category: "loader")
+    track_feed_error(error: e, category: "loading")
     raise e
   end
 
@@ -42,7 +44,7 @@ class FeedImporter
   def process_feed_content(feed_content)
     feed.processor_instance.process(feed_content)
   rescue StandardError => e
-    track_feed_error(error: e, category: "processor", context: {content: feed_content})
+    track_feed_error(error: e, category: "processing", context: {content: feed_content})
     raise e
   end
 
@@ -55,15 +57,20 @@ class FeedImporter
   def track_feed_error(category:, error: nil, context: {})
     ActiveRecord::Base.transaction do
       feed.update!(errored_at: Time.current, errors_count: feed.errors_count.succ)
-      Error.create!(target: feed, category: category, context: context.merge(error_context(error)))
+
+      ErrorReporter.report(
+        error: error,
+        target: feed,
+        category: category,
+        context: context.merge(error_context)
+      )
     end
   end
 
-  def error_context(error)
+  def error_context
     {
       feed_supported: feed.supported?,
-      feed_service_classes: feed.service_classes,
-      error: error.class
+      feed_service_classes: feed.service_classes
     }
   end
 end

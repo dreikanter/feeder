@@ -12,10 +12,10 @@ class FeedProcessor < FeedService
 
   def perform
     feeds.each do |feed|
-      FeedImporter.new(feed: feed).perform
+      Importer.new(feed: feed).import
       Publisher.new(posts: feed.posts.pending).publish
     rescue StandardError
-      log_error("feed processing interrupted: #{feed.name} (id: #{feed.id})")
+      logger.error { "feed processing interrupted: #{feed.name} (id: #{feed.id})" }
     end
   end
 end
