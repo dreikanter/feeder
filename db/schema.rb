@@ -10,9 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_28_141124) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_17_185724) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "error_reports", force: :cascade do |t|
+    t.string "target_type"
+    t.bigint "target_id"
+    t.string "category"
+    t.string "error_class", default: "", null: false
+    t.string "file_name"
+    t.integer "line_number"
+    t.string "message", default: "", null: false
+    t.string "backtrace", default: [], null: false, array: true
+    t.jsonb "context", default: {}, null: false
+    t.datetime "occured_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category"], name: "index_error_reports_on_category"
+    t.index ["occured_at"], name: "index_error_reports_on_occured_at"
+    t.index ["target_type", "target_id"], name: "index_error_reports_on_target"
+  end
 
   create_table "errors", id: :serial, force: :cascade do |t|
     t.integer "status", default: 0, null: false
