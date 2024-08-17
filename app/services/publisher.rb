@@ -1,5 +1,5 @@
 class Publisher
-  include LoggingHelper
+  include Logging
 
   def initialize(posts:)
     @posts = posts
