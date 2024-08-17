@@ -1,13 +1,7 @@
-class BaseNormalizer
-  attr_reader :feed, :entity
-
-  def initialize(feed:, entity:)
-    @feed = feed
-    @entity = entity
-  end
-
-  # @return [Hash]
-  def normalize
+class BaseNormalizer < FeedService
+  # @param [FeedEntity]
+  # @return [Post]
+  def normalize(feed_entity:)
     raise AbstractMethodError
   end
 end

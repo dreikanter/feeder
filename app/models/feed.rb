@@ -1,20 +1,20 @@
 class Feed < ApplicationRecord
   def supported?
     !!(loader_class && processor_class && normalizer_class)
-  rescue NameError
-    false
   end
 
   def service_classes
     {
-      loader_class: loader_class rescue nil,
-      processor_class: processor_class rescue nil,
-      normalizer_class: normalizer_class rescue nil
+      loader_class: loader_class,
+      processor_class: processor_class,
+      normalizer_class: normalizer_class
     }
   end
 
   def loader_class
     ClassResolver.new(loader, suffix: "loader").resolve
+  rescue NameError
+    nil
   end
 
   def loader_instance
@@ -23,6 +23,8 @@ class Feed < ApplicationRecord
 
   def processor_class
     ClassResolver.new(processor, suffix: "processor").resolve
+  rescue NameError
+    nil
   end
 
   def processor_instance
@@ -31,6 +33,8 @@ class Feed < ApplicationRecord
 
   def normalizer_class
     ClassResolver.new(normalizer, suffix: "normalizer").resolve
+  rescue NameError
+    nil
   end
 
   def normalizer_instance

@@ -1,13 +1,7 @@
-class BaseProcessor
-  attr_reader :feed, :content
-
-  def initialize(feed:, content:)
-    @feed = feed
-    @content = content
-  end
-
+class BaseProcessor < FeedService
+  # @param [FeedContent]
   # @return [Array<FeedEntity>]
-  def process
+  def process(feed_content:)
     raise AbstractMethodError
   end
 end

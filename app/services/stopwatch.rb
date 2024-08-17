@@ -3,7 +3,7 @@ class Stopwatch
 
   def self.measure(&block)
     instance = new
-    block.call, instance.elapsed
+    [block.call, instance.elapsed]
   end
 
   def initialize

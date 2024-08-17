@@ -20,5 +20,9 @@ detectors:
     accept:
       - "e"
       - "_"
+  UnusedParameters:
+    exclude:
+      - "BaseNormalizer#normalize"
+      - "BaseProcessor#process"
   UtilityFunction:
     public_methods_only: true
