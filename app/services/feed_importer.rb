@@ -52,20 +52,18 @@ class FeedImporter
     end
   end
 
-  # :reek:UnusedParameters
   def track_feed_error(category:, error: nil, context: {})
     ActiveRecord::Base.transaction do
       feed.update!(errored_at: Time.current, errors_count: feed.errors_count.succ)
-
-      # TBD: Add error details to the record
-      Error.create!(target: feed, category: category, context: context.merge(error_context_defaults))
+      Error.create!(target: feed, category: category, context: context.merge(error_context(error)))
     end
   end
 
-  def error_context_defaults
+  def error_context(error)
     {
       feed_supported: feed.supported?,
-      feed_service_classes: feed.service_classes
+      feed_service_classes: feed.service_classes,
+      error: error.class
     }
   end
 end
