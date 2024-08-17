@@ -6,6 +6,7 @@ gem "aasm", "~> 5.5"
 gem "amazing_print"
 gem "bootsnap", require: false
 gem "jsbundling-rails"
+gem "memo_wise", "~> 1.9"
 gem "pg", "~> 1.5"
 gem "propshaft"
 gem "pry", "~> 0.14"
