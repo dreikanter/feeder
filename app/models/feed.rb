@@ -4,7 +4,7 @@ class Feed < ApplicationRecord
   end
 
   def ensure_supported
-    return if loader_class && processor_class && normalizer_class
+    return true if loader_class && processor_class && normalizer_class
     raise FeedConfigurationError
   end
 

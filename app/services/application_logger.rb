@@ -47,6 +47,8 @@ class ApplicationLogger
     log_formatted_message(:info, message, GREEN, &)
   end
 
+  private
+
   def log_formatted_message(level, message, color, &block)
     if block
       logger.send(level, &-> { format_message(block.call, color) })

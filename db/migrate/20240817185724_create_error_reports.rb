@@ -9,7 +9,6 @@ class CreateErrorReports < ActiveRecord::Migration[7.1]
       t.string "message", default: "", null: false
       t.string "backtrace", default: [], null: false, array: true
       t.jsonb "context", default: {}, null: false
-      t.datetime "occured_at", null: false, index: true
 
       t.timestamps
     end

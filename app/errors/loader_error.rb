@@ -1,0 +1,2 @@
+class LoaderError < StandardError
+end
