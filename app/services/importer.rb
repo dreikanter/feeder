@@ -25,7 +25,7 @@ class Importer
   private
 
   def ensure_services_resolved
-    feed.ensure_supported!
+    feed.ensure_supported
   rescue StandardError => e
     track_feed_error(error: e, category: "configuration")
   end
