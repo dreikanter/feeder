@@ -1,6 +1,6 @@
 # Import content for each feed in the specified scope, and publish new posts.
 #
-class FeedProcessor < FeedService
+class FeedProcessor
   include Logging
 
   attr_reader :feeds
