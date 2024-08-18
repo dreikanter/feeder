@@ -5,7 +5,7 @@ RSpec.describe FeedService do
 
   describe "#initialize" do
     it "requires a feed" do
-      service.new(feed: Feed.new)
+      expect { service.new(feed: Feed.new) }.not_to raise_error
     end
   end
 end

@@ -4,7 +4,7 @@ RSpec.describe FeedContent do
   subject(:model) { described_class }
 
   describe "#initialize" do
-    it "should accept attributes" do
+    it "accepts attributes" do
       instance = model.new(
         raw_content: "RAW_CONTENT",
         imported_at: "IMPORTED_AT",

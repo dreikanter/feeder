@@ -4,7 +4,7 @@ RSpec.describe FeedEntity do
   subject(:model) { described_class }
 
   describe "#initialize" do
-    it "should accept attributes" do
+    it "accepts attributes" do
       instance = model.new(uid: "UID", content: "CONTENT")
 
       expect(instance.uid).to eq("UID")

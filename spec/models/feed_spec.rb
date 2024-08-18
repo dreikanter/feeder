@@ -4,7 +4,7 @@ RSpec.describe Feed do
   subject(:model) { described_class }
 
   describe "#readable_id" do
-    it "should return expected value" do
+    it "returns expected value" do
       actual = model.new(id: 1, name: "sample").readable_id
 
       expect(actual).to eq("feed-1-sample")
@@ -13,7 +13,7 @@ RSpec.describe Feed do
 
   describe "#ensure_supported" do
     context "with missing loader" do
-      it "should raise an error" do
+      it "raises an error" do
         stub_const("TestProcessor", Class.new)
         stub_const("TestNormalizer", Class.new)
         feed = model.new(loader: "missing", processor: "test", normalizer: "test")
@@ -23,7 +23,7 @@ RSpec.describe Feed do
     end
 
     context "with missing processor" do
-      it "should raise an error" do
+      it "raises an error" do
         stub_const("TestProcessor", Class.new)
         stub_const("TestLoader", Class.new)
         feed = model.new(loader: "test", processor: "missing", normalizer: "test")
@@ -33,7 +33,7 @@ RSpec.describe Feed do
     end
 
     context "with missing normalizer" do
-      it "should raise an error" do
+      it "raises an error" do
         stub_const("TestProcessor", Class.new)
         stub_const("TestNormalizer", Class.new)
         feed = model.new(loader: "test", processor: "test", normalizer: "missing")
@@ -43,13 +43,13 @@ RSpec.describe Feed do
     end
 
     context "with existing processing classes" do
-      it "should return true" do
+      it "returns true" do
         stub_const("TestLoader", Class.new)
         stub_const("TestProcessor", Class.new)
         stub_const("TestNormalizer", Class.new)
         feed = model.new(loader: "test", processor: "test", normalizer: "test")
 
-        expect(feed.ensure_supported).to eq(true)
+        expect(feed.ensure_supported).to be(true)
       end
     end
   end
@@ -70,7 +70,7 @@ RSpec.describe Feed do
   describe "#processor_class" do
     it "resolves specified class" do
       stub_const("TestProcessor", Class.new)
-      feed = model.new(processor: "test")
+      model.new(processor: "test")
 
       expect(model.new(processor: "test").processor_class).to eq(TestProcessor)
     end
@@ -83,7 +83,7 @@ RSpec.describe Feed do
   describe "#normalizer_class" do
     it "resolves specified class" do
       stub_const("TestNormalizer", Class.new)
-      feed = model.new(normalizer: "test")
+      model.new(normalizer: "test")
 
       expect(model.new(normalizer: "test").normalizer_class).to eq(TestNormalizer)
     end
@@ -145,7 +145,7 @@ RSpec.describe Feed do
   end
 
   describe "#service_classes" do
-    it "should return a hash" do
+    it "returns a hash" do
       stub_const("TestLoader", Class.new)
       stub_const("TestProcessor", Class.new)
       stub_const("TestNormalizer", Class.new)
@@ -160,7 +160,7 @@ RSpec.describe Feed do
       expect(feed.service_classes).to eq(expected)
     end
 
-    it "should tolerate missing service classes" do
+    it "tolerates missing service classes" do
       feed = model.new(loader: "test", processor: "test", normalizer: "test")
 
       expected = {

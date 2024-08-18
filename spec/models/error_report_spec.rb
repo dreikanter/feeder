@@ -4,13 +4,13 @@ RSpec.describe ErrorReport do
   subject(:model) { described_class }
 
   describe "validation" do
-    it "should be valid" do
+    it "is valid" do
       expect(model.new).to be_valid
     end
   end
 
   describe "#target" do
-    it "should have a polymorphic target" do
+    it "has a polymorphic target" do
       feed = create(:feed)
       error_report = model.create(target: feed)
 
