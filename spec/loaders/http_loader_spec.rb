@@ -7,7 +7,6 @@ RSpec.describe HttpLoader do
   let(:content) { file_fixture("sample_rss.xml").read }
 
   before { freeze_time }
-  after { travel_back }
 
   describe "#load" do
     context "when on the happy path" do
@@ -26,7 +25,6 @@ RSpec.describe HttpLoader do
 
     context "when HTTP request fails" do
       it "raises an error" do
-        content = file_fixture("sample_rss.xml").read
         stub_request(:get, feed.url).to_return(status: 404)
 
         expect { service.new(feed).load }.to raise_error(LoaderError)

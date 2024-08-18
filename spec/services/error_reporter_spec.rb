@@ -24,7 +24,7 @@ RSpec.describe ErrorReporter do
     end
 
     it "persists context as JSON" do
-      today = Date.today
+      today = Time.zone.today
 
       context = {
         "string" => "value",

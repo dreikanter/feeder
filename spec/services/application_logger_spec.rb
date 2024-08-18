@@ -4,7 +4,7 @@ RSpec.describe ApplicationLogger do
   subject(:service) { described_class }
 
   let(:application_logger) { described_class.new(logger: mock_logger) }
-  let(:mock_logger) { instance_double("Logger") }
+  let(:mock_logger) { instance_double(Logger) }
   let(:message) { "MESSAGE" }
 
   shared_examples "logger method" do |logger_method, options|
