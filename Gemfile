@@ -5,6 +5,7 @@ ruby "3.3.4"
 gem "aasm", "~> 5.5"
 gem "amazing_print"
 gem "bootsnap", require: false
+gem "honeybadger", "~> 5.15", ">= 5.15.6"
 gem "http", "~> 5.2"
 gem "jsbundling-rails"
 gem "memo_wise", "~> 1.9"

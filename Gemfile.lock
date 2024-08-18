@@ -156,6 +156,7 @@ GEM
     globalid (1.2.1)
       activesupport (>= 6.1)
     hashdiff (1.1.1)
+    honeybadger (5.15.6)
     http (5.2.0)
       addressable (~> 2.8)
       base64 (~> 0.1)
@@ -406,6 +407,7 @@ DEPENDENCIES
   bundler-audit (~> 0.9)
   debug
   factory_bot_rails (~> 6.4)
+  honeybadger (~> 5.15, >= 5.15.6)
   http (~> 5.2)
   jsbundling-rails
   marginalia (~> 1.11)
