@@ -143,4 +143,33 @@ RSpec.describe Feed do
       expect { feed.normalizer_instance }.to raise_error(StandardError)
     end
   end
+
+  describe "#service_classes" do
+    it "should return a hash" do
+      stub_const("TestLoader", Class.new)
+      stub_const("TestProcessor", Class.new)
+      stub_const("TestNormalizer", Class.new)
+      feed = build(:feed, loader: "test", processor: "test", normalizer: "test")
+
+      expected = {
+        loader_class: TestLoader,
+        processor_class: TestProcessor,
+        normalizer_class: TestNormalizer
+      }
+
+      expect(feed.service_classes).to eq(expected)
+    end
+
+    it "should tolerate missing service classes" do
+      feed = build(:feed, loader: "test", processor: "test", normalizer: "test")
+
+      expected = {
+        loader_class: nil,
+        processor_class: nil,
+        normalizer_class: nil
+      }
+
+      expect(feed.service_classes).to eq(expected)
+    end
+  end
 end
