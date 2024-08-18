@@ -48,7 +48,7 @@ class ApplicationLogger
   end
 
   def log_formatted_message(level, message, color, &block)
-    if block_given?
+    if block
       logger.send(level, &-> { format_message(block.call, color) })
     else
       logger.send(level, format_message(message, color))
