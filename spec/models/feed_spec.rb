@@ -16,7 +16,7 @@ RSpec.describe Feed do
       it "should raise an error" do
         stub_const("TestProcessor", Class.new)
         stub_const("TestNormalizer", Class.new)
-        feed = build(:feed, loader: "missing", processor: "test", normalizer: "test")
+        feed = model.new(loader: "missing", processor: "test", normalizer: "test")
 
         expect { feed.ensure_supported }.to raise_error(FeedConfigurationError)
       end
@@ -26,7 +26,7 @@ RSpec.describe Feed do
       it "should raise an error" do
         stub_const("TestProcessor", Class.new)
         stub_const("TestLoader", Class.new)
-        feed = build(:feed, loader: "test", processor: "missing", normalizer: "test")
+        feed = model.new(loader: "test", processor: "missing", normalizer: "test")
 
         expect { feed.ensure_supported }.to raise_error(FeedConfigurationError)
       end
@@ -36,7 +36,7 @@ RSpec.describe Feed do
       it "should raise an error" do
         stub_const("TestProcessor", Class.new)
         stub_const("TestNormalizer", Class.new)
-        feed = build(:feed, loader: "test", processor: "test", normalizer: "missing")
+        feed = model.new(loader: "test", processor: "test", normalizer: "missing")
 
         expect { feed.ensure_supported }.to raise_error(FeedConfigurationError)
       end
@@ -47,7 +47,7 @@ RSpec.describe Feed do
         stub_const("TestLoader", Class.new)
         stub_const("TestProcessor", Class.new)
         stub_const("TestNormalizer", Class.new)
-        feed = build(:feed, loader: "test", processor: "test", normalizer: "test")
+        feed = model.new(loader: "test", processor: "test", normalizer: "test")
 
         expect(feed.ensure_supported).to eq(true)
       end
@@ -57,46 +57,46 @@ RSpec.describe Feed do
   describe "#loader_class" do
     it "resolves specified class" do
       stub_const("TestLoader", Class.new)
-      feed = build(:feed, loader: "test")
+      feed = model.new(loader: "test")
 
       expect(feed.loader_class).to eq(TestLoader)
     end
 
-    it { expect(build(:feed, processor: nil).loader_class).to be_nil }
+    it { expect(model.new(processor: nil).loader_class).to be_nil }
 
-    it { expect(build(:feed, processor: "missing").loader_class).to be_nil }
+    it { expect(model.new(processor: "missing").loader_class).to be_nil }
   end
 
   describe "#processor_class" do
     it "resolves specified class" do
       stub_const("TestProcessor", Class.new)
-      feed = build(:feed, processor: "test")
+      feed = model.new(processor: "test")
 
-      expect(build(:feed, processor: "test").processor_class).to eq(TestProcessor)
+      expect(model.new(processor: "test").processor_class).to eq(TestProcessor)
     end
 
-    it { expect(build(:feed, processor: nil).processor_class).to be_nil }
+    it { expect(model.new(processor: nil).processor_class).to be_nil }
 
-    it { expect(build(:feed, processor: "missing").processor_class).to be_nil }
+    it { expect(model.new(processor: "missing").processor_class).to be_nil }
   end
 
   describe "#normalizer_class" do
     it "resolves specified class" do
       stub_const("TestNormalizer", Class.new)
-      feed = build(:feed, normalizer: "test")
+      feed = model.new(normalizer: "test")
 
-      expect(build(:feed, normalizer: "test").normalizer_class).to eq(TestNormalizer)
+      expect(model.new(normalizer: "test").normalizer_class).to eq(TestNormalizer)
     end
 
-    it { expect(build(:feed, normalizer: nil).normalizer_class).to be_nil }
+    it { expect(model.new(normalizer: nil).normalizer_class).to be_nil }
 
-    it { expect(build(:feed, normalizer: "missing").normalizer_class).to be_nil }
+    it { expect(model.new(normalizer: "missing").normalizer_class).to be_nil }
   end
 
   describe "#loader_instance" do
     it "instantiates a service" do
       stub_const("TestLoader", Class.new(FeedService))
-      feed = build(:feed, loader: "test")
+      feed = model.new(loader: "test")
       instance = feed.loader_instance
 
       expect(instance).to be_a(TestLoader)
@@ -104,7 +104,7 @@ RSpec.describe Feed do
     end
 
     it do
-      feed = build(:feed, loader: "missing")
+      feed = model.new(loader: "missing")
 
       expect { feed.loader_instance }.to raise_error(StandardError)
     end
@@ -113,7 +113,7 @@ RSpec.describe Feed do
   describe "#processor_instance" do
     it "instantiates a service" do
       stub_const("TestProcessor", Class.new(FeedService))
-      feed = build(:feed, processor: "test")
+      feed = model.new(processor: "test")
       instance = feed.processor_instance
 
       expect(instance).to be_a(TestProcessor)
@@ -121,7 +121,7 @@ RSpec.describe Feed do
     end
 
     it do
-      feed = build(:feed, processor: "missing")
+      feed = model.new(processor: "missing")
 
       expect { feed.processor_instance }.to raise_error(StandardError)
     end
@@ -130,7 +130,7 @@ RSpec.describe Feed do
   describe "#normalizer_instance" do
     it "instantiates a service" do
       stub_const("TestNormalizer", Class.new(FeedService))
-      feed = build(:feed, normalizer: "test")
+      feed = model.new(normalizer: "test")
       instance = feed.normalizer_instance
 
       expect(instance).to be_a(TestNormalizer)
@@ -138,7 +138,7 @@ RSpec.describe Feed do
     end
 
     it do
-      feed = build(:feed, normalizer: "missing")
+      feed = model.new(normalizer: "missing")
 
       expect { feed.normalizer_instance }.to raise_error(StandardError)
     end
@@ -149,7 +149,7 @@ RSpec.describe Feed do
       stub_const("TestLoader", Class.new)
       stub_const("TestProcessor", Class.new)
       stub_const("TestNormalizer", Class.new)
-      feed = build(:feed, loader: "test", processor: "test", normalizer: "test")
+      feed = model.new(loader: "test", processor: "test", normalizer: "test")
 
       expected = {
         loader_class: TestLoader,
@@ -161,7 +161,7 @@ RSpec.describe Feed do
     end
 
     it "should tolerate missing service classes" do
-      feed = build(:feed, loader: "test", processor: "test", normalizer: "test")
+      feed = model.new(loader: "test", processor: "test", normalizer: "test")
 
       expected = {
         loader_class: nil,
