@@ -2,9 +2,11 @@ source "https://rubygems.org"
 
 ruby "3.3.4"
 
+gem "aasm", "~> 5.5"
 gem "amazing_print"
 gem "bootsnap", require: false
 gem "jsbundling-rails"
+gem "memo_wise", "~> 1.9"
 gem "pg", "~> 1.5"
 gem "propshaft"
 gem "pry", "~> 0.14"
@@ -12,6 +14,7 @@ gem "pry-byebug"
 gem "pry-rails", "~> 0.3.9"
 gem "puma", "~> 6.4"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"
+gem "rexml", ">= 3.3.4"  # No direct dependency; added to mitigate a CVE
 gem "stimulus-rails"
 gem "turbo-rails"
 gem "tzinfo-data"

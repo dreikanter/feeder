@@ -1,17 +1,18 @@
 require_relative "boot"
 
 require "rails"
-# Pick the frameworks you want:
-require "active_model/railtie"
-require "active_job/railtie"
+
+# Picking only the required gems
+# SEE: https://github.com/rails/rails/blob/main/railties/lib/rails/all.rb
 require "active_record/railtie"
 # require "active_storage/engine"
 require "action_controller/railtie"
+require "action_view/railtie"
 # require "action_mailer/railtie"
+require "active_job/railtie"
+# require "action_cable/engine"
 # require "action_mailbox/engine"
 # require "action_text/engine"
-require "action_view/railtie"
-# require "action_cable/engine"
 require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -38,5 +39,18 @@ module Feeder
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    #
+    # Manually added to the originally generated configuration
+    #
+
+    config.hosts << "feeder.local"
+    config.hosts << "frf.im"
+    config.hosts << "localhost"
+
+    # Use Redis cache store on all environments (see docker-compose.yml)
+    config.cache_store = :redis_cache_store, {url: ENV.fetch("REDIS_URL")}
+
+    config.ssl_options = {hsts: {subdomains: true}}
   end
 end
