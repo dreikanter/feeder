@@ -44,13 +44,16 @@ class Importer
   def process_feed_content(feed_content)
     feed.processor_instance.process(feed_content)
   rescue StandardError => e
-    track_feed_error(error: e, category: "processing", context: {content: feed_content})
+    track_feed_error(error: e, category: "processing", context: {feed_content: feed_content})
     raise e
   end
 
-  def build_posts(entities)
-    entities.each do |entity|
-      PostBuilder.new(feed: feed, feed_entity: entity).build
+  def build_posts(feed_entities)
+    feed_entities.each do |feed_entity|
+      feed.normalizer_class.new(feed_entity).normalize.save!
+    rescue StandardError => e
+      track_feed_error(error: e, category: "post_building", context: {feed_entity: feed_content})
+      next
     end
   end
 

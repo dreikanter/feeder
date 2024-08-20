@@ -41,8 +41,4 @@ class Feed < ApplicationRecord
   rescue NameError
     nil
   end
-
-  def normalizer_instance
-    normalizer_class.new(self)
-  end
 end

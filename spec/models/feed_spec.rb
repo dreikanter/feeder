@@ -56,7 +56,7 @@ RSpec.describe Feed do
 
   describe "#loader_class" do
     it "resolves specified class" do
-      stub_const("TestLoader", Class.new)
+      stub_const("TestLoader", Class.new(BaseLoader))
       feed = model.new(loader: "test")
 
       expect(feed.loader_class).to eq(TestLoader)
@@ -69,7 +69,7 @@ RSpec.describe Feed do
 
   describe "#processor_class" do
     it "resolves specified class" do
-      stub_const("TestProcessor", Class.new)
+      stub_const("TestProcessor", Class.new(BaseProcessor))
       model.new(processor: "test")
 
       expect(model.new(processor: "test").processor_class).to eq(TestProcessor)
@@ -82,7 +82,7 @@ RSpec.describe Feed do
 
   describe "#normalizer_class" do
     it "resolves specified class" do
-      stub_const("TestNormalizer", Class.new)
+      stub_const("TestNormalizer", Class.new(BaseNormalizer))
       model.new(normalizer: "test")
 
       expect(model.new(normalizer: "test").normalizer_class).to eq(TestNormalizer)
@@ -95,7 +95,7 @@ RSpec.describe Feed do
 
   describe "#loader_instance" do
     it "instantiates a service" do
-      stub_const("TestLoader", Class.new(FeedService))
+      stub_const("TestLoader", Class.new(BaseLoader))
       feed = model.new(loader: "test")
       instance = feed.loader_instance
 
@@ -112,7 +112,7 @@ RSpec.describe Feed do
 
   describe "#processor_instance" do
     it "instantiates a service" do
-      stub_const("TestProcessor", Class.new(FeedService))
+      stub_const("TestProcessor", Class.new(BaseProcessor))
       feed = model.new(processor: "test")
       instance = feed.processor_instance
 
@@ -127,28 +127,11 @@ RSpec.describe Feed do
     end
   end
 
-  describe "#normalizer_instance" do
-    it "instantiates a service" do
-      stub_const("TestNormalizer", Class.new(FeedService))
-      feed = model.new(normalizer: "test")
-      instance = feed.normalizer_instance
-
-      expect(instance).to be_a(TestNormalizer)
-      expect(instance.feed).to eq(feed)
-    end
-
-    it do
-      feed = model.new(normalizer: "missing")
-
-      expect { feed.normalizer_instance }.to raise_error(StandardError)
-    end
-  end
-
   describe "#service_classes" do
     it "returns a hash" do
-      stub_const("TestLoader", Class.new)
-      stub_const("TestProcessor", Class.new)
-      stub_const("TestNormalizer", Class.new)
+      stub_const("TestLoader", Class.new(BaseLoader))
+      stub_const("TestProcessor", Class.new(BaseProcessor))
+      stub_const("TestNormalizer", Class.new(BaseNormalizer))
       feed = model.new(loader: "test", processor: "test", normalizer: "test")
 
       expected = {
