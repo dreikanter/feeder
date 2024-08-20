@@ -10,7 +10,7 @@ class HttpLoader < BaseLoader
 
     if response.status.success?
       FeedContent.new(
-        raw_content: response.to_s,
+        content: response.to_s,
         imported_at: timestamp,
         import_duration: import_duration
       )
