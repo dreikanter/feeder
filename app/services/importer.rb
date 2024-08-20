@@ -56,7 +56,7 @@ class Importer
 
   def track_feed_error(category:, error: nil, context: {})
     ActiveRecord::Base.transaction do
-      feed.update!(errored_at: Time.current, errors_count: feed.errors_count.succ)
+      feed.update!(errors_count: feed.errors_count.succ)
 
       ErrorReporter.report(
         error: error,

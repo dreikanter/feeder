@@ -1,5 +1,5 @@
 module Logging
   def logger
-    @logger ||= ApplicationLogger.new(Rails.logger)
+    @logger ||= ApplicationLogger.new
   end
 end

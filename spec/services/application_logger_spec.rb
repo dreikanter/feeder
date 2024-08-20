@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe ApplicationLogger do
   subject(:service) { described_class }
 
-  let(:application_logger) { described_class.new(logger: mock_logger) }
+  let(:application_logger) { described_class.new(logger: mock_logger, colorize: true) }
   let(:mock_logger) { instance_double(Logger) }
   let(:message) { "MESSAGE" }
 
