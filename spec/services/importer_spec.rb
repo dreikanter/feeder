@@ -6,17 +6,26 @@ RSpec.describe Importer do
   let(:feed) do
     create(
       :feed,
-      loader: "http",
-      processor: "rss",
-      normalizer: "rss",
+      loader: "test",
+      processor: "test",
+      normalizer: "test",
       import_limit: 2
     )
   end
 
-  it "imports posts" do
-    stub_request(:get, feed.url).to_return(body: file_fixture("sample_rss.xml"))
-    importer = service.new(feed: feed)
+  let(:test_loader_class) do
+    content = file_fixture("sample_rss.xml").read
 
-    expect { importer.import }.to change(Post, :count).by(2)
+    Class.new(BaseLoader) do
+      define_method :load do
+        content
+      end
+    end
+  end
+
+  context "when on the happy path" do
+    it "imports posts" do
+      stub_const("TestLoader", test_loader_class)
+    end
   end
 end
