@@ -14,7 +14,7 @@ RSpec.describe HttpLoader do
         stub_request(:get, feed.url).to_return(body: content)
 
         expected = FeedContent.new(
-          raw_content: content,
+          content: content,
           imported_at: Time.current,
           import_duration: 0.0
         )

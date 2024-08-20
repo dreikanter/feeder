@@ -6,12 +6,12 @@ RSpec.describe FeedContent do
   describe "#initialize" do
     it "accepts attributes" do
       instance = model.new(
-        raw_content: "RAW_CONTENT",
+        content: "CONTENT",
         imported_at: "IMPORTED_AT",
         import_duration: "IMPORT_DURATION"
       )
 
-      expect(instance.raw_content).to eq("RAW_CONTENT")
+      expect(instance.content).to eq("CONTENT")
       expect(instance.imported_at).to eq("IMPORTED_AT")
       expect(instance.import_duration).to eq("IMPORT_DURATION")
     end
@@ -24,7 +24,7 @@ RSpec.describe FeedContent do
 
     let(:feed_content) do
       model.new(
-        raw_content: content,
+        content: content,
         imported_at: time_now,
         import_duration: duration
       )
@@ -33,7 +33,7 @@ RSpec.describe FeedContent do
     context "with identical attribute values" do
       let(:other_feed_content) do
         model.new(
-          raw_content: content,
+          content: content,
           imported_at: time_now,
           import_duration: duration
         )
@@ -42,10 +42,10 @@ RSpec.describe FeedContent do
       it { expect(feed_content == other_feed_content).to be(true) }
     end
 
-    context "with different raw_content" do
+    context "with different content" do
       let(:other_feed_content) do
         model.new(
-          raw_content: "DIFFERENT",
+          content: "DIFFERENT",
           imported_at: time_now,
           import_duration: duration
         )
@@ -57,7 +57,7 @@ RSpec.describe FeedContent do
     context "with different imported_at" do
       let(:other_feed_content) do
         model.new(
-          raw_content: content,
+          content: content,
           imported_at: time_now + 1,
           import_duration: duration
         )
@@ -69,7 +69,7 @@ RSpec.describe FeedContent do
     context "with different import_duration" do
       let(:other_feed_content) do
         model.new(
-          raw_content: content,
+          content: content,
           imported_at: time_now,
           import_duration: duration + 1
         )

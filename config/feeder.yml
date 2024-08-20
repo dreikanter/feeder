@@ -1,0 +1,8 @@
+shared:
+  freefeed_base_url: "<%= ENV['FREEFEED_BASE_URL'] || 'https://candy.freefeed.net' %>"
+
+development:
+
+test:
+
+production:
