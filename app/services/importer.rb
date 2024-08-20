@@ -7,7 +7,7 @@ class Importer
   attr_reader :feed
 
   # @param feed: [Feed]
-  def initialize(feed:)
+  def initialize(feed)
     @feed = feed
   end
 
@@ -69,7 +69,6 @@ class Importer
 
   def error_context
     {
-      feed_supported: feed.supported?,
       feed_service_classes: feed.service_classes
     }
   end
