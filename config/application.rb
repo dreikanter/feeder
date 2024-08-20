@@ -52,5 +52,6 @@ module Feeder
     config.cache_store = :redis_cache_store, {url: ENV.fetch("REDIS_URL")}
 
     config.ssl_options = {hsts: {subdomains: true}}
+    config.feeder = config_for(:feeder)
   end
 end
