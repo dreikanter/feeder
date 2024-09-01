@@ -40,7 +40,7 @@ class Feed < ApplicationRecord
     options
     processor
     refresh_interval
-    source
+    source_url
     url
   ].freeze
 

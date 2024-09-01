@@ -8,7 +8,7 @@
   after: "2023-06-09T00:00:00+00:00"
   refresh_interval: 1800
   import_limit: 10
-  source: "https://xkcd.com"
+  source_url: "https://xkcd.com"
   description: "Feed description"
   disabling_reason: "Sample reason"
   options:
