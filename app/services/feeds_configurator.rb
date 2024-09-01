@@ -10,11 +10,12 @@ class FeedsConfigurator
   def import
     feeds_configuration.each do |configuration|
       existing_feed = existing_feeds[configuration[:name]]
+      attributes = feed_attributes(configuration)
 
       if existing_feed
-        existing_feed.update!(**feed_attributes(configuration)) if existing_feed.configurable?
+        existing_feed.update!(**attributes) if existing_feed.configurable?
       else
-        Feed.create!(**feed_attributes(configuration))
+        Feed.create!(**attributes)
       end
     end
   end
