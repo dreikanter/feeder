@@ -5,9 +5,9 @@ RSpec.describe Feed do
 
   let(:arbitrary_time) { Time.current }
 
-  describe "validations" do
-    # TBD
-  end
+  # TBD
+  # describe "validations" do
+  # end
 
   describe "#configurable?" do
     context "with missing timestamps" do
