@@ -3,6 +3,35 @@ require "rails_helper"
 RSpec.describe Feed do
   subject(:model) { described_class }
 
+  let(:arbitrary_time) { Time.current }
+
+  describe "validations" do
+    # TBD
+  end
+
+  describe "#configurable?" do
+    context "with missing timestamps" do
+      it "returns true" do
+        expect(model.new(updated_at: arbitrary_time, configured_at: nil)).to be_configurable
+        expect(model.new(updated_at: true, configured_at: arbitrary_time)).to be_configurable
+        expect(model.new(updated_at: nil, configured_at: nil)).to be_configurable
+      end
+    end
+
+    context "when last update was before or during previous configuration" do
+      it "returns true" do
+        expect(model.new(updated_at: arbitrary_time, configured_at: arbitrary_time)).to be_configurable
+        expect(model.new(updated_at: arbitrary_time - 1.second, configured_at: arbitrary_time)).to be_configurable
+      end
+    end
+
+    context "when last update was manual" do
+      it "returns false" do
+        expect(model.new(updated_at: arbitrary_time + 1.second, configured_at: arbitrary_time)).not_to be_configurable
+      end
+    end
+  end
+
   describe "#readable_id" do
     it "returns expected value" do
       actual = model.new(id: 1, name: "sample").readable_id

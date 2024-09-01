@@ -40,7 +40,7 @@ shared:
   - name: "dilbert"
     enabled: false
     disabling_reason: "Scott Adams discontinued comic publication since February 2023"
-    source: https://linktr.ee/scottadams
+    source_url: https://linktr.ee/scottadams
     url: "https://dilbert.com/feed"
     loader: "http"
     processor: "atom"
@@ -61,7 +61,7 @@ shared:
   - name: "nichtlustig-de"
     enabled: false
     disabling_reason: "Inactive since 2017"
-    source: "http://nichtlustig.de"
+    source_url: "http://nichtlustig.de"
     url: "http://static.nichtlustig.de/rss/nichtrss.rss"
     loader: "http"
     processor: "rss"
@@ -91,7 +91,7 @@ shared:
   - name: "kamillalinder-medium"
     enabled: false
     disabling_reason: "Medium is not responding for some reason. The feed is temporarily deactivated."
-    source: "https://medium.com/feed/@kamillalinder"
+    source_url: "https://medium.com/feed/@kamillalinder"
     url: "https://medium.com/feed/@kamillalinder"
     loader: "http"
     processor: "rss"
@@ -141,7 +141,7 @@ shared:
   - name: "esquire-photos"
     enabled: false
     disabling_reason: "There is no more Esquire now"
-    source: "https://pravilamag.ru"
+    source_url: "https://pravilamag.ru"
     url: "https://feeds.feedburner.com/esquire-ru"
     loader: "http"
     processor: "rss"
@@ -169,7 +169,7 @@ shared:
   - name: "avokado-fm"
     enabled: false
     disabling_reason: "tele.ga feed is inactive"
-    source: "https://t.me/avokado_fm"
+    source_url: "https://t.me/avokado_fm"
     url: "https://tele.ga/avokado_fm/rss/"
     loader: "http"
     processor: "rss"
@@ -181,7 +181,7 @@ shared:
   - name: "ecologica"
     enabled: false
     disabling_reason: "vkrss.com service is down"
-    source: "https://vk.com/ecologicaspb"
+    source_url: "https://vk.com/ecologicaspb"
     url: "https://vkrss.com/ecologicaspb?key=EW9tJd7ZI8iGBQyg"
     loader: "http"
     processor: "rss"
@@ -249,7 +249,7 @@ shared:
   - name: "little-big-details"
     enabled: false
     disabling_reason: "Inactive since 2019"
-    source: "http://littlebigdetails.com"
+    source_url: "http://littlebigdetails.com"
     url: "https://feeds.feedburner.com/littlebigdetails/wJCD"
     loader: "http"
     processor: "rss"
@@ -299,7 +299,7 @@ shared:
   - name: "maremir"
     enabled: false
     disabling_reason: "Inactive since 2018"
-    source: "http://maremir.org"
+    source_url: "http://maremir.org"
     url: "http://maremir.org/feed/"
     loader: "http"
     processor: "rss"
@@ -329,7 +329,7 @@ shared:
   - name: "blogdummi"
     enabled: false
     disabling_reason: "Incative since 2022.10.28"
-    source: "https://blogdummi.fr"
+    source_url: "https://blogdummi.fr"
     url: "https://blogdummi.fr/feed/"
     loader: "http"
     processor: "feedjira"
@@ -377,7 +377,7 @@ shared:
   - name: "kimchicuddlesrus"
     enabled: false
     disabling_reason: "Inactive since 2019"
-    source: https://kimchicuddlesrus.com
+    source_url: https://kimchicuddlesrus.com
     url: "https://kimchicuddlesrus.com"
     loader: "http"
     processor: "kimchicuddlesrus"
@@ -388,7 +388,7 @@ shared:
   - name: "aerostatica"
     enabled: false
     disabling_reason: "Inactive since 2019, check out the new feed at https://freefeed.net/aerostat"
-    source: "https://aerostatica.ru"
+    source_url: "https://aerostatica.ru"
     url: "https://feeds.feedburner.com/aerostatica"
     loader: "http"
     processor: "feedjira"
@@ -398,7 +398,7 @@ shared:
 
   - name: "aerostat"
     url: "https://aerostatbg.ru/rss.xml"
-    source: "https://aerostatbg.ru"
+    source_url: "https://aerostatbg.ru"
     loader: "http"
     processor: "feedjira"
     normalizer: "aerostat"
@@ -703,7 +703,7 @@ shared:
   - name: "ru-tatireti"
     enabled: false
     disabling_reason: "Site not available"
-    source: "https://tatireti.ru"
+    source_url: "https://tatireti.ru"
     url: "https://tatireti.ru/?feed=rss2"
     loader: "http"
     processor: "feedjira"
@@ -769,7 +769,7 @@ shared:
     enabled: false
     disabling_reason: "Kotaku disabled the comments, naking impossible to figure out the most popular posts based on the amount of replies"
     url: "https://kotaku.com/rss"
-    source: "https://kotaku.com"
+    source_url: "https://kotaku.com"
     loader: "http"
     processor: "kotaku_daily"
     normalizer: "kotaku_daily"
