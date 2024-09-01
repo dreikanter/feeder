@@ -1,5 +1,814 @@
 shared:
   freefeed_base_url: "<%= ENV['FREEFEED_BASE_URL'] || 'https://candy.freefeed.net' %>"
+  feeds:
+  - name: "xkcd"
+    url: "https://xkcd.com/rss.xml"
+    loader: "http"
+    processor: "rss"
+    normalizer: "xkcd"
+    after: "2021-01-04T12:00:00+00:00"
+    refresh_interval: 1200
+    import_limit: 2
+
+  - name: "oglaf"
+    url: "https://www.oglaf.com/feeds/rss/"
+    loader: "http"
+    processor: "rss"
+    normalizer: "oglaf"
+    refresh_interval: 1200
+    after: "2021-01-04T12:00:00+00:00"
+    import_limit: 2
+
+  - name: "phdcomics"
+    url: "https://feeds.feedburner.com/PhdComics"
+    loader: "http"
+    processor: "rss"
+    normalizer: "phdcomics"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 86400
+    import_limit: 2
+
+  - name: "commitstrip"
+    url: "https://www.commitstrip.com/en/feed/"
+    loader: "http"
+    processor: "feedjira"
+    normalizer: "commitstrip"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 7200
+    import_limit: 2
+
+  - name: "dilbert"
+    enabled: false
+    disabling_reason: "Scott Adams discontinued comic publication since February 2023"
+    source: https://linktr.ee/scottadams
+    url: "https://dilbert.com/feed"
+    loader: "http"
+    processor: "atom"
+    normalizer: "dilbert"
+    after: "2021-01-04T12:00:00+00:00"
+    refresh_interval: 1800
+    import_limit: 2
+
+  - name: "rllivejournal"
+    url: "https://r-l.livejournal.com/data/rss"
+    loader: "http"
+    processor: "rss"
+    normalizer: "livejournal"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 7200
+    import_limit: 2
+
+  - name: "nichtlustig-de"
+    enabled: false
+    disabling_reason: "Inactive since 2017"
+    source: "http://nichtlustig.de"
+    url: "http://static.nichtlustig.de/rss/nichtrss.rss"
+    loader: "http"
+    processor: "rss"
+    normalizer: "rss"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 86400
+    import_limit: 2
+
+  - name: "oatmeal"
+    url: "https://feeds.feedburner.com/oatmealfeed"
+    loader: "http"
+    processor: "rss"
+    normalizer: "oatmeal"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 3600
+    import_limit: 2
+
+  - name: "wumo"
+    url: "https://wumo.com/wumo?view=rss"
+    loader: "http"
+    processor: "rss"
+    normalizer: "wumo"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 3600
+    import_limit: 2
+
+  - name: "kamillalinder-medium"
+    enabled: false
+    disabling_reason: "Medium is not responding for some reason. The feed is temporarily deactivated."
+    source: "https://medium.com/feed/@kamillalinder"
+    url: "https://medium.com/feed/@kamillalinder"
+    loader: "http"
+    processor: "rss"
+    normalizer: "medium"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 86400
+    import_limit: 2
+
+  - name: "signalvnoise-medium"
+    enabled: false
+    disabling_reason: "Signal v. Noise was closed in 2021"
+    url: "https://m.signalvnoise.com/feed"
+    loader: "http"
+    processor: "rss"
+    normalizer: "medium"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 7200
+    import_limit: 2
+
+  - name: "github-blog"
+    url: "https://github.com/blog/all.atom"
+    loader: "http"
+    processor: "atom"
+    normalizer: "github_blog"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 3600
+    import_limit: 2
+
+  - name: "explosm-comics"
+    url: "https://feeds.feedburner.com/Explosm"
+    loader: "http"
+    processor: "rss"
+    normalizer: "explosm_comics"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 86400
+    import_limit: 2
+
+  - name: "the-atlantic-photos"
+    url: "https://feeds.feedburner.com/theatlantic/infocus"
+    loader: "http"
+    processor: "rss"
+    normalizer: "the_atlantic_photos"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 7200
+    import_limit: 2
+
+  - name: "esquire-photos"
+    enabled: false
+    disabling_reason: "There is no more Esquire now"
+    source: "https://pravilamag.ru"
+    url: "https://feeds.feedburner.com/esquire-ru"
+    loader: "http"
+    processor: "rss"
+    normalizer: "rss"
+    after: "2021-01-06T12:00:00+00:00"
+    import_limit: 2
+
+  - name: "best-of-hacker-news"
+    loader: "hackernews"
+    processor: "hackernews"
+    normalizer: "hackernews"
+    after: "2021-01-09T12:00:00+00:00"
+    refresh_interval: 1200
+    import_limit: 2
+
+  - name: "reddit-worldnews"
+    url: "https://www.reddit.com/r/worldnews/.rss"
+    loader: "http"
+    processor: "reddit"
+    normalizer: "reddit"
+    after: "2023-09-02T00:00:00+00:00"
+    refresh_interval: 0
+    import_limit: 2
+
+  - name: "avokado-fm"
+    enabled: false
+    disabling_reason: "tele.ga feed is inactive"
+    source: "https://t.me/avokado_fm"
+    url: "https://tele.ga/avokado_fm/rss/"
+    loader: "http"
+    processor: "rss"
+    normalizer: "telega"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 7200
+    import_limit: 2
+
+  - name: "ecologica"
+    enabled: false
+    disabling_reason: "vkrss.com service is down"
+    source: "https://vk.com/ecologicaspb"
+    url: "https://vkrss.com/ecologicaspb?key=EW9tJd7ZI8iGBQyg"
+    loader: "http"
+    processor: "rss"
+    normalizer: "vk_rss"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 1200
+    import_limit: 2
+
+  - name: "f28a"
+    # url: "http://floccinaucinihilipilificationa.tumblr.com/rss"
+    url: "https://feeds.feedburner.com/tumblr/bAzd"
+    loader: "http"
+    processor: "rss"
+    normalizer: "f28a"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 3600
+    import_limit: 2
+
+  - name: "agavr-today"
+    url: "https://tele.ga/agavr_today/rss/"
+    loader: "http"
+    processor: "rss"
+    normalizer: "agavr_today"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 600
+    import_limit: 2
+
+  - name: "vdud"
+    url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCMCgOm8GZkHp8zJ6l7_hIuA"
+    loader: "http"
+    processor: "youtube"
+    normalizer: "vdud"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 600
+    import_limit: 2
+
+  - name: "parfenon"
+    url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCbhMGG0ZievPtK8mzLH5jhQ"
+    loader: "http"
+    processor: "youtube"
+    normalizer: "youtube"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 1200
+    import_limit: 2
+
+  - name: "myjetpack"
+    # url: "http://myjetpack.tumblr.com/rss"
+    url: "https://feeds.feedburner.com/tumblr/uOke"
+    loader: "http"
+    processor: "rss"
+    normalizer: "my_jetpack"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 3600
+    import_limit: 2
+
+  - name: "codinghorror"
+    url: "https://feeds.feedburner.com/codinghorror"
+    loader: "http"
+    processor: "rss"
+    normalizer: "coding_horror"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 7200
+    import_limit: 2
+
+  - name: "little-big-details"
+    enabled: false
+    disabling_reason: "Inactive since 2019"
+    source: "http://littlebigdetails.com"
+    url: "https://feeds.feedburner.com/littlebigdetails/wJCD"
+    loader: "http"
+    processor: "rss"
+    normalizer: "little_big_details"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 86400
+    import_limit: 2
+
+  - name: "blitz-and-chips"
+    url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCRQEBFeG3lTMDEIUtQulzLg"
+    loader: "http"
+    processor: "youtube"
+    normalizer: "youtube"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 14400
+    import_limit: 2
+
+  - name: "jimmydiresta"
+    url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCiEk4xHBbz0hZNIBBpowdYQ"
+    loader: "http"
+    processor: "youtube"
+    normalizer: "youtube"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 7200
+    import_limit: 2
+
+  - name: "confreaks"
+    url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCWnPjmqvljcafA0z2U1fwKQ"
+    loader: "http"
+    processor: "youtube"
+    normalizer: "youtube"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 7200
+    import_limit: 2
+
+  - name: "theycantalk"
+    # url: "http://theycantalk.com/rss"
+    url: "https://feeds.feedburner.com/theycantalk/xFcE"
+    loader: "http"
+    processor: "rss"
+    normalizer: "theycantalk"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 600
+    import_limit: 2
+
+  # NOTE: HTTPS is not supported
+  - name: "maremir"
+    enabled: false
+    disabling_reason: "Inactive since 2018"
+    source: "http://maremir.org"
+    url: "http://maremir.org/feed/"
+    loader: "http"
+    processor: "rss"
+    normalizer: "maremir"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 86400
+    import_limit: 2
+
+  - name: "sarahcandersen"
+    url: "https://feeds.feedburner.com/sarahcandersen/koPM"
+    loader: "http"
+    processor: "rss"
+    normalizer: "sarah_andersen"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 600
+    import_limit: 2
+
+  - name: "newflux"
+    url: "https://newflux.fr/feed/"
+    loader: "http"
+    processor: "feedjira"
+    normalizer: "newflux"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 1200
+    import_limit: 2
+
+  - name: "blogdummi"
+    enabled: false
+    disabling_reason: "Incative since 2022.10.28"
+    source: "https://blogdummi.fr"
+    url: "https://blogdummi.fr/feed/"
+    loader: "http"
+    processor: "feedjira"
+    normalizer: "blogdummi"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 86400
+    import_limit: 2
+
+  - name: "waitbutwhy"
+    url: "https://waitbutwhy.com/feed"
+    loader: "http"
+    processor: "feedjira"
+    normalizer: "waitbutwhy"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 7200
+    import_limit: 2
+
+  - name: "savagechickens"
+    url: "https://www.savagechickens.com/feed"
+    loader: "http"
+    processor: "feedjira"
+    normalizer: "savagechickens"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 600
+    import_limit: 2
+
+  - name: "poorlydrawnlines"
+    url: "https://feeds.feedburner.com/PoorlyDrawnLines"
+    loader: "http"
+    processor: "feedjira"
+    normalizer: "poorlydrawnlines"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 600
+    import_limit: 2
+
+  - name: "kimchicuddles"
+    url: "https://kimchicuddles.com/rss"
+    loader: "http"
+    processor: "rss"
+    normalizer: "tumblr"
+    after: "2021-01-06T12:00:00+00:00"
+    refresh_interval: 86400
+    import_limit: 2
+
+  - name: "kimchicuddlesrus"
+    enabled: false
+    disabling_reason: "Inactive since 2019"
+    source: https://kimchicuddlesrus.com
+    url: "https://kimchicuddlesrus.com"
+    loader: "http"
+    processor: "kimchicuddlesrus"
+    normalizer: "kimchicuddlesrus"
+    after: "2021-01-06T12:00:00+00:00"
+    import_limit: 2
+
+  - name: "aerostatica"
+    enabled: false
+    disabling_reason: "Inactive since 2019, check out the new feed at https://freefeed.net/aerostat"
+    source: "https://aerostatica.ru"
+    url: "https://feeds.feedburner.com/aerostatica"
+    loader: "http"
+    processor: "feedjira"
+    normalizer: "aerostatica"
+    refresh_interval: 7200
+    import_limit: 2
+
+  - name: "aerostat"
+    url: "https://aerostatbg.ru/rss.xml"
+    source: "https://aerostatbg.ru"
+    loader: "http"
+    processor: "feedjira"
+    normalizer: "aerostat"
+    refresh_interval: 86400
+    import_limit: 20
+
+  - name: "algtestament"
+    enabled: false
+    disabling_reason: "Inactive account"
+    loader: "twitter"
+    processor: "twitter"
+    normalizer: "twitter"
+    refresh_interval: 86400
+    import_limit: 2
+    after: "2021-01-06T12:00:00+00:00"
+    options:
+      twitter_user: "alg_testament"
+      ignore_retweets: true
+
+  - name: "extrafabulous"
+    loader: "nitter"
+    processor: "nitter"
+    normalizer: "nitter"
+    refresh_interval: 7200
+    import_limit: 1
+    after: "2021-01-06T12:00:00+00:00"
+    options:
+      twitter_user: "extrafabulous"
+      only_with_attachments: true
+      ignore_retweets: true
+
+  - name: "bojackhorseman"
+    enabled: false
+    disabling_reason: "Inactive account"
+    loader: "twitter"
+    processor: "twitter"
+    normalizer: "twitter"
+    refresh_interval: 1200
+    import_limit: 2
+    after: "2021-01-06T12:00:00+00:00"
+    options:
+      twitter_user: "bojackhorseman"
+      ignore_retweets: true
+
+  - name: "nextbigfuture"
+    url: "https://www.nextbigfuture.com/feed"
+    loader: "http"
+    processor: "feedjira"
+    normalizer: "nextbigfuture"
+    refresh_interval: 1800
+    import_limit: 2
+    after: "2021-01-06T12:00:00+00:00"
+
+  - name: "nepozner"
+    url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCNRYbltJXhf6DepS26-uSbQ"
+    loader: "http"
+    processor: "youtube"
+    normalizer: "youtube"
+    refresh_interval: 1800
+    import_limit: 2
+    after: "2021-01-06T12:00:00+00:00"
+
+  - name: "jakelikesonions"
+    loader: "nitter"
+    processor: "nitter"
+    normalizer: "nitter"
+    refresh_interval: 7200
+    import_limit: 1
+    after: "2021-01-06T12:00:00+00:00"
+    options:
+      twitter_user: "jakelikesonions"
+      only_with_attachments: true
+      ignore_retweets: true
+
+  - name: "catscafe"
+    loader: "nitter"
+    processor: "nitter"
+    normalizer: "nitter"
+    refresh_interval: 7200
+    import_limit: 1
+    after: "2021-01-06T12:00:00+00:00"
+    options:
+      twitter_user: "CatsCafeComics"
+      only_with_attachments: true
+      ignore_retweets: true
+
+  - name: "hackernewsonion"
+    loader: "nitter"
+    processor: "nitter"
+    normalizer: "nitter"
+    refresh_interval: 7200
+    import_limit: 1
+    after: "2021-01-06T12:00:00+00:00"
+    options:
+      twitter_user: "hackernewsonion"
+      ignore_retweets: true
+
+  - name: "bazar"
+    enabled: false
+    disabling_reason: "No new episodes since 2022"
+    url: "https://meduza.io/rss/podcasts/knizhnyy-bazar"
+    loader: "http"
+    processor: "feedjira"
+    normalizer: "bazar"
+    refresh_interval: 7200
+    import_limit: 2
+    after: "2021-01-06T12:00:00+00:00"
+
+  - name: "rework"
+    enabled: false
+    url: "https://feeds.transistor.fm/rework"
+    loader: "http"
+    processor: "feedjira"
+    normalizer: "rework"
+    refresh_interval: 7200
+    import_limit: 2
+    after: "2021-01-06T12:00:00+00:00"
+
+  - name: "nathanwpyle"
+    loader: "nitter"
+    processor: "nitter"
+    normalizer: "nitter"
+    refresh_interval: 7200
+    import_limit: 1
+    after: "2021-01-06T12:00:00+00:00"
+    options:
+      twitter_user: "nathanwpyle"
+      only_with_attachments: true
+      ignore_retweets: true
+
+  - name: "smbc"
+    url: "https://www.smbc-comics.com/comic/rss"
+    loader: "http"
+    processor: "rss"
+    normalizer: "smbc"
+    refresh_interval: 1800
+    import_limit: 2
+    after: "2021-01-06T12:00:00+00:00"
+
+  - name: "officetalk"
+    enabled: false
+    disabling_reason: "Inactive feed"
+    url: "https://tele.ga/office_talk/rss/"
+    loader: "http"
+    processor: "rss"
+    normalizer: "telega_basic"
+    refresh_interval: 86400
+    import_limit: 2
+    after: "2021-01-06T12:00:00+00:00"
+
+  - name: "infiniteimmortalbens"
+    url: "https://infiniteimmortalbens.com/feed/"
+    loader: "http"
+    processor: "rss"
+    normalizer: "infiniteimmortalbens"
+    refresh_interval: 3600
+    import_limit: 2
+    after: "2021-01-06T12:00:00+00:00"
+
+  - name: "schneier"
+    url: "https://www.schneier.com/blog/atom.xml"
+    loader: "http"
+    processor: "atom"
+    normalizer: "schneier"
+    refresh_interval: 3600
+    import_limit: 2
+    after: "2021-01-06T12:00:00+00:00"
+
+  - name: "monkeyuser"
+    url: "https://www.monkeyuser.com/index.xml"
+    loader: "http"
+    processor: "feedjira"
+    normalizer: "monkeyuser"
+    refresh_interval: 14400
+    import_limit: 1
+    after: "2023-09-01T00:00:00+00:00"
+
+  - name: "warandpeas"
+    loader: "nitter"
+    processor: "nitter"
+    normalizer: "nitter"
+    refresh_interval: 7200
+    import_limit: 1
+    after: "2021-01-06T12:00:00+00:00"
+    options:
+      twitter_user: "warandpeass"
+      only_with_attachments: true
+      ignore_retweets: true
+
+  - name: "redakciya"
+    url: "https://www.youtube.com/feeds/videos.xml?channel_id=UC1eFXmJNkjITxPFWTy6RsWg"
+    loader: "http"
+    processor: "youtube"
+    normalizer: "redakciya"
+    refresh_interval: 3600
+    import_limit: 2
+    after: "2021-01-06T12:00:00+00:00"
+
+  - name: "safelyendangered"
+    loader: "nitter"
+    processor: "nitter"
+    normalizer: "nitter"
+    refresh_interval: 14400
+    import_limit: 1
+    after: "2021-01-06T12:00:00+00:00"
+    options:
+      twitter_user: "endangeredcomic"
+      only_with_attachments: true
+      ignore_retweets: true
+
+  - name: "kurzgesagt"
+    url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCsXVk37bltHxD1rDPwtNM8Q"
+    loader: "http"
+    processor: "youtube"
+    normalizer: "youtube"
+    refresh_interval: 3600
+    import_limit: 2
+    after: "2021-01-06T12:00:00+00:00"
+
+  # NOTE: No certificate
+  - name: "buni"
+    url: "http://bunicomic.com/feed/"
+    loader: "http"
+    processor: "feedjira"
+    normalizer: "buni"
+    import_limit: 2
+    refresh_interval: 7200
+    after: "2021-01-06T12:00:00+00:00"
+
+  - name: "lunarbaboon"
+    url: "http://www.lunarbaboon.com/comics/rss.xml"
+    loader: "http"
+    processor: "feedjira"
+    normalizer: "lunarbaboon"
+    import_limit: 2
+    refresh_interval: 14400
+    after: "2021-01-06T12:00:00+00:00"
+
+  - name: "shvarz"
+    url: "https://shvarz.livejournal.com/data/rss"
+    loader: "http"
+    processor: "rss"
+    normalizer: "livejournal"
+    refresh_interval: 14400
+    after: "2021-01-06T12:00:00+00:00"
+    import_limit: 2
+
+  - name: "schooloflife"
+    url: "https://www.youtube.com/feeds/videos.xml?channel_id=UC7IcJI8PUf5Z3zKxnZvTBog"
+    loader: "http"
+    processor: "youtube"
+    normalizer: "youtube"
+    refresh_interval: 3600
+    after: "2021-01-06T12:00:00+00:00"
+    import_limit: 2
+
+  - name: "365tomorrows"
+    url: "https://365tomorrows.com/feed/"
+    loader: "http"
+    processor: "rss"
+    normalizer: "tomorrows"
+    refresh_interval: 86400
+    after: "2021-01-06T12:00:00+00:00"
+    import_limit: 2
+
+  - name: "prof-afv"
+    url: "https://prof-afv.livejournal.com/data/rss"
+    loader: "http"
+    processor: "rss"
+    normalizer: "livejournal"
+    refresh_interval: 3600
+    after: "2021-01-06T12:00:00+00:00"
+    import_limit: 2
+
+  - name: "einzelganger"
+    url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCybBViio_TH_uiFFDJuz5tg"
+    loader: "http"
+    processor: "youtube"
+    normalizer: "youtube"
+    refresh_interval: 14400
+    after: "2021-01-06T12:00:00+00:00"
+    import_limit: 2
+
+  - name: "lobsters-ruby"
+    url: "https://lobste.rs/t/ruby.rss"
+    loader: "http"
+    processor: "lobsters"
+    normalizer: "lobsters"
+    refresh_interval: 7200
+    import_limit: 2
+
+  - name: "neural-machine"
+    loader: "nitter"
+    processor: "nitter"
+    normalizer: "nitter"
+    refresh_interval: 7200
+    import_limit: 1
+    options:
+      twitter_user: "neural_machine"
+      ignore_retweets: true
+
+  - name: "ru-tatireti"
+    enabled: false
+    disabling_reason: "Site not available"
+    source: "https://tatireti.ru"
+    url: "https://tatireti.ru/?feed=rss2"
+    loader: "http"
+    processor: "feedjira"
+    normalizer: "wordpress"
+    refresh_interval: 600
+    import_limit: 2
+
+  - name: "litterbox"
+    url: "https://www.litterboxcomics.com/feed/"
+    loader: "http"
+    processor: "feedjira"
+    normalizer: "litterbox"
+    refresh_interval: 3600
+    import_limit: 2
+
+  - name: "lizandmollie"
+    loader: "nitter"
+    processor: "nitter"
+    normalizer: "nitter"
+    refresh_interval: 7200
+    import_limit: 1
+    options:
+      twitter_user: "lizandmollie"
+      ignore_retweets: true
+      only_with_attachments: true
+
+  - name: "zippy"
+    url: "https://www.comicsrss.com/rss/zippy-the-pinhead.rss"
+    loader: "http"
+    processor: "feedjira"
+    normalizer: "zippy"
+    refresh_interval: 3600
+    import_limit: 2
+
+  - name: "yesbut"
+    loader: "nitter"
+    processor: "nitter"
+    normalizer: "nitter"
+    refresh_interval: 7200
+    import_limit: 1
+    options:
+      twitter_user: "_yesbut_"
+      ignore_retweets: true
+      only_with_attachments: true
+
+  - name: "hubermanlab"
+    url: "https://www.youtube.com/feeds/videos.xml?channel_id=UC2D2CMWXMOVWx7giW1n3LIg"
+    loader: "http"
+    processor: "youtube"
+    normalizer: "youtube"
+    refresh_interval: 1800
+    import_limit: 2
+
+  - name: "veritasium"
+    url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCHnyfMqiRRG1u-2MsSQLbXA"
+    loader: "http"
+    processor: "youtube"
+    normalizer: "youtube"
+    refresh_interval: 1800
+    import_limit: 2
+
+  - name: "kotaku"
+    enabled: false
+    disabling_reason: "Kotaku disabled the comments, naking impossible to figure out the most popular posts based on the amount of replies"
+    url: "https://kotaku.com/rss"
+    source: "https://kotaku.com"
+    loader: "http"
+    processor: "kotaku_daily"
+    normalizer: "kotaku_daily"
+    refresh_interval: 0
+    import_limit: 2
+    options:
+      max_posts_number: 10
+
+  - name: pluralistic
+    url: "https://pluralistic.net/feed/"
+    loader: "http"
+    processor: "rss"
+    normalizer: "pluralistic"
+    refresh_interval: 7200
+    import_limit: 10
+
+  - name: elementy
+    url: "https://elementy.ru/rss/news"
+    loader: "http"
+    processor: "feedjira"
+    normalizer: "elementy"
+    refresh_interval: 7200
+    import_limit: 2
+
+  - name: elementy-kartinka-dnya
+    url: "https://elementy.ru/rss/kartinka_dnya"
+    loader: "http"
+    processor: "feedjira"
+    normalizer: "elementy"
+    refresh_interval: 7200
+    import_limit: 2
+
+  - name: melodymae
+    url: "https://www.melodymae.co.uk/feed/"
+    loader: "http"
+    processor: "feedjira"
+    normalizer: "melodymae"
+    refresh_interval: 14400
+    import_limit: 10
 
 development:
 
