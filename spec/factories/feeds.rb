@@ -58,7 +58,7 @@ FactoryBot.define do
       loader { "http" }
       processor { "kotaku_daily" }
       normalizer { "kotaku_daily" }
-      source { "https://kotaku.com" }
+      source_url { "https://kotaku.com" }
       refresh_interval { 86400 }
       import_limit { 1 }
       options { {"max_posts_number" => 5} }

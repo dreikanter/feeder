@@ -18,7 +18,7 @@ RSpec.describe FeedSanitizer do
         processor: "rss",
         url: "https://xkcd.com/rss.xml",
         refresh_interval: 1800,
-        source: "https://xkcd.com",
+        source_url: "https://xkcd.com",
         description: "Feed description",
         disabling_reason: "Sample reason"
       }

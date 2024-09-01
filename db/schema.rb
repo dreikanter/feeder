@@ -10,23 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_18_131932) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_01_154501) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "delayed_jobs", id: :serial, force: :cascade do |t|
-    t.integer "priority", default: 0, null: false
-    t.integer "attempts", default: 0, null: false
-    t.text "handler", null: false
-    t.text "last_error"
-    t.datetime "run_at", precision: nil
-    t.datetime "locked_at", precision: nil
-    t.datetime "failed_at", precision: nil
-    t.string "locked_by"
-    t.string "queue"
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
-    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  create_table "error_reports", force: :cascade do |t|
+    t.string "target_type"
+    t.bigint "target_id"
+    t.string "category"
+    t.string "error_class", default: "", null: false
+    t.string "file_name"
+    t.integer "line_number"
+    t.string "message", default: "", null: false
+    t.string "backtrace", default: [], null: false, array: true
+    t.jsonb "context", default: {}, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category"], name: "index_error_reports_on_category"
+    t.index ["target_type", "target_id"], name: "index_error_reports_on_target"
   end
 
   create_table "errors", id: :serial, force: :cascade do |t|
@@ -71,9 +72,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_18_131932) do
     t.integer "errors_count", default: 0, null: false
     t.integer "total_errors_count", default: 0, null: false
     t.datetime "state_updated_at", precision: nil
-    t.string "source", default: "", null: false
+    t.string "source_url", default: "", null: false
     t.string "description", default: "", null: false
     t.string "disabling_reason", default: "", null: false
+    t.datetime "configured_at"
     t.index ["name"], name: "index_feeds_on_name", unique: true
     t.index ["status"], name: "index_feeds_on_status"
   end

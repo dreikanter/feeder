@@ -20,7 +20,7 @@ RSpec.describe FeedUpdater do
       "options" => {"sample_option" => "option_value"},
       "processor" => "rss",
       "refresh_interval" => 1800,
-      "source" => "https://xkcd.com",
+      "source_url" => "https://xkcd.com",
       "state" => "enabled",
       "url" => "https://xkcd.com/rss.xml"
     }
@@ -37,7 +37,7 @@ RSpec.describe FeedUpdater do
       "options" => {},
       "processor" => nil,
       "refresh_interval" => 0,
-      "source" => "",
+      "source_url" => "",
       "state" => "pristine",
       "url" => "https://example.com"
     }
@@ -54,7 +54,7 @@ RSpec.describe FeedUpdater do
       "options" => {"sample_option" => "option_value"},
       "processor" => "rss",
       "refresh_interval" => 1800,
-      "source" => "https://xkcd.com",
+      "source_url" => "https://xkcd.com",
       "state" => "enabled",
       "url" => "https://xkcd.com/rss.xml"
     }

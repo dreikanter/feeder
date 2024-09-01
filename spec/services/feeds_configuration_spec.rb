@@ -16,7 +16,7 @@ RSpec.describe FeedsConfiguration do
       state
       disabling_reason
       description
-      source
+      source_url
     ].freeze
   end
 
@@ -38,7 +38,7 @@ RSpec.describe FeedsConfiguration do
       "url" => "https://example.com",
       "disabling_reason" => "",
       "description" => "",
-      "source" => ""
+      "source_url" => ""
     }
   end
 
@@ -55,7 +55,7 @@ RSpec.describe FeedsConfiguration do
       "url" => "https://xkcd.com/rss.xml",
       "disabling_reason" => "Sample reason",
       "description" => "Feed description",
-      "source" => "https://xkcd.com"
+      "source_url" => "https://xkcd.com"
     }
   end
 
