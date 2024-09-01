@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_17_185724) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_01_154501) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -72,9 +72,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_17_185724) do
     t.integer "errors_count", default: 0, null: false
     t.integer "total_errors_count", default: 0, null: false
     t.datetime "state_updated_at", precision: nil
-    t.string "source", default: "", null: false
+    t.string "source_url", default: "", null: false
     t.string "description", default: "", null: false
     t.string "disabling_reason", default: "", null: false
+    t.datetime "configured_at"
     t.index ["name"], name: "index_feeds_on_name", unique: true
     t.index ["status"], name: "index_feeds_on_status"
   end
