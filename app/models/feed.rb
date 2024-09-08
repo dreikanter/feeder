@@ -10,7 +10,7 @@ class Feed < ApplicationRecord
   normalizes :name, with: ->(name) { name.to_s.strip.downcase }
 
   validates :import_limit, numericality: {less_than_or_equal_to: MAX_LIMIT_LIMIT}
-  validates :refresh_interval, presence: true, numericality: {greater_or_equal_to: 0}
+  validates :refresh_interval, presence: true, numericality: {greater_than_or_equal_to: 0}
   validates :loader, :normalizer, :processor, presence: true, format: /\A\w+\z/
   validates :url, length: {maximum: MAX_URL_LENGTH}, allow_nil: true
   validates :source_url, length: {maximum: MAX_URL_LENGTH}, allow_blank: true
