@@ -43,6 +43,7 @@ group :development, :test do
   gem "factory_bot_rails", "~> 6.4"
   gem "marginalia", "~> 1.11"
   gem "rspec-rails", "~> 6.1"
+  gem "shoulda-matchers", "~> 6.0"
   gem "simplecov", "~> 0.22"
   gem "webmock", "~> 3.23"
 end
