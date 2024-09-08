@@ -1,5 +1,7 @@
 # Data object representating a raw feed entity (like a blog post or RSS item).
 #
+# @see BaseProcessor
+#
 class FeedEntity
   attr_reader :feed, :uid, :content
 

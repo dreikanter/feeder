@@ -9,6 +9,7 @@ require "rspec/rails"
 require "aasm/rspec"
 require "support/factory_bot"
 require "support/time_helpers"
+require "support/shoulda"
 require "webmock/rspec"
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

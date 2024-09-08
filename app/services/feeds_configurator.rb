@@ -9,18 +9,36 @@ class FeedsConfigurator
 
   def import
     feeds_configuration.each do |configuration|
-      existing_feed = existing_feeds[configuration[:name]]
-      attributes = feed_attributes(configuration)
+      feed = existing_feeds_index[configuration[:name]]
+      attributes = feed_attributes(**configuration)
 
-      if existing_feed
-        existing_feed.update!(**attributes) if existing_feed.configurable?
+      if feed
+        update_existing_feed(feed, **attributes) if feed.configurable?
       else
-        Feed.create!(**attributes)
+        create_new_feed(attributes)
       end
     end
   end
 
   private
+
+  def update_existing_feed(feed, attributes = {})
+    if feed.update(**attributes)
+      logger.info("feed updated: #{attributes[:name]}")
+    else
+      logger.error("error updating feed; attributes: #{attributes.to_json}; errors: #{feed.errors}")
+    end
+  end
+
+  def create_new_feed(attributes)
+    feed = Feed.new(**attributes)
+
+    if feed.save
+      logger.info("new feed created: #{attributes[:name]}")
+    else
+      logger.error("error creating new feed; attributes: #{attributes.to_json}; errors: #{feed.errors.to_json}")
+    end
+  end
 
   def feed_attributes(**configuration)
     {
@@ -35,8 +53,8 @@ class FeedsConfigurator
     @configured_at ||= Time.current
   end
 
-  def existing_feeds
-    @existing_feeds ||= Feed.where(name: feed_names).index_with(&:name)
+  def existing_feeds_index
+    @existing_feeds_index ||= Feed.where(name: feed_names).index_by(&:name)
   end
 
   def feed_names
