@@ -1,8 +1,6 @@
 require "rails_helper"
 
 RSpec.describe Feed do
-  subject(:model) { described_class }
-
   let(:arbitrary_time) { Time.current }
 
   # TBD
@@ -12,29 +10,29 @@ RSpec.describe Feed do
   describe "#configurable?" do
     context "with missing timestamps" do
       it "returns true" do
-        expect(model.new(updated_at: arbitrary_time, configured_at: nil)).to be_configurable
-        expect(model.new(updated_at: true, configured_at: arbitrary_time)).to be_configurable
-        expect(model.new(updated_at: nil, configured_at: nil)).to be_configurable
+        expect(build(:feed, updated_at: arbitrary_time, configured_at: nil)).to be_configurable
+        expect(build(:feed, updated_at: true, configured_at: arbitrary_time)).to be_configurable
+        expect(build(:feed, updated_at: nil, configured_at: nil)).to be_configurable
       end
     end
 
     context "when last update was before or during previous configuration" do
       it "returns true" do
-        expect(model.new(updated_at: arbitrary_time, configured_at: arbitrary_time)).to be_configurable
-        expect(model.new(updated_at: arbitrary_time - 1.second, configured_at: arbitrary_time)).to be_configurable
+        expect(build(:feed, updated_at: arbitrary_time, configured_at: arbitrary_time)).to be_configurable
+        expect(build(:feed, updated_at: arbitrary_time - 1.second, configured_at: arbitrary_time)).to be_configurable
       end
     end
 
     context "when last update was manual" do
       it "returns false" do
-        expect(model.new(updated_at: arbitrary_time + 1.second, configured_at: arbitrary_time)).not_to be_configurable
+        expect(build(:feed, updated_at: arbitrary_time + 1.second, configured_at: arbitrary_time)).not_to be_configurable
       end
     end
   end
 
   describe "#readable_id" do
     it "returns expected value" do
-      actual = model.new(id: 1, name: "sample").readable_id
+      actual = build(:feed, id: 1, name: "sample").readable_id
 
       expect(actual).to eq("feed-1-sample")
     end
@@ -45,7 +43,7 @@ RSpec.describe Feed do
       it "raises an error" do
         stub_const("TestProcessor", Class.new)
         stub_const("TestNormalizer", Class.new)
-        feed = model.new(loader: "missing", processor: "test", normalizer: "test")
+        feed = build(:feed, loader: "missing", processor: "test", normalizer: "test")
 
         expect { feed.ensure_supported }.to raise_error(FeedConfigurationError)
       end
@@ -55,7 +53,7 @@ RSpec.describe Feed do
       it "raises an error" do
         stub_const("TestProcessor", Class.new)
         stub_const("TestLoader", Class.new)
-        feed = model.new(loader: "test", processor: "missing", normalizer: "test")
+        feed = build(:feed, loader: "test", processor: "missing", normalizer: "test")
 
         expect { feed.ensure_supported }.to raise_error(FeedConfigurationError)
       end
@@ -65,7 +63,7 @@ RSpec.describe Feed do
       it "raises an error" do
         stub_const("TestProcessor", Class.new)
         stub_const("TestNormalizer", Class.new)
-        feed = model.new(loader: "test", processor: "test", normalizer: "missing")
+        feed = build(:feed, loader: "test", processor: "test", normalizer: "missing")
 
         expect { feed.ensure_supported }.to raise_error(FeedConfigurationError)
       end
@@ -76,7 +74,7 @@ RSpec.describe Feed do
         stub_const("TestLoader", Class.new)
         stub_const("TestProcessor", Class.new)
         stub_const("TestNormalizer", Class.new)
-        feed = model.new(loader: "test", processor: "test", normalizer: "test")
+        feed = build(:feed, loader: "test", processor: "test", normalizer: "test")
 
         expect(feed.ensure_supported).to be(true)
       end
@@ -86,46 +84,46 @@ RSpec.describe Feed do
   describe "#loader_class" do
     it "resolves specified class" do
       stub_const("TestLoader", Class.new(BaseLoader))
-      feed = model.new(loader: "test")
+      feed = build(:feed, loader: "test")
 
       expect(feed.loader_class).to eq(TestLoader)
     end
 
-    it { expect(model.new(processor: nil).loader_class).to be_nil }
+    it { expect(build(:feed, processor: nil).loader_class).to be_nil }
 
-    it { expect(model.new(processor: "missing").loader_class).to be_nil }
+    it { expect(build(:feed, processor: "missing").loader_class).to be_nil }
   end
 
   describe "#processor_class" do
     it "resolves specified class" do
       stub_const("TestProcessor", Class.new(BaseProcessor))
-      model.new(processor: "test")
+      build(:feed, processor: "test")
 
-      expect(model.new(processor: "test").processor_class).to eq(TestProcessor)
+      expect(build(:feed, processor: "test").processor_class).to eq(TestProcessor)
     end
 
-    it { expect(model.new(processor: nil).processor_class).to be_nil }
+    it { expect(build(:feed, processor: nil).processor_class).to be_nil }
 
-    it { expect(model.new(processor: "missing").processor_class).to be_nil }
+    it { expect(build(:feed, processor: "missing").processor_class).to be_nil }
   end
 
   describe "#normalizer_class" do
     it "resolves specified class" do
       stub_const("TestNormalizer", Class.new(BaseNormalizer))
-      model.new(normalizer: "test")
+      build(:feed, normalizer: "test")
 
-      expect(model.new(normalizer: "test").normalizer_class).to eq(TestNormalizer)
+      expect(build(:feed, normalizer: "test").normalizer_class).to eq(TestNormalizer)
     end
 
-    it { expect(model.new(normalizer: nil).normalizer_class).to be_nil }
+    it { expect(build(:feed, normalizer: nil).normalizer_class).to be_nil }
 
-    it { expect(model.new(normalizer: "missing").normalizer_class).to be_nil }
+    it { expect(build(:feed, normalizer: "missing").normalizer_class).to be_nil }
   end
 
   describe "#loader_instance" do
     it "instantiates a service" do
       stub_const("TestLoader", Class.new(BaseLoader))
-      feed = model.new(loader: "test")
+      feed = build(:feed, loader: "test")
       instance = feed.loader_instance
 
       expect(instance).to be_a(TestLoader)
@@ -133,7 +131,7 @@ RSpec.describe Feed do
     end
 
     it do
-      feed = model.new(loader: "missing")
+      feed = build(:feed, loader: "missing")
 
       expect { feed.loader_instance }.to raise_error(StandardError)
     end
@@ -142,7 +140,7 @@ RSpec.describe Feed do
   describe "#processor_instance" do
     it "instantiates a service" do
       stub_const("TestProcessor", Class.new(BaseProcessor))
-      feed = model.new(processor: "test")
+      feed = build(:feed, processor: "test")
       instance = feed.processor_instance
 
       expect(instance).to be_a(TestProcessor)
@@ -150,7 +148,7 @@ RSpec.describe Feed do
     end
 
     it do
-      feed = model.new(processor: "missing")
+      feed = build(:feed, processor: "missing")
 
       expect { feed.processor_instance }.to raise_error(StandardError)
     end
@@ -161,7 +159,7 @@ RSpec.describe Feed do
       stub_const("TestLoader", Class.new(BaseLoader))
       stub_const("TestProcessor", Class.new(BaseProcessor))
       stub_const("TestNormalizer", Class.new(BaseNormalizer))
-      feed = model.new(loader: "test", processor: "test", normalizer: "test")
+      feed = build(:feed, loader: "test", processor: "test", normalizer: "test")
 
       expected = {
         loader_class: TestLoader,
@@ -173,7 +171,7 @@ RSpec.describe Feed do
     end
 
     it "tolerates missing service classes" do
-      feed = model.new(loader: "test", processor: "test", normalizer: "test")
+      feed = build(:feed, loader: "test", processor: "test", normalizer: "test")
 
       expected = {
         loader_class: nil,
