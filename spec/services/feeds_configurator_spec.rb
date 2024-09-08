@@ -15,7 +15,7 @@ RSpec.describe FeedsConfigurator do
       after: "2021-01-01T00:00:00+00:00",
       refresh_interval: 1200,
       import_limit: 2,
-      options: { "option" => "option" }
+      options: {"option" => "option"}
     }
   end
 
@@ -68,7 +68,7 @@ RSpec.describe FeedsConfigurator do
         after: "2020-01-01T00:00:00+00:00",
         refresh_interval: 600,
         import_limit: 1,
-        options: { "old" => "options" },
+        options: {"old" => "options"},
         configured_at: configured_at,
         updated_at: configured_at
       )
@@ -88,7 +88,7 @@ RSpec.describe FeedsConfigurator do
         after: DateTime.parse("2021-01-01T00:00:00+00:00"),
         refresh_interval: 1200,
         import_limit: 2,
-        options: { "option" => "option" }
+        options: {"option" => "option"}
       )
     end
   end
@@ -105,7 +105,7 @@ RSpec.describe FeedsConfigurator do
         after: "2020-01-01T00:00:00+00:00",
         refresh_interval: 600,
         import_limit: 1,
-        options: { "old" => "options" },
+        options: {"old" => "options"},
         configured_at: configured_at,
         updated_at: configured_at + 1.second
       )

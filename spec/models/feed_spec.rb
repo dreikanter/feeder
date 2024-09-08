@@ -4,28 +4,28 @@ RSpec.describe Feed do
   let(:arbitrary_time) { Time.current }
 
   describe "validations" do
-    subject { build(:feed) }
+    subject(:feed) { build(:feed) }
 
     it "is valid with valid attributes" do
-      should be_valid
+      expect(feed).to be_valid
     end
 
     describe "#name" do
       it "validates presence" do
-        should validate_presence_of(:name)
+        expect(feed).to validate_presence_of(:name)
       end
 
       it "validates length" do
-        should validate_length_of(:name).is_at_least(3).is_at_most(80)
+        expect(feed).to validate_length_of(:name).is_at_least(3).is_at_most(80)
       end
 
       it "allows valid names" do
-        should allow_value("valid-name123").for(:name)
+        expect(feed).to allow_value("valid-name123").for(:name)
       end
 
       it "disallows invalid names" do
-        should_not allow_value("invalid name").for(:name)
-        should_not allow_value("invalid@name").for(:name)
+        expect(feed).not_to allow_value("invalid name").for(:name)
+        expect(feed).not_to allow_value("invalid@name").for(:name)
       end
     end
 
@@ -39,79 +39,79 @@ RSpec.describe Feed do
 
     describe "#import_limit" do
       it "validates numericality" do
-        should validate_numericality_of(:import_limit).is_less_than_or_equal_to(Feed::MAX_LIMIT_LIMIT)
+        expect(feed).to validate_numericality_of(:import_limit).is_less_than_or_equal_to(Feed::MAX_LIMIT_LIMIT)
       end
     end
 
     describe "#refresh_interval" do
       it "validates presence" do
-        should validate_presence_of(:refresh_interval)
+        expect(feed).to validate_presence_of(:refresh_interval)
       end
 
       it "validates numericality" do
-        should validate_numericality_of(:refresh_interval).is_greater_than_or_equal_to(0)
+        expect(feed).to validate_numericality_of(:refresh_interval).is_greater_than_or_equal_to(0)
       end
     end
 
     %i[loader normalizer processor].each do |attribute|
       describe "##{attribute}" do
         it "validates presence" do
-          should validate_presence_of(attribute)
+          expect(feed).to validate_presence_of(attribute)
         end
 
         it "allows valid names" do
-          should allow_value("ValidName").for(attribute)
+          expect(feed).to allow_value("ValidName").for(attribute)
         end
 
         it "disallows invalid names" do
-          should_not allow_value("Invalid Name").for(attribute)
+          expect(feed).not_to allow_value("Invalid Name").for(attribute)
         end
       end
     end
 
     describe "#url" do
       it "allows nil" do
-        should allow_value(nil).for(:url)
+        expect(feed).to allow_value(nil).for(:url)
       end
 
       it "validates length" do
-        should validate_length_of(:url).is_at_most(Feed::MAX_URL_LENGTH).allow_nil
+        expect(feed).to validate_length_of(:url).is_at_most(Feed::MAX_URL_LENGTH).allow_nil
       end
     end
 
     describe "#source_url" do
       it "allows blank" do
-        should allow_value("").for(:source_url)
+        expect(feed).to allow_value("").for(:source_url)
       end
 
       it "validates length" do
-        should validate_length_of(:source_url).is_at_most(Feed::MAX_URL_LENGTH).allow_blank
+        expect(feed).to validate_length_of(:source_url).is_at_most(Feed::MAX_URL_LENGTH).allow_blank
       end
     end
 
     describe "#description" do
       it "allows blank" do
-        should allow_value("").for(:description)
+        expect(feed).to allow_value("").for(:description)
       end
 
       it "validates length" do
-        should validate_length_of(:description).is_at_most(Feed::MAX_DESCRIPTION_LENGTH).allow_blank
+        expect(feed).to validate_length_of(:description).is_at_most(Feed::MAX_DESCRIPTION_LENGTH).allow_blank
       end
     end
 
     describe "#disabling_reason" do
       it "allows blank" do
-        should allow_value("").for(:disabling_reason)
+        expect(feed).to allow_value("").for(:disabling_reason)
       end
 
       it "validates length" do
-        should validate_length_of(:disabling_reason).is_at_most(Feed::MAX_DESCRIPTION_LENGTH).allow_blank
+        expect(feed).to validate_length_of(:disabling_reason).is_at_most(Feed::MAX_DESCRIPTION_LENGTH).allow_blank
       end
     end
 
     describe "#options" do
       it "is valid with hash" do
-        feed = build(:feed, options: { key: "value" })
+        feed = build(:feed, options: {key: "value"})
 
         expect(feed).to be_valid
       end

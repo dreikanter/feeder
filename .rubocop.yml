@@ -38,7 +38,7 @@ Rails/SkipsModelValidations:
 #
 
 RSpec/ExampleLength:
-  Max: 10
+  Max: 50
 
 RSpec/MultipleMemoizedHelpers:
   Max: 10
