@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+
+# Start tracking time
+start_time = Time.now
+
+$require_times = {}
+
+module Kernel
+  alias_method :original_require, :require
+
+  def require(name)
+    start = Time.now
+    result = original_require(name)
+    duration = Time.now - start
+    $require_times[name] = duration
+    result
+  end
+end
+
+require File.expand_path('../../config/environment', __FILE__)
+
+puts "Rails.env: #{Rails.env}"
+
+end_time = Time.now
+total_time = end_time - start_time
+
+puts "\nRequire times (sorted by duration):"
+$require_times.sort_by { |_, time| -time }.each do |name, time|
+  puts "#{name}: #{time.round(4)} seconds"
+end
+
+puts "\nTotal time taken: #{total_time.round(4)} seconds"
+puts "Total number of require calls: #{$require_times.size}"
