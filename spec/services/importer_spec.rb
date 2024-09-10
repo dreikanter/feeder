@@ -76,12 +76,91 @@ RSpec.describe Importer do
 
   context "when missing loader" do
     it "halts with an error" do
-      allow(feed).to receive(:processor_instance)
+      stub_const("TestProcessor", test_processor_class)
+      stub_const("TestNormalizer", test_normalizer_class)
 
-      importer = service.new(feed)
-      expect { importer.import }.to raise_error(FeedConfigurationError)
+      expect { service.new(feed).import }.to raise_error(described_class::ConfigurationError)
+        .and(change { feed.reload.errors_count }.by(1))
+        .and(change { ErrorReport.where(target: feed).count }.by(1))
 
-      expect(feed).not_to have_received(:processor_instance)
+      error = feed.error_reports.last
+
+      expect(error.category).to eq("configuration")
+      expect(error.error_class).to eq("FeedConfigurationError")
+
+      expect(error.context).to eq(
+        "feed_service_classes" => {
+          "loader_class" => nil,
+          "processor_class" => "TestProcessor",
+          "normalizer_class" => "TestNormalizer"
+        }
+      )
+    end
+  end
+
+  context "when missing processor" do
+    it "halts with an error" do
+      stub_const("TestLoader", test_loader_class)
+      stub_const("TestNormalizer", test_normalizer_class)
+
+      expect { service.new(feed).import }.to raise_error(described_class::ConfigurationError)
+        .and(change { feed.reload.errors_count }.by(1))
+        .and(change { feed.error_reports.count }.by(1))
+
+      error = feed.error_reports.last
+
+      expect(error.category).to eq("configuration")
+      expect(error.error_class).to eq("FeedConfigurationError")
+
+      expect(error.context).to eq(
+        "feed_service_classes" => {
+          "loader_class" => "TestLoader",
+          "processor_class" => nil,
+          "normalizer_class" => "TestNormalizer"
+        }
+      )
+    end
+  end
+
+  context "when missing normalizer" do
+    it "halts with an error" do
+      stub_const("TestLoader", test_loader_class)
+      stub_const("TestProcessor", test_processor_class)
+
+      expect { service.new(feed).import }.to raise_error(described_class::ConfigurationError)
+        .and(change { feed.reload.errors_count }.by(1))
+        .and(change { feed.error_reports.count }.by(1))
+
+      error = feed.error_reports.last
+
+      expect(error.category).to eq("configuration")
+      expect(error.error_class).to eq("FeedConfigurationError")
+
+      expect(error.context).to eq(
+        "feed_service_classes" => {
+          "loader_class" => "TestLoader",
+          "processor_class" => "TestProcessor",
+          "normalizer_class" => nil
+        }
+      )
+    end
+  end
+
+  context "when loading error" do
+    it "tracks an error" do
+      # TBD
+    end
+  end
+
+  context "when processing error" do
+    it "halts with an error" do
+      # TBD
+    end
+  end
+
+  context "when normalization error" do
+    it "moves on" do
+      # TBD
     end
   end
 end
