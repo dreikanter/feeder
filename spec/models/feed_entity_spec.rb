@@ -1,13 +1,10 @@
-require "rails_helper"
-
 RSpec.describe FeedEntity do
-  subject(:model) { described_class }
-
   describe "#initialize" do
-    it "accepts attributes" do
-      feed = build(:feed)
-      instance = model.new(feed: feed, uid: "UID", content: "CONTENT")
+    subject(:instance) { build(:feed_entity, feed: feed, uid: "UID", content: "CONTENT") }
 
+    let(:feed) { build(:feed) }
+
+    it "accepts attributes" do
       expect(instance.feed).to eq(feed)
       expect(instance.uid).to eq("UID")
       expect(instance.content).to eq("CONTENT")

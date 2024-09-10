@@ -8,8 +8,8 @@ require "rspec/rails"
 # Add additional requires below this line. Rails is not loaded until this point!
 require "aasm/rspec"
 require "support/factory_bot"
-require "support/time_helpers"
 require "support/shoulda"
+require "support/time_helpers"
 require "webmock/rspec"
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

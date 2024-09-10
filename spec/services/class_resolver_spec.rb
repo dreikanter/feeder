@@ -1,5 +1,3 @@
-require "rails_helper"
-
 RSpec.describe ClassResolver do
   describe "initialization" do
     it "sets expected parameters" do

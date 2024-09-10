@@ -1,7 +1,10 @@
-require "rails_helper"
-
 RSpec.describe Feed do
-  let(:arbitrary_time) { Time.current }
+  describe "relations" do
+    subject(:feed) { build(:feed) }
+
+    it { expect(feed).to have_many(:posts) }
+    it { expect(feed).to have_many(:error_reports) }
+  end
 
   describe "validations" do
     subject(:feed) { build(:feed) }
@@ -126,6 +129,8 @@ RSpec.describe Feed do
   end
 
   describe "#configurable?" do
+    let(:arbitrary_time) { Time.current }
+
     context "with missing timestamps" do
       it "returns true" do
         expect(build(:feed, updated_at: arbitrary_time, configured_at: nil)).to be_configurable

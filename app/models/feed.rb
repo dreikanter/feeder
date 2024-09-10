@@ -5,6 +5,9 @@ class Feed < ApplicationRecord
   MAX_URL_LENGTH = 4096
   MAX_DESCRIPTION_LENGTH = 256
 
+  has_many :posts, dependent: :destroy
+  has_many :error_reports, as: :target, dependent: :destroy
+
   # TBD: Ensure name format matches freefeed group name format
   validates :name, presence: true, length: NAME_LENGTH_RANGE, format: /\A[\w\-]+\z/
   normalizes :name, with: ->(name) { name.to_s.strip.downcase }
