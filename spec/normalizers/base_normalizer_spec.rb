@@ -54,7 +54,7 @@ RSpec.describe BaseNormalizer do
   describe "#validation_errors?" do
     context "when there are no validation errors" do
       it "returns false" do
-        expect(normalizer.validation_errors?).to eq(false)
+        expect(normalizer.validation_errors?).to be(false)
       end
     end
 
@@ -70,7 +70,7 @@ RSpec.describe BaseNormalizer do
       end
 
       it "returns true" do
-        expect(normalizer.validation_errors?).to eq(true)
+        expect(normalizer.validation_errors?).to be(true)
       end
     end
   end

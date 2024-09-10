@@ -1,6 +1,6 @@
 RSpec.describe FeedEntity do
   describe "#initialize" do
-     subject(:instance) { build(:feed_entity, feed: feed, uid: "UID", content: "CONTENT") }
+    subject(:instance) { build(:feed_entity, feed: feed, uid: "UID", content: "CONTENT") }
 
     let(:feed) { build(:feed) }
 
