@@ -1,5 +1,3 @@
-require "rails_helper"
-
 RSpec.describe Post do
   subject(:model) { described_class }
 

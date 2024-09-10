@@ -1,5 +1,3 @@
-require "rails_helper"
-
 RSpec.describe ErrorReport do
   subject(:model) { described_class }
 

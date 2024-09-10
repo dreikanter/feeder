@@ -1,5 +1,3 @@
-require "rails_helper"
-
 RSpec.describe ApplicationLogger do
   subject(:service) { described_class }
 

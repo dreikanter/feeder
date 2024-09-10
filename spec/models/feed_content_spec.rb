@@ -1,5 +1,3 @@
-require "rails_helper"
-
 RSpec.describe FeedContent do
   subject(:model) { described_class }
 

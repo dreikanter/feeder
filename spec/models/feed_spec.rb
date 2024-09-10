@@ -1,5 +1,3 @@
-require "rails_helper"
-
 RSpec.describe Feed do
   let(:arbitrary_time) { Time.current }
 

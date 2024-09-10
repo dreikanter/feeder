@@ -1,5 +1,3 @@
-require "rails_helper"
-
 RSpec.describe HttpLoader do
   subject(:service) { described_class }
 
