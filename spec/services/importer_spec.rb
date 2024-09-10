@@ -73,4 +73,15 @@ RSpec.describe Importer do
       expect(importer.import).to be_a(Array)
     end
   end
+
+  context "when missing loader" do
+    it "halts with an error" do
+      allow(feed).to receive(:processor_instance)
+
+      importer = service.new(feed)
+      expect { importer.import }.to raise_error(FeedConfigurationError)
+
+      expect(feed).not_to have_received(:processor_instance)
+    end
+  end
 end

@@ -28,6 +28,7 @@ class Importer
     feed.ensure_supported
   rescue StandardError => e
     track_feed_error(error: e, category: "configuration")
+    raise e
   end
 
   # @return [FeedContent]
