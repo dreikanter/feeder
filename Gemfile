@@ -32,7 +32,7 @@ group :development do
   gem "rubocop-factory_bot", require: false
   gem "rubocop-rails", require: false
   gem "rubocop-rspec", require: false
-  gem "rubocop-rspec_rails", "~> 2.30"
+  gem "rubocop-rspec_rails", "~> 2.30", require: false
   gem "standard", ">= 1.0", require: false
   gem "standard-performance", require: false
   # gem "web-console"
