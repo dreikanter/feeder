@@ -2,8 +2,9 @@ RSpec.describe Importer do
   subject(:service) { described_class }
 
   let(:feed) do
-    create(
+    build(
       :feed,
+      id: 1,
       loader: "test",
       processor: "test",
       normalizer: "test",
