@@ -19,11 +19,12 @@ gem "puma", "~> 6.4"
 gem "rails", "~> 7.2.0"
 gem "rexml", ">= 3.3.4"  # No direct dependency; added to mitigate a CVE
 gem "rss"
-gem "stimulus-rails"
+# gem "stimulus-rails"
 gem "turbo-rails"
-gem "tzinfo-data"
+# gem "tzinfo-data"
 
 group :development do
+  # gem "annotate", "~> 3.2"
   gem "brakeman", "~> 6.1", require: false
   gem "bundler-audit", "~> 0.9", require: false
   gem "reek", "~> 6.3", require: false
@@ -34,13 +35,14 @@ group :development do
   gem "rubocop-rspec_rails", "~> 2.30"
   gem "standard", ">= 1.0", require: false
   gem "standard-performance", require: false
-  gem "web-console"
+  # gem "web-console"
   gem "yaml-lint", "~> 0.1.2", require: false
 end
 
 group :development, :test do
-  gem "annotate", "~> 3.2"
-  gem "debug"
+  # gem "debug"
+  # gem "marginalia", "~> 1.11"
+end
   gem "factory_bot_rails", "~> 6.4"
   gem "marginalia", "~> 1.11"
   gem "rspec-rails", "~> 6.1"
