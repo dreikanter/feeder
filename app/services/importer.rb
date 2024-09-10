@@ -56,7 +56,7 @@ class Importer
     feed_entities.each do |feed_entity|
       feed.normalizer_class.new(feed_entity).normalize.save!
     rescue StandardError => e
-      track_feed_error(error: e, category: "post_building", context: {feed_entity: feed_content})
+      track_feed_error(error: e, category: "post_building", context: {feed_entity: feed_entity})
       next
     end
   end

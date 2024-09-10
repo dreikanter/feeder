@@ -12,7 +12,7 @@ RSpec.describe Importer do
   end
 
   let(:test_loader_class) do
-    content = file_fixture("sample_rss.xml").read
+    content = sample_rss_content
 
     Class.new(BaseLoader) do
       define_method :load do
@@ -20,6 +20,8 @@ RSpec.describe Importer do
       end
     end
   end
+
+  let(:sample_rss_content) { file_fixture("sample_rss.xml").read }
 
   let(:test_processor_class) do
     Class.new(BaseProcessor) do
@@ -80,7 +82,7 @@ RSpec.describe Importer do
 
       expect { service.new(feed).import }.to raise_error(described_class::ConfigurationError)
         .and(change { feed.reload.errors_count }.by(1))
-        .and(change { ErrorReport.where(target: feed).count }.by(1))
+        .and(change { feed.error_reports.count }.by(1))
     end
 
     it "reports the error" do
@@ -160,6 +162,93 @@ RSpec.describe Importer do
           }
         }
       )
+    end
+  end
+
+  context "when loading error" do
+    let(:error_loader_class) do
+      Class.new(BaseLoader) do
+        def load
+          raise LoaderError, "test error"
+        end
+      end
+    end
+
+    before do
+      stub_const("TestLoader", error_loader_class)
+      stub_const("TestProcessor", test_processor_class)
+      stub_const("TestNormalizer", test_normalizer_class)
+    end
+
+    it "tracks an error" do
+      expect { service.new(feed).import }.to raise_error(LoaderError)
+        .and(change { feed.reload.errors_count }.by(1))
+        .and(change { feed.error_reports.count }.by(1))
+    end
+
+    it "reports an error" do
+      expect { service.new(feed).import }.to raise_error(LoaderError)
+
+      expect(feed.error_reports.last).to have_attributes(
+        category: "loading",
+        error_class: "LoaderError",
+        message: "test error"
+      )
+    end
+  end
+
+  context "when processing error" do
+    let(:error_processor_class) do
+      Class.new(BaseProcessor) do
+        def process(*)
+          raise ProcessorError, "test error"
+        end
+      end
+    end
+
+    before do
+      stub_const("TestLoader", test_loader_class)
+      stub_const("TestProcessor", error_processor_class)
+      stub_const("TestNormalizer", test_normalizer_class)
+    end
+
+    it "tracks an error" do
+      expect { service.new(feed).import }.to raise_error(ProcessorError)
+        .and(change { feed.reload.errors_count }.by(1))
+        .and(change { feed.error_reports.count }.by(1))
+    end
+
+    it "reports an error" do
+      expect { service.new(feed).import }.to raise_error(ProcessorError)
+
+      expect(feed.error_reports.last).to have_attributes(
+        category: "processing",
+        error_class: "ProcessorError",
+        message: "test error"
+      )
+    end
+  end
+
+  context "when normalization error" do
+    let(:error_normalizer_class) do
+      Class.new(BaseNormalizer) do
+        def normalize(*)
+          raise StandardError, "test error"
+        end
+      end
+    end
+
+    let(:amount_of_feed_entities) { RSS::Parser.parse(sample_rss_content).items.count }
+
+    before do
+      stub_const("TestLoader", test_loader_class)
+      stub_const("TestProcessor", test_processor_class)
+      stub_const("TestNormalizer", error_normalizer_class)
+    end
+
+    it "report an error for each entity" do
+      expect { service.new(feed).import }.to change { feed.reload.errors_count }.by(amount_of_feed_entities)
+        .and(change { feed.error_reports.count }.by(amount_of_feed_entities))
     end
   end
 end

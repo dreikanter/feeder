@@ -1,0 +1,2 @@
+class ProcessorError < StandardError
+end
