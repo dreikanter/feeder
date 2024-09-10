@@ -80,7 +80,7 @@ RSpec.describe Importer do
       stub_const("TestProcessor", test_processor_class)
       stub_const("TestNormalizer", test_normalizer_class)
 
-      expect { service.new(feed).import }.to raise_error(described_class::ConfigurationError)
+      expect { service.new(feed).import }.to raise_error(FeedConfigurationError)
         .and(change { feed.reload.errors_count }.by(1))
         .and(change { feed.error_reports.count }.by(1))
     end
@@ -110,7 +110,7 @@ RSpec.describe Importer do
       stub_const("TestLoader", test_loader_class)
       stub_const("TestNormalizer", test_normalizer_class)
 
-      expect { service.new(feed).import }.to raise_error(described_class::ConfigurationError)
+      expect { service.new(feed).import }.to raise_error(FeedConfigurationError)
         .and(change { feed.reload.errors_count }.by(1))
         .and(change { feed.error_reports.count }.by(1))
     end
@@ -140,7 +140,7 @@ RSpec.describe Importer do
       stub_const("TestLoader", test_loader_class)
       stub_const("TestProcessor", test_processor_class)
 
-      expect { service.new(feed).import }.to raise_error(described_class::ConfigurationError)
+      expect { service.new(feed).import }.to raise_error(FeedConfigurationError)
         .and(change { feed.reload.errors_count }.by(1))
         .and(change { feed.error_reports.count }.by(1))
     end

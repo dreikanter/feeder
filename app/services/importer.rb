@@ -4,9 +4,6 @@
 class Importer
   include Logging
 
-  Error = Class.new(StandardError)
-  ConfigurationError = Class.new(Error)
-
   attr_reader :feed
 
   # @param feed: [Feed]
@@ -31,7 +28,7 @@ class Importer
     feed.ensure_supported
   rescue StandardError => e
     track_feed_error(error: e, category: "configuration")
-    raise ConfigurationError
+    raise e
   end
 
   # @return [FeedContent]
