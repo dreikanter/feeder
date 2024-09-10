@@ -12,7 +12,7 @@ RSpec.describe BaseProcessor do
 
   describe "#process" do
     it "raises an error" do
-      expect { processor.process(feed_content) }.to raise_error
+      expect { processor.process(feed_content) }.to raise_error(AbstractMethodError)
     end
   end
 end
