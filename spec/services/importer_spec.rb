@@ -164,21 +164,21 @@ RSpec.describe Importer do
     end
   end
 
-  context "when loading error" do
-    it "tracks an error" do
-      # TBD
-    end
-  end
+  # context "when loading error" do
+  #   it "tracks an error" do
+  #     # TBD
+  #   end
+  # end
 
-  context "when processing error" do
-    it "halts with an error" do
-      # TBD
-    end
-  end
+  # context "when processing error" do
+  #   it "halts with an error" do
+  #     # TBD
+  #   end
+  # end
 
-  context "when normalization error" do
-    it "moves on" do
-      # TBD
-    end
-  end
+  # context "when normalization error" do
+  #   it "moves on" do
+  #     # TBD
+  #   end
+  # end
 end
