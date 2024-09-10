@@ -82,17 +82,23 @@ RSpec.describe Importer do
       expect { service.new(feed).import }.to raise_error(described_class::ConfigurationError)
         .and(change { feed.reload.errors_count }.by(1))
         .and(change { ErrorReport.where(target: feed).count }.by(1))
+    end
 
-      error = feed.error_reports.last
+    it "reports the error" do
+      stub_const("TestLoader", test_loader_class)
+      stub_const("TestNormalizer", test_normalizer_class)
 
-      expect(error.category).to eq("configuration")
-      expect(error.error_class).to eq("FeedConfigurationError")
+      expect { service.new(feed).import }.to raise_error(StandardError)
 
-      expect(error.context).to eq(
-        "feed_service_classes" => {
-          "loader_class" => nil,
-          "processor_class" => "TestProcessor",
-          "normalizer_class" => "TestNormalizer"
+      expect(feed.error_reports.last).to have_attributes(
+        category: "configuration",
+        error_class: "FeedConfigurationError",
+        context: {
+          "feed_service_classes" => {
+            "loader_class" => "TestLoader",
+            "processor_class" => nil,
+            "normalizer_class" => "TestNormalizer"
+          }
         }
       )
     end
@@ -106,17 +112,23 @@ RSpec.describe Importer do
       expect { service.new(feed).import }.to raise_error(described_class::ConfigurationError)
         .and(change { feed.reload.errors_count }.by(1))
         .and(change { feed.error_reports.count }.by(1))
+    end
 
-      error = feed.error_reports.last
+    it "reports the error" do
+      stub_const("TestLoader", test_loader_class)
+      stub_const("TestNormalizer", test_normalizer_class)
 
-      expect(error.category).to eq("configuration")
-      expect(error.error_class).to eq("FeedConfigurationError")
+      expect { service.new(feed).import }.to raise_error(StandardError)
 
-      expect(error.context).to eq(
-        "feed_service_classes" => {
-          "loader_class" => "TestLoader",
-          "processor_class" => nil,
-          "normalizer_class" => "TestNormalizer"
+      expect(feed.error_reports.last).to have_attributes(
+        category: "configuration",
+        error_class: "FeedConfigurationError",
+        context: {
+          "feed_service_classes" => {
+            "loader_class" => "TestLoader",
+            "processor_class" => nil,
+            "normalizer_class" => "TestNormalizer"
+          }
         }
       )
     end
@@ -130,17 +142,23 @@ RSpec.describe Importer do
       expect { service.new(feed).import }.to raise_error(described_class::ConfigurationError)
         .and(change { feed.reload.errors_count }.by(1))
         .and(change { feed.error_reports.count }.by(1))
+    end
 
-      error = feed.error_reports.last
+    it "reports the error" do
+      stub_const("TestLoader", test_loader_class)
+      stub_const("TestProcessor", test_processor_class)
 
-      expect(error.category).to eq("configuration")
-      expect(error.error_class).to eq("FeedConfigurationError")
+      expect { service.new(feed).import }.to raise_error(StandardError)
 
-      expect(error.context).to eq(
-        "feed_service_classes" => {
-          "loader_class" => "TestLoader",
-          "processor_class" => "TestProcessor",
-          "normalizer_class" => nil
+      expect(feed.error_reports.last).to have_attributes(
+        category: "configuration",
+        error_class: "FeedConfigurationError",
+        context: {
+          "feed_service_classes" => {
+            "loader_class" => "TestLoader",
+            "processor_class" => "TestProcessor",
+            "normalizer_class" => nil
+          }
         }
       )
     end
