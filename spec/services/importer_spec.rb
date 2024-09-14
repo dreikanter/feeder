@@ -64,6 +64,19 @@ RSpec.describe Importer do
     end
   end
 
+  let(:normalized_attributes) do
+    %w[
+      uid
+      link
+      published_at
+      text
+      attachments
+      comments
+      validation_errors
+      state
+    ]
+  end
+
   before { freeze_time }
 
   context "when on the happy path" do
@@ -82,16 +95,6 @@ RSpec.describe Importer do
 
       service.new(feed).import
 
-      attributes = %w[
-        uid
-        link
-        published_at
-        text
-        attachments
-        comments
-        validation_errors
-      ]
-
       expected = [
         {
           "uid" => "https://www.example.com/intergalactic-web-dev",
@@ -100,7 +103,8 @@ RSpec.describe Importer do
           "text" => "The Rise of Intergalactic Web Development",
           "attachments" => ["https://www.example.com/image3.jpg"],
           "comments" => ["Explore emerging trends in faster-than-light data transmission and cross-species user interface design."],
-          "validation_errors" => []
+          "validation_errors" => [],
+          "state" => "draft"
         },
         {
           "uid" => "https://www.example.com/alien-code-practices",
@@ -109,7 +113,8 @@ RSpec.describe Importer do
           "text" => "5 Best Practices for Clean Code in Alien Programming Languages",
           "attachments" => ["https://www.example.com/image2.jpg"],
           "comments" => ["Discover essential practices for writing maintainable code in Zorg-9 and other popular extraterrestrial languages."],
-          "validation_errors" => []
+          "validation_errors" => [],
+          "state" => "draft"
         },
         {
           "uid" => "https://www.example.com/quantum-ai-mars",
@@ -118,11 +123,12 @@ RSpec.describe Importer do
           "text" => "Quantum AI: The Future of Martian Colonization",
           "attachments" => ["https://www.example.com/image1.jpg"],
           "comments" => ["Explore how quantum artificial intelligence is revolutionizing our approach to terraforming Mars."],
-          "validation_errors" => []
+          "validation_errors" => [],
+          "state" => "draft"
         }
       ]
 
-      actual = feed.posts.draft.map { _1.slice(attributes) }
+      actual = feed.posts.map { _1.slice(normalized_attributes) }
 
       expect(expected).to eq(actual)
     end

@@ -19,7 +19,7 @@ class BaseNormalizer
       text: text,
       attachments: attachments,
       comments: comments,
-      validation_errors: validation_errors
+      validation_errors: validation_errors,
       state: state
     )
   end
