@@ -20,6 +20,7 @@ class BaseNormalizer
       attachments: attachments,
       comments: comments,
       validation_errors: validation_errors
+      state: state
     )
   end
 
@@ -70,6 +71,10 @@ class BaseNormalizer
   # @return [true, false] true if the entity is not suitable for publication
   def validation_errors?
     validation_errors.any?
+  end
+
+  def state
+    validation_errors? ? :rejected : :draft
   end
 
   private
