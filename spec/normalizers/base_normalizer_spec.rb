@@ -63,7 +63,7 @@ RSpec.describe BaseNormalizer do
 
       let(:test_normalizer) do
         Class.new(BaseNormalizer) do
-          def validation_errors
+          def validate
             ["sample validation error"]
           end
         end

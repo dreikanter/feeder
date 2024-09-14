@@ -19,7 +19,8 @@ class BaseNormalizer
       text: text,
       attachments: attachments,
       comments: comments,
-      validation_errors: validation_errors
+      validation_errors: validation_errors,
+      state: state
     )
   end
 
@@ -59,17 +60,26 @@ class BaseNormalizer
     []
   end
 
+  # @return [Array<String>] memoized validation errors
+  def validation_errors
+    @validation_errors ||= validate
+  end
+
   # Override is optional.
   # @return [Array<String>] array of error code values in case the entity
   #   can not be reposted; empty array means the normalized entity content
   #   is ready for publication
-  def validation_errors
+  def validate
     []
   end
 
   # @return [true, false] true if the entity is not suitable for publication
   def validation_errors?
     validation_errors.any?
+  end
+
+  def state
+    validation_errors? ? :rejected : :draft
   end
 
   private
