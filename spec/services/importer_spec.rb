@@ -64,6 +64,18 @@ RSpec.describe Importer do
     end
   end
 
+  let(:validating_normalizer_class) do
+    Class.new(test_normalizer_class) do
+      def validate
+        if published_at < DateTime.parse("2024-08-18T00:00:00+00:00")
+          ["Sample error: the post is too old"]
+        else
+          []
+        end
+      end
+    end
+  end
+
   let(:normalized_attributes) do
     %w[
       uid
@@ -143,11 +155,60 @@ RSpec.describe Importer do
     end
 
     it "skips normalization for already processed entities" do
+      stub_const("TestLoader", test_loader_class)
+      stub_const("TestProcessor", test_processor_class)
+      stub_const("TestNormalizer", test_normalizer_class)
 
+      create(:post, feed: feed, uid: "https://www.example.com/intergalactic-web-dev")
+      create(:post, feed: feed, uid: "https://www.example.com/alien-code-practices")
+
+      expect(test_normalizer_class).to receive(:new).once.and_call_original
+      expect { service.new(feed, normalizer_class: test_normalizer_class).import }.to change { feed.posts.draft.count }.by(1)
     end
 
     it "persists non-valid entities as reject posts" do
+      stub_const("TestLoader", test_loader_class)
+      stub_const("TestProcessor", test_processor_class)
+      stub_const("TestNormalizer", validating_normalizer_class)
 
+      service.new(feed).import
+
+      expected = [
+        {
+          "uid" => "https://www.example.com/intergalactic-web-dev",
+          "link" => "https://www.example.com/intergalactic-web-dev",
+          "published_at" => DateTime.parse("Fri, 16 Aug 2024 09:15:00 UTC"),
+          "text" => "The Rise of Intergalactic Web Development",
+          "attachments" => ["https://www.example.com/image3.jpg"],
+          "comments" => ["Explore emerging trends in faster-than-light data transmission and cross-species user interface design."],
+          "validation_errors" => ["Sample error: the post is too old"],
+          "state" => "rejected"
+        },
+        {
+          "uid" => "https://www.example.com/alien-code-practices",
+          "link" => "https://www.example.com/alien-code-practices",
+          "published_at" => DateTime.parse("Sat, 17 Aug 2024 14:30:00 UTC"),
+          "text" => "5 Best Practices for Clean Code in Alien Programming Languages",
+          "attachments" => ["https://www.example.com/image2.jpg"],
+          "comments" => ["Discover essential practices for writing maintainable code in Zorg-9 and other popular extraterrestrial languages."],
+          "validation_errors" => ["Sample error: the post is too old"],
+          "state" => "rejected"
+        },
+        {
+          "uid" => "https://www.example.com/quantum-ai-mars",
+          "link" => "https://www.example.com/quantum-ai-mars",
+          "published_at" => DateTime.parse("Sun, 18 Aug 2024 10:00:00 UTC"),
+          "text" => "Quantum AI: The Future of Martian Colonization",
+          "attachments" => ["https://www.example.com/image1.jpg"],
+          "comments" => ["Explore how quantum artificial intelligence is revolutionizing our approach to terraforming Mars."],
+          "validation_errors" => [],
+          "state" => "draft"
+        }
+      ]
+
+      actual = feed.posts.map { _1.slice(normalized_attributes) }
+
+      expect(expected).to eq(actual)
     end
   end
 
