@@ -35,27 +35,27 @@ RSpec.describe Importer do
   let(:test_normalizer_class) do
     Class.new(BaseNormalizer) do
       def uid
-        "UID"
+        feed_entity.content.link
       end
 
       def link
-        "https://example.com/sample_post"
+        feed_entity.content.link
       end
 
       def published_at
-        Time.current
+        feed_entity.content.pubDate.to_datetime
       end
 
       def text
-        "Text"
+        feed_entity.content.title
       end
 
       def attachments
-        ["https://example.com/attachment.jpg"]
+        [feed_entity.content.enclosure.url]
       end
 
       def comments
-        ["Sample comment"]
+        [feed_entity.content.description]
       end
 
       def validation_errors
@@ -64,14 +64,79 @@ RSpec.describe Importer do
     end
   end
 
+  before { freeze_time }
+
   context "when on the happy path" do
-    it "imports posts" do
+    it "creates draft post records" do
       stub_const("TestLoader", test_loader_class)
       stub_const("TestProcessor", test_processor_class)
       stub_const("TestNormalizer", test_normalizer_class)
 
-      importer = service.new(feed)
-      expect(importer.import).to be_a(Array)
+      expect { service.new(feed).import }.to change { feed.posts.draft.count }.by(3)
+    end
+
+    it "populates post records" do
+      stub_const("TestLoader", test_loader_class)
+      stub_const("TestProcessor", test_processor_class)
+      stub_const("TestNormalizer", test_normalizer_class)
+
+      service.new(feed).import
+
+      attributes = %w[
+        uid
+        link
+        published_at
+        text
+        attachments
+        comments
+        validation_errors
+      ]
+
+      expected = [
+        {
+          "uid" => "https://www.example.com/intergalactic-web-dev",
+          "link" => "https://www.example.com/intergalactic-web-dev",
+          "published_at" => DateTime.parse("Fri, 16 Aug 2024 09:15:00 UTC"),
+          "text" => "The Rise of Intergalactic Web Development",
+          "attachments" => ["https://www.example.com/image3.jpg"],
+          "comments" => ["Explore emerging trends in faster-than-light data transmission and cross-species user interface design."],
+          "validation_errors" => []
+        },
+        {
+          "uid" => "https://www.example.com/alien-code-practices",
+          "link" => "https://www.example.com/alien-code-practices",
+          "published_at" => DateTime.parse("Sat, 17 Aug 2024 14:30:00 UTC"),
+          "text" => "5 Best Practices for Clean Code in Alien Programming Languages",
+          "attachments" => ["https://www.example.com/image2.jpg"],
+          "comments" => ["Discover essential practices for writing maintainable code in Zorg-9 and other popular extraterrestrial languages."],
+          "validation_errors" => []
+        },
+        {
+          "uid" => "https://www.example.com/quantum-ai-mars",
+          "link" => "https://www.example.com/quantum-ai-mars",
+          "published_at" => DateTime.parse("Sun, 18 Aug 2024 10:00:00 UTC"),
+          "text" => "Quantum AI: The Future of Martian Colonization",
+          "attachments" => ["https://www.example.com/image1.jpg"],
+          "comments" => ["Explore how quantum artificial intelligence is revolutionizing our approach to terraforming Mars."],
+          "validation_errors" => []
+        }
+      ]
+
+      actual = feed.posts.draft.map { _1.slice(attributes) }
+
+      expect(expected).to eq(actual)
+    end
+
+    it "is idempotent" do
+
+    end
+
+    it "skips normalization for already processed entities" do
+
+    end
+
+    it "persists non-valid entities as reject posts" do
+
     end
   end
 
