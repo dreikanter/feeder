@@ -21,6 +21,7 @@ class Importer
     feed_content = load_content
     entities = process_feed_content(feed_content)
     build_posts(filter_new_entities(entities))
+    # TBD: Enqueue draft posts
   end
 
   private
