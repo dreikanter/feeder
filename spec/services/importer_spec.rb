@@ -58,7 +58,7 @@ RSpec.describe Importer do
         [feed_entity.content.description]
       end
 
-      def validation_errors
+      def validate
         []
       end
     end
