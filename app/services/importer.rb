@@ -4,11 +4,12 @@
 class Importer
   include Logging
 
-  attr_reader :feed
+  attr_reader :feed, :options
 
   # @param feed: [Feed]
-  def initialize(feed)
+  def initialize(feed, options = {})
     @feed = feed
+    @options = options
   end
 
   # Import feed content and persist new posts. Will raise an error if the feed
@@ -34,7 +35,7 @@ class Importer
   # @return [FeedContent]
   # @raise [StandardError] if processor execution is not possible
   def load_content
-    feed.loader_instance.load
+    loader_instance.load
   rescue StandardError => e
     track_feed_error(error: e, category: "loading")
     raise e
@@ -43,7 +44,7 @@ class Importer
   # @return [Array<FeedEntity>]
   # @raise [StandardError] if content processing is not possible
   def process_feed_content(feed_content)
-    feed.processor_instance.process(feed_content)
+    processor_instance.process(feed_content)
   rescue StandardError => e
     track_feed_error(error: e, category: "processing", context: {feed_content: feed_content})
     raise e
@@ -57,11 +58,23 @@ class Importer
 
   def build_posts(feed_entities)
     feed_entities.each do |feed_entity|
-      feed.normalizer_class.new(feed_entity).normalize.save!
+      normalizer_class.new(feed_entity).normalize.save!
     rescue StandardError => e
       track_feed_error(error: e, category: "post_building", context: {feed_entity: feed_entity})
       next
     end
+  end
+
+  def loader_instance
+    options[:loader_instance] || feed.loader_instance
+  end
+
+  def processor_instance
+    options[:processor_instance] || feed.processor_instance
+  end
+
+  def normalizer_class
+    options[:normalizer_class] || feed.normalizer_class
   end
 
   def track_feed_error(category:, error: nil, context: {})
