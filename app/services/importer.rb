@@ -17,9 +17,9 @@ class Importer
   def import
     logger.info("importing #{feed.readable_id}")
     ensure_services_resolved
-    feed_content = load_content(feed)
+    feed_content = load_content
     entities = process_feed_content(feed_content)
-    build_posts(entities)
+    build_posts(filter_new_entities(entities))
   end
 
   private
@@ -47,6 +47,12 @@ class Importer
   rescue StandardError => e
     track_feed_error(error: e, category: "processing", context: {feed_content: feed_content})
     raise e
+  end
+
+  # @return [Array<FeedEntity>]
+  def filter_new_entities(entities)
+    existing_uids = feed.posts.where(uid: entities.map(&:uid)).pluck(:uid)
+    entities.filter { existing_uids.exclude?(_1.uid) }
   end
 
   def build_posts(feed_entities)
