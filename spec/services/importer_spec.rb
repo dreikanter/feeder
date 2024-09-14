@@ -128,7 +128,12 @@ RSpec.describe Importer do
     end
 
     it "is idempotent" do
+      stub_const("TestLoader", test_loader_class)
+      stub_const("TestProcessor", test_processor_class)
+      stub_const("TestNormalizer", test_normalizer_class)
 
+      service.new(feed).import
+      expect { service.new(feed).import }.not_to change { feed.posts.draft.count }
     end
 
     it "skips normalization for already processed entities" do
