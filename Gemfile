@@ -46,8 +46,9 @@ end
 
 group :test do
   gem "factory_bot_rails", "~> 6.4"
+  gem "rspec-rails", "~> 6.1"
   gem "shoulda-matchers", "~> 6.0"
   gem "simplecov", "~> 0.22"
-  gem "rspec-rails", "~> 6.1"
+  gem "super_diff", "~> 0.12"
   gem "webmock", "~> 3.23"
 end
