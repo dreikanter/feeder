@@ -33,7 +33,7 @@ class Importer
 
   # @return [FeedContent]
   # @raise [StandardError] if processor execution is not possible
-  def load_content(feed)
+  def load_content
     feed.loader_instance.load
   rescue StandardError => e
     track_feed_error(error: e, category: "loading")
