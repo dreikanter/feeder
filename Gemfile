@@ -16,7 +16,7 @@ gem "pry", "~> 0.14"
 gem "pry-byebug"
 gem "pry-rails", "~> 0.3.9"
 gem "puma", "~> 6.4"
-gem "rails", "~> 7.2.0"
+gem "rails", "~> 8.0.0.beta1"
 gem "rexml", ">= 3.3.4"  # No direct dependency; added to mitigate a CVE
 gem "rss"
 # gem "stimulus-rails"
