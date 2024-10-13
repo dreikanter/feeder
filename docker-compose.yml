@@ -33,6 +33,15 @@ services:
     depends_on:
       - postgres
       - redis
+      - bun
+    volumes: *common-volumes
+
+  bun:
+    image: oven/bun:latest
+    working_dir: /app
+    environment:
+      NODE_ENV: development
+    command: sh -c "bun install && bun run build --watch"
     volumes: *common-volumes
 
   sh:
