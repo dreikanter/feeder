@@ -19,6 +19,8 @@ docker-compose build
 docker-compose up app
 ```
 
+Warning: `docker-compose run app` will not expose Rails server port!
+
 Install or update packages:
 
 ```sh
