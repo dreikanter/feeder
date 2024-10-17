@@ -15,7 +15,7 @@ class FeedProcessor
     feeds.each do |feed|
       Importer.new(feed).import
       Publisher.new(posts: feed.posts.pending).publish
-      # TBD: HAndle errors
+      # TBD: Handle errors
     end
   end
 end
