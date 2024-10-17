@@ -16,12 +16,11 @@ class Importer
   # processing workflow should be interrupted.
   # @raise [FeedConfigurationError] if the feed is missing related classes
   def import
-    logger.info("importing #{feed.readable_id}")
+    logger.info("importing #{feed.reference}")
     ensure_services_resolved
     feed_content = load_content
     entities = process_feed_content(feed_content)
     build_posts(filter_new_entities(entities))
-    # TBD: Enqueue draft posts
   end
 
   private

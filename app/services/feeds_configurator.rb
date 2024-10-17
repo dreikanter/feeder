@@ -3,7 +3,7 @@ class FeedsConfigurator
 
   attr_reader :feeds_configuration
 
-  def initialize(feeds_configuration: Rails.configuration.feeds)
+  def initialize(feeds_configuration: Rails.configuration.feeder.feeds)
     @feeds_configuration = feeds_configuration
   end
 

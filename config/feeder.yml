@@ -2,6 +2,7 @@ shared:
   freefeed_base_url: "<%= ENV['FREEFEED_BASE_URL'] || 'https://candy.freefeed.net' %>"
   feeds:
   - name: "xkcd"
+    state: "enabled"
     url: "https://xkcd.com/rss.xml"
     loader: "http"
     processor: "rss"
@@ -11,6 +12,7 @@ shared:
     import_limit: 2
 
   - name: "oglaf"
+    state: "enabled"
     url: "https://www.oglaf.com/feeds/rss/"
     loader: "http"
     processor: "rss"
@@ -20,6 +22,7 @@ shared:
     import_limit: 2
 
   - name: "phdcomics"
+    state: "enabled"
     url: "https://feeds.feedburner.com/PhdComics"
     loader: "http"
     processor: "rss"
@@ -29,6 +32,7 @@ shared:
     import_limit: 2
 
   - name: "commitstrip"
+    state: "enabled"
     url: "https://www.commitstrip.com/en/feed/"
     loader: "http"
     processor: "feedjira"
@@ -38,7 +42,7 @@ shared:
     import_limit: 2
 
   - name: "dilbert"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Scott Adams discontinued comic publication since February 2023"
     source_url: https://linktr.ee/scottadams
     url: "https://dilbert.com/feed"
@@ -50,6 +54,7 @@ shared:
     import_limit: 2
 
   - name: "rllivejournal"
+    state: "enabled"
     url: "https://r-l.livejournal.com/data/rss"
     loader: "http"
     processor: "rss"
@@ -59,7 +64,7 @@ shared:
     import_limit: 2
 
   - name: "nichtlustig-de"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Inactive since 2017"
     source_url: "http://nichtlustig.de"
     url: "http://static.nichtlustig.de/rss/nichtrss.rss"
@@ -71,6 +76,7 @@ shared:
     import_limit: 2
 
   - name: "oatmeal"
+    state: "enabled"
     url: "https://feeds.feedburner.com/oatmealfeed"
     loader: "http"
     processor: "rss"
@@ -80,6 +86,7 @@ shared:
     import_limit: 2
 
   - name: "wumo"
+    state: "enabled"
     url: "https://wumo.com/wumo?view=rss"
     loader: "http"
     processor: "rss"
@@ -89,7 +96,7 @@ shared:
     import_limit: 2
 
   - name: "kamillalinder-medium"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Medium is not responding for some reason. The feed is temporarily deactivated."
     source_url: "https://medium.com/feed/@kamillalinder"
     url: "https://medium.com/feed/@kamillalinder"
@@ -101,7 +108,7 @@ shared:
     import_limit: 2
 
   - name: "signalvnoise-medium"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Signal v. Noise was closed in 2021"
     url: "https://m.signalvnoise.com/feed"
     loader: "http"
@@ -112,6 +119,7 @@ shared:
     import_limit: 2
 
   - name: "github-blog"
+    state: "enabled"
     url: "https://github.com/blog/all.atom"
     loader: "http"
     processor: "atom"
@@ -121,6 +129,7 @@ shared:
     import_limit: 2
 
   - name: "explosm-comics"
+    state: "enabled"
     url: "https://feeds.feedburner.com/Explosm"
     loader: "http"
     processor: "rss"
@@ -130,6 +139,7 @@ shared:
     import_limit: 2
 
   - name: "the-atlantic-photos"
+    state: "enabled"
     url: "https://feeds.feedburner.com/theatlantic/infocus"
     loader: "http"
     processor: "rss"
@@ -139,7 +149,7 @@ shared:
     import_limit: 2
 
   - name: "esquire-photos"
-    enabled: false
+    state: "disabled"
     disabling_reason: "There is no more Esquire now"
     source_url: "https://pravilamag.ru"
     url: "https://feeds.feedburner.com/esquire-ru"
@@ -150,6 +160,7 @@ shared:
     import_limit: 2
 
   - name: "best-of-hacker-news"
+    state: "enabled"
     loader: "hackernews"
     processor: "hackernews"
     normalizer: "hackernews"
@@ -158,6 +169,7 @@ shared:
     import_limit: 2
 
   - name: "reddit-worldnews"
+    state: "enabled"
     url: "https://www.reddit.com/r/worldnews/.rss"
     loader: "http"
     processor: "reddit"
@@ -167,7 +179,7 @@ shared:
     import_limit: 2
 
   - name: "avokado-fm"
-    enabled: false
+    state: "disabled"
     disabling_reason: "tele.ga feed is inactive"
     source_url: "https://t.me/avokado_fm"
     url: "https://tele.ga/avokado_fm/rss/"
@@ -179,7 +191,7 @@ shared:
     import_limit: 2
 
   - name: "ecologica"
-    enabled: false
+    state: "disabled"
     disabling_reason: "vkrss.com service is down"
     source_url: "https://vk.com/ecologicaspb"
     url: "https://vkrss.com/ecologicaspb?key=EW9tJd7ZI8iGBQyg"
@@ -191,6 +203,7 @@ shared:
     import_limit: 2
 
   - name: "f28a"
+    state: "enabled"
     # url: "http://floccinaucinihilipilificationa.tumblr.com/rss"
     url: "https://feeds.feedburner.com/tumblr/bAzd"
     loader: "http"
@@ -201,6 +214,7 @@ shared:
     import_limit: 2
 
   - name: "agavr-today"
+    state: "enabled"
     url: "https://tele.ga/agavr_today/rss/"
     loader: "http"
     processor: "rss"
@@ -210,6 +224,7 @@ shared:
     import_limit: 2
 
   - name: "vdud"
+    state: "enabled"
     url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCMCgOm8GZkHp8zJ6l7_hIuA"
     loader: "http"
     processor: "youtube"
@@ -219,6 +234,7 @@ shared:
     import_limit: 2
 
   - name: "parfenon"
+    state: "enabled"
     url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCbhMGG0ZievPtK8mzLH5jhQ"
     loader: "http"
     processor: "youtube"
@@ -228,6 +244,7 @@ shared:
     import_limit: 2
 
   - name: "myjetpack"
+    state: "enabled"
     # url: "http://myjetpack.tumblr.com/rss"
     url: "https://feeds.feedburner.com/tumblr/uOke"
     loader: "http"
@@ -238,6 +255,7 @@ shared:
     import_limit: 2
 
   - name: "codinghorror"
+    state: "enabled"
     url: "https://feeds.feedburner.com/codinghorror"
     loader: "http"
     processor: "rss"
@@ -247,7 +265,7 @@ shared:
     import_limit: 2
 
   - name: "little-big-details"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Inactive since 2019"
     source_url: "http://littlebigdetails.com"
     url: "https://feeds.feedburner.com/littlebigdetails/wJCD"
@@ -259,6 +277,7 @@ shared:
     import_limit: 2
 
   - name: "blitz-and-chips"
+    state: "enabled"
     url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCRQEBFeG3lTMDEIUtQulzLg"
     loader: "http"
     processor: "youtube"
@@ -268,6 +287,7 @@ shared:
     import_limit: 2
 
   - name: "jimmydiresta"
+    state: "enabled"
     url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCiEk4xHBbz0hZNIBBpowdYQ"
     loader: "http"
     processor: "youtube"
@@ -277,6 +297,7 @@ shared:
     import_limit: 2
 
   - name: "confreaks"
+    state: "enabled"
     url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCWnPjmqvljcafA0z2U1fwKQ"
     loader: "http"
     processor: "youtube"
@@ -286,6 +307,7 @@ shared:
     import_limit: 2
 
   - name: "theycantalk"
+    state: "enabled"
     # url: "http://theycantalk.com/rss"
     url: "https://feeds.feedburner.com/theycantalk/xFcE"
     loader: "http"
@@ -297,7 +319,7 @@ shared:
 
   # NOTE: HTTPS is not supported
   - name: "maremir"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Inactive since 2018"
     source_url: "http://maremir.org"
     url: "http://maremir.org/feed/"
@@ -309,6 +331,7 @@ shared:
     import_limit: 2
 
   - name: "sarahcandersen"
+    state: "enabled"
     url: "https://feeds.feedburner.com/sarahcandersen/koPM"
     loader: "http"
     processor: "rss"
@@ -318,6 +341,7 @@ shared:
     import_limit: 2
 
   - name: "newflux"
+    state: "enabled"
     url: "https://newflux.fr/feed/"
     loader: "http"
     processor: "feedjira"
@@ -327,7 +351,7 @@ shared:
     import_limit: 2
 
   - name: "blogdummi"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Incative since 2022.10.28"
     source_url: "https://blogdummi.fr"
     url: "https://blogdummi.fr/feed/"
@@ -339,6 +363,7 @@ shared:
     import_limit: 2
 
   - name: "waitbutwhy"
+    state: "enabled"
     url: "https://waitbutwhy.com/feed"
     loader: "http"
     processor: "feedjira"
@@ -348,6 +373,7 @@ shared:
     import_limit: 2
 
   - name: "savagechickens"
+    state: "enabled"
     url: "https://www.savagechickens.com/feed"
     loader: "http"
     processor: "feedjira"
@@ -357,6 +383,7 @@ shared:
     import_limit: 2
 
   - name: "poorlydrawnlines"
+    state: "enabled"
     url: "https://feeds.feedburner.com/PoorlyDrawnLines"
     loader: "http"
     processor: "feedjira"
@@ -366,6 +393,7 @@ shared:
     import_limit: 2
 
   - name: "kimchicuddles"
+    state: "enabled"
     url: "https://kimchicuddles.com/rss"
     loader: "http"
     processor: "rss"
@@ -375,7 +403,7 @@ shared:
     import_limit: 2
 
   - name: "kimchicuddlesrus"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Inactive since 2019"
     source_url: https://kimchicuddlesrus.com
     url: "https://kimchicuddlesrus.com"
@@ -386,7 +414,7 @@ shared:
     import_limit: 2
 
   - name: "aerostatica"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Inactive since 2019, check out the new feed at https://freefeed.net/aerostat"
     source_url: "https://aerostatica.ru"
     url: "https://feeds.feedburner.com/aerostatica"
@@ -397,6 +425,7 @@ shared:
     import_limit: 2
 
   - name: "aerostat"
+    state: "enabled"
     url: "https://aerostatbg.ru/rss.xml"
     source_url: "https://aerostatbg.ru"
     loader: "http"
@@ -406,7 +435,7 @@ shared:
     import_limit: 20
 
   - name: "algtestament"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Inactive account"
     loader: "twitter"
     processor: "twitter"
@@ -419,6 +448,7 @@ shared:
       ignore_retweets: true
 
   - name: "extrafabulous"
+    state: "enabled"
     loader: "nitter"
     processor: "nitter"
     normalizer: "nitter"
@@ -431,7 +461,7 @@ shared:
       ignore_retweets: true
 
   - name: "bojackhorseman"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Inactive account"
     loader: "twitter"
     processor: "twitter"
@@ -444,6 +474,7 @@ shared:
       ignore_retweets: true
 
   - name: "nextbigfuture"
+    state: "enabled"
     url: "https://www.nextbigfuture.com/feed"
     loader: "http"
     processor: "feedjira"
@@ -453,6 +484,7 @@ shared:
     after: "2021-01-06T12:00:00+00:00"
 
   - name: "nepozner"
+    state: "enabled"
     url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCNRYbltJXhf6DepS26-uSbQ"
     loader: "http"
     processor: "youtube"
@@ -462,6 +494,7 @@ shared:
     after: "2021-01-06T12:00:00+00:00"
 
   - name: "jakelikesonions"
+    state: "enabled"
     loader: "nitter"
     processor: "nitter"
     normalizer: "nitter"
@@ -474,6 +507,7 @@ shared:
       ignore_retweets: true
 
   - name: "catscafe"
+    state: "enabled"
     loader: "nitter"
     processor: "nitter"
     normalizer: "nitter"
@@ -486,6 +520,7 @@ shared:
       ignore_retweets: true
 
   - name: "hackernewsonion"
+    state: "enabled"
     loader: "nitter"
     processor: "nitter"
     normalizer: "nitter"
@@ -497,7 +532,7 @@ shared:
       ignore_retweets: true
 
   - name: "bazar"
-    enabled: false
+    state: "disabled"
     disabling_reason: "No new episodes since 2022"
     url: "https://meduza.io/rss/podcasts/knizhnyy-bazar"
     loader: "http"
@@ -508,7 +543,7 @@ shared:
     after: "2021-01-06T12:00:00+00:00"
 
   - name: "rework"
-    enabled: false
+    state: "disabled"
     url: "https://feeds.transistor.fm/rework"
     loader: "http"
     processor: "feedjira"
@@ -518,6 +553,7 @@ shared:
     after: "2021-01-06T12:00:00+00:00"
 
   - name: "nathanwpyle"
+    state: "enabled"
     loader: "nitter"
     processor: "nitter"
     normalizer: "nitter"
@@ -530,6 +566,7 @@ shared:
       ignore_retweets: true
 
   - name: "smbc"
+    state: "enabled"
     url: "https://www.smbc-comics.com/comic/rss"
     loader: "http"
     processor: "rss"
@@ -539,7 +576,7 @@ shared:
     after: "2021-01-06T12:00:00+00:00"
 
   - name: "officetalk"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Inactive feed"
     url: "https://tele.ga/office_talk/rss/"
     loader: "http"
@@ -550,6 +587,7 @@ shared:
     after: "2021-01-06T12:00:00+00:00"
 
   - name: "infiniteimmortalbens"
+    state: "enabled"
     url: "https://infiniteimmortalbens.com/feed/"
     loader: "http"
     processor: "rss"
@@ -559,6 +597,7 @@ shared:
     after: "2021-01-06T12:00:00+00:00"
 
   - name: "schneier"
+    state: "enabled"
     url: "https://www.schneier.com/blog/atom.xml"
     loader: "http"
     processor: "atom"
@@ -568,6 +607,7 @@ shared:
     after: "2021-01-06T12:00:00+00:00"
 
   - name: "monkeyuser"
+    state: "enabled"
     url: "https://www.monkeyuser.com/index.xml"
     loader: "http"
     processor: "feedjira"
@@ -577,6 +617,7 @@ shared:
     after: "2023-09-01T00:00:00+00:00"
 
   - name: "warandpeas"
+    state: "enabled"
     loader: "nitter"
     processor: "nitter"
     normalizer: "nitter"
@@ -589,6 +630,7 @@ shared:
       ignore_retweets: true
 
   - name: "redakciya"
+    state: "enabled"
     url: "https://www.youtube.com/feeds/videos.xml?channel_id=UC1eFXmJNkjITxPFWTy6RsWg"
     loader: "http"
     processor: "youtube"
@@ -598,6 +640,7 @@ shared:
     after: "2021-01-06T12:00:00+00:00"
 
   - name: "safelyendangered"
+    state: "enabled"
     loader: "nitter"
     processor: "nitter"
     normalizer: "nitter"
@@ -610,6 +653,7 @@ shared:
       ignore_retweets: true
 
   - name: "kurzgesagt"
+    state: "enabled"
     url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCsXVk37bltHxD1rDPwtNM8Q"
     loader: "http"
     processor: "youtube"
@@ -620,6 +664,7 @@ shared:
 
   # NOTE: No certificate
   - name: "buni"
+    state: "enabled"
     url: "http://bunicomic.com/feed/"
     loader: "http"
     processor: "feedjira"
@@ -629,6 +674,7 @@ shared:
     after: "2021-01-06T12:00:00+00:00"
 
   - name: "lunarbaboon"
+    state: "enabled"
     url: "http://www.lunarbaboon.com/comics/rss.xml"
     loader: "http"
     processor: "feedjira"
@@ -638,6 +684,7 @@ shared:
     after: "2021-01-06T12:00:00+00:00"
 
   - name: "shvarz"
+    state: "enabled"
     url: "https://shvarz.livejournal.com/data/rss"
     loader: "http"
     processor: "rss"
@@ -647,6 +694,7 @@ shared:
     import_limit: 2
 
   - name: "schooloflife"
+    state: "enabled"
     url: "https://www.youtube.com/feeds/videos.xml?channel_id=UC7IcJI8PUf5Z3zKxnZvTBog"
     loader: "http"
     processor: "youtube"
@@ -656,6 +704,7 @@ shared:
     import_limit: 2
 
   - name: "365tomorrows"
+    state: "enabled"
     url: "https://365tomorrows.com/feed/"
     loader: "http"
     processor: "rss"
@@ -665,6 +714,7 @@ shared:
     import_limit: 2
 
   - name: "prof-afv"
+    state: "enabled"
     url: "https://prof-afv.livejournal.com/data/rss"
     loader: "http"
     processor: "rss"
@@ -674,6 +724,7 @@ shared:
     import_limit: 2
 
   - name: "einzelganger"
+    state: "enabled"
     url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCybBViio_TH_uiFFDJuz5tg"
     loader: "http"
     processor: "youtube"
@@ -683,6 +734,7 @@ shared:
     import_limit: 2
 
   - name: "lobsters-ruby"
+    state: "enabled"
     url: "https://lobste.rs/t/ruby.rss"
     loader: "http"
     processor: "lobsters"
@@ -691,6 +743,7 @@ shared:
     import_limit: 2
 
   - name: "neural-machine"
+    state: "enabled"
     loader: "nitter"
     processor: "nitter"
     normalizer: "nitter"
@@ -701,7 +754,7 @@ shared:
       ignore_retweets: true
 
   - name: "ru-tatireti"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Site not available"
     source_url: "https://tatireti.ru"
     url: "https://tatireti.ru/?feed=rss2"
@@ -712,6 +765,7 @@ shared:
     import_limit: 2
 
   - name: "litterbox"
+    state: "enabled"
     url: "https://www.litterboxcomics.com/feed/"
     loader: "http"
     processor: "feedjira"
@@ -720,6 +774,7 @@ shared:
     import_limit: 2
 
   - name: "lizandmollie"
+    state: "enabled"
     loader: "nitter"
     processor: "nitter"
     normalizer: "nitter"
@@ -731,6 +786,7 @@ shared:
       only_with_attachments: true
 
   - name: "zippy"
+    state: "enabled"
     url: "https://www.comicsrss.com/rss/zippy-the-pinhead.rss"
     loader: "http"
     processor: "feedjira"
@@ -739,6 +795,7 @@ shared:
     import_limit: 2
 
   - name: "yesbut"
+    state: "enabled"
     loader: "nitter"
     processor: "nitter"
     normalizer: "nitter"
@@ -750,6 +807,7 @@ shared:
       only_with_attachments: true
 
   - name: "hubermanlab"
+    state: "enabled"
     url: "https://www.youtube.com/feeds/videos.xml?channel_id=UC2D2CMWXMOVWx7giW1n3LIg"
     loader: "http"
     processor: "youtube"
@@ -758,6 +816,7 @@ shared:
     import_limit: 2
 
   - name: "veritasium"
+    state: "enabled"
     url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCHnyfMqiRRG1u-2MsSQLbXA"
     loader: "http"
     processor: "youtube"
@@ -766,7 +825,7 @@ shared:
     import_limit: 2
 
   - name: "kotaku"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Kotaku disabled the comments, naking impossible to figure out the most popular posts based on the amount of replies"
     url: "https://kotaku.com/rss"
     source_url: "https://kotaku.com"
@@ -779,6 +838,7 @@ shared:
       max_posts_number: 10
 
   - name: pluralistic
+    state: "enabled"
     url: "https://pluralistic.net/feed/"
     loader: "http"
     processor: "rss"
@@ -787,6 +847,7 @@ shared:
     import_limit: 10
 
   - name: elementy
+    state: "enabled"
     url: "https://elementy.ru/rss/news"
     loader: "http"
     processor: "feedjira"
@@ -795,6 +856,7 @@ shared:
     import_limit: 2
 
   - name: elementy-kartinka-dnya
+    state: "enabled"
     url: "https://elementy.ru/rss/kartinka_dnya"
     loader: "http"
     processor: "feedjira"
@@ -803,6 +865,7 @@ shared:
     import_limit: 2
 
   - name: melodymae
+    state: "enabled"
     url: "https://www.melodymae.co.uk/feed/"
     loader: "http"
     processor: "feedjira"

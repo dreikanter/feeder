@@ -153,9 +153,9 @@ RSpec.describe Feed do
     end
   end
 
-  describe "#readable_id" do
+  describe "#reference" do
     it "returns expected value" do
-      actual = build(:feed, id: 1, name: "sample").readable_id
+      actual = build(:feed, id: 1, name: "sample").reference
 
       expect(actual).to eq("feed-1-sample")
     end

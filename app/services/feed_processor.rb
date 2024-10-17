@@ -13,10 +13,9 @@ class FeedProcessor
   # TBD: This should receive "stale enabled" feeds; test Feed model scopes
   def perform
     feeds.each do |feed|
-      Importer.new(feed: feed).import
+      Importer.new(feed).import
       Publisher.new(posts: feed.posts.pending).publish
-    rescue StandardError
-      logger.error { "feed processing interrupted: #{feed.name} (id: #{feed.id})" }
+      # TBD: HAndle errors
     end
   end
 end

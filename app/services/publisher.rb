@@ -21,6 +21,7 @@ class Publisher
 
   # :reek:UnusedParameters
   def publish_post(post)
+    logger.info("publishing post: #{post.id}")
     # TBD
   end
 end
