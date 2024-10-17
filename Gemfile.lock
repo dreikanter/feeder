@@ -279,6 +279,10 @@ GEM
     rake (13.2.1)
     rdoc (6.7.0)
       psych (>= 4.0.0)
+    redis (5.3.0)
+      redis-client (>= 0.22.0)
+    redis-client (0.22.2)
+      connection_pool
     reek (6.3.0)
       dry-schema (~> 1.13.0)
       parser (~> 3.3.0)
@@ -409,6 +413,7 @@ DEPENDENCIES
   pry-rails (~> 0.3.9)
   puma (~> 6.4)
   rails (~> 8.0.0.beta1)
+  redis (~> 5.3)
   reek (~> 6.3)
   rexml (>= 3.3.4)
   rspec-rails (~> 6.1)
