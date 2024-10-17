@@ -65,7 +65,7 @@ RSpec.describe FeedsConfigurator do
         "state_updated_at" => nil,
         "source_url" => "",
         "description" => "",
-        "disabling_reason" => "",
+        "disabling_reason" => ""
       }
 
       expect(Feed.find_by(name: "test_feed").attributes).to include(**expected)
