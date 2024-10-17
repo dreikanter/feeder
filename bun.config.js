@@ -5,6 +5,7 @@ const config = {
   sourcemap: "external",
   entrypoints: ["app/javascript/application.js"],
   outdir: path.join(process.cwd(), "app/assets/builds"),
+  // minify: true
 };
 
 const build = async (config) => {

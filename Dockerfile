@@ -6,8 +6,13 @@ RUN apt-get update --yes \
     build-essential \
     less \
     vim \
+    curl \
   && gem install bundler:'~> 2.5' \
   && rm -rf /var/lib/apt/lists/*
+
+RUN curl -fsSL https://bun.sh/install | bash
+
+ENV PATH="/root/.bun/bin:${PATH}"
 
 ARG RAILS_ENV
 ARG DATABASE_URL
