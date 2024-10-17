@@ -50,7 +50,7 @@ class Feed < ApplicationRecord
     updated_at.blank? || configured_at.blank? || updated_at.change(usec: 0) <= configured_at.change(usec: 0)
   end
 
-  def readable_id
+  def reference
     [self.class.name.underscore, id, name].compact_blank.join("-")
   end
 
