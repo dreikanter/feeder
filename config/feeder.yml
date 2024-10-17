@@ -38,7 +38,7 @@ shared:
     import_limit: 2
 
   - name: "dilbert"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Scott Adams discontinued comic publication since February 2023"
     source_url: https://linktr.ee/scottadams
     url: "https://dilbert.com/feed"
@@ -59,7 +59,7 @@ shared:
     import_limit: 2
 
   - name: "nichtlustig-de"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Inactive since 2017"
     source_url: "http://nichtlustig.de"
     url: "http://static.nichtlustig.de/rss/nichtrss.rss"
@@ -89,7 +89,7 @@ shared:
     import_limit: 2
 
   - name: "kamillalinder-medium"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Medium is not responding for some reason. The feed is temporarily deactivated."
     source_url: "https://medium.com/feed/@kamillalinder"
     url: "https://medium.com/feed/@kamillalinder"
@@ -101,7 +101,7 @@ shared:
     import_limit: 2
 
   - name: "signalvnoise-medium"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Signal v. Noise was closed in 2021"
     url: "https://m.signalvnoise.com/feed"
     loader: "http"
@@ -139,7 +139,7 @@ shared:
     import_limit: 2
 
   - name: "esquire-photos"
-    enabled: false
+    state: "disabled"
     disabling_reason: "There is no more Esquire now"
     source_url: "https://pravilamag.ru"
     url: "https://feeds.feedburner.com/esquire-ru"
@@ -167,7 +167,7 @@ shared:
     import_limit: 2
 
   - name: "avokado-fm"
-    enabled: false
+    state: "disabled"
     disabling_reason: "tele.ga feed is inactive"
     source_url: "https://t.me/avokado_fm"
     url: "https://tele.ga/avokado_fm/rss/"
@@ -179,7 +179,7 @@ shared:
     import_limit: 2
 
   - name: "ecologica"
-    enabled: false
+    state: "disabled"
     disabling_reason: "vkrss.com service is down"
     source_url: "https://vk.com/ecologicaspb"
     url: "https://vkrss.com/ecologicaspb?key=EW9tJd7ZI8iGBQyg"
@@ -247,7 +247,7 @@ shared:
     import_limit: 2
 
   - name: "little-big-details"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Inactive since 2019"
     source_url: "http://littlebigdetails.com"
     url: "https://feeds.feedburner.com/littlebigdetails/wJCD"
@@ -297,7 +297,7 @@ shared:
 
   # NOTE: HTTPS is not supported
   - name: "maremir"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Inactive since 2018"
     source_url: "http://maremir.org"
     url: "http://maremir.org/feed/"
@@ -327,7 +327,7 @@ shared:
     import_limit: 2
 
   - name: "blogdummi"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Incative since 2022.10.28"
     source_url: "https://blogdummi.fr"
     url: "https://blogdummi.fr/feed/"
@@ -375,7 +375,7 @@ shared:
     import_limit: 2
 
   - name: "kimchicuddlesrus"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Inactive since 2019"
     source_url: https://kimchicuddlesrus.com
     url: "https://kimchicuddlesrus.com"
@@ -386,7 +386,7 @@ shared:
     import_limit: 2
 
   - name: "aerostatica"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Inactive since 2019, check out the new feed at https://freefeed.net/aerostat"
     source_url: "https://aerostatica.ru"
     url: "https://feeds.feedburner.com/aerostatica"
@@ -406,7 +406,7 @@ shared:
     import_limit: 20
 
   - name: "algtestament"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Inactive account"
     loader: "twitter"
     processor: "twitter"
@@ -431,7 +431,7 @@ shared:
       ignore_retweets: true
 
   - name: "bojackhorseman"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Inactive account"
     loader: "twitter"
     processor: "twitter"
@@ -497,7 +497,7 @@ shared:
       ignore_retweets: true
 
   - name: "bazar"
-    enabled: false
+    state: "disabled"
     disabling_reason: "No new episodes since 2022"
     url: "https://meduza.io/rss/podcasts/knizhnyy-bazar"
     loader: "http"
@@ -508,7 +508,7 @@ shared:
     after: "2021-01-06T12:00:00+00:00"
 
   - name: "rework"
-    enabled: false
+    state: "disabled"
     url: "https://feeds.transistor.fm/rework"
     loader: "http"
     processor: "feedjira"
@@ -539,7 +539,7 @@ shared:
     after: "2021-01-06T12:00:00+00:00"
 
   - name: "officetalk"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Inactive feed"
     url: "https://tele.ga/office_talk/rss/"
     loader: "http"
@@ -701,7 +701,7 @@ shared:
       ignore_retweets: true
 
   - name: "ru-tatireti"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Site not available"
     source_url: "https://tatireti.ru"
     url: "https://tatireti.ru/?feed=rss2"
@@ -766,7 +766,7 @@ shared:
     import_limit: 2
 
   - name: "kotaku"
-    enabled: false
+    state: "disabled"
     disabling_reason: "Kotaku disabled the comments, naking impossible to figure out the most popular posts based on the amount of replies"
     url: "https://kotaku.com/rss"
     source_url: "https://kotaku.com"
