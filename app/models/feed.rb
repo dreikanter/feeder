@@ -1,4 +1,6 @@
 class Feed < ApplicationRecord
+  include AASM
+
   MAX_LIMIT_LIMIT = 100
   IMPORT_LIMIT_RANGE = 0..(86400 * 7)
   NAME_LENGTH_RANGE = 3..80
@@ -20,6 +22,29 @@ class Feed < ApplicationRecord
   validates :description, length: {maximum: MAX_DESCRIPTION_LENGTH}, allow_blank: true
   validates :disabling_reason, length: {maximum: MAX_DESCRIPTION_LENGTH}, allow_blank: true
   validate :options_must_be_hash
+
+  aasm :state do
+    state :pristine, initial: true
+    state :enabled
+    state :paused
+    state :disabled
+
+    event :enable do
+      transitions from: %i[pristine disabled], to: :enabled, guard: :touch_state_updated_at
+    end
+
+    event :pause do
+      transitions from: :enabled, to: :paused
+    end
+
+    event :unpause do
+      transitions from: :paused, to: :enabled
+    end
+
+    event :disable do
+      transitions from: %i[pristine enabled paused], to: :disabled, guard: :touch_state_updated_at
+    end
+  end
 
   def configurable?
     updated_at.blank? || configured_at.blank? || updated_at.change(usec: 0) <= configured_at.change(usec: 0)
