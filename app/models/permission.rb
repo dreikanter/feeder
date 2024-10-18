@@ -8,5 +8,4 @@ class Permission < ApplicationRecord
   belongs_to :user
 
   validates :name, inclusion: AVAILABLE_NAMES
-  validates :user, presence: true
 end
