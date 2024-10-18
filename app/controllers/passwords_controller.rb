@@ -1,3 +1,4 @@
+# :reek:InstanceVariableAssumption
 class PasswordsController < ApplicationController
   allow_unauthenticated_access
   before_action :set_user_by_token, only: %i[edit update]
@@ -9,8 +10,8 @@ class PasswordsController < ApplicationController
   end
 
   def create
-    if user = User.find_by(email_address: params[:email_address])
-      PasswordsMailer.reset(user).deliver_later
+    User.find_by(email_address: params[:email_address]).tap do |user|
+      PasswordsMailer.reset(user).deliver_later if user
     end
 
     redirect_to new_session_url, notice: "Password reset instructions sent (if user with that email address exists)."
