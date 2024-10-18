@@ -1,0 +1,20 @@
+<h1>Dashboard</h1>
+
+<% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<% if authenticated? %>
+  <p><%= link_to "Sign out", session_path, data: { turbo_method: :delete } %></p>
+<% else %>
+  <p><%= link_to "Sign in", new_session_path %></p>
+<% end %>
+
+<% if Current.user %>
+  <p>Current user:</p>
+  <p><%= Current.user.as_json %></p>
+<% else %>
+  <p>User not authenticated.</p>
+<% end %>
