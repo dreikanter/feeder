@@ -4,6 +4,7 @@ ruby "3.3.5"
 
 gem "aasm", "~> 5.5"
 gem "amazing_print"
+gem "bcrypt", "~> 3.1"
 gem "bootsnap", require: false
 gem "honeybadger", "~> 5.15", ">= 5.15.6"
 gem "http", "~> 5.2"

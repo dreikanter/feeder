@@ -80,6 +80,7 @@ GEM
     ast (2.4.2)
     attr_extras (7.1.0)
     base64 (0.2.0)
+    bcrypt (3.1.20)
     benchmark (0.3.0)
     bigdecimal (3.1.8)
     bootsnap (1.18.4)
@@ -397,6 +398,7 @@ PLATFORMS
 DEPENDENCIES
   aasm (~> 5.5)
   amazing_print
+  bcrypt (~> 3.1)
   bootsnap
   brakeman (~> 6.1)
   bundler-audit (~> 0.9)
