@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_01_154501) do
+ActiveRecord::Schema[8.0].define(version: 2024_10_18_096000) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension "pg_catalog.plpgsql"
 
   create_table "error_reports", force: :cascade do |t|
     t.string "target_type"
@@ -92,6 +92,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_01_154501) do
     t.index ["url"], name: "index_nitter_instances_on_url"
   end
 
+  create_table "permissions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "name"], name: "index_permissions_on_user_id_and_name", unique: true
+    t.index ["user_id"], name: "index_permissions_on_user_id"
+  end
+
   create_table "posts", id: :serial, force: :cascade do |t|
     t.integer "feed_id", null: false
     t.string "link", default: "", null: false
@@ -127,6 +136,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_01_154501) do
     t.index ["state"], name: "index_service_instances_on_state"
   end
 
+  create_table "sessions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "ip_address"
+    t.string "user_agent"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sessions_on_user_id"
+  end
+
   create_table "sparklines", force: :cascade do |t|
     t.bigint "feed_id"
     t.jsonb "data", default: {}, null: false
@@ -135,4 +153,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_01_154501) do
     t.index ["feed_id"], name: "index_sparklines_on_feed_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "email_address", null: false
+    t.string "password_digest", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email_address"], name: "index_users_on_email_address", unique: true
+  end
+
+  add_foreign_key "permissions", "users"
+  add_foreign_key "sessions", "users"
 end
