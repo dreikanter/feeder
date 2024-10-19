@@ -1,11 +1,40 @@
-<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
-<%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header bg-transparent py-3">
+          <h1 class="card-title text-center mb-0 fs-3">Sign In</h1>
+        </div>
+        <div class="card-body px-5 py-4">
+          <% if flash[:alert] %>
+            <div class="alert alert-danger" role="alert">
+              <%= flash[:alert] %>
+            </div>
+          <% end %>
 
-<%= form_with url: session_path do |form| %>
-  <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: "test@example.com" %><br>
-  <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72, value: "password" %><br>
-  <%= form.submit "Sign in" %>
-<% end %>
-<br>
+          <% if flash[:notice] %>
+            <div class="alert alert-success" role="alert">
+              <%= flash[:notice] %>
+            </div>
+          <% end %>
 
-<%= link_to "Forgot password?", new_password_path %>
+          <%= form_with url: session_path do |form| %>
+            <div class="mb-3">
+              <%= form.label :email_address, "Email address", class: "form-label" %>
+              <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", class: "form-control" %>
+            </div>
+            <div class="mb-3">
+              <%= form.label :password, "Password", class: "form-label" %>
+              <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72, class: "form-control" %>
+            </div>
+            <%= form.submit "Sign in", class: "btn btn-primary w-100 mb-3" %>
+          <% end %>
+
+          <div class="text-center">
+            <%= link_to "Forgot password?", new_password_path, class: "text-decoration-none" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
