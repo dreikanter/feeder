@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.describe Freefeed::Request do
-  let(:client) { instance_double("Freefeed::Client", base_url: "https://example.com") }
-  let(:options) { { http_max_hops: 3, http_timeout_seconds: 5 } }
+  let(:client) { instance_double(Freefeed::Client, base_url: "https://example.com") }
+  let(:options) { {http_max_hops: 3, http_timeout_seconds: 5} }
   let(:request) { described_class.new(client: client, request_method: :get, path: "/test", options: options) }
 
   describe "#call" do
