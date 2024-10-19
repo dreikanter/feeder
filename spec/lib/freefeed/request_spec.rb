@@ -8,7 +8,7 @@ RSpec.describe Freefeed::Request do
   describe "#call" do
     context "when the response is successful" do
       it "makes a HTTP request without raising an error" do
-        stub_request(:get, "https://example.com/test").to_return(status: 200, body: "")
+        stub_request(:get, "https://example.com/test").to_return(status: 200)
 
         expect { request.call }.not_to raise_error
       end
@@ -16,7 +16,7 @@ RSpec.describe Freefeed::Request do
 
     context "when the response is unsuccessful" do
       it "raises an error for unsuccessful response" do
-        stub_request(:get, "https://example.com/test").to_return(status: 404, body: "")
+        stub_request(:get, "https://example.com/test").to_return(status: 404)
 
         expect { request.call }.to raise_error(Freefeed::Error::NotFound)
       end
