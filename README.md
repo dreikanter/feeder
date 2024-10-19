@@ -45,6 +45,19 @@ rails feeder:clean                    # Clean old data points
 rails feeder:import_nitter_instances  # Import public Nitter instances list
 ```
 
+Local domain name with [`puma-dev`](https://github.com/puma/puma-dev):
+
+```sh
+echo "http://localhost:3000" > ~/.puma-dev/feeder
+cat ~/.puma-dev/feeder
+
+# Test Rails server availability
+curl -v -H "Host: feeder.test" localhost
+
+# Test HTTPS
+curl -v -k -H "Host: feeder.test" https://localhost
+```
+
 ## Deployment
 
 How it works:
