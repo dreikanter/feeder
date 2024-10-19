@@ -1,8 +1,26 @@
-<h1>Forgot your password?</h1>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow">
+        <div class="card-header bg-transparent py-3">
+          <h1 class="card-title text-center mb-0 fs-3">Forgot your password?</h1>
+        </div>
+        <div class="card-body px-5 py-4">
+          <% if flash[:alert] %>
+            <div class="alert alert-danger" role="alert">
+              <%= flash[:alert] %>
+            </div>
+          <% end %>
 
-<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
-
-<%= form_with url: passwords_path do |form| %>
-  <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address] %><br>
-  <%= form.submit "Email reset instructions" %>
-<% end %>
+          <%= form_with url: passwords_path do |form| %>
+            <div class="mb-3">
+              <%= form.label :email_address, "Email address", class: "form-label" %>
+              <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address], class: "form-control" %>
+            </div>
+            <%= form.submit "Email reset instructions", class: "btn btn-primary w-100 mb-3" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
