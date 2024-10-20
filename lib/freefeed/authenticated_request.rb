@@ -3,7 +3,7 @@ module Freefeed
     private
 
     def headers
-      super.merge(authorization: "Bearer #{client.token}")
+      super.merge(authorization: "Bearer #{token}")
     end
   end
 end

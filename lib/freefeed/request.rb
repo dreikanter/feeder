@@ -1,10 +1,9 @@
 module Freefeed
   class Request
-    attr_reader :base_url, :http_client, :request_method, :path, :payload
+    attr_reader :client, :request_method, :path, :payload
 
-    def initialize(http_client:, base_url:, request_method:, path:, payload: {})
-      @base_url = base_url
-      @http_client = http_client
+    def initialize(client:, request_method:, path:, payload: {})
+      @client = client
       @request_method = request_method
       @path = path
       @payload = payload
@@ -35,5 +34,7 @@ module Freefeed
         user_agent: "feeder"
       }
     end
+
+    delegate :token, :base_url, :http_client, to: :client, private: true
   end
 end
