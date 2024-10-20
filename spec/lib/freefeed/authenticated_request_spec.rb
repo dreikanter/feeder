@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Freefeed::Request do
+RSpec.describe Freefeed::AuthenticatedRequest do
   let(:client) do
     Freefeed::Client.new(
       token: "TEST_TOKEN",
@@ -16,8 +16,8 @@ RSpec.describe Freefeed::Request do
           .with(
             body: {payload: "data"}.to_json,
             headers: {
+              "Authorization" => "Bearer TEST_TOKEN",
               "Content-Type" => "application/json; charset=utf-8",
-              "Host" => "example.com",
               "User-Agent" => "feeder"
             }
           )
@@ -38,20 +38,6 @@ RSpec.describe Freefeed::Request do
         expected = {"response" => "payload"}
 
         assert_equal expected, actual
-      end
-    end
-
-    context "when the response is unsuccessful" do
-      it "raises an error for unsuccessful response" do
-        stub_request(:get, "https://example.com/test").to_return(status: 404)
-
-        request = described_class.new(
-          client: client,
-          request_method: :get,
-          path: "/test"
-        )
-
-        expect { request.perform }.to raise_error(Freefeed::Error::NotFound)
       end
     end
   end

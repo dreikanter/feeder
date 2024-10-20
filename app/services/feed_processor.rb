@@ -14,8 +14,20 @@ class FeedProcessor
   def perform
     feeds.each do |feed|
       Importer.new(feed).import
-      Publisher.new(posts: feed.posts.pending).publish
+      Publisher.new(posts: feed.posts.pending, freefeed_client: build_freefeed_client).publish
+
       # TBD: Handle errors
     end
+  end
+
+  private
+
+  def build_freefeed_client
+    feeder = Rails.configuration.feeder
+
+    Freefeed::Client.new(
+      token: feeder.freefeed_token,
+      base_url: feeder.freefeed_base_url
+    )
   end
 end
