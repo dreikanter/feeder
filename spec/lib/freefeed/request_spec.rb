@@ -1,16 +1,39 @@
 require "rails_helper"
 
 RSpec.describe Freefeed::Request do
-  let(:client) { instance_double(Freefeed::Client, base_url: "https://example.com") }
-  let(:options) { {http_max_hops: 3, http_timeout_seconds: 5} }
-  let(:request) { described_class.new(client: client, request_method: :get, path: "/test", options: options) }
+  let(:base_url) { "https://example.com" }
+  let(:http_client) { HTTP }
 
-  describe "#call" do
+  describe "#perform" do
     context "when the response is successful" do
       it "makes a HTTP request without raising an error" do
-        stub_request(:get, "https://example.com/test").to_return(status: 200)
+        stub_request(:post, "https://example.com/test")
+          .with(
+            body: {payload: "data"}.to_json,
+            headers: {
+              "Content-Type" => "application/json; charset=utf-8",
+              "Host" => "example.com",
+              "User-Agent" => "feeder"
+            }
+          )
+          .to_return(
+            status: 200,
+            headers: {"Content-Type" => "application/json"},
+            body: {"response" => "payload"}.to_json
+          )
 
-        expect { request.call }.not_to raise_error
+        request = described_class.new(
+          http_client: http_client,
+          base_url: base_url,
+          request_method: :post,
+          path: "/test",
+          payload: {json: {"payload" => "data"}}
+        )
+
+        actual = request.perform.parse
+        expected = {"response" => "payload"}
+
+        assert_equal expected, actual
       end
     end
 
@@ -18,7 +41,14 @@ RSpec.describe Freefeed::Request do
       it "raises an error for unsuccessful response" do
         stub_request(:get, "https://example.com/test").to_return(status: 404)
 
-        expect { request.call }.to raise_error(Freefeed::Error::NotFound)
+        request = described_class.new(
+          http_client: http_client,
+          base_url: base_url,
+          request_method: :get,
+          path: "/test"
+        )
+
+        expect { request.perform }.to raise_error(Freefeed::Error::NotFound)
       end
     end
   end
