@@ -1,8 +1,14 @@
+# Takes a collection of posts, publishes each, updates post status.
+# Does not interrupt on publication error.
+#
 class Publisher
   include Logging
 
-  def initialize(posts:)
+  attr_reader :posts, :freefeed_client
+
+  def initialize(posts:, freefeed_client:)
     @posts = posts
+    @freefeed_client = freefeed_client
   end
 
   def publish
