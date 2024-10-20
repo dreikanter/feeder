@@ -23,9 +23,11 @@ class FeedProcessor
   private
 
   def build_freefeed_client
+    feeder = Rails.configuration.feeder
+
     Freefeed::Client.new(
-      token: Rails.configuration.feeder.freefeed_token,
-      base_url: Rails.configuration.feeder.freefeed_base_url
+      token: feeder.freefeed_token,
+      base_url: feeder.freefeed_base_url
     )
   end
 end

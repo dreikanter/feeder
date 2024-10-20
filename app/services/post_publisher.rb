@@ -8,6 +8,7 @@ class PostPublisher
     @freefeed_client = freefeed_client
   end
 
+  # TBD :reek:TooManyStatements
   def publish
     attachment_ids = create_attachments
     post_id = create_post(attachment_ids)

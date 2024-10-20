@@ -16,11 +16,16 @@ class BatchPublisher
 
     posts.each do |post|
       logger.info("publishing post: #{post.id}")
+      publish_post(post)
+    end
+  end
 
-      post.with_lock do
-        next unless post.reload.enqueued?
-        PostPublisher.new(post: post, freefeed_client: freefeed_client).publish
-      end
+  private
+
+  def publish_post(post)
+    post.with_lock do
+      next unless post.reload.enqueued?
+      PostPublisher.new(post: post, freefeed_client: freefeed_client).publish
     end
   end
 end
