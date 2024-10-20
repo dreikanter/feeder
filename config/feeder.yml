@@ -1,5 +1,7 @@
 shared:
-  freefeed_base_url: "<%= ENV['FREEFEED_BASE_URL'] || 'https://candy.freefeed.net' %>"
+  freefeed_base_url: "<%= ENV.fetch('FREEFEED_BASE_URL') { 'https://candy.freefeed.net' } %>"
+  freefeed_token: "<%= ENV.fetch('FREEFEED_TOKEN') %>"
+
   feeds:
   - name: "xkcd"
     state: "enabled"
