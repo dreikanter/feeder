@@ -9,7 +9,7 @@ module Freefeed
       end
 
       def create_attachment_from(url:, **)
-        ::Freefeed::Downloader.new(url: url, **).call do |io, content_type|
+        ::Freefeed::Downloader.new(url: url, http_client: http_client, **).call do |io, content_type|
           response = create_attachment(io, content_type: content_type)
           response.parse.fetch("attachments").fetch("id")
         end

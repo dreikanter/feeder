@@ -1,7 +1,7 @@
 # Takes a collection of posts, publishes each, updates post status.
 # Does not interrupt on publication error.
 #
-class Publisher
+class BatchPublisher
   include Logging
 
   attr_reader :posts, :freefeed_client
@@ -14,20 +14,13 @@ class Publisher
   def publish
     logger.info("publishing #{TextHelpers.pluralize(pending_posts.count, "posts")}")
 
-    pending_posts.each do |post|
-      publish_post(post)
+    posts.each do |post|
+      logger.info("publishing post: #{post.id}")
+
+      post.with_lock do
+        next unless post.reload.enqueued?
+        PostPublisher.new(post: post, freefeed_client: freefeed_client).publish
+      end
     end
-  end
-
-  private
-
-  def pending_posts
-    @pending_posts ||= posts.filter(&:pending?)
-  end
-
-  # :reek:UnusedParameters
-  def publish_post(post)
-    logger.info("publishing post: #{post.id}")
-    # TBD
   end
 end

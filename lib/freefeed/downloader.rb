@@ -1,6 +1,6 @@
 module Freefeed
   class Downloader
-    attr_reader :url
+    attr_reader :url, :http_client
 
     def initialize(url:, http_client: nil)
       @url = url
@@ -29,10 +29,6 @@ module Freefeed
     rescue StandardError
       # TBD: Report download error
       nil
-    end
-
-    def http_client
-      @http_client ||= HTTP.follow(max_hops: max_hops).timeout(timeout_seconds)
     end
   end
 end
