@@ -2,7 +2,7 @@ module Freefeed
   class Downloader
     attr_reader :url, :http_client
 
-    def initialize(url:, http_client: nil)
+    def initialize(url:, http_client:)
       @url = url
       @http_client = http_client
     end

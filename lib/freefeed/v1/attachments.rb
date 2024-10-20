@@ -8,8 +8,8 @@ module Freefeed
         authenticated_request(:post, "/v1/attachments", payload)
       end
 
-      def create_attachment_from(url:, **)
-        ::Freefeed::Downloader.new(url: url, http_client: http_client, **).call do |io, content_type|
+      def create_attachment_from(url:)
+        ::Freefeed::Downloader.new(url: url, http_client: http_client).call do |io, content_type|
           response = create_attachment(io, content_type: content_type)
           response.parse.fetch("attachments").fetch("id")
         end
