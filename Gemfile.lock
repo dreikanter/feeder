@@ -186,6 +186,9 @@ GEM
     marcel (1.0.4)
     memo_wise (1.10.0)
     method_source (1.1.0)
+    mimemagic (0.4.3)
+      nokogiri (~> 1)
+      rake
     mini_mime (1.1.5)
     minitest (5.25.1)
     msgpack (1.7.3)
@@ -407,6 +410,7 @@ DEPENDENCIES
   http (~> 5.2)
   jsbundling-rails
   memo_wise (~> 1.9)
+  mimemagic (~> 0.4.3)
   ostruct (~> 0.6.0)
   pg (~> 1.5)
   propshaft
