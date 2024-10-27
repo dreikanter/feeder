@@ -4,7 +4,7 @@ RSpec.describe Freefeed::Downloader do
   let(:url) { "https://example.com/image.jpg" }
   let(:http_client) { HTTP }
   let(:downloader) { described_class.new(url: url, http_client: http_client) }
-  let(:binary_content) { File.read("spec/fixtures/files/test_1x1.jpg", mode: "rb") }
+  let(:binary_content) { File.read("spec/fixtures/files/image_1x1.jpg", mode: "rb") }
 
   describe "#call" do
     context "when download is successful" do

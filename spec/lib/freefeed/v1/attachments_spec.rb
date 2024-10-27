@@ -4,12 +4,7 @@ RSpec.describe Freefeed::V1::Attachments do
   let(:client) { Freefeed::Client.new(token: "token", base_url: "https://example.com") }
 
   describe "#create_attachment" do
-    let(:file_path) { "spec/fixtures/image.jpg" }
-    let(:content_type) { "image/jpeg" }
-
-    before do
-      allow(MimeMagic).to receive(:by_path).with(file_path).and_return(content_type)
-    end
+    let(:file_path) { file_fixture("image_1x1.jpg") }
 
     it "uploads a file from path" do
       stub_request(:post, "https://example.com/v1/attachments")
@@ -38,9 +33,6 @@ RSpec.describe Freefeed::V1::Attachments do
     end
 
     it "uploads from IO object" do
-      io = StringIO.new("fake image content")
-      allow(MimeMagic).to receive(:by_magic).with(io).and_return(content_type)
-
       stub_request(:post, "https://example.com/v1/attachments")
         .with(
           headers: {
@@ -50,12 +42,12 @@ RSpec.describe Freefeed::V1::Attachments do
         )
         .to_return(status: 200, body: "{}")
 
+      io = StringIO.new("fake image content")
       client.create_attachment(io)
     end
   end
 
   describe "#create_attachment_from" do
-    let(:downloader) { instance_double(Freefeed::Downloader) }
     let(:remote_url) { "https://example.com/image.jpg" }
     let(:attachment_response) do
       {
@@ -66,15 +58,15 @@ RSpec.describe Freefeed::V1::Attachments do
     end
 
     it "creates attachment from remote URL" do
-      allow(Freefeed::Downloader).to receive(:new)
-        .with(url: remote_url, http_client: client.send(:http_client))
-        .and_return(downloader)
+      # Stub the remote image download
+      stub_request(:get, remote_url)
+        .to_return(
+          status: 200,
+          body: "fake image content",
+          headers: { "Content-Type" => "image/jpeg" }
+        )
 
-      expect(downloader).to receive(:call) do |&block|
-        io = StringIO.new("fake image content")
-        block.call(io, "image/jpeg")
-      end
-
+      # Stub the attachment creation
       stub_request(:post, "https://example.com/v1/attachments")
         .with(
           headers: {
@@ -82,7 +74,11 @@ RSpec.describe Freefeed::V1::Attachments do
             "User-Agent" => "feeder"
           }
         )
-        .to_return(status: 200, body: attachment_response)
+        .to_return(
+          status: 200,
+          body: attachment_response,
+          headers: { "Content-Type" => "application/json" }
+        )
 
       result = client.create_attachment_from(url: remote_url)
       expect(result).to eq("attachment-123")
