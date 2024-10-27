@@ -16,7 +16,9 @@ RSpec.describe Freefeed::V1::Attachments do
         )
         .to_return(status: 200, body: "{}")
 
-      client.create_attachment(file_path)
+      response = client.create_attachment(file_path)
+
+      expect(response.status.code).to eq(200)
     end
 
     it "uploads a file with explicit content type" do
@@ -29,7 +31,9 @@ RSpec.describe Freefeed::V1::Attachments do
         )
         .to_return(status: 200, body: "{}")
 
-      client.create_attachment(file_path, content_type: "image/png")
+      response = client.create_attachment(file_path, content_type: "image/png")
+
+      expect(response.status.code).to eq(200)
     end
 
     it "uploads from IO object" do
@@ -43,7 +47,9 @@ RSpec.describe Freefeed::V1::Attachments do
         .to_return(status: 200, body: "{}")
 
       io = StringIO.new("fake image content")
-      client.create_attachment(io)
+      response = client.create_attachment(io)
+
+      expect(response.status.code).to eq(200)
     end
   end
 
@@ -81,6 +87,7 @@ RSpec.describe Freefeed::V1::Attachments do
         )
 
       result = client.create_attachment_from(url: remote_url)
+
       expect(result).to eq("attachment-123")
     end
   end

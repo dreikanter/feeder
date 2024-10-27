@@ -19,10 +19,11 @@ RSpec.describe Freefeed::V1::Comments do
         )
         .to_return(status: 200, body: "{}")
 
-      client.create_comment(
+      response = client.create_comment(
         body: "Comment text",
         postId: "post-123"
       )
+      expect(response.status.code).to eq(200)
     end
   end
 
@@ -41,10 +42,11 @@ RSpec.describe Freefeed::V1::Comments do
         )
         .to_return(status: 200, body: "{}")
 
-      client.update_comment(
+      response = client.update_comment(
         "comment-123",
         body: "Updated comment text"
       )
+      expect(response.status.code).to eq(200)
     end
   end
 
@@ -59,7 +61,8 @@ RSpec.describe Freefeed::V1::Comments do
         )
         .to_return(status: 200, body: "{}")
 
-      client.delete_comment("comment-123")
+      response = client.delete_comment("comment-123")
+      expect(response.status.code).to eq(200)
     end
   end
 end
