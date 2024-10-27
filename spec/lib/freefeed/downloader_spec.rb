@@ -13,7 +13,7 @@ RSpec.describe Freefeed::Downloader do
           .to_return(
             status: 200,
             body: binary_content,
-            headers: { "Content-Type" => "image/jpeg" }
+            headers: {"Content-Type" => "image/jpeg"}
           )
       end
 
@@ -114,7 +114,7 @@ RSpec.describe Freefeed::Downloader do
               .to_return(
                 status: 200,
                 body: binary_content,
-                headers: { "Content-Type" => mime_type }
+                headers: {"Content-Type" => mime_type}
               )
           end
 
@@ -134,7 +134,7 @@ RSpec.describe Freefeed::Downloader do
           .to_return(
             status: 200,
             body: "",
-            headers: { "Content-Type" => "text/plain" }
+            headers: {"Content-Type" => "text/plain"}
           )
       end
 

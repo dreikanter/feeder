@@ -69,7 +69,7 @@ RSpec.describe Freefeed::V1::Attachments do
         .to_return(
           status: 200,
           body: "fake image content",
-          headers: { "Content-Type" => "image/jpeg" }
+          headers: {"Content-Type" => "image/jpeg"}
         )
 
       # Stub the attachment creation
@@ -83,7 +83,7 @@ RSpec.describe Freefeed::V1::Attachments do
         .to_return(
           status: 200,
           body: attachment_response,
-          headers: { "Content-Type" => "application/json" }
+          headers: {"Content-Type" => "application/json"}
         )
 
       result = client.create_attachment_from(url: remote_url)
