@@ -16,7 +16,9 @@ RSpec.describe Freefeed::V1::Posts do
         )
         .to_return(status: 200, body: "{}")
 
-      client.create_post(title: "New Post")
+      response = client.create_post(title: "New Post")
+
+      expect(response.status.code).to eq(200)
     end
 
     it "creates a post with full parameters" do
@@ -37,13 +39,15 @@ RSpec.describe Freefeed::V1::Posts do
         )
         .to_return(status: 200, body: "{}")
 
-      client.create_post(
+      response = client.create_post(
         title: "New Post",
         body: "Post content",
         attachments: ["1", "2"],
         feeds: ["feed1", "feed2"],
         commentsDisabled: true
       )
+
+      expect(response.status.code).to eq(200)
     end
   end
 
@@ -58,7 +62,9 @@ RSpec.describe Freefeed::V1::Posts do
         )
         .to_return(status: 200, body: "{}")
 
-      client.delete_post("post-id")
+      response = client.delete_post("post-id")
+
+      expect(response.status.code).to eq(200)
     end
   end
 
@@ -78,11 +84,13 @@ RSpec.describe Freefeed::V1::Posts do
         )
         .to_return(status: 200, body: "{}")
 
-      client.update_post(
+      response = client.update_post(
         "post-id",
         title: "Updated Title",
         body: "Updated content"
       )
+
+      expect(response.status.code).to eq(200)
     end
   end
 
@@ -97,7 +105,9 @@ RSpec.describe Freefeed::V1::Posts do
         )
         .to_return(status: 200, body: "{}")
 
-      client.hide("post-id")
+      response = client.hide("post-id")
+
+      expect(response.status.code).to eq(200)
     end
   end
 
@@ -112,7 +122,9 @@ RSpec.describe Freefeed::V1::Posts do
         )
         .to_return(status: 200, body: "{}")
 
-      client.unhide("post-id")
+      response = client.unhide("post-id")
+
+      expect(response.status.code).to eq(200)
     end
   end
 
@@ -127,7 +139,9 @@ RSpec.describe Freefeed::V1::Posts do
         )
         .to_return(status: 200, body: "{}")
 
-      client.like("post-id")
+      response = client.like("post-id")
+
+      expect(response.status.code).to eq(200)
     end
   end
 
@@ -142,7 +156,9 @@ RSpec.describe Freefeed::V1::Posts do
         )
         .to_return(status: 200, body: "{}")
 
-      client.unlike("post-id")
+      response = client.unlike("post-id")
+
+      expect(response.status.code).to eq(200)
     end
   end
 
@@ -157,7 +173,9 @@ RSpec.describe Freefeed::V1::Posts do
         )
         .to_return(status: 200, body: "{}")
 
-      client.disable_comments("post-id")
+      response = client.disable_comments("post-id")
+
+      expect(response.status.code).to eq(200)
     end
   end
 
@@ -172,7 +190,9 @@ RSpec.describe Freefeed::V1::Posts do
         )
         .to_return(status: 200, body: "{}")
 
-      client.enable_comments("post-id")
+      response = client.enable_comments("post-id")
+
+      expect(response.status.code).to eq(200)
     end
   end
 end
