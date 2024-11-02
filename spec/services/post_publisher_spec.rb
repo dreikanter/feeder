@@ -178,12 +178,71 @@ RSpec.describe PostPublisher do
     end
 
     it "handles error response" do
+      post = create(
+        :post,
+        feed: feed,
+        state: "enqueued",
+        attachments: [],
+        comments: []
+      )
+
+      # Create post
+      stub_request(:post, "https://freefeed.test/v1/posts")
+        .with(
+          body: {
+            "post" => {
+              "body" => "Sample post text",
+              "attachments" => []
+            },
+            "meta" => {
+              "feeds" => [feed.name]
+            }
+          }.to_json,
+          headers: json_headers_with_authentication_token
+        )
+        .to_return(status: 500)
+
+      publisher = described_class.new(post: post, freefeed_client: freefeed_client)
+
+      expect { publisher.publish }.to \
+        raise_error(Freefeed::Error::InternalServerError).and \
+        change { post.reload.slice("state", "freefeed_post_id") }
+        .from("state" => "enqueued", "freefeed_post_id" => nil)
+        .to("state" => "failed", "freefeed_post_id" => nil)
     end
 
     it "handles request timeout" do
-    end
+      post = create(
+        :post,
+        feed: feed,
+        state: "enqueued",
+        attachments: [],
+        comments: []
+      )
 
-    it "handles HTTP client exception" do
+      # Create post
+      stub_request(:post, "https://freefeed.test/v1/posts")
+        .with(
+          body: {
+            "post" => {
+              "body" => "Sample post text",
+              "attachments" => []
+            },
+            "meta" => {
+              "feeds" => [feed.name]
+            }
+          }.to_json,
+          headers: json_headers_with_authentication_token
+        )
+        .to_timeout
+
+      publisher = described_class.new(post: post, freefeed_client: freefeed_client)
+
+      expect { publisher.publish }.to \
+        raise_error(HTTP::TimeoutError).and \
+        change { post.reload.slice("state", "freefeed_post_id") }
+        .from("state" => "enqueued", "freefeed_post_id" => nil)
+        .to("state" => "failed", "freefeed_post_id" => nil)
     end
   end
 end
