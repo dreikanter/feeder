@@ -4,15 +4,16 @@
 class BatchPublisher
   include Logging
 
-  attr_reader :posts, :freefeed_client
+  attr_reader :posts, :freefeed_client, :publisher_class
 
-  def initialize(posts:, freefeed_client:)
+  def initialize(posts:, freefeed_client:, publisher_class: PostPublisher)
     @posts = posts
     @freefeed_client = freefeed_client
+    @publisher_class = publisher_class
   end
 
   def publish
-    logger.info("publishing #{TextHelpers.pluralize(pending_posts.count, "posts")}")
+    logger.info("publishing #{TextHelpers.pluralize(posts.count, "posts")}")
 
     posts.each do |post|
       logger.info("publishing post: #{post.id}")
@@ -25,7 +26,7 @@ class BatchPublisher
   def publish_post(post)
     post.with_lock do
       next unless post.reload.enqueued?
-      PostPublisher.new(post: post, freefeed_client: freefeed_client).publish
+      publisher_class.new(post: post, freefeed_client: freefeed_client).publish
     end
   end
 end
