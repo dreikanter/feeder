@@ -14,7 +14,7 @@ class FeedProcessor
   def perform
     feeds.each do |feed|
       Importer.new(feed).import
-      Publisher.new(posts: feed.posts.pending, freefeed_client: build_freefeed_client).publish
+      BatchPublisher.new(posts: feed.posts.pending, freefeed_client: build_freefeed_client).publish
 
       # TBD: Handle errors
     end
