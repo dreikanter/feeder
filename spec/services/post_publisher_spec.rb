@@ -1,6 +1,4 @@
 RSpec.describe PostPublisher do
-  subject(:service) { described_class.new(post: post, freefeed_client: freefeed_client) }
-
   let(:freefeed_client) do
     Freefeed::Client.new(
       token: "TEST_TOKEN",
