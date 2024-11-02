@@ -53,7 +53,7 @@ class PostPublisher
   end
 
   def create_attachment(url)
-    Downloader.call(url) do |io, content_type|
+    Freefeed::Downloader.new(url: url).call do |io, content_type|
       response = freefeed_client.create_attachment(io, content_type: content_type)
       response.parse.fetch("attachments").fetch("id")
     end
