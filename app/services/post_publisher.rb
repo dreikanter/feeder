@@ -18,6 +18,7 @@ class PostPublisher
     logger.info("---> new post URL: #{post.permalink}")
   rescue StandardError
     post.fail!
+    raise
     # TBD: Report error
   end
 
