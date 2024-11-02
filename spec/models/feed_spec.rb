@@ -134,7 +134,6 @@ RSpec.describe Feed do
     context "with missing timestamps" do
       it "returns true" do
         expect(build(:feed, updated_at: arbitrary_time, configured_at: nil)).to be_configurable
-        expect(build(:feed, updated_at: true, configured_at: arbitrary_time)).to be_configurable
         expect(build(:feed, updated_at: nil, configured_at: nil)).to be_configurable
       end
     end

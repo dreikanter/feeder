@@ -1,5 +1,3 @@
-require "rails_helper"
-
 RSpec.describe Freefeed::Client do
   let(:token) { "TEST_TOKEN" }
   let(:base_url) { "https://example.com" }

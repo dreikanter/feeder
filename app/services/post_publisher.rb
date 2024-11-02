@@ -1,6 +1,4 @@
 class PostPublisher
-  include Logging
-
   attr_reader :post, :freefeed_client
 
   def initialize(post:, freefeed_client:)
@@ -15,9 +13,9 @@ class PostPublisher
     post.update(freefeed_post_id: post_id)
     create_comments(post_id)
     post.success!
-    logger.info("---> new post URL: #{post.permalink}")
   rescue StandardError
     post.fail!
+    raise
     # TBD: Report error
   end
 
@@ -52,8 +50,9 @@ class PostPublisher
     post.attachments.map { |url| create_attachment(url) }
   end
 
+  # TBD: Move download process to the Freefeed client namespace
   def create_attachment(url)
-    Downloader.call(url) do |io, content_type|
+    Freefeed::Downloader.new(url: url).call do |io, content_type|
       response = freefeed_client.create_attachment(io, content_type: content_type)
       response.parse.fetch("attachments").fetch("id")
     end

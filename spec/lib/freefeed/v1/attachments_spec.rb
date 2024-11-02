@@ -1,5 +1,3 @@
-require "rails_helper"
-
 RSpec.describe Freefeed::V1::Attachments do
   let(:client) { Freefeed::Client.new(token: "token", base_url: "https://example.com") }
 
