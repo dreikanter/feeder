@@ -58,18 +58,16 @@ RSpec.describe Freefeed::Downloader do
   end
 
   describe "network failures" do
-    it "returns nil on connection error" do
+    it "returns nil on connection error and not yield" do
       stub_request(:get, url).to_raise(HTTP::ConnectionError)
 
-      expect { |b| downloader.call(&b) }.not_to yield_control
-      expect(downloader.call {}).to be_nil
+      expect { downloader.call { raise } }.to raise_error(HTTP::ConnectionError)
     end
 
-    it "returns nil on timeout error" do
+    it "returns nil on timeout error and not yield" do
       stub_request(:get, url).to_raise(HTTP::TimeoutError)
 
-      expect { |b| downloader.call(&b) }.not_to yield_control
-      expect(downloader.call {}).to be_nil
+      expect { downloader.call { raise } }.to raise_error(HTTP::TimeoutError)
     end
   end
 

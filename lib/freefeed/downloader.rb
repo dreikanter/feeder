@@ -8,7 +8,6 @@ module Freefeed
     end
 
     def call
-      # TBD: Honeybadger.context(downloader: {url: url})
       response = fetch_url
       return unless response&.status&.success?
       yield build_io_from(response), response.content_type.mime_type
@@ -26,9 +25,6 @@ module Freefeed
 
     def fetch_url
       http_client.get(url)
-    rescue StandardError
-      # TBD: Report download error
-      nil
     end
   end
 end
