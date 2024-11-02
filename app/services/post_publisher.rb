@@ -53,6 +53,7 @@ class PostPublisher
     post.attachments.map { |url| create_attachment(url) }
   end
 
+  # TBD: Move download process to the Freefeed client namespace
   def create_attachment(url)
     Freefeed::Downloader.new(url: url).call do |io, content_type|
       response = freefeed_client.create_attachment(io, content_type: content_type)
