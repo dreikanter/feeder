@@ -1,6 +1,4 @@
 class PostPublisher
-  include Logging
-
   attr_reader :post, :freefeed_client
 
   def initialize(post:, freefeed_client:)
@@ -15,7 +13,6 @@ class PostPublisher
     post.update(freefeed_post_id: post_id)
     create_comments(post_id)
     post.success!
-    logger.info("---> new post URL: #{post.permalink}")
   rescue StandardError
     post.fail!
     raise
