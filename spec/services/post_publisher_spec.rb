@@ -206,7 +206,7 @@ RSpec.describe PostPublisher do
 
       expect { publisher.publish }.to \
         raise_error(Freefeed::Error::InternalServerError).and \
-        change { post.reload.slice("state", "freefeed_post_id") }
+          change { post.reload.slice("state", "freefeed_post_id") }
         .from("state" => "enqueued", "freefeed_post_id" => nil)
         .to("state" => "failed", "freefeed_post_id" => nil)
     end
@@ -240,7 +240,7 @@ RSpec.describe PostPublisher do
 
       expect { publisher.publish }.to \
         raise_error(HTTP::TimeoutError).and \
-        change { post.reload.slice("state", "freefeed_post_id") }
+          change { post.reload.slice("state", "freefeed_post_id") }
         .from("state" => "enqueued", "freefeed_post_id" => nil)
         .to("state" => "failed", "freefeed_post_id" => nil)
     end
