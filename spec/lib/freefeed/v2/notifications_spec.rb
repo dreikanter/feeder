@@ -1,6 +1,4 @@
 # spec/lib/freefeed/v2/notifications_spec.rb
-require "rails_helper"
-
 RSpec.describe Freefeed::V2::Notifications do
   let(:client) { Freefeed::Client.new(token: "token", base_url: "https://example.com") }
 

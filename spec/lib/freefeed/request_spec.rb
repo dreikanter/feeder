@@ -1,5 +1,3 @@
-require "rails_helper"
-
 RSpec.describe Freefeed::Request do
   let(:client) do
     Freefeed::Client.new(

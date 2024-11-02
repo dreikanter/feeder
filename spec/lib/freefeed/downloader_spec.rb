@@ -1,5 +1,3 @@
-require "rails_helper"
-
 RSpec.describe Freefeed::Downloader do
   let(:url) { "https://example.com/image.jpg" }
   let(:http_client) { HTTP }
