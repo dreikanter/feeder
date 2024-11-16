@@ -15,5 +15,7 @@ class ClassResolver
   # @raise [NameError] if the target class is missing
   def resolve
     [class_name, suffix].join("_").classify.constantize
+  rescue NameError
+    nil
   end
 end

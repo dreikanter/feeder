@@ -69,8 +69,6 @@ class Feed < ApplicationRecord
 
   def loader_class
     ClassResolver.new(loader, suffix: "loader").resolve
-  rescue NameError
-    nil
   end
 
   def loader_instance
@@ -79,8 +77,6 @@ class Feed < ApplicationRecord
 
   def processor_class
     ClassResolver.new(processor, suffix: "processor").resolve
-  rescue NameError
-    nil
   end
 
   def processor_instance
@@ -89,8 +85,6 @@ class Feed < ApplicationRecord
 
   def normalizer_class
     ClassResolver.new(normalizer, suffix: "normalizer").resolve
-  rescue NameError
-    nil
   end
 
   private
