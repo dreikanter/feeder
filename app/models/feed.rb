@@ -1,7 +1,7 @@
 class Feed < ApplicationRecord
   include AASM
 
-  MAX_LIMIT_LIMIT = 100
+  MAX_IMPORT_LIMIT = 100
   IMPORT_LIMIT_RANGE = 0..(86400 * 7)
   NAME_LENGTH_RANGE = 3..80
   MAX_URL_LENGTH = 4096
@@ -14,7 +14,7 @@ class Feed < ApplicationRecord
   validates :name, presence: true, length: NAME_LENGTH_RANGE, format: /\A[\w\-]+\z/
   normalizes :name, with: ->(name) { name.to_s.strip.downcase }
 
-  validates :import_limit, numericality: {less_than_or_equal_to: MAX_LIMIT_LIMIT}
+  validates :import_limit, numericality: {less_than_or_equal_to: MAX_IMPORT_LIMIT}
   validates :refresh_interval, presence: true, numericality: {greater_than_or_equal_to: 0}
   validates :loader, :normalizer, :processor, presence: true, format: /\A\w+\z/
   validates :url, length: {maximum: MAX_URL_LENGTH}, allow_nil: true

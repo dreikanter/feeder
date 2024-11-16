@@ -42,7 +42,7 @@ RSpec.describe Feed do
 
     describe "#import_limit" do
       it "validates numericality" do
-        expect(feed).to validate_numericality_of(:import_limit).is_less_than_or_equal_to(Feed::MAX_LIMIT_LIMIT)
+        expect(feed).to validate_numericality_of(:import_limit).is_less_than_or_equal_to(Feed::MAX_IMPORT_LIMIT)
       end
     end
 
