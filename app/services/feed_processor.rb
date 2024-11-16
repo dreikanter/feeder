@@ -10,7 +10,6 @@ class FeedProcessor
     @feeds = feeds
   end
 
-  # TBD: This should receive "stale enabled" feeds; test Feed model scopes
   def perform
     feeds.each do |feed|
       Importer.new(feed).import
