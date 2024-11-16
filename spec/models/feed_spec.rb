@@ -206,6 +206,24 @@ RSpec.describe Feed do
     end
   end
 
+  describe "#stale?" do
+    context "when refresh_interval is zero" do
+      it { expect(build(:feed, refresh_interval: 0)).to be_stale }
+    end
+
+    context "when refreshed_at is nil" do
+      it { expect(build(:feed, refresh_interval: 1.hour.to_i, refreshed_at: nil)).to be_stale }
+    end
+
+    context "when past refresh interval" do
+      it { expect(build(:feed, refresh_interval: 1.hour.to_i, refreshed_at: 2.hours.ago)).to be_stale }
+    end
+
+    context "when within refresh interval" do
+      it { expect(build(:feed, refresh_interval: 1.hour.to_i, refreshed_at: 30.minutes.ago)).not_to be_stale }
+    end
+  end
+
   describe "#reference" do
     it "returns expected value" do
       actual = build(:feed, id: 1, name: "sample").reference

@@ -58,6 +58,11 @@ class Feed < ApplicationRecord
     updated_at.blank? || configured_at.blank? || updated_at.change(usec: 0) <= configured_at.change(usec: 0)
   end
 
+  # @return [true, false] true when the feed needs a refresh
+  def stale?
+    refresh_interval.zero? || refreshed_at.blank? || time_to_refresh?
+  end
+
   def reference
     [self.class.name.underscore, id, name].compact_blank.join("-")
   end
@@ -102,5 +107,13 @@ class Feed < ApplicationRecord
 
   def options_must_be_hash
     errors.add(:options, :not_a_hash, message: "must be a hash") unless options.is_a?(Hash)
+  end
+
+  def time_to_refresh?
+    seconds_since_last_refresh > refresh_interval
+  end
+
+  def seconds_since_last_refresh
+    (Time.now.utc.to_i - refreshed_at.to_i).abs
   end
 end
