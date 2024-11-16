@@ -130,6 +130,32 @@ RSpec.describe Feed do
     end
   end
 
+  describe ".ordered_by" do
+    it "orders records by the specified attribute and direction" do
+      create(:feed, name: "bbb", refreshed_at: 2.days.ago)
+      create(:feed, name: "aaa", refreshed_at: 1.day.ago)
+      feeds = described_class.ordered_by("name", "ASC")
+
+      expect(feeds.map(&:name)).to eq(%w[aaa bbb])
+    end
+
+    it "puts null values last when descending" do
+      create(:feed, name: "bbb", refreshed_at: nil)
+      create(:feed, name: "aaa", refreshed_at: 1.day.ago)
+      feeds = described_class.ordered_by("refreshed_at", "DESC")
+
+      expect(feeds.map(&:name)).to eq(%w[aaa bbb])
+    end
+
+    it "puts null values last when ascending" do
+      create(:feed, name: "bbb", refreshed_at: nil)
+      create(:feed, name: "aaa", refreshed_at: 1.day.ago)
+      feeds = described_class.ordered_by("refreshed_at", "ASC")
+
+      expect(feeds.map(&:name)).to eq(%w[aaa bbb])
+    end
+  end
+
   describe ".stale" do
     it "includes feeds with zero refresh_interval" do
       feed = create(:feed, refresh_interval: 0, refreshed_at: 1.minute.ago)
