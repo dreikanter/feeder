@@ -28,7 +28,7 @@ RSpec.describe ClassResolver do
 
     it "raises a NameError for missing class" do
       resolver = described_class.new("non_existent")
-      expect { resolver.resolve }.to raise_error(NameError)
+      expect(resolver.resolve).to be_nil
     end
   end
 end

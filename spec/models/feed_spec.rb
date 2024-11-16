@@ -1,4 +1,6 @@
 RSpec.describe Feed do
+  before { freeze_time }
+
   describe "relations" do
     subject(:feed) { build(:feed) }
 
@@ -42,7 +44,7 @@ RSpec.describe Feed do
 
     describe "#import_limit" do
       it "validates numericality" do
-        expect(feed).to validate_numericality_of(:import_limit).is_less_than_or_equal_to(Feed::MAX_LIMIT_LIMIT)
+        expect(feed).to validate_numericality_of(:import_limit).is_less_than_or_equal_to(Feed::MAX_IMPORT_LIMIT)
       end
     end
 
@@ -128,6 +130,58 @@ RSpec.describe Feed do
     end
   end
 
+  describe ".ordered_by" do
+    it "orders records by the specified attribute and direction" do
+      create(:feed, name: "bbb", refreshed_at: 2.days.ago)
+      create(:feed, name: "aaa", refreshed_at: 1.day.ago)
+      feeds = described_class.ordered_by("name", "ASC")
+
+      expect(feeds.map(&:name)).to eq(%w[aaa bbb])
+    end
+
+    it "puts null values last when descending" do
+      create(:feed, name: "bbb", refreshed_at: nil)
+      create(:feed, name: "aaa", refreshed_at: 1.day.ago)
+      feeds = described_class.ordered_by("refreshed_at", "DESC")
+
+      expect(feeds.map(&:name)).to eq(%w[aaa bbb])
+    end
+
+    it "puts null values last when ascending" do
+      create(:feed, name: "bbb", refreshed_at: nil)
+      create(:feed, name: "aaa", refreshed_at: 1.day.ago)
+      feeds = described_class.ordered_by("refreshed_at", "ASC")
+
+      expect(feeds.map(&:name)).to eq(%w[aaa bbb])
+    end
+  end
+
+  describe ".stale" do
+    it "includes feeds with zero refresh_interval" do
+      feed = create(:feed, refresh_interval: 0, refreshed_at: 1.minute.ago)
+
+      expect(described_class.stale).to eq([feed])
+    end
+
+    it "includes feeds with nil refreshed_at" do
+      feed = create(:feed, refresh_interval: 1.hour.to_i, refreshed_at: nil)
+
+      expect(described_class.stale).to eq([feed])
+    end
+
+    it "includes feeds that are past their refresh interval" do
+      feed = create(:feed, refresh_interval: 1.hour.to_i, refreshed_at: 2.hours.ago)
+
+      expect(described_class.stale).to eq([feed])
+    end
+
+    it "excludes fresh feeds" do
+      create(:feed, refresh_interval: 1.hour.to_i, refreshed_at: 30.minutes.ago)
+
+      expect(described_class.stale).to be_empty
+    end
+  end
+
   describe "#configurable?" do
     let(:arbitrary_time) { Time.current }
 
@@ -149,6 +203,24 @@ RSpec.describe Feed do
       it "returns false" do
         expect(build(:feed, updated_at: arbitrary_time + 1.second, configured_at: arbitrary_time)).not_to be_configurable
       end
+    end
+  end
+
+  describe "#stale?" do
+    context "when refresh_interval is zero" do
+      it { expect(build(:feed, refresh_interval: 0)).to be_stale }
+    end
+
+    context "when refreshed_at is nil" do
+      it { expect(build(:feed, refresh_interval: 1.hour.to_i, refreshed_at: nil)).to be_stale }
+    end
+
+    context "when past refresh interval" do
+      it { expect(build(:feed, refresh_interval: 1.hour.to_i, refreshed_at: 2.hours.ago)).to be_stale }
+    end
+
+    context "when within refresh interval" do
+      it { expect(build(:feed, refresh_interval: 1.hour.to_i, refreshed_at: 30.minutes.ago)).not_to be_stale }
     end
   end
 

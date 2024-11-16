@@ -1,7 +1,7 @@
 class Feed < ApplicationRecord
   include AASM
 
-  MAX_LIMIT_LIMIT = 100
+  MAX_IMPORT_LIMIT = 100
   IMPORT_LIMIT_RANGE = 0..(86400 * 7)
   NAME_LENGTH_RANGE = 3..80
   MAX_URL_LENGTH = 4096
@@ -14,7 +14,7 @@ class Feed < ApplicationRecord
   validates :name, presence: true, length: NAME_LENGTH_RANGE, format: /\A[\w\-]+\z/
   normalizes :name, with: ->(name) { name.to_s.strip.downcase }
 
-  validates :import_limit, numericality: {less_than_or_equal_to: MAX_LIMIT_LIMIT}
+  validates :import_limit, numericality: {less_than_or_equal_to: MAX_IMPORT_LIMIT}
   validates :refresh_interval, presence: true, numericality: {greater_than_or_equal_to: 0}
   validates :loader, :normalizer, :processor, presence: true, format: /\A\w+\z/
   validates :url, length: {maximum: MAX_URL_LENGTH}, allow_nil: true
@@ -46,8 +46,21 @@ class Feed < ApplicationRecord
     end
   end
 
+  scope :ordered_by, ->(attribute, direction) { order(sanitize_sql_for_order("#{attribute} #{direction} NULLS LAST")) }
+
+  scope :stale, lambda {
+    where(refresh_interval: 0)
+      .or(where(refreshed_at: nil))
+      .or(where("age(now(), refreshed_at) > make_interval(secs => refresh_interval)"))
+  }
+
   def configurable?
     updated_at.blank? || configured_at.blank? || updated_at.change(usec: 0) <= configured_at.change(usec: 0)
+  end
+
+  # @return [true, false] true when the feed needs a refresh
+  def stale?
+    refresh_interval.zero? || refreshed_at.blank? || time_to_refresh?
   end
 
   def reference
@@ -55,8 +68,11 @@ class Feed < ApplicationRecord
   end
 
   def ensure_supported
-    return true if loader_class && processor_class && normalizer_class
-    raise FeedConfigurationError
+    if loader_class && processor_class && normalizer_class
+      true
+    else
+      raise FeedConfigurationError
+    end
   end
 
   def service_classes
@@ -69,8 +85,6 @@ class Feed < ApplicationRecord
 
   def loader_class
     ClassResolver.new(loader, suffix: "loader").resolve
-  rescue NameError
-    nil
   end
 
   def loader_instance
@@ -79,8 +93,6 @@ class Feed < ApplicationRecord
 
   def processor_class
     ClassResolver.new(processor, suffix: "processor").resolve
-  rescue NameError
-    nil
   end
 
   def processor_instance
@@ -89,13 +101,19 @@ class Feed < ApplicationRecord
 
   def normalizer_class
     ClassResolver.new(normalizer, suffix: "normalizer").resolve
-  rescue NameError
-    nil
   end
 
   private
 
   def options_must_be_hash
     errors.add(:options, :not_a_hash, message: "must be a hash") unless options.is_a?(Hash)
+  end
+
+  def time_to_refresh?
+    seconds_since_last_refresh > refresh_interval
+  end
+
+  def seconds_since_last_refresh
+    (Time.now.utc.to_i - refreshed_at.to_i).abs
   end
 end
