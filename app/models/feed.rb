@@ -46,6 +46,12 @@ class Feed < ApplicationRecord
     end
   end
 
+  scope :stale, lambda {
+    where(refresh_interval: 0)
+      .or(where(refreshed_at: nil))
+      .or(where("age(now(), refreshed_at) > make_interval(secs => refresh_interval)"))
+  }
+
   def configurable?
     updated_at.blank? || configured_at.blank? || updated_at.change(usec: 0) <= configured_at.change(usec: 0)
   end

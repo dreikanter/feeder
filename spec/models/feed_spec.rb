@@ -1,4 +1,6 @@
 RSpec.describe Feed do
+  before { freeze_time }
+
   describe "relations" do
     subject(:feed) { build(:feed) }
 
@@ -125,6 +127,32 @@ RSpec.describe Feed do
         expect(feed).not_to be_valid
         expect(feed.errors[:options]).to include("must be a hash")
       end
+    end
+  end
+
+  describe ".stale" do
+    it "includes feeds with zero refresh_interval" do
+      feed = create(:feed, refresh_interval: 0, refreshed_at: 1.minute.ago)
+
+      expect(described_class.stale).to eq([feed])
+    end
+
+    it "includes feeds with nil refreshed_at" do
+      feed = create(:feed, refresh_interval: 1.hour.to_i, refreshed_at: nil)
+
+      expect(described_class.stale).to eq([feed])
+    end
+
+    it "includes feeds that are past their refresh interval" do
+      feed = create(:feed, refresh_interval: 1.hour.to_i, refreshed_at: 2.hours.ago)
+
+      expect(described_class.stale).to eq([feed])
+    end
+
+    it "excludes fresh feeds" do
+      create(:feed, refresh_interval: 1.hour.to_i, refreshed_at: 30.minutes.ago)
+
+      expect(described_class.stale).to be_empty
     end
   end
 
