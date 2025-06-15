@@ -26,8 +26,11 @@ class TheAtlanticPhotosNormalizer < FeedjiraNormalizer
   end
 
   def caption
-    if content.title.present?
-      content.author.present? ? "#{content.title} (#{content.author})" : content.title
+    content_title = content.title
+    content_author = content.author
+
+    if content_title.present?
+      content_author.present? ? "#{content_title} (#{content_author})" : content_title
     else
       "Untitled"
     end
