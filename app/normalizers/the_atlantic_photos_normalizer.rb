@@ -1,52 +1,35 @@
-class TheAtlanticPhotosNormalizer < TumblrNormalizer
+class TheAtlanticPhotosNormalizer < FeedjiraNormalizer
   def text
-    [description, direct_link].compact_blank.join(separator)
-  end
-
-  # :reek:FeatureEnvy
-  def direct_link
-    link = content.link
-
-    RestClient.get(link) do |response, _request, _result|
-      redirecting = [301, 302, 307].include?(response.code)
-      redirecting ? response.headers[:location] : link
-    end
+    [caption, link].compact_blank.join(separator)
   end
 
   def attachments
-    [image_url]
+    [headline_image_url].compact_blank
   end
 
   def comments
-    [photo_description_excerpt]
+    [content.summary].compact_blank
+  end
+
+  def validation_errors
+    super + (attachments.none? ? ["no images"] : [])
   end
 
   private
 
-  def description
-    kill_newlines(Html.excerpt(content.description, length: limit))
+  def headline_image_url
+    content.image || legacy_format_image_url
   end
 
-  MAX_EXPANDED_POST_LENGTH = 500
-
-  def limit
-    MAX_EXPANDED_POST_LENGTH - separator.length - link.length
+  def legacy_format_image_url
+    Nokogiri::HTML(content.content).css("figure img").first["src"]
   end
 
-  def image_url
-    Html.first_image_url(content.description)
-  end
-
-  def photo_description_excerpt
-    kill_newlines(Html.comment_excerpt(photo_description))
-  end
-
-  def photo_description
-    caption = Nokogiri::HTML(content.description).css("figure > figcaption")
-    caption.try(:first).try(:text) || ""
-  end
-
-  def kill_newlines(text)
-    text.to_s.gsub(/\s+/, " ")
+  def caption
+    if content.title.present?
+      content.author.present? ? "#{content.title} (#{content.author})" : content.title
+    else
+      "Untitled"
+    end
   end
 end

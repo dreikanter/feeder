@@ -128,11 +128,11 @@
   import_limit: 2
 
 - name: "the-atlantic-photos"
-  url: "https://feeds.feedburner.com/theatlantic/infocus"
+  url: "https://www.theatlantic.com/feed/channel/photography/"
   loader: "http"
-  processor: "rss"
+  processor: "feedjira"
   normalizer: "the_atlantic_photos"
-  after: "2021-01-06T12:00:00+00:00"
+  after: "2025-06-08 10:00:00 +0000"
   refresh_interval: 7200
   import_limit: 2
 
