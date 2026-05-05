@@ -41,3 +41,6 @@ yarn-debug.log*
 .env
 
 app/assets/builds
+
+# Redis persistence dump
+dump.rdb
