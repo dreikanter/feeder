@@ -27,7 +27,7 @@ group :development, :test do
 end
 
 gem "aasm", "~> 5.5"
-gem "addressable", "~> 2.8"
+gem "addressable", "~> 2.9"
 gem "amazing_print"
 gem "bootsnap", "~> 1.16", require: false
 gem "callee", "~> 0.3"
