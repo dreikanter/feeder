@@ -91,10 +91,11 @@ GEM
     brakeman (6.1.2)
       racc
     builder (3.3.0)
-    bundler-audit (0.9.1)
-      bundler (>= 1.2.0, < 3)
+    bundler-audit (0.9.3)
+      bundler (>= 1.2.0)
       thor (~> 1.0)
-    byebug (11.1.3)
+    byebug (13.0.0)
+      reline (>= 0.6.0)
     callee (0.3.6)
       dry-initializer (>= 2.5)
     coderay (1.1.3)
@@ -232,12 +233,13 @@ GEM
       ast (~> 2.4.1)
       racc
     pg (1.5.7)
-    pry (0.14.2)
+    pry (0.16.0)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    pry-byebug (3.10.1)
-      byebug (~> 11.0)
-      pry (>= 0.13, < 0.15)
+      reline (>= 0.6.0)
+    pry-byebug (3.12.0)
+      byebug (~> 13.0)
+      pry (>= 0.13, < 0.17)
     pry-rails (0.3.11)
       pry (>= 0.13.0)
     psych (5.1.2)
@@ -297,7 +299,7 @@ GEM
       rainbow (>= 2.0, < 4.0)
       rexml (~> 3.1)
     regexp_parser (2.9.2)
-    reline (0.5.9)
+    reline (0.6.3)
       io-console (~> 0.5)
     request_store (1.7.0)
       rack (>= 1.4)
@@ -415,7 +417,7 @@ DEPENDENCIES
   mimemagic (~> 0.4)
   nokogiri (~> 1.18)
   pg (~> 1.5)
-  pry (~> 0.14)
+  pry (~> 0.15)
   pry-byebug
   pry-rails (~> 0.3.9)
   puma (~> 6.3)
@@ -436,4 +438,4 @@ DEPENDENCIES
   yaml-lint (~> 0.1.2)
 
 BUNDLED WITH
-   2.4.13
+  4.0.11
