@@ -12,7 +12,7 @@ module Logging
   WHITE = "\e[37m"
 
   # :reek:UtilityFunction
-  def logger
+  def logger # rubocop:disable Rails/Delegate
     Rails.logger
   end
 
