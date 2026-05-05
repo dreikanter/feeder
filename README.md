@@ -72,6 +72,6 @@ If you have a question or want to report a bug, please open an issue.
 
 ## References
 
-- Status page: https://frf.im
+- Status page: https://status.fffeeder.com
 - Project wiki: https://github.com/dreikanter/feeder/wiki
 - Service account on Freefeed: https://freefeed.net/feeder
