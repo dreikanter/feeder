@@ -39,7 +39,7 @@ module Feeder
     # config.eager_load_paths += config.root.join('lib')
 
     config.hosts << "feeder.local"
-    config.hosts << "frf.im"
+    config.hosts << "status.fffeeder.com"
     config.hosts << "localhost"
 
     config.generators do |generate|
