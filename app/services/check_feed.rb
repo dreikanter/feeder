@@ -22,27 +22,35 @@ class CheckFeed
   )
 
   def call
-    loader_klass = feed.loader_class
-    processor_klass = feed.processor_class
-    normalizer_klass = feed.normalizer_class
-
-    content = loader_klass.new(feed).content
-    entities = processor_klass.new(content: content, feed: feed).process
-    limit = feed.import_limit_or_default
-    entities = entities.take(limit) if limit.positive?
-
-    normalized = entities.filter_map do |entity|
-      normalizer_klass.call(entity)
-    rescue StandardError
-      nil
-    end
-
-    build_ok_result(normalized)
+    build_ok_result(normalize(load_entities))
   rescue StandardError => e
     build_error_result(e)
   end
 
   private
+
+  def load_entities
+    entities = process(load_content)
+    limit = feed.import_limit_or_default
+    limit.positive? ? entities.take(limit) : entities
+  end
+
+  def load_content
+    feed.loader_class.new(feed).content
+  end
+
+  def process(content)
+    feed.processor_class.new(content: content, feed: feed).process
+  end
+
+  def normalize(entities)
+    normalizer_klass = feed.normalizer_class
+    entities.filter_map do |entity|
+      normalizer_klass.call(entity)
+    rescue StandardError
+      nil
+    end
+  end
 
   def build_ok_result(normalized)
     tally = normalized.flat_map(&:validation_errors).tally
