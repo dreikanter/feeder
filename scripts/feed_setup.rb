@@ -1,5 +1,5 @@
 # TBD: Refactor script structure if/after the flow will get stabilized
-# :reek:DuplicateMethodCall:
+# :reek:DuplicateMethodCall
 # :reek:TooManyStatements
 class FeedSetup
   include ActionView::Helpers::NumberHelper

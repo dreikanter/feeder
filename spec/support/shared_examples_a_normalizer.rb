@@ -39,7 +39,7 @@ RSpec.shared_examples "a normalizer" do
   def print_actual_data_if_no_match
     if normalized_entries.as_json != expected_normalized_entries
       hr = "\n#{"-" * 20}\n"
-      puts hr + JSON.pretty_generate(normalized_entries.as_json) + hr
+      puts hr + JSON.pretty_generate(normalized_entries.as_json) + hr # rubocop:disable RSpec/Output
     end
   end
 end
