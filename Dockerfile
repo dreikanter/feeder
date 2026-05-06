@@ -1,11 +1,11 @@
-FROM ruby:3
+FROM ruby:4.0.3
 
 RUN apt-get update --yes \
   && apt-get install --yes --no-install-recommends \
     apt-utils \
     build-essential \
     vim \
-  && gem install bundler:'~> 2.4' \
+  && gem install bundler:4.0.11 \
   && rm -rf /var/lib/apt/lists/*
 
 ARG RAILS_ENV
