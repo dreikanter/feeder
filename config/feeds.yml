@@ -119,6 +119,7 @@
   import_limit: 2
 
 - name: "explosm-comics"
+  enabled: false
   url: "https://feeds.feedburner.com/Explosm"
   loader: "http"
   processor: "rss"
