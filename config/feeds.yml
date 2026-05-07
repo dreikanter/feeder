@@ -120,7 +120,6 @@
 
 - name: "explosm-comics"
   enabled: false
-  disabling_reason: "FeedBurner was shut down by Google in 2023"
   url: "https://feeds.feedburner.com/Explosm"
   loader: "http"
   processor: "rss"
