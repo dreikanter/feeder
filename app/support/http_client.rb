@@ -18,10 +18,10 @@ module HttpClient
 
   # :reek:UtilityFunction
   def http_get(url, attempts: 2)
-    attempts.times do |i|
+    attempts.times do |attempt|
       return http.get(url)
     rescue *HTTP_CLIENT_RETRYABLE_ERRORS
-      raise if i == attempts - 1
+      raise if attempt == attempts - 1
       sleep(HTTP_CLIENT_RETRY_DELAY)
     end
   end

@@ -1,12 +1,11 @@
 require "rails_helper"
 
 RSpec.describe HttpClient do
-  subject(:client) { Class.new { include HttpClient }.new }
-
+  let(:client) { Class.new { include HttpClient }.new }
   let(:url) { "https://example.com/feed" }
   let(:body) { "BANANA" }
 
-  before { allow(client).to receive(:sleep) }
+  before { stub_const("HttpClient::HTTP_CLIENT_RETRY_DELAY", 0) }
 
   describe "#http_get" do
     it "returns the response on success" do
