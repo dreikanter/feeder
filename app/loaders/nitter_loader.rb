@@ -39,7 +39,7 @@ class NitterLoader < BaseLoader
   end
 
   def response
-    @response ||= http.get(nitter_rss_url.to_s)
+    @response ||= http_get(nitter_rss_url.to_s)
   end
 
   def nitter_rss_url

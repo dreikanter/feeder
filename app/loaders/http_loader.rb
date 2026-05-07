@@ -11,6 +11,6 @@ class HttpLoader < BaseLoader
   private
 
   def response
-    @response ||= http.get(feed.url)
+    @response ||= http_get(feed.url)
   end
 end
