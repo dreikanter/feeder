@@ -20,7 +20,7 @@ class RedditPointsFetcher
   # :reek:TooManyStatements
   def page_content
     service_instance.update!(used_at: Time.current, usages_count: service_instance.usages_count.succ)
-    response = http.get(libreddit_url)
+    response = http_get(libreddit_url)
     raise unless response.status.success?
     response.to_s
   rescue StandardError
