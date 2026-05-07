@@ -712,11 +712,11 @@
   import_limit: 2
 
 - name: "litterbox"
-  url: "https://www.litterboxcomics.com/feed/"
+  url: "https://feeds.feedburner.com/litterboxcomics/yS3QAzAMEMP"
   loader: "http"
   processor: "feedjira"
   normalizer: "litterbox"
-  refresh_interval: 3600
+  refresh_interval: 86400
   import_limit: 2
 
 - name: "lizandmollie"
