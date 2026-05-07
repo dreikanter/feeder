@@ -366,7 +366,7 @@
   import_limit: 2
 
 - name: "kimchicuddles"
-  url: "https://kimchicuddles.com/rss"
+  url: "https://kimchicuddles.tumblr.com/rss"
   loader: "http"
   processor: "rss"
   normalizer: "tumblr"
