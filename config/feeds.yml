@@ -638,6 +638,8 @@
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "shvarz"
+  enabled: false
+  disabling_reason: "This journal has been deleted"
   url: "https://shvarz.livejournal.com/data/rss"
   loader: "http"
   processor: "rss"
