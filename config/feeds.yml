@@ -199,6 +199,8 @@
   import_limit: 2
 
 - name: "agavr-today"
+  enabled: false
+  disabling_reason: "tele.ga feed is inactive"
   url: "https://tele.ga/agavr_today/rss/"
   loader: "http"
   processor: "rss"
