@@ -1,6 +1,8 @@
 class NitterLoader < BaseLoader
   include HttpClient
 
+  Error = Class.new(StandardError)
+
   # :reek:TooManyStatements
   def content
     pick_service_instance
@@ -17,7 +19,8 @@ class NitterLoader < BaseLoader
   end
 
   def load_content
-    raise unless response.status.success?
+    status = response.status
+    raise Error, "nitter returned #{status} for #{nitter_rss_url}" unless status.success?
     response.to_s
   rescue StandardError
     register_error
