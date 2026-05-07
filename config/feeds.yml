@@ -316,6 +316,8 @@
   import_limit: 2
 
 - name: "newflux"
+  enabled: false
+  disabling_reason: "The original UX/UI design blog stopped publishing years ago and the domain has since been repurposed for unrelated content; the feed endpoint returns HTTP 403."
   url: "https://newflux.fr/feed/"
   loader: "http"
   processor: "feedjira"
