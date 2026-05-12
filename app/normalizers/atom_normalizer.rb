@@ -8,6 +8,7 @@ class AtomNormalizer < BaseNormalizer
   end
 
   def text
-    content.title.try(:content)
+    title = content.title.try(:content)
+    title && CGI.unescapeHTML(title)
   end
 end
