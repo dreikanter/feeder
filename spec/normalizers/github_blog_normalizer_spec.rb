@@ -13,7 +13,7 @@ RSpec.describe GithubBlogNormalizer do
         processor: "atom",
         normalizer: "github_blog",
         url: "https://github.com/blog/all.atom",
-        import_limit: 2
+        import_limit: 3
       )
     end
 

@@ -51,4 +51,20 @@
           <content type="html" xml:base="https://github.blog/2023-07-27-scaling-merge-ort-across-github/"><![CDATA[<p>Content</p>]]></content>
 
       </entry>
+    <entry>
+    <author>
+      <name>Author</name>
+          </author>
+
+    <title type="html"><![CDATA[Dungeons &amp; Desktops: Building a procedurally generated roguelike with GitHub Copilot CLI]]></title>
+    <link rel="alternate" type="text/html" href="https://github.blog/ai-and-ml/github-copilot/dungeons-desktops-building-a-procedurally-generated-roguelike-with-github-copilot-cli/" />
+
+    <id>https://github.blog/?p=99999</id>
+    <updated>2023-07-26T16:03:15Z</updated>
+    <published>2023-07-26T16:00:54Z</published>
+    <summary type="html"><![CDATA[Summary.]]></summary>
+
+          <content type="html" xml:base="https://github.blog/ai-and-ml/github-copilot/dungeons-desktops-building-a-procedurally-generated-roguelike-with-github-copilot-cli/"><![CDATA[<p>Content</p>]]></content>
+
+      </entry>
   </feed>
