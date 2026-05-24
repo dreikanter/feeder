@@ -422,6 +422,9 @@
     ignore_retweets: true
 
 - name: "extrafabulous"
+  enabled: false
+  disabling_reason: "Twitter/X account inactive as a feed source since ~2025; creator active on Instagram and in print"
+  source_url: "https://x.com/extrafabulous"
   loader: "nitter"
   processor: "nitter"
   normalizer: "nitter"
@@ -465,6 +468,9 @@
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "jakelikesonions"
+  enabled: false
+  disabling_reason: "Twitter/X account inactive since 2019; webcomic discontinued"
+  source_url: "https://x.com/jakelikesonions"
   loader: "nitter"
   processor: "nitter"
   normalizer: "nitter"
@@ -477,6 +483,9 @@
     ignore_retweets: true
 
 - name: "catscafe"
+  enabled: false
+  disabling_reason: "Twitter/X account inactive since ~2022; creator moved to GoComics/Webtoon/Instagram"
+  source_url: "https://x.com/CatsCafeComics"
   loader: "nitter"
   processor: "nitter"
   normalizer: "nitter"
@@ -521,6 +530,9 @@
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "nathanwpyle"
+  enabled: false
+  disabling_reason: "Twitter/X account inactive since ~2024; creator active on Instagram/Threads"
+  source_url: "https://x.com/nathanwpyle"
   loader: "nitter"
   processor: "nitter"
   normalizer: "nitter"
