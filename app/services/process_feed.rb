@@ -1,6 +1,15 @@
 class ProcessFeed
   include Logging
 
+  # Failures rooted in the remote source (network, TLS, non-success responses)
+  # rather than a bug in our code. These are tracked locally but not reported
+  # to Honeybadger, where they would only add recurring noise.
+  SOURCE_ERRORS = [
+    HTTP::Error,
+    OpenSSL::SSL::SSLError,
+    HttpLoader::Error
+  ].freeze
+
   attr_reader :feed
 
   def initialize(feed)
@@ -66,7 +75,12 @@ class ProcessFeed
       exception: error,
       message: "Error processing feed",
       target: feed,
-      context: {feed_name: feed_name}
+      context: {feed_name: feed_name},
+      notify: !source_error?(error)
     )
+  end
+
+  def source_error?(error)
+    SOURCE_ERRORS.any? { |klass| error.is_a?(klass) }
   end
 end

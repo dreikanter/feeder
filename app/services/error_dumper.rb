@@ -11,9 +11,10 @@ class ErrorDumper
   option :target, optional: true, default: -> {}
   option :context, optional: true, default: -> { {} }
   option :message, optional: true, default: -> { exception.try(:message) || exception.to_s }
+  option :notify, optional: true, default: -> { true }
 
   def call
-    notify_honeybadger(exception, message)
+    notify_honeybadger(exception, message) if notify
     persist_error
   end
 
