@@ -23,6 +23,11 @@ RSpec.describe HttpClient do
       expect(client.http_get(url).to_s).to eq(body)
     end
 
+    it "retries once on OpenSSL::SSL::SSLError and succeeds" do
+      stub_request(:get, url).to_raise(OpenSSL::SSL::SSLError).then.to_return(body: body)
+      expect(client.http_get(url).to_s).to eq(body)
+    end
+
     it "raises after exhausting retries" do
       stub_request(:get, url).to_raise(HTTP::TimeoutError)
       expect { client.http_get(url) }.to raise_error(HTTP::TimeoutError)
