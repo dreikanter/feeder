@@ -18,10 +18,12 @@ class NitterLoader < BaseLoader
     )
   end
 
+  # :reek:TooManyStatements
   def load_content
     status = response.status
     raise Error, "nitter returned #{status} for #{nitter_rss_url}" unless status.success?
-    response.to_s
+    raise Error, "nitter returned unparseable content for #{nitter_rss_url}" unless FeedContent.parseable?(body)
+    body
   rescue StandardError
     register_error
     raise
@@ -30,7 +32,7 @@ class NitterLoader < BaseLoader
   def register_error
     Honeybadger.context(
       nitter_loader: {
-        response: response.as_json,
+        response: {status: response.status.to_s, body: body},
         service_instance: service_instance.as_json
       }
     )
@@ -40,6 +42,10 @@ class NitterLoader < BaseLoader
 
   def response
     @response ||= http_get(nitter_rss_url.to_s)
+  end
+
+  def body
+    @body ||= response.to_s
   end
 
   def nitter_rss_url
