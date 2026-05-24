@@ -3,6 +3,7 @@ require_relative "../support/factory_bot"
 require_relative "../support/faulty_loader"
 require_relative "../support/faulty_normalizer"
 require_relative "../support/faulty_processor"
+require_relative "../support/source_faulty_loader"
 require_relative "../support/test_loader"
 require_relative "../support/test_processor"
 require_relative "../support/test_normalizer"
@@ -38,6 +39,15 @@ RSpec.describe ProcessFeed do
     )
   end
 
+  let(:feed_with_source_error) do
+    create(
+      :feed,
+      loader: "source_faulty",
+      processor: "test",
+      normalizer: "test"
+    )
+  end
+
   it "increments error counters when loader fails" do
     expect { service.new(feed_with_faulty_loader).process }.to increment_error_counters(feed_with_faulty_loader)
   end
@@ -56,6 +66,20 @@ RSpec.describe ProcessFeed do
 
   it "does not create posts on normalization error" do
     expect { service.new(feed_with_faulty_normalizer).process }.not_to change(Post, :count)
+  end
+
+  it "dumps source errors locally" do
+    expect { service.new(feed_with_source_error).process }.to change { errors_count(feed_with_source_error) }.by(1)
+  end
+
+  it "does not notify Honeybadger for source errors" do
+    expect(Honeybadger).not_to receive(:notify)
+    service.new(feed_with_source_error).process
+  end
+
+  it "notifies Honeybadger for unexpected errors" do
+    expect(Honeybadger).to receive(:notify).at_least(:once)
+    service.new(feed_with_faulty_loader).process
   end
 
   def increment_error_counters(feed)

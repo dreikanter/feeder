@@ -24,6 +24,20 @@ RSpec.describe ErrorDumper do
     expect(error.backtrace).to be_a(Array)
   end
 
+  it "notifies Honeybadger by default" do
+    expect(Honeybadger).to receive(:notify)
+    service.call
+  end
+
+  it "does not notify Honeybadger when notify is false" do
+    expect(Honeybadger).not_to receive(:notify)
+    service.call(notify: false)
+  end
+
+  it "still persists the error when notify is false" do
+    expect { service.call(notify: false) }.to change(Error, :count).by(1)
+  end
+
   def dump_sample_exception
     raise "sample exception"
   rescue StandardError

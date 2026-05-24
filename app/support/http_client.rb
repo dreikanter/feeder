@@ -2,7 +2,11 @@ module HttpClient
   HTTP_CLIENT_MAX_HOPS = 3
   HTTP_CLIENT_TIMEOUT = 15
   HTTP_CLIENT_RETRY_DELAY = 0.5
-  HTTP_CLIENT_RETRYABLE_ERRORS = [HTTP::TimeoutError, HTTP::ConnectionError].freeze
+  HTTP_CLIENT_RETRYABLE_ERRORS = [
+    HTTP::TimeoutError,
+    HTTP::ConnectionError,
+    OpenSSL::SSL::SSLError
+  ].freeze
 
   private_constant :HTTP_CLIENT_MAX_HOPS, :HTTP_CLIENT_TIMEOUT,
     :HTTP_CLIENT_RETRY_DELAY, :HTTP_CLIENT_RETRYABLE_ERRORS
