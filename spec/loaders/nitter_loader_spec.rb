@@ -4,7 +4,7 @@ RSpec.describe NitterLoader do
   subject(:load_content) { described_class.new(feed).content }
 
   let(:feed) { build(:feed, options: {"twitter_user" => "username"}) }
-  let(:body) { "CONTENT BODY" }
+  let(:body) { file_fixture("feeds/nitter/rss.xml").read }
 
   let(:service_instance) do
     create(
@@ -82,6 +82,21 @@ RSpec.describe NitterLoader do
     def expect_failed_loader_to(do_things)
       stub_request(:get, nitter_url).to_return(status: 404)
       expect { load_content }.to raise_error(StandardError).and(do_things)
+    end
+  end
+
+  context "when instance returns unparseable content with a success status" do
+    before { service_instance }
+
+    it "raises an error" do
+      stub_request(:get, nitter_url).to_return(status: 200, body: "<html>rate limited</html>")
+      expect { load_content }.to raise_error(NitterLoader::Error)
+    end
+
+    it "registers a service instance error" do
+      stub_request(:get, nitter_url).to_return(status: 200, body: "<html>rate limited</html>")
+      expect { load_content }.to raise_error(StandardError)
+        .and(change { service_instance.reload.state }.from("enabled").to("failed"))
     end
   end
 end
