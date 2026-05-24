@@ -29,6 +29,10 @@ class RedditProcessor < BaseProcessor
 
   def score(url)
     RedditPointsFetcher.new(url).points
+  rescue ServiceInstance::NoInstanceAvailableError
+    # NOTE: An empty Libreddit pool is an expected, recurring condition, so it
+    #  is swallowed silently rather than flooding error reports.
+    0
   rescue StandardError => e
     # NOTE: Individual post score fetching should not crash the processor,
     #  but they are getting reported to monitor Reddit availability

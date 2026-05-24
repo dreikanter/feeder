@@ -54,6 +54,13 @@ RSpec.describe RedditProcessor do
     expect(feed_entities).to be_empty
   end
 
+  it "ignores posts without reporting when no service instance is available" do
+    ServiceInstance.delete_all
+    allow(Honeybadger).to receive(:notify)
+    expect(feed_entities).to be_empty
+    expect(Honeybadger).not_to have_received(:notify)
+  end
+
   def feed_entities
     processor.new(content: content, feed: feed).process
   end

@@ -1,6 +1,8 @@
 class ServiceInstance < ApplicationRecord
   include AASM
 
+  NoInstanceAvailableError = Class.new(StandardError)
+
   MAX_ERRORS = 3
 
   validates :service_type, :url, :errors_count, :total_errors_count, presence: true
@@ -49,7 +51,7 @@ class ServiceInstance < ApplicationRecord
   def self.pick!(required_type)
     operational.where(service_type: required_type).first!
   rescue ActiveRecord::RecordNotFound
-    raise "no available service instances of #{required_type} type"
+    raise NoInstanceAvailableError, "no available service instances of #{required_type} type"
   end
 
   def register_error
