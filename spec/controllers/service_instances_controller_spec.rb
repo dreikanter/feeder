@@ -9,11 +9,12 @@ RSpec.describe ServiceInstancesController do
       expect(response).to be_successful
     end
 
-    it "renders HTML for clients requesting another format" do
+    it "renders blank JSON for clients requesting another format" do
       request.headers["Accept"] = "application/json"
       get :index
       expect(response).to be_successful
-      expect(response.media_type).to eq("text/html")
+      expect(response.media_type).to eq("application/json")
+      expect(response.body).to eq("{}")
     end
   end
 end

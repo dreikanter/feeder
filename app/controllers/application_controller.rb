@@ -3,14 +3,14 @@ class ApplicationController < ActionController::Base
 
   layout "application"
 
-  before_action :force_html_format
+  before_action :render_blank_json, unless: -> { request.format.html? }
 
   private
 
   # NOTE: The app has HTML views only, so requests asking for another format
   #  (e.g. uptime monitors sending "Accept: application/json") would fail with
   #  ActionView::MissingTemplate.
-  def force_html_format
-    request.format = :html
+  def render_blank_json
+    render(json: {})
   end
 end
