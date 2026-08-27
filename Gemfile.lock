@@ -100,7 +100,7 @@ GEM
       dry-initializer (>= 2.5)
     coderay (1.1.3)
     concurrent-ruby (1.3.6)
-    connection_pool (2.5.5)
+    connection_pool (3.0.2)
     crack (1.0.1)
       bigdecimal
       rexml
@@ -446,7 +446,6 @@ DEPENDENCIES
   brakeman (~> 8.0)
   bundler-audit (~> 0.9.1)
   callee (~> 0.3)
-  connection_pool (~> 2.5)
   dotiw (~> 5.3)
   dry-initializer (~> 3.0, >= 3.0.4)
   dry-types (~> 1.5, >= 1.5.1)
@@ -508,7 +507,7 @@ CHECKSUMS
   callee (0.3.6) sha256=8dbab9af551cfd8038bd2828b834146e31c8e08690dadc8a312add07f7a736fb
   coderay (1.1.3) sha256=dc530018a4684512f8f38143cd2a096c9f02a1fc2459edcfe534787a7fc77d4b
   concurrent-ruby (1.3.6) sha256=6b56837e1e7e5292f9864f34b69c5a2cbc75c0cf5338f1ce9903d10fa762d5ab
-  connection_pool (2.5.5) sha256=e54ff92855753df1fd7c59fa04a398833355f27dd14c074f8c83a05f72a716ad
+  connection_pool (3.0.2) sha256=33fff5ba71a12d2aa26cb72b1db8bba2a1a01823559fb01d29eb74c286e62e0a
   crack (1.0.1) sha256=ff4a10390cd31d66440b7524eb1841874db86201d5b70032028553130b6d4c7e
   crass (1.0.6) sha256=dc516022a56e7b3b156099abc81b6d2b08ea1ed12676ac7a5657617f012bd45d
   date (3.5.1) sha256=750d06384d7b9c15d562c76291407d89e368dda4d4fff957eb94962d325a0dc0
