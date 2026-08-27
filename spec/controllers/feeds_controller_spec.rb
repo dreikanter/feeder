@@ -10,5 +10,20 @@ RSpec.describe FeedsController do
       expect(response).to be_successful
       expect(response.body).to include(feed.name)
     end
+
+    it "renders blank JSON for clients requesting another format" do
+      request.headers["Accept"] = "application/json"
+      get :index
+      expect(response).to be_successful
+      expect(response.media_type).to eq("application/json")
+      expect(response.body).to eq("{}")
+    end
+
+    it "renders blank JSON for an explicit format extension" do
+      get :index, format: :json
+      expect(response).to be_successful
+      expect(response.media_type).to eq("application/json")
+      expect(response.body).to eq("{}")
+    end
   end
 end
