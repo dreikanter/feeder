@@ -20,7 +20,6 @@ end
 group :development, :test do
   gem "annotate", "~> 3.2"
   gem "factory_bot_rails", "~> 6.2"
-  gem "marginalia", "~> 1.5"
   gem "rspec-rails", "~> 8.0"
   gem "simplecov", "~> 0.21"
   gem "webmock", "~> 3.18"

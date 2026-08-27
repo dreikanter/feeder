@@ -200,9 +200,6 @@ GEM
       net-pop
       net-smtp
     marcel (1.1.0)
-    marginalia (1.11.1)
-      actionpack (>= 5.2)
-      activerecord (>= 5.2)
     method_source (1.1.0)
     mime-types (3.7.0)
       logger
@@ -460,7 +457,6 @@ DEPENDENCIES
   honeybadger (~> 6.5)
   http (~> 6.0)
   lograge (~> 0.12)
-  marginalia (~> 1.5)
   mimemagic (~> 0.4)
   nokogiri (~> 1.18)
   pg (~> 1.5)
@@ -554,7 +550,6 @@ CHECKSUMS
   loofah (2.25.1) sha256=d436c73dbd0c1147b16c4a41db097942d217303e1f7728704b37e4df9f6d2e04
   mail (2.9.0) sha256=6fa6673ecd71c60c2d996260f9ee3dd387d4673b8169b502134659ece6d34941
   marcel (1.1.0) sha256=fdcfcfa33cc52e93c4308d40e4090a5d4ea279e160a7f6af988260fa970e0bee
-  marginalia (1.11.1) sha256=cb63212ab63e42746e27595e912cb20408a1a28bcd0edde55d15b7c45fa289cf
   method_source (1.1.0) sha256=181301c9c45b731b4769bc81e8860e72f9161ad7d66dd99103c9ab84f560f5c5
   mime-types (3.7.0) sha256=dcebf61c246f08e15a4de34e386ebe8233791e868564a470c3fe77c00eed5e56
   mime-types-data (3.2026.0414) sha256=461c4c655373a44bd6c5fe54bcf5b7776026ea96e808144b1ec465c4b99148cc

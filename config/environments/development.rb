@@ -48,6 +48,16 @@ Rails.application.configure do
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 
+  # Append comments with runtime information tags to SQL queries in logs.
+  config.active_record.query_log_tags_enabled = true
+  config.active_record.query_log_tags = %i[
+    application
+    namespaced_controller
+    action
+    job
+    source_location
+  ]
+
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
