@@ -2,7 +2,7 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem "puma", "~> 8.0"
-gem "rails", "~> 7.2.0"
+gem "rails", "~> 8.1.3"
 
 group :development do
   gem "brakeman", "~> 8.0", require: false
