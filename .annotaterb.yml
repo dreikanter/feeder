@@ -1,0 +1,5 @@
+---
+# Match the annotation style already committed to the repository:
+# schema column order, and no annotations in specs.
+classified_sort: false
+exclude_tests: true

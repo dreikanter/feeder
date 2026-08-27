@@ -2,7 +2,7 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem "puma", "~> 8.0"
-gem "rails", "~> 7.2.0"
+gem "rails", "~> 8.1.3"
 
 group :development do
   gem "brakeman", "~> 8.0", require: false
@@ -18,9 +18,8 @@ group :development do
 end
 
 group :development, :test do
-  gem "annotate", "~> 3.2"
+  gem "annotaterb", "~> 4.24"
   gem "factory_bot_rails", "~> 6.2"
-  gem "marginalia", "~> 1.5"
   gem "rspec-rails", "~> 8.0"
   gem "simplecov", "~> 0.21"
   gem "webmock", "~> 3.18"
@@ -31,8 +30,6 @@ gem "addressable", "~> 2.8"
 gem "amazing_print"
 gem "bootsnap", "~> 1.16", require: false
 gem "callee", "~> 0.3"
-# connection_pool 3.x is incompatible with Rails 7.2 (RedisCacheStore passes positional hash)
-gem "connection_pool", "~> 2.5"
 gem "dotiw", "~> 5.3"
 gem "dry-initializer", "~> 3.0", ">= 3.0.4"
 gem "dry-types", "~> 1.5", ">= 1.5.1"
