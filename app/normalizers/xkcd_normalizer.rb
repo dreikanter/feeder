@@ -8,7 +8,7 @@ class XkcdNormalizer < RssNormalizer
   end
 
   def comments
-    alt = image["alt"].to_s
+    alt = image.try(:[], "alt").to_s
     return [] if alt.empty?
     [Html.comment_excerpt(Html.squeeze(alt))]
   end
@@ -34,7 +34,7 @@ class XkcdNormalizer < RssNormalizer
   end
 
   def feed_entry_image_url
-    image.first["src"]
+    image.try(:[], "src")
   end
 
   def image
