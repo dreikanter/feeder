@@ -54,6 +54,13 @@ RSpec.describe RedditProcessor do
     expect(feed_entities).to be_empty
   end
 
+  it "ignores posts when score service responds without a post score" do
+    stub_request(:get, thread_url)
+      .to_return(status: 200, body: file_fixture("feeds/reddit/libreddit_challenge_page.html").read)
+
+    expect(feed_entities).to be_empty
+  end
+
   it "ignores posts without reporting when no service instance is available" do
     ServiceInstance.delete_all
     allow(Honeybadger).to receive(:notify)

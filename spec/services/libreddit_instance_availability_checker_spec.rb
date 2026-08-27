@@ -4,15 +4,23 @@ RSpec.describe LibredditInstanceAvailabilityChecker do
   subject(:result) { described_class.new(service_instance).available? }
 
   let(:service_instance) { create(:service_instance, service_type: "libreddit", state: :enabled) }
+  let(:page_content) { file_fixture("feeds/reddit/libreddit_comments_page.html").read }
+  let(:challenge_content) { file_fixture("feeds/reddit/libreddit_challenge_page.html").read }
 
-  context "when instance is available" do
-    before { stub_instance_request.to_return(status: 200) }
+  context "when instance returns a page with a post score" do
+    before { stub_instance_request.to_return(status: 200, body: page_content) }
 
     it { expect(result).to be_truthy }
   end
 
   context "when instance respond with a request error" do
     before { stub_instance_request.to_return(status: 404) }
+
+    it { expect(result).to be_falsey }
+  end
+
+  context "when instance returns a page without a post score with a success status" do
+    before { stub_instance_request.to_return(status: 200, body: challenge_content) }
 
     it { expect(result).to be_falsey }
   end

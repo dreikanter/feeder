@@ -13,7 +13,8 @@ RSpec.describe LibredditInstancesPoolUpdater do
     stub_request(:get, "https://raw.githubusercontent.com/libreddit/libreddit-instances/master/instances.json")
       .to_return(body: libreddit_instances_data)
 
-    stub_request(:get, %r{/r/adventuretime$}).to_return(status: 200)
+    stub_request(:get, %r{/r/adventuretime$})
+      .to_return(status: 200, body: file_fixture("feeds/reddit/libreddit_comments_page.html").read)
     service_call
   end
 
