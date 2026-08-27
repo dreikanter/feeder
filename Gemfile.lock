@@ -79,9 +79,9 @@ GEM
     addressable (2.9.0)
       public_suffix (>= 2.0.2, < 8.0)
     amazing_print (2.0.0)
-    annotate (3.2.0)
-      activerecord (>= 3.2, < 8.0)
-      rake (>= 10.4, < 14.0)
+    annotaterb (4.24.0)
+      activerecord (>= 6.0.0)
+      activesupport (>= 6.0.0)
     ast (2.4.3)
     base64 (0.3.0)
     benchmark (0.5.0)
@@ -442,7 +442,7 @@ DEPENDENCIES
   aasm (~> 5.5)
   addressable (~> 2.8)
   amazing_print
-  annotate (~> 3.2)
+  annotaterb (~> 4.24)
   bootsnap (~> 1.16)
   brakeman (~> 8.0)
   bundler-audit (~> 0.9.1)
@@ -495,7 +495,7 @@ CHECKSUMS
   activesupport (7.2.3.1) sha256=11ebed516a43a0bb47346227a35ebae4d9427465a7c9eb197a03d5c8d283cb34
   addressable (2.9.0) sha256=7fdf6ac3660f7f4e867a0838be3f6cf722ace541dd97767fa42bc6cfa980c7af
   amazing_print (2.0.0) sha256=2e36aba46ac78d37ed27ca0e2056afe3583183bb5c64f157c246b267355e5d6a
-  annotate (3.2.0) sha256=9a61baa1fb13880aa3a8d9f62553889bb2a3b7970f88bbc66d3ac75a567780d3
+  annotaterb (4.24.0) sha256=3953d3a3fb86ef06639a8d5ea29001e4af1e51cabd147973b1b23524b8fbced6
   ast (2.4.3) sha256=954615157c1d6a382bc27d690d973195e79db7f55e9765ac7c481c60bdb4d383
   base64 (0.3.0) sha256=27337aeabad6ffae05c265c450490628ef3ebd4b67be58257393227588f5a97b
   benchmark (0.5.0) sha256=465df122341aedcb81a2a24b4d3bd19b6c67c1530713fd533f3ff034e419236c

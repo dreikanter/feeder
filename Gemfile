@@ -18,7 +18,7 @@ group :development do
 end
 
 group :development, :test do
-  gem "annotate", "~> 3.2"
+  gem "annotaterb", "~> 4.24"
   gem "factory_bot_rails", "~> 6.2"
   gem "rspec-rails", "~> 8.0"
   gem "simplecov", "~> 0.21"
