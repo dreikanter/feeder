@@ -5,6 +5,7 @@ RSpec.describe RedditPointsFetcher do
 
   let(:url) { "https://www.reddit.com/r/worldnews/comments/11yg2e7/germany_shots_fired_at_police_in_reichsbürger/" }
   let(:content) { file_fixture("feeds/reddit/libreddit_comments_page.html").read }
+  let(:challenge_content) { file_fixture("feeds/reddit/libreddit_challenge_page.html").read }
   let(:expected) { 2869 }
   let(:thread_url) { %r{^https://.*/r/worldnews/comments/} }
   let(:service_instance) { create(:service_instance, service_type: "libreddit", url: "https://example.com", usages_count: 0) }
@@ -38,5 +39,24 @@ RSpec.describe RedditPointsFetcher do
   it "raises on HTTP response errors" do
     stub_request(:get, thread_url).to_return(status: 404, body: "non-empty body", headers: {"Content-Type" => "text/plain"})
     expect { result }.to raise_error(StandardError)
+  end
+
+  it "registers a service instance error on HTTP response errors" do
+    stub_request(:get, thread_url).to_return(status: 404, body: "non-empty body", headers: {"Content-Type" => "text/plain"})
+    expect { result }.to raise_error(StandardError)
+      .and(change { service_instance.reload.state }.from("enabled").to("failed"))
+  end
+
+  context "when instance returns a page without a post score with a success status" do
+    before { stub_request(:get, thread_url).to_return(status: 200, body: challenge_content) }
+
+    it "raises an error" do
+      expect { result }.to raise_error(described_class::Error)
+    end
+
+    it "registers a service instance error" do
+      expect { result }.to raise_error(StandardError)
+        .and(change { service_instance.reload.state }.from("enabled").to("failed"))
+    end
   end
 end

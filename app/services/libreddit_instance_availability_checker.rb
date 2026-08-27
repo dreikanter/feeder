@@ -3,7 +3,8 @@ class LibredditInstanceAvailabilityChecker < ServiceInstanceAvailabilityChecker
   include Logging
 
   def available?
-    http.get(sample_rss_url).status.success?
+    response = http.get(sample_rss_url)
+    response.status.success? && LibredditContent.post_score?(response.to_s)
   rescue StandardError => e
     log_error("availability check error: #{e}")
     false
