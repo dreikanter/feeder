@@ -1,5 +1,7 @@
 ---
 - name: "xkcd"
+  enabled: false
+  disabling_reason: "Migrated to F2"
   url: "https://xkcd.com/rss.xml"
   loader: "http"
   processor: "rss"
@@ -9,6 +11,8 @@
   import_limit: 2
 
 - name: "oglaf"
+  enabled: false
+  disabling_reason: "Migrated to F2"
   url: "https://www.oglaf.com/feeds/rss/"
   loader: "http"
   processor: "rss"
@@ -625,6 +629,8 @@
     ignore_retweets: true
 
 - name: "kurzgesagt"
+  enabled: false
+  disabling_reason: "Migrated to F2"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCsXVk37bltHxD1rDPwtNM8Q"
   loader: "http"
   processor: "youtube"
@@ -767,6 +773,8 @@
     only_with_attachments: true
 
 - name: "hubermanlab"
+  enabled: false
+  disabling_reason: "Migrated to F2"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UC2D2CMWXMOVWx7giW1n3LIg"
   loader: "http"
   processor: "youtube"
