@@ -82,6 +82,8 @@
   import_limit: 2
 
 - name: "wumo"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://wumo.com/wumo?view=rss"
   loader: "http"
   processor: "rss"
@@ -291,6 +293,8 @@
   import_limit: 2
 
 - name: "theycantalk"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   # url: "http://theycantalk.com/rss"
   url: "https://feeds.feedburner.com/theycantalk/xFcE"
   loader: "http"
@@ -355,6 +359,8 @@
   import_limit: 2
 
 - name: "savagechickens"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://www.savagechickens.com/feed"
   loader: "http"
   processor: "feedjira"
@@ -549,6 +555,8 @@
     ignore_retweets: true
 
 - name: "smbc"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://www.smbc-comics.com/comic/rss"
   loader: "http"
   processor: "rss"
@@ -587,6 +595,8 @@
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "monkeyuser"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://www.monkeyuser.com/index.xml"
   loader: "http"
   processor: "feedjira"
@@ -641,6 +651,8 @@
 
 # NOTE: No certificate
 - name: "buni"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "http://bunicomic.com/feed/"
   loader: "http"
   processor: "feedjira"
@@ -735,6 +747,8 @@
   import_limit: 2
 
 - name: "litterbox"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://feeds.feedburner.com/litterboxcomics/yS3QAzAMEMP"
   loader: "http"
   processor: "feedjira"
