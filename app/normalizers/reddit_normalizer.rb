@@ -1,4 +1,6 @@
 class RedditNormalizer < BaseNormalizer
+  REDDIT_HOST_PATTERN = /reddit\.com/
+
   def link
     xml.xpath("/entry/link").first.attributes["href"].value
   end
@@ -26,7 +28,17 @@ class RedditNormalizer < BaseNormalizer
   end
 
   def extract_source_url
-    content_urls.reject { URI.parse(_1).host =~ /reddit\.com/ }.first
+    content_urls.find { source_url?(_1) }
+  end
+
+  # NOTE: Reddit post permalinks embed the post title in the path, so they can
+  #   carry non-ASCII characters. Addressable, unlike URI, parses such URLs
+  #   instead of raising.
+  def source_url?(url)
+    host = Addressable::URI.parse(url).host
+    host.present? && !host.match?(REDDIT_HOST_PATTERN)
+  rescue Addressable::URI::InvalidURIError
+    false
   end
 
   def content_urls
