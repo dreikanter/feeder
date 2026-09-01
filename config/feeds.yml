@@ -215,6 +215,8 @@
   import_limit: 2
 
 - name: "vdud"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCMCgOm8GZkHp8zJ6l7_hIuA"
   loader: "http"
   processor: "youtube"
@@ -224,6 +226,8 @@
   import_limit: 2
 
 - name: "parfenon"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCbhMGG0ZievPtK8mzLH5jhQ"
   loader: "http"
   processor: "youtube"
@@ -264,6 +268,8 @@
   import_limit: 2
 
 - name: "blitz-and-chips"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCRQEBFeG3lTMDEIUtQulzLg"
   loader: "http"
   processor: "youtube"
@@ -273,6 +279,8 @@
   import_limit: 2
 
 - name: "jimmydiresta"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCiEk4xHBbz0hZNIBBpowdYQ"
   loader: "http"
   processor: "youtube"
@@ -282,6 +290,8 @@
   import_limit: 2
 
 - name: "confreaks"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCWnPjmqvljcafA0z2U1fwKQ"
   loader: "http"
   processor: "youtube"
@@ -463,6 +473,8 @@
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "nepozner"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCNRYbltJXhf6DepS26-uSbQ"
   loader: "http"
   processor: "youtube"
@@ -608,6 +620,8 @@
     ignore_retweets: true
 
 - name: "redakciya"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UC1eFXmJNkjITxPFWTy6RsWg"
   loader: "http"
   processor: "youtube"
@@ -670,6 +684,8 @@
   import_limit: 2
 
 - name: "schooloflife"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UC7IcJI8PUf5Z3zKxnZvTBog"
   loader: "http"
   processor: "youtube"
@@ -697,6 +713,8 @@
   import_limit: 2
 
 - name: "einzelganger"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCybBViio_TH_uiFFDJuz5tg"
   loader: "http"
   processor: "youtube"
@@ -783,6 +801,8 @@
   import_limit: 2
 
 - name: "veritasium"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCHnyfMqiRRG1u-2MsSQLbXA"
   loader: "http"
   processor: "youtube"
