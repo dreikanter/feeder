@@ -22,6 +22,8 @@
   import_limit: 2
 
 - name: "phdcomics"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://feeds.feedburner.com/PhdComics"
   loader: "http"
   processor: "rss"
@@ -31,6 +33,8 @@
   import_limit: 2
 
 - name: "commitstrip"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://www.commitstrip.com/en/feed/"
   loader: "http"
   processor: "feedjira"
@@ -73,6 +77,8 @@
   import_limit: 2
 
 - name: "oatmeal"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://feeds.feedburner.com/oatmealfeed"
   loader: "http"
   processor: "rss"
@@ -116,6 +122,8 @@
   import_limit: 2
 
 - name: "github-blog"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://github.com/blog/all.atom"
   loader: "http"
   processor: "atom"
@@ -196,6 +204,8 @@
   import_limit: 2
 
 - name: "f28a"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   # url: "http://floccinaucinihilipilificationa.tumblr.com/rss"
   url: "https://feeds.feedburner.com/tumblr/bAzd"
   loader: "http"
@@ -239,6 +249,8 @@
   import_limit: 2
 
 - name: "myjetpack"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   # url: "http://myjetpack.tumblr.com/rss"
   url: "https://feeds.feedburner.com/tumblr/uOke"
   loader: "http"
@@ -328,6 +340,8 @@
   import_limit: 2
 
 - name: "sarahcandersen"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://feeds.feedburner.com/sarahcandersen/koPM"
   loader: "http"
   processor: "rss"
@@ -360,6 +374,8 @@
   import_limit: 2
 
 - name: "waitbutwhy"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://waitbutwhy.com/feed"
   loader: "http"
   processor: "feedjira"
@@ -380,6 +396,8 @@
   import_limit: 2
 
 - name: "poorlydrawnlines"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://feeds.feedburner.com/PoorlyDrawnLines"
   loader: "http"
   processor: "feedjira"
@@ -389,6 +407,8 @@
   import_limit: 2
 
 - name: "kimchicuddles"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://kimchicuddles.tumblr.com/rss"
   loader: "http"
   processor: "rss"
@@ -420,6 +440,8 @@
   import_limit: 2
 
 - name: "aerostat"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://aerostatbg.ru/rss.xml"
   source_url: "https://aerostatbg.ru"
   loader: "http"
@@ -470,6 +492,8 @@
     ignore_retweets: true
 
 - name: "nextbigfuture"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://www.nextbigfuture.com/feed"
   loader: "http"
   processor: "feedjira"
@@ -598,6 +622,8 @@
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "schneier"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://www.schneier.com/blog/atom.xml"
   loader: "http"
   processor: "atom"
@@ -676,6 +702,8 @@
   after: "2021-01-06T12:00:00+00:00"
 
 - name: "lunarbaboon"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "http://www.lunarbaboon.com/comics/rss.xml"
   loader: "http"
   processor: "feedjira"
@@ -707,6 +735,8 @@
   import_limit: 2
 
 - name: "365tomorrows"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://365tomorrows.com/feed/"
   loader: "http"
   processor: "rss"
@@ -736,6 +766,8 @@
   import_limit: 2
 
 - name: "lobsters-ruby"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://lobste.rs/t/ruby.rss"
   loader: "http"
   processor: "lobsters"
@@ -786,6 +818,8 @@
     only_with_attachments: true
 
 - name: "zippy"
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://www.comicsrss.com/rss/zippy-the-pinhead.rss"
   loader: "http"
   processor: "feedjira"
@@ -838,6 +872,8 @@
     max_posts_number: 10
 
 - name: pluralistic
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://pluralistic.net/feed/"
   loader: "http"
   processor: "rss"
@@ -846,6 +882,8 @@
   import_limit: 10
 
 - name: elementy
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://elementy.ru/rss/news"
   loader: "http"
   processor: "feedjira"
@@ -854,6 +892,8 @@
   import_limit: 2
 
 - name: elementy-kartinka-dnya
+  enabled: false
+  disabling_reason: "Migrating to F2"
   url: "https://elementy.ru/rss/kartinka_dnya"
   loader: "http"
   processor: "feedjira"
